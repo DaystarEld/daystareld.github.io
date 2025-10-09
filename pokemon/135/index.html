@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orson Scott Card - Pokemon: The Origin of Species</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .chapter-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .chapter-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .chapter-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            max-width: 70ch;
+            margin: 0 auto;
+        }
+
+        .chapter-content br {
+            display: block;
+            content: "";
+            margin: 0.75em 0;
+        }
+
+        .chapter-content hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 2em 0;
+        }
+
+        .chapter-content em {
+            color: var(--accent-2);
+            font-style: italic;
+        }
+
+        .chapter-content strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .chapter-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../">Pokemon: TOoS</a></li>
+                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chapter-header">
+            <h1 class="chapter-title">Orson Scott Card</h1>
+            <div class="chapter-meta">Pokemon: The Origin of Species</div>
+        </div>
+
+        <div class="chapter-content">
+            <!-- wp:paragraph --><br>
+<p>Here are three sentences:</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>"Orson Scott Card is a hateful bigot."</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>"Orson Scott Card has bigoted religious beliefs."</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>"Orson Scott Card has aligned himself with bigots."</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>To some people, they are all different ways of saying the same thing, or just plain indistinguishable, particularly with an eye to consequences. To others, there is an important distinction about each; not just what they say about the shape of the beliefs themselves, their bedrock, but about the man himself, his epistemology and his values.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>OSC is easily in the top 3 most influential writers in my life. Not just in regards to my love of reading or writing, in my <em>life.</em></p><br>
+<p>I first read Ender’s Game when I was 12 and cried at the end of the very first chapter. I cried again at the end of the second. This probably says more about me and my life than the book, but the series as a whole has been powerfully moving and inspiring and motivating for me. I identified with Ender, but after I read Speaker for the Dead, I wanted to <em>be </em>one, an essentially made up profession, embodied by his older self. I would often ask myself “What Would Andrew Do?” and would get back answers that made me a kinder and braver and better person.<br /><br />I first started looking into his beliefs about a decade ago, confused by the stilted and poorly written political commentary underlying <em>Empire. </em>I was shocked and heartbroken, and only read about a dozen articles and blog posts he’d written on various topics before I turned away from what seemed to be either the onset of dementia or a sad example of how people can calcify with old age.</p><br>
+<p>That may seem like a lot, but it’s not my usual deep dive into someone I really want to understand the perspective of with the goal of feeling I can reliably predict their stance on common topics. I gave up before then because, frankly, seeing a hero spout such toxic shit (not just about homosexuality) was painful.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>I did the deep dive much more recently after someone listed him as a respectable conservative thinker, and sadly, I can’t even give him that anymore. In the 90s and early 00s, maybe; he was a rare voice of not just sanity but compassionate, tolerant conservatism. Eventually, though, he seems to have been bitten by the same FOX-News-anti-Democrat-derangement that has affected so many in his generation, including my once-apolitical father.</p><br>
+<p>But still, it's worth explicitly checking: are any of those statements at the top true?</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>First, let’s define bigotry. For the purposes of this post, I’ll say “false beliefs about a specific demographic that knowingly disadvantage or cause harm to that demographic.”</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>To be clear, Card has said many times that he believes homosexuals deserve compassion and respect and safety. I have yet to hear him say anything clearly hateful toward gay individuals or people.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>But Card has also said that <a href="http://www.nauvoo.com/library/card-hypocrites.html">gay sex is sinful and that not just gay marriage but gay sex should remain illegal</a>, if for nothing else than to strike fear into the hearts of those who might practice it openly and thus “shake the confidence” of the community in its ability to police harmful behaviors.</p><br>
+<p>He has pushed the frame that homosexuality is more environmental than genetic, and linked its origins for many to “seduction,” molestation, and rape.</p><br>
+<p>He asserted that children need a mother and father rather than two of one, and has even said, as recently as 2008 after judges began ruling gay marriage bans unconstitutional, <em>“How long before married people answer the dictators thus: Regardless of law, marriage has only one definition, and any government that attempts to change it is my mortal enemy. I will act to destroy that government and bring it down, so it can be replaced with a government that will respect and support marriage, and help me raise my children in a society where they will expect to marry in their turn.”</em></p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>(No, none of that is made better by context or his justifications. It’s fairly easy to read his own words if you want to find them, and to me the words are clear. If we start to argue that he was being hyperbolic or hypothetical, we’ve stopped arguing about what he actually said and started arguing about what we want him to have meant by his words, and I don’t think that’s a productive line of discussion for someone who is clearly intelligent and articulate, and an accomplished writer who should know better than to be careless with language so repeatedly and in such a consistent pattern.)<br /><br />((See also, Jordan Peterson.))</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>This presents a seemingly intractable contradiction. How can someone who writes such intelligent and compassionate characters feel so fanatically about something so actually-harmless?</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>I do not use that word, "fanatic," lightly. It is one thing to say that you disagree with gay marriage, it is another to publicly state your position in an attempt to influence policy, and then it is yet another entirely to go to the lengths Card has gone to crusade against it.</p><br>
+<p>Card is, from a policy perspective, an anti-gay fanatic, just shy of actually advocating for the violence he insinuated multiple times was justified to “protect families.”</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>I put that in quotes, by the way, not because I don’t believe that OSC honestly believes that. I know it’s a justification that makes sense in his head. But I don’t think it changes much; if you’ve spoken with bigots at all, they <em>always </em>have justifications for bigotry. It does not transmute “false beliefs about a specific demographic that knowingly disadvantage or cause harm to that demographic” into something else.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Regardless of what he purports to believe about the sinner, he has spent <em>more time and energy fighting this sin specifically</em> than any other I could find, save perhaps for Islamic terrorism after 9/11.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>That, to me, is indicative of something more than someone holding an honest religious belief and advocating for it. There are, after all, others sins. Card planted his flag on this one, drew a slew of both criticism and appeals to his better nature from friends and fans, and then kept doubling down, insisting all the while that he was being maligned and misunderstood.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Which, it's worth noting, to some degree he was! But I find it hard to respect people who only engage with the worst of their critics, and his attitude has repeatedly been one I would characterize as self-righteous bitterness, in much the same way a lot of modern “Intellectual Dark Web” members spend much of their time picking out the nuttiest leftists and painting them as representative, or otherwise arguing against strawmen.</p><br>
+<p>Once someone has fallen that spiral, their ability to pass any sort of ITT of their critics seems to get totally shot, and they spend more and more energy painting themselves as a victim in ways that seem totally divorced from reality. As an example, Card once said that “Faggot” and “Homophobe” are “exactly analogous,” and thus anyone who decries one and uses the other is a hypocrite. This by the way is from an article that’s probably Card’s <a href="http://www.nauvoo.com/library/card-hypocrites.html">most liberal explanation of his views</a>.</p><br>
+<p>(Again, context does not help; it is one thing to note that many people use "homophobe" to silence those who disagree with them, it is another thing entirely to elide the reality of how one word is used <em>explicitly</em> as a derogatory slur (outside of the gay people who have been working to reclaim it), while the other is an actually-useful-label-for-a-real-phenomenon. If we veto the word "faggot" we lose nothing, while if we veto the word "homophobe" a new word would quickly emerge for "person who virulantly hates or fears homosexuals.")</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>So: Why do all this? Why accept the role of “villain” to so many without apparently batting an eye? More to the point, why do it <em>specifically to fight </em><em>homosexuality?</em></p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>The easy answer is religion, of course. Card would be far from the first bright mind whose rationality seems bizarrely warped by his sincere and unshakable faith, and further, bent to its service. CS Lewis wasn’t just a fiction writer but a prolific Evangelical apologetic who was capable of accepting evolution as a scientific theory, and truly understood what that meant decades before the Catholic Church could manage to, but still drew a similar line at its implications for human origins.</p><br>
+<p>Card has expressed other bizarre beliefs that show a similar warping root, such as <a href="http://www.nauvoo.com/library/card-bookofmormon.html">his insistence that the Book of Mormon is vanishingly unlikely to be a work of fiction</a>, not by historic or archaeological evidence (fun fact: Card studied archaeology before he gave it up for being “hard work”), but by simple analysis of the text from the lens of one who also writes science fiction.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>It seems worth highlight that it was at this point that I realized Card is not what I could any longer consider a particularly rational person. Intelligent, certainly. Reasonable, often. And he does an amazing job of writing intelligent and rational character in stories.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>But the magnitude of the mistake that Card makes in deciding that Mormonism is likely true because he can’t imagine that someone could write the Book of Mormon, structurally and stylistically and in richness of content, as a hoax, is… well, it would take a whole extra essay on how big a crack that reveals about his epistemology.</p><br>
+<p>It's so irrational I would call it <em>hostile</em> to rationality. It’s turning 180 degrees away from not just evidence, but reason as basic as Occam’s Razor and as complex as Bayesian probability, to bend reality to what he wants to be true.<br /><br />He shows similar irrationality with things like <a href="http://www.ornery.org/essays/warwatch/2007-03-04-1.html">Anthropogenic Climate Change</a> as recently as 2007, demonstrating not just stark ignorance of the scientific mechanisms and decades of research, but that he takes his news about those he disagrees with by their political enemies: his points were not original, but canned and labeled by conservative pundits and anti-global warming “news” sites. He showed a way of thinking that makes it clear that his epistemology is not grounded in truth seeking, but political considerations. He does not see those sounding the alarm over ACC as honestly mistaken: he sees them as conniving and dishonestly motivated, and writes a narrative that appeases that outcome rather than one that fits the facts or context or history.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>So while religion is a tempting answer to Card’s efforts to bend reason over backwards to justify beliefs that primarily disadvantage homosexuals, there are plenty of Mormons and ex-Mormons who rejected such things, and it just doesn’t seem sufficient to answer the question of whether Card is a bigot, or just holds bigoted religious beliefs, or is just pinching his nose while standing aligned with bigots for the sake of strong personal conviction of what’s True and Right.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Still, if you <em>truly believe </em>that your faith is right and you want to act out its tenets, and that those others of your faith who disagree are just misled or hypocritical, then the Good and Brave thing to do is plant your feet and tell the world “<a href="https://external-preview.redd.it/sORWym5kfi2NIanLWbz_0nWtqPPZQTjbn3jCDm8rUIg.jpg?auto=webp&s=b807fcf22438b259c4a42760984b65948322516d">No, you move.</a>”</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Right?</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Weeell...</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>There’s another issue that comes up if we decide to blame his religion. I’ve been saying bigotry all this time, both because “homophobic” has other connotations, and I don’t think this question can only be applied to homosexuality, sadly.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Mormonism is historically <a href="https://en.wikipedia.org/wiki/Black_people_and_Mormonism">an explicitly racist religion</a> which barred African Americans from full participation until 1978 (when Card was 27), which is about when God apparently realized that being tax-exempt might be more important than preventing interracial marriage or black priests.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>And I can’t for the life of me find where Card came out against that, or talked about the church’s racist views. If someone can find an article on it, please send it to me: it could be a crux for this next part.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Because remember, that’s his justification for being against homosexuality: you “can’t serve two masters.” If God says X, you don’t try to insist that it’s genetic or that the law of the land says it’s okay, you either accept God’s word or you don’t.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>So what were Card’s views on black Mormons? What are they now? Because gay marriage is legal now, but in a world where tax-exempt status for religions relied on willingness to perform gay marriages, I wonder if he would accept God’s about-face.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>The world may never know. But I surely wonder, because Card’s views on Obama’s presidency reek of a similar and startling fervency to his crusade against gay marriage that makes me uneasy.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>I should note first that I find accusations that any criticism of Obama are racist to be tiring and dangerous. There’s a <em>lot </em>you could criticize Obama for: expansion of the spy state, excessive use of drone strikes, not protecting whistleblowers, failing in his promise of transparency, too many executive orders, unwillingness to compromise with Republicans (if you’re conservative), attempting to compromise too much (if you’re liberal), and so on.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>But I know racists who criticize Obama, and I know people-I-have-no-reason-to-believe-are-racist who criticize Obama, and there’s a pattern I’ve noticed in the former. While Card doesn’t quite fit that pattern, and breaks from it entirely in some places, his own path  seems to run parallel to it in other places.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>In 2012, Card made the rare step of admitting that a politician he disagreed with as fervently as possible, Obama, is a better person than the one whose policies he supported, Gingrich. That’s ridiculously uncommon. He also claimed in 2008 that he voted for Obama in the Primary, though ultimately he ended up supporting McCain because Obama was seen as soft on Islamic Extremism (a view Card continued to hold even after Bin Laden was killed) and his fear of “dictator-judges.” So, those are points in his favor, at least as late as 2008...</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>...and then he wrote <a href="http://www.ornery.org/essays/warwatch/2013-05-09-1.html">Unlikely Events</a>, where, in regards to foreign policy, Obama is called “the dumbest president in history” not 5 years after Bush left office. You know, the guy who started the worst military blunder since the Vietnam war with no exit plan and caused massive instability in the region. No, it’s not better that Card named white guys who have never held office as runnerups; somehow it’s still America’s first black president who has that honor.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Do I think he would have said that if Obama wasn’t black?</p><br>
+<p>Probably.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Do I think he would say that “Obama is, by character and preference, a dictator” if Obama wasn’t black?</p><br>
+<p>Maybe?</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Do I think he would “imagine” (all in good fun, of course, haha, it’s just me Card the kooky science fiction writer imagining things that definitely won’t happen the way we science fiction writers do) Obama turning “young out-of-work urban men” into a national police force to maintain his dictatorship if Obama wasn’t black?</p><br>
+<p>Er...</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Or that he would say "<em>Having been anointed from the start of his career because he was that magical combination -- a black man who talks like a white man (that's what they mean by calling him "articulate" and a "great speaker") -- he has never had to work for a living, and he has never had to struggle to accomplish goals. He despises ordinary people, is hostile to any religion that doesn't have Obama as its deity, and his contempt for the military is complete." </em>if not?</p><br>
+<p>...oof.</p><br>
+<p>I... really don’t think he would. Even taking out the part within the dashes, there's vitriol there that should make any sane person startle from their standard political priors and closely examine the person being talked about, and the evidence available for such accusations.</p><br>
+<p>To be fair, beliefs at that level of unhinged-from-reality usually are not <em>organic.</em> They usually result from a person or group wielding misinformation with an agenda. So maybe OSC is just really, really bad at filtering truth from lies and misinformation, like he apparently is with ACC?</p><br>
+<p>Maybe. If Obama were white, I do believe the general conservative criticism of Obama would be less unhinged, and so the pundits Card follows and their views of his policies and character would be less divorced from reality.</p><br>
+<p>But also, maybe, despite considering himself a Democrat at some point, it’s easier for him not to filter unflattering lies about Obama than Bush, for some mysterious reason.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>(Counter-evidence: Card has, thankfully, criticized Trump fairly often, calling him dictatorial as well. But he also voted for him, and as far as I know, he has not apologized for or amended his views of Obama in light of what the real deal looks like.)</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Part of me is asking myself right now, “Hey now, Democrat or not, Card very clearly holds a lot of conservative views. Isn’t extreme and undeserved hatred of Obama just part of standard conservative dogma?”</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>And another part of me responds, “Yes. And your point is?”<br /><br />My mom is a racist. I love her, but she is. She’s not often a <em>hateful</em> racist. She has minority friends. I’m pretty sure she voted for Obama, the first time at least.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>But she’s still a racist who is quicker to attribute negative features to someone’s race if they’re not white, and who holds all sorts of prejudices both big and small. It’s a sad cultural feature of many in her generation, and seems even more prevalent for those who are even older... like Card is.</p><br>
+<p>So, just on priors, what are the odds that Card avoided that particular cultural and generational feature? Would 50% be fair? Just from my observations of my parents’ generation, way too generous. 20% feels closer to right, and still may be generous.<br /><br />What I do notice is that his attitude toward Obama, which is wildly out of scope in its criticism compared to the reality of what Obama’s presidency entailed (like most conservatives), feels confusing in the same way as when my mom told me I couldn’t sleep over my black neighbor’s house when I was 8 because he “lives too far” felt confusing, given that “too far” in this case was a walk of less than a minute within the same gated community.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>She was always friendly to him when he was around. I genuinely think she held no hate in her heart toward him. That didn’t change the fact that her perspective is prejudiced, the same way her blatant dispreference against non-white residents years later while on the HOA for the community was prejudiced.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>So. Do I really think the man who wrote <em>Alvin Maker</em> is a racist? The man who wrote <em>Magic Street</em>?</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>I'm not actually sure. By most definitions of that word, I don't think so. Again, he has not said anything explicitly racist, and has written against the evils of racism.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>But there are still those suspicious underlying failures in thinking, which can collectively be called prejudices, that I can’t ignore. He doesn’t do well based on priors, and together with the way he pattern matches onto people I know who have stronger-than-average prejudice, the underlying irrationality that Card has shown himself more than capable of can easily include racism.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Alright, let's look at these again.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p><strong>Is Card a hateful bigot? </strong></p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Insofar as that word denotes hatred or disgust, I don’t think so. Being so vociferously anti-gay marriage, like being disproportionately inclined to think the worst of Obama, is mild evidence for hatred or disgust, but not strong evidence.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p><strong>Does Card hold bigoted religious beliefs?<br /></strong> <br />Undoubtedly. Justifications do not excuse bigotry; the fact that his honest faith tells him that homosexuality is a sin does not absolve him of responsibility for the actions of that belief. Someone who shoots an abortion doctor is still a murderer, no matter how good their intentions or true their belief. Just so, someone who argues for inequality on religious grounds is still espousing bigotry.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p><strong>Does Card align himself with bigots?</strong></p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>In many ways, yes. <a href="https://en.wikipedia.org/wiki/National_Organization_for_Marriage">He fought the same fight with the same goals.</a> He argued against hatred or violence, but he still worked to deprive gay men and women of equal rights, and stayed in and supported the Mormon church for years despite its racism.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>To someone who faces oppression, these questions are academic at best and disingenuous at worst. I understand that from the person getting punched in the face, the intentions of the puncher don’t matter. I don’t say “most Trump supporters are racist” because I don’t think it’s true, but I don’t always nitpick my more liberal friends who say it because I understand why “most Trump supporters don’t care sufficiently about racism to let it influence their vote” feels close enough.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>But I think it’s important to note that, while hatred is about values, prejudice is ultimately built on poor thinking. The latter can be solved more easily by education than the former.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Unless, of course, the value of Truth is too low on the hierarchy.</p><br>
+<p>And there’s a pretty good chance that Truth just doesn’t matter overly much to Card, hard as that is to believe given his general pro-science beliefs and advocacy. He has too many beliefs that come not just from the land of ignorance but of outright-falsehood.</p><br>
+<p>When that includes religion and poorly fact-checked conservative websites, neither of which are particularly known for their tolerance or promotion of real equality, again, it can be hard to feel the difference between "honestly mistaken" and "motivatedly mistaken."</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>Card is not, ultimately, a simple person who can easily be put into a box. I don’t think he’s an evil person. I think he’s genuinely disgusted by overt or even covert bigotry, and insofar as he was cheering on homophobes fighting gay marriage, he did it with a fervent wish that they would be more compassionate and kind. <a href="https://daystareld.com/on-the-same-side/">In my list of grand alliances, I think he ends up pretty high.</a></p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>But at the end of the day, when I think of what’s more appropriate for a situation, conflict theory vs mistake theory, what I tend to think of is how tractable the disagreement is, and what the consequences of someone’s beliefs and actions are.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>And for conflict vs mistake theory, Card does not always <em>only</em> seem simply mistaken. He doesn’t act like he's first-and-foremost seeking Truth.</p><br>
+<p>He acts as though he is fighting a war.</p><br>
+<p>A war to preserve Mormonism, Americanism, Life, Liberty, etc… but sort of in that order? And yes you could say that he just has false beliefs that lead him to believe America will collapse if gay marriage is legal, so it's just Mistake Theory in disguise again, but at a certain point the Mistake feels too motivated to be put in the same category as "what tax policy is better for poor and rich people alike?"</p><br>
+<p>In cases like Card's, where each value seems colored by the one preceding it, it's not actually too hard to imagine him holding evidence in his hand that Mormonism was made up, or that ACC is true, or that Obama isn't in his heart-of-hearts a wannabe-tyrant, and... perhaps with a twinge in his conscience... just tossing it in the fire.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>And for consequences, at the end of the day, giving him as much respect-for-individual-agency as I want others to give me, Card has now spent <em>decades</em> seeing his words hurt people he insisted he held no animosity toward, for <em>no reason </em>and to <em>no gain </em>other than the strength of his conviction and faith… and he stayed the course until the bitter end, moderating his language only when his side lost, calling for tolerance by the people whose behaviors he warned were <em>dangerous</em> to life, liberty, and general goodness.</p><br>
+<p>He could have put in the hard effort of looking his belief in the eyes and judging, as a person who prioritized truth and reason, whether it was <em>justified enough to keep holding</em> given the obvious and blatant pain it caused. He could have “evolved” on homosexuality as many,  like Obama, ostensibly did. He chose not to.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>I... don’t think I can respect that.</p><br>
+<p>More importantly, I don't think it's what Andrew would have done.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>My feelings for Card used to be complicated. Now they’re just a little sad and a lot disappointed. Maybe someday before he dies he’ll recognize his mistakes and not go down in history with such a tarnished legacy. I hope so.</p><br>
+<!-- /wp:paragraph --><br>
+<br>
+<!-- wp:paragraph --><br>
+<p>But thankfully, art and man are separate. Thankfully, truth doesn’t belong in a person, and someone can stumble onto it even when a little lost. Card happens to love many of the same things I do, even if we strongly disagree on other things, and I'm grateful to him for putting those things in his art in a way that could inspire my younger self, and continue to guide who I am today.</p><br>
+<p>It's part of what Andrew taught me: to be able to look at the wisdom and beauty in a person, without flinching from the contradictions and irrationality, and perhaps even bigotry, that's also there.</p><br>
+<!-- /wp:paragraph -->
+        </div>
+
+        <div class="chapter-nav">
+            <a href="../134/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Chapter Index</a>
+            <a href="../136/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 24: The Art of Persuasion, Part I - Pokemon: The Origin of Species</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .chapter-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .chapter-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .chapter-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            max-width: 70ch;
+            margin: 0 auto;
+        }
+
+        .chapter-content br {
+            display: block;
+            content: "";
+            margin: 0.75em 0;
+        }
+
+        .chapter-content hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 2em 0;
+        }
+
+        .chapter-content em {
+            color: var(--accent-2);
+            font-style: italic;
+        }
+
+        .chapter-content strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .chapter-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../">Pokemon: TOoS</a></li>
+                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chapter-header">
+            <h1 class="chapter-title">Chapter 24: The Art of Persuasion, Part I</h1>
+            <div class="chapter-meta">Pokemon: The Origin of Species</div>
+        </div>
+
+        <div class="chapter-content">
+            "A month here, huh?"<br>
+<br>
+Blue nods, staring at his feet. He just arrived at the Trainer House a few minutes ago, looking more humbled than Red's seen in years. He hasn't had a chance to watch Blue's battle with Brock yet, but surely it can't have gone <em>that</em> bad?<br>
+<br>
+Red looks at Leaf and raises a brow. Blue's ego probably needed to get taken down a peg or two, but he still wants to help his friend out. On top of which, before today Red was probably the one who would be least against staying in one place for so long. "I'm game. What about you Leaf? Think you could stomach sticking around?"<br>
+<br>
+Blue looks up in relief, then turns to her. Leaf smiles. "Let's do it. I'm sure I'll think of something to fill the time…"<br>
+<br>
+<hr noshade="noshade" size="1" /><br>
+<br>
+Red wakes up early Sunday morning to write up and refine his research proposal, then start looking for funding. The rest of the day is spent seeking grants from anyone and everyone that might be even remotely interested.<br>
+<br>
+First Red makes a list of organizations that give grant money to independent researchers. Then he finds out what particular topics they funded research on before or were looking to fund research on now. Only then does he start his letters, each tailored to their goals and values. Since all he needs is the money to hire a psychic on and off for about a month, his asking amount is relatively low compared to most others: a measly four thousand dollars.<br>
+<br>
+During lunch, he looks up the average amount of grant requests independent researchers send out before getting funded, then doubles it and estimates he could get funding by the end of the week if he does nothing but eat, sleep, research, and write.<br>
+<br>
+So that's what he decides to do.<br>
+<br>
+By Monday the first rejection emails start coming in, almost faster than he can send out new applications. The International Bug Catchers Association thought the hypothesis was focused more on psychic phenomenon than bugs, and the Institute of Psychic Phenomenon thought that even if correct, it might only have to do with bugs, or even just spinarak. Red sighs and thinks of forwarding their emails to each other before changing his mind and sending them to Professor Oak with an eyeroll emote in the subject line.<br>
+<br>
+By the end of Tuesday, Red's fingers are cramping over the keyboard. He powers through, stopping only for a quick break to have dinner with Leaf and Blue. His mind wasn't really on the conversation though, and the other two seemed similarly preoccupied, and relieved to get back to work afterward. When Leaf asked if she could have his mother's phone number, he gave it to her without even asking why she wanted it.<br>
+<br>
+On Wednesday morning Red gets excited when he reads an email from Professor Oak about a rather eccentric millionaire who often funds research trying to prove the existence of a "psychic particle." He spends most of the time before lunch taking extra care writing and revising the email to him, but when the response letter arrives that night, it politely informs him that such a particle would only exist in <em>true</em> psychics, not "lowly bugs."<br>
+<br>
+By Thursday he's seeing application letters in his dreams and putting ice packs over his fingers while he reads about new potential funders. He's over halfway through his list now, and starting to get nervous.<br>
+<br>
+It isn't until Friday morning that desperation sets in. As he reviews his list over breakfast, Red realizes he's nearing the end of it. He hasn't heard back from half the organizations he emailed, and has to stop himself from scratching out the remaining ones from the beginning of the week.<br>
+<br>
+As Friday night fades into the wee hours of Saturday morning and the desperation begins to turn to dread, Red starts to seriously consider either giving up on his idea or asking Professor Oak if the Pallet Lab could fund it. It's not a matter of pride that he hasn't yet: he has no qualms about mentioning that he worked at the Lab under Professor Oak (sometimes directly, so he's not lying). But the whole point of his journey is to experience and understand the process of doing research on his own, so he can learn from it.<br>
+<br>
+And what he's learned so far is actually rather valuable: namely that getting a research grant is tedious, difficult work, especially when the topic you're testing is obscure or not immediately relevant to anyone's interests. And really, isn't that how it should be? The very fact that he's thinking of scrapping the whole thing makes it easy to decide against asking the Pallet Lab to fund it. If the idea really has merit, he should be able to find funding for it, right?<br>
+<br>
+Such are the drift of Red's thoughts as he finally pushes away from the desk in the Trainer House's computer lab and staggers off to the floor his room is on. At 2 AM the halls and elevators are mostly empty, and Red enjoys having the large public bathroom on his floor mostly to himself.<br>
+<br>
+After he showers and brushes his teeth, he makes his way to his room and quietly eases the door open. He notices that Blue's bed is empty, and wonders if he's in the training rooms downstairs. He hasn't exchanged more than a few words with Blue or Leaf in the last couple days, and he briefly wonders what they're up to.<br>
+<br>
+As he slips beneath the sheets his mind turns back to his potential research topic. Is it possible to crowdfund the money he needs, maybe? The asking price is pretty low, after all… he'll have to look into that in the morning…<br>
+<br>
+Red slips his aching hands under the cool sheets of his pillow and yawns, thoughts on scientific breakthroughs in history that came from seemingly unimportant discoveries. He wonders if someone would eventually write about all this, the struggle of Red Verres's first groundbreaking experiment...<br>
+<br>
+Self-indulgent as the thought is, it makes him smile. He knows he has to be careful of the gambler's fallacy though-no, wait, not the gambler's fallacy, that's the one about thinking the probability of a random event increases if it hasn't happened in awhile, and vice versa. It's the one he always gets confused with gambler's fallacy…<br>
+<br>
+His tired mind searches around a bit before it finds it: sunk cost, that's the one. People have a tendency to grow attached to endeavors that they've spent a lot of effort or money on. If they give up before seeing results, they feel like they've wasted it all for nothing. It makes them more likely to throw good money after bad, though if told about someone else in the same situation, they would likely advise giving up.<br>
+<br>
+Combined the two fallacies are part of what makes gambling so dangerous, and that's basically what he's doing: gambling his time and energy on the potential chance of getting the grant money.<br>
+<br>
+Is he deciding to go on because of all the time he already put into it? The best way to ensure he's not is to precommit to stopping after a certain time period or threshold is reached. A gambler hitting the poker tables might only bring a couple hundred dollars of cash with him when he leaves the house and put a hold on his account until the following morning, to ensure they can't lose more than that no matter how strong the urge to recoup their losses.<br>
+<br>
+Unfortunately he doesn't have as elegant a solution for himself, but maybe he doesn't need one. He has a built-in threshold: the list of organizations. Red pulls out his phone and writes a memo to himself:<br>
+<br>
+<em>Future Red:</em><br>
+<br>
+<em>When you finish writing to all the groups we've already researched, STOP. No looking up new ones. No crowdsourcing. Just accept that the research isn't substantial or compelling enough for now, and let it go.</em><br>
+<br>
+<em>I know where you sleep,</em><br>
+<br>
+<em>Past Red</em><br>
+<br>
+Red sets the memo to an alarm that'll go off on Sunday morning, then puts his phone away. Now he can commit to finishing what he started, and will know he gave it his best honest try. If nothing else, he can try to get a government grant in December during their yearly application acceptance, though they rarely give them out to individual researchers, let alone novices. Though hopefully by then he won't be a novice anymore.<br>
+<br>
+Either way, tomorrow is another day, with its own opportunities to explore.<br>
+<br>
+<hr noshade="noshade" size="1" /><br>
+<br>
+Three days after she asked Red for his mom's number, Leaf sits in a workroom at the Trainer House with her laptop and phone out. On the screen is a list of questions, and after writing the last one, she gives it a quick read through, then sits back and makes the call.<br>
+<br>
+"Hello?"<br>
+<br>
+"Hi, Mrs. Verres? This is Leaf."<br>
+<br>
+"Leaf? Is everything alright?"<br>
+<br>
+"Everything's fine. I asked Red for your number, and was wondering if you had a moment to talk?"<br>
+<br>
+"I'm in the middle of something right now, but if it's not an emergency I can call you back in about ten minutes, if that's alright?"<br>
+<br>
+"Oh, of course! I'm sorry, I should have texted first-"<br>
+<br>
+"Not at all. What did you want to talk about?"<br>
+<br>
+"I have a project I wanted your opinion on. Red told me you're a journalist, and I'm thinking of writing a few pieces on the Pewter Museum."<br>
+<br>
+"Well, I'm flattered. Of course, I'd be happy to help however I can. I'll call you in a bit, alright?"<br>
+<br>
+"Great, thank you!"<br>
+<br>
+Leaf closes the call and lowers the phone, fingers running over the cover as she turns it over and over in her hands.<br>
+<br>
+Ever since she was little, she's never had any trouble walking up to strangers and talking to them. One of the benefits of being raised constantly on the move was getting used to meeting new people all the time. She especially loves befriending people who can teach her new things, like Dr. Brenner at the museum, and her "interviews" with others formed the basis for the traveler's log she wrote for herself of all the places she went with her mom and grandpa.<br>
+<br>
+When she came to Kanto the idea she had in mind was to write about their local myths and stories, but visiting the museum gave her a different idea. What she wants to write now isn't just some stories to entertain or inform. The reaction of many locals to the museum's exhibits makes her want to <em>persuade.</em><br>
+<br>
+And for that, she'll need help. After almost a week of writing interspersed with researching the history of Pewter City and its museum, she finally finished, and decided it's time for an outside opinion. There are others she could have talked to, friends of hers or her family's in Unova. But Mrs. Verres is from Kanto, and knows its culture and people. She can't hope to change many people's mind if she doesn't do her best to understand them first.<br>
+<br>
+Leaf goes back to her rough draft until Mrs. Verres calls back. She starts the paper with her visit to the museum as a tourist to Kanto, how much it impressed her, and how important the presentation of new scientific research can be to society and future generations. It seemed a bit too dry at first, so she made sure to pepper it with little observations and anecdotes from her visit. The wide eyed excitement of the children, the energy of adventure and discovery that permeated (most of) the crowds.<br>
+<br>
+But she doesn't know if it's enough. She tries to read it objectively and has to admit that it isn't particularly inspirational. Maybe some good quotes...<br>
+<br>
+She's fiddling with the closing paragraph's language when her phone rings. "Hey Mrs. Verres, thanks for calling back so quick!"<br>
+<br>
+"No problem, but please, call me Laura. So what can I do for you?"<br>
+<br>
+Leaf gives a summary of her and Red's museum visit on Saturday, and what she wants to do. Halfway through the explanation Mrs. Verres-<em>Laura-</em>asks Leaf to email what she's written so far. Leaf does so, and she can tell when Laura starts reading because her side of the conversation becomes "Mmms" and "Uh huh"s.<br>
+<br>
+"So yeah, that's about it. Any advice you could give would be appreciated."<br>
+<br>
+"Sure, give me a minute to finish up."<br>
+<br>
+"Kay." Leaf waits, rereading parts of it herself. She notices her legs kicking and stops them, then crosses them before some other nervous tic manifests. This is the first time she's shown someone her writing with the direct intention of getting feedback, and she both looks forward to and dreads what Laura might have to say.<br>
+<br>
+Finally Laura exhales. "Alright, all done. It was very well written, by the way. I'm impressed."<br>
+<br>
+"Thanks! I've been working on it since Saturday. Do you have any advice on how to make it better?"<br>
+<br>
+"I do, but first, have you ever gotten a critique of your work before?"<br>
+<br>
+"Like, by a professional? Not really. But it's okay, you can be honest. I won't be hurt by whatever you say."<br>
+<br>
+Laura chuckles. "If that's true then it means one of us hasn't done our jobs properly. My editor's suggestions always felt like chopping bits off one of my children."<br>
+<br>
+Leaf smiles. "I don't think I'm there yet."<br>
+<br>
+"Well, I'll get to the point then: you're going to have to rewrite the whole thing."<br>
+<br>
+Leaf's smile wilts. "I-what?"<br>
+<br>
+"From scratch. Maybe you can keep some of the middle, especially the first hand observations, those were fantastic."<br>
+<br>
+Despair and confusion and, yes, hurt, make it hard to respond for the space of a couple breaths. "You didn't like it."<br>
+<br>
+"I quite enjoyed it actually. As I said, it was very well written. But the truth is, it's fluff. It's a review mixed with an opinion piece. And other than getting people who already agree with you to nod over their breakfast or afternoon coffee, you're barely going to make a dent in the views of someone who doesn't agree with you. At best maybe you'll get people who haven't been to the museum before to plan a visit. Which is nice, but not what you're after, right?"<br>
+<br>
+Leaf bites her lower lip. She expected an incisive critique, had thought some of these things herself, but hearing them said by another really drives them home. "No. Not really. But you're right, it's not… new. I'm not saying anything new, and I'm not saying it in a new way."<br>
+<br>
+"That's it exactly. You're not just trying for investigative reporting, you're writing to persuade, right? And that means you need to focus on completely different things."<br>
+<br>
+Leaf nods to herself, mentally getting used to the idea of rewriting the piece. It's a daunting task after she worked so hard on this one, but at least she has the research all done, and Laura is right. What she's written so far won't convince many people.<br>
+<br>
+"Leaf? You alright, Hon?"<br>
+<br>
+"Yeah."<br>
+<br>
+"I'm sorry, I know—"<br>
+<br>
+"No, it's okay. This is why I called you. It all makes sense. Thank you." She straightens in her chair and opens a new document. "Okay, so… any advice on what to do instead?"<br>
+<br>
+"Absolutely. First let's list what you did right: you appealed to three of the big four. Logic, emotions, and ethics. Can you guess what the one you missed was?"<br>
+<br>
+Leaf considers the arguments she deliberately avoided. "Authority?"<br>
+<br>
+"Close, but not quite. This is a mistake young writers make all the time when trying to argue against ideas of older generations. You didn't appeal to tradition."<br>
+<br>
+Leaf frowns. "Of course not, tradition's stupid. Heck, the whole point is to break people from clinging to tradition."<br>
+<br>
+"And that attitude is exactly why your writing won't reach anyone you want it to. Leaf, the people who don't like the new exhibits have a very different value system than you. Do you really think ignoring what they think is important, let alone deriding it, will change their view?"<br>
+<br>
+"No, you're right. But what am I supposed to do then?"<br>
+<br>
+"Understand their values better. You want to reduce the influence of a value you don't share, but because you don't share it, you're missing how it can help you."<br>
+<br>
+"Help me?"<br>
+<br>
+"Yes. Really immersing yourself in opposing views is a skill that takes a lifetime to cultivate, but for now, the first step is to figure out what purpose the value serves, why it makes sense to them. Always remember that people's beliefs and worldviews are more complex than first impression lets on, and makes sense internally. Since your actual goal isn't to make them find traditions less important, just make sure tradition doesn't hold them back in this one area, you can actually use the overall value to your advantage."<br>
+<br>
+"Hang on, let me think a moment." Leaf puts the phone down and puts it on speaker, then spins her chair in a slow circle with one foot, eyes closed.<br>
+<br>
+If she were a proud Pewter citizen, irate at the museum's sudden attack on her traditional beliefs, what other traditions might balance that out? What would another Pewter citizen who likes the changes say?<br>
+<br>
+She remembers speaking to the visitors on Saturday when she started writing. Most were tourists, but of the natives there were a handful that spoke about it all with a subtle but powerful pride.<br>
+<br>
+<em>Ah. </em>Leaf smiles and opens her eyes, putting her foot down to stop her rotation. "I can focus on Pewter's other tradition: how they've always been at the forefront of science and discovery."<br>
+<br>
+"Exactly. Remember that traditions are cherished not just because of comfort or pride, but often from an inherent sense that what's worked so far must have value, and that new, untested ideas risk losing the wisdom inherent to it. Instead, you have to show them the risks in the status quo, and offer them a new source of value that's tied to the overarching one."<br>
+<br>
+Leaf has already started typing as Laura talks. "Does it matter if my point isn't strictly true? I mean, a lot of geological and paleontological discoveries came from Pewter, but other cities have them beat in general, and they're obviously not current on this topic."<br>
+<br>
+"I'm glad you asked, because there are seven general traits to effective persuasion. Ready to write things down?"<br>
+<br>
+Leaf finishes her last thought and starts a new paragraph. "Hit me with them."<br>
+<br>
+"Repetition, Consistency, Social Proof, Agitate then Solve, Prognosticate, Tribalism, and Storytelling."<br>
+<br>
+Leaf's fingers fly over the keyboard. "Okay, I think I get the first two and the last one. What about the rest?"<br>
+<br>
+"I'm going to go over them all. Let me know which one you think answers your question. First is Repetition. Pretty simple, the challenge is in presenting the same point or argument in a variety of ways. You want it to stick, but you don't want to bore them. Next is consistency, also basic: no wild shifts in tone or hypocritical positions.<br>
+<br>
+"Social Proof is basically an appeal to popularity, but without blatantly doing so. Most people will subconsciously find it easier to accept a belief that they feel is mainstream, or held by certain popular individuals. At the very least, it wards against automatic rejection of an idea as too bizarre or 'obviously crazy.' As long as you know your audience and are subtle about it, it can help with just about any demographic. That last part applies to all of these, by the way: subtlety is key."<br>
+<br>
+"Got it. So that one doesn't really answer my question, but it's still important for me to keep in mind. What if most people disagree with it?"<br>
+<br>
+"Do you actually know the real numbers? Have you looked into any surveys or polls?"<br>
+<br>
+"I tried to find some on it, but couldn't."<br>
+<br>
+"Consider doing one yourself then. Work with the museum if you can. But if it turns out the vast majority are against it, that's where popular figures can come in. Movie stars, famous trainers, professors, whomever.<br>
+<br>
+"Next is Agitate then Solve. You want to present the audience with a compelling reason the status quo isn't good, the problems it's causing, then offer a solution. Make sure the reader or listener understands the problem, why it's a problem, then sees your suggestion as the most obvious thing in the world."<br>
+<br>
+Leaf grins. "There's my answer. 'Pewter City, once the crown jewel of Kanto for its leadership in Earth Sciences, has been steadily falling behind…'"<br>
+<br>
+"Now you're getting it. And prognosticate is an extension of that. Do a bit of informed prediction. Why will the bad thing get worse? If Pewter doesn't regain its dominance, what next?"<br>
+<br>
+"It might start losing tourism, see brain drain, and become a hollow shell of its former self."<br>
+<br>
+Laura laughs. "Cut the last line and you're gold. Remember, <em>subtle!"</em><br>
+<br>
+"Right, right. Tribalism is an 'us vs them' thing, yeah?"<br>
+<br>
+"Yep. Like Social Proof, but more stark. I wouldn't normally advocate pushing this one: tribalism can get ugly fast, and it usually doesn't need any encouragement to get there. But it has a positive side to it too, and that's what you have to tap into, if you can. Can you see it?"<br>
+<br>
+Leaf thinks. "Nationality? Other cities or regions will get ahead of Pewter?"<br>
+<br>
+"Sort of, though that's just another flavor of Agitate and Prognosticate, and it's not particularly inspirational."<br>
+<br>
+"Hold on." Leaf thinks again, closing her eyes and letting her legs tap and drag her around and around. Eventually she frowns and shakes her head. "I don't think I'm seeing it."<br>
+<br>
+"Well, there's not just one correct answer for any of this. Tell me whatever comes to mind."<br>
+<br>
+"I can't really think of anything, to be honest. How would you approach it?"<br>
+<br>
+"Well, there's one tribe that encompasses them all, and works fairly well as a fallback for almost any topic. Make it about our eternal struggle: humanity against the elements. The world is a pretty hostile place, and if mankind has to do everything it can to seek the truth, utilize discoveries, develop new technology, and defend itself from pokemon."<br>
+<br>
+Leaf has stopped spinning, merely sitting and staring at her phone with her brow furrowed. "I… don't think I can use that one."<br>
+<br>
+"Why not?"<br>
+<br>
+Leaf opens her mouth to say... what, she isn't sure. But the thought of framing the issue, any issue, as humanity vs pokemon, doesn't sit right with her. Sure, humans working together as one global tribe is important, but painting pokemon as the enemy, as the "them" that needs to be guarded against… it just feels wrong. The life and wellbeing of humans and pokemon are linked, and one isn't inherently higher than the other. Just because she's a human doesn't mean she should promote humanity at the expense of pokemon.<br>
+<br>
+"It's complicated. I guess I just don't think I believe it, in this case."<br>
+<br>
+There's silence, and Leaf worries that Laura will inquire further, demand her true justification. Instead she simply says "Alright, well you don't have to use all of them, and if you find another way to apply that one feel free to take a different angle. If not though your article will be more streamlined with fewer things to clutter it up."<br>
+<br>
+Leaf lets out a breath and returns to her keyboard. "Right. And the last one?"<br>
+<br>
+"Ultimately, the most compelling thing you can do with all of the above is weave it into a story. I don't mean it has to have a protagonist and a plot and everything. Make it real: don't talk about yourself, but talk about what you see. Descriptive language, framed as what's simply there and plain to see to everyone. Draw them in with an evocative scene, introduce real life characters accompanied by quotes. Your whole piece should frame a narrative that the readers feel part of. It's about them, ultimately."<br>
+<br>
+Leaf is nodding to herself as she listens and types. "Right, yeah. That's what I was trying to do with mine."<br>
+<br>
+"And you did a good job for what it was. I hope you see why this might work better though."<br>
+<br>
+"Absolutely. I really can't thank you enough-"<br>
+<br>
+"It was my pleasure. Feel free to send me your drafts or call again if you need to."<br>
+<br>
+"Thanks. Any last bits of advice?"<br>
+<br>
+"End with a quote. Something profound, or at least profound sounding. The beginning of the piece has to be good enough to inform and hook your readers, but leaving them with something evocative and easy to remember is almost as important. Out of curiosity, how are you planning to publish it?"<br>
+<br>
+"I didn't think that far ahead honestly. My travel blog for sure, then maybe some local boards or forums, and the museum's review page."<br>
+<br>
+"Hmm. Not a lot of traffic on any of those. You want a wide audience, right?"<br>
+<br>
+"Yeah, I'm kind of hoping people will enjoy it enough to share organically."<br>
+<br>
+"Why not try a news site?"<br>
+<br>
+"I'd love to, but I haven't looked into it yet and don't know what their restrictions or requirements are. Maybe one of the news sites will pick up on it." <em>Or maybe, if she happens to know someone in the business locally...</em><br>
+<br>
+"Well if that doesn't pan out, I might know a guy who knows a girl who can give it a look."<br>
+<br>
+Leaf grins.<br>
+<br>
+<hr noshade="noshade" size="1" /><br>
+<br>
+It's late when Blue enters the Pokemon Center, tired from a long day at the Gym. He's been spending his nights at the Center, helping out however he could. It's still a bit short-staffed from the backlog of pokemon injured during the fire, and Blue learned basic pokemon first aid from a young age, so he's more helpful than random volunteers.<br>
+<br>
+If he had his preference, Blue would be using this time to train more, or catch up on his sleep. But gramps was right when he said Blue has to start cultivating his image in as many different ways as he can, and that's doubly true with his loss at the Gym.<br>
+<br>
+But tonight he's here for something else too.<br>
+<br>
+The same older doctor is waiting for him when he goes to retrieve his shiftry, finally all healed up and ready for him to retrieve. She's warmed up to him considerably since he started working here, doing whatever tasks need getting done diligently and without complaint. Blue discovered fairly quickly that someone who'll do the tedious or less desirable tasks with a smile tend to get in people's good graces.<br>
+<br>
+Blue exchanges pleasantries with her while he holds the shiftry's greatball in his hand, feeling its cool metal against his palm.<br>
+<br>
+The night of his defeat, he hadn't been able to sleep at all. He tossed and turned for hours, mind replaying the match and trying to come up with ways he could have won, or can win in a month. It was only after it arrived at the obvious solution that his brain finally called it quits and let him sleep.<br>
+<br>
+This is his key to victory, right here. His shiftry is the strongest pokemon he has. Once properly trained, it will be more than capable of taking down whatever Brock sends against him.<br>
+<br>
+Which means all he has to do is train it to accept and follow his orders.<br>
+<br>
+Blue runs a finger over a ridge on the ball's lid, then clips it to its belt and heads for the supply room to change into scrubs. He's worried that because of the way he caught the shiftry, it might be harder than normal to train.<br>
+<br>
+He'll just have to be... persuasive.
+        </div>
+
+        <div class="chapter-nav">
+            <a href="../29/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Chapter Index</a>
+            <a href="../31/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Team Roster - Pokemon: The Origin of Species</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .chapter-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .chapter-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .chapter-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            max-width: 70ch;
+            margin: 0 auto;
+        }
+
+        .chapter-content br {
+            display: block;
+            content: "";
+            margin: 0.75em 0;
+        }
+
+        .chapter-content hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 2em 0;
+        }
+
+        .chapter-content em {
+            color: var(--accent-2);
+            font-style: italic;
+        }
+
+        .chapter-content strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .chapter-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../">Pokemon: TOoS</a></li>
+                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chapter-header">
+            <h1 class="chapter-title">Pokemon Team Roster</h1>
+            <div class="chapter-meta">Pokemon: The Origin of Species</div>
+        </div>
+
+        <div class="chapter-content">
+            <em>Warning: potential spoilers can be inferred from this list if you are not up to date on the story. This list is relevant up to chapter 61</em><br>
+<h3><strong>Red:</strong></h3><br>
+<b>Charmeleon</b><br>
+<br>
+Scratch<br>
+<br>
+Tail Whip<br>
+<br>
+Ember<br>
+<br>
+Smokescreen<br>
+<br>
+<b>Spinarak</b><br>
+<br>
+Poison Sting<br>
+<br>
+Night Shade<br>
+<br>
+Sticky Web<br>
+<br>
+Bug Bite<br>
+<br>
+<b>Metapod</b><br>
+<br>
+Tackle<br>
+<br>
+String Shot<br>
+<br>
+Harden<br>
+<br>
+<b>Pikachu</b><br>
+<br>
+Thundershock<br>
+<br>
+Thunderbolt<br>
+<br>
+Quick Attack<br>
+<br>
+Thunder Wave<br>
+<br>
+<b>Nidoran</b><br>
+<br>
+Poison Sting<br>
+<br>
+Horn Attack<br>
+<br>
+Double Kick<br>
+<br>
+<strong>Bellsprout</strong><br>
+<br>
+Vine Whip<br>
+<br>
+Acid<br>
+<br>
+<strong>Oddish</strong><br>
+<br>
+Absorb<br>
+<br>
+Poison Powder<br>
+<br>
+Sleep Powder<br>
+<br>
+<strong>Whismur</strong><br>
+<br>
+Pound<br>
+<br>
+Echoed Voice<br>
+<br>
+Astonish<br>
+<br>
+Howl<br>
+<br>
+Screech<br>
+<br>
+Supersonic<br>
+<br>
+<strong>Abra x2 (Bill and Cerulean)</strong><br>
+<br>
+Teleport<br>
+<br>
+Psychic<br>
+<br>
+<strong>Pineco</strong><br>
+<br>
+Tackle<br>
+<br>
+Bug Bite<br>
+<br>
+Self-Destruct<br>
+<br>
+Spikes<br>
+<h3>Blue:</h3><br>
+<b>Wartortle (Maturin)</b><br>
+<br>
+Water Gun (Gaw)<br>
+<br>
+Bubblebeam<br>
+<br>
+Bubble<br>
+<br>
+Rapid Spin<br>
+<br>
+Withdraw<br>
+<br>
+Bide<br>
+<br>
+Soak<br>
+<br>
+Bite<br>
+<br>
+Tackle<br>
+<br>
+Ice Beam (Bai)<br>
+<br>
+<b>Pidgeotto (Zephyr)</b><br>
+<br>
+Gust<br>
+<br>
+Peck<br>
+<br>
+Wing Attack<br>
+<br>
+Quick Attack<br>
+<br>
+Feint Attack<br>
+<br>
+Agility<br>
+<br>
+<b>Shroomish (Gon)</b><br>
+<br>
+Absorb<br>
+<br>
+Leech Seed<br>
+<br>
+Poison Powder<br>
+<br>
+Stun Spore<br>
+<br>
+Headbutt<br>
+<br>
+<b>Shinx (Ion)</b><br>
+<br>
+Spark<br>
+<br>
+Bite<br>
+<br>
+Charge<br>
+<br>
+Tackle<br>
+<br>
+Flash<br>
+<br>
+<b>Ekans</b><br>
+<br>
+Poison Sting<br>
+<br>
+Bite<br>
+<br>
+Acid<br>
+<br>
+Wrap<br>
+<br>
+<b>Rattata (Joey)</b><br>
+<br>
+Tackle<br>
+<br>
+Bite<br>
+<br>
+Quick Attack<br>
+<br>
+Tail Whip<br>
+<br>
+<b>Zubat</b><br>
+<br>
+Wing Attack<br>
+<br>
+Leech Life<br>
+<br>
+Poison Sting<br>
+<br>
+Supersonic<br>
+<br>
+<strong>Bellsprout x2</strong><br>
+<br>
+Vine Whip<br>
+<br>
+Acid<br>
+<br>
+<strong>Venonat<br>
+</strong><br>
+<br>
+Leech Life<br>
+<br>
+Confusion<br>
+<br>
+Poison Powder<br>
+<br>
+Stun Spore<br>
+<br>
+<strong>Abra</strong><br>
+<br>
+Teleport<br>
+<br>
+Psychic<br>
+<br>
+<strong>Pineco x2</strong><br>
+<br>
+Tackle<br>
+<br>
+Bug Bite<br>
+<br>
+Self-Destruct<br>
+<br>
+Spikes<br>
+<br>
+<strong>Rhyhorn (Rive)</strong><br>
+<br>
+Horn Attack/Poison Jab (Atah)<br>
+<br>
+Rock Blast (Bar)<br>
+<br>
+Bulldoze (Ba)<br>
+<br>
+<strong>Dugtrio</strong><br>
+<br>
+Scratch/Slash<br>
+<br>
+Magnitude<br>
+<br>
+Sand Attack<br>
+<br>
+Dig<br>
+<br>
+<strong>Diglett</strong><br>
+<br>
+Scratch<br>
+<br>
+Bulldoze<br>
+<br>
+Sand Attack<br>
+<h3>Leaf:</h3><br>
+<b>Ivysaur (Raff)</b><br>
+<br>
+Tackle<br>
+<br>
+Leech Seed<br>
+<br>
+Vine Whip<br>
+<br>
+Razor Leaf<br>
+<br>
+Sleep Powder<br>
+<br>
+<b>Rattata (Scamp)</b><br>
+<br>
+Tackle<br>
+<br>
+Bite<br>
+<br>
+Quick Attack<br>
+<br>
+Tail Whip<br>
+<br>
+<b>Pidgeotto (Crimson)</b><br>
+<br>
+Gust<br>
+<br>
+Peck<br>
+<br>
+Wing Attack<br>
+<br>
+Quick Attack<br>
+<br>
+<b>Ledyba</b><br>
+<br>
+Comet Punch<br>
+<br>
+Supersonic<br>
+<br>
+Silver Wind<br>
+<br>
+<b>Beedrill</b><br>
+<br>
+Poison Jab<br>
+<br>
+Twinneedle<br>
+<br>
+Fury Attack<br>
+<br>
+<b>Wigglytuff (Joy)</b><br>
+<br>
+Sing<br>
+<br>
+Pound<br>
+<br>
+Disable<br>
+<br>
+Round<br>
+<br>
+<strong>Venonat (Ruby)<br>
+</strong><br>
+<br>
+Leech Life<br>
+<br>
+Confusion<br>
+<br>
+Poison Powder<br>
+<br>
+Stun Spore<br>
+<br>
+<strong>Buneary (Alice)</strong><br>
+<br>
+Pound<br>
+<br>
+Quick Attack<br>
+<br>
+<strong>Abra</strong><br>
+<br>
+Teleport<br>
+<br>
+Psychic<br>
+<br>
+<strong>Pineco</strong><br>
+<br>
+Tackle<br>
+<br>
+Bug Bite<br>
+<br>
+Self-Destruct<br>
+<br>
+Spikes<br>
+<br>
+<span style="font-size: 22px; font-weight: bold;">Aiko:</span><br>
+<br>
+<strong>Raticate (Sneaker)</strong><br>
+<br>
+Bite<br>
+<br>
+Pursuit<br>
+<br>
+Quick Attack<br>
+<br>
+<strong>Venonat (Winter)</strong><br>
+<br>
+Leech Life<br>
+<br>
+Confusion<br>
+<br>
+Poison Powder<br>
+<br>
+Stun Spore<br>
+<br>
+Flash<br>
+<br>
+<strong>Sandslash</strong><br>
+<br>
+Tackle<br>
+<br>
+Scratch<br>
+<br>
+Defense Curl<br>
+<br>
+Dig<br>
+<br>
+<strong>Spearow</strong><br>
+<br>
+Peck<br>
+<br>
+Wing Attack<br>
+<br>
+Quick Attack<br>
+<br>
+<strong>Oddish</strong><br>
+<br>
+Absorb<br>
+<br>
+Poison Powder<br>
+<br>
+Sleep Powder<br>
+<br>
+<strong>Krabby</strong><br>
+<br>
+Bubble<br>
+<br>
+Vicegrip<br>
+<br>
+<strong>Pineco x2</strong><br>
+<br>
+Tackle<br>
+<br>
+Bug Bite<br>
+<br>
+Self-Destruct<br>
+<br>
+Spikes<br>
+<br>
+<strong>Eevee</strong><br>
+<br>
+Quick Attack<br>
+<br>
+Sand Attack<br>
+<br>
+Bite<br>
+<br>
+Covet
+        </div>
+
+        <div class="chapter-nav">
+            <a href="../54/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Chapter Index</a>
+            <a href="../56/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>

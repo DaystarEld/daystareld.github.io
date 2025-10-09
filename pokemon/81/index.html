@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 38: Learning from Failure - Pokemon: The Origin of Species</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .chapter-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .chapter-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .chapter-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            max-width: 70ch;
+            margin: 0 auto;
+        }
+
+        .chapter-content br {
+            display: block;
+            content: "";
+            margin: 0.75em 0;
+        }
+
+        .chapter-content hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 2em 0;
+        }
+
+        .chapter-content em {
+            color: var(--accent-2);
+            font-style: italic;
+        }
+
+        .chapter-content strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .chapter-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../">Pokemon: TOoS</a></li>
+                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chapter-header">
+            <h1 class="chapter-title">Chapter 38: Learning from Failure</h1>
+            <div class="chapter-meta">Pokemon: The Origin of Species</div>
+        </div>
+
+        <div class="chapter-content">
+            The wind sends rippling waves through the field of grass around Leaf, tossing her hair back over her shoulders. She instinctively raises a hand to keep her hat from blowing off before remembering that she put it away.<br>
+<br>
+Joy, Leaf's freshly named wigglytuff, stands mute and waiting, its wide, beautiful blue eyes peering cheerfully around. Leaf walks a slow circle around her pokemon, staying just within range to return her if needed. Meanwhile, her eyes scan rippling fields of grass.<br>
+<br>
+Her phone vibrates, and she checks Blue's message:<br>
+<br>
+<strong>4th speaker set</strong><br>
+<br>
+That was the last one for him. Now Red just has to get his fourth in position, and they'll start.<br>
+<br>
+It took them over an hour to meticulously comb through the central circle where they plan to drive the abra. There were a few pokemon that fled from them, but Blue did manage to catch a venonat, which he traded to Leaf after she and Red caught a pair of bellsprouts. She knew Grass types are going to be especially useful to him in the next Gym battle, and some quick research showed her that venonat and its evolution venomoth have a lot more non-lethal attacks than the bellsprout family.<br>
+<br>
+Now the field is as empty as they can make it to ensure there aren't any pokemon around that might resist Joy's singing.<br>
+<br>
+Leaf checks her phone as it buzzes again. <strong>Fourth speaker ready.</strong><br>
+<br>
+<em><strong>Ready when you guys are</strong></em>, she texts back, pulse picking up. She puts her phone away, sets a vibrating alarm on her new watch, and sticks her earplugs in. "Joy," she says, voice muffled and distorted in her head. "Sing!"<br>
+<br>
+Her wigglytuff bounces and twirls happily, then opens its mouth wide and fills the air with its haunting melody. Muted through her earplugs, just barely audible enough for Leaf to know if it's still going.<br>
+<br>
+Somewhere, Red and Blue are returning to the inside of Joy's singing radius, after which they'll activate the speakers to begin transmitting various sounds of one of abra's natural predators: an umbreon.<br>
+<br>
+It wasn't a perfect choice, Red admitted. Ideally they would want one that would neither scare off or attract the plant and bug pokemon in the area. But they had limited options when it came to local pokemon that wild abra might encounter and be wary of, and umbreon was the most neutral of those.<br>
+<br>
+Leaf doesn't know when it'll start working, if it even does. But after about two minutes, once she's gotten a pair of vibrations indicating the activation of the speakers, she enlarges a pokeball in either hand, then begins turning in a slow circle, taking deep breaths as she scans the fields around her. The tall grass rustles silently as she passes through it, as high as her knees. Hopefully any pokemon lurking in it that weren't scared off by her approach are asleep now.<br>
+<br>
+"<em>Remember," Red said in the taxi ride over. "Since there's no guarantee they'll fall asleep right away, there might be a few moments where they sense our minds. Blue is safe from that, but the two of us need to be focusing on projecting feelings of calm and safety and peace as much as we can, or we'll spook them into teleporting again before they get knocked out."</em><br>
+<br>
+"<em>What about you?" Leaf asked. "Isn't it hard for you to engage a psychic mind?"</em><br>
+<br>
+<em>Red smiled. "As long as it's only for a few seconds at a time, I'll be fine."</em><br>
+<br>
+He sounded confident at the time, and Leaf let it go.<br>
+<br>
+Now that they're here, doing it and waiting for the first abra to show up, her mind has nothing better to do but feed her all sorts of worst case what-ifs, and one she keeps coming back to is Red's exposure to the abra being too much for him to handle, maybe even causing him to pass out.<br>
+<br>
+A drop of sweat slides down Leaf's back. The risk for Red seems too big, suddenly, he should have stayed out, he should have-<br>
+<br>
+<em>Stop! Your mind is supposed to be calm. An abra might show up at any second, so get to soothing!</em><br>
+<br>
+Leaf takes a deep breath, then focuses all of her thoughts on things that comfort her. <em>A warm bedroll to keep out the morning chill. The sound of rain on a roof, far off thunder. The smell of grandpa's travel bag. Mom's voice, singing to herself as she worked.</em><br>
+<br>
+It feels a bit forced, but hopefully it's better than nothing.<br>
+<br>
+The wind lifts Leaf's hair again as she continues her slow spin, smelling acres of grass as she breathes in, then out. In the corner of her eye she sees a minute pass on her watch, then another, and imagines what might be happening elsewhere: abra, teleporting around the field as they go from one area with the umbreon cries to another. Surely some will teleport into their middle circle, rather than out of it… and of those, at least one or two <em>should </em>be near the center where she and Joy-<br>
+<br>
+A flash of yellow, and Leaf's heart leaps into her throat. Her body reacts automatically, running in its direction as she quickly scans the area around her to see if the area is safe for her to leave Joy alone. The spot of yellow in the thick grass resolves itself into the top of a head, and Leaf grins as she recognizes it as an abra.<br>
+<br>
+She quickly focuses on projecting calm thoughts again, but it doesn't seem to matter: the abra is completely still as she approaches, and with a wide grin she points the ball at it and, after counting down a few seconds to ensure it locks, lobs it gently underhand.<br>
+<br>
+There's a flash of light as the ball bounces off the abra's head, and by the time it begins to fall, the pokemon is gone. Leaf quickly grabs the ball out of the grass and tucks it into her backpack, then dashes back toward Joy, practically skipping. <em>It works! IT WORKS!</em><br>
+<br>
+She keeps her vision moving to try and catch any new abra that appear as she returns to Joy and begins circling around her again. Red and Blue should be moving in a slow circle from opposite ends of the singing zone to catch any abra that teleported in and are dozing in the grass. When her watch vibrates, she resets the countdown on it and dashes over to her wigglytuff.<br>
+<br>
+"Joy, stop!" she yells once she's close.<br>
+<br>
+The pokemon's muffled song fades away. Leaf rubs Joy's soft fur and feeds her a berry, eyes on her watch. When 30 seconds have counted down, she says "Sing!" and backs up again, returning to her position of slowly circling Joy as she watches the surrounding field.<br>
+<br>
+In their last test, Joy maintained a song for nine minutes and fourteen seconds without pause. It left her breathless and tired, and she needed over twice as long to rest before she could do it for anywhere near the same length again.<br>
+<br>
+But, when they tried giving her a breather every few minutes, she was able to sing for an hour and a half. They realized they could probably stretch it longer, but that was about when they lost patience with the test. They were aiming for as little downtime as possible in any case.<br>
+<br>
+Leaf keeps cycling Joy through quick moments of rest as she patrols the area, waiting for the next abra to appear. <em>We should have cut the grass around here, </em>she thinks as she tries to spot another glimpse of yellow in the rustling green stalks.<br>
+<br>
+She's just starting to wonder if she should message the others and see if something's gone wrong when the second abra pops into sight, close enough for her to actually see it displace the grass around it as it appears.<br>
+<br>
+Leaf raises her pokeball, careful not to make any sound, but stops cold as it vanishes.<br>
+<br>
+She stares, wondering for a brief moment if she imagined it, then lets out a muffled cry of frustration. She forgot to maintain the calming thoughts! Even a couple seconds of wakefulness before the singing puts them to sleep is enough to let the abra escape, and if it's particularly resistant and takes a few seconds...<br>
+<br>
+Leaf closes her eyes, not caring that she might miss another abra showing up. She needs to exude comfort and calm, or the only abra she'll catch are the ones that fall asleep quickly or are too far to sense her before they're affected.<br>
+<br>
+<em>Warm blankets. Hugging gramps. Rain on the roof.</em><br>
+<br>
+She focuses on each memory until she feels calmer, then opens her eyes and tries to walk around again. The note of discord in the back of her mind is still there however, and when the next abra appears and disappears again within seconds, her calm shatters.<br>
+<br>
+A wave of panic threatens to crush Leaf as she feels her breathing become quick and shallow. She <em>can't </em>mess this up for everyone. Hopefully the next abra appears far enough from her to fall asleep before it senses her mind, but how many more will she lose because she can't keep herself from stressing out?<br>
+<br>
+Leaf gives Joy another quick break, then walks in growing circles around her pokemon to try and find abra that appeared without her noticing and are napping in the tall grass.<br>
+<br>
+As she continues to turn in a slow circle, she checks her watch through the corner of her eye. 2:17. Red timed the whole operation around a nearby Ranger Outpost sending a patrol out that would pass by the outskirt of the speakers' radius. A final safety measure, ensuring that Rangers will be nearby if something goes wrong and they need to call for help. But the window of time left to have them nearby if something goes wrong is shrinking.<br>
+<br>
+If she's going to do something risky, now's the best time.<br>
+<br>
+Leaf breaks into a run. Grass whips by her knees as she keeps turning her head left and right, covering almost every angle of sight to ensure that she's not missing any. The wind whips her hair into her face as she keeps turning in her slow revolution, and one hand dips into her pocket before tying her hair back into a ponytail. She starts to leap into the air to get a better view, and on the third jump she spots a flash of yellow to her left.<br>
+<br>
+She takes a quick second to reorient herself relative to Joy, then dashes for the yellow. Seconds later she sees it: a sleeping abra almost completely hidden by the grass. A quick scan and capture, and she's running back toward her wigglytuff to give her another rest, heart pounding as she catches her breath along with her pokemon.<br>
+<br>
+<em>Okay. Two captures isn't bad. </em>Still, how many more is she missing out on?<br>
+<br>
+Leaf wonders if Red is having better luck. She knows his idea for calming them down was never a sure thing, but if it's not possible then they're going to lose out on a lot of potential captures.<br>
+<br>
+She has to resolve the problem. If she accepts the premise that the abra are reading her thoughts on a surface level and reacting to what they find, what can she be focusing on that might slow them from teleporting away for at least another second or two, to give Joy's song a better chance to put them under?<br>
+<br>
+Maybe a sense of safety instead.<br>
+<br>
+She tells Joy to resume singing and takes off again<em>,</em> running through the grass and focusing on memories and sensations of being <em>safe. </em>She tries to dismiss all the thoughts and worries about her circumstances, making herself feel as safe and carefree as she can while running, turning, and leaping around the field.<br>
+<br>
+Another flash of yellow, this time far off to the right of Joy. She wonders if she should leave it: it might be close enough to be in Blue's path. She turns toward it anyway, knowing that every potential catch is worth pursuing over more fruitless searching.<br>
+<br>
+She's panting hard by the time she arrives at the slumbering abra, and wipes sweat out of her eyes with one hand as the other aims a pokeball and tosses it. She tucks the third abra away, slightly more at ease and focusing hard on feeling <em>safe </em>and <em>carefree </em>as she makes her way back toward Joy.<br>
+<br>
+When the next abra appears a stone's throw away she's ready for it, holding still and maintaining her sense of confident safety. Barely a second passes however before it vanishes.<br>
+<br>
+"<em>Dammit," </em>she yells as she jogs back toward Joy with a scowl. What's she doing wrong? Maybe nothing, maybe it's just the presence of a nearby human that's enough to send them off, but admitting that would mean there's nothing she can do about it, and she's not about to give up.<br>
+<br>
+<em>All of these emotions aren't genuine. I need something I really feel, something effortless.</em><br>
+<br>
+Leaf reaches Joy and gives the wigglytuff another quick break, spraying a bit of ether into her mouth to make up for the longer singing period. <em>What do I want right now? Why am I doing this?</em><br>
+<br>
+Not just for the money. Not just because Red needs help with it. <em>Deeper. Why do I want to be a trainer at all?</em> She could be a groomer or breeder if she just likes spending time with pokemon.<br>
+<br>
+Leaf commands Joy to start singing again and resumes her spiraling outward walk. What are her priorities? Too many. <em>Focus. Simplify. Find the inverse. What would have to be true for me not to want to be a trainer anymore?</em><br>
+<br>
+Put like that the answer is obvious. If she knows, for sure, that being a trainer is worse for pokemon than not being a trainer… not just pokemon in general, but <em>her </em>pokemon… she wouldn't be able to do it. She loves her pokemon, and even when she's training them or using them to defend her from wild pokemon, their well-being is at an equal priority with her own. Staying alive and becoming a better trainer means continuing to help them live longer, safer, happier lives.<br>
+<br>
+Leaf feels something loosen inside herself, and smiles. <em>This </em>she could do effortlessly, and with all her heart. Loving pokemon is her default emotion at any given time: she just has to bring it out.<br>
+<br>
+She begins to jog again, thinking over all the adorable and fun and fascinating pokemon she's cuddled and played with and learned about. Pokemon are <em>awesome</em>, pokemon are <em>fun, </em>and she can't wait to make <em>more pokemon friends today </em>to save them from a dangerous wilderness full of predators and other trainers that might be less interested in their well-being.<br>
+<br>
+It takes two revolutions for her to find another abra, far off to her left. This one's already fast asleep too, as is the next one she encounters. It makes sense: the longer the trial goes on, the more likely the abra are to bounce around into the song's area of influence. She might not have the chance to test her new mood on a conscious abra, but is too thrilled at the double capture to care, and keeps maintaining it anyway.<br>
+<br>
+Leaf dashes back to give Joy another quick rest, then checks the time. 2:41. The Rangers should be heading past the edge of their outermost circle now. No more running around: time to play it safe.<br>
+<br>
+She begins walking again once she finishes catching her breath. She finds her sixth abra after starting some controlled hop-spins to get a better view of her surroundings, and her seventh after she gets dizzy and goes back to simple patrolling.<br>
+<br>
+It isn't until she gives Joy another rest and begins patrolling again that the next abra appears near her. Leaf reinforces her feelings of love and caring, mentally throwing her arms wide and letting them thunder through her whole being as she stands completely still and waits.<br>
+<br>
+A heartbeat later, the abra is still there.<br>
+<br>
+Two heartbeats later. Three.<br>
+<br>
+Its head dips beneath the grass, yellow ears the only thing visible.<br>
+<br>
+Chest bursting with gratitude and happiness, Leaf finally steps forward and captures the abra, smiling down at its ball before carefully putting it in a separate pocket from the others. Maybe it was a fluke and her emotions had nothing to do with it staying, but this abra she would keep for herself.<br>
+<br>
+Leaf keeps walking through her spiraling route, beaming out love for all to feel.<br>
+<br>
+<hr noshade="noshade" size="1" /><br>
+<br>
+"Dad… Come back, dad… please…"<br>
+<br>
+Red's fingers curl in the grass, forehead pressed to the ground. His mind feels wobbly, like a mound of gelatin on a plate just a bit too small for it. Tears drip from his nose and chin as he tries to even out his breathing.<br>
+<br>
+Ten abra-filled pokeballs are in his bag, a source of distant, hollow joy compared to the soaring triumph that filled him from his first capture. He rode that feeling all the way through the next two captures, until the first abra popped into existence near him, and the connection of its mind took his breath away.<br>
+<br>
+It teleported away a couple seconds later, but he stood rooted, gasping at the sudden, crushing sense of despair. The next few abra he caught helped renew his spirits, until the second awake encounter left him quietly weeping, unable to stop himself even through his next captures. The third one drove him to his knees, chest heaving with sobs that felt like they would break him in two. It took him almost three minutes to force himself back to his feet, trembling and scared of what the next encounter would bring.<br>
+<br>
+At first he thought the abra were actually attacking him, using a Confusion attack or something. But each only stayed for a couple heartbeats before they teleport away, and besides, these were nothing like his spinarak's Night Shade, where he was forced to feel memories he couldn't identify, and actively remembering the encounter caused echoed effects.<br>
+<br>
+He knows exactly what's happening, for once. He might be glad for that, if it wasn't so terrifying: his partition is being rapidly eroded by the abra's coupling. Where Psychic Ayane's mind approached his like a ship docking at harbor, throwing out ropes one by one before sidling alongside the pier, the abra minds couple with his in binary states: one second absent, the next second fully there.<br>
+<br>
+Whether it's the strength of the connection or the sudden speed, his psychic abilities seem unable to balance their work. All the memories and emotions behind his partition come pouring out every time, a flood that fills him for the second or two the abra is around, then vanishes as they do.<br>
+<br>
+Leaving a backwash of loneliness. Shock. Despair.<br>
+<br>
+Grief.<br>
+<br>
+He was able to catch three more sleeping abra before the fourth awake one leaves him a sobbing heap on the ground.<br>
+<br>
+"Please, dad, you promised! Please... I miss you so much..."<br>
+<br>
+Red doesn't know how many minutes pass, but eventually the sobs grow weaker, then fade. He raises his head and wipes at his face with one hand as his other picks up his hat from where it fell. His hands knead the bill rather than put it back on, and he pulls in a trembling breath. When no new burst of sobs come out with it, he relaxes a little.<br>
+<br>
+Red lets his head hang back, wind blowing his hair and fresh tears streaming down his face as he watches the clouds drift across the pale blue sky.<br>
+<br>
+<em>This was a mistake.</em><br>
+<br>
+Psychic Narud was right. Red's partition is essentially a type of selective amnesia that leaves him with the memories of his father's passing, but just a shadow of the emotions.<br>
+<br>
+No wonder he still can't think about it for too long without having to shift his thoughts away. He hasn't been able to for years, but this is different. It's not a memory or an echo: he feels almost exactly the same way he did right after his dad died.<br>
+<br>
+"<em>Fragile?" his therapist asked. She stared at him with gentle but intent eyes, her tone curious. "In what way?"</em><br>
+<br>
+"<em>Like I'm made of glass." Red sat hunched in the chair, gaze down. He barely saw the office around him, barely took note of anything for longer than a moment. It was his third session, and he was just beginning to respond in more than single words, when he responded at all.</em><br>
+<br>
+"<em>Your mom says you don't react to hugs anymore. That you go stiff. Is that why? Because you think you'll break?"</em><br>
+<br>
+<em>Red shook his head. "Already broken." His voice sounded rusty to his own ears, hollow from being so long unused. "Full of cracks. Ready to… fall to pieces. Shatter, if the wind blows too hard. Or someone touches me."</em><br>
+<br>
+<em>Her eyes were full of too many things: detached calm, gentle compassion, clinical interest. Red kept his gaze down. He just wanted to make her understand, so she and his mom would leave him alone.</em><br>
+<br>
+"<em>Wow. That sounds pretty shitty."</em><br>
+<br>
+<em>Red felt something at that. It wasn't much: just a flicker of surprise, deep down. But it was more than he felt of anything besides anger or sadness or emptiness in awhile.</em><br>
+<br>
+<em>Unable to muster the energy for a response, he just shrugged.</em><br>
+<br>
+"<em>It also sounds like you need time, Red. Nothing wrong with wanting breathing room to let the pieces settle. "</em><br>
+<br>
+Red lets out a shaking breath. "Let the pieces settle." That's what he thought happened, over the years. Apparently not as well as he thought.<br>
+<br>
+Red's phone vibrates in his pocket. He takes it out and stares blankly at the message from Blue until a thread of alarm finally penetrates the fog around his mind.<br>
+<br>
+<em>3rd speaker offline. dunno if glitched or some wild got it.</em><br>
+<br>
+Red wipes his face again, then slowly gets to his feet and begins walking, one arm wrapped around his stomach as if it'll help hold himself together. Tears continue to track down his cheeks as he makes his way across the grassy field, intent to keep sweeping his path of the abra landing zone. If he holds still too long Blue will finish looping around and come up behind him.<br>
+<br>
+He has to catch as many as he can. The longer the speakers are in effect, the more abra should be already in the middle zone and asleep, rather than popping in. If he's lucky, he won't encounter any more awake ones.<br>
+<br>
+But he needs to be ready in case he does.<br>
+<br>
+At first Red tried to prepare his mind for abra contact the same way he prepared for Ayane's: by mimicking the state of mental connection enough that he could get used to it, and keep his mental footing when she linked with him.<br>
+<br>
+Now that he knows that's not going to work, what's left?<br>
+<br>
+Red spots another pair of abra ears sticking out of the tall grass and walks over to capture it. His arm trembles as he holds the pokeball toward it, and fresh tears slide down his cheeks as he remembers standing with his dad in their backyard and mimicking his ball-throwing motion.<br>
+<br>
+Red's ball pings its lock, and he gets closer before tossing it underhanded to ensure it doesn't miss. After he tucks the new capture away, Red checks the time. 2:31. An hour left. He doesn't know if he can make it that long.<br>
+<br>
+He tries refocusing on the basics as he walks. The air rushing into his lungs, the beat of his heart, both seeming louder than usual thanks to his plugged ears. His attention shifts to the feel of the wind on his skin, pressing his shirt to his body... then to the hollow pit in his chest, sucking inward, a constant, aching pain that completely breaks his concentration.<br>
+<br>
+<em>Red scowled and opened his eyes. "I can't do it," he said, voice sullen even to his own ears. He pushed himself off the floor anyway, returning to the comfy chair as his therapist stayed on the floor with her legs crossed. "I can't concentrate, I keep thinking of… other things."</em><br>
+<br>
+<em>She nodded. "That's understandable. As I said, it takes time and practice. It's okay to be distracted when you first try."</em><br>
+<br>
+"<em>It's </em>not <em>okay! Easy for you to say to 'let it go,' it's not something stupid like thinking of a math test that's distracting me!" Red realized he was shouting and forced himself to stop, fuming silently in his seat. It was only his sixth session with the therapist, but suddenly the whole thing felt like a waste of time.</em><br>
+<br>
+"<em>What is it that's distracting you, then?" she asked, still serene.</em><br>
+<br>
+"<em>You know what it is," he snapped, but he could already feel his anger leaving him. It took too much effort to hold onto emotion, even anger. Everything got sucked down the empty void in his chest eventually. "The point is I'm trying to </em>stop <em>feeling this way, having these thoughts. It's totally stupid to say it's okay to be distracted by them while trying to stop being distracted by them."</em><br>
+<br>
+<em>She raised an eyebrow then surprised him for the second time in their sessions together by nodding and getting up. "I think you're right, meditation probably isn't the answer right now." She returned to her chair. "So, let's see what else we can try."</em><br>
+<br>
+Red takes a deep breath, not breaking stride as he tries to ignore the pain. If it's one thing he learned in those sessions, it was not to give up on searching for answers. To not get stuck on one solution just because it worked before, or angst about how hopeless everything is. His therapist never let him dwell on his failures, or her own. She just kept engaging him, pushing them both to try new things, until something helps, even a little… and then to keep finding new things to build on the successes. A sort of inverse of the "death by a thousand cuts" concept.<br>
+<br>
+A thousand small braces and splints and bits of glue tacked onto every part of him, so he could keep moving, keep walking forward, into the wind, without it blowing him to pieces.<br>
+<br>
+He draws on those memories again now, the ones he could apply in the moment. Comfort foods are out, even in moderation. Same with music, since he has his earplugs in. He's already being physically active, but maybe he can step it up.<br>
+<br>
+Red forces himself into a jog, trying to kick some adrenaline into his system to help chase the depression away by brute force. It doesn't feel like it's helping, but he keeps at it anyway. If nothing else it'll help him cover more ground.<br>
+<br>
+In the meantime he still needs a mental defense in case he encounters another abra. How else can he use his powers to help him?<br>
+<br>
+Red feels frustration welling up, a frustration that hides a familiar hopeless apathy at its core. He doesn't know enough about how his powers work to fashion a solution. He only knows a couple tricks, one trick, really, just copying mental states. If he had any experience utilizing his powers from the ground up-<br>
+<br>
+<em>Stop focusing on problems. Focus on solutions.</em><br>
+<br>
+Mimicking mental states. His first, balancing-on-a-tightwire, didn't work, but he also copied a weak form of Ayane's ability to block physical pain. Could he use many-mirrors-and-a-dim-room to ignore emotional pain too?<br>
+<br>
+Now wouldn't be a great time to get nauseous and throw up again, but it's worth trying, even for a moment.<br>
+<br>
+Red focuses on the sadness and loss that reverberate through his chest. He pictures the black hole centered there, just below his heart, scraping everything inside him raw as it pulled and tugged in pulsing aches.<br>
+<br>
+It's surprisingly easy, maybe too easy. The sensation seems to amplify, his focus and attention making the feelings more pronounced, and Red slows to a stop, breathing hard as his lip trembles, eyes welling with tears.<br>
+<br>
+Some distant part of him cries out in alarm, worried that he's actually feeding the sadness with his psychic powers. It doesn't matter, though. None of it matters. His dad's dead, he's <em>gone </em>and never coming back, even if Bill's right and people eventually cure death, his dad will be forever in the past, his mom probably will too, and…<br>
+<br>
+<em>And me… one day, I'll die too, and there'll be nothing, just blank absence of everything I am...</em><br>
+<br>
+Red sees his dad a dozen times a second, in the kitchen with his mom in the morning, training with his pokemon, coming home for the weekend, carrying Red on his shoulders, leading him through the forest...<br>
+<br>
+Red falls to his knees, pokeball dropping from his hand as he rests his palms on the grass, catching himself as he begins to weep again.<br>
+<br>
+<em>If you're going to put yourself through this, at least let it be worth something. Try the experiment, just so you know if it works.</em><br>
+<br>
+Red sucks in a long, shuddering breath, then closes his eyes, concentrating on the gaping black hole inside him. He pictures his psychic powers like vibrant colored lines around it, streaks of gleaming light that connect in a hexagon, keeping the effects of the hole from reaching past to the rest of him.<br>
+<br>
+Red winces as the ache continues, and the image falls apart. Ayane's skepticism comes back to him: "<em>It's not enough to simply imagine yourself doing something with your powers, or a psychic's life would be far easier."</em> She's right: it's one thing to mimic a state of mind he felt and come up with a metaphor afterward: doing it in reverse would be pure wish fulfillment.<br>
+<br>
+<em>NO! That's loser talk!</em><br>
+<br>
+Red blinks, tears trembling on his lashes. That mental voice sounded oddly like Blue. He wonders if he's starting to crack up.<br>
+<br>
+<em>You're not concentrating. You lost the mental state when you imagined the black hole, before you even started with the lines. Try again, something easier.</em><br>
+<br>
+Red feels a gust of wind blow his hair against his wet face, and tugs his hat down lower to keep it from blowing off. Ok. Something easier. He can do this.<br>
+<br>
+The black hole is there, he doesn't have to imagine it any clearer. Instead he focuses on his heart: a glowing source of warmth in his chest, being worn away by the sucking, empty void. Red imagines the blocking lines around his heart instead, and at the same time shifts his thoughts to all the memorized points of many-mirrors-and-a-dim-room, then-<br>
+<br>
+-<em>wait what if that takes away all feeling-</em><br>
+<br>
+-inverts-<br>
+<br>
+-<em>who cares that's better than this-</em><br>
+<br>
+-it into a single island of light inside him, everything else going dark as he gives them over to the void.<br>
+<br>
+Red's trembling stops. He breathes deep a few times, surprised at how… quiet isn't the right word, with his earplugs in <em>everything's </em>quiet, but <em>still </em>his emotional state feels.<br>
+<br>
+The depression is there, the sucking ache in his chest is there, and, yes, the nausea is there. It's just all… distant. Dim, like the pain in his arm was.<br>
+<br>
+Red smiles. It feels strange on his face, <em>strained </em>and oddly disconnected from his inner self, like the muscles of his face are reacting independently. But he finds he can't stop.<br>
+<br>
+He figured something else out with his powers. Neat.<br>
+<br>
+Red gets back up, and picks up the pokeball he dropped. He starts walking again.<br>
+<br>
+Things feel strange. Not just emotions, but <em>things. </em>The feel of his clothing on his body, the wind on his skin, the sunlight. It's all muted.<br>
+<br>
+Why isn't he moving?<br>
+<br>
+Oh right. He stopped walking.<br>
+<br>
+Red looks around. Nothing of particular interest is going on.<br>
+<br>
+What's he doing again? He knows what he's doing, obviously, but what's the point?<br>
+<br>
+<em>Shit. This is what it's like to not feel anything, isn't it?</em><br>
+<br>
+But that's ridiculous, he clearly still wants things. He doesn't want to get hurt, for example. Dropping shining-mirror-in-a-dim-house would make the hurting feelings come back.<br>
+<br>
+He had a purpose in doing that though. To keep catching abra unimpeded. It would all be rather useless if he didn't keep catching abra, right?<br>
+<br>
+Red keeps walking. Eventually he finds more abra and catches them. He doesn't know how long he walks, but nothing exciting or interesting happens. He just keeps walking and catching abra. Eventually his phone vibrates, though he barely feels it.<br>
+<br>
+It's probably not important.<br>
+<br>
+<hr noshade="noshade" size="1" /><br>
+<br>
+Blue stares down at the broken speakers with a frown. He hoped it was something he could fix, but this thing is utterly trashed. Looks like something really heavy smashed it over and over again.<br>
+<br>
+Blue looks around. Nothing but grassy fields. Whatever pokemon did it is long gone.<br>
+<br>
+He sighs and jogs back toward the abra landing zone. The gap in their circle of speakers will make it easier for abra to slip free, but they only have about 30 minutes left before Joy gets tired anyway.<br>
+<br>
+His bag jostles with over a dozen expanded pokeballs in it, most of them filled with abra. There was another bellsprout that wandered into range of Joy's singing after it had started, and now that he has two he feels much more prepared for his battle with Misty.<br>
+<br>
+He keeps an eye on his GPS as he moves, and relaxes when he reaches the landing zone again. It's a nice feeling, being able to walk through fields of empty grass and not worry about pokemon jumping out and attacking. Relaxing, even.<br>
+<br>
+Most of the abra he encountered were already asleep, but a few popped into existence within his line of sight. He just stood completely still for a few seconds until it was clear they were out of it, then caught them too. He hopes whatever Red and Leaf figured out works too, because if they've caught as many as he has...<br>
+<br>
+Blue grins. They're going to make <em>so much money</em> off of this.<br>
+<br>
+He spots another pair of yellow ears sticking out of the grass and changes course to catch it, cheerfully lobbing the pokeball underhand after giving it a moment to lock. He really has to hand it to Red, he really struck gold with this idea. They'll be able to control the market on abra for a bit before it gets flooded, and combined with the cash from their clefairy trades, make enough money to not have to worry about their allowance restrictions for months.<br>
+<br>
+He's already thinking of all the TMs and training tools he'll buy, along with maybe a competitive pokemon or two. He probably won't be able to afford a larvitar or anything crazy like that, but with his eye on the next couple gyms, he could use a solid Ground or Fire type.<br>
+<br>
+Blue reels himself in before he goes too far down that imaginary road. He already comes from enough of a privileged position, with the Oak name and connection and resources at his back. Beginning his journey with a premium starter, instead of a rattata or meowth or whatever most people could get, is usually grudgingly accepted by the less fortunate masses, but only as long as skill is still shown. No one cares that Lance started his journey with one of his clan's dratini, because he raised it himself, without even using a pokeball. As long as Blue doesn't throw money around enough to seem like a "spoiled rich kid," he could use it for a number of helpful boosts.<br>
+<br>
+Blue checks his supply of pokeballs. He has nineteen left before he has to start using the more expensive balls. He doesn't think he'll need them all, but it would be nice to cap out.<br>
+<br>
+The next few minutes are spent continuing his circuit, occasionally spotting an abra and detouring to catch it. He finds a rare hill, really just a small elevation in the grassy field, and stands at the top as he takes out his binoculars and looks around.<br>
+<br>
+Hmm. One abra there, another about a 120 degrees from it. He'll pick up the farther one first, since the closer is on his way forward.<br>
+<br>
+He catches both and keeps walking, wondering how far ahead or behind Red is. Hopefully they kept about the same pace with each other, but his detour to see the speaker might have closed the area of their search a bit.<br>
+<br>
+Blue finds Red's GPS position and sees it's not far in front of him. Huh. Guess he got delayed by something too.<br>
+<br>
+<em>Better slow down a bit. </em>Blue looks for another hill to spot from, and a few minutes later he finds one, taller than the last. He runs to the top and lifts his binoculars again, looking around. There's an abra, aaaand another… and…<br>
+<br>
+Blue lowers his binoculars, then lifts them back up. <em>Shit. </em>He checks his GPS. "Shit!"<br>
+<br>
+He lifts his binoculars again, pulse quickening as he watches the loudred walking steadily toward the center of the field, a small group of whismur following it. They're not heading directly toward Joy and Leaf, but they're moving in their general direction.<br>
+<br>
+There are only two pokemon families in the area that might be completely immune to Joy's singing: hoothoot/noctowl, some of which don't sleep, and whismur/loudred/exploud, who are immune to sound-based attacks. The former rarely travel during the day, and the latter mostly stick to the caves that dot the surrounding mountains, only occasionally migrating. Still, knowing that they're attracted to loud sounds, Red and Leaf planned for this.<br>
+<br>
+Blue takes out his phone and sends them a warning.<br>
+<br>
+<strong>Got it. </strong>Leaf sends back. <strong>Heading back to Joy to move us. Let me know when you guys are ready for the song to end.</strong><br>
+<br>
+<em><strong>might not have time for that if they get close enough to fight. maybe we cancel the song and hit them together?</strong></em><br>
+<br>
+<strong>Let's avoid battling a group please, especially since we have no Fight/Rock/Steel pokemon.</strong><br>
+<br>
+<em><strong>we can put them to sleep another way, bulbasaur and zephyr with sleep powder?</strong></em><br>
+<br>
+<strong>Maybe. What do you think Red?</strong><br>
+<br>
+Blue taps his foot as he waits for Red to respond, and looks around. Should he rush over to the abra he saw and catch them? He picks up the binoculars and tracks the loudred's progress until it's out of sight.<br>
+<br>
+<em><strong>careful leaf it's close</strong></em><br>
+<br>
+<em><strong>red you there?</strong></em><br>
+<br>
+<em><strong>shit</strong></em><br>
+<br>
+<em><strong>RED</strong></em><br>
+<br>
+<strong>Have you talked to him recently?</strong><br>
+<br>
+<em><strong>no</strong></em><br>
+<br>
+<em><strong>he's close though gonna find him</strong></em><br>
+<br>
+Blue takes off, nearby abra forgotten. <em>Come on man, answer. </em>He keeps checking his GPS as he runs to see if Red is moving. Finally his phone buzzes again.<br>
+<br>
+<strong>I'm here.</strong><br>
+<br>
+Blue slows to a stop, breathing hard. <em><strong>the hell man?</strong></em><br>
+<br>
+<strong>Are you okay Red? </strong>Leaf asks.<br>
+<br>
+<strong>Fine. Stop the song, relocate somewhere safe until they pass through.</strong><br>
+<br>
+<em><strong>you're not going to use charmander's smokescreen?</strong></em><br>
+<br>
+Red takes his sweet time responding again. Blue wonders if he's actually hurt after all, and is about to send another message when Red says <strong>No need. It probably broke speaker. Without singing it'll go for another.</strong><br>
+<br>
+Blue frowns. <em><strong>we can take them, if the three of us are together.</strong></em><br>
+<br>
+<strong>Sound based attacks. Too risky. Stick to abra catching.</strong><br>
+<br>
+Shit, he left two of them back there. Rather than argue, he turns and rushes back in the direction one of them was, knowing he won't make it to both on time before Leaf stops the song.<br>
+<br>
+Red better have a good explanation for what's going on with him.<br>
+<br>
+<hr noshade="noshade" size="1" /><br>
+<br>
+Red stands in front of the sleeping abra, and waits.<br>
+<br>
+The phone's continued vibrations grew annoying eventually, and he took it out of his pocket to turn it off. Seeing the screen made him hesitate, and some part of him reacted with enough horror to what he almost did to snap him out of the mental state.<br>
+<br>
+Returning from it was like getting a bucket of cold water dumped on his head. He trembled as the aching sadness filled him again, and in fear of how far he almost sank into total apathy.<br>
+<br>
+Still, he knew he had to return to it. He has to test if it works on awake abra.<br>
+<br>
+So he ran until he found one. He holds a pokeball pointed at it, already locked on by now. He knows he's risking throwing away a capture, and wants to at least try to get it if he can.<br>
+<br>
+The seconds crawl by as he waits for Leaf to end Joy's song, and as he does he sinks back into the apathetic state, trying to remain focused on his singular goal: catch the abra after it wakes.<br>
+<br>
+Catch the abra after it wakes.<br>
+<br>
+Catch the abra. After it wakes.<br>
+<br>
+Catch the ab-<br>
+<br>
+Its mind is suddenly there, sleepy at first, but alert within a second. Red groans as despair floods him, pushing past the numbness and breaking his concentration. He throws the pokeball as he doubles over and clutches his torso with both arms, but the abra vanishes before the ball reaches it.<br>
+<br>
+Red sobs in a mix of grief and frustration. Not enough. All that effort and risk for nothing. He can blunt his feelings, but they're still just a portion of what's behind his partition when it comes down.<br>
+<br>
+Somehow he manages to keep his feet as the storm of sobs wrack him, but when they pass he feels utterly hopeless. If coming up with a whole new mental state wasn't enough, then he's out of tricks. He tried, and he failed.<br>
+<br>
+"<em>Why do you think of that as failure?" His therapist seemed genuinely curious, the way she always did when asking questions no matter how obvious or pointed the question might be.</em><br>
+<br>
+"<em>What do you mean, why? It's the definition of the word." She stayed quiet, waiting, and eventually Red searched for something else to say. "If I passed the class, I would have succeeded. I didn't, so I failed. It's not complicated."</em><br>
+<br>
+"<em>But why do </em>you <em>think of that as failure?"</em><br>
+<br>
+<em>Red frowned. "You can't just emphasize a word and repeat the question as if that changes the answer."</em><br>
+<br>
+"<em>Doesn't it?"</em><br>
+<br>
+"<em>No," he said, ignoring the dissonance he felt. "I think of that as failure because that's what failure is, to everyone."</em><br>
+<br>
+"<em>I see. So if a scientist tests an idea and doesn't get the result they want, did they fail?"</em><br>
+<br>
+"<em>Obviously."</em><br>
+<br>
+"<em>What if they learned something from it?"</em><br>
+<br>
+"<em>Well, good for them, I guess, but they still failed."</em><br>
+<br>
+"<em>Do you think they could ever be happy they failed, if the thing they learned ended up being more important?"</em><br>
+<br>
+<em>Red sensed the trap, but he couldn't ignore his inner agreement this time. "Sure, I guess. So what did I learn from failing a class? Since, you know, failing a class comes from not learning?"</em><br>
+<br>
+<em>"I thought you failed because you didn't do the work," his therapist said, but continued on before he could answer. "But if you failed because you didn't learn the subject, then at the very least, you learned what doesn't work for you, right?"</em><br>
+<br>
+<em>Red rolled his eyes. "Right, I learned that staying in bed all day and not doing the homework won't pass the class. I'm a genius, now."</em><br>
+<br>
+<em>She leaned forward, resting her chin on one fist. "What if you also learned that you can't force yourself to be productive when you're feeling shitty? That maybe you have to focus on feeling better first?"</em><br>
+<br>
+"<em>Sounds like an excuse to not even go to class next quarter. I'll take it, thanks."</em><br>
+<br>
+"<em>Maybe you shouldn't. Do you want me to call your teachers?"</em><br>
+<br>
+<em>Red's eyes widened. "Uh. No, that's okay."</em><br>
+<br>
+<em>"Are you saying that because you think you'll get in trouble? Because I promise you won't. I'll speak to your mother about it too if you want."</em><br>
+<br>
+<em>Red fidgeted in his chair. "I can't just miss a whole quarter."</em><br>
+<br>
+<em>"Why not? You're not going to pass it anyway."</em><br>
+<br>
+<em>Red felt like arguing, but caught himself. Why was he trying so hard to stay in school? But the implication that he wouldn't pass… it bothered him, even though he didn't care a moment ago. "What are you trying to do, here? Get me to skip a quarter, or push me into trying to pass it?"</em><br>
+<br>
+<em>His therapist cocked her head to the side. "What do you think I'm trying to do?"</em><br>
+<br>
+Red stifles a sob before it can escape his lips, and breathes deep, smelling the fresh green grass all around him. <em>Change a failure into a learning opportunity.</em><br>
+<br>
+So. What did he learn?<br>
+<br>
+He learned that the loss of the partition is more impactful than a change to his mood. So what he needs to do is keep his partition from mattering.<br>
+<br>
+Start at the beginning. What are his tools? What can he do?<br>
+<br>
+He can mimic mental states influenced by psychic powers. He can mimic his own from specific stimuli, and others'. What does that leave him with?<br>
+<br>
+Red keeps breathing in and out, focusing on the thought. What other psychically influenced mental state can he mimic? If only Ayane had used her power in a way to make her mind "healthy" or "stable" or-<br>
+<br>
+Red's eyes open as his breath catches. <em>I don't need Ayane's mind in that format: my default state</em> is<em> a psychically sculpted stable one!</em><br>
+<br>
+He doesn't waste time wondering if it could work. Red drops into the lotus position, evening out his breaths as best he can. One arm rises to impatiently rub his face dry, then again as fresh tears appear at the ache of sadness that goes through him. <em>Nevermind. Let it go. </em>He waits until his awareness is mostly drawn inward, then begins shifting his attention to different parts of his mental state. He's <em>emotionally </em>sad, but his <em>thoughts </em>aren't being overwhelmed with negative associations like when the partition is down.<br>
+<br>
+For a glimmering second, Red almost grasps what Elite Agatha meant when she insisted to Professor Oak that there's a distinction between mental and emotional pokemon attacks.<br>
+<br>
+Then it passes, but he's still able to reach far enough to work with the distinction.<br>
+<br>
+No set of words seem fit to describe it, however. How would you describe your default mental state? It's just "existing normally." But that still has markers, anchors, a framework he can remember and nail into place.<br>
+<br>
+It doesn't feel like anything has changed. He hasn't made the partition stronger, and he isn't using his powers to do anything. He's just… focusing on keeping everything as it is.<br>
+<br>
+He stays that way until his phone vibrates again. He checks it and sees that the first speaker he put down is offline. <strong>The loudred got another one, </strong>he sends. <strong>We should be clear.</strong><br>
+<br>
+<strong>Okay, </strong>Leaf says. <strong>Summoning Joy. Earplugs back in, if you took them out.</strong><br>
+<br>
+Red puts his phone away and focuses on the mental state again, waiting until it feels stable before he gets to his feet and resumes walking. Every so often he feels as though he's lost it: trying to consciously hold onto a "default" feels like trying to cup water in his hands, but he keeps reinforcing it every so often, retracing his mental path around the touchstones of how he thinks, around the gap between what he feels and his memories of his dad's death.<br>
+<br>
+He eventually spots a sleeping abra and catches it. A few minutes later he finds another. Part of him is glad the system's still working with two speakers down, but he begins to grow impatient as he walks, checking the time occasionally. He needs to find another awake one. He needs to know if this works.<br>
+<br>
+When there's just fifteen minutes of singing left, Red starts to seriously consider sending one of his captured abra back out and waking it up himself. He's still talking himself out of it when he feels an abra pop into existence nearby, its mind suddenly "next to" his.<br>
+<br>
+He freezes, eyes flicking around. He can't see it, it must be behind him… but-<br>
+<br>
+Red's mind wobbles, a mass of gelatin on a small plate again as the abra… tries to reconnect. It's almost like the mind bounced off, then came back again. He focuses on his mental state, keeping all the anchors in place, all the parts of his mind that make up just-being-normal-Red…<br>
+<br>
+And a few heartbeats later, suddenly as it started, the sensation is gone.<br>
+<br>
+Red waits a few more seconds, pulse pounding in his ears, and finally, slowly, looks around. He spots the abra a few paces behind him and to the left, practically in arm's reach.<br>
+<br>
+Red slowly extends his pokeball turning it so the lens aligns with the abra. He counts to three. He throws.<br>
+<br>
+The ball flashes, snaps shut, and rolls onto the grass.<br>
+<br>
+Red falls to his knees once again.<br>
+<br>
+The ache is there. The grief. The pain. The loneliness. The despair. The wind blows, feeling extra cold on the tear tracks on his face.<br>
+<br>
+But still, for a moment, he smiles.<br>
+<br>
+<hr noshade="noshade" size="1" /><br>
+<br>
+"Are you kidding me?" Red asks. "You got them to stay with <em>the</em> <em>power of love?"</em><br>
+<br>
+"It's not that simple." Leaf pauses, then smiles. "Okay I guess it is that simple, but it's not as easy as it sounds. It took a few tries to actually figure it out."<br>
+<br>
+Red grumbles. "Well, it probably wouldn't work for me anyway. And I figured out my own solution, eventually."<br>
+<br>
+"Good, because when we do this again I expect you guys to get on my level," Blue says as he cheerfully fills his corner of the table with pokeballs almost twice as fast as them. He can already tell he got a lot more than they did.<br>
+<br>
+They sit in one of Bill's living rooms, placing a growing collection of balls on the table after registering each pokemon in their dex. There's a fruit bowl in the middle that Blue quickly has to move elsewhere to make more room. His stomach grumbles, and he picks out an apple before resuming work one-handed.<br>
+<br>
+Once they finish emptying their bags, the three put aside the other pokemon they caught until just the abra are left, then start counting. Blue glances at Red every so often, noting the tautness of his features. When Red explained what happened to him, he made it seem like his experimental mental states were temporary. But there's something distant and off about his friend's gaze, and Blue wonders if Red understated how strong the renewed emotions are, or how he's managing them.<br>
+<br>
+The final tally is 19 for Red, 24 for Leaf, and 31 for Blue, a few of them temporarily in greatballs.<br>
+<br>
+"I got one more." Leaf holds the ball up. "But I'm keeping it."<br>
+<br>
+"Yeah," Red says. "I'll keep one too, once we finish analyzing them all."<br>
+<br>
+"How long do you think your study will take?"<br>
+<br>
+Red shrugs. "A week, maybe? The only reason the last one took so long is because I had to wait for people with spinarak to come to me. Now I have a big sample ready to be tested."<br>
+<br>
+Blue studies Red's face again. He sounds almost... uninterested. "Well, it'll take at least that long to study the market and come up with a good plan to sell them," Blue says. "So no rush on that."<br>
+<br>
+"I'd like to vet my buyers personally anyway," Leaf says.<br>
+<br>
+They look at her in surprise. "What, you're going to meet each one?" Blue asks.<br>
+<br>
+"Maybe not meet in person, obviously, but at least check them out online, maybe give them a call. I want to at least try and make sure the people who buy mine are going to take good care of them."<br>
+<br>
+Blue shrugs. "As long as we agree on how we price and list them, then your pokemon, your rules."<br>
+<br>
+His hands move out among his collected pokeballs, straightening each one into a uniform pattern, enjoying the sight of all of them. It's a bit hard to believe how many he got. Hearing the other two talk about their struggles to catch the awake abra showed how being Dark has its advantages, but now that the catching is over and he listens to the other two discuss how they'll train their abra, all the great uses they'll have for them, Blue feels the warm glow of contentment fading away. He always wanted an abra when he was younger. The idea of being able to teleport, or share the thoughts of one of his pokemon, always seemed so cool.<br>
+<br>
+But he'll never have that, no matter how many abra he catches.<br>
+<br>
+Blue's jaw sets as he picks one of his abra's balls up. Leaf has gone around to get the bowl of fruit, and is sharing it with Red. Blue waits until they've picked something out, then says, "I'm going to keep one too."<br>
+<br>
+Red and Leaf look at him in surprise. Dark trainers don't use Psychic pokemon. It's just not done: without the ability for their pokemon to sense them, they would be incredibly hard to interact with, let alone train.<br>
+<br>
+Blue meets their gazes, waiting for their skepticism and questions.<br>
+<br>
+"Wouldn't the time be better spent training others, though?" Red asks. He holds a palm up to stop Blue's response. "I'm just curious. I don't doubt you can do it. You're the most determined person I know, and a great trainer. I'm asking from an efficiency perspective."<br>
+<br>
+Blue relaxes slightly, and smiles. It means a lot, hearing Red say that. Not that Blue would ever admit it out loud. "It won't be efficient, no," he says. "I don't fully know how I'll do it yet. Maybe in the time it takes I could train two other pokemon instead. But I'm going to do it anyway."<br>
+<br>
+"Strategic advantage?" Red asks. "Having a psychic will surprise people who know you're Dark."<br>
+<br>
+"Optics," Leaf suggests instead, munching on a strawberry she liberated from the bowl. "A Dark trainer with a powerful, well trained Psychic pokemon… I don't think I've ever heard of someone like that. It'll really make you stand out."<br>
+<br>
+Blue nods. "You're both right. But most of all, it's-"<br>
+<br>
+"To prove you can," Red says.<br>
+<br>
+Leaf smiles and adds, "To yourself as much as anyone."<br>
+<br>
+Blue grins back. "You guys know me so well. Can I count on your help?"<br>
+<br>
+Red extends a fist, and Blue bumps it, glad to see the gesture. Blue then extends his other fist toward Leaf. She grins and taps her knuckles to his, and Red and her extend their other hands at the same time to complete the triangle. Blue feels a bit better seeing Red smile, even though it fades a second later.<br>
+<br>
+"Today was... a good day," Red says, keeping his fists out.<br>
+<br>
+Leaf nods. "To Red, for his great idea."<br>
+<br>
+"Hear, hear!" Blue says.<br>
+<br>
+His friend flushes. "To Bill," Red says. "For letting us use his land."<br>
+<br>
+"Hear, hear!" the other two repeat.<br>
+<br>
+"Welcome," the speakers above them says, making them all jump and lower their arms at last.<br>
+<br>
+"And to me," Blue says with a smile, "For catching Joy and making it all possible." He ducks as the others toss fruit at him. "No need for thanks, folks, my bigger catch is thanks enough. And next time, I'm going to be bringing more pokeballs."
+        </div>
+
+        <div class="chapter-nav">
+            <a href="../80/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Chapter Index</a>
+            <a href="../82/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>

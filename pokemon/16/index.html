@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 10: Avoidance - Pokemon: The Origin of Species</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .chapter-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .chapter-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .chapter-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            max-width: 70ch;
+            margin: 0 auto;
+        }
+
+        .chapter-content br {
+            display: block;
+            content: "";
+            margin: 0.75em 0;
+        }
+
+        .chapter-content hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 2em 0;
+        }
+
+        .chapter-content em {
+            color: var(--accent-2);
+            font-style: italic;
+        }
+
+        .chapter-content strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .chapter-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../">Pokemon: TOoS</a></li>
+                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chapter-header">
+            <h1 class="chapter-title">Chapter 10: Avoidance</h1>
+            <div class="chapter-meta">Pokemon: The Origin of Species</div>
+        </div>
+
+        <div class="chapter-content">
+            In general, travel through Viridian Forest is safe in groups. While the more territorial or aggressive pokemon like weedle or mankey might choose fight over flight, lone pokemon that are willing to face down three humans, even adolescents, are the exception rather than the rule. It's the primary reason people are encouraged to travel in groups, but it does pose an issue for trainers who are actively seeking out new pokemon.<br>
+<br>
+Red, Blue and Leaf quickly conclude that sticking to the main road through the forest wouldn't let them encounter many pokemon, while tromping through the forest together would only scare most off. Knowing how foolhardy it would be to go off in separate directions, they compromise with a variation of the tactic Rangers use to sweep an area.<br>
+<br>
+Red checks the map on his phone as he walks through the underbrush. The screen shows an aerial view of the forest overlaid with a grid. The two dots representing Blue and Leaf's phones form a rough triangle with his own, all within a hundred meters of each other. If someone goes too far from the other two, the phones would alert everyone. In the meantime they have enough personal space to find and catch pokemon without fighting over each one they see, and are still within safe distance of each other for emergencies.<br>
+<br>
+Red smiles and puts his phone away, mentally patting himself on the back. They've only been in the forest for half an hour, and have at most another full hour of daylight left. After approximating their distance traveled so far with how much forest is left to the north before Pewter City, Red is confident his "competition" will keep them busy for at least a couple days. Hopefully that'll be long enough to miss the storm if it continues south, but worst case scenario, Zapdos attacks after they arrive when at least one of them has a full belt of pokemon. And if any help requests pop up nearby meanwhile, it might take even longer before they get to Pewter, giving them an excuse to miss it entirely without bruising Blue's ego.<br>
+<br>
+Not that he doesn't intend to try and win their little competition, of course. There are a number of pokemon in the area he wants, and a free dinner is a free dinner.<br>
+<br>
+Red breathes in the earthy smell of the forest, mostly filtered by his gas mask. He'd put it on as soon as they split up, and has an empty pokeball ready in one hand so he can try for a quick capture if he spots a wild pokemon. But even walking alone, he's big enough to scare away most pokemon in the area. Poking his head in every bush or tree trunk looking for those that are hiding is a great way to get a cloud of poison or stinger to the face, and while his mask will protect him from the former, he doesn't want to test the latter.<br>
+<br>
+Which leaves using his pokemon to flush wild ones out. He wants to keep charmander fresh, so he puts away his empty ball and unclips his rattata's to summon it for the first time. "Rattata, go!" he yells as he throws.<br>
+<br>
+The ball sails forward into a relatively clear patch of grass and disgorges his rattata in a flash of light before rocketing back toward Red. His throw had a bit too much of a downward arc, so he has to reach above his head to snatch it out of the air with both hands cupped together.<br>
+<br>
+"Yes!" Red pumps his fist with a grin, then looks around. Unfortunately (or fortunately), no one had been around to see it.<br>
+<br>
+No one except his rattata, who seems surprised at the outburst. She stands on her hindlegs and peers around the forest, nose twitching in the air.<br>
+<br>
+Red approaches and kneels to scratch the fur along her back. "Hey there little lady. Nice to see you again," he says, wanting her to get used to his voice in the real world. He puts her ball away and takes out some dried berries and nuts for her to eat.<br>
+<br>
+His rattata's whiskers twitch over his cupped palm, then her front paws begin scooping the food into her mouth, munching quickly at each mouthful before grabbing more. Standing on her hindlegs she's as tall as his knee, and when she finishes feeding she drops back down to all fours and rubs against his ankle.<br>
+<br>
+He plays with her a bit, letting her get the scent of his hands and scratching her white belly. He tries to stroke her tail, and smiles as she squirms, then twists it away from his hand. "Okay, no tail touching. Got it."<br>
+<br>
+Red finds some rocks and hefts them to ensure they weigh a solid amount. Once he has a dozen in his pocket, he begins walking forward again with one in each hand. His rattata follows at his heels, occasionally running to the sides or ahead briefly to sniff at some moss or munch on a fallen acorn.<br>
+<br>
+Red stops when they near a particularly large clump of bushes, turning one of the stones over and over between his fingers. He doesn't want to go rooting through the bushes for pokemon, and he doesn't want his rattata to stick her nose into potential danger either…<br>
+<br>
+"Rattata, ready," he says, and the rodent dashes in front of him, planting its feet and staring forward, long tail curled up above it. Feeling his pulse begin to speed up, he prepares himself for a fight, then cocks his arm back and throws the rock into the bushes.<br>
+<br>
+The round stone swishes through the leaves and rustles some branches as it hits something with a dull thud. Red waits, body tense, not blinking as the bush sits still… silent…<br>
+<br>
+Eventually he realizes his lungs ache, and lets out his breath. "Rattata, follow," he says, and they continue onward.<br>
+<br>
+The next bush is smaller than the last, and when he throws the rock it sails straight through it. Red waits with his heart in his throat, but nothing emerges, and he walks on, checking every group of bushes big or dense enough to hide a pokemon.<br>
+<br>
+On his fifth throw, a pidgey flies out of the bush with a startled flap of its wings. Red had an empty pokeball ready, but it's already too far for the lens to get a lock, and he frowns as it flies up and away through the tree branches. Rattata hisses at a feather that floats down at them before pouncing on it, and Red laughs, frustration draining away.<br>
+<br>
+He tries another two bushes with no result. Just as he's about to throw at the third one, his phone chimes, causing him to jump and drop his rock. Blushing furiously, he takes his phone out and checks the screen.<br>
+<br>
+<em>3 to 2. Have I mentioned how much I love tentacool soup?</em><br>
+<br>
+Red returns his phone to his pocket without replying. He's dying to know what pokemon Blue had caught, and how, but that's why Blue hadn't mentioned it, and asking would just waste more time.<br>
+<br>
+Throwing rocks into bushes and hoping a pokemon would pop out and fight his rattata may be the safest way to go, but it could take hours, and the daylight's fading. It's time to put some of his riskier ideas to the test.<br>
+<br>
+He needs a flying pokemon, but hoothoot and noctowl won't be up and about until it's full dark. He could try to find one's roost, but that would involve a lot of tree climbing, and without a flying pokemon of his own he'd be at a major disadvantage if he angers one.<br>
+<br>
+Against anything but other flyers though, his charmander gives him a huge advantage over the local flora and fauna. One on one, the fire lizard could take down practically any pokemon in the forest, as most are bug or plant types.<br>
+<br>
+But being the strongest thing around isn't going to attract contenders. He needs to seem like the weakest.<br>
+<br>
+Red takes his pokedex out and opens its audio folders. In them are recorded the cries of every pokemon ever captured and studied, most with a number of different entries: anger, playfulness, fear, challenge, affection, and pain.<br>
+<br>
+It's the last one that interests him at the moment.<br>
+<br>
+In every ecology, there exists a food chain. It's rarely a straightforward line, but rather a shifting mess of predators and prey. Viridian Forest has over a dozen species of pokemon with almost three dozen different forms that have lived amongst each other for thousands of generations, each filling different niches in the environment and adapting to one-another's strengths and weaknesses.<br>
+<br>
+Caterpie are without doubt the weakest pokemon in the forest. The only thing that keeps their species going is their incredibly short juvenile period, usually lasting no more than a few days before they "evolve" into metapods, which themselves only take a week or two before metamorphing again into butterfree.<br>
+<br>
+In any other environment, a pokemon like butterfree might stay near the bottom of the food chain. It has no sharp claws or mandibles, and its poisonous spores are slow acting. Encountering any predator should spell a quick doom.<br>
+<br>
+Or it would, if not for a peculiar adaptation.<br>
+<br>
+As far as official classifications go, there are very few Bug/Psychic pokemon on record. It's theorized that most just aren't intelligent enough for the true breadth of mental powers psychics are capable of. And psychics do have a harder time defending themselves against bug pokemon, lending some merit to the idea that their minds are too simple, or just too different, for psychics to interact with the way they normally would.<br>
+<br>
+Nevertheless, some bug pokemon like butterfree and venomoth seem capable of low intensity bursts of psychic energy to ward off predators, disorienting them long enough for an escape. There's debate in academic circles whether it's a truly psychic attack, or some low frequency sound or vibration the bugs use that just have similar effects; trainers with psychic and dark minds can't seem to come to a consensus, which leads Red to think that the answer might be both. The end result is that butterfree are able to stay near the top of the food chain, despite not actually being a predator to any other pokemon. Even spinarak and ariados, with their own mental attacks, can't keep butterfree in their webs.<br>
+<br>
+Which is where hoothoot and noctowl come in. Another "non-psychic" pokemon with rudimentary psychic powers, their mental defenses are strong enough to resist butterfree's disorienting attacks, allowing them to swoop in for a kill. Lacking the weaknesses of the more powerfully psychic birds like xatu, noctowl are the perfect predator to butterfree.<br>
+<br>
+Unfortunately, it's still light out, which means playing the distress sounds of an injured butterfree isn't likely to bring any noctowl or hoothoot to him. But if there's one pokemon that will catch the attention of any nearby predators, it's caterpie.<br>
+<br>
+Red goes to the tenth entry in the pokedex and turns the volume all the way up. He briefly considers switching Rattata out for Charmander, but the rodent is much faster than the fire lizard, and if some predators come charging out of the trees at him, he's going to need Rattata's speed to intercept them.<br>
+<br>
+Red checks to make sure Rattata is at attention, then wipes his sweating palms on his jeans before he holds the pokedex up and presses the button.<br>
+<br>
+A pained, warbling cry fills the quiet forest air. It only lasts a couple seconds, and then the hushed rustle of leaves returns. Rattata whips its head around, nose twitching as it tries to locate the source of the sound, and Red stands tensely still, ears straining for the sound of wings or rustling underbrush to alert him of incoming pokemon.<br>
+<br>
+After a few seconds pass, Red presses the button again. When nothing approaches, he begins to press it repeatedly, waiting two to five seconds between repetitions as he starts walking forward. His rattata follows, still looking puzzled as she tries to see or smell the injured caterpie she hears.<br>
+<br>
+His arms begin to get tired holding the pokedex above his head, so he lowers it to chest level with the speakers pointed outward, occasionally shifting its direction. Red's spine feels like a coiled spring, and he keeps one eye on the forest around him while the other watches the ground for roots or stones to ensure he doesn't trip in the dense underbru—<br>
+<br>
+A line of silk shoots down and nabs the pokedex, tugging it out of Red's grasp. For a second he simply gapes upward as it floats away to a tree branch above. Then he throws himself at the tree with a cry of horror, scrambling up the rough bark. "Rattata, climb!"<br>
+<br>
+He lifts himself onto the lowest branch before checking to confirm that his pokemon is following, then looks up and around... <em>There!</em> Now Red can make out the spinarak hanging from the underside of the branch, drawing the pokedex up with its forelimbs.<br>
+<br>
+Including the width of its six legs, the green and black arachnoid is as wide as Red's torso, half again as big as his rattata. It finishes pulling up the pokedex, but seems confused by what's clearly not a caterpie. Red's veins fill with ice as the pokemon scuttles onto the top of the branch and away, pokedex still attached by some string hanging from the end of its abdomen. The slim red device tips this way and that under the branch, and Red begins to climb to the next branch up. <em>Don't fall don't fall don't fall...</em><br>
+<br>
+To say his pokedex prototype is priceless would be a bit of an overstatement, but to Red it might as well be. Even older models that act as little more than indexes cost hundreds of dollars, and Red's is by far the most valuable thing he's ever owned. Part of what made Red work so hard the past year was the sacred trust Professor Oak would be putting in him; the only other person he'd given his personally designed, off-the-market software to were his grandchildren. Breaking the pokedex would be bad enough, but if the spinarak gets away and someone else finds it...<br>
+<br>
+Red pulls himself onto the second branch and stands, legs only shaking a little. The third is another head above him, almost parallel to his own. He takes out an empty pokeball and points its lens up at what he can see of the bug pokemon. He waits for the <em>ping</em> with his heart in his throat, but the line of sight isn't clear enough.<br>
+<br>
+"Shit!" Rattata climbs up the trunk beside him, claws still hooked in the bark, and Red points to the retreating spinarak. "Rattata, Bite!"<br>
+<br>
+Rattata follows the direction of his finger and gives a high pitched growl before leaping onto the branch and giving chase. Red places his feet carefully and follows on his own, feeling the whole thing bend and sway beneath him as he watches her attack. The spinarak turns just before she reaches it, and rears onto its hind legs, hissing and aiming the stinger on its forehead to break her charge.<br>
+<br>
+Rattata stops herself short of being impaled, head darting in for a nip here and there. Spinarak retreats with its hind legs to avoid the bites while its forward claws draw blood along rattata's forehead and stomach. All the while, the pokedex bobs and spins on the end of its string under the branch, out of Red's reach.<br>
+<br>
+Red grits his teeth as his rattata squeals in pain. Rattata's greatest strength is her speed; on the narrow branch, the spinarak has home advantage that completely nullifies her maneuverability. Red pulls out his remaining stones and tries to chuck some at the bug. He nearly loses his balance on the third attempt, and his shots all go too high or bounce off the branch. Heart hammering, Red watches helplessly as Rattata over commits and gets stung, only managing a light bite in response.<br>
+<br>
+<em>I need to even the playing field.</em> The only way he can think to do that is to get them off the branch. <em>Just gotta avoid landing on my head. Or my neck. Or my back. </em>"Fuck it," Red whispers. "Time for heroics." He shucks off his backpack and lets it fall before he bounces on the branch once, twice, then jumps to the one above, hands reaching.<br>
+<br>
+His fingers scramble at the bark, digging in as his body hangs six meters off the ground. He feels the whole thing bend with his weight, and for a moment thinks it's going to crack. <em>That would be one way to do it.</em> The wood holds though, and he begins to pull himself toward the pokemon, arms burning and breath coming in short pants. His eyes are fixed on his pokedex, bobbing closer with every hand. <em>Come on… three more… two… there…</em> He reaches out with one hand, fingers on his other screaming with his whole weight as he snatches the pokedex.<br>
+<br>
+As soon as he has it in his grip and pulls, the spinarak scuttles under the branch, following it down as the webbing stretches to point its stinger at his hand and dash at him.<br>
+<br>
+Red gives a heroic yelp and lets go before yelling, "Rattata, down!"<br>
+<br>
+He only has a heartbeat of weightlessness to curl protectively around the pokedex and lift his head before he hits the grass. He turned onto his side a bit while falling, and a knobby root sends a bolt of pain up his knee. When he looks up, he sees the pokedex is still attached by its damn string, now stretched long and thin. Red instinctively rolls just as the spinarak leaps down at him.<br>
+<br>
+Completely unfazed by its fall, it dashes for him again, stinger forward. Red holds the pokedex tight as he whips his arm up and spins his whole body, using his uninjured knee as a pivot the way Hamato had.<br>
+<br>
+The spinarak is lifted into the air, and finally releases the web rather than smash into the tree. It lands on its feet and leaps for Red again just as his rattata falls on it in a clawing, squealing fury.<br>
+<br>
+Red forces himself to his feet and stuffs the pokedex in his pocket as he shouts, "Rattata, Quick Attack!"<br>
+<br>
+His pokemon immediately disengages, then dashes in for a bite, running past the spinarak before it can retaliate. She's breathing hard and bleeding from a number of wounds, but now so is the bug, its green and black abdomen leaking pale fluid.<br>
+<br>
+"Quick Attack! Quick Attack!"<br>
+<br>
+Rattata dashes at the arachnoid again and again, taking a quick nip out of it with each pass. The spinarak occasionally tries to leap at it, but Rattata is too fast on the open grass, juking from side to side before speeding in for another bite.<br>
+<br>
+But Red can see his pokemon getting slower from the blood loss and poison. The time between attacks grows longer, and her exhaustion is palpable as she tumbles over the grass after a close dodge. The spinarak curls its abdomen and shoots a string of web at Rattata as she scrambles to her feet.<br>
+<br>
+Red already has Charmander's pokeball in one hand and Rattata's in the other. He points it at her and yells "Rattata, return!" In the space of a blink, a red beam shoots out and reverts his pokemon to a glowing mass that's sucked back into the open pokeball. The web is left behind, and Red feels a surge of relief. Rattata would be safe in her ball, wounds suspended until he could treat her. "Charmand—"<br>
+<br>
+The spinarak leaps for him. Red rolls to the side, dropping Rattata's pokeball as he tries to clip it back to his belt. He throws Charmander's ball haphazardly as he comes up hard against a tree. "Charmander, go!"<br>
+<br>
+The ball explodes with light and sound before shooting back into some bushes to Red's side. He doesn't spare it a glance, eyes on the fire lizard as it takes a bewildered moment to look around and orient itself to its new surroundings.<br>
+<br>
+"Charmander, battle!"<br>
+<br>
+Charmander snaps into a combat stance and focuses on the only other pokemon present. The spinarak's forward charge slows. Maybe it thinks the rattata is still around somewhere, or maybe it's the open flame at the tip of Charmander's tail, but the spinarak begins to back away, its abdomen rising to shoot web at the branches above.<br>
+<br>
+"Charmander, Scratch!" He doesn't dare use ember; bugs are easily killed or crippled by fire, and now that he has his pokedex back, his priority is to capture it.<br>
+<br>
+The spinarak is forced to leap aside as the lizard claws at it, arching its back and raising its body upright above its head, hissing. The black dots and stripe on its abdomen look like a frowning fa—<br>
+<br>
+<em>Freezing, empty night, no light or warmth, not cold but simple absence of heat, a vacuum of sensation or sound that unhinges his mind-</em><br>
+<br>
+Red gasps, pain radiating from his chest. He's lying face down in the grass, nose pressed against his breath mask with no memory of when he'd fallen. <em>Was I poisoned?</em> He can't recall being stung, but a wave of nausea almost makes him hurl when he tries to remember the last thing he'd seen. Red raises his head and spots Charmander weaving erratically toward spinarak, as if he can't get his balance right. Instead of pressing the advantage, the spinarak turns and begins to scuttle away.<br>
+<br>
+"No... you... don't," Red wheezes. He forces himself up and pulls an empty ball from his pocket, holding it outstretched and bracing it on his uninjured knee. The max distance a pokeball beam will work is roughly ten meters, and the bug is almost out of range when he hears the <em>ping </em>of its lock. Heart in his throat, he throws…<br>
+<br>
+...and misses, the ball bouncing on the grass to the right of the spinarak.<br>
+<br>
+"Charmander, Scratch!"<br>
+<br>
+The fire lizard leaps forward, stumbling onto all fours as he tries to recover from whatever had happened. His first claw attack misses, but his flaming tail keeps the spinarak from retaliating so he can get another attack in. This time his claws rake the spinarak's body, drawing more clear ichor. The arachnoid hisses and jabs its stinger forward, barely missing as charmander jumps away.<br>
+<br>
+Tossing dignity aside, Red crawls forward until he can aim another pokeball, focusing it on the spinarak as it rears up and shoots web at Charmander, sticking his legs together.<br>
+<br>
+Just as it turns to run again, Red throws. The ball nails the spinarak in the thorax, and it vanishes with a flash.<br>
+<br>
+Red collapses back onto his stomach. He still feels queasy, and takes deep breaths until his stomach settles a bit. Charmander struggles to free its legs from the webbing, then curls its tail around to burn the stuff off. Afterward he approaches Red with a chirp and curls up beside him, tail flame warming Red's arm to just the edge of comfort. He checks to make sure Charmander isn't injured, then reaches out to rub his smooth head. "Good boy, Charmander. You did great."<br>
+<br>
+His mask is beginning to hurt as it's pressed against his face, and he flips himself onto his back with a sigh. After a minute he feels a bit more grounded, but he still can't think of what had happened without intense discomfort. He groans in frustration, removing his face mask and pressing his palms to his eyes. It's like there's a part of his brain that's broken, a memory scooped out to leave a raw wound that he keeps brushing up against.<br>
+<br>
+The spinarak hit Charmander with something, and Red, standing behind him, was hit much harder. It can only be a mental attack of some kind, but spinaraks aren't usually capable of more than minor emotional manipulation, the type usually classified as Ghost attacks…<br>
+<br>
+Chill fingers brush his spine. He'd never experienced a Psychic attack before, but he'd also never experienced a Ghost attack. He doesn't know which it had been… but the fact that it was so strong pointed to two possibilities. Either his mind is incredibly vulnerable to all forms of Psychic attack, or… he's psychic himself, and the attack had been a Ghost one that turned his own mental powers against him.<br>
+<br>
+<em>But I'm not a psychic.</em> He underwent the tests last year. They aren't 100% accurate, a lot of psychics' powers only manifest when they encounter others, but he tried all the practice techniques he could find just in case he was one of the rare few. What kid doesn't dream of having special powers?<br>
+<br>
+But now the thought of enduring things like… that… again makes Red reconsider the various advantages of even mild psychic abilities.<br>
+<br>
+His thoughts are interrupted by his phone ringing, and he suddenly realizes he's been holding still for awhile. Had he dropped behind the others' positions? He takes his phone out and sees that Blue's calling him.<br>
+<br>
+"Hello?"<br>
+<br>
+"Red! Chasing a caterpie right at you! Cut it off!" Blue sounds like he's running.<br>
+<br>
+Red blinks, then scrambles to his feet, ignoring the cry of protest from his knee. "What?! From where?" He looks around and realizes his pokemon are all scattered. He pulls his mask back on and hobbles forward to grab Rattata's ball.<br>
+<br>
+"Northeast! I'll be on you in ten seconds! Catchers keepers, but just stop it from getting away!"<br>
+<br>
+Blue hangs up, and Red stuffs his phone away and runs over to grab his new spinarak, attaching it to his belt and cursing his weakness. He'd wasted time he could have used to register his spinarak or heal Rattata. But a caterpie shouldn't be hard to deal with, and all he has to do is stop it from running.<br>
+<br>
+"Charmander, battle!" The lizard was watching him curiously as he dashed about, and now drops back into an aggressive stance. S<em>hit, where's his ball? </em>It went somewhere in those bushes...<br>
+<br>
+He hears Blue before he sees him, crashing through the underbrush like a stampeding tauros. Red spots the caterpie bounding ahead of his friend just before Blue's visible between the foliage. About as thick as Blue's leg and half as long, its green segmented body blends in with the grass and leaves around it, whole body scrunching up to propel itself in hops from grass to tree to bush.<br>
+<br>
+When it spots Red and Charmander waiting for it ahead, it aims its body straight up and flings itself up to a tree branch, sticky feet allowing it to start climbing.<br>
+<br>
+"Not again," Red mutters as he runs forward to meet Blue at the base of the tree. "Where's Zephyr?"<br>
+<br>
+"I was afraid he'd eat it," Blue pants. "Can you send up your rattata?"<br>
+<br>
+"She's hurt." Red looks at Charmander and hesitates for just a moment. "Get Squirtle out, I don't want to start a forest fire. Charmander, Ember!" He points just ahead of the caterpie as Blue summons the water turtle, hoping his pokemon can interpret the difference.<br>
+<br>
+Charmander looks up, then drops onto all fours. His tail relaxes downward before flicking sharply up, and the glob of fire hits the tree just beside the caterpie, though not quite where Red pointed. Still, the pokemon immediately curls up and shies away from the heat, falling to the grass.<br>
+<br>
+Red and Blue have their pokeballs out and ready, both <em>pinging</em> almost simultaneously. The balls collide mid-air and bounce away from each other, and Red sees Blue's hand move in a blur, already replacing Squirtle's ball and grabbing another empty one. Red is still aiming his second when Blue's new ball locks, and a moment later the caterpie's gone in a flash.<br>
+<br>
+"Squirtle, Water Gun!" A jet of water splatters against the trunk and puts out the fire. Blue rubs the turtle's shell, then withdraws her.<br>
+<br>
+Red does the same with Charmander after retrieving his ball from the bushes, trying not to feel disappointed as they gather up the pokeballs that missed. "Nice catch."<br>
+<br>
+Blue smirks and bows in the foreign style their generation uses mockingly, one arm across his stomach and the other to the side with one heel planted forward. "Thanks for the assist. That's four to two now." Blue takes out his pokedex and registers his new caterpie, beginning its virtual training.<br>
+<br>
+"Four to three, actually," Red says as he does the same with his new pokemon.<br>
+<br>
+"Oh right, you said Rattata's hurt. Whatcha get?"<br>
+<br>
+"Spinarak."<br>
+<br>
+"Shit, that's a good one. I got a shroomish."<br>
+<br>
+"With Squirtle?"<br>
+<br>
+"Yeah, she's pretty drained. It kept running through bushes so Zephyr couldn't grab it, and I couldn't get a clear throw. Got scratched to hell chasing it."<br>
+<br>
+"Tell me about it. This damn bug nearly made me break my neck…"<br>
+<br>
+They exchange stories as they heal up their pokemon. Red doesn't mention the mental attack, still not quite sure what to make of it. It would sound like bragging if he emphasizes the possibility that he's psychic. And what if he's wrong? He would just sound weak. <em>I need to do some research first.</em> He considers writing a note to remind himself, then realizes he's not likely to forget the event. He shudders slightly as just thinking about it brings back a vivid echo of the sensations.<br>
+<br>
+Red looks over his medical supplies once he finishes spraying Rattata's wounds with some antivenom and a healing potion. He has six more potions, three more antidotes, and two each of paralyze and burn heals. Red watches Blue spray a bit of his own anti-burn medicine on his new caterpie, while Red uses one of his potions to heal his spinarak's wounds.<br>
+<br>
+It's hard to look at the arachnoid's green and black abdomen, expecting another burst of mental torment at any second. But nothing happens, and Red strokes his new pokemon tentatively after feeding it some berries. Once he withdraws it, he checks the pokedex entry:<br>
+<br>
+<em>Spinarak is a patient hunter that can wait motionlessly for several days for unsuspecting prey. Even juvenile specimen can spin webbing as strong as iron, and adults have been known to spin strands five times as strong as an equal weight of steel. The patterns on their backs are used to project some forms of mental attacks in an outward cone, and the venom in its forehead stinger can melt flesh into a nutrient-rich soup within their cocoons.</em><br>
+<br>
+His seems to fall within the averages for weight and size. Red begins to look for more details on their mental attacks when his phone chimes. A moment later, both his and Blue's phones chime at the same time.<br>
+<br>
+They look at each other and say "Leaf!" before pulling their phones out. Red flushes as he realizes he'd forgotten to tell her that they'd stopped moving. It had been just Blue and him for so long that he'd forgotten… if she was hurt because of their negligence…<br>
+<br>
+The second message said "<em>Come quick as you can!" </em>The first was a CoRRNet alert… with Leaf as the author.<br>
+<br>
+"This way!" Red takes off through the trees quick as he dares, keeping one eye on his phone's map and the other on the ground for roots or ditches. The wilderness training he'd gone through, first in class as a kid, then with his father, then with Blue over the past year, taught him how dangerous running through forests can be, especially with low light, and he tries desperately not to twist his ankle as he hurries to Leaf's location, the pain from his knee getting worse with every step. Leaf didn't press her panic button, taking the time to write out a ticket on CoRRNet instead, so what—<br>
+<br>
+They find Leaf just before reaching a clearing. She's crouched around the side of a tree, and puts her finger over her lips as soon as she turns and sees them.<br>
+<br>
+"Quiet. Look." She points.<br>
+<br>
+Still catching their breath, Red and Blue stare past her. It takes a moment for Red to realize what he's seeing.<br>
+<br>
+The clearing is full of flowers. Above them, a swarm of at least a dozen beedrill fly from one to the other, collecting pollen.<br>
+<br>
+And lying on the ground in the middle of the field is a body.
+        </div>
+
+        <div class="chapter-nav">
+            <a href="../15/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Chapter Index</a>
+            <a href="../17/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Bias - Pokemon: The Origin of Species</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .chapter-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .chapter-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .chapter-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            max-width: 70ch;
+            margin: 0 auto;
+        }
+
+        .chapter-content br {
+            display: block;
+            content: "";
+            margin: 0.75em 0;
+        }
+
+        .chapter-content hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 2em 0;
+        }
+
+        .chapter-content em {
+            color: var(--accent-2);
+            font-style: italic;
+        }
+
+        .chapter-content strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .chapter-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../">Pokemon: TOoS</a></li>
+                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chapter-header">
+            <h1 class="chapter-title">Confirmation Bias</h1>
+            <div class="chapter-meta">Pokemon: The Origin of Species</div>
+        </div>
+
+        <div class="chapter-content">
+            If confirmation bias had an image, it would be something like this:<br>
+<br>
+<img src="http://i.imgur.com/PjSW9Qr.jpg" alt="" /><br>
+<br>
+How many black dots do you see in there? If you're like most people. chances are you see 1, maybe 2. Until you move your eyes. And then you see another 1, maybe 2. And the first ones you saw are gone.<br>
+<br>
+There are 12 black dots in that image. At most you can probably only see a fraction of them at a time.   And yet your mind convinces you that it can see the whole image perfectly... so much so that it helpfully fills out the grey intersections where the other dots are, leaving them empty. Don't mind them. Nothing to see there.<br>
+<br>
+Our minds are so good at pattern recognition they will <em>ignore data about reality</em> to complete the patterns they perceive. And if you're one of the rare people who can see all 12 at once, don't worry: <a href="https://www.ted.com/talks/beau_lotto_optical_illusions_show_how_we_see?language=en">there are plenty of other things that will fool you instead.</a><br>
+<br>
+If your brain can trick you into only seeing one or two of the dots on this image at the same time, you can rest assured it can trick you into thinking you know more than you actually do about data that isn't even all in front of you at the same time, let alone data that isn't all the data in the wo<span class="text_exposed_show">rld about that topic.</span><br>
+<br>
+That's the trickiest half of confirmation bias. Not just focusing on data that confirms what you believe, but ignoring evidence that goes against what you believe, so thoroughly that something in your mind filters it from your senses or memory before it even reaches "you."<br>
+<br>
+There's nothing wrong with having a belief without having all the data concerning it.  We're imperfect beings, and can't go through life having 0% confidence in things just because of unknown unknowns.<br>
+<br>
+But believing something isn't the same as being 100% or even 90% confident that it's true. You can believe in something and acknowledge that you're only 70% confident in it, or 53.8% confident, as long as you know of things that would increase or decrease your confidence if brought to your attention.<br>
+<br>
+Unfortunately most people don't think that way. They don't talk about their beliefs in probabilities. Even if they acknowledge that they "might be wrong," they're confident that what they think is true. And research has shown people to be overconfident in their beliefs <a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect">again</a> and <a href="https://en.wikipedia.org/wiki/False-consensus_effect">again</a> and <a href="https://en.wikipedia.org/wiki/Hard%E2%80%93easy_effect">again</a>.<br>
+<br>
+Thanks to empiricism and reason, we do have good reasons to believe certain scientific and philosophical ideas. They've been vigorously tested and used to make correct predictions about the world. They've been used to change things in our external, shared reality. It's okay to be confident in things like "I exist" and "things in the world can be measured."<br>
+<br>
+But things like political beliefs? Beliefs about people you've never met? Beliefs about systems you've never studied?<br>
+<br>
+Lower your confidence in all of those. All of them.<br>
+<div class="text_exposed_show"><br>
+<br>
+When you've reached the point where you know what you value (Equality, Justice, Health, etc) but are not quite positive about what the right things to do to achieve the optimal balance of those values in the real world are, you're a bit closer to understanding what you think you know and why you think you know it.<br>
+<br>
+If you've reached solipsism, dial it back. That way lies madness, and insufferable, pointless arguments.<br>
+<br>
+</div>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="../73/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Chapter Index</a>
+            <a href="../75/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>

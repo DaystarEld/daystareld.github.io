@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 57: Autoargumentation - Pokemon: The Origin of Species</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .chapter-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .chapter-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .chapter-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            max-width: 70ch;
+            margin: 0 auto;
+        }
+
+        .chapter-content br {
+            display: block;
+            content: "";
+            margin: 0.75em 0;
+        }
+
+        .chapter-content hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 2em 0;
+        }
+
+        .chapter-content em {
+            color: var(--accent-2);
+            font-style: italic;
+        }
+
+        .chapter-content strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .chapter-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../">Pokemon: TOoS</a></li>
+                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chapter-header">
+            <h1 class="chapter-title">Chapter 57: Autoargumentation</h1>
+            <div class="chapter-meta">Pokemon: The Origin of Species</div>
+        </div>
+
+        <div class="chapter-content">
+            Somehow the exhibits on the second day aren't as interesting as the first.<br>
+<br>
+Of course, Red reflects, that might just be the new feelings clashing around in him taking up his attention. He does his best to focus on the presentations, but doesn't dare use his powers any more today, since he can feel the grief lurking at the edges of his thoughts already. It's hard to tell what relationship they have with exacerbating each other, if any, but dealing with both would <em>really</em> suck.<br>
+<br>
+The most interesting tech demo is the advanced potion delivery system: at first he imagined a more technical and useful version of the idea he had when he was young about filling a balloon with healing potions to throw at injured people. Unfortunately too much exposure of it on undamaged flesh would cause other medical issues, so application needs to be pretty precise unless the liquid can be cleaned off soon after, which it won't be able to in most cases where you'd need to apply it from a distance anyway.<br>
+<br>
+Instead the company is developing a drone that takes in its surroundings, scans for open wounds, then shoots a high powered mist of droplets at any it detects. It's effectively a more precise version of having trained medic pokemon, and is similarly limited in cases like when Red and the others found the trainer in the field full of beedrill back in Viridian, as the wild pokemon that make the area unsafe might just destroy the drone. But the demonstration video showed how it could be helpful in combat situations, where it frees up trainers from having to switch to medic duty.<br>
+<br>
+After the exhibits are over, Red meets up with Leaf again for dinner, where they exchange notes and try out the new artificial meats. This time the options are all plant pokemon, so Leaf gets some steamed bellsprout while Red munches on fake oddish. Just as flavorful as the "real" kind, if a bit less juicy, and the bellsprout he swaps with Leaf for is better.<br>
+<br>
+They wander the boat after eating, passing from the pitch dark of a cloudy night over the ocean to the bright and cheerful lights of the boat's corridors. As they near doors to the common areas, Red hears the sounds of conversations and subdued revelry. Leaf pokes her head into them, seemingly at random, until they reach one that seems to strike her fancy. "Let's see what's going on in here,"<br>
+<br>
+"No, I'm okay," Red says. "I've never really been into big crowds or parties…"<br>
+<br>
+Her brow furrows. "Are you shy? I never noticed you having trouble talking to strangers before…"<br>
+<br>
+Red shrugs. "It's different if I have something to talk about with them. I just feel a bit out of place, here."<br>
+<br>
+"Well, if you're going to be a Professor one day, you've got to learn to mingle. Come on, this is part of your PR training." Leaf takes his hand, warmth spreading from the contact all the way up his arm and through his chest as she pulls him into the wide, sparsely crowded room.<br>
+<br>
+Red doesn't put up much of a fight. "Should I take notes?" he asks with a slight smile.<br>
+<br>
+"Absolutely. Observe: humans in their native habitat." Leaf gestures broadly at the room. "A luxurious cruise, where their every need is catered to, and their only concerns are social."<br>
+<br>
+Red snorts. Then he notices that Leaf is looking expectantly at him, and grins as he dutifully pulls his notebook out. "What part of that was actually an important lesson?"<br>
+<br>
+"None," she cheerfully says. "Just making sure you're paying attention. What we're looking for is a moderately sized group, where an extra arrival or two wouldn't come off as intrusive." She gestures with her elbow as they pass people, all of which do indeed look like 'moderately sized groups,' no fewer than four and no more than seven, as far as Red can quickly discern. "There's not really such a thing as one that's too big, but when groups get big enough in a setting like this they tend to fracture into smaller ones, and we don't really want to be an active cause to that unless there's someone who seems like a straggler themself that we want to try and poach from a conversation. Then, look for those with natural openings for someone else to step into… or sit in, or whatever. See there? Group of six."<br>
+<br>
+Red follows her gaze. "Yeah."<br>
+<br>
+"Lots of empty space between the members that we can sidle into. And for what they seem to be doing… ideally you want to enter at a time where one person appears to be the main one talking, like either telling a story or explaining something, rather than a more intimate and active conversation. An energetic debate works too. Something that doesn't come off as private, basically, something we can enter as observers first, then participants."<br>
+<br>
+Red dutifully notes down the bullet points. "Okay, so we're going to join that one?"<br>
+<br>
+"No, it sounds like he's talking about trade tariffs, and I don't know about you but that's not super exciting to me. Let's try that one near the corner… Notebook away first, though, they might get the wrong idea. Look casual and curious. Yeah, like that."<br>
+<br>
+"I'm not—This is my normal expression."<br>
+<br>
+"Perfect."<br>
+<br>
+Red shakes his head and follows as she unobtrusively walks by another group, then another, until she sidles into an empty space to listen to two people who seem to be arguing about differences in regional markets based on trainer culture. Eventually someone else poses a question about the relative "star power" of different league members, which seems to give Leaf permission to ask a question of her own after that one is answered about the effects of different educational attitudes. The answer to this prompts another argument, which leads the conversation onward as members of the group occasionally excuse themselves and are replaced by others.<br>
+<br>
+Red is content to just listen, and not jump into the conversation without something particular to say. After this goes on long enough, however, Leaf seems to feel he's not being sufficiently mingley.<br>
+<br>
+"Go find another conversation, if this one's boring you," Leaf eventually murmurs. "See if you can find your own group to infiltrate."<br>
+<br>
+There's a moment of unease as he considers walking around the room alone just to find someone to force into talking to him, but he doesn't want to look like a coward. <em>"Hai,</em> Sensei." She pushes his shoulder and he wanders off, listening to the different kinds of conversations and looking for similarities to the one Leaf gravitated toward. As he drifts between them, however...<br>
+<br>
+"...about Raikoth, though getting enough at once will be…"<br>
+<br>
+Red's head turns at the familiar word. Wasn't it something Bill mentioned working on?<br>
+<br>
+He finds the speaker the next time they say something, and frowns. It's a group of just three people, two girls and a guy. All three are relatively young, and the main speaker is animated as she talks, hands moving constantly as the other two nod along. Would one person be too much of an intrusion? They're not quite positioned in a "closed" way, with two of the sitting on opposite ends of a couch while facing a third person in a chair. Another chair is sitting open across from it… should he take the fourth corner of the square? Are there rules for being the person that makes a group look "closed," especially if he doesn't know any of the others?<br>
+<br>
+He drifts closer all the while as he frets, until finally he's just sort of hovering near the empty chair, looking at something else as he listens to their conversation. Something about incentives for early speculators…<br>
+<br>
+<em>Hey Present Red, you know the longer we just stand here the more awkward it'll be when we finally make it clear we've been listening the whole time, right?</em><br>
+<br>
+<em>Yes Future Red, but I currently have no control over my legs as the thought occurs that dying of awkwardness may be impossible, but suicide as a cure for awkwardness is not.</em><br>
+<br>
+<em>That got dark, Present Red. If it's any consolation, I won't hold you accountable for any awkwardness we endure. That blame will go strictly to Past Red.</em><br>
+<br>
+<em>That does help, actually, thanks. This </em>is <em>all his fault.</em><br>
+<br>
+<em>Hey, screw both of you, let's see how well you can say no to Leaf! Or are you going to run and tell her you took the coward's way out after all?</em><br>
+<br>
+<em>That sounds like Future Red's problem.</em><br>
+<br>
+<em>Joke's on you Present Red, now that you've thought this, you'll have to do it soon enough that your memory of episodically experienced moments will still make it part of your continuous present self!</em><br>
+<br>
+<em>Shit, you're right! </em>Red forces himself to move around the chair and plops down on it while looking at the person speaking.<br>
+<br>
+Which causes everyone to stop paying attention to her and stare at him.<br>
+<br>
+<em>You fools, you've DOOMED US ALL!</em><br>
+<br>
+"...Hi? Can we help you?" the girl who was speaking asks.<br>
+<br>
+"Yes!" he says, too quickly. "I mean no, sorry. I was just… I heard you say something about 'Raikoth' and I think Bill mentioned it and I was just… wondering what you were talking about. Sorry. I can go." He pushes himself out of the seat.<br>
+<br>
+"Wait, hang on. <em>Bill </em>told you about it?"<br>
+<br>
+"Yeah?"<br>
+<br>
+The three glance at each other. "What did he say, exactly?"<br>
+<br>
+Red slowly sits back down, heart pounding. Maybe this was a mistake… would Bill have wanted Red to advertise that knowledge? He never said anything about keeping it secret. "Uh. Just that it was something that would help with research funding and publishing using… prediction markets, I think?"<br>
+<br>
+"Huh," one of the others says. "Yeah, that's about right."<br>
+<br>
+"And he called it by its project name," the original speaker muses. "Guess it's okay that you know, then. Why'd he tell you in the first place?"<br>
+<br>
+"To cheer me up, sort of. I had some problems with the research publishing world." Red thinks of the recent flood of churned out articles. "Still do, come to think of it. I didn't mean to interrupt, though, I was just curious to know more. Are you guys working on it?"<br>
+<br>
+"Yeah, actually." The girl studies him briefly. "Our presentation is one of the last ones, and we were just going over what to highlight, given potential failure modes. Maybe we can use you as a soundboard, since you just know the general points… and you're familiar with research funding and publishing, apparently?"<br>
+<br>
+"Oh, yeah. I have my Researcher license."<br>
+<br>
+"Wait, wait," the guy says. "Are you Red Verres?"<br>
+<br>
+Red smiles, wondering if being recognized is ever going to get old. Probably someday. "Yeah, that's me."<br>
+<br>
+The guy looks to the other two and jerks his thumb at Red. "This is the kid who caught like two hundred abra for research, and gave half of them away to gyms and such. He's responsible for the recent churn of psychic paper grist."<br>
+<br>
+"Woah, I'm not… I mean first off it was closer to a hundred, and we didn't <em>give</em> them away, we bulk sold them for cheap. But more importantly I don't like to think I'm <em>responsible </em>for the recent articles just because they followed my single, relatively simple paper."<br>
+<br>
+"It's cool, he's not blaming you," the other girl says. "Happens a lot when new discoveries pop up, big or small. Which is kind of why we're working on this. I'm Haley, by the way."<br>
+<br>
+"Rick."<br>
+<br>
+The girl he interrupted when he sat down raises her hand. "Sarah. So you tell us… What do you think of the state of current research?"<br>
+<br>
+Red hesitates. "Well… I only really know about pokemon research."<br>
+<br>
+"Good enough," Haley says, propping her chin on her fist. "What bothers you about it?"<br>
+<br>
+"Getting grants," he immediately says. "Which is kind of understandable given how many trainers are out there that might be asking for money to experiment with their pokemon. But it also probably discourages a lot of independent researchers who are starting out." He grimaces as he remembers the ache in his fingers from typing in Pewter. "I had connections and got lucky, and then that paper wasn't conclusive enough to be publishable. And since getting published is necessary to get the research bought by the labs that update the pokedex, there are a lot of journals that will publish just about anything, no matter how sound the research methods or useful the result, and skip right over things like peer review." Red sighs. "And of course the more of those there are, the more researchers will manipulate the data or adjust their methodology to meet whatever minimum standard they can."<br>
+<br>
+"Seems frustrating," Rick agrees. "And the root of all of those problems is?"<br>
+<br>
+Red blinks. "All?"<br>
+<br>
+"Yeah. Say most, if that helps. If you could change one thing for maximum impact, what would it be?"<br>
+<br>
+Red's nervousness is long gone, mind turning itself to this new challenge. After thinking about his frustrations of the past couple months, he eventually says, "Non-professional reviewers? Like if there were researchers whose only job was to peer review and replicate stuff…"<br>
+<br>
+"Not bad," Haley says, while Sarah waggles her hand side to side in an even less enthusiastic endorsement. "It comes with its own complications," she acknowledges with a glance at Sarah. "Instead, what do you think of making sure scientists who come up with an experiment can't be the ones to test it?"<br>
+<br>
+"But… then who would?"<br>
+<br>
+"Other scientists!" Sarah says. "The way things work now, researchers are both the people who come up with the theory they want to test, and then do the experiments to test them. Right away, you've got a bunch of biases interfering with what should be a truly objective process. What if, instead, anyone could come up with a theory, and outsource the experimentation to a neutral, special lab that has no skin in the game?"<br>
+<br>
+"I see why it removes bad incentives," Red says, speaking slowly as he thinks through his words. "But… I <em>like </em>coming up with research ideas and testing them."<br>
+<br>
+"And there's the ego thing," Haley says with a sigh. "No offense to you, this is part of what we're worried about. Too many prominent researchers may insist on testing their own hypotheses. People aren't used to the idea of getting credit just for coming up with a hypothesis that pays off when someone else does the work. Or they just feel protective of their ideas, insist that no one else can do it justice."<br>
+<br>
+Red digests that, and has to admit that part of him would feel skeptical that others did his own experiment right if he's not involved at all. Well, not <em>any </em>others, if Doctor Madi or Bill or obviously one of the Professors did it, he'd accept those results. "Famous researchers may be able to work out agreements between themselves, but what about lesser known scientists? What if no one wants to try their idea out? And how does that fix funding or publishing?"<br>
+<br>
+"You said it yourself; the prediction market," Rick reminds him.<br>
+<br>
+"Oh. Oh! So people bet on what research they think will be worth running?"<br>
+<br>
+"Not quite. People bet on what they think the outcome of a particular research question will be. Some particular hypothesis might start out negative-sum, with the missing money going to fund the research when the betting pool becomes large enough. But we were talking about ways to convince corporations or labs or regional governments to subsidize payouts."<br>
+<br>
+"In a somewhat randomized way, of course," Sarah says. "Which is another hurdle they would likely balk at."<br>
+<br>
+Rick nods. "Once some can be convinced to do that, though, you've got positive sum markets that start to look very lucrative to the average citizen that might want to make some money, not to mention investment firms. Instead of reviewing hundreds of proposals by dozens of labs trying to get a taste of the yearly research budget pie, governments can just pay that money to Raikoth, marked specifically for a particular <em>kind</em> of research they want to see done. Private organizations do the same thing: take some of their research budget, put it into Raikoth on specific ideas they want to see tested. And when those preferences become known..."<br>
+<br>
+Red thinks it over, and slowly smiles. "Then researchers can propose ideas that match what the money is available for, which brings more money in to fund them as people start to bet on the outcomes. That's awesome!" Sarah chuckles, and Red lowers his voice. "It sounds too good to be true, really. What about the lab or researcher who does the actual experiment itself, though? The consulting scientists would have to be watched to make sure no one involved is betting."<br>
+<br>
+"Naturally. The oversight would come from investors on both sides, and once a lab or researcher is selected, they'd take proposals from both and decide on an experimental draft. Then they'd publish it."<br>
+<br>
+"Yeah, pre-registration to make sure they don't change the methodology was one of the answers I considered giving."<br>
+<br>
+"More than that, it'll be the exact paper that's published, just with the numbers all blank. 'We compared three different levels of muk exposure and found that the highest level had X percent more health problems, characterized by fever, rash, cough, and so on, than the lowest, Y.' After the research is done, just fill in the numbers, add a Discussion section, and boom. No alterations in changing how the results are shown or which tests are done during the data gathering."<br>
+<br>
+"And since the research odds are being made public," Haley says, "Everyone can weigh in, with not just their money, but also their reputation."<br>
+<br>
+"Which means some will abstain, of course," Sarah responds with a sigh.<br>
+<br>
+"She's a cynic," Rick tells Red. "But not wrong. We're still trying to get enough big names to get in on it so people can't just avoid getting involved."<br>
+<br>
+Red grins. "Yeah, I can think of a lot of people who wouldn't want their mistakes to be public."<br>
+<br>
+"Oh, yeah. Researchers and consulting scientists are going to be held to a new standard, completely by natural incentives. A public record showing a history of accurate predictions will become not just financially lucrative, but give a lot of prestige that makes particular researchers more likely to have their own ideas funded and tested out in the marketplace, or even hired to consult."<br>
+<br>
+"And," Haley says, "If the results don't feel conclusive enough, and people are still arguing over whether it's true or not, a replication study can be funded the same way, because people obviously still care."<br>
+<br>
+"What if an idea doesn't get funding?" Red asks, thinking of his search for spinarak experiment funding again. "What if no one cares enough about the proposal?"<br>
+<br>
+"Then we're no worse off than we are now." Haley shrugs. "But remember, this can be crowdfunded incrementally. People have opinions about things, people want to make money with little effort, and there are guaranteed to be science hedge funds that go around trying to make a quick buck off someone's hypothesis."<br>
+<br>
+"My favorite part?" Rick asks with a smile. "The people who keep pushing bad ideas, even after research debunks them."<br>
+<br>
+"Oh, right!" Red laughs. "They'll keep betting against the research! Until they go broke, anyway, or admit that they don't believe it enough to put money on the line."<br>
+<br>
+Sarah snorts. "Some of them will stay in denial, insist that the system is corrupt or biased somehow anyway. But yeah, it'll punish that kind of thinking pretty hard, and make their views mostly irrelevant. Same with companies falsifying reports by paying researchers to do the studies for them. With Raikoth, there'll be a profit motive for everyone to be on the lookout for corruption."<br>
+<br>
+"Sounds great," Red says, feeling wistful and frustrated as he imagines such a system. "I hope you guys finish it soon."<br>
+<br>
+"Depends how the post-cruise funding goes, but with Bill's help and connections we'll hopefully get there eventually."<br>
+<br>
+Red nods, lost in thought for a moment as he considers how different research fields would be once they're done. He'd miss not being able to come up with his own experiments, but picking from a list of others to try could be fun too, and he can still come up with hypotheses for others to test… "Well, thanks for explaining it. I'll let you get back to your conversation now."<br>
+<br>
+"No problem!"<br>
+<br>
+"Bye!"<br>
+<br>
+Red is out of his seat and looking for Leaf when he remembers that he had a secondary mission, and turns around. "Oh, one more thing…" He leans over the back of his chair, lowering his voice. "Do you guys happen to know why there are so many psychics here on the ship?"<br>
+<br>
+"Sure," Rick says with a shrug. "Everyone hired one, for when we're meeting with potential partners or investors. It's a basic way to check for honesty, and to ensure our own thoughts aren't being picked apart during negotiation."<br>
+<br>
+That… makes a lot of sense. "Got it. Thanks again." Red heads off to find Leaf, glad that mystery was solved so easily.<br>
+<br>
+Red wanders around the room looking for another conversation to join until Leaf finishes hers, but doesn't find one by the time she gets up and makes eye contact. She tilts her head at the door questioningly, and he nods.<br>
+<br>
+"Well? How'd it go? I saw you talking to some people," Leaf says with a smile.<br>
+<br>
+"Good, actually!" He shares what he learned as the two head back to their room.<br>
+<br>
+"Nicely done. And yeah, I got a similar explanation about the psychics." She's quiet a moment, then sighs. "I'm glad it's something so innocuous, and that everyone on board seems to know about it, but I still can't help but feel a bit paranoid."<br>
+<br>
+Red frowns. "From what they said it's just for explicit meetings, though. I doubt they'd care what random participants think."<br>
+<br>
+"Sure, and I know that off the cruise I could be talking to a psychic at any point in my day and not realize it. Still just a bit wary after the Giovanni thing, I guess."<br>
+<br>
+Red has no reply to that. Soon the topic is forgotten as they reach their quarters and repeat last night's mix of training and talking about the exhibits of the day. Red brings his metapod out and props it up against the wall, then puts Pichu and Nidoran through their paces, not wanting to risk Charmeleon in the enclosed (expensive) space.<br>
+<br>
+Once they and their pokemon are tired out, they decide to try some of the assorted drinks from the room's bar. Leaf opens one of the miniature liquor bottles, some kind of plum flavored rice wine that they both take turns sipping and making faces at as they try to acclimate to the taste. Red's lips tingle each time they touch the bottle mouth, and he's not sure if it's from the alcohol or from his knowledge of what was just touching it. Soon his cheeks feel flushed, which he's pretty sure is <em>not</em> from the alcohol. Or not exclusively, anyway.<br>
+<br>
+Eventually they start pouring bits into cups and mixing them with fruit juices and sodas to see if they can make it bearable, after which they just start mixing sodas and fruit juices to try and invent the perfect beverage. After Raff tries to sneak some for the fifth time, Leaf starts looking up what sodas are safe for ivysaur to drink. The resulting expressions and eagerness on her pokemon's face as he laps the fizzing drinks up from a bowl send them both into laughing fits, and soon they're bringing the rest of their pokemon out to see all of their reactions too.<br>
+<br>
+By the time midnight rolls around, Red goes to bed feeling enormously content. Which, in turn, makes him feel dread for when the cruise ends and he has to leave Leaf again. He stays up late and stares at the ceiling as Pichu quietly snores beside him.<br>
+<br>
+<hr noshade="noshade" size="1" /><br>
+<br>
+Red sleeps in again the next day, and wakes up for lunch with a vague sense of despair that's exacerbated by not seeing Leaf in their rooms, or even in the cafeteria. He tries once again to immerse himself in each exhibit to occupy his mind, but he can barely pay attention to them until it's time for the one simply titled "Replication breakthrough."<br>
+<br>
+Red makes his way to the listed room wondering if it has something to do with scientific study replications or some more efficient way to replicate goods and speed up production, until he notices that everyone around him seems to be moving in the same direction. Soon he suspects that everyone on the boat is heading to the same exhibit, a common bloc that everyone's supposed to attend at once, and he wonders just how big a breakthrough it will be. He starts to look around for Leaf, wondering which direction she might be coming from and hoping to snag a seat near her.<br>
+<br>
+Upon entering the auditorium, however, what immediately takes Red's attention is the live charizard that lies curled up on the side of the stage. He considers walking up to the presenter and asking him what he thinks he's doing, letting a <em>charizard</em> out here, this is a <em>ship </em>after all, but it's a brief thought compared to his awe and admiration. The pokemon appears to be sleeping, its slow breaths expanding its sides in a steady rhythm that's hushed but still clearly audible over the crowd. Red finds his seat while barely taking his eyes off the great lizard, its orange scales glinting from the many lights around them. It isn't until he finds a seat that he realizes what its presence here might imply.<br>
+<br>
+Eventually the lights dim but for the ones illuminating the stage and the middle aged, athletic man standing beside the pokemon. "For decades, we used pokeball technology to merely catch and release," the presenter says. "It's only recently that we began to edit the physical properties of those inside the ball, and then their mental experiences."<br>
+<br>
+The man holds up an ultra ball and withdraws the charizard into it. He then aligns the lens with a machine on the table behind him, and the monitor behind him lights up to show the charizard slumbering in the simulation its ball presents for it. He takes something out of his pocket, and a moment later it expands into another ultra ball.<br>
+<br>
+"Witness, an empty ball." Its click echoes around the quiet room as it opens, showing the reflective inner surface of the base and lid to the audience. The speaker moves it in a slow half-circle so everyone can see before he closes it and places it in the receiving slot of the PC behind him. "And our custom hardware, which has no pokemon inside it: only a carefully measured amount of certain substances."<br>
+<br>
+The giant monitor behind him starts to list the contents in the form of a container scan. Carbon, Hydrogen, Oxygen, Calcium, Sulfur… Red sees the amounts start to drop off rapidly, and mutters "Holy shit" before he can help himself. By the murmuring and muttering that's filling the room, he's not the only one that suspects where this is going...<br>
+<br>
+The presenter ignores them, waiting for the scan to finish displaying everything there. Eventually it stops, the last elements listed as Other. The ultra ball with the charizard in it is still displayed separately, showing that it hasn't left its ball. "The next step is obvious. What can be broken down, altered, and released whole again, should also be able to be copied. All this matter simply needs a fitting schema with which to be arranged, a template that's provided by our good friend Carnus. Let's say hello to Carnus again, shall we?"<br>
+<br>
+The presenter takes the ultra ball out of the machine and points it to the open space to his left... but not the one that the charizard was in. Nevertheless, there's a flash, the auditorium's shocked reactions almost drowned out by the sound of the charizard appearing: the same hue, the same proportions, and lying in the exact same position.<br>
+<br>
+"Woops," the man says, smiling at the audience as a buzz of conversation grows even louder. "Wrong ball." He points the original back toward his right, and another charizard comes out: the original Carnus.<br>
+<br>
+"Holy <em>shit,</em>" Red says again, barely able to hear himself as shouts and applause break out in the audience. Red stares at the two charizard, looking back and forth as thoughts crowd his head, too many to make sense of. Cloning has been imagined in fiction since before Red was born, he grew up on stories of how it could change the world and knew that some people, somewhere, were working on it… but always in the same way he knew people were working on nanotech and genetically engineered hybrid pokemon and infinite energy sources. It wasn't something he expected to see any results of anytime soon.<br>
+<br>
+This changes <em>everything</em>, the entire fields of catching and training pokemon just became much less important, pokemon value by rarity is practically gone… hell, this totally outdoes Red's abra trick, obsoletes it and any others for catching large amounts of rare pokemon, the sheer <em>scale </em>of how much this changes makes Red feel like he's in a dream…<br>
+<br>
+The presenter lets the noise continue for another few seconds as he clips the two ultra balls to his belt, then raises his hands, palms out. "Hold on, everyone, don't get too excited yet." The room quiets down almost instantly, and Red feels his mental footing reform. Of course there's something else, some catch…<br>
+<br>
+The presenter goes to the cloned copy and puts a hand on its shoulder. "While this Carnus is a living, breathing charizard, and not just some statue made of biological parts, there are still some flaws with the process that we're trying to figure out. The cloned pokemon's autonomous functions all seem in good order, but they don't respond to any but the most extreme stimuli, and always in what appears to be a fairly mindless way." He looks a little sad as he says it, looking at the cloned charizard and giving its shoulder a rub. "We're working hard to figure out what's going wrong, and with your help, I'm sure we'll get there soon."<br>
+<br>
+He smiles and steps back up to the front of the stage. "People said it was impossible. That despite all our technological marvels, the complications involved would make this a step too far. And we've all had doubts, one way or another. But today, the goal of pokemon cloning now appears to be years away rather than decades. Since we have some of the finest minds in biology, tech, and business in the room, we're hoping that this demonstration will bring us the talent and funds we need to make history, and truly change the world. We look forward to hearing from you."<br>
+<br>
+The room explodes in applause, though there's a layered, stilted quality to it, as much of the audience is slow to get over their shock. The presenter bows, then gestures to his side as he names the team leaders standing there, ready to be approached. Some people are already moving toward the stage, either to talk to them or examine the clone, while the rest of the audience breaks into a hundred different conversations.<br>
+<br>
+Beside him, Red hears a pair of poketech engineers speculating about potential data loss from the order in which the pokemon is reassembled, while one of the women ahead of him turns around in her chair to begin an animated conversation on the effects of even minor mistakes in the base material amounts with the man sitting beside Red. He tries listening to one conversation first, then the other, but both are on specifics of the fields that leave him with the now-familiar feeling of being out of his depth, and instead he just sits and stares at the two charizard as his mind fills with wonder and speculation. The notebook page in front of him is blank, and he eventually just writes "Converting base matter into cloned pokemon, autonomous living functions, no mind?"<br>
+<br>
+As soon as Red writes it, his mind extends outward, curiosity like a restless itch. His head immediately bows against the cacophony of thoughts; trying to focus through it is like he's trying to feel a raindrop on a single patch of skin in a thunderstorm. Thankfully the charizard's mind is different enough that he can isolate it from all the humans', focus his thoughts on its blunter/fuzzier/more singular rhythm...<br>
+<br>
+But there's only one of them.<br>
+<br>
+Red frowns as he tries harder to isolate a similar mental signature, but there's nothing even remotely like it in the room. Red opens his eyes to confirm that yes, the cloned charizard is still there, and feels a twist go through his stomach.<br>
+<br>
+<em>Did they create a Dark charizard?</em><br>
+<br>
+After a moment Red's skepticism kicks in. There's no way they haven't hired a psychic to help diagnose what's wrong with the clones, they would know by now if they're somehow turning the pokemon Dark by testing psychokinesis on lifting its tail or something. But the alternative is that they just don't have a brain, which seems unlikely, considering it's meant to be a complete clone, and is at least able to breathe on its own… then again, maybe they just recreated it with some other autonomic nervous system. How would he know there's an actual brain in its skull? It's not like anyone would open it to find out. Also he can't imagine why they would do that on purpose.<br>
+<br>
+<em>Maybe it's not brain activity that my powers detect. Maybe it's… mind activity?</em><br>
+<br>
+Red needs to talk to a fellow psychic. He uses his "echolocation" to search for any other psychic minds around him, focusing as best he can with his eyes open as he slowly turns to match faces to hits.<br>
+<br>
+He finds a few nearby, but his sense of them fades when he gets out of his chair and starts to approach them. Red immediately stops, not wanting to seem aggressive. The next psychic he homes in on doesn't move away, but when Red focuses on the person he thinks it is he finds the woman looking at him with a guarded, almost hostile expression. Red holds his hands up in a gesture of apology while stepping away. <em>There's got to be a better way to do this…</em><br>
+<br>
+He finds his seat again and closes his eyes, then focuses on his curiosity, trying to project it as best he can without forcing it on others. He then adds his sense of general… openneness, his desire to talk to someone and learn and share information distilled into a feeling that doesn't really have a name.<br>
+<br>
+He's starting to feel some grief undermining his concentration, but does his best to isolate it. He hopes whatever he's doing feels more like a sign that says <em>I'm very interested in chatting with anyone who can feel this </em>rather than <em>HEY PSYCHICS! COME TALK TO ME RIGHT NOW!</em><br>
+<br>
+"There are over a dozen Gifted in this room too polite or wary to ask you what you're doing," a voice says, deep and roughened by age and cigars, and Red looks up to see an older man with short, grey hair, a thin mustache, and a striped suit and hat. "But novelty overrides such concerns, for myself. Or perhaps that's just your feelings splashing over me like a bucket of paint."<br>
+<br>
+Red quickly stops the projection and forms his mental shield as he turns to the man. "Sorry! I didn't mean to be rude, I just figured it would be better than walking up to strangers and telling them I know they're psychic. You know, in case they don't want to be outed. If that's a thing people worry about."<br>
+<br>
+The older man raises a brow. "And why would you need to speak to a fellow Gifted so urgently?"<br>
+<br>
+"I just wanted to ask some questions about the charizard. I'm Red, by the way. Red Verres."<br>
+<br>
+"Watari." The psychic turns to the charizard with no apparent recognition. "I admit that this situation <em>is</em> rather intriguing in its own right. At first glance, it appears to vindicate those Gifted who have always spoken of a 'soul' that exists separate from the mind, and insisted that this is what we are in truth interacting with."<br>
+<br>
+Red blinks, skepticism warring with the evidence of his (extra sensory) perceptions. "Well," he says, speaking slowly as he considers the problem, "I guess if I was thinking in terms of disproving the hypothesis that the clone is missing a soul, I would first have to determine whether it being brain dead was a more important variable. Do you know if anyone has ever <em>lost </em>the ability to have their mind sensed, through an accident or something?"<br>
+<br>
+The psychic drums their fingers along the top of the chair in front of him. "Not that I can recall, short of the sorts of injuries that would kill someone." he eventually says. "Even those with extreme mental trauma have some sensorium that can be sampled, even if their thoughts or emotions are, in essence, gone. They are not… this." He gestures toward the cloned charizard. "This emptiness."<br>
+<br>
+"What about the opposite?"<br>
+<br>
+"Gaining a senseable mind, where there was none before? Only if you count children."<br>
+<br>
+Red rakes the fingers of one hand through his hair, missing the weight of his hat. He'd never thought to wonder about that, and he should have. "What age do children become detectable?"<br>
+<br>
+"Depends on the species," the man says, giving him an appraising look. "Humans, after a handful of months within the womb. Pokemon that are born from eggs have detectable minds long before they actually hatch, which can be anywhere from a few weeks to even longer than humans."<br>
+<br>
+That… doesn't track with what little Red knows about brain development. "Shouldn't they be detected earlier than that?"<br>
+<br>
+"By what measure? Whatever your political or philosophical frame, I can assure you that someone has come up with an explanation that fits. If you're speaking purely from the perspective that active brain activity should be detected by a psychic, however, I do believe that is the question at the heart of this mystery. We only detect that which we can understand and feel ourselves in some fashion, after all."<br>
+<br>
+"Right," Red says, frowning. "Thinking about it more, I'm mostly confused at why I can't at least detect what the clone's body is feeling, since that at least seems like it shouldn't require it to be conscious. I've merged minds with my pokemon while they were napping before, and it still felt like <em>something, </em>and of course the original charizard's mind is there... Is this clone just totally unable to sense the world around it?"<br>
+<br>
+"I'm sure they have Gifted on staff to try and understand where their technology has gone wrong," he says. "Or they're here to attract those that can better help them assess the problem, along with the more obvious recruitment of money and other talents."<br>
+<br>
+"Are you thinking of approaching them?" Red asks.<br>
+<br>
+Watari glances at him. "I am already quite gainfully employed."<br>
+<br>
+"Oh, cool." Red smiles. "Are you one of the truth checkers?"<br>
+<br>
+The psychic stares at him, and Red's smile eventually fades. What is <em>with </em>psychics and their weird social norms? Is he committing some taboo that Ayane never told him about?<br>
+<br>
+"Uh. You don't have to answer."<br>
+<br>
+"Who <em>are </em>you, really?" the man asks, seeming genuinely curious. "Normally just asking that would mean I expect you not to answer honestly, but I find myself curious to know what you'd say anyway."<br>
+<br>
+Red is taken aback not just by the question (and the confirmation that he doesn't recognize Red's name) but by the implied context around it that he feels utterly unaware of. "I don't…" Red stops, thinks a moment, then says slowly, "I feel as though I've been dropped into a movie and don't know my lines, or character. Did I say something that strange? I've met four psychics already, and their jobs never seemed like a secret..."<br>
+<br>
+The older man meets his gaze for another few moments of silence while Red tries to keep from fidgeting nervously, and wonders if he should drop his shield. Maybe it's making him look guilty, as though he has something to hide. But even if he drops the shield now he'll be wondering if he's meant to be keeping something hidden, which will inevitably draw up things like Bill's secret, thus making him seem guilty as soon as he starts thinking about the very fact that there's something he wants to keep secret at all. Maybe he should try to partition that meta knowledge into its own shield to keep it separate—<br>
+<br>
+"Oh!" Red's eyes are wide as he considers that briefly, then realizes the danger and lets the train of thought go. He looks up at the bemused psychic. "Sorry, I think I just figured out how we do the 'amnesia' thing. A little. I was told not to experiment with it on my own, but now I'm actually worried I'll do it accidentally."<br>
+<br>
+The older man slowly blinks. "Now <em>I </em>am the one who feels a character in the wrong play. Which, I'm sure, is the point." He considers Red a moment longer. "Do you by chance know the story of General Hideyoshi's victory over the Mori clan?"<br>
+<br>
+"Um. I haven't read much history... it's not ringing a bell?"<br>
+<br>
+"Hideyoshi fooled an undefeated psychic warlord at Himeji Castle into falsely believing that he was surrendering. Can you guess how?"<br>
+<br>
+Red wants to say the question doesn't make him feel any less like he's cluelessly in the middle of something that he doesn't understand, but he doesn't want to give up without at least <em>trying </em>to figure out the answer.<br>
+<br>
+So instead he focuses on what the ancient general had done, and why the older psychic was asking him about it in this particular context. How would Red fool a psychic? He couldn't use another psychic or dark person to lie to them, they wouldn't believe anything they said. Professor Oak told him that the best thing to do to prepare for meeting a psychic is to make sure he has nothing on his mind that he's worried about the psychic learning. This was fairly easy to do when he met Narud, since he didn't know anything important, but harder with Sabrina, when he did.<br>
+<br>
+Though, actually… it wasn't Red's information that he wanted to keep Sabrina from knowing. It was Bill's. And Bill hadn't <em>told </em>him that information, he had figured it out himself, after already giving Red the tickets. Bill can't have been worried about people here finding out things about him, but the very act of warning Red about psychics would prompt Red to be on the defensive. Which would make it seem like he's hiding something regardless of whether or not Bill has something to hide.<br>
+<br>
+Hell, if Red hadn't even known it was a big deal, he wouldn't have even had to try and keep himself from thinking about it. But even if an interrogator isn't specifically looking for some information, they would be able to sense that feeling of guilty desire to deceive or hide something, and ask the right questions to bring it to the forefront of Red's mind either way.<br>
+<br>
+The older psychic seems amused that Red is actually giving the idea some thought, and doesn't interrupt his thinking. Red doesn't need his powers to try and put himself in the other man's shoes and look at the world from his perspective. Red isn't the general in this circumstance; he's the one sent by the general, who would be Bill. Red's psychic, so that kind of breaks the pattern of the hypothetical, but if there isn't some norm among psychics not to ask what people do, then maybe there's one specifically on this cruise…<br>
+<br>
+He realizes with a sinking feeling why hiding in plain sight is the ideal form of deception. If "everyone knows" why there are so many psychics on board, then any psychics not on board for that reason aren't given additional suspicion. Except, perhaps, from other psychics, and so <em>of course </em>a psychic asking another psychic what they do on the cruise is frowned upon. Espionage seems the easiest answer, but Bill didn't even know Red was psychic when he first invited him, and thought that he still didn't know how to pick up on emotions when he gave him the tickets, so it's not like he would worry about that. But he definitely knew before Red came on the cruise, and still said nothing.<br>
+<br>
+Which means saying something would have just made things worse, or that he was purposefully pretending not to know that Red was psychic so that he could act surprised upon finding out so that Red could assume that he had no ulterior motive for sending Red...<br>
+<br>
+<em>Complexity penalty. That way lies madness. </em>He can entertain it as a possibility, but for now he has no evidence to confirm it one way or the other, and it would just distract from more probable likelihoods.<br>
+<br>
+"I guess," Red says slowly, "If I were that general, I would convince my negotiator or second in command or whatever that we were surrendering. Maybe even fake suicide, and stage the beginnings of a surrender. Have my people start dismantling the camp until the negotiator leaves. Maybe even send some prisoners who are told and see the same thing. Then, they wouldn't need to worry about honesty: you can't betray a falsehood or even the possibility of a ruse if you don't suspect one yourself."<br>
+<br>
+"So you do know the story."<br>
+<br>
+"No, I just… it's obvious, once you think about it."<br>
+<br>
+They stare at each other in silence for another few seconds while the dominos finish falling one after another in Red's head.<br>
+<br>
+<em>I'm not actually a secret agent of Bill's </em>he thinks, then doesn't say, recognizing how useless a defense it is, even against someone who can read his intentions.<br>
+<br>
+<em>I don't </em>think <em>that</em> <em>I'm a secret agent, really, I wasn't given any instructions beyond to just take notes about the presentations, </em>would be similarly pointless, since the person being anticipated is the only one who knows what he's actually after.<br>
+<br>
+"I just wanted to talk to someone about the charizard," he finally says, feeling an odd sort of shame. "Sorry for bothering you."<br>
+<br>
+"No bother at all," the man says, and tips his narrow hat. "Have a good night, Gifted."<br>
+<br>
+Red watches him go, brain feeling like he just went through a battery of tests. He sits idly for a few minutes until the crowd finally begins to thin out as people make their way out of the exhibition room.<br>
+<br>
+"Red!"<br>
+<br>
+He looks up to see Leaf on her way toward him, apparently having spotted him on the way out. His heart swells at the sight of her, chasing away darker thoughts.<br>
+<br>
+"Hey! What do you think?" He gestures at the two charizard. "Pretty crazy, right?"<br>
+<br>
+Leaf is close enough now for him to read her expression, which doesn't look particularly impressed, let alone awe stricken. "Yeah. Pretty crazy."<br>
+<br>
+"What's wrong?"<br>
+<br>
+She shakes her head. "Is there something you're waiting for, here?"<br>
+<br>
+Red glances at the crowd near the presenters, which looks like it won't be thinning any time soon. "I guess not. You going somewhere specific?"<br>
+<br>
+She shakes her head. "Nowhere. I was just going to walk around the boat. Maybe go to our room and cry a bit. Or scream."<br>
+<br>
+Red stares at her in shock. "Why?"<br>
+<br>
+"Not here. Come on." She starts walking, and Red quickly follows her. The halls of the boat are a bit crowded as people rush this way and that, but soon they reach one of the doors to the outer decks, which are practically empty. Eventually, Leaf says, "Please tell me you understand at least a <em>little </em>bit why I'm so upset right now."<br>
+<br>
+Red rubs his temples. "Leaf… normally I'd be happy to try and model you, but I just finished some spy movie crap with another psychic, and my brain still feels soft." She gives him a surprised look. "I'll tell you later, but for now it would really be nice to just have a straightforward conversation."<br>
+<br>
+"Okay, well then being straightforward, I'm pretty disgusted by the world right now. Cloning mentally crippled pokemon is just the start of what looks to be a pretty horrifying future."<br>
+<br>
+Red's never heard so much venom in Leaf's voice, and tries to pick his words carefully, forcing himself to try and model her perspective despite his earlier protest. "If it helps, there's no mind there at all that I could sense. It was as close to literally braindead as I could imagine, as unthinking and unfeeling as a rock."<br>
+<br>
+Leaf looks surprised by that. "Okay. I guess that's not quite as horrifying as it could be."<br>
+<br>
+"And I know we don't agree on the weight of pokemon personhood, but I can sort of understand why you would be weirded out by the idea of cloning Joy or Raff. It would basically treat them like commodities, right?"<br>
+<br>
+"Yeah, that's part of it. I know Aiko would be pissed about it because it'll just encourage people to all raise copies of the same pokemon, instead of taking care of all the other pokemon that already exist."<br>
+<br>
+Red didn't think of that part. "Yeah. Though it would mean people aren't breeding dozens of pokemon just to try and get one particularly rare or powerful combination of genes. That's good, right?"<br>
+<br>
+"Oh no, they've got a much better market for that now."<br>
+<br>
+"What do you mean? They said they just stored all the needed elements and…" Red trails off. "Huh. How do they even know how to stabilize each combination of molecules? That Other metric must be full of something specific, but they didn't just list it out… I mean, we still can't artificially recreate charmander oil in a lab, that's one of the first things I looked up after we started out. But… that clone's tail had a flame so I guess just copying the form is enough..."<br>
+<br>
+"Right, that might just be the result of putting the right biological organs together in the right places," Leaf says." Artificial pokemon meat is made by specific software to turn the right elements into the right pattern of biological compounds as efficiently as possible. But whatever script <em>they're</em> using to fit atoms into the whole blueprint is <em>bound </em>to be more prone to error the more precise they try to be, and the main issue is that meat is still something we understand how to code as output, while other stuff pokemon make or have as part of them are not."<br>
+<br>
+"They're not trying to code one from scratch, though, they're just copying the process that happens when you bring a pokemon out of its ball."<br>
+<br>
+"No they're <em>not," </em>Leaf says as she stomps along the corridor and out onto the deck of the ship. "They're applying that process to a new bunch of matter! That's important if we're thinking of what goes into the ball in the first place, think about the 'flying particles,' we <em>definitely </em>don't know how those are emitted! Maybe it's just about putting the right organs in the right places too, but what if it's not? Even if its brain worked alright, it might not have been able to breathe fire, or fly. They probably just put together something impressive enough to show for investors."<br>
+<br>
+Red considers this silently for a while as he follows Leaf to the railing at the edge of the deck. The two stare out into the dark waves below and brilliant stars above as Red wonders how accurate her suspicion is. Leaf may be too cynical, part of the mindset she's been cultivating to be a journalist, but either way, surely the psychics on board would notice something that deceptive. Plus, many collaborators might not actually care.<br>
+<br>
+But ultimately he realizes it's irrelevant to the real point. "Okay, let's say they can only really effectively clone a pokemon by using other pokemon. For a while, anyway, eventually it'll get figured out when we understand them and how their abilities work better. But Leaf, don't you get it? They'll eventually be able to bring pokemon back to life with this!"<br>
+<br>
+"No, Red, they won't! They'll just make a clone using the remains of the previous pokemon, or others. There's no continuation of consciousness like there is when we digitize a pokemon in their ball, or store them, it's not analogous to sleep, it's just turning dead matter into living creatures."<br>
+<br>
+"Why is <em>that</em> bad?"<br>
+<br>
+"Because there are <em>already living creatures </em>around!" Leaf waves an arm in a gesture that's probably meant to encompass more than just the ocean around them. "Come on, Red. Don't tell me you haven't already thought of what this will probably lead to."<br>
+<br>
+"I was distracted, really. I get it now, though, you think people are going to just... store a bunch of charmander for biological parts. But even if people <em>need </em>to use charmander to make a charizard, nothing says they have to be <em>alive </em>first<em>.</em>"<br>
+<br>
+"And who's going to stop them from using living pokemon?" Leaf shakes her head. "You can't see past the potential benefits of this, that's the problem. Like everyone else, you'll just accept whatever cost there is as unimportant compared to the gains."<br>
+<br>
+An announcement interrupts Red before he can respond, alerting them all that dinner is being served. People around them start to change the direction in which they drift. "Leaf, I don't—"<br>
+<br>
+"Sorry, can we table this?" Leaf lets out a frustrated breath. "I have to go, I made plans for a couple interviews during dinner." She starts heading to the dining hall, and Red follows her with an ache in his chest. He'd hoped to eat with her and talk more, but she clearly wants some space from him.<br>
+<br>
+He contemplates going to the dining hall and sitting alone, or trying to strike up a conversation with someone. After the stressfully enigmatic talk with the psychic, however, he finds the prospect daunting, and just grabs some food to take to his room, thoughts still swimming with amazement at the cloning technology, curiosity about what it was doing wrong, and, more often than he'd prefer, the conversation he had with Leaf, and how irritated she was, and how irritated he'd made her…<br>
+<br>
+He's still in bed an hour later, food eaten, mood swinging between various pessimistic thoughts. Eventually he has the presence of mind to realize he's just sulking, and brings Pichu out to keep him company the way he would if his depression was particularly bad. That comparison distracts him briefly; what he's feeling now isn't nearly as strong as the feelings of using his powers too much… of missing his dad. But he still would have thought he'd be better at overcoming it than this.<br>
+<br>
+He needs to get his mind off this frustrated worry that she's going to hate him forever just because they argued before he leaves the journey. Red takes his laptop out and starts typing up a report of the cloning presentation for Bill and doing his best to ignore his argument with Leaf. Blue he's used to not getting, they just have such different priorities, but Leaf… If only he wasn't leaving soon, he might not be so fatalistic about it all...<br>
+<br>
+He's still writing out his thoughts about the presentation when there's a knock at the door to the living room, and Red stares at it a moment, heart hammering. "Come in!"<br>
+<br>
+Leaf opens the door and pokes her head in. Her buneary, Alice, curiously sticks her head in from around Leaf's knees, nostrils flared at the lingering scent of food. "Hey. Are you joining us tonight?"<br>
+<br>
+Red smiles, some weight rolling off his shoulders. "Sure!"<br>
+<br>
+Leaf smiles and closes the door, and he quickly changes into his workout clothes, body feeling light and full of energy. He pauses as he changes, a bit amazed as he realizes how much of a shift in his mood and energy level was dependent on just knowing that Leaf wasn't mad at him. He quickly grabs his notebook and writes out, <em>find out what the link is between mood and energy/motivation level, see if it can be harnessed independently or summoned on command?</em> Then he summons Metapod and Pichu, and carries Metapod into the living room to lean it against the corner.<br>
+<br>
+Pichu runs off to say hi to Leaf upon spotting her, as usual. She smiles and gives the pokemon she caught an affectionate rub, then sends him back to Red, who steps up to the opposite side of the obstacle course. "I shifted some things around," she says. "Haven't tested it much, but let me know if it's not working for you."<br>
+<br>
+"Right." Red watches her go around the course to get an idea of what the new configuration is intended for, then starts his track when she gets to the end of it.<br>
+<br>
+Soon he's gotten into the new rhythm of things, and is wondering if he should bring up their previous conversation. It feels risky, and he doesn't want them to argue again. But he also doesn't want the topic to have ended on such a negative note, and he never had trouble talking to her about things before. She might find it odd or disappointing if he started now.<br>
+<br>
+"So, about what we were talking about, before," Red says carefully, stretching his thoughts out to test her mood.<br>
+<br>
+"Yeah?" Leaf seems curious, not hostile at all, mostly focused on her workout. Red withdraws so he can focus on his own and talk at the same time. "Oh! You said something about psychic spy stuff?"<br>
+<br>
+Red misses a step and almost twists his ankle on the edge of a couch cushion. He'd <em>completely </em>forgotten about that, he was just so upset at the idea that Leaf might be mad at him that he forgot…<br>
+<br>
+"Right, that." He summarizes the conversation with Watari, and Leaf stops exercising so she can listen, causing him to slow to a stop too. As he explains his suspicions, she starts to pace by the windows, an intense look on her face.<br>
+<br>
+"Okay, I'm back to suspecting something shady is going on," Leaf says. "I think we should tell the captain or event organizers, just to make sure they're aware of how many psychics there are here."<br>
+<br>
+"But we don't even <em>know </em>how many there are, or should be," Red says. "What are we going to say? 'Hey, there's more psychics than we two kids who have never been to one of these before expected and one of them seemed secretive about his job?'"<br>
+<br>
+Leaf sighs. "I know, we need more info first. Still, I'd feel pretty silly if we didn't raise the concern and it turned out to be something important just out of fear of being embarrassed." She gets back onto the obstacle course, and Red starts moving again too. "I <em>really </em>need to figure out how to guard my thoughts and mood from intrusion. We should practice that sometime."<br>
+<br>
+"Yeah." Red's mood plummets again as he realizes it would have to be sometime soon. He should tell her he's leaving… But it'll just depress him more, and he was enjoying thinking about other things. "I'm a bit psychic'd out today, but maybe tomorrow night, or the one after?"<br>
+<br>
+"Sure. And I'll see if I can get a five minute conversation with the captain or someone else with authority tomorrow."<br>
+<br>
+They exercise in silence a bit, and Red's thoughts go back to the argument from earlier, the things he didn't get a chance to say. <em>Just out of fear of being embarrassed. </em>That's not <em>quite </em>why Red's hesitant to bring the conversation up again, he's more afraid of spoiling the mood, but he knows it's going to continue to bother him if they just leave the conversation there. So he considers what the best opening statement would be to set a more positive tone, and the next time he vaults over the two couches, one after the other this time instead of all as one maneuver, he catches his breath and says, "About that other thing… from earlier. I've been thinking about what you said, and you're right. I think I might be too quick to just accept the opportunities."<br>
+<br>
+"Yeah?" Leaf asks from behind him, sounding surprised.<br>
+<br>
+"Yeah. But I also think we might have drifted off point, a little… I was curious to know, what if we forget about this technology as it currently exists and talk about the <em>ideal</em>? Maybe we disagree less than it seems, philosophically."<br>
+<br>
+"Maybe." Leaf's buneary hops straight over both couches at once, its ears just missing the ceiling. It lands on her shoulder, then rebounds forward. "What did you have in mind?"<br>
+<br>
+"Well, if we could just collect a bunch of dead matter for the elements and work out the algorithms to <em>perfectly </em>duplicate a pokemon, carbon, hydrogen and oxygen will get you most of the way there for most—"<br>
+<br>
+"People aren't going to want most pokemon, they're going to want the rare and powerful ones. You think most people have a ton of iron lying around to turn into a steelix?"<br>
+<br>
+"Okay, but pretend they just buy iron in bulk to use, and can easily purchase any rarer elements they need, all ethically sourced. I know you have doubts about that actually happening, but hypothetically, would you still be against being able to revive your pokemon?"<br>
+<br>
+"But I <em>wouldn't</em> be reviving them. Like I said, I'd just be making a copy."<br>
+<br>
+"A copy that's using like 90% the same matter?" Red pants as he leaps from side to side between the chairs. "Like if you make a backup copy of your pokemon, and they get killed, <em>and</em> you have the extra elements around to repair whatever wounds they got and bring them back to their <em>previous saved state</em>... is that bad?"<br>
+<br>
+Leaf is quiet, and he wishes he could see her facial expression for longer than a couple seconds at a time as they pass by each other. He's about to use his powers to check her mood when she says, "I can't say that I won't be tempted to just… turn some bushes into a new Raff if something happens to him. But there are other pokemon in the world that could use a loving trainer. I should just raise another one and raise them instead. To be honest, ever since we've been to Aiko's ranch, I've been wondering if I should even catch any new pokemon, outside of like a life or death situation."<br>
+<br>
+Red tries to wrap his mind around that, and fails. Not just the idea of not catching new pokemon they encounter in the wild, that requires a whole separate conversation and time to contemplate. What he really can't imagine is being given the ability to return a dead pokemon to life, and just… starting over with a new pokemon instead of regaining all the time and effort he's already put into his. To lose the <em>relationship </em>between himself and his pokemon…<br>
+<br>
+"I think you're an incredibly moral and caring person," Red says. "And I feel sincerely awed that you have that level of care for each pokemon as an <em>individual </em>rather than a… I don't know, a pattern of interactions with a persistent chain of experiences? But what if it happened to <em>me</em>? Would you really not want me to come back to life just because it was a copy?"<br>
+<br>
+"Do <em>you </em>want a clone of you just picking up where you left off after you're dead?"<br>
+<br>
+"Of course! I mean for all I know, someone secretly kills me and puts a clone in my place every few months while I'm asleep, right? If I died and someone cloned me from a backup I might not even notice if it were done carefully enough. I'm basically a clone of Past Red, and I'd be upset with Past Red if he didn't want me, as <em>Present </em>Red, to exist, just like I'd be upset with him making a decision that ignored my well-being. Similarly, I have to consider what's best for Future Red when I make decisions, who's kind of not-yet-created clone of me. And if I would be mad at Past Red for not caring if I exist, it would be a dick move to not want <em>Future </em>Red to exist."<br>
+<br>
+Leaf stops to drink some water, and gives some to Alice too as she stares at Red with an expression he can't quite place. "You have the strangest way of thinking sometimes, you know that?"<br>
+<br>
+Red stops to rest and hydrate himself and Pichu too, and briefly samples her mental state as he does so. There's more admiration and pleasure than confusion, and he grins. "You realize how that sounds, coming from you?"<br>
+<br>
+Leaf laughs. "Fair enough. I didn't say I don't like it, though." She gives her buneary a nut from the pouch at her belt, then gets back onto the track. "But okay, let's say you do know you'll be cloned if you die. You wouldn't go charging into dangerous situations, would you?"<br>
+<br>
+Red considers that as he takes another drink, still warmed by her words. "I'm not sure, actually. If there was really no cost, and by putting myself in danger I could save others… but wait, if that was possible for me I guess everyone would also be able to be revived. Or cloned. Whatever."<br>
+<br>
+Leaf is frowning at him as she jogs by. "Don't you think there's something perverse about that? Would we even value life if it was that easy to replace?"<br>
+<br>
+"Yes? It's not like we'd be suddenly okay with someone's backup being wiped out in that circumstance. 'Life' and 'death' would just have a different meaning." He watches her move around the track, waiting until she's opposite him to rejoin. "Wouldn't <em>you </em>want to be immortal?"<br>
+<br>
+"If it was actual immortality that I could end whenever? Sure. But clones… I don't know. It just feels like that's not <em>me </em>anymore. And if copies of me are just using up resources that other people could be using, that seems really narcissistic. No offense."<br>
+<br>
+"Some taken. But…" Red shrugs as he runs. "I like myself… uh, mostly. I like my values. I like my goals. I want them to continue, even if it's through a clone. I guess maybe I am a narcissist?" That thought is unpleasant, but he can't deny the truth of what he said. "Though I think that word means more that you don't care about others… I wouldn't kill someone else to make a clone of me."<br>
+<br>
+"Why wait until you're killed at all, then? Why not just clone yourself, if the tech is available to do it out of inert matter?"<br>
+<br>
+Huh. Now that they're talking hypothetically, the possibilities of what the new poketech would let them do if they ever fix the problems with storing humans <em>would </em>allow cloning humans… What a weird world that would be.<br>
+<br>
+But not one he feels intrinsically opposed to. "I think I could get along with myself," Red says. "And that way I could have one of me focus on research, one of me focus on training, and one of me focus on my psychic abilities."<br>
+<br>
+"And how would the Reds decide which does which? Drawing lots? If you can't decide between them now, why would your clones be okay with only doing one over the others, and not eventually get upset at being stuck with one?"<br>
+<br>
+Considering that takes Red's attention for awhile, trying to model himself as a <em>version </em>of himself that is aware of <em>other versions </em>who are going to go off and do other important work so that <em>he </em>can focus on training/research/psychic abilities. He <em>thinks </em>he'd be okay with that, as long as he can keep checking in with his other selves to see what they've learned and maybe work together sometimes...<br>
+<br>
+His musings are interrupted by a sudden knock at the door. Red and Leaf both slow to a stop, their pokemon immediately halting beside them. The trainers exchange a look, then reach for their pokeballs.<br>
+<br>
+"Wait," Red suddenly whispers, and bends down to pick Pichu up. "Too loud."<br>
+<br>
+Leaf picks Alice up, and they quickly head to their rooms to put their pokemon away as a knock comes again. Despite his nonchalance to Leaf when they first came on board, he suddenly imagines a dozen potential consequences to breaking the rules of the cruise, including having their pokeballs taken away for the remainder of the journey, or being barred from attending any further exhibitions.<br>
+<br>
+"Stay," Red says to Pichu. "Rest." He pours some berries on the ground from the pouch at his waist, then takes the whole belt off and puts it in an open container box before returning to the living room to grab Metapod and stick it in his closet. Leaf is closing her door by the time he comes back out, and the knock repeats, louder, as they move together to answer the door. Red opens it and sees the boat steward from their first day standing there with his fist still raised.<br>
+<br>
+"Hi… Paul," Red says, remembering after a moment before he has to look at the name tag. "What's up?"<br>
+<br>
+The young man glances back and forth between the two smiling, sweaty, somewhat winded trainers. "Good evening. We've received noise complaints, from both those below <em>and </em>above your suite, over the past few nights."<br>
+<br>
+<em>Oops. </em>"Oh. Right. Sorry."<br>
+<br>
+"Normally your conduct in your own rooms would be your own concern," Paul says, voice a bit stiff. "But due to age…"<br>
+<br>
+"Oh!" Leaf says, and Red turns to see her blushing furiously. It makes her look particularly pretty. "Oh, no, it's… look…"<br>
+<br>
+She takes a step back, surprising Red, who's confused at both the implication and her sudden decision to show off their ad hoc gym.<br>
+<br>
+The steward stares at the transformed living room, eyes widening. "Was your room… not to your liking?"<br>
+<br>
+"It's just a place for us to work out," Red says.<br>
+<br>
+"We have facilities onboard…"<br>
+<br>
+"Privately."<br>
+<br>
+"Of course." Paul is giving Red a level stare, and he wonders if the young man is remembering what they wanted before and putting two and two together… "I've been asked to ensure nothing untoward is occurring, however."<br>
+<br>
+'<em>Nothing untoward?' Do people really talk like that? </em>"Um. Sure." Red steps aside too, watching Paul walk in and frown at the obstacle course. He tries to imagine it from his eyes, and wonders if it just looks like a jumbled mess from the angle of the doorway.<br>
+<br>
+The steward goes over to the furniture, examining the expensive looking couches and cushions. "And just the two of you have been climbing and running over these?"<br>
+<br>
+"Yes," Leaf says before Red can wonder if there's any telltale marks of their pokemon's claws cutting at the material. "I'm sorry, I didn't consider the potential damage to them from how rough we were being."<br>
+<br>
+Paul's gaze lingers on the edge of one couch, fingers running over the top, then he walks around the room, making Red nervous when he approaches Leaf's door in case Alice makes some sound, or he decides to investigate it. Instead he continues past to the bar, where he takes in the small mountain of empty containers there. Red is suddenly glad they only opened one alcoholic drink, long buried by all the juice bottles and soda cans.<br>
+<br>
+"Did we drink too much?" Red asks.<br>
+<br>
+Paul turns to them just as a muffled thrumming and crackling comes from Red's room. "What was that?" he asks, turning to Red's door.<br>
+<br>
+"I left my TV on," Red blurts out, causing Paul to turn back to him as a panicky voice in his head wonders if Pichu fried something. Hopefully <em>not</em> the TV…<br>
+<br>
+"You left your TV on," Paul says, not a question.<br>
+<br>
+"Right." Red tries not to look nervous or glance at Leaf.<br>
+<br>
+"While you exercised."<br>
+<br>
+"Yeah. For the… background ambiance."<br>
+<br>
+Both Leaf and Paul stare at him, now, the silence suddenly incriminating.<br>
+<br>
+"Wait, no," Red says, cursing himself for being a terrible liar. "I think that was my alarm going off on my phone, actually. I forgot all about it. That's why I set it. So I wouldn't forget… to send an email."<br>
+<br>
+"I see." Paul's hand rises to rub his eyes briefly. "Would you mind if I check your room, sir?"<br>
+<br>
+"Check my room?" Red asks as he suddenly sends his powers out toward Pichu, enmeshing their minds and pushing past the sensations it sends him as he hurriedly sends his vague fear at his pokemon. Not mindless fear, that might make him lash out at anyone who walks into the room, but specifically the social fear of awkwardness, of some indistinct threat. It's easy to project the desire to <em>curl up and</em> <em>hide</em>… "Not at all!" Red lunges forward before Paul can reach for his door knob so that Pichu smells him coming through the door first, still sending the impulse to <em>hide </em>and <em>be quiet </em>as he opens the door and holds it wide for Paul's inspection.<br>
+<br>
+Paul is frowning at him, but after a moment steps into the room and looks around. Thankfully there's nothing that looks electrocuted, and on top of that all the berries from the ground are gone. The steward eventually steps back into the living room.<br>
+<br>
+"Thank you. Please try and be more considerate of the other guests, and refrain from any more indoor athletics." He glances at the windows. "And try not to leave the windows open for too long. The salt and wet isn't good for the furniture."<br>
+<br>
+"Of course!"<br>
+<br>
+"We're sorry for making trouble," Leaf adds. "But actually, now that you're here… would you mind passing a message along to the captain, or telling us how we could speak to him? It doesn't have to do with any of this! Totally unrelated. We just have something that may be important to ask him."<br>
+<br>
+Paul gives her a skeptical look that's so subtle it <em>must </em>be trained, but merely dips his head. "I'll inform the Chief Steward and let him decide to pass the message along or not." He examines the obstacle course once more as he walks past it, and Red is suddenly glad they keep the window open. The ocean breeze is nice, and it's useful for pokemon waste removal, but the smell of the ocean is also more than a match for flushing out not just their sweat, but any scent of their pokemon. "Have a good night."<br>
+<br>
+"Night!" they echo, and Red relaxes his projection as soon as the front door closes behind the steward.<br>
+<br>
+Red and Leaf look at each other, and their overly wide, cheerful smiles slowly shrink into more relieved and real ones as they relax and lean against the walls on either side of the door.<br>
+<br>
+"Red, you are the <em>worst </em>liar!"<br>
+<br>
+"I refuse to feel bad about that."<br>
+<br>
+"You left the <em>TV </em>on<em>?</em>"<br>
+<br>
+He turns back to his room. "What <em>was </em>that, anyway? He must have been cooking one of the berries, but I thought I trained him not to do that indoors…" They both go to Red's room, and he looks around to ensure again that there's no damage. "Pichu, here," he whispers, tapping his leg.<br>
+<br>
+A pair of black and yellow ears emerge from under his bed, and Leaf gasps as Red stares at the shape of them. They're long, and thin, and—<br>
+<br>
+"Your timing is just the <em>worst</em>," Red says, hands on his hips, but he's grinning wide as his newly evolved pikachu finishes wriggling out from beneath the bed and runs up his bare leg. "Gah! Nails! Sharp!"<br>
+<br>
+Leaf giggles as she watches him dance in place until his pokemon reaches his shorts, then pulls itself up his shirt to rest on his shoulder and start nuzzling his cheek. "Shh! Do you want Paul to come back?"<br>
+<br>
+Red grumbles and carefully repositions Pichu… <em>Pika</em>chu, so that he's settled more comfortably on his shoulder. "Good point. I'm not sure if we actually fooled him."<br>
+<br>
+"Yeah. It sucks that we can't train with them anymore, but at least this happened first. Congratulations, Red!" She scratches the fur between Pikachu's ears, and laughs as he runs along her arm to her shoulder instead.<br>
+<br>
+Red goes to check on Metapod just in case he has a butterfree now too, but the dull green pokemon is still sitting where he left it. He sighs. "Well, they can stay out until morning, at least."<br>
+<br>
+"Yeah. Let's go put the living room back together and try out some new sodas."<br>
+<br>
+Red falls asleep easier, that night, though his dreams are full of versions of himself, all talking with each other and fighting over who would get to be the one that stays with Leaf and the others on their journey. Each time he thinks he's won, his perspective shifts to a different clone, and the argument starts anew.
+        </div>
+
+        <div class="chapter-nav">
+            <a href="../122/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Chapter Index</a>
+            <a href="../124/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>

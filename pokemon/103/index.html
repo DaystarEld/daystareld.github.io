@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 45: Goal Factoring - Pokemon: The Origin of Species</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .chapter-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .chapter-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .chapter-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            max-width: 70ch;
+            margin: 0 auto;
+        }
+
+        .chapter-content br {
+            display: block;
+            content: "";
+            margin: 0.75em 0;
+        }
+
+        .chapter-content hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 2em 0;
+        }
+
+        .chapter-content em {
+            color: var(--accent-2);
+            font-style: italic;
+        }
+
+        .chapter-content strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .chapter-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../">Pokemon: TOoS</a></li>
+                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chapter-header">
+            <h1 class="chapter-title">Chapter 45: Goal Factoring</h1>
+            <div class="chapter-meta">Pokemon: The Origin of Species</div>
+        </div>
+
+        <div class="chapter-content">
+            <p style="font-weight: 400;"><em>Hey everyone, welcome back to, say it with me now, the New Longest Chapter Yet! Lots of notes this time around, so bear with me:</em></p><br>
+<p style="font-weight: 400;"><em>First, I had an amazing time this month at the Center for Applied Rationality workshop in Seattle. It was tons of fun, I met all sorts of interesting and unique people, and I learned quite a lot about myself and various tools available to upgrade my thinking and perspectives. If you're curious to learn more you should totally check out their site! The title of this chapter is based on one of the techniques I learned there, and I'm going to try and draw Red's out and upload it to my site soon so you can get a better picture of what it looks like.</em></p><br>
+<p style="font-weight: 400;"><em>Second, in case it's not quite clear in the story: abra can't be used to teleport others. They can only teleport their trainer, since it requires a full-mind-meld to bring them along.</em></p><br>
+<p style="font-weight: 400;"><em>Third, some amazing readers have made some amazing fan creations! Check out my site for links to some awesome fan art and an audio play of the first chapter, which was just delightful and a fantastic surprise for me.</em></p><br>
+<p style="font-weight: 400;"><em>Finally, I wanted to repeat once again that, while I enjoy and appreciate and value guest reviews, remember that fanfiction literally does not allow me to respond to them, so please keep that in mind if you leave reviews that have questions in them but are not signed in :) Additionally, fanfiction will block anything that looks like a website or email address, so if you try to leave those in your reviews, Guest or otherwise, I cannot follow up on them as they will just look like empty spaces in the reviews.</em></p><br>
+<p style="font-weight: 400;"><em>Enjoy, and all feedback welcome, as usual!</em></p><br>
+<p style="text-align: center;">Chapter 45: Goal Factoring</p><br>
+<p style="font-weight: 400;">Once everyone gets over their surprise and has a chance to properly greet each other, Daisy brings out a container full of fold-out chairs and a picnic basket. The professor releases a couple of his pokemon to watch their surroundings, freeing the rest of them to bring theirs out for socializing. Blue's shinx plays with Red's pichu and Aiko's oddish, while Daisy introduces her ivysaur to Leaf's bulbasaur.</p><br>
+<p style="font-weight: 400;">Food is served, two separate cakes are revealed, songs are sung, and only after Blue has started on his second piece does he lean back and fix Professor Oak with a pointed look.</p><br>
+<p style="font-weight: 400;">"Okay Gramps, spill. What really brought you and Aunt Laura out here so early?"</p><br>
+<p style="font-weight: 400;">"What about me?" Daisy asks. "Aren't you going to ask what hidden scheme I'm running?"</p><br>
+<p style="font-weight: 400;">"Nah, I'm pretty sure you wanted to personally congratulate me on my perfect gym run."</p><br>
+<p style="font-weight: 400;">"You just know me so well, bro."</p><br>
+<p style="font-weight: 400;">"Hey," Professor Oak objects, looking between them. "Can't I just be impatient to celebrate my grandson and pupil's birthdays?"</p><br>
+<p style="font-weight: 400;">"No," Blue and Daisy say together.</p><br>
+<p style="font-weight: 400;">"Well personally, I'm a little miffed," Red's mom says. "What if I'm the one with the secret motive for coming?"</p><br>
+<p style="font-weight: 400;">The others chuckle, but Red's feels a bit forced. Truth is, the thought crossed his mind that she <em>had </em>actually come to discuss something with him… and he's not looking forward to it if he's right.</p><br>
+<p style="font-weight: 400;">"Well, now that I'm here I suppose there <em>is </em>something I wanted to speak with you all about…" Professor Oak's tone slowly goes from jocular to serious, and the trainers' smiles all fade by the time he speaks again. "This abra sale you're coordinating is amazing, and I'm very proud of all of you, both for catching them and what you decided to do with them. But the attention you get from it is likely to change things for all three of you. Namely, you're going to start getting headhunted."</p><br>
+<p style="font-weight: 400;">Red leans forward. "Has someone approached you about us already?" There are a dozen ways his carefully planned sales and Leaf's coordination of the press release might have gotten leaked, and Red feels excitement stir at the idea that he might have gotten some offers, even if he doesn't plan on taking them.</p><br>
+<p style="font-weight: 400;">"No, nothing yet. But this might be our last chance to offer some guidance to the three of you." Professor Oak turns to Aiko. "I'm sorry to make you feel left out, Miss Sakai, I wasn't expecting anyone else to be here. But I'd be happy to talk about your own aspirations afterward, if you'd like."</p><br>
+<p style="font-weight: 400;">Aiko is already shaking her head, eyes wide. "No, I'm okay, thank you! I mean, I would love to, but… go ahead with whatever you were planning, please!"</p><br>
+<p style="font-weight: 400;">He beams at her, then turns back to the trio. "Let's start with you, Blue, because I expect you're going to be the fastest. I don't think anyone has a chance to persuade you to delay your gym circuit, but it's still worth bringing up again now that the invitations are going to come pouring in. Would you turn down <em>any </em>gym's recruitment offer?"</p><br>
+<p style="font-weight: 400;">Red expects his friend to say yes right away, but Blue just frowns, leaning back in his chair and watching Aiko's oddish follow the sparking tip of Ion's tail as the shinx walks over to the other Plant Types. "Yeah. I don't think that's changed, or is likely to. Giovanni himself could offer me the Second position at Viridian, and I'd still think my journey is more important."</p><br>
+<p style="font-weight: 400;">"Good to know. So how about you, Leaf?"</p><br>
+<p style="font-weight: 400;">"Me? I don't really see why I might get anyone's attention from this."</p><br>
+<p style="font-weight: 400;">Daisy smiles. "From what Red said, you got abra to not teleport away from you by just thinking positive thoughts. Is that true?"</p><br>
+<p style="font-weight: 400;">Leaf blinks. "Yeah, sort of. It was a bit more complicated than that, but—"</p><br>
+<p style="font-weight: 400;">"And are you going to mention that in the press release?"</p><br>
+<p style="font-weight: 400;">"I wasn't planning on it?"</p><br>
+<p style="font-weight: 400;">"You should," Red says. "Others are going to try hunting abra the same way, and some of them might be able to learn from what helped you."</p><br>
+<p style="font-weight: 400;">"Right. Yeah, okay."</p><br>
+<p style="font-weight: 400;">"Well then, expect some coordinator academies to extend an invitation," Daisy says.</p><br>
+<p style="font-weight: 400;">"What? But I've only been a trainer for a few months!"</p><br>
+<p style="font-weight: 400;">"They've been known to scout new talent early, and get pretty competitive in trying to entice people. Think about it, because my guess is you're going to have to soon."</p><br>
+<p style="font-weight: 400;">Red feels a hollowness in his chest as he considers the idea of Leaf leaving to train at an academy. He knows Blue well enough to be fairly sure he won't join a gym, but… "You said you wanted to be a coordinator at some point, right?" Red asks, forcing himself to speak. "It would be a great start for you."</p><br>
+<p style="font-weight: 400;">"Yeah," Leaf says, but she looks troubled, and Red feels a sudden panic.</p><br>
+<p style="font-weight: 400;">"Not that I want you to go!" he blurts out. "I just meant that your relationship with pokemon is pretty unique. I think you'd make a great coordinator."</p><br>
+<p style="font-weight: 400;">Leaf smiles at him, and the tension in his chest eases. "As an alternative," Laura says. "If you're thinking of continuing a non-pokemon related career, I'd be happy to have you come work with me."</p><br>
+<p style="font-weight: 400;">Leaf turns to her with wide eyes. "Really?"</p><br>
+<p style="font-weight: 400;">"Absolutely. I think you've shown that you can be a great journalist in time, and I've grown rather fond of you." Red's mom smiles. "Like Daisy said, think about it."</p><br>
+<p style="font-weight: 400;">"While she does so," Professor Oak says, turning to Red. "I assume you still have the same objection to working for Pallet Labs?"</p><br>
+<p style="font-weight: 400;">Red nods. "Yeah. I won't pretend I'm not tempted, but I still want to make sure no one can say that I didn't start my career on my own merits."</p><br>
+<p style="font-weight: 400;">"Well then, you should consider some of the lab invitations you're going to get. They may not be as prestigious as Pallet, but I don't want you to turn them down just for that. They'd have more flexibility than us, might even offer you your own small team and resources, and help you build more notability so that you can feel better about working with us in an official capacity whenever you're ready for that."</p><br>
+<p style="font-weight: 400;">"Already? But…" He realizes he's just repeating Leaf's incredulity, and stops to consider. Is he underestimating how big a deal all this was? The part of him that he's trying to train as the voice against Optimism Bias laughs, but if the <em>Professor</em> is saying it...</p><br>
+<p style="font-weight: 400;">Professor Oak seems to understand. "Think about it in financial terms. Even with selling the abra at a steep discount, you each made how much, $130,000?"</p><br>
+<p style="font-weight: 400;">"About $150,000, for me," Red admits. "More for Blue and Leaf." Daisy whistles, and he's aware of Aiko's open-mouthed stare. He feels slightly uncomfortable admitting the size of their windfall in front of her, after learning how financially difficult her life has been, but admitting it out loud does put things into perspective.</p><br>
+<p style="font-weight: 400;">"Quite a sum," his mom says. "More money that you can freely spend than you've ever even had before. Any organization would be happy to have someone who could come up with ideas that profitable. Which means it's about time for your financial emancipation, don't you think?"</p><br>
+<p style="font-weight: 400;">Red and Blue look at each other in surprise. "Aren't you worried we'll go on a shopping spree?" Red asks after a moment.</p><br>
+<p style="font-weight: 400;">"Or blow it all gambling in Celadon?" Blue rubs his chin. "We are pretty close…"</p><br>
+<p style="font-weight: 400;">"Last year, maybe." Laura says. "If you had this much money to spend, say, three years ago, what would the three of you have bought with it?"</p><br>
+<p style="font-weight: 400;">Red frowns. "Uh. A pokemon, probably, and maybe some candy and books."</p><br>
+<p style="font-weight: 400;">"A new computer," Leaf says. "And an emolga or zorua. Maybe both."</p><br>
+<p style="font-weight: 400;">"A growlithe and dratini."</p><br>
+<p style="font-weight: 400;">"Would any of you regret those choices now?"</p><br>
+<p style="font-weight: 400;">They look at each other, and after a moment shake their heads.</p><br>
+<p style="font-weight: 400;">"That's something we realized recently," Laura says. "You're all still young, but you've matured past that kind of oversight. And you've proven that you can earn your own money either way."</p><br>
+<p style="font-weight: 400;">She's looking at Red in particular as she speaks. Part of him thinks it's innocuous, but another part begins to grow worried again. Leaf is asking something about her mom, and Professor Oak assures her he's spoken to her as well.</p><br>
+<p style="font-weight: 400;">Afterward the professor begins talking to Aiko about her own history and goals. Red can tell the others are only listening with half an ear, having heard it before and being preoccupied with what they heard.</p><br>
+<p style="font-weight: 400;">"Is it okay to say I feel conflicted?" Leaf asks, voice low.</p><br>
+<p style="font-weight: 400;">"Yeah," Red says. "At least, I know what you mean."</p><br>
+<p style="font-weight: 400;">Blue frowns at them. "You know you guys don't have to stick around for me, right? I'll be okay. I've got a new training partner anyway, assuming her dad isn't a massive jerk."</p><br>
+<p style="font-weight: 400;">"I have other reasons for wanting to continue our journey," Leaf says. "But I would miss the two of you a lot."</p><br>
+<p style="font-weight: 400;">Red nods. "Same. It would be great to keep the band together if we can. That said, we should make sure we're actually making the right choices."</p><br>
+<p style="font-weight: 400;">"Do you guys know what goal factoring is?" Leaf asks. Red and Blue stare in confusion. "It's a little like a pro and con list, but way better. I used to do them all the time, when I had trouble deciding what career choice to try preparing for next. Mind if I borrow some paper, Red?"</p><br>
+<p style="font-weight: 400;">"Sure." He takes it out and tears out a sheet, then hands her his pencil. She scribbles on the paper, then turns it to show them.</p><br>
+<p style="font-weight: 400;">"First you draw a circle, then write inside it the action you're currently doing or planning to do. Then, you draw lines downward from it. At the end of each, draw another circle and write out the goals that action will fulfill for you. So I put Traveling as my action, and the goals I put are 'Seeing more of Kanto,' 'Meeting new people,' 'Catching new pokemon,' 'Finding new stories to write,' and 'Spending time with Red and Blue.'"</p><br>
+<p style="font-weight: 400;">"Aww, shucks, Leaf," Blue says with a grin.</p><br>
+<p style="font-weight: 400;">"Hang on, there's more." She writes more, then turns the page again. "On top you write out the negatives. 'Dangerous' is definitely one." Red nods. He's pretty sure his mom would be ecstatic if he decides that he'd rather study at a lab than continue his journey. "'Expensive' is another, though that reminds me to add a new positive: occasional riches, if Red figures out more genius catching techniques."</p><br>
+<p style="font-weight: 400;">Red feels his cheeks flush, and Blue claps him on the shoulder. "Speaking of which, start putting that brain to work on chansey so we can do the same thing when we reach the Safari Zone."</p><br>
+<p style="font-weight: 400;">"Uhhh. Yeah, I'll look into it." Red can't tell if Blue is serious, but it's flattering to think that he'd be able to catch dozens of one of the rarest pokemon in Kanto. Then he remembers that abra are among the top ten hardest to catch, and smiles. "Definitely."</p><br>
+<p style="font-weight: 400;">Leaf is still drawing and writing on the paper. "So we've got 'Dangerous,' 'Expensive,' and 'Unpredictable.' So, now that we've got our goals and negatives, let's make sure we're not missing any. First I'll imagine something granted me a wish that achieved all of these for me. Is there any other reason I'd want to still do it?" She closes her eyes a minute, then opens them. "Turns out there is. I'd still want to get better as a trainer. To get stronger, so I can help others in future crises."</p><br>
+<p style="font-weight: 400;">She adds that to the bottom, then closes her eyes again briefly. "Okay, I think that's it. Those are all the goals this action helps me achieve. Now, let me make sure I'm not missing any of the negatives by simulating myself going through it, day to day… Um… traveling in the wild isn't always comfortable, but it's not really that big an issue for me… I guess that's it."</p><br>
+<p style="font-weight: 400;">Red hands a sheet to Blue, and takes out another pencil for him. Blue gives him a surprised look, but after a moment starts to copy Red as he draws the middle circle too.</p><br>
+<p style="font-weight: 400;">"So, once I've got my goals and my negatives, I can start checking new actions against this one to see if they either fulfill all the same goals but have fewer negatives, <em>or </em>have the same amount of negatives but fulfill more goals. Alternatively, I can start searching for more actions that fulfill my goals, starting with focusing on my most important goal and listing actions that fulfill it. In this case, I'm going to compare going to a coordinator academy and learning from Laura against continuing my journey." She focuses on the page and begins.</p><br>
+<p style="font-weight: 400;">Red lists his own goals that the journey accomplishes: 'Learning.' 'Help others.' 'Respect.' 'New pokemon.' 'Fun.' 'Friends'... By the time he finishes, Blue is already trying to match his goals against those that Join a Gym would grant him. Daisy has taken an interest in what they're doing, and she smiles as she sees Red start matching up goals from Research at Lab, then stop at 'Help others.'</p><br>
+<p style="font-weight: 400;">"That's a subjective thing, isn't it?" she says. "Is it more meaningful to help others in person, with your pokemon, or do research that might help many more?"</p><br>
+<p style="font-weight: 400;">"I don't know," he admits. "I think I'd still feel… unsatisfied, if I just stayed in a lab all day." He's thinking of the way his depression felt worse on the days he stayed in the Trainer House. "I can do research for a few weeks at a time in a city, but if I didn't know I'd be leaving at some point to continue our journey I might go nuts. Maybe it'll be different when I'm older, but…"</p><br>
+<p style="font-weight: 400;">"Satisfaction is kind of important for this," Leaf says. "But if that's the only thing bothering you, you can also resolve to take up another action, one that uses less of your time, to capture any extra goals that are left over."</p><br>
+<p style="font-weight: 400;">"And research isn't your only option," Daisy says. "Capture companies are going to be flooding you with messages, and they'll keep you on your feet and moving from place to place for sure."</p><br>
+<p style="font-weight: 400;">"Huh." Red hadn't considered that… getting jobs to catch specific pokemon, particularly rare or difficult ones, would be an interesting ongoing challenge...</p><br>
+<p style="font-weight: 400;">"Yeah, I think I'm done," Blue says. "Journeying is still the clear winner for me, as I figured."</p><br>
+<p style="font-weight: 400;">Leaf nods. "Same here. I appreciate the offer, Laura," she tells Red's mom, who is listening to their conversation now too. "But I'm enjoying travelling with Red and Blue too much, and finding new things to write about, and I think it'll grow my following faster to mix new articles and helping people, which is another reason to stay on the move too.</p><br>
+<p style="font-weight: 400;">"That's quite alright, Leaf. Just know the offer is open whenever." Laura looks at Red, then says, "Would you mind taking a walk with me, Red?"</p><br>
+<p style="font-weight: 400;"><em>Uh oh. </em>"Sure." He stands up and stuffs the goal factoring paper into his pocket, then picks up a lantern and places Pichu on his shoulder before leading his mom out of the camplight. They walk for about a minute into the peaceful night, staying well away from the tall grass on either side of the road. Red waits for his mom to drop the hammer, but when she remains silent, he takes a deep breath. "So what's up?"</p><br>
+<p style="font-weight: 400;">His mom looks at him with a slight frown. "I wanted to make sure you're okay, Red. I've been trying not to pry, after you told me what you were going through in Cerulean, but… are you alright, really?"</p><br>
+<p style="font-weight: 400;">Red blinks, then feels both a flood of relief, and a twang of renewed guilt. <em>Right. That. </em>"I'm fine, Mom, yeah. My teacher, Ayane, she helped me get a handle on things."</p><br>
+<p style="font-weight: 400;">"Oh, I'm so glad, hon," his mother says, voice soft. She gives him a brief hug, then begins walking again. "Was it... bad?"</p><br>
+<p style="font-weight: 400;">Red flashes back to the field they caught the abra in, the sucking, empty hole in his chest, and shudders. "For a little bit. But like I said, I learned to manage things. And I feel… better, now. Like, even better than I did before, sometimes? I'm not sure, it's hard to tell. And I still have down moments. But Pichu helps with that," he says, giving his pokemon an affectionate rub on his head. "And so do my lessons."</p><br>
+<p style="font-weight: 400;">"What's it like, being a psychic?" she asks. "I remember how disappointed you were when you failed the test. Is it all you hoped for?"</p><br>
+<p style="font-weight: 400;">Red smiles ruefully. "It's pretty amazing. Like… I don't know, getting a hearing implant must be, for someone born deaf. But it's a lot of hard work too, and I still can't do a lot of things I thought I'd be able to. I can't even lift a stupid rock."</p><br>
+<p style="font-weight: 400;">She smiles. "It was strange, hearing that you were psychic all this time without us knowing. I used to wonder, you know, about myself. I failed all the tests, but every so often I would feel something, when I was younger and in crowds..."</p><br>
+<p style="font-weight: 400;">Red blinks. "What, really? How come you never mentioned this before!"</p><br>
+<p style="font-weight: 400;">Laura laughs. "It was just a random thought, Red. Most people have them."</p><br>
+<p style="font-weight: 400;">"Well, hang on, we might be able to test it. Maybe you're like me, and just haven't realized it!" He stops walking and closes his eyes. "Just hold on a moment…"</p><br>
+<p style="font-weight: 400;">Red slips into a trance within a few moments, shoving the rising sadness into the back of his awareness so he can focus on the minds he feels, a small group of them gathered in the distance, a small one right next to him, and beside it the stronger ripples of his mother's thoughts.</p><br>
+<p style="font-weight: 400;">"Okay… do you feel anything?" he asks, voice calm and slow between deep breaths.</p><br>
+<p style="font-weight: 400;">"I… no? What would it feel like?" His mother sounds curious and a bit flustered. "I appreciate you trying, Red, but—"</p><br>
+<p style="font-weight: 400;">"Wait, wait, I think I have to... " What was it he read about sensitives? They don't have enough power to do much of anything, but they could sense other psychics that enmeshed with them. "Okay, I'm going to try connecting our minds for just a few seconds. It will only give me a brief look at your mood, and shouldn't hurt at all. Is that okay?"</p><br>
+<p style="font-weight: 400;">"Yes. Go ahead."</p><br>
+<p style="font-weight: 400;">Red cautiously enmeshes his mind with his mother's until he starts to feel <em>cautious worry anticipation hurtdisappointmentanger</em></p><br>
+<p style="font-weight: 400;">"Oh!"</p><br>
+<p style="font-weight: 400;">Red's eyes snap open to see his mother staring at him in wonder. "You know, I think I felt something! It was… very strange, and very faint. Maybe I imagined it…"</p><br>
+<p style="font-weight: 400;">Red stares at her quietly for a moment. His heart is still hammering from the sensation of deep, complex anger that was under his mother's thoughts. It was hard to untangle it from the other emotions, but he's pretty sure he felt it… yet she doesn't seem angry at all, to him. Was it unconscious, perhaps? No, he's not strong enough to pick up emotions that subtle.</p><br>
+<p style="font-weight: 400;">"We can try again," he says, and takes a deep breath as a particularly sharp stab of grief makes him wonder what his dad would say if he were here to also learn of his son's abilities. "We should have done this first, actually…" He holds out his hand. "Squeeze when you think you feel something, relax when it goes away."</p><br>
+<p style="font-weight: 400;">"Alright."</p><br>
+<p style="font-weight: 400;">Her hand is warm and soft in his, and he takes a deep breath and closes his eyes, preparing to feel those emotions again… maybe he misinterpreted them…</p><br>
+<p style="font-weight: 400;"><em>anticipation apprehension wonder</em></p><br>
+<p style="font-weight: 400;">Her hand squeezes his, and he's filled with her amazement. He holds onto the enmeshment as long as he can before the grief starts to overwhelm even that, then lets it go. She releases his hand less than a second later.</p><br>
+<p style="font-weight: 400;">"I felt it, Red," she says, voice soft. "It was… so strange, like… someone standing in a room with you, but who you can't see…"</p><br>
+<p style="font-weight: 400;">Red kneels down and pretends to tighten his shoelace, wiping at his eyes and hoping she doesn't notice. Thankfully she seems too amazed by the revelation.</p><br>
+<p style="font-weight: 400;">Pichu nuzzles Red's neck, and Red rubs his pokemon's fuzzy body briefly before standing up again and forcing a smile. In truth he's happy and excited for her, but it's hard to feel anything positive right now. "I know, it's pretty cool." He starts walking again, and after a moment she follows.</p><br>
+<p style="font-weight: 400;">"Does this mean I…?"</p><br>
+<p style="font-weight: 400;">"I don't know. You're probably just a psychic sensitive. But it might be worth checking out, if you have some time and money to spare for a session with a professional. If you swing by Cerulean you can see my sensei, Psychic Ayane. She was very professional, and one of the nicer psychics I met."</p><br>
+<p style="font-weight: 400;">His mother's expression changes, and Red feels a sudden premonition that has nothing to do with his powers. Whatever was bothering her, he just reminded her of it…</p><br>
+<p style="font-weight: 400;">"How much did she charge?" Laura asks.</p><br>
+<p style="font-weight: 400;">"What do you mean? You insisted on splitting the bills, just double that."</p><br>
+<p style="font-weight: 400;">His mother stops walking. "Red. Please don't treat me like an idiot. What you asked for was a pittance."</p><br>
+<p style="font-weight: 400;">He turns to her, stomach leaden. "Mom, I—"</p><br>
+<p style="font-weight: 400;">"The clefairy I bought you, do you have it?"</p><br>
+<p style="font-weight: 400;">Red flushes. He was sure of his decision at the time, despite his guilt, and he's still sure of it now, but being confronted with it is still painful. He briefly considers stalling, saying it's in storage and buying one when he gets to town, but discards the idea. "No."</p><br>
+<p style="font-weight: 400;">"You sold it."</p><br>
+<p style="font-weight: 400;">"Yes."</p><br>
+<p style="font-weight: 400;">"The clefairy I bought for you—"</p><br>
+<p style="font-weight: 400;">"—with my money—"</p><br>
+<p style="font-weight: 400;">"—that I monitored for you, that you promised me you wouldn't sell. You <em>promised, </em>Red."</p><br>
+<p style="font-weight: 400;">Red feels the urge to protest that he didn't actually use that word, but he realizes with a cold shock that he doesn't remember if he did or not. That's a bad sign, and he can feel the discomfort behind the excuse, trying to use it as a shield. The queasy guilt that would come from admitting, not just to her, but to himself, that he might not be the kind of person who keeps his promises.</p><br>
+<p style="font-weight: 400;">But, clearly, he's not. Whether he used the word promise or not—no, he likely <em>did </em>use that word, she probably wouldn't have agreed otherwise, he has to accept that rather than let his mind keep trying to weasel around it—he convinced her to act in his interest through a commitment, then broke that commitment. He needs to face that, change if he doesn't like it… or admit that it's who he is, and decide if he can live with it.</p><br>
+<p style="font-weight: 400;">"I... I'm sorry."</p><br>
+<p style="font-weight: 400;">"Are you?" There's not just disappointment in her voice, but anger, as he sensed. "Will you pay back the difference to the person you bought the clefairy from, to show that?"</p><br>
+<p style="font-weight: 400;">Red feels his own angry response bubble up, and with an effort manages to suppress it, breathing deep and focusing on the sensation of air rushing out. "I did it at the time because it felt necessary, and it still does. Mom, I'm out here risking my life to make a difference in the world. Some of the things I've seen, the stuff I learned... " He thinks of the forest, lying crippled and surrounded by electricity, and of Bill, the genius's certainty of coming calamity. "This isn't a game to me. If I don't take advantages where I find them, I could die."</p><br>
+<p style="font-weight: 400;">Her eyes narrow. "You're telling me that? <em>Me?</em>"</p><br>
+<p style="font-weight: 400;">"You're right, I shouldn't have to!" He's keeping his voice low, but can't help the heat that's filled it. "I told you not to hold me to Dad's standard, and this is why! If this is the kind of thing he wouldn't have done… m-maybe he…" Red can't finish, tears sliding down his face before he covers it with both hands and turns away. Pichu crawls around the back of Red's neck and up to his head to perch on the top of his bill. He wipes his eyes and stifles a sob, looking up and to see his pokemon peering at him upside down. Red's lips twitch upward, and he takes a deep breath.</p><br>
+<p style="font-weight: 400;">His mom reaches around to hug him from behind, and he sinks into her for a moment until he gets control of himself again. When he feels a bit better, he steps away, and she lets him. "I'm sorry… using my powers makes me, uh, leaky."</p><br>
+<p style="font-weight: 400;">"You never have to apologize for how you feel, Red. Especially not to me." His mother's voice is teary too, and she sighs. "I didn't mean to get so upset about this. I know what you did wasn't that bad, in the grand scheme of things. I love you and care about you, and I know life is hard, and yours will be harder than most, with what you're doing and trying to accomplish. I just... I've tried to teach you how small moral compromises lead to bigger ones, and I was hoping you could keep from them for at least a little while longer. Or maybe for when it was something <em>really</em> important, and not just extra spending money."</p><br>
+<p style="font-weight: 400;">Red turns toward her. "That's not fair. I used that money for my research. I couldn't afford it and the psychic lessons at the same time, not unless I wanted to pull from your bank account too."</p><br>
+<p style="font-weight: 400;">"I would have preferred you did."</p><br>
+<p style="font-weight: 400;">"Then you're still not taking this seriously." He shakes his head, feeling hollow and angry and sad. "You said in Pewter that you just wanted me to be safe, but I want you to be safe too. If I'd used up your money and an emergency came up, what then?"</p><br>
+<p style="font-weight: 400;">"If it's serious, I'd borrow from friends, or take out a loan. There are still <em>options </em>when we have to face hard choices, Red, even when we don't like those options. I wish you'd told me how serious this was for you, so we could talk about it again, figure out a way forward that we could all be happy with." She shakes her head. "I know that if what you did still doesn't seem like a bad thing, all this will just come off as overreaction, but the people who regret selling their clefairy last month aren't all feeling it for no reason. For some of the, those feelings are real signals that the game was stacked against them. They lost money not because they were shortsighted or less clever, but because they didn't grow up next to Blue Oak, and you did. And they might need money just as much as you do."</p><br>
+<p style="font-weight: 400;">Red swallows, gaze down as he feels his fists ball up, then release. Part of him thinks she might be right. The rest of him doesn't know how to orient to that truth, if she is, besides pointing out all the ways life isn't fair that are <em>outside</em> his control... and that seems like a flawed argument even to him. "I'm sorry I used you, Mom. I won't do it again."</p><br>
+<p style="font-weight: 400;">His mom sighs, and hugs him again. "I'm sorry too," she says. "I was still treating you like a child, not letting you make your own decisions. I hold at least half the responsibility here, for making you feel you had to deceive me in the first place. That's not the kind of relationship I want us to have, even when we disagree, and that's part of why I've emancipated your finances. I don't know when I'll be able to fully trust you again, but I'll try to be a better mom, in the meantime, so you can trust me more too."</p><br>
+<p style="font-weight: 400;">She turns toward the camp and starts to head back before he can think of a response. Red stares after her a moment, then follows before she can leave his lamplight.</p><br>
+<p style="font-weight: 400;">Blue eats his third slice of cake slowly, enjoying the murmur of conversation around him. Red and his mom came back a while ago and were quiet for a bit, causing Blue to wonder if he should ask his friend about it after they left. Red livens up eventually, however, and Blue is satisfied that it probably wasn't too serious.</p><br>
+<p style="font-weight: 400;">Gramps, Aunt Laura, Red, and Leaf are discussing their upcoming trip on the SS Anne to see if there's anything she should keep an eye out to write about, and Daisy is asking Aiko about her solo training habits. Eventually Gramps seems to notice Blue sitting quietly on his own, and excuses himself to lift his chair and sit beside him.</p><br>
+<p style="font-weight: 400;">"How are you, Blue? It's been a while since we talked."</p><br>
+<p style="font-weight: 400;">"Pretty great. Don't think I'll be joining a gym though."</p><br>
+<p style="font-weight: 400;">"I thought not. It's good to know that your conviction has remained as strong as ever."</p><br>
+<p style="font-weight: 400;">Blue smirks. "Did you think I'd give up by now?"</p><br>
+<p style="font-weight: 400;">"Give up completely? No. But there was always a chance you weren't as good as you thought you were, and would decide on a longer path."</p><br>
+<p style="font-weight: 400;">Gramps has a mischievous look in his eye, and Blue chuckles. "Pewter was a wake-up call, I'll tell you that."</p><br>
+<p style="font-weight: 400;">"How are you really, then? Under the surface."</p><br>
+<p style="font-weight: 400;">Blue chews slowly, then puts the plate down on his lap, voice lowering. "I was told that I was disheartening some people, in Cerulean. Making them give up on their dreams."</p><br>
+<p style="font-weight: 400;">"Ah. Yes."</p><br>
+<p style="font-weight: 400;">That's all he says. Just that. Blue glances at the professor, who's watching the pokemon play with a slight smile on his face. After a moment Blue speaks up again. "It made me worried. I know it sounds like a joke, but what if I'm <em>too </em>good? What if I do more harm excelling and dissuading others from reaching their potential?"</p><br>
+<p style="font-weight: 400;">"It's a distinct possibility. What will you do about it?"</p><br>
+<p style="font-weight: 400;">Blue frowns slightly. "I was kind of hoping you'd have some advice."</p><br>
+<p style="font-weight: 400;">The professor chuckles. "I can't see the future, Blue. You're trying to do something that's never been done before, and so you have no map to guide your way. That said, have you started reading <em>Nobunaga's Ambition?"</em></p><br>
+<p style="font-weight: 400;">"Ah, no," he says, ducking his head. "I got really distracted right after you gave it to me, training to beat Brock, and it just kind of slipped my mind."</p><br>
+<p style="font-weight: 400;">"It's alright, it probably held little relevance to you before. But maybe now it will."</p><br>
+<p style="font-weight: 400;">"I'll try to read some before we reach Vermilion. If <em>you </em>have any advice, though..."</p><br>
+<p style="font-weight: 400;">Gramps sighs and leans back in his chair, hands behind his head. "Not much, I'm afraid. I've done a lot of things… trained pokemon, became a Champion, started a family, researched pokemon, became a Professor, started a lab, dabbled in politics... I run Pallet Labs, but I'm not a leader of men and women, just their boss. I've never had to win their loyalty: they gave it to me from what I've accomplished, from my legend. If I was discouraging others along the way, it never registered to me as a problem."</p><br>
+<p style="font-weight: 400;">Blue listens in quiet fascination. Gramps is often humble, but it's the kind of humble that only amplifies his accomplishments. He admits ignorance often, but always with a zeal that makes it clear he's motivated, not discouraged. This is the first time he can remember the professor speaking about himself in such a clearly limiting way... though he did include quite a long list of achievements first, of course.</p><br>
+<p style="font-weight: 400;">"I guess I'm really on my own, then," Blue murmurs. It's a strange feeling. He imagined himself walking a tightwire before, with a different failure on either side, but he recognizes now that he always felt a hand on his shoulder to help balance him one way or the other. Without it, he feels himself wobble.</p><br>
+<p style="font-weight: 400;">"While I appreciate your sense of finality in my <em>personal </em>inability to contribute, just because I can't offer you any wisdom on this particular topic doesn't mean no one can."</p><br>
+<p style="font-weight: 400;">Blue looks up at him. "Who else should I ask?"</p><br>
+<p style="font-weight: 400;">Gramps cocks an eyebrow, smiling slightly. "What exactly do you think I suggested you joining a Gym for, Blue?"</p><br>
+<p style="font-weight: 400;">"You… think I should be a Gym Leader first?"</p><br>
+<p style="font-weight: 400;">"It certainly wouldn't hurt to develop some skills in that area before you try and achieve it at a region-wide level."</p><br>
+<p style="font-weight: 400;">Blue frowns. "I guess I didn't think of it that way. I'll add it to my goal thingy." He sees the professor's curious look and waves it off. "Couldn't I just talk to a Leader about it instead though?"</p><br>
+<p style="font-weight: 400;">"Sure, if you think the advice will substitute for experience."</p><br>
+<p style="font-weight: 400;">"At least a little, yeah. I'll figure out the rest on my own. I've already started trying to be more supportive with a couple trainers, like Aiko, and I think it's working."</p><br>
+<p style="font-weight: 400;">"I'm sure you're right."</p><br>
+<p style="font-weight: 400;">"Who should I ask? Brock? I got along pretty well with him, I think. Or Giovanni, he's in charge of so many projects—"</p><br>
+<p style="font-weight: 400;">"No," the professor says.</p><br>
+<p style="font-weight: 400;">Blue stares. His grandpa's face is placid, but there was a note of iron in that word.</p><br>
+<p style="font-weight: 400;">"Oookay," Blue says. "Gonna tell me what that's about? Is it because of what he did to Leaf?"</p><br>
+<p style="font-weight: 400;">Gramps smiles slightly. "Leader Giovanni is a very talented man, in many ways. Perhaps none more so than in binding people together, and drawing them toward a cause guided by his will. In a way he would be a perfect mentor for your goal… but in another I think he would be disastrous for you to emulate."</p><br>
+<p style="font-weight: 400;">Blue sits up. This is the first time he's ever heard his grandfather speak a bad word about the Viridian Leader. "What's up, Gramps? I thought you and he got along great."</p><br>
+<p style="font-weight: 400;">"We've collaborated many times," Professor Oak says, speaking slowly. "I would be surprised if a man such as he has anyone he truly gets along with."</p><br>
+<p style="font-weight: 400;">"But he's good at working with others?"</p><br>
+<p style="font-weight: 400;">"I said he is good at binding people together. It's not quite the same thing."</p><br>
+<p style="font-weight: 400;">"Come on Gramps, you gotta give me more than that. It sounds like you've got a juicy story on him. Spill."</p><br>
+<p style="font-weight: 400;">The professor's grins is wry. "I wish I did. There's nothing singular he's done that I can tell you to make you understand… it's more of a pattern I've glimpsed. I guess my best sense of the man is that if Giovanni Sakaki was capable of guiding you to be exactly who you wish to be, he would have become that person himself already."</p><br>
+<p style="font-weight: 400;">Blue absorbs this quietly, debating whether he should try and get more out of him. In the end he decides against it… maybe Daisy will know, and if not he can try asking again later. "So who, then?"</p><br>
+<p style="font-weight: 400;">"Well, you <em>are </em>heading to Vermilion. Leader Surge was a lieutenant in the Unovan military before he came to our shores and took his gym by storm, if you'll excuse the pun. He can be… odd, at times, but his instincts and experiences in this area are probably better than mine."</p><br>
+<p style="font-weight: 400;">Blue nods. "Okay, I'll check with him then, if I can. Thanks, Gramps."</p><br>
+<p style="font-weight: 400;">"Of course, Blue."</p><br>
+<p style="font-weight: 400;">"Gramps?"</p><br>
+<p style="font-weight: 400;">"Yes?"</p><br>
+<p style="font-weight: 400;">"How do you think I'm doing? Really, I mean?"</p><br>
+<p style="font-weight: 400;">His grandpa smiles and goes quiet for a moment, and Blue is happy to let him. There's some apprehension in him, some idea that the professor will say something he didn't realize, or point out some story about himself he missed. As he waits, he takes out some pokepuffs and begins to feed them to Ion, watching the shinx leap up and catch them out of the air. Soon Red's pichu comes to compete for them, causing Red to look over and smile at his pokemon before returning to his conversation.</p><br>
+<p style="font-weight: 400;">Eventually Gramps says, "I'll be honest, Blue, I think you're doing pretty fantastic," and Blue feels a rush of relief.</p><br>
+<p style="font-weight: 400;">"Yeah? I've made some mistakes…" Rather than dwell over his loss to Brock, he thinks back to the way he acted in the forest at first, and how Maturin hurt Mary's totodile.</p><br>
+<p style="font-weight: 400;">Blue blinks as his grandpa puts a hand on his shoulder. "Absolutely. But everyone does. Your two gym victories were both entertaining and skillful, without being so perfect that people might mutter about them being staged. Your various adventures along your journey have gained you a wide following, and the way you've comported yourself has shown that you're not just a strong trainer, but one who will put himself at risk to do the right thing."</p><br>
+<p style="font-weight: 400;">The professor is smiling at him, the full, warm smile that only he seems to be able to beam straight into Blue's heart. "Not a day goes by that I don't wish your parents were still with us, but I particularly miss them at times like this. They'd be so proud of you, Blue. As I am." He squeezes Blue's shoulder, then lets his hand fall.</p><br>
+<p style="font-weight: 400;">Blue turns to their pokemon as he tosses out another piece of pokepuff. There's a lump in his throat, but eventually he's able to speak past it, voice low. "Thanks, Gramps."</p><br>
+<p style="font-weight: 400;">The two watch the pokemon play on the grass as the others chatter and laugh, and the stars wheel overhead.</p><br>
+<p style="font-weight: 400;">Red lies in his bedroll, hands behind his head and staring up at the sky. He just finished his watch, but he's not tired in the least. His mind keeps going over the conversation with his mother, her tone, her expression. He could have handled all that better.</p><br>
+<p style="font-weight: 400;">He still agrees with everything he said though, so maybe he should stop agonizing over it and focus on something else. He watches Leaf set up for her watch and is reminded of the goal factoring sheet. He takes it out and examines it once again.</p><br>
+<p style="font-weight: 400;">Is the journey really the best use of his time and effort? Or does he just feel that way because he doesn't want to leave Leaf and Blue? Should he keep putting himself at risk and potentially making morally compromised choices just to maximize his chances? He doesn't want to become a recluse like Bill, but there's probably a middle ground.</p><br>
+<p style="font-weight: 400;">"Having trouble sleeping?" Leaf whispers.</p><br>
+<p style="font-weight: 400;">Red looks up to find her watching him. "Yeah."</p><br>
+<p style="font-weight: 400;">"Everything okay with you and your mom?"</p><br>
+<p style="font-weight: 400;">"Not… really." He sighs and lowers the page to his chest as he explains what happened.</p><br>
+<p style="font-weight: 400;">Leaf is quiet for a moment after he finishes, then simply says, "That sucks."</p><br>
+<p style="font-weight: 400;">"Yeah. This is the first time in years I've felt like I disappointed her. About something that matters, you know? And I did it deliberately, too. I feel like an asshole, but also like I'd do the same thing again, so what does that say about me?"</p><br>
+<p style="font-weight: 400;">"That you're sorry that your different goals hurt others. Which isn't a bad thing. Beats the alternative, at least."</p><br>
+<p style="font-weight: 400;">Red snorts. "I guess. I'm just not sure how to make it up to her, you know?"</p><br>
+<p style="font-weight: 400;">"Yeah, I do."</p><br>
+<p style="font-weight: 400;">"Right, how are you and your mom doing these days?"</p><br>
+<p style="font-weight: 400;">"We're okay. A bit better, and she said it's water under the bridge, but I can tell she's still upset with me. Or disappointed. Or something. I missed her tonight, for a crazy moment I thought maybe she'd show up too, but she's really busy, and it's so far…"</p><br>
+<p style="font-weight: 400;">Red feels a stab of sympathy. "Been homesick?"</p><br>
+<p style="font-weight: 400;">"Sometimes. I don't want to go back though. Not just because of my pride after fighting for so long to come here, I'm really enjoying our journey. And your mom has been a great help. Her offer was really sweet."</p><br>
+<p style="font-weight: 400;">"Yeah, she's like that," Red murmurs, feeling guilty again.</p><br>
+<p style="font-weight: 400;">"Don't worry, Red. I doubt you said anything half as bad as the stuff I said to my mom, and she forgave me eventually."</p><br>
+<p style="font-weight: 400;">"It's less about what I said and more about how I not only did something she found immoral, but made her complicit in it."</p><br>
+<p style="font-weight: 400;">"Hmm. Yeah, that is worse."</p><br>
+<p style="font-weight: 400;">Red gives a crooked grin. "Thanks, Leaf."</p><br>
+<p style="font-weight: 400;">"Still, falling out with your parents now and then is part of growing up. As long as you show her you're not going to become a Renegade or something, I'm sure she'll forgive you. She loves you too much to hold a grudge."</p><br>
+<p style="font-weight: 400;">"Thanks, Leaf," he says again, quieter this time.</p><br>
+<p style="font-weight: 400;">They sit in silence for a while as Red's mind drifts to Leaf's fights with her mother. Should he ask about their relationship more? Or would Leaf rather he not? "When we get to Vermilion," he eventually says, "after the cruise, you should find a ride back to Unova and set an abra teleport there. Then you can come back and go visit whenever you want."</p><br>
+<p style="font-weight: 400;">"You think so? It's a long flight..."</p><br>
+<p style="font-weight: 400;">"For sure! We won't mind waiting around. At least I wouldn't, and I'm sure Blue and Aiko won't either."</p><br>
+<p style="font-weight: 400;">"Thanks, Red. I'll think about it." He can hear her smile. "Now get some sleep."</p><br>
+<p style="font-weight: 400;">"Yes ma'am." He closes his eyes and centers himself on his breathing, focusing his mind on the calming sensations until he drifts off.</p><br>
+<p style="font-weight: 400;">Leaf wakes Blue for his watch, then lies down and relaxes. Guard duty always makes her shoulders stiff, and she considers getting a sofa chair to carry around in a container just for watches, though it would be harder to look behind her if she does.</p><br>
+<p style="font-weight: 400;">She sees in her periphery as Blue sits down for his watch and takes a book out, and notices her confusion. After about thirty minutes of not being able to sleep, she decides to interrupt him. "Hey Blue."</p><br>
+<p style="font-weight: 400;">He looks up. "Yeah?"</p><br>
+<p style="font-weight: 400;">"What did you say to me that day on the mountain, when the graveler self-destructed?"</p><br>
+<p style="font-weight: 400;">"Uhh… I think it was 'we should be dead?' Why?"</p><br>
+<p style="font-weight: 400;">Leaf smiles. "Just checking to make sure you're really you."</p><br>
+<p style="font-weight: 400;">"What?"</p><br>
+<p style="font-weight: 400;">"Never mind, private joke. Whatcha reading?"</p><br>
+<p style="font-weight: 400;">"Oh. Remember the book Gramps gave me, in Pewter? Thought I'd finally get around to reading it."</p><br>
+<p style="font-weight: 400;">"Ah. What's it about?"</p><br>
+<p style="font-weight: 400;">"Nobunaga's rise to power. Oh, you might not know… he was the warlord that started the unification of the continent, way back in the dark ages. He and his men went from region to region, beating the other warlords and either retaming their pokemon or getting their men to join his cause. Wasn't the nicest guy, though. I think Gramps wants me to learn about leadership, the good and the bad kinds."</p><br>
+<p style="font-weight: 400;">"Or maybe the effective and the dangerous kinds?"</p><br>
+<p style="font-weight: 400;">"Yeah, something like that."</p><br>
+<p style="font-weight: 400;">"I think you'll be the effective kind."</p><br>
+<p style="font-weight: 400;">She's staring up at the sky, but she can sense his surprise. "Of course I will. What in particular makes you think so, though?"</p><br>
+<p style="font-weight: 400;">Leaf smiles. "You care about it so much. You're not just after a goal, you want to make sure you're on the right path to that goal. You care about the process. I don't know, maybe I'm wrong. But I think that's the important thing… caring about the process enough to let it guide you to what you want, rather than let your goals override everything else."</p><br>
+<p style="font-weight: 400;">"Is that related to goal factoring?"</p><br>
+<p style="font-weight: 400;">"Probably not. I'm kinda tired, so I'm mostly just thinking out loud," she says, hearing the drowsiness in her own voice. "I'm thinking more about science I guess, or journalism. If you want to discover things or cause a sensation, you might not be as careful as you should be in doing things right. But I think the process of goal factoring is important too, even if you don't end up changing your current actions or behavior."</p><br>
+<p style="font-weight: 400;">"Yeah. How was your talk with Daisy, by the way? Think you'll go try and get your coordinator license? Or work with Aunt Laura?"</p><br>
+<p style="font-weight: 400;">"Not anytime soon. There's still so much of your region I want to see, so many people to meet… I've got to learn more about them…" Leaf thinks of all the people she met at the museum and dig site, and the angry words she left Zoey Palmer with. "Get better at talking to them…"</p><br>
+<p style="font-weight: 400;">"Well, I think you'll be effective at that too. Changed my mind on a few things, since we started out. Not even Red's had so good a track record with that."</p><br>
+<p style="font-weight: 400;">Leaf smiles, eyes slipping closed. "You just know him… too well… too personal… thanks though…"</p><br>
+<p style="font-weight: 400;">"If you say so. Get some sleep, huh?"</p><br>
+<p style="font-weight: 400;">"Yes ma'am," Leaf echoes, and is out before she can hear his confused response.</p><br>
+<p style="font-weight: 400;">The next day they're woken by early morning traffic along the road, and by the time the sun finishes revealing the fields around them they're back on the move. The ride goes quietly at first, everyone besides Blue still waking up after their late night. He doesn't mind the silence, thoughts still on his conversation with Gramps. It was good to see him and Daisy again. Blue has enjoyed the journey so far, but he realizes he missed them a little, a thread of homesickness he barely recognized corded through his past couple months.</p><br>
+<p style="font-weight: 400;">By their first rest stop everyone has woken enough to have sporadic conversations, and after eating, Leaf brings her pineco out for some basic training. Red follows suit, but when Blue spots Aiko sitting and watching, her own pineco not yet registered or conditioned, he walks over to her instead of joining them.</p><br>
+<p style="font-weight: 400;">"So, fancy a battle?"</p><br>
+<p style="font-weight: 400;">She smiles and stands. "You're on. What kind?"</p><br>
+<p style="font-weight: 400;">"I'm going to use just my wartortle so I can practice tighter control and less lethal attacks. You can use whatever pokemon you think you'll need to win." The same challenge he gave Red a couple days ago should give him a better measure of her training competence.</p><br>
+<p style="font-weight: 400;">She runs her hands over her pokeballs, face contemplative. "Okay. I'll take my oddish, sandshrew, and raticate."</p><br>
+<p style="font-weight: 400;">"Sandshrew, huh? Okay, show me what you've got." They move away from the others. "Go, Maturin!"</p><br>
+<p style="font-weight: 400;">"Go, Oddish!"</p><br>
+<p style="font-weight: 400;">"Bai!"</p><br>
+<p style="font-weight: 400;">"Ero!"</p><br>
+<p style="font-weight: 400;">"Dodge!" Blue yells instinctively, with no idea what to expect from the custom command. A cloud of purple spores puff out and envelops Maturin a moment after her Ice Beam hits, the wartortle unable to get away on time. Blue's battle calm keeps his surprise from disrupting his concentration, but he feels a stab of gratitude that oddish can't learn Leech Seed. <em>60… 59… 58…</em></p><br>
+<p style="font-weight: 400;">Aiko withdraws her frost-covered pokemon. "Go, Sandshrew! Ero!"</p><br>
+<p style="font-weight: 400;"><em>What? </em>"Bubble!"</p><br>
+<p style="font-weight: 400;">"Ero" turns out to be Sand Attack, which at least cures him of the confusion in expecting a Sandshrew to know Poison Powder. Using the same word for two different pokemon to use two different moves... He thinks of his sister's recent discovery with clefairy, and wonders if some changes in intonation are at the root of her code.</p><br>
+<p style="font-weight: 400;">He shoves the thoughts aside for later consideration so he can focus on the battle. <em>53… 52… 51… </em>Her sandshrew's cloud of dust makes it hard to aim the explosive bubbles, and Blue is proud of his pokemon for simply shooting them in a wide spray, but another cone of sand completely obscures her a moment later, making any aim impossible.</p><br>
+<p style="font-weight: 400;">"Tackle!"</p><br>
+<p style="font-weight: 400;">"Ero 2!"</p><br>
+<p style="font-weight: 400;"><em>What?! </em>Blue runs around the dust cloud to get a clear view of his pokemon as she dashes out of it, only to see the sandshrew dive into the ground.</p><br>
+<p style="font-weight: 400;">"Withdraw!" <em>45… 44… 43…</em></p><br>
+<p style="font-weight: 400;">Maturin sinks into her shell just as the sandshrew bursts out of the ground beneath her and knocks her away. "G-Bubble!" He almost used a water gun, but he's determined to stick to weak attacks, as promised.</p><br>
+<p style="font-weight: 400;">"Ero 2!" Aiko says again, and her sandshrew dives back down, but not before one of the bubbles hits his back.</p><br>
+<p style="font-weight: 400;">"Withdraw!" <em>Shit, was I approaching 40 or 30? Start at 35… 34… 33… </em>"Bubble!"</p><br>
+<p style="font-weight: 400;">Maturin sticks her head out and spits some bubbles out just as the sandshrew emerges again, and this time it takes the attack head on as it knocks Maturin away. The bubbles send it bouncing along the ground across the battle area and closer to Red and Leaf, who quickly withdraw their pineco and back away to make room.</p><br>
+<p style="font-weight: 400;">"Sorry!" Aiko shouts as she runs over to her pokemon and withdraws it. "Go, Sneaker!"</p><br>
+<p style="font-weight: 400;"><em>About 20 seconds. </em>Maturin emerges from her shell, pale blue ears and tail drooping as she breathes hard, one hand rubbing at her face. "Gaw!"</p><br>
+<p style="font-weight: 400;">"Fast!"</p><br>
+<p style="font-weight: 400;">The raticate leaps forward in a burst of movement, hitting Maturin before more than a tiny spurt of water shoots out. Blue watches within his calm as his pokemon is gashed, her return attack dealing insubstantial damage, and with about fifteen seconds left he makes a snap decision.</p><br>
+<p style="font-weight: 400;">"Maturin, return!"</p><br>
+<p style="font-weight: 400;">Aiko's next command dies on her lips as she stares in surprise, then blinks and straightens out of a battle crouch, her raticate's ball in one hand. "I won?"</p><br>
+<p style="font-weight: 400;">"You won." Blue smiles, then turns in surprise as Red <em>and </em>Leaf start applauding as they walk over.</p><br>
+<p style="font-weight: 400;">"Nice job, Aiko!"</p><br>
+<p style="font-weight: 400;">"That was brilliant," Red says. "I tried something similar in Cerulean and screwed it all up."</p><br>
+<p style="font-weight: 400;">Aiko grins. "Thanks, but I think he let me win."</p><br>
+<p style="font-weight: 400;">Red snorts. "I don't think Blue could do that if his life depended on it."</p><br>
+<p style="font-weight: 400;">"He withdrew his wartortle too early," Aiko insists.</p><br>
+<p style="font-weight: 400;">All eyes turn to Blue, who has brought Maturin back out to treat her wounds and give her an antidote. "I just figured that the risk was too great. In a wild battle I might have kept her out longer, but I would have fought more aggressively in that case anyway. As it is, you won fair and square." He pats Maturin's shell, then feeds her some berries and lets her take a long drink from his water bottle, other hand petting her downy ears. "More than that, you did really well. I learned a lot from that." He smiles at her.</p><br>
+<p style="font-weight: 400;">Aiko maintains a skeptical look for a moment, then returns his smile and begins summoning her own pokemon to heal them, blushing slightly. "Well, it was fun. Next time go all out, okay?"</p><br>
+<p style="font-weight: 400;">"You got it." He turns to Leaf, wondering if he should comment on her watching a live fight. From what he gathered she could barely watch his battle against Brock, and he doesn't even know if she watched his fight with Misty. Before he can though, she's already asking Aiko about her attack code, and he groans.</p><br>
+<p style="font-weight: 400;">"Leaf… you don't ask a battle trainer that. It's like asking someone the password to their email. Worse, you're robbing me of the chance to decipher it myself!"</p><br>
+<p style="font-weight: 400;">"Oh, I think I got that part," Red says. "I guess I shouldn't say it out loud, huh?"</p><br>
+<p style="font-weight: 400;">Blue scowls at him. "No, even if you're wrong." Which he probably is. Red barely spent any time watching fights, no way he would—</p><br>
+<p style="font-weight: 400;">"Whisper it to me?" Aiko asks curiously, and Red agrees. Aiko finishes defrosting her oddish, then withdraws it and stands so Red can cup his hands around her ear. After a moment, Aiko grins and nods. "You got it!"</p><br>
+<p style="font-weight: 400;"><em>What. </em>Blue shakes his head. He was distracted during the battle. He'll get it after he has a chance to think it over. "Let's get back on the road?"</p><br>
+<p style="font-weight: 400;">They agree, Leaf asking Aiko about her training methods as they mount up. Blue tunes them out, thinking over the commands she used. His first guess was intonation, but then she added a 2 to one of them… not that that rules it out… He wants to check if that's it, but he should make sure first, if Red got it in one try.</p><br>
+<p style="font-weight: 400;">The rest of the day passes swiftly as they continue travelling south. They stop for lunch by a small grove where other travelers have sat to rest. Another traveler comes by and offers to sell or trade a farfetch'd, which visibly upsets Leaf once it becomes clear that it hasn't been properly registered or vetted. He eventually moves on when nobody seems interested at the prices he requests, and the party leaves shortly after.</p><br>
+<p style="font-weight: 400;">The sun is already well into its downward swing when a CoRRNet alarm goes off from someone's phone, just as Blue was about to suggest another rest break. Red skids to a stop and checks it, but the incident point is far to the northeast of them, just inside the range he set for notifications.</p><br>
+<p style="font-weight: 400;">"What is it?" Blue asks. "Tier 1?"</p><br>
+<p style="font-weight: 400;">"No, some pokemon got loose at a ranch, going into other ones nearby. About two hours ride back the way we came, though." He looks up. "Kinda far, isn't it?"</p><br>
+<p style="font-weight: 400;">"A couple hours isn't bad," Blue says, ignoring the ache in his rear and lower back. "We might still be able to help."</p><br>
+<p style="font-weight: 400;">"My house is actually really close," Aiko says. "Another twenty minutes. I was hoping to get there by tonight, so I can talk to my dad about all this."</p><br>
+<p style="font-weight: 400;">"Do you think he'll be okay with us spending the night?" Leaf asks.</p><br>
+<p style="font-weight: 400;">"Oh, sure! I mentioned that I'd be bringing guests."</p><br>
+<p style="font-weight: 400;">"No way we're making it there and back by dark," Red says. "And we'll be tired when we reach the incident, so whatever might still need doing, we won't be at our best."</p><br>
+<p style="font-weight: 400;">Blue frowns. "You guys go on ahead, then. I'll meet you there."</p><br>
+<p style="font-weight: 400;">"What? Split the party? You were the one against that in Viridian."</p><br>
+<p style="font-weight: 400;">"We were young and green then. Besides, I'm sure others will be there to help, so I won't be alone."</p><br>
+<p style="font-weight: 400;">"What about the ride back down?"</p><br>
+<p style="font-weight: 400;">"Aiko was planning on traveling this way alone, weren't you?"</p><br>
+<p style="font-weight: 400;">She hesitates. "Yes, but not while it's dark."</p><br>
+<p style="font-weight: 400;">"It's just a couple hours. I'll be fine."</p><br>
+<p style="font-weight: 400;">Leaf shakes her head. "It made sense to split up in Viridian, but we don't have to here. If you really want to go, Blue, I'll go with you."</p><br>
+<p style="font-weight: 400;">"Same," Red says.</p><br>
+<p style="font-weight: 400;">Aiko bites her lip. "If this is what you guys would have done without me, I don't want to stop you. I'll come too."</p><br>
+<p style="font-weight: 400;">Blue smiles and turns his bike northward, feeling renewed by their confidence in him. Before he pushes his bike forward, however, he stops himself. The expressions they wore, the tone of their voices, they were determined, not confident or energized. With one foot on the pedal, he turns back to the others. "You guys all think it's a bad idea?" They shrug and nod. "But you'll go if I do?"</p><br>
+<p style="font-weight: 400;">"Of course," Leaf says, looking at him as though he's speaking a foreign language. "We're a team."</p><br>
+<p style="font-weight: 400;">"But not because you want to. Just so I don't get hurt?"</p><br>
+<p style="font-weight: 400;">"Well, yeah," Red says. "What's wrong, Blue?"</p><br>
+<p style="font-weight: 400;">Shit. Dragging them along out of concern for his safety, forcing them to make a choice they're against, that's not what a leader does. He wants them to go because they realize it's the right thing to do, that a little discomfort and danger is worth helping others. He has to inspire them, make them want to follow him.</p><br>
+<p style="font-weight: 400;">He takes a deep breath… then lets it out, unsure of how to start. Everything that comes to mind just sounds too grand and epic for what's not even a Tier 1 threat. Also they've got a two hour ride ahead of them to reach it, which means a lot of time for any enthusiasm they have to fade. They'll probably stay determined though. Maybe if he just starts riding he'll think of something...</p><br>
+<p style="font-weight: 400;">The silence has gone on a bit too long, and he distantly notices Leaf, Red and Aiko glancing at each other and him, a little worried. Red takes off his helmet and scratches at his hair, while Aiko bends down to adjust her kneepad. They're all waiting for him to say something or go, but he doesn't want to leave without knowing what he's doing and why. If learning to be a leader is his goal, there's definitely more to it than just picking an action and getting others to follow you.</p><br>
+<p style="font-weight: 400;">"Could you guys just go over why you don't think we should go again?" Blue asks.</p><br>
+<p style="font-weight: 400;">"Um. We're all tired, and will be more tired when we get there, thus putting ourselves at extra risk and maybe even putting more strain on others there who will have to help us?" Red says.</p><br>
+<p style="font-weight: 400;">"I've never responded to an incident before," Aiko admits. "A small thing like this is probably a good place to start, but like Red said, I'm not really at my best, and I wanted to make sure my dad was okay with my journey sooner rather than later."</p><br>
+<p style="font-weight: 400;">Leaf is leaning on her handlebars, gazing down at the grass. "It does bother me that there are people there who might need our help," she says after a moment. "But we should trust that others who are better positioned can handle it. If it was a bigger incident I'd agree, but it'll be dark soon, and if everything is over by the time we get there we'll either have to travel at night to reach Aiko's house or spend it outdoors again. It's not a huge burden, but I find myself against it all the same."</p><br>
+<p style="font-weight: 400;">Blue sighs. He can't really think of any good responses to that besides just repeating that they could help others, and maybe even get some more fame out of it. But he doesn't really care about that right now: developing his leadership skills is what matters. Learning what makes a good decision different from a bad one.</p><br>
+<p style="font-weight: 400;">What would Captain Uda from Power Force Ten do, in this situation?</p><br>
+<p style="font-weight: 400;">"Red," Blue says, testing out the tone of command. "Give me an assessment of our choices that doesn't have our safety as a consideration."</p><br>
+<p style="font-weight: 400;">His friend gets it right away, as Blue knew he would. A silence ensues as he thinks, fiddling with his helmet. Eventually he puts it on and says, "If we discount our safety and our comfort, I think that the opportunity cost should also be considered. We'll be more tired and sore tomorrow if we go. What if another incident occurs right near us farther south? So the question is, do we extend ourselves for a sure thing, or preserve our strength. Rational beliefs are based on probabilities, not possibilities, but right now I don't know what the odds of encountering another incident tomorrow are. It's low, but so far in our journey we've only ever gone toward incidents when they were nearby or in our path. That's worked out well for us, so I'd say let's stick to that."</p><br>
+<p style="font-weight: 400;">Blue nods and turns to Leaf. "Do you think we'll be able to live with ourselves if something really bad happens and we chose against it just to spend a night indoors?"</p><br>
+<p style="font-weight: 400;">Leaf gives this careful consideration as well, tucking her hair behind her ear as she wobbles her bike slowly back and forth between her legs. "I think if that happens, we'll regret not going and update our actions in the future," Leaf says. "But that's as it should be. I don't think it would cause trauma."</p><br>
+<p style="font-weight: 400;">Aiko looks wary before he even turns to her. "I don't really know what you guys are doing," she admits. "So I'm not sure how much help I can be."</p><br>
+<p style="font-weight: 400;">Blue grins. "Actually, you're kind of the most important one. I'm going to be blunt: would you respect me more if I say we go forward, at this point, or head back? Not would you be happier, I mean which action would you find more fitting for me as the grandson of Professor Oak." He thinks he knows, now, he feels the shape of it...</p><br>
+<p style="font-weight: 400;">Her eyes narrow, and like the others, she takes a moment to think. "I think my respect for you would increase if we go and everything turns out good, but would decrease if we go and things turn out poorly. But if we don't go… I think I would respect you whether we find out we could have helped or not, because you made an informed decision and changed your mind based on what your team wanted."</p><br>
+<p style="font-weight: 400;">"My thoughts exactly." He turns his bike back around. "Thanks for the feedback everyone. You've convinced me." He kicks down at his pedals and leads them onward to Aiko's house… until she bikes ahead to actually guide them off the main road to it, anyway.</p><br>
+<p style="font-weight: 400;">Leaf's first impression of Aiko's house has nothing to do with the house itself, but rather the fields of open space around it where various domesticated pokemon live in carefully fenced off areas. The side road they follow winds through these in a circuitous route, giving them plenty of time to see the variety of pokemon within. Aside from all the normal, grass, and bug types, Leaf spots a few rarer ones she can identify, like drowzee, machop, and pikachu.</p><br>
+<p style="font-weight: 400;">"You and your dad watch all of these alone?" Leaf asks, amazed.</p><br>
+<p style="font-weight: 400;">"We hire help sometimes," Aiko says. "But for the most part, yeah." The other girl seems nervous, and as her house comes closer and closer, slows her bike to a stop and turns to the others.</p><br>
+<p style="font-weight: 400;">"Um. My dad can be a little strange. Just… try to let me do most of the talking, if you can?"</p><br>
+<p style="font-weight: 400;">"Sure," Red says. By now Leaf can read his expression well enough to know he's holding back his curiosity.</p><br>
+<p style="font-weight: 400;">"Of course," Leaf says.</p><br>
+<p style="font-weight: 400;">"You got it."</p><br>
+<p style="font-weight: 400;">Aiko looks at them, then nods and leads them the rest of the way. The house looks nice, two stories of reinforced stone with a door to each side. That seems odd at first, until they store their bikes and gear and step inside to find a house with no indoor walls. None on the ground floor, anyway: other than a few pillars the whole thing is wide open, with various nurseries set up for young pokemon.</p><br>
+<p style="font-weight: 400;">"Aww, look at all the littles!" Leaf says with a wide grin as she steps toward a small pen holding two budew and an azurill. "Hi! Hi there cuties!"</p><br>
+<p style="font-weight: 400;">After a moment she remembers herself and looks back at the others with embarrassment, but they're too busy being impressed by the house as well. Aiko is smiling slightly at their expressions, but after a moment she starts toward the stairs. "Daaad! I'm home! This way guys."</p><br>
+<p style="font-weight: 400;">They follow her up the stairs and into a much more traditional looking house, with a small kitchen and living room area and some bedrooms. A thin man in a loose button up shirt and khakis stands with a baby meowth in the crook of his arm being fed from a bottle.</p><br>
+<p style="font-weight: 400;">"Hello," he says, and bows slightly before peering at the group from behind wide glasses. "Pleased to meet you all. Won't you have a seat? This one's almost done."</p><br>
+<p style="font-weight: 400;">Leaf resists the urge to coo over the tiny kitten, its forehead coin no bigger than her pinkie nail. Instead she goes to the couch with the others, except for Aiko, who heads over to the kitchen.</p><br>
+<p style="font-weight: 400;">"You guys want anything to eat or drink?"</p><br>
+<p style="font-weight: 400;">"I'll serve dinner in about an hour," Mr. Sakai says.</p><br>
+<p style="font-weight: 400;">"I'm okay," Leaf says, and the boys agree. Aiko pours herself some juice and comes to sit in one of the chairs beside them while her dad goes off somewhere with the meowth.</p><br>
+<p style="font-weight: 400;">"You guys have a serious operation going here," Red says, voice low. "How much time do the pokemon spend out of their balls?"</p><br>
+<p style="font-weight: 400;">"Most of it," she says. "We only cycle them out for bed. I'll go help him feed everyone before we eat, then return them to their balls after, before it gets dark."</p><br>
+<p style="font-weight: 400;">Leaf's mouth drops open. "There were over a dozen pens out there, some with three or four pokemon! How does your dad manage it all when you're not here?"</p><br>
+<p style="font-weight: 400;">Aiko shrugs as she sips from her glass. "He doesn't really do much else," she mutters, gaze averted.</p><br>
+<p style="font-weight: 400;">Leaf blinks and aborts her next question. A glance at the boys makes it clear they've picked up on her discomfort too, and the group sits in silence while they wait for her dad to rejoin them.</p><br>
+<p style="font-weight: 400;">When he does return, he still has the baby meowth in the crook of his arm. No, the milk bottle is refilled, it must be a different one. He sits in another of the chairs. "Hello again. I'm Sho, Aiko's father. Welcome to our home."</p><br>
+<p style="font-weight: 400;">Aiko said to let her do the talking, but greetings were probably okay. "Thank you for having us," Leaf says after they introduce themselves.</p><br>
+<p style="font-weight: 400;">Red nods. "Your house is really interesting. Did you buy it like this, or renovate?"</p><br>
+<p style="font-weight: 400;">"Dad renovated," Aiko says. "To make more room for others."</p><br>
+<p style="font-weight: 400;">"There's never enough space," Mr. Sakai murmurs. His speaking voice in general is low, but Leaf barely made this last line out. "So many in need…"</p><br>
+<p style="font-weight: 400;">"So, Dad," Aiko says. "There's something I wanted to talk to you about."</p><br>
+<p style="font-weight: 400;">"Yes, dear?" he asks, gaze on the meowth.</p><br>
+<p style="font-weight: 400;">Leaf sees Aiko's nervousness through her relaxed posture, a kind of forced stillness. "I told you that Leaf, Blue, and Red all rode down here with me from Cerulean. They—"</p><br>
+<p style="font-weight: 400;">"Yes, how was your trip?" he asks. "Did you enjoy the city?"</p><br>
+<p style="font-weight: 400;">Aiko hesitates, then nods. "It was lots of fun. And I'm happy with the bicycle, thank you. That's where I met them, buying the bike—"</p><br>
+<p style="font-weight: 400;">"She usually takes public transportation," he says to the three without making eye contact with any of them. "I think she's old enough for a bike now though, don't you?"</p><br>
+<p style="font-weight: 400;">Aiko's fingers tighten around her glass. "Dad, they invited me to travel with them."</p><br>
+<p style="font-weight: 400;">Mr. Sakai is silent. His gaze is distant, staring off between them all. After a moment Leaf realizes she's holding her breath.</p><br>
+<p style="font-weight: 400;">"No," he says at last, in that same quiet tone. He shifts the kitten on his arm. "No, it's too dangerous. When you're older. You'll stay here, learn more…"</p><br>
+<p style="font-weight: 400;">"Dad. I won't be traveling alone. I can go with them. We'll keep each other safe."</p><br>
+<p style="font-weight: 400;">"The pokemon need you. It's not safe. Maybe when you're older."</p><br>
+<p style="font-weight: 400;">"They traveled to here from Pallet Town, Dad, they're strong, we can—"</p><br>
+<p style="font-weight: 400;">"Pallet Town?" He turns to them again. "It's a lovely place. I used to enjoy visiting the beaches with my family, when we lived in Viridian."</p><br>
+<p style="font-weight: 400;">After a moment Blue speaks up. "Yeah, the beach is a lot of fun." He glances at Aiko, whose cheeks are flushed.</p><br>
+<p style="font-weight: 400;">"I fought Leader Misty," Aiko says, glass trembling in her hands. "I won. Look." She shows him her Cascade Badge. "I'm a good trainer, I can take care of myself—"</p><br>
+<p style="font-weight: 400;">Her father stands. "This one's done. I should prepare dinner. Please, enjoy your stay." He pulls the bottle away from the meowth and carries it to the room.</p><br>
+<p style="font-weight: 400;">Leaf doesn't know what her expression looks like, but she imagines Red and Blue's are a good enough reflection of it. Aiko, meanwhile, has a carefully blank face, her fingers so tight around her glass of juice Leaf suddenly worries she'll shatter it.</p><br>
+<p style="font-weight: 400;">"It's okay," Aiko says, voice hollow. "I'll talk him around, maybe after dinner…"</p><br>
+<p style="font-weight: 400;">"What's wrong with him?" Blue asks.</p><br>
+<p style="font-weight: 400;">"Blue!" Red whispers. "Not cool."</p><br>
+<p style="font-weight: 400;">"What? It's like he barely heard her."</p><br>
+<p style="font-weight: 400;">"We're guests here—"</p><br>
+<p style="font-weight: 400;">"No, it's alright." Aiko puts her glass down (Leaf lets out a breath of relief) and curls up in her chair, legs drawn to her chest. "That's just how he is. He decides something and it's so. He doesn't listen to anything that disagrees, doesn't even acknowledge it. But he doesn't get mad, no matter what I say or do in return. He just… goes on acting like it's decided. It's like fighting with air."</p><br>
+<p style="font-weight: 400;">Aiko rubs at her face, and Leaf is about to act on a sudden impulse to get up and hug her when she stands instead. "Please excuse me. I should start feeding the pokemon. Please make yourselves at home."</p><br>
+<p style="font-weight: 400;">Leaf and the others watch her go, then sit quietly for a moment. Blue's arms are crossed, brow furrowed. Red looks puzzled, but also sorrowful. "What is it, Red?"</p><br>
+<p style="font-weight: 400;">"He's just… really sad," he says. "I could feel it even without merging with his mind. The feel of him is just… quiet. Slow drips. Sad." He shakes his head. "Sorry, it's hard to describe."</p><br>
+<p style="font-weight: 400;">"Damn selfish of him, I say," Blue says, voice bitter. "She's a good trainer, and he's trying to keep her here because he's afraid. She should just leave, she has her license. I'll pay her Trainer House fees and cover her food…"</p><br>
+<p style="font-weight: 400;">"That's good of you Blue, but I think that kind of falling out with her dad would be pretty distracting." Red glances at her.</p><br>
+<p style="font-weight: 400;">Leaf nods. "If there's any other way..." She stands. "I'm going to go talk to her, maybe help out with the pokemon." Leaf heads for the direction Aiko went in, leaving them to debate further.</p><br>
+<p style="font-weight: 400;">She finds Aiko in what must be her room, listlessly lining her new pineco ball lenses up with a really old pokedex model that's as thick as a book. Leaf knocks on the open door. "Mind if I come in?"</p><br>
+<p style="font-weight: 400;">Aiko rubs at her cheeks, then shrugs.</p><br>
+<p style="font-weight: 400;">Leaf enters the girl's room and looks around. It's nice, filled with books and electronics, half of them opened and with their silicon guts spilled out in carefully separate piles. Posters of various pokemon adorn the walls, all done in a particular impressionist style, with overlapping swirls of color that almost seem to spread into the pastel walls around them.</p><br>
+<p style="font-weight: 400;">"Aiko, are you alright?"</p><br>
+<p style="font-weight: 400;">The girl looks up, eyes red. "What do you think? He's not going to let me go, I know it. I said I'd convince him, but… I don't know how. And I don't want to leave him alone without his blessing, without knowing he'll be okay… ever since Mom he's been…"</p><br>
+<p style="font-weight: 400;">"Sad," Leaf whispers, and sits on the bed beside the girl to hug her against her side. Aiko nods against her shoulder. "I understand. We all do. Red's dad was a ranger, he's still not over it. Blue lost both his parents. It's what drives him so hard, I think. My mom and I fought like crazy before I came to Kanto, because she wanted me to stay in Unova where I'd be 'safer.'"</p><br>
+<p style="font-weight: 400;">"What did you do?"</p><br>
+<p style="font-weight: 400;">"I made it clear that I'm a person, not a pokemon she can keep in a ball. That respect only lasts if it's earned, and that if she wouldn't let me prove to her that I was ready to make my own choices, I would lose respect for her and myself, and she'd never be able to get it back."</p><br>
+<p style="font-weight: 400;">Aiko shifts to stare at her. "You said that to your mom?"</p><br>
+<p style="font-weight: 400;">Leaf shrugs, cheeks flushing. "I'm paraphrasing a little. It wasn't really that polite."</p><br>
+<p style="font-weight: 400;">"But you're so…"</p><br>
+<p style="font-weight: 400;">"Charming?" Leaf grins, and Aiko giggles.</p><br>
+<p style="font-weight: 400;">"But still, I'm surprised that worked."</p><br>
+<p style="font-weight: 400;">"Oh, it didn't really change her mind. She was sure I'd realize how wrong I was at some point and forgive her. Maybe she's right. But she let me go when she realized I was prepared to find my own way with or without her help."</p><br>
+<p style="font-weight: 400;">Aiko nods slowly. "I don't know if that'll work for my dad. He… I know he wants me to be safe, but I think he'd be lonely too."</p><br>
+<p style="font-weight: 400;">"Would he be able to handle all this work on his own?" Leaf asks. "I have to admit I don't really blame him for being a bit worried about that, but he should just take less clients in that case."</p><br>
+<p style="font-weight: 400;">Aiko looks away. "That… won't really work."</p><br>
+<p style="font-weight: 400;">"Why not?" Leaf blinks. "Wait… are these not…?"</p><br>
+<p style="font-weight: 400;">"Only about half," Aiko says. "The rest are babies that weren't wanted or retired pokemon that don't have a home. Dad's been slowly filling the pens out, and he doesn't want them to go into the wild where they might be killed, and he doesn't want to sell them to trainers who might not take care of them."</p><br>
+<p style="font-weight: 400;">"Oh, Aiko…" Leaf has to take a moment to compose herself. She'd wondered about the incongruity between Aiko's attitude and the seeming abundance of work her family has, and thought her dad was just a miser or wouldn't let her access her funds. The reality is just… too sad. "That's really good of him."</p><br>
+<p style="font-weight: 400;">"Yeah. But it leaves him little time or space for customers, and… it's like all he does. I wouldn't mind it so much, and I admire him for it, but…"</p><br>
+<p style="font-weight: 400;">"You don't want to be bound by it too. That's understandable."</p><br>
+<p style="font-weight: 400;">Aiko wipes at her eyes again and gently pulls away. Leaf lets her. "I'm sorry for dumping all this on you. I guess I knew it was too good to be true, going with you guys. You're all so cool, and it was amazing to meet the Professor. I just…" She sighs and shakes her head. "Anyway. I should go feed the pokemon. Thanks for listening."</p><br>
+<p style="font-weight: 400;">"Anytime." Leaf stands. "Mind if I lend you a hand?"</p><br>
+<p style="font-weight: 400;">"You don't have to do that."</p><br>
+<p style="font-weight: 400;">"I know. But I'd like to."</p><br>
+<p style="font-weight: 400;">Aiko smiles. "Thank you, Leaf. For everything."</p><br>
+<p style="font-weight: 400;">The work goes quickly, though Leaf keeps stopping to play with various pokemon. They've all been tamed at some point, so it's like one big petting zoo. Red and Blue come out to help after a while, and the four of them make a circuit around the pens while Aiko's dad prepares dinner.</p><br>
+<p style="font-weight: 400;">Even half expecting it, Leaf is delighted to see that the meal is largely pokemon-free. There's a side of steamed goldeen that seems set aside particularly for the three guests, though she doesn't take any and makes sure to compliment Aiko's dad on the tastiness of the loaded mashed potatoes and mushroom stuffed artichoke. She hadn't expected to meet anyone else with her diet in Kanto, though she can't remember if Aiko ate any meals with pokemon in them during their trip. Maybe she only maintains this diet while at home.</p><br>
+<p style="font-weight: 400;">Mr. Sakai is quiet during dinner, though he answers pleasantly enough when Leaf or the others try to engage him in conversation. They just don't go anywhere, as he doesn't seem particularly present, mentally, instead lost in his thoughts. Aiko seems too miserable to join in, though she does liven up when her father asks in what sounds like surprise if she really met Professor Oak.</p><br>
+<p style="font-weight: 400;">"Oh, yes! He was very kind, and asked about my life and plans. I told him about our house, and the pokemon we take care of. He said he might visit some day."</p><br>
+<p style="font-weight: 400;">"That would be something. He's a brilliant man, your grandfather," Mr. Sakai says to Blue, though that's only evident from his words, since he's looking down at his food.</p><br>
+<p style="font-weight: 400;">"Thank you. He showed a lot of faith in your daughter's skills and future."</p><br>
+<p style="font-weight: 400;">Aiko shoots him a look of mixed gratitude and resignation, but Blue just watches her father, who's silent for a moment, and then:</p><br>
+<p style="font-weight: 400;">"I met him once, you know," Mr. Sakai says. "In Cerulean, this was, years ago. Brilliant man. Taught me a lot about pokemon, when I was starting out..."</p><br>
+<p style="font-weight: 400;">And so it goes. After dinner they go around and help return all the pokemon to their balls, then Red and Blue prepare to bed down in the living room while Aiko shows Leaf to her room. It feels a bit unfair to have a guest room to herself, but she enjoys the shower and offers it to the other two when she's done. While they take turns with it, she finds Aiko in her room again, checking on the progress of her pineco's registration.</p><br>
+<p style="font-weight: 400;">"Takes a while, huh?" Leaf asks.</p><br>
+<p style="font-weight: 400;">"Yeah. I'm going to let the other one run overnight."</p><br>
+<p style="font-weight: 400;">"Aiko, would you mind if I talk to your father alone? I know you told us not to, but what have you got to lose, really?"</p><br>
+<p style="font-weight: 400;">"Leaf… I appreciate it, I do. But you guys have done enough for me. I didn't bring you here so you could convince him, I just hoped he'd see for himself that I'd be okay."</p><br>
+<p style="font-weight: 400;">"Would you let me try anyway? I have an idea, and I would hate to leave without you and not know if it could have worked. I won't say anything that gets you in trouble."</p><br>
+<p style="font-weight: 400;">Aiko smiles. "I don't know what you could possibly say that would do that, but… okay, sure. Why not."</p><br>
+<p style="font-weight: 400;">"Cool. Should I just knock on his door?"</p><br>
+<p style="font-weight: 400;">"Yeah, he should be up."</p><br>
+<p style="font-weight: 400;">Leaf goes and does so. There's a pause, and then the door opens to reveal Mr. Sakai in striped pajamas, blinking at her from behind his wide glasses.</p><br>
+<p style="font-weight: 400;">"Yes?"</p><br>
+<p style="font-weight: 400;">"Hello, Mr. Sakai. Would you mind if I spoke with you in private?"</p><br>
+<p style="font-weight: 400;">There's a pause that she's getting used to, and then, "Of course." He opens the door wider, and she enters.</p><br>
+<p style="font-weight: 400;">The room is spartan, with a bed, dresser, writing desk, and crib that contains the meowth kittens. Leaf spends a moment cooing over them. "What are their names?"</p><br>
+<p style="font-weight: 400;">"None yet," he says, sitting on his bed. "Bad luck, at this age. Not all of them make it."</p><br>
+<p style="font-weight: 400;">Leaf remembers Red and Blue telling her about Kanto superstitions. "They're adorable. Did one of the pokemon outside have them, or…?"</p><br>
+<p style="font-weight: 400;">"Yes. I'll have to move some of the pokemon around to make room in their mother's pen for them. I'm not sure how yet. Some of the other pokemon may stay in their balls more."</p><br>
+<p style="font-weight: 400;">He's more cogent now, talking about his pokemon. Leaf hoped that would be the case. She sits in the chair by the desk. "That would be terrible, having less time outside…"</p><br>
+<p style="font-weight: 400;">"Yes. It's a tragedy, so many of them locked away… not existing, for hours at a time."</p><br>
+<p style="font-weight: 400;">Leaf is glad she left her pokemon belt in her room. "Is that why you don't sell some of the pokemon to trainers?"</p><br>
+<p style="font-weight: 400;">Mr. Sakai doesn't ask how she knows that. "Too risky. Dangerous, and they'd spend most of their time in their balls. It's not fair to them."</p><br>
+<p style="font-weight: 400;">Leaf tries to keep a running tally of his concerns in mind. She remembers Laura telling her about how understanding others' values is integral to convincing them to change their minds, and knows that understanding their goals works the same way.</p><br>
+<p style="font-weight: 400;">"What about others? Some older folk looking for company…"</p><br>
+<p style="font-weight: 400;">"No, no. They die, and leave them behind again. Some can't care for them well."</p><br>
+<p style="font-weight: 400;">"Kids, then, looking for pets?"</p><br>
+<p style="font-weight: 400;">"Same. And they grow older, become trainers, use them to fight. Or sell them to buy one with better training."</p><br>
+<p style="font-weight: 400;">Leaf nods. "You care about the pokemon a lot, don't you?"</p><br>
+<p style="font-weight: 400;">"Yes. So many of them need help, a safe place to stay..."</p><br>
+<p style="font-weight: 400;">"Your wife cared about them too?"</p><br>
+<p style="font-weight: 400;">A tear drips down Mr. Sakai's face. Leaf stares in horror, about to apologize, when he says, "Yes." For a moment he looks at her, really looks at her, then looks away again. "Like you."</p><br>
+<p style="font-weight: 400;">Leaf nods, not trusting herself to speak. Did he mean because she didn't eat pokemon either? For all he knows she just doesn't like fish, but he seems certain.</p><br>
+<p style="font-weight: 400;">"But you're a trainer."</p><br>
+<p style="font-weight: 400;">"I am. To help them. Learn from them. Find ways to save them, if I can."</p><br>
+<p style="font-weight: 400;">"You can't. Not all of them."</p><br>
+<p style="font-weight: 400;">"No," Leaf whispers, remembering Red's hoothoot and the pokemon on the mountain that attacked them. "Not all of them."</p><br>
+<p style="font-weight: 400;">"It's not safe."</p><br>
+<p style="font-weight: 400;">"It's never safe, Mr. Sakai. If an incident occurs around here, some rampage or attack, who will keep all the pokemon here safe? If girls like your daughter don't become trainers, humans and pokemon will just keep fighting and killing each other."</p><br>
+<p style="font-weight: 400;">He's quiet at that, then says, "It's very peaceful, here. Aiko's a good girl. She helps, cares for the pokemon. She should stay, learn more…"</p><br>
+<p style="font-weight: 400;">Leaf almost sighs. "What do you want, Mr. Sakai? For her to be safe? She's not. Aiko is secretly training already. She's surviving on a pittance because she can't ask you for help. If she doesn't have your support, she'll just leave some day without it."</p><br>
+<p style="font-weight: 400;">"She's a good girl. When she's older, she'll be ready."</p><br>
+<p style="font-weight: 400;">Leaf tries to think of something else to say, but she finds herself wanting to get angry, say something that would hurt him, get a rise out of him the way she did with her mom. Instead she stands, heart leaden. "Think about it, Mr. Sakai. We'll keep your daughter safe, if she comes with us. If she doesn't, I'm worried she'll get hurt on her own."</p><br>
+<p style="font-weight: 400;">He doesn't answer, gaze on the kittens in the crib. Leaf gives him a minute, but when he still doesn't say anything, not even one of his usual refrains, she heads for the door.</p><br>
+<p style="font-weight: 400;">"Oh," she says, turning back with her hand on the doorknob. "You should consider advertising as a petting zoo. Let kids come and play with the pokemon under supervision. Might help you pay for more space, they'll get more attention, and the kids can learn more about the pokemon. Grow to care about them more." Leaf smiles. "Just a thought."</p><br>
+<p style="font-weight: 400;">She leaves him there in his silence and goes to bed, unable to face Aiko's disappointment, or her own.</p>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="../102/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Chapter Index</a>
+            <a href="../104/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>

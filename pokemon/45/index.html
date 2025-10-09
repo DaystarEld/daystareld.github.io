@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming with Sound - Pokemon: The Origin of Species</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .chapter-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .chapter-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .chapter-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            max-width: 70ch;
+            margin: 0 auto;
+        }
+
+        .chapter-content br {
+            display: block;
+            content: "";
+            margin: 0.75em 0;
+        }
+
+        .chapter-content hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 2em 0;
+        }
+
+        .chapter-content em {
+            color: var(--accent-2);
+            font-style: italic;
+        }
+
+        .chapter-content strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .chapter-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../">Pokemon: TOoS</a></li>
+                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chapter-header">
+            <h1 class="chapter-title">Gaming with Sound</h1>
+            <div class="chapter-meta">Pokemon: The Origin of Species</div>
+        </div>
+
+        <div class="chapter-content">
+            <em>Advice Level: Beginner to Moderate Gamer</em><br>
+<br>
+<a class="fancybox" href="http://www.dmfiat.com/wp-content/uploads/2013/02/chronotrigger.jpg" rel="gallery-0"><img class="size-medium wp-image-2470" src="http://www.dmfiat.com/wp-content/uploads/2013/02/chronotrigger-300x180.jpg" alt="With great sound, comes great responsibility. " width="300" height="180" /><br>
+</a><br>
+<br>
+One thing a childhood of non-verbal video games taught me is how valuable sound can be as a means of conveying story.  I’m not just talking about the amazing music of Chrono Trigger or Final Fantasy: Tactics, but also the sound effects, the ambiance.  The rabble of mixed voices when in an outdoor market or tavern, the creak of a door when exploring a dungeon, the agonized cry of a party member or enemy being KO’d… these things were invaluable in making the experience immersive.<span id="more-2460"></span><br>
+<br>
+And there’s absolutely no reason they can’t do the same for tabletop gaming.  The GM’s voice is the most powerful tool in their arsenal for conveying the story, but when they’re not narrating exposition or switching voices for NPCs, they can give it a well-deserved rest and draw on other sources.<br>
+<br>
+Namely, technology!  Even a decade ago, using sound effects in tabletop games would have taken quite a bit of forethought and effort.  But thanks to smartphones, tablets and youtube, it couldn’t be simpler. (Lifehack: for best acoustics from smartphone, place it in a tall cup. Ensure cup is empty first.)<br>
+<br>
+Players going through a dungeon?  Just put this on loop in the background:<br>
+<br>
+<a href="http://www.youtube.com/watch?v=yAmYNTJDCsk" target="_blank">http://www.youtube.com/watch?v=yAmYNTJDCsk</a><br>
+<br>
+A dragon about to swoop down on the group? Find a good roar to have them shaking in their boots:<br>
+<br>
+<a href="https://youtu.be/JIjNln61s4U?t=51" target="_blank">http://www.youtube.com/watch?v=JIjNln61s4U</a><br>
+<br>
+And if an enemy gets killed? Just before you slam the table to indicate their body hitting the ground, play one of these: everyone loves Wilhelm!<br>
+<br>
+<a href="http://www.youtube.com/watch?v=AGce8M-MZxs" target="_blank">http://www.youtube.com/watch?v=AGce8M-MZxs</a><br>
+<br>
+(Note: not everyone loves Wilhelm)<br>
+<br>
+There are dozens of sound effects you can use to help immerse your players in the story, and players can get in on it too for generating their own sound effects.  And this goes beyond just playing gunshots when a character fires a weapon, or a distant police siren to alert players that cops are approaching the scene.<br>
+<br>
+<a href="http://inception.davepedu.com/" target="_blank">See this Big Red Button?</a> Push the Big Red Button.<br>
+<br>
+<i><strong>BRRRAAAAAWWRRRrrr</strong>… </i>Glorious.<br>
+<br>
+Imagine using that bad boy when giving a dramatic synopsis of the previous session:<br>
+<div id="attachment_2472" class="wp-caption alignleft"><br>
+<br>
+<a class="fancybox" href="http://www.dmfiat.com/wp-content/uploads/2013/02/night_of_the_fortress_castle_marina_water_lightning_fires-1920x1080.jpg" rel="gallery-0"><img class="size-medium wp-image-2472" src="http://www.dmfiat.com/wp-content/uploads/2013/02/night_of_the_fortress_castle_marina_water_lightning_fires-1920x1080-300x168.jpg" alt="http://fantasy-wallpapers.com/night_of_the_fortress_castle_marina_water_lightning_fires-wallpapers.html" width="300" height="168" /></a><br>
+<p class="wp-caption-text"><a href="http://fantasy-wallpapers.com/night_of_the_fortress_castle_marina_water_lightning_fires-wallpapers.html" target="_blank">This setting is just BEGGING for thunder and rain sounds.</a></p><br>
+<br>
+</div><br>
+<i>When last we left our heroes, they decided to work together to solve the murder of the night watchman.  Little did they know that as the coroner was returning the body to storage, another had just been found at the church…</i><br>
+<br>
+<i>…and a dozen more remain unfound.</i><br>
+<br>
+<strong><i>BRAWWWWWRRRrrr.</i></strong><br>
+<br>
+<i>Night is falling on the sleepy town of Serenity.  A night that will bring darkness far beyond the absence of light.</i><br>
+<br>
+<strong><i>BRAWWWWWRRRrrr.</i></strong><br>
+<br>
+<i>What stalks this hamlet is an evil that walked the earth before man tamed fire. The first wave of victims were mere accidents, whetting its appetite.  The next…</i><br>
+<br>
+<strong><i>BRAWWWWWRRRrrr.</i></strong><br>
+<br>
+<i>…will herald the new Dark Age.</i><br>
+<br>
+<strong><i>BRAAAAAAAAAAAAAAAAWWWWWWWWRRRRRRRRRRRrrr.</i></strong><br>
+<br>
+You get the idea.<br>
+<br>
+(Note: the Big Red Button is a sacred responsibility. Do not abuse it, or be warned, thee may verily be struck upside the head by thine companions.)<br>
+<br>
+Gone are the days of banging coconuts together to imitate horse hooves clopping down the road: now you can just play a <em>recording</em> of someone banging coconuts together to imitate horse hooves clopping down the road!  Not that you can’t still use the classic methods, if you prefer them.  Whatever your method of delivery, don’t forget to include Sound in all its myriad forms when telling your game’s story: too often it goes overlooked, despite being just as important as Sight, if not arguably more so. Try to keep all of the senses in mind, <a href="http://www.dmfiat.com/dm-tips/www.dmfiat.com/dm-tips/gaming-with-5-senses-taste">even taste.</a><br>
+<br>
+If you’re looking for more sound resources check out the following links:<br>
+<ul><br>
+	<li><a href="http://www.freesound.org/" target="_blank">Freesound</a> (Free searchable uploads of a variety of sounds)</li><br>
+	<li><a href="https://itunes.apple.com/us/app/storytellers-companion/id447006121?mt=8">Storyteller’s Companion</a> (iPad app with a few great ambiance noises)</li><br>
+</ul>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="../44/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Chapter Index</a>
+            <a href="../46/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>

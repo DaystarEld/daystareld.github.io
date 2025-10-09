@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 20: Body and Mind - Pokemon: The Origin of Species</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .chapter-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .chapter-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .chapter-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            max-width: 70ch;
+            margin: 0 auto;
+        }
+
+        .chapter-content br {
+            display: block;
+            content: "";
+            margin: 0.75em 0;
+        }
+
+        .chapter-content hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 2em 0;
+        }
+
+        .chapter-content em {
+            color: var(--accent-2);
+            font-style: italic;
+        }
+
+        .chapter-content strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .chapter-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../">Pokemon: TOoS</a></li>
+                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chapter-header">
+            <h1 class="chapter-title">Chapter 20: Body and Mind</h1>
+            <div class="chapter-meta">Pokemon: The Origin of Species</div>
+        </div>
+
+        <div class="chapter-content">
+            The next morning Red finds himself alone in his hospital room and looking for something productive to do. His mom left with Professor Oak last night, Blue is gone to the Pewter Gym, and Leaf is checking out the museum. So Red sets to work looking through all the advertisements for local psychics that offer their services.<br>
+<br>
+Assisting trainers with challenging pokemon or difficult to learn commands is a psychic's most common trade, followed by testing people for psychic ability or damage. But since Red wants a psychic who's also willing to potentially get attacked by a spinarak, he needs someone whose profile advertises being open to "unlisted requests."<br>
+<br>
+He realized after talking with Professor Oak that testing his spinarak's mental attack would be harder than he first thought. Even if he squared it off against his rattata, since he doesn't actually know what the attack was he can't reliably ensure that whatever it ends up using against her would be the right one.<br>
+<br>
+So the Professor suggested turning to the experts. In the meantime, Red also put up a bulletin in the city's online forum. His advertisement asks for a five minute meeting with anyone who has a spinarak and is willing to answer questions about it and submit its data for research purposes. Since Red doesn't have the funds to pay for their time, instead he offered the opportunity for the trainers to get detailed data about their spinarak from his new pokedex model.<br>
+<br>
+"Sounds good," Professor Oak says over the phone. "And the psychic?"<br>
+<br>
+"Colan Narud. His resume looked alright, but his main qualification is that he's available today."<br>
+<br>
+"I'm sure he'll do fine. This will be your first one-on-one meeting with a psychic, won't it?"<br>
+<br>
+"Yeah."<br>
+<br>
+"Nervous?"<br>
+<br>
+Red reflects on his mood, then frowns. "Well I wasn't before, but now that you ask..."<br>
+<br>
+"I just want to warn you that psychics can be difficult to interact with."<br>
+<br>
+Red's brow rises. There are a lot of unflattering sites that discuss psychics and their powers. He tends to ignore most of them, especially those that express superstitious fears, but he remembers commenters in more general forums that expressed a distaste for the <em>attitude</em> or <em>personality</em> of psychics. Red always figured it was a mix of unease and jealousy, but he doesn't expect Professor Oak to have such prejudices. "Difficult how?"<br>
+<br>
+"It's like dealing with someone from a different culture, with different social norms and concepts of personal space."<br>
+<br>
+"Is he going to try and mentally hug me or something?"<br>
+<br>
+Professor Oak chuckles. "More of a mental handshake. Psychics tend to dip into the surface level of people's thoughts in much the same way we use facial tics and body language for cues about someone's emotional state. By all accounts it isn't entirely in their control: just be aware that what you find offensive might not be intended to be."<br>
+<br>
+"Alright," Red says slowly. "And how do I tell if they <em>are </em>doing something I should take offense at?"<br>
+<br>
+"Well actual mind reading, though difficult and unreliable, is always a conscious choice. If he seems to pick up on something too specific to glean from surface impressions, you have every right to end the interview. If you want to take extra steps to ensure your privacy, the best bet is to just keep your attention focused on your goals and the current conversation. It can help to write down questions ahead of time, and keep your gaze on them so that your mind doesn't wander far."<br>
+<br>
+"That's not foolproof, is it?"<br>
+<br>
+"No, any more than me asking you not to think of a pink donphan would stop you from doing so. If there's something specific you desperately don't want him to know, you would need much more preparation and practice to avoid him learning it as it pops up from time to time in your thoughts."<br>
+<br>
+"Ah. So this is why people sometimes hire psychics through intermediaries."<br>
+<br>
+"Absolutely."<br>
+<br>
+Red's fingers tap the plastic railing of the bed. "Would you advise against meeting him?"<br>
+<br>
+"If so, I'd have said so by now. I don't mean to bias your perspective, just prepare you."<br>
+<br>
+"Alright. Is it okay if I call you after?"<br>
+<br>
+"By all means."<br>
+<br>
+"Thanks professor."<br>
+<br>
+Red paces the room after he closes the call, biting his lower lip. Is there anything he knows that he absolutely doesn't want to be read by a psychic?<br>
+<br>
+Not really. Red considers himself a private person, but as long as the psychic is as discreet as his professional confidentiality requires, he doesn't really see any harm in having his memories or thoughts dredged up. It's not like he has any secrets a stranger would find interesting.<br>
+<br>
+<hr noshade="noshade" size="1" /><br>
+<br>
+Psychic Narud looks about the same in person as his pictures online, but for one thing: he appears to be much younger. Red had a vague idea that the psychic was in his early thirties, but when he walks through the door Red drops at least a decade off that. When Red meets his eyes, however, there's a weight to them that seems incongruous with the impression of youth. The psychic has decades packed behind his gaze, like an old mind in a young body.<br>
+<br>
+The thought is so odd that Red blinks and looks away, suddenly distrusting his perception. It's a disconcerting feeling that makes him feel on edge, and Red has to unclench his left hand to extend it as they exchange greetings. He tries to focus on more mundane details.<br>
+<br>
+Narud's dark indigo hair is cut short everywhere but the front, where it hangs down the sides to frame his smooth face. He's dressed in black shirt and pants, with a white overcoat that flares out at the collar and coat tails that trail down to his upper thighs, almost but not quite a robe. Red's seen a few psychics wearing a similar outfit, but not all of them do. He vaguely remembers there being different schools or sects, some of which have their own dress code or uniform. There's writing on Narud's white coat, not in the universal Unown, but in the old regional Kanji. On the left is written "ataru mo hakke," and on the right "ataranu mo hakke." It's somewhat encouraging to see a psychic so dismissive of fortune-telling.<br>
+<br>
+"I confess to some surprise," Narud says as he sits on the chair beside Red's bed. "I expected my client to be a doctor. Is your arm your only physical injury?"<br>
+<br>
+"Yeah. Do you normally get called to hospitals?"<br>
+<br>
+"I do, though not for mundane ailments. I hope that is not what you contacted me for: as I mentioned on my advertisement, my fee is only half refundable."<br>
+<br>
+Red fights a frown. "No, it's unrelated. I was injured in the Viridian pikachu frenzy."<br>
+<br>
+Narud nods. "A troubling affair."<br>
+<br>
+"Were you in the forest?"<br>
+<br>
+"I was not."<br>
+<br>
+"After I meant, to help."<br>
+<br>
+"No."<br>
+<br>
+Red waits for something further, but Narud stays silent, gaze steady on his. Red realizes he's waiting for an explanation, an excuse to justify the psychic not helping out, and one clearly isn't forthcoming. Perhaps it's unfair to expect one, or maybe Red's seeking justification for the vague irritation he feels toward the psychic, with his overly formal speaking and quick reminder of his refund policy.<br>
+<br>
+Chiding himself for being uncharitable, Red clears his throat. "Well, it was pretty hectic. But no, my arm isn't what I called you for. I have two requests: first, I'd like to check and see if I'm psychic."<br>
+<br>
+"Of course." Narud reaches into one of the discreet pockets in his coat and pulls out a deck of cards. "First, simply concentrate on-"<br>
+<br>
+"Wait, I'm sorry, I should have mentioned that I took the standard tests a couple years ago."<br>
+<br>
+He pauses, then tucks the cards away and reaches into another pocket. "Indeed? Then you want me to apply the more direct approach."<br>
+<br>
+"I do." No matter how hard he tried during the test, he wasn't able to visualize the shapes on the cards from the other person's mind as they stared at it. From what he read that just meant he wasn't a natural, but there are a rare few with weaker abilities that don't develop the skills automatically.<br>
+<br>
+"Very well." The psychic pulls a pen and a folded sheet of paper out of his other pocket, opening it. "You are aware that this will constitute a direct intrusion into your mind, and that I am not responsible for any new mental discomfort or harm lasting less than twelve hours from our meeting?"<br>
+<br>
+"I am."<br>
+<br>
+"And are you currently suffering harm from any mental attacks or damage?"<br>
+<br>
+"Er. I think so? I was hit by something a spinarak did recently…"<br>
+<br>
+"Describe the effects."<br>
+<br>
+Red does so, and the psychic writes them down on the paper. "I believe that's sufficient. Are you aware of what this form is?"<br>
+<br>
+"Yeah, I read it online."<br>
+<br>
+"Good. Please sign here."<br>
+<br>
+Red scans the document to make sure it's the same one from the net, then scrawls his signature with some difficulty, trying to ensure it looks like the one produced from his right hand. When he's done he hands it back, palms slightly sweaty.<br>
+<br>
+Narud examines the signature, then nods and tucks it away. "Thank you. Are you ready?" Red nods, pulse beginning to speed up as he tries to prepare himself. "Then I will begin. There is no need to do anything: please let your thoughts wander as they will."<br>
+<br>
+Red sits still and makes an effort to relax. A few deep breaths later he feels his heartrate begin to slow, but when he wonders if Narud has begun or not it begins to race again. He knows the mental scan won't feel like anything, but after the last experience of something messing with his head-<br>
+<br>
+<em>empty</em><br>
+<br>
+<em>dark</em><br>
+<br>
+Red winces at the memory, and the psychic's eyes widen. And suddenly Red <em>can </em>feel something… except <em>feel</em> is the wrong word. It's not a sense of pressure or temperature or texture, nothing like a physical touch. It's like a part of his brain separate from where his "consciousness" resides is suddenly… awake.<br>
+<br>
+Goosebumps rise along Red's arms, and he has to stop himself from yelling aloud. The sensation is distinctly unsettling, like watching a movie of yourself doing something you have no memory of. His sense of <em>me</em>, the "core self" residing somewhere just behind and between his eyes, suddenly feels like it has company in his skull. And that company is movingshifting<em>turningtwisting</em>-<br>
+<br>
+"Stop!"<br>
+<br>
+The sensation immediately ceases. Red's whole body relaxes and he slumps back against his pillow, breathing hard. A drop of sweat slides down the side of his face, and his left hand trembles a bit as he wipes it away. "Was that… you?" Stupid question, but he can barely think past the lingering disorientation. Part of him wonders if his body's reaction is a "real" one to a sudden and uncomfortable experience, or specifically a side effect of the invasion.<br>
+<br>
+"It was." The psychic reaches into yet another pocket in his coat and pulls out… candy. A variety of it. He unwraps something orange and eats it, then opens his palm to Red.<br>
+<br>
+Red is about to refuse, then realizes the psychic might be offering for more than politeness. He takes a honey flavored cube and sucks on it, biting down to crunch on the outer shell and let the sweet, gooey center free.<br>
+<br>
+"Thanks. So, uh. Was that supposed to happen?"<br>
+<br>
+Narud actually smiles, making him look even younger for a moment. "It was not outside the realm of possibility. Now that I have touched your psyche, I have both good news and bad."<br>
+<br>
+Red swallows some of the candy, its comforting sweetness keeping him from getting too disappointed. He knew it was a long shot. "Bad news first, please."<br>
+<br>
+"I apologize, but it will be easier to explain the other way around. The good news is you have the Gift."<br>
+<br>
+Red's breathing stops. "You're sure?"<br>
+<br>
+"There is no question. Even if you did not notice my touch upon your mind, it was immediately evident from the strength of that memory. It was the spinarak's attack, yes? As I thought. The effects of Night Shade vary heavily, and while the fears it evokes in the minds of most are generally harmless, those of us with the Gift have much more fertile ground for trauma to grow."<br>
+<br>
+A confused jumble of emotions are gathering in Red, and he finds himself grinning wide until the last line puts a damper on his jubilation. "Trauma?"<br>
+<br>
+The psychic's face smooths out. "Would it be fair to say your father's passing was a traumatic experience for you?"<br>
+<br>
+Red stares as shock and anger and the echo of deep pain rise up in him. He picked that much up from the brief touch?<br>
+<br>
+<em>No. Psychics can only pick up surface emotions and vague impressions.</em><br>
+<br>
+"Well, you certainly did your homework before coming," Red says, voice cold.<br>
+<br>
+It's just a guess, but the psychic dips his head in a nod, completely unabashed. "It's important for those with the Gift to know as much as possible about our clients. We research the lives of those whose minds we will come in contact with to avoid any unexpected shocks from the use of our powers."<br>
+<br>
+"And it helps you look more mystically all-knowing." The psychic's eyes narrow slightly, and Red tries to force his anger down and soften his tone. "Some people might call that manipulative. Not that stereotypes are always borne of truth, but there's a reason many people don't trust psychics. Maybe you should be more upfront with people?"<br>
+<br>
+The psychic's smile returns, slightly bitter. "It would do little to change perceptions. People fear what they do not understand."<br>
+<br>
+"People fear what they don't understand, yes, but that should be more reason to be as honest and upfront as possible, not an excuse to be mysterious."<br>
+<br>
+"I believe you will see the necessity of such practices after you come into your powers."<br>
+<br>
+Red's irritation with the psychic is tempered by the excitement that rushes through him again. "What powers do I have? How can I develop them? Is there a-"<br>
+<br>
+Psychic Narud holds a hand up, and Red stops. "There is still the bad news. I mentioned trauma earlier for a reason. We do not share this information lightly, but those who fail the initial test who are in fact gifted often do so because some traumatic experience halted the natural development of their powers. For many, such intensely negative emotions seems to cut them off from their abilities permanently."<br>
+<br>
+Red stares at the psychic with growing horror and, unexpectedly, shame. A week ago he hadn't even suspected he was psychic, and was content with that. Not two minutes after finding out he is, being told he's psychically crippled makes his gut clench up and his breaths come shallow.<br>
+<br>
+"Be calm. I refer mostly to those who do not recognize their potential until late in life. You are lucky enough to have done so early, though it will still mean many years of work to undo the damage that was done. And I must honestly tell you that you may never fully develop every aspect of your powers. Some may be permanently stunted. But I believe you can recover."<br>
+<br>
+"I… see. Thank you, that's kind of reassuring."<br>
+<br>
+Narud dips his head briefly. "The Gifted are obligated to help welcome new members however possible. Allow me to formally congratulate you, Mr. Verres. The discovering of one's Gift is usually a great day for us, even in such negative circumstances." The psychic smiles. "You must have many questions. Please feel free to ask."<br>
+<br>
+"Many questions" doesn't even begin to cover it. Red is still trying to get his thoughts in order from the double discovery that he both has psychic powers and that they're likely stunted somehow. It's far too much to take in at once, and Red's right hand itches to start taking notes. He'd dictate them to his phone if he didn't have company.<br>
+<br>
+"I do, thanks, but I don't want to take up your time, and I'd like some to put my thoughts in order. Would you mind tabling that for now?"<br>
+<br>
+The psychic nods, though there's a slight crease between his brow. "Yes, the second request you mentioned. How else can I assist you?"<br>
+<br>
+"You said that the effects you felt were from Night Shade. Are you absolutely sure of that? Could anything else have had the same result?"<br>
+<br>
+Narud shakes his head. "Mental attacks are often misclassified into different categories by effect, as is convenient to trainers. But those with the Gift can sense their true nature, and once we become familiar with them they are impossible to misinterpret. The signature here was how it turned your own deepest trauma against you. The strength of the reaction is from an unusually high loss that runs through the very core of your identity."<br>
+<br>
+Red swallows the last bit of the honey candy, feeling simultaneously embarrassed and irritated. "I'm obviously still sad about my dad, but it's not ruining my life or anything. Couldn't it have just been the strength of the spinarak?"<br>
+<br>
+"You misunderstand: think of your psyche like your biological body, with its own specialized organs, its own homeostasis, its own immune system. Our Gift allows us to manipulate our psyche in ways that others can not, but only after intensive practice and training. Before that point, our powers act on a purely instinctual level, and will often act independently to protect our minds from harm. Your latent powers devoted themselves to partitioning the pain of your father's loss into its own separate segment of your psyche, and have been maintaining it ever since. This partition was weakened by the spinarak to use your own trauma against you."<br>
+<br>
+Red opens his mouth to deny the psychic's words, then realizes he's just reacting, not actually thinking about what's being said. He tries to ignore his agitation, but he doesn't like to remember the months immediately following his dad's death. Is it possible his recovery wasn't from his own resilience and the help of his therapist, but the effects of fledgling psychic powers? Now that he's paying attention, he notices the way his mind shies away from the thought and comes up with excuses that reaffirm what he already believes.<br>
+<br>
+"Hold on please, I need to digest this," he says as he lies back and closes his eyes without waiting for a response. He begins to take deep breaths, simply focusing on the feel of the bed beneath him and the flow of air in and out of his lungs.<br>
+<br>
+<em>I notice that I am upset.</em> That's step one: acknowledging that he isn't thinking clearly anymore. To get back to some semblance of objective thought, he needs to follow through with the rest of the flowchart his therapist helped him construct when he was younger, using each point as guideposts to lead him back to clearer thinking.<br>
+<br>
+Step two: identifying why he's upset. Is it on the behalf of others, or himself? Clearly himself.<br>
+<br>
+Step three: is he upset at something tangible, or because he encountered an idea he found offensive? Again, clearly the latter. He's not being harmed in any way. It's just his ego at stake. So he can take his time in responding to the offending notion.<br>
+<br>
+Step four: is he upset because of something he's afraid of being true, or because of something he knows is false?<br>
+<br>
+If he's upset at something because it might be true, then his sense of self is going to be reduced. Part of his identity is attached to his resilience. Accepting the idea that his psychic powers helped hide his trauma from him means giving part of that up.<br>
+<br>
+<em>If the truth hurts, it's time for change. If the truth hurts, it's time to grow.</em><br>
+<br>
+Red rubs at the stubborn frown line between his brow and sighs. That's the question. Is what he's upset at true? If it is, then he'll have to change to accommodate it. And, as his therapist would say, to thank Psychic Narud for the opportunity to grow.<br>
+<br>
+He opens his eyes and turns to the psychic, who seems unperturbed by his abrupt withdrawal. "Can you prove any of this? Is there any experiment we can perform to demonstrate what you're saying is right?"<br>
+<br>
+Narud's brow rises and he spreads his hands. "You use the words of science to clarify that which is intangible."<br>
+<br>
+"Intangible just means it can't be felt. You're still making truth claims about reality, and that means you should be able to support it with a prediction. Oxygen in the air is intangible too, but if you doubt its necessity to remain conscious, I could make this room air-tight and predict that you will black out."<br>
+<br>
+"The Gifted and ungifted alike require oxygen to live, but one cannot prove the existence of light to the blind."<br>
+<br>
+"Sure one can: just let them hold up an object and tell them what each one is without touching it."<br>
+<br>
+Narud shakes his head. "Your ability to see gives you an advantage over them, but you cannot prove the mechanism by which it's gained. They must simply take your word for it."<br>
+<br>
+"I'm pretty sure there are ways to do that too, for light anyway, but I'm not asking you to prove the existence of the mechanism. I know psychic powers exist. I just need evidence to support this particular assertion."<br>
+<br>
+"Why hire an expert if you do not trust what they say?" Narud asks, sounding more curious than irritated.<br>
+<br>
+Red frowns. "I hired you to tell me if I'm psychic, and I trust you on that because it's something I've heard is within a psychic's abilities. I didn't hire you to judge whether my being psychic is what got me over my dad's death. It's possible that you're just attributing something to it that is unrelated. Do you deny that if I asked a different psychic the same question, they might come up with a different interpretation of events?"<br>
+<br>
+Narud frowns. "The majority would agree with me. But not everyone is equally skilled or capable of more subtle insights."<br>
+<br>
+<em>Uh huh.</em> "See, that's reassuring and all, but from my perspective that doesn't tell me much. Just that if you're wrong, you're wrong in an understandable way, like the person who taught you believed in the majority perspective. Without hearing what the others who disagree with you think and why, it's your word against theirs."<br>
+<br>
+Narud meets his gaze impassively for a few moments. Eventually he nods and looks away, gaze distant. <em>I probably offended him.</em> Is an apology in order? He's not sure what he would apologize for: he really does need something to help change his mind, especially when it's on a topic so entangled in his self-image.<br>
+<br>
+After about a minute, the fingers of Narud's left hand drum briefly against the arm of the chair before stopping, and the psychic frowns and shifts a bit. Red wonders if he's having trouble thinking of a way to prove his claims. It can't be that Red's the first person to ask him for evidence of what he says, can it?<br>
+<br>
+"If you want some help-"<br>
+<br>
+"No, I have an idea of what to do. The problem is whether you are prepared for it. I am trying to think of an alternative that does not leave you a weeping wreck."<br>
+<br>
+Red stares. "Um…"<br>
+<br>
+"The most straightforward method would be to remove the partition. But this would mean returning your psyche to the immediate aftermath of your father's passing, and would certainly constitute Unprovoked Mental Harm by law. Even with your permission, I can not do it."<br>
+<br>
+Red doesn't deride the convenience of this answer: on the possibility that Narud is right, Red absolutely agrees that it would be a terrible idea to return to such a state.<br>
+<br>
+But that still leaves him without a good reason to believe the psychic's interpretation. "If you remove a partition, can you put it back up?" The psychic gives him a look Red can't quite interpret, and he rushes to add, "Just out of curiosity. I'm not saying I want you to."<br>
+<br>
+Narud is quiet for a moment, and finally says, "It would be extremely difficult, and severely invasive. Think of the psyche as a body again. It would be like plunging my fingers into your chest to pinch a leaking vein from your heart. More likely to do harm than good."<br>
+<br>
+Red has the impression there's more to it than that, but the answer makes sense on its own. "It's easier to destroy than create."<br>
+<br>
+"Just so. And that counts when dealing with one's own psyche as well."<br>
+<br>
+"So I could learn to remove my own partition, and then build it back up if I don't like the result?"<br>
+<br>
+"Not without months of work developing your abilities. And that is assuming you can handle the result of removing the partition."<br>
+<br>
+Red smiles, and it feels bitter even to him. "I survived it before, I can do it again."<br>
+<br>
+"Can you? The spinarak's mental attack, Night Shade, is considered a Ghost attack because it targets the emotional weak points in our psyche. For most others the effects of this are mild, but those with the Gift have our own powers turned against us. What you felt from Night Shade was enhanced, but still real. Are you so eager to experience that again in full, permanently?"<br>
+<br>
+Red twitches as another echo of<br>
+<br>
+<em>alone</em><br>
+<br>
+<em>hurts</em><br>
+<br>
+flashes through his mind. The original attack practically knocked him out, and he's still getting echoes of it days later. He thought he just needed to desensitize himself from it, but apparently the damage is done.<br>
+<br>
+Red's body breaks out in a cold sweat as he imagines trying to live with it<br>
+<br>
+<em>dark</em><br>
+<br>
+<em>cold</em><br>
+<br>
+permanently, and he sees Narud wince and raise a hand to rub his temple briefly. "Did you… get that?"<br>
+<br>
+He lowers his hand. "I did, as before. But it is easily remedied."<br>
+<br>
+"How?"<br>
+<br>
+"Amnesia. The effects of mental attacks are often compounded by repeated exposure. To increase our resilience to them, the Gifted remove the memory of them."<br>
+<br>
+"Wait, you can actually make yourself forget things? Specific things, without it affecting other stuff?"<br>
+<br>
+"With training, yes."<br>
+<br>
+"But… how would you even know if you succeeded? Or messed up?"<br>
+<br>
+Narud smiles. "It is difficult to explain to the uninitiated. If you would like to begin your psychic training, I am available for that as well. It is also how we could test what I have told you: when you have gained adequate use of your abilities, you will be able to sense the partition for yourself. Keep in mind however that while it is up, your Gift will be significantly weakened, and it will take you longer than usual to develop it. With that in mind, I can assure you that my rates are quite reasonable."<br>
+<br>
+Red frowns and looks down, hand rubbing at his neck. "Just to check, is the partition permanently damaged? Is this… symptom going to get worse?"<br>
+<br>
+"Without renewed attack, your psyche should be able to maintain the current equilibrium. There is a chance the damage to the partition will be healed over the months ahead, but yes, there is also a chance that it will weaken, and the symptoms will get worse."<br>
+<br>
+"Also over a span of months?"<br>
+<br>
+"It would require some other heavy mental shock for it to happen more quickly than that. But I do not mean to frighten you: as I said, it is only a possibility that it will get worse, and it may in fact get better. Just so long as you understand there is a risk."<br>
+<br>
+Red nods. "I appreciate the honesty." His mouth is dry, and he reaches for the cup of water on the nightstand. He isn't sure how long they'll be in Pewter, and he can't afford to keep spending money on psychic lessons right now. He could barely afford today's hundred dollar fee. Especially if he doesn't know how soon they'll be useful. Maybe if he starts making money off his research, but for now it's not really feasible. At least he knows for sure the spinarak's attack wasn't psychic. It kind of puts a damper on his hypothesis, but it still might be worth following through to see the results.<br>
+<br>
+He puts the cup back and clears his throat. "Psychic Narud, you've been very helpful. Your offer is appreciated, and I'll have to think over my situation before making a decision. I don't know how long I'll be in Pewter, and am still working on getting my finances in order." Also, he doesn't entirely like the young man. He isn't sure if other psychics are better or worse, but it would be foolish to take Narud as his teacher just because he's the only one he knows.<br>
+<br>
+If the psychic picks any of this up, none shows in his reaction. He merely rises to his feet, hands disappearing into his wide sleeves as he bows his head. "It was my pleasure to assist you today, trainer."<br>
+<br>
+"I might contact you about another matter soon, if you're free."<br>
+<br>
+"When you have a time and day in mind, you are welcome to check my listing. Be well, Red Verres, until we speak again."<br>
+<br>
+<hr noshade="noshade" size="1" /><br>
+<br>
+After the psychic is gone, Red does some research online to try and verify as much of their conversation as he can, and takes notes about their conversation. It's unfortunate that he has to type, and one handed at that, since it doesn't have the same memory aid as writing by hand does, but it's better than nothing.<br>
+<br>
+The results from the web verification is mixed, especially on the metaphor comparing the psyche to a biological body: many seem to find it too clinical and mundane, which is not the direction Red was expecting the criticism to come from. Most of what Narud said seems decently supported however, and when Dr. Willow comes in to check on his arm after lunch, Red asks her if they have a psychic on staff.<br>
+<br>
+"Of course," she says without looking up from his cast as she undoes it. His arm looks much better than yesterday, most of the bruises faded to yellows and greens. "Why?"<br>
+<br>
+"I had a guest today, a psychic I hired. He told me I've got a form of mental damage from a spinarak attack, and I <em>do</em> seem to have the symptoms... I was hoping to get a second opinion."<br>
+<br>
+She gives him a severe look. "Why didn't you report mental damage earlier?"<br>
+<br>
+"Er... I sort of forgot about it?" He gives a weak smile. "It's not debilitating, just occasionally painful. But the psychic said it might get worse, so..."<br>
+<br>
+Dr. Willow mutters something under her breath as she applies ointment that makes his skin tingle. "Well, just going off your arm, you should be out of here tomorrow, so I'll flag him for a visit when he's free."<br>
+<br>
+"Thanks Doctor."<br>
+<br>
+"Don't thank me yet. If you think I'm grumpy about not being told sooner, wait till you meet Psychic Laurie. Brilliant man, but not the greatest people skills. Comes with being a doctor and a psychic I suppose: worst of both worlds."<br>
+<br>
+"Seems to be a running theme." Hopefully it doesn't come with the territory of being a trained psychic, because now that he knows he has the potential, or "Gift," Red is resolved to become one as soon as possible. Even if it means cracking open the vault in his head and letting out the horrors within, he doesn't like the idea of his powers doing things without his control.<br>
+<br>
+His mind is all he is, all that he really has and can ultimately rely on. And if he has to lock away some painful memories or emotions in a corner of his mind, at the very least he should do it consciously. The alternative is never knowing for sure how he feels, what he thinks, and why.<br>
+<br>
+<em>When the truth hurts, it's time for change. When the truth hurts, it's time to grow.</em><br>
+<br>
+Red sighs. He always dreamed of finding out he was psychic, but instead of being excited, it just seems to come with more worries. "Nothing's ever easy," he mutters, not realizing until after that he said it aloud.<br>
+<br>
+"Well, one thing is," Dr. Willow says as she reapplies his cast. "But you've still got a potentially long life ahead of you, so better get used to it."
+        </div>
+
+        <div class="chapter-nav">
+            <a href="../25/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Chapter Index</a>
+            <a href="../27/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>

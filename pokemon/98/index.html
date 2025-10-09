@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HPMOR, the Game (Avalon Reskin) - Pokemon: The Origin of Species</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .chapter-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .chapter-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .chapter-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            max-width: 70ch;
+            margin: 0 auto;
+        }
+
+        .chapter-content br {
+            display: block;
+            content: "";
+            margin: 0.75em 0;
+        }
+
+        .chapter-content hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 2em 0;
+        }
+
+        .chapter-content em {
+            color: var(--accent-2);
+            font-style: italic;
+        }
+
+        .chapter-content strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .chapter-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../">Pokemon: TOoS</a></li>
+                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chapter-header">
+            <h1 class="chapter-title">HPMOR, the Game (Avalon Reskin)</h1>
+            <div class="chapter-meta">Pokemon: The Origin of Species</div>
+        </div>
+
+        <div class="chapter-content">
+            A while back I decided to make an HPMOR themed version of the social deduction/deception games, The Resistance/Avalon, based on HPMOR. I'll write up a review of those games soon (I've been meaning to for awhile) but in the meantime, for anyone who has played them and is curious to try my version out, here are the cards:<br>
+<br>
+http://imgur.com/a/BICWk<br>
+<br>
+This is just the alpha version, and I'm looking for feedback. Those of you who have played Resistance/Avalon, or those who are interested in trying it, feel free to playtest and provide any suggestions/criticisms.<br>
+<br>
+Story-wise it's not particularly accurate, but I didn't want it to spoil anything, so it fits the canon about as well and can be played with those who haven't read HPMOR.<br>
+<br>
+Recommended comps are as follows:<br>
+<br>
+<strong>5-6 Player game</strong><br>
+<br>
+1 Harry, 2-3 Aurors<br>
+<br>
+1 Quirrelmort, 1 Lucius<br>
+<br>
+<strong>7-8 Player Game</strong><br>
+<br>
+1 Harry, 1 Snape, 2-3 Aurors<br>
+<br>
+1 Quirrelmort, 1 Lucius, 1 MacNair<br>
+<br>
+<strong>9-10 Player Game</strong><br>
+<br>
+1 Harry, 1 Snape, 1 Dumbledore, 2-3 Aurors<br>
+<br>
+1 Quirrelmort, 1 Lucius, 1 MacNair, 1 Death Eater<br>
+<br>
+Feel free to adjust if one side or the other is winning too often, and report the better balance.<br>
+<br>
+<strong>Starting Instructions:</strong><br>
+<blockquote>All players, cover your eyes and stick out a fist.<br>
+<br>
+Death Eaters except for Quirrelmort, open your eyes and look around.<br>
+<br>
+Death Eaters, close your eyes and stick out a thumb.<br>
+<br>
+Quirrelmort, open your eyes and look around.<br>
+<br>
+Quirrelmort, close your eyes and Death Eaters put down your thumbs.<br>
+<br>
+Harry and Quirrelmort, stick out your thumb.<br>
+<br>
+Lucius, open your eyes and look around.<br>
+<br>
+Lucius, close your eyes and Harry and Quirrelmort, put down your thumbs.<br>
+<br>
+Snape, stick out your thumb.<br>
+<br>
+Dumbledore, look around.<br>
+<br>
+Dumbledore, close your eyes and Snape lower your thumb.<br>
+<br>
+Everyone uncover their eyes.</blockquote><br>
+<strong>Special Rules:</strong><br>
+<br>
+Allegiance cards are a way to reveal to someone whether you are a Death Eater or Order of the Phoenix without showing your character card.<br>
+<br>
+<strong>Harry</strong> was originally going to be the "Lady of the Lake," a neutral card passed from player to player after missions to "deduce" each player's Allegiance, but that idea was scrapped as too problematic, however fitting thematically, so for now he can reveal himself once during the game to check someone's allegiance. The negative to this is that it makes Lucius become sure who Quirrelmort is. <strong>Edit: Current meta seems to be that it's best not to reveal what card you see, as discussed <a href="http://www.reddit.com/r/HPMOR/comments/235ny0/hpmor_the_game/cgvp39p">here</a>.</strong><br>
+<br>
+<strong>Snape</strong> is much like the Merlin of Avalon, except he's disguised as a Death Eater. This makes him even more powerful than Merlin, but it also makes it easier to deduce who he is, which is why his "counter" isn't quite as strong, as covered with MacNair.<br>
+<br>
+<strong>Dumbledore</strong> is pretty straightforward, and just adds some extra teamwork potential for the Aurors by knowing who Snape is.<br>
+<br>
+<strong>Quirrelmort</strong> is hidden from the other Death Eaters to fit thematically, but his strength is that this also hides him from Snape, and he can hide his true Allegiance if Harry (or some future mechanic like plot cards) forces him to reveal it.<br>
+<br>
+<strong>Lucius</strong> gets to know who Quirrelmort and Harry are, but will only know for sure whose lead to follow if Harry reveals himself.<br>
+<br>
+<strong>MacNair</strong> works much like the Assassin of Avalon, except instead of automatically winning if he correctly deduces Merlin, he simply flips one of the Success into a Failure if he correctly deduces Snape. This turns a 3-2 game into a 2-3 win for the Death Eaters, a 3-1 game into a 2-2 tie, and does not change the outcome of a 3-0 game.<br>
+<br>
+<strong>Nitpicks:</strong><br>
+<br>
+I haven't made unique Success/Failure mission cards yet, nor have I made Accept/Reject tokens. I also couldn't find a good picture for Aurors despite an hour on Deviantart, google images and bing, so I resorted to <em>shudders</em> the movies. If anyone has a decent, generic picture of a group of aurors, it would be appreciated.<br>
+<br>
+Enjoy, and looking forward to any and all feedback! For further exploration, see <a href="https://www.reddit.com/r/HPMOR/comments/235ny0/hpmor_the_game/cgvk819/">this comment thread</a> from my reddit post way back when I made it.
+        </div>
+
+        <div class="chapter-nav">
+            <a href="../97/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Chapter Index</a>
+            <a href="../99/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>
