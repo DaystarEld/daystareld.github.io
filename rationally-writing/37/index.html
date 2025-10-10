@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>37 - Power Dynamics - Rationally Writing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .episode-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .episode-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .episode-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .episode-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .episode-content p {
+            margin: 1.2em 0;
+        }
+
+        .episode-content iframe {
+            max-width: 100%;
+            margin: 1.5em 0;
+        }
+
+        .episode-content a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .episode-content a:hover {
+            text-decoration: underline;
+        }
+
+        .episode-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .episode-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../../pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="../">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="episode-header">
+            <h1 class="episode-title">37 - Power Dynamics</h1>
+            <div class="episode-meta">Rationally Writing Podcast</div>
+        </div>
+
+        <div class="episode-content">
+            <iframe src="https://anchor.fm/rationally-writing/embed/episodes/Episode-37---Power-Dynamics-e2su9a/a-a8h4u6" height="102px" width="400px" frameborder="0" scrolling="no"></iframe><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/346141758&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" width="100%" height="300" frameborder="no" scrolling="no"></iframe>
+
+Daystar and Alexander discuss how to plan out and navigate different power dynamics to keep your stories engaging.
+
+Co-hosted by <a href="http://alexanderwales.com/">Alexander Wales</a>
+<p align="left">With thanks to Tim Yarbrough for the Intro/Outro music, <a href="https://www.amazon.com/gp/product/B01D48FP86/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=dayeld-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01D48FP86&linkId=7b470100e4eda2e0682f882a343324f8">G.A.T.O Must Be Respected</a></p>
+<p align="left"><strong><b>Links</b></strong></p>
+<a href="https://www.fanfiction.net/s/11090259/1/r-Animorphs-The-Reckoning">Animorphs: The Reckoning</a> by TK17
+
+<a href="http://amzn.to/2y78dsQ">Rocky</a>
+
+<a href="http://www.crunchyroll.com/hunter-x-hunter">Hunter x Hunter</a>
+
+<a href="http://www.crunchyroll.com/rurouni-kenshin">Rurouni Kenshin</a>
+
+<a href="https://www.youtube.com/watch?v=9mbp0DugfCA">How to Lose Weight in 4 Easy Steps</a>
+
+<strong>Timestamps</strong>
+
+0:42 Power in Fiction
+
+3:46 World vs Protagonist vs Antagonist
+
+11:14 New Dimsensions vs Power Creep
+
+14:34 Rationalist Fiction
+
+22:25 Power Differential on a Different Axis
+
+32:55 Powers as Part of Identities
+
+37:01 Protagonist vs Antagonist
+
+47:58 Power in Romance stories
+
+<strong>Advertisement</strong>
+
+Hey everyone, this week's book recommendation is once again, <a href="http://amzn.to/2gp5umX">The Dresden Files</a>. As a long series of novels, one of the many things it does well is power progression: at no point does the protagonist feel like he achieved an unearned leap in power between or during books, and the challenges he faces continue to ramp up with his power along a number of different dimensions, rather than just having to fight stronger and stronger monsters.
+
+What's more, as someone who enjoys rational fiction, I really appreciate how much Harry *learns* from his past mistakes and challenges, and how that is shown to be a type of power all on its own. The ability to make better choices than you used to is probably the single most learnable "power" that we readers will ever share with characters from fiction, and seeing it exemplified by Harry and his friends is something I constantly appreciate.
+
+If you're interested in checking the series out, the you can find a link to them in the shownotes, or listen to the series on audible by going to <a href="http://www.audibletrial.com/rational">audibletrial.com/rational</a> to get a free book credit and help support the show. The audio books are read by James Marsters, the actor who played Spike on Buffy the Vampire Slayer, and he does a fantastic job. Hope you enjoy it!
+        </div>
+
+        <div class="episode-nav">
+            <a href="../36/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Episode Index</a>
+            <a href="../38/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 - Magic Systems, Part 1 - Rationally Writing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .episode-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .episode-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .episode-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .episode-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .episode-content p {
+            margin: 1.2em 0;
+        }
+
+        .episode-content iframe {
+            max-width: 100%;
+            margin: 1.5em 0;
+        }
+
+        .episode-content a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .episode-content a:hover {
+            text-decoration: underline;
+        }
+
+        .episode-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .episode-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../../pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="../">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="episode-header">
+            <h1 class="episode-title">6 - Magic Systems, Part 1</h1>
+            <div class="episode-meta">Rationally Writing Podcast</div>
+        </div>
+
+        <div class="episode-content">
+            <!-- wp:html -->
+<figure><iframe src="https://anchor.fm/rationally-writing/embed/episodes/Episode-6---Magic-Systems--Part-1-e2suaf/a-a8h4v5" height="102px" width="400px"></iframe></figure>
+<!-- /wp:html -->
+
+
+<p><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/278141312&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true" width="100%" height="450" frameborder="no" scrolling="no"></iframe></p>
+<div class="listenDetails__partialInfo">
+<div class="truncatedAudioInfo m-collapsed">
+<div class="truncatedAudioInfo__wrapper">
+<div class="truncatedAudioInfo__content">
+<div class="sc-type-small">
+<div>
+<p>Daystar and Alexander discuss what makes a magic system, what their purpose and function is, and some of the pitfalls and challenges to creating effective ones that enhance storytelling rather than distract from it.</p>
+</div>
+</div>
+<div class="soundTags">
+<div class="sc-tag-group">
+<p>Co-hosted by <a href="http://alexanderwales.com/">Alexander Wales</a></p>
+<div class="listenDetails__partialInfo">
+<div class="truncatedAudioInfo m-collapsed">
+<div class="truncatedAudioInfo__wrapper">
+<div class="truncatedAudioInfo__content">
+<div class="sc-type-small">
+<p>With thanks to Tim Yarbrough for the Intro/Outro music, <a href="https://www.amazon.com/gp/product/B01D48FP86/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=dayeld-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01D48FP86&linkId=7b470100e4eda2e0682f882a343324f8">G.A.T.O Must Be Respected</a></p>
+<p>Links:</p>
+<p><a href="https://www.amazon.com/gp/product/0765350386/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=dayeld-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0765350386&linkId=cfa5abc09b85c38e4e772003bea52df4">Mistborn</a>, by Brandon Sanderson</p>
+<p><a href="https://www.amazon.com/gp/product/0756404746/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=dayeld-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0756404746&linkId=65dc6990f774e6c21b83cfaa52163315">The Name of the Wind</a>, by Patrick Rothfuss</p>
+<p><a href="https://www.amazon.com/gp/product/0739451936/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=dayeld-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0739451936&linkId=8fa15331f438c8d630bb403c8aa1c7b7">The Dresden Files</a>, by Jim Butcher</p>
+<p><a href="https://www.amazon.com/gp/product/0316219045/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=dayeld-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0316219045&linkId=9b8e2276c0b9b104a2d452f0e2a81f72">Powder Mage</a>, by Brian McClellan</p>
+<p><a href="https://www.amazon.com/gp/product/0812541626/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=dayeld-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0812541626&linkId=fb8b59b3abb62c9a0cb9e0e35ad4e1dc">The Runelords</a>, by David Farland</p>
+<p><a href="https://qntm.org/ra">Ra</a>, by Sam Hughes</p>
+<p><a href="http://alexanderwales.com/the-randi-prize/">The Randi Prize</a>, by Alexander Wales</p>
+<p><strong>Timestamps:</strong></p>
+<p>0:40 What makes a magic system?</p>
+<p>4:20 Examples of liked and disliked magic systems</p>
+<p>10:30 Moh's Scale of Sci Fi Hardness</p>
+<p>14:34 Digging deeper into magic</p>
+<p>18:40 Sanderson's First Law</p>
+<p>23:38 The Static-Emergent Distinction</p>
+<p>30:50 Some challenges to building magic systems</p>
+<p>32:43 Place of Technobabble</p>
+<p>37:10 Entertainment over details</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="truncatedAudioInfo__license"> </div>
+</div>
+</div>
+</div>
+</div>
+<div class="commentsList g-box-full lazyLoadingList"> </div>
+<div class="commentsList g-box-full lazyLoadingList"> </div>
+        </div>
+
+        <div class="episode-nav">
+            <a href="../5/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Episode Index</a>
+            <a href="../7/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>

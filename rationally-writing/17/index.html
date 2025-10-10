@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17 - Serial Fiction, Part 2 - Rationally Writing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22d3ee;
+            --accent-2: #60a5fa;
+            --border: #1f2937;
+            --link: #7dd3fc;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(96, 165, 250, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        .episode-header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .episode-title {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.2;
+            margin: 0 0 8px 0;
+        }
+
+        .episode-meta {
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
+        .episode-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .episode-content p {
+            margin: 1.2em 0;
+        }
+
+        .episode-content iframe {
+            max-width: 100%;
+            margin: 1.5em 0;
+        }
+
+        .episode-content a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .episode-content a:hover {
+            text-decoration: underline;
+        }
+
+        .episode-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .index-button {
+            padding: 12px 24px;
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-button:hover {
+            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .episode-nav {
+                flex-direction: column;
+            }
+            .nav-button, .index-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="../../">Daystar</a></div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../../pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="../">Rationally Writing</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../stories/">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="episode-header">
+            <h1 class="episode-title">17 - Serial Fiction, Part 2</h1>
+            <div class="episode-meta">Rationally Writing Podcast</div>
+        </div>
+
+        <div class="episode-content">
+            <iframe src="https://anchor.fm/rationally-writing/embed/episodes/Episode-17---Serial-Fiction--Part-2-e2sua5/a-a8h4uq" height="102px" width="400px" frameborder="0" scrolling="no"></iframe><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293986913&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true" width="100%" height="450" frameborder="no" scrolling="no"></iframe>
+<p align="left">Daystar and Alexander finish discussing serial fiction, namely, chapter length, serial structure, and the need for continuous character growth and new conflicts.</p>
+<p align="left"><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">Co-hosted by </span></span></span><a href="http://alexanderwales.com/"><span style="color: #24890d;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">Alexander Wales</span></span></span></a></p>
+<p align="left"><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">With thanks to Tim Yarbrough for the Intro/Outro music, </span></span></span><a href="https://www.amazon.com/gp/product/B01D48FP86/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=dayeld-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01D48FP86&linkId=7b470100e4eda2e0682f882a343324f8"><span style="color: #24890d;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">G.A.T.O Must Be Respected</span></span></span></a></p>
+<p align="left"><strong><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;"><b>Links</b></span></span></span></strong></p>
+<p align="left"><a href="https://parahumans.wordpress.com/category/stories-arcs-1-10/arc-1-gestation/1-01/">Worm</a>, by Wildbow</p>
+<p align="left"><a href="https://www.amazon.com/gp/product/0451949617/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=dayeld-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0451949617&linkId=7dab36b83c27a933a9e6d361b8e47e51">The Dresden Files</a>, by Jim Butcher</p>
+<p align="left"><a href="https://www.amazon.com/gp/product/1484707230/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=dayeld-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1484707230&linkId=71fb1aadbfc6b7167bc371808c500680">Percy Jackson</a>, by  Rick Riordan</p>
+<p align="left"><strong>Timestamps</strong></p>
+00:34 Chapter Length
+
+03:56 Overall Length
+
+6:18 Dangers of Stretching Stories Out
+
+10:06 Serial Structure
+
+12:33 Continuous Character Growth
+
+17:23 Continuous New Conflicts
+
+<strong>Transcript of Post-Outro Message</strong>
+
+Hey everyone, no book recommendation this week, just a state of the union for the podcast. We've enjoyed doing it a lot, and so far the feedback has been pretty great. Over the past month we've been consistently getting over 2000 combined downloads and plays per episode, which is awesome, especially since it's in the ballpark of numbers where advertisers start to pay attention.
+
+Now, ideally I'd like to keep the podcast as ad-free as possible. That's why we decided to only put the <a href="http://www.audibletrial.com/rational">Audible</a> ads after the outro music and pair them with a relevant book recommendation. Unfortunately, over the past few months since we started advertising, we haven't had a single referral with them yet.
+
+Which is totally okay! I kind of figured that Audible would be an oversaturated market to advertise for, considering our audience. But on the off-chance any of you haven't signed up for it thanks to one of the other podcasts you listen to, or just from your own personal use, I just want to reiterate that it's a free 30 day trial that you can cancel at any time, and it gives you a free book credit you can use on whatever you want. You keep the audiobook even if you cancel the subscription right afterward, and not having a subscription doesn't stop you from using audible as a store and listening app. But even a quick sign up and cancellation supports the show, and helps turn this passion project from a time and money sink into just a time sink. So if you can spare the time and haven't signed up for Audible before, it would be greatly appreciated.
+
+If you already have an Audible account, but want to support the show in other ways, fear not. We have links in our shownotes for most of the stories and movies that we mention in the episodes. If they're available on amazon, clicking the links there will take you to the site through our affiliate ID, which makes us a bit of commission each time you buy something in that session. It's not much, so far the two of us could split a soda if we ever meet up and want to cash in on the affiliate commission, but it's still a great morale boost to see people enjoying the podcast enough to look into the things we talk about.
+
+And finally, if you don't have any spare money to buy new books and already have an audible account, you can help us out by sharing the podcast with reader or writer friends and family you think might enjoy it. It's a niche audience, to be sure, but the best way the community can grow is by exposure. And if you have an iTunes account, a review on there would be greatly appreciated.
+
+Thanks again for listening, and to our patrons, thank you for your continued support.
+        </div>
+
+        <div class="episode-nav">
+            <a href="../16/" class="nav-button">← Previous</a>
+            <a href="../" class="index-button">Episode Index</a>
+            <a href="../18/" class="nav-button">Next →</a>
+        </div>
+    </main>
+</body>
+</html>
