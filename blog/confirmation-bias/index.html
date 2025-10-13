@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="If confirmation bias had an image, it would be something like this:
+
+
+
+How many black dots do you see in there? If you&#x27;re like most people. chances are you see 1, maybe 2. Until you move your eyes. An...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Confirmation Bias">
+    <meta property="og:description" content="If confirmation bias had an image, it would be something like this:
+
+
+
+How many black dots do you see in there? If you&#x27;re like most people. chances are you see 1, maybe 2. Until you move your eyes. An...">
+    <meta property="og:type" content="article">
+    <title>Confirmation Bias - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Confirmation Bias</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        September 12, 2016
+                    </span>
+                    <span>📁 Therapy</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p>If confirmation bias had an image, it would be something like this:</p>
+
+<img src="http://i.imgur.com/PjSW9Qr.jpg" alt="" />
+
+<p>How many black dots do you see in there? If you're like most people. chances are you see 1, maybe 2. Until you move your eyes. And then you see another 1, maybe 2. And the first ones you saw are gone.</p>
+
+<p>There are 12 black dots in that image. At most you can probably only see a fraction of them at a time.   And yet your mind convinces you that it can see the whole image perfectly... so much so that it helpfully fills out the grey intersections where the other dots are, leaving them empty. Don't mind them. Nothing to see there.</p>
+
+<p>Our minds are so good at pattern recognition they will <em>ignore data about reality</em> to complete the patterns they perceive. And if you're one of the rare people who can see all 12 at once, don't worry: <a href="https://www.ted.com/talks/beau_lotto_optical_illusions_show_how_we_see?language=en">there are plenty of other things that will fool you instead.</a></p>
+
+<p>If your brain can trick you into only seeing one or two of the dots on this image at the same time, you can rest assured it can trick you into thinking you know more than you actually do about data that isn't even all in front of you at the same time, let alone data that isn't all the data in the wo<span class="text_exposed_show">rld about that topic.</span></p>
+
+<p>That's the trickiest half of confirmation bias. Not just focusing on data that confirms what you believe, but ignoring evidence that goes against what you believe, so thoroughly that something in your mind filters it from your senses or memory before it even reaches "you."</p>
+
+<p>There's nothing wrong with having a belief without having all the data concerning it.  We're imperfect beings, and can't go through life having 0% confidence in things just because of unknown unknowns.</p>
+
+<p>But believing something isn't the same as being 100% or even 90% confident that it's true. You can believe in something and acknowledge that you're only 70% confident in it, or 53.8% confident, as long as you know of things that would increase or decrease your confidence if brought to your attention.</p>
+
+<p>Unfortunately most people don't think that way. They don't talk about their beliefs in probabilities. Even if they acknowledge that they "might be wrong," they're confident that what they think is true. And research has shown people to be overconfident in their beliefs <a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect">again</a> and <a href="https://en.wikipedia.org/wiki/False-consensus_effect">again</a> and <a href="https://en.wikipedia.org/wiki/Hard%E2%80%93easy_effect">again</a>.</p>
+
+<p>Thanks to empiricism and reason, we do have good reasons to believe certain scientific and philosophical ideas. They've been vigorously tested and used to make correct predictions about the world. They've been used to change things in our external, shared reality. It's okay to be confident in things like "I exist" and "things in the world can be measured."</p>
+
+<p>But things like political beliefs? Beliefs about people you've never met? Beliefs about systems you've never studied?</p>
+
+<p>Lower your confidence in all of those. All of them.
+<div class="text_exposed_show"></p>
+
+<p>When you've reached the point where you know what you value (Equality, Justice, Health, etc) but are not quite positive about what the right things to do to achieve the optimal balance of those values in the real world are, you're a bit closer to understanding what you think you know and why you think you know it.</p>
+
+<p>If you've reached solipsism, dial it back. That way lies madness, and insufferable, pointless arguments.</p>
+
+<p></div></p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">rationality</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

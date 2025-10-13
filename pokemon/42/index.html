@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creating Meaningful Choices as a GM - Pokemon: The Origin of Species</title>
+    <title>Chapter 42: Making Do - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,81 +329,673 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Creating Meaningful Choices as a GM</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/41/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/43/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <em>Advice level: Beginner to Moderate Writers, Moderate to Expert Gamers</em><br>
-<br>
-<a class="fancybox" href="http://www.dmfiat.com/wp-content/uploads/2012/09/choice.jpg" rel="gallery-0"><img class="aligncenter size-medium wp-image-2044" src="http://www.dmfiat.com/wp-content/uploads/2012/09/choice-300x254.jpg" alt="" width="300" height="254" /></a><br>
-<br>
-One of the most interesting parts about GMing is that, unlike when writing a story, your characters are truly independent agents.  The unpredictability of the players makes writing a tabletop campaign require a certain flexibility that writing most novels does not.<br>
-<br>
-This is why, while important for any writer, it’s doubly vital for a GM to decide on the proper consequences for the character’s decisions.  If a character’s choices are to have any meaning at all, there must be real and lasting effects on them or the people and world around them, or else the players get a somewhat shallow story that runs on rails, where no one’s choices seem important in retrospect, and characters don’t get a chance to grow from past mistakes or triumphs.<span id="more-2016"></span><br>
-<br>
-But the consequences don’t just have to be tangible.  I don’t mean someone makes a mistake and loses an arm due to a failed dice roll.  To be truly meaningful, the consequences have to be at least somewhat predictable.<br>
-<br>
-In this article, we’ll be examining two  books series that take a very different approach to the issue of consequences for character’s actions: <em>The Sword of Truth, </em>by Terry Goodkind, and <em>The Dresden Files,</em> by Jim Butcher, and relating them to how to craft a more meaningful tabletop campaign.<br>
-<br>
-<span style="text-decoration: underline;"><strong>One Problem, One Solution</strong></span><br>
-<br>
-<em><img class="alignleft" src="http://vignette1.wikia.nocookie.net/sot/images/f/fe/Wizards_first_rule.jpg/revision/latest?cb=20070518050851" alt="" width="179" height="271" /></em><br>
-<p style="text-align: left;"><em>The Sword of Truth</em> is a High Fantasy series (though don’t tell Goodkind that) which, while the later books suffer from <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/Anvilicious">anvilicious </a>prose and heavy handed Marty Stu-ism, overall has an enjoyable story and a rich cast of characters set in a unique world.  The main character is Richard Cypher, who lives in a magic-free country divided by a powerful barrier from the rest of the world.</p><br>
-<p style="text-align: left;">The story of the first book starts when a mysterious woman, Kahlan Amnell, crosses that barrier and Richard assists her in finding an old wizard that possesses a magic weapon needed to save her country from the evil sorcerer Darken Rahl.  It has a very genre-comfortable beginning, but from there it expands from book to book to a tale of literally creation-altering stakes.</p><br>
-Each novel’s plot is fairly self-contained for the most part: the dilemma that is introduced at the beginning of the novel is largely solved by the end.  But each book chains directly into the next for the larger overarching epic, because the actions the main characters make unwittingly bring about the following book’s conflict.  A magic spell has unintended consequences, a war won leaves a power vacuum in the delicate balance of nations, etc.<br>
-<br>
-I call this type of storytelling “One Problem, One Solution” because the way the story is framed the “right choice” is always firmly established by the narrative itself, even if it has unintended consequences that later make it seem like the “wrong” choice.  This can be found in all kinds of storytelling mediums, and tabletop games are no exception.  Since one of our greatest influences are the fiction we read or watch, how often you’ll encounter this depends largely on the content you or your GM are exposed to.<br>
-<br>
-<em>Example: The GM has explained to the players that a recent mysterious increase in the manticore population has led to the creatures spreading out beyond their usual territory, attacking caravans and ravaging farms.  The players are tasked by King Jarvan to solve this problem however they can.</em><br>
-<br>
-<em>Over the course of their adventure, during which many a manticore meet an untimely end, the players begin to realize that the creatures are somehow multiplying far faster than even an army could hope to quell.  Deciding to take a different route, they investigate the source of the troubles.  A common thread in the gossip and speculation from travelers and taverns are tales of a powerful druid who turned bitter and reclusive, and eventually left for the manticore’s breeding grounds swearing that judgment would fall on civilization for its irreverent destruction of nature.</em><br>
-<br>
-<em>They seek out the druid, going deeper and deeper into manticore territory.  The deeper they go, the more wild and pristine the nature around them is, until they find a cave flourishing with an abundance of life and a strange power emanating from within it.  They enter and confront the druid, who is beyond reason: he attacks them, and they kill him.  The power in the air fades, and now they’re sure things will return to normal.  They head home (after looting the cave of course) for their reward.</em><br>
-<br>
-<em>It soon becomes clear that they were successful in their mission: manticore sightings plummet, and then dwindle to pre-crisis levels.  However, another problem quickly emerges: the wildlife in the area around the manticore territory has begun to whither and die, and soon acres of farmland are barren as the druid’s death seems to have removed some delicate balance the ecosystem relied on.  Soon food shortages grip the kingdom, and the commonwealth is poised to revolt, tipping the nation into a civil war… which leads to the plot of the next campaign.</em><br>
-<br>
-This is a perfectly serviceable skeleton for the plot for a game or novel.  It leaves plenty of room for imaginative variations, and as a bonus leads to a new conflict for a longer story to emerge from, where the players can see the characters’ choices and actions having a lasting and meaningful impact on the world.<br>
-<br>
-However, unless the GM goes to extraordinary lengths, upon retrospection it seems evident that any “choice” in the story was mostly artificial, or so constrained as to be ultimately meaningless.  What “real” choices did they make?  What deliberation was required?  All the major decisions were simply reactions to orders from the king, or life and death struggles.<br>
-<br>
-The source of the problem was information.  The characters (and by extension the players) had no way of knowing that the druid was also integral to the wilderness’ survival, or that his death would mean famine.  Without that information, a “real” choice, or an “informed” choice, couldn’t be made.  They were simply coloring in the numbers outlined by the storyteller.<br>
-<br>
-<em>The Sword of Truth</em> largely feels the same way: exciting and interesting on the first read through, but in retrospect the characters never really face much decision making in what they do: the problems are all set up as world-ending (or thousands of years of  darkness through the triumph of evil), so not following through with the quest is unthinkable.  Furthermore the problems always have one specific, often magical, solution… the long term effects of which are not revealed until after it’s done.<br>
-<br>
-In this model of storytelling, there is little introspection or growth for the characters and players.  Not through any particular fault of theirs: they simply see nothing but the carved out road ahead, with one unalterable chain of major events leading from beginning to end.  To create much more dynamic and character building storyline, let’s examine <em>The Dresden Files,</em> which takes a very different approach.<br>
-<br>
-<span style="text-decoration: underline;"><strong>Many Solutions, Many Problems</strong></span><br>
-<br>
-<img class="alignleft" src="http://3.bp.blogspot.com/-hor4nxsYOQk/TgNiVVTsIKI/AAAAAAAAAtI/uhmv_97bs4o/s1600/Strom%252BFront.jpg" alt="http://3.bp.blogspot.com/-hor4nxsYOQk/TgNiVVTsIKI/AAAAAAAAAtI/uhmv_97bs4o/s1600/Strom%252BFront.jpg" width="197" height="349" />Jim Butcher is a master of the “Many Solutions, Many Problems” method of storytelling.  In <em>The Dresden Files,</em> his major Modern Fantasy series, the protagonist is Harry Dresden, a wizard that works as a private investigator in a Chicago where vampires, fae, angels and demons walk unseen among mortal-kind.  While every book is action packed and incredibly fast paced, the overarching story of the series starts fairly slow; introducing the supporting cast and easing the readers into the kind of world they live in.  In the first book, Harry works mostly alone to investigate dark magic used in a double murder, but in each progressive book we see him grow in ability, allies, and challenges.<br>
-<br>
-Like in <em>The Sword of Truth,</em> the plots in<em> The Dresden </em><em>Files </em>are fairly self contained.  The central conflict of the novel is introduced in the beginning and is resolved by the end, and any additional or secondary storylines that are touched on merely add context and flavor to the events.  Also like Goodkind’s epic, Jim Butcher often makes the conflict of some books the direct result of the solutions the protagonists utilized in previous ones.<br>
-<br>
-What sets them apart, however, is that Harry Dresden, unlike Richard Cypher, is very rarely ignorant of the consequences of his actions.  He makes mistakes, but when he does they are acknowledged as <em>his </em>mistakes, not just the result of simple ignorance.  In the later books, he is often presented with a number of different possible solutions to choose from, each with their own challenges and benefits, and ultimately each with their own consequences.  And when he finally makes his choice, for any number of reasons, he then has to live through those consequences… as do the people around him, both for his choices and the ones they make themselves.<br>
-<br>
-<em>Example: When the players learn about the vengeful druid, they<strong> also</strong> learn that before he went to the breeding grounds, he was responsible for keeping balance in the nearby ecosystem.  Deforestation and excessive hunting would have left the place a barren desert if he hadn’t used his magic to stretch the life from a wider area to cover the spots that were being strained.</em><br>
-<br>
-<em>From this, the players can extrapolate that if something happens to the druid, there will be dire consequences.  Instead of going straight for the renegade, they decide to seek council from other druids.  They find an enclave in a nearby forest and ask if they will take over the duties of the other druid if they stop him.  “Why should we?” their leader replied.  “He did his best to mend your civilization’s mistakes, and yet your people abused his efforts and simply continue on as you have been, without a thought for the land or its flora and fauna.”</em><br>
-<br>
-<em>The party’s Bard, most persuasive of the group, attempts to reason with them: innocent people are being killed by the wild beasts, and surely what he’s doing isn’t good for the ecosystem either.  “Well, no,” the head druid admits.  “But what assurance do we have that things would change if you do stop him?  Such magic doesn’t come without a price; to keep the soil near your cities healthy, we must take the vitality from forests farther away.  It cannot be sustained.  Tell your king that we will help keep his land fertile if he meets with us, and agrees to terms limiting the harvest of lumber, excessive hunting, and the redirection of water. Convince him to sign a proclamation, and we will assist you.”</em><br>
-<br>
-<em>The party leaves the forest knowing the king would not be happy having demands made of him by a bunch of hermits. The warlock’s infernal companion chatters at her in a demonic tongue, and she nods thoughtfully.  “Xanatus has a point… there are ways of assuring the land’s fertility without the druid’s help.  The proper sacrificial rituals is all it would take… surely a few dozen prisoners per moon won’t be missed?”</em><br>
-<br>
-<em>Human sacrifice is an ugly deed, abhorred by the common folk and most of their gods.  If King Jarvan decides on that path, it could turn the people against him.  Of course, if logging and hunting rights were restricted, the rich and powerful among the king’s court would likely turn against him. The players debate which approach they should pitch, or if they should simply present both and just let the king decide.</em><br>
-<br>
-Here we have a setup that is much different from the original.  Not only are the players informed of the consequences of their quest, but information is available for alternatives to just charging in and confronting the druid.  Of course the players may just do that anyway: that’s out of the GM’s control.  But what’s important to note is that even if the king’s decision is entirely out of their hands, they still must make the decision on what to tell him, thus making their choice the cause that can end up having long lasting effects on the kingdom.  Maybe they can help negotiate a peaceful deal between the king and druids.  Maybe one of the party members is so disgusted with the king accepting human sacrifice that he goes about town spreading the news, causing unrest.  There are many solutions, and each can result in many more problems.<br>
-<br>
-In<em> The Dresden Files</em>, Harry’s biggest challenges come not just from overcoming the obstacle, defeating the Big Bad, and saving the innocent, but also the hard decisions he must make in those struggles.  Will he team up with an enemy against a mutual threat, knowing victory will make that enemy harder to defeat in the future?  Will he accept assistance from the fae, knowing the Fair Folk offer nothing without a price?  And if he shuns all such seductive offers of power, will he still have the strength to succeed alone?  Will the friends and allies who go with him suffer for it?  Are his morals worth their lives?<br>
-<br>
-Character development comes from such decisions, and how players respond to the consequences of them.  In addition, the effects can always be determined by the storyteller.  If at the end of the day the GM is committed to a food shortage and revolt, there are always ways to bring it about regardless of which choice the players make: but with enough effort and ingenuity, it can still take their decision into account and be a real test of more than simply combat-smarts and dice rolls.
-        </div>
+            <h1 class="chapter-title">Chapter 42: Making Do</h1>
 
-        <div class="chapter-nav">
-            <a href="../41/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../43/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>Leaf holds her instrument to her lips and watches the sky. All she can see above is Crimson, doing slow circles of a defensive perimeter around her. Together, trainer and pidgey wait for the threat to reveal itself.</p>
+
+<p>Wait, and watch, and listen.</p>
+
+<p>The sun is warm. The wind is cool. Around them is a stretch of empty beach, and the only sounds are the gentle crash of the waves and the flap of Crimson's wings.</p>
+
+<p>When the attack comes, it does so without warning: a blast of water that knocks over one of the pokedolls along the beach to her left as she faces the water.</p>
+
+<p>Leaf immediately blows on her whistle, sending Crimson down in a dive at another pokedoll on her right. As soon as he knocks it over, her next command sends Crimson to her left side to strike another doll there, farther away, but a burst of water topples it, and Leaf sends Crimson back to her right to knock over the fourth. As she does so, she starts running to her left, eye on the upright pokedoll farther in the distance. She looks back and sees Crimson knock over his target, then blows a tune to bring him racing up behind her, and out toward the new target.</p>
+
+<p>The next pokedoll grows closer in the distance, and she points a finger out and blows on her whistle. Crimson dives at it, but before he can reach, another burst of water shoots out from the waves and hits it.</p>
+
+<p>Leaf curses and turns on her heel, blowing a retreat to Crimson and running even harder back the way she came. She passes by the original dolls and sees the last one in the distance. She must have gotten here first–a quick pair of notes on her flute and Crimson dives at it again.</p>
+
+<p>This time the burst of water comes from farther back, and it doesn't reach the doll until Crimson hits it. Leaf grins and turns toward the water, and a moment later Blue emerges, one hand on Maturin's shell until he reaches the shallow part and begins to walk. The newly evolved wartortle follows him, long white tail swishing behind her as she squirts another shot of water at the already downed doll.</p>
+
+<p>"Tied this time," she says, hands on her hips. "Are you going easy, or did we just get faster?"</p>
+
+<p>Blue takes the breather out of his mouth and lifts his water goggles, wiping a hand across his face. "You got faster. Do you still think bulbasaur would win, though?"</p>
+
+<p>"Only one way to find out." Leaf withdraws Crimson and brings Bulbasaur out. "We've been training his long distance attacks a lot lately, so he might actually do better than Crimson."</p>
+
+<p>Blue snorts. "We'll see about that."</p>
+
+<p>Ever since Zephyr evolved, she and Blue started these competitive training sessions. They're not quite battles, but also not quite simple training, and Leaf enjoys the mix of challenging and playful elements of them. Once Maturin evolved, Blue wanted practice battling with her from the water onto land, so they decided to try a race along the beach.</p>
+
+<p>"So how confident are you feeling with Maturin in the water?"</p>
+
+<p>"She's fast," he says, clearing water from his ear. "I don't know if she's fast enough for Misty, but it's good to know that I can travel a bit by water now, if I need to. You need to get yourself a water pokemon."</p>
+
+<p>"I know," Leaf says, staring wistfully at the bay. <em>Maybe I can take up fishing…</em> "First though, I want Crimson or Bulbasaur to evolve."</p>
+
+<p>Blue begins to move along the beach, putting pokedolls right side up. "Once Crimson does I can teach you guys Brave Bird, if you'd like. I think I've almost got the hang of it."</p>
+
+<p>Leaf's smile fades a bit. "I don't know. I appreciate these non-violent training sessions, but Brave Bird is a dangerous move for a pokemon to learn. Even more dangerous to use in battle."</p>
+
+<p>Blue shrugs. "Sure, but better to have it and not need it, right?"</p>
+
+<p>"Yeah, maybe." Leaf picks up a doll as Bulbasaur frolicks in the waves and Maturin dives back into them, following Leaf and Blue down the beach. "I wonder if–"</p>
+
+<p>Leaf's phone buzzes, and she checks it to see Professor Oak's face pop up. "It's your grandpa!"</p>
+
+<p>Blue raises his brows and walks over while Leaf accepts the call and puts it on visual. A moment later Professor Oak shows up too, sitting in his office.</p>
+
+<p>"Hi professor!"</p>
+
+<p>"Hello there, Leaf, how is everything? Enjoying one of Cerulean's many beaches, I see?"</p>
+
+<p>"Yep, and doing some training. Blue's here." She tilts the phone.</p>
+
+<p>"Heya gramps."</p>
+
+<p>"Oh, hello Blue. Well, I'm sorry to interrupt. We can speak later if–"</p>
+
+<p>"No, not at all!" Leaf sits in the sand, and Blue crouches next to her a moment later. "You got my message?"</p>
+
+<p>"I did, and I read your article on the dig site. I enjoyed it."</p>
+
+<p>"Thanks!"</p>
+
+<p>"So?" Blue asks. "What do you think?"</p>
+
+<p>The Professor sighs, face growing more somber. "I think it was surprising, and worrying. Giovanni is not a man who takes challenges to his will lightly, and yet it seems someone has gone out of their way to undermine him. Not to mention the potential trouble it would cause for Pewter and Cerulean as well."</p>
+
+<p>Leaf feels relief, but also some small note of disappointment. "So you believe him, then? You don't think it's suspicious or… or something others should know about?"</p>
+
+<p>"Perhaps. Still, I trust the Ranger and Leader had their reasons for covering it up. And if I didn't, I certainly wouldn't want you getting involved, Leaf. These are forces that wouldn't hesitate to crush you if you get in their way, some more literally than others. Better if you stay out of it, and not just because I assured your mother that Kanto was as safe a place for a young trainer as anywhere."</p>
+
+<p>"Hey, that's not fair," Blue says as he leans down and frowns at the camera. "You wouldn't say that to me, would you? Leaf is at least as tough and ambitious. Whatever the decision, she can deal with making it as well as anyone."</p>
+
+<p>Leaf looks at Blue in surprise, cheeks flushing. It's flattering to hear that he thinks so highly of her, especially when she knows how often her anti-violent training views chafe. She sometimes worries that Blue wishes he had other travelling companions. Red warmed up to her a lot after their narrow escape in Viridian; she's just now realizing how much Blue has too, after their encounter with the Renegade.</p>
+
+<p>"I can assure you, I would say the same of you, Blue. It's not a matter of will or maturity, but power. You're not there yet, either of you. The fame and attention and influence you would gain for outing this is not worth the enemies you would make."</p>
+
+<p>"Giovanni–"</p>
+
+<p>"Leader Giovanni is the least among them. He can be… overzealous, when acting how he feels best, but at least your life wouldn't be in danger."</p>
+
+<p>"What, you think the person who killed Yuuta would come after me?" Leaf frowns. "But… why would they do that? I'd be doing them a favor if I published it."</p>
+
+<p>"So it might seem, but I believe the most rational route right now is to take their motives as completely opaque. Much as I trust Giovanni's intentions, I have no doubt that he was less than completely forthcoming with you." The professor puts his elbows on the desk and clasps his hands together. "Listen to me, the both of you. It was a great thing you did, helping to stop the Renegade, and it was good work uncovering the truth behind his death, Leaf. But trust me to take it from here. I'm grateful that you told me, and I promise to look into it and let you know if there's anything more going on. Can you do that?"</p>
+
+<p>Leaf wants to look at Blue, but resists the urge. "Of course, Professor."</p>
+
+<p>"Sure, gramps."</p>
+
+<p>"Thank you. Give my regards to Red, and good luck on your match, Blue."</p>
+
+<p>"Will you be watching?"</p>
+
+<p>The Professor grins. "Of course. Daisy and I are hosting a watch party."</p>
+
+<p>"Aw, hell, you don't have to do that." Leaf can tell Blue is pleased anyway.</p>
+
+<p>"Forget I said anything then. Pretend I'm not watching tomorrow, if it helps."</p>
+
+<p>"Thanks."</p>
+
+<p>Leaf nods. "Thank you, Professor."</p>
+
+<p>"Take care." He waves, and ends the call.</p>
+
+<p>Leaf lowers her phone, and the two sit in silence for awhile, watching their pokemon play. When Leaf finally comes to a resolution, she turns to Blue, who's already looking at her. "You're going to keep looking into it yourself, aren't you?"</p>
+
+<p>She smiles. "Do you think it's a bad idea? I thought you were against me poking into it any further."</p>
+
+<p>"Nah, I just don't think you should cross Giovanni." He gets to his feet and offers her his hand which she takes, brushing the sand from her legs after getting pulled up. "But four eyes are better than two, and it's like Brave Bird, right? Better to know than not to know, even if you're not planning to do anything with the info. You never know when it might come in handy."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>"Challenger, Blue Oak, second badge."</p>
+
+<p>Blue begins his walk along the pier as the audience applauds, eyes straight ahead until he reaches the island. He climbs the steps to his trainer platform… and sees the smallest arena he's ever fought in.</p>
+
+<p>He spent a lot of time watching videos of Misty's previous Challenge matches to prepare for whatever she might throw at him. Most of her Challenge matches are outdoors and she only does battles along the beach for first badge Challengers, so he expected an island arena. But the kind of island varies widely: some are larger than the one Blue fought Ariya on, while others take place on tiny archipelagos, or a ring of sand with spaces of open water in the middle of them.</p>
+
+<p>This one is even smaller than a training room. A quick glance is enough to take it all in, and Blue knows he could withdraw a pokemon from practically any part of the arena below.</p>
+
+<p>Which is, of course, the point.</p>
+
+<p>Blue feels his pulse kick up, and he smiles in anticipation. There's only one reason to fight in an arena this small. It's almost unheard of for a second badge Challenger, but he's not complaining: it sure won't hurt his public profile.</p>
+
+<p>"Blue! Hey, BLUE!"</p>
+
+<p>He looks to the audience, expecting to see Red or Leaf waving at him from the stands… but no, the voice was too young. Then he spots the young boy that he met on his first day at Cerulean Gym, standing and cupping his hands around his mouth. What was his name? Daniel? Dennis, that was it.</p>
+
+<p>Blue smiles and lifts a hand, which makes Dennis wave both arms and yell "Good luck!" Blue hopes the kid isn't skipping again, but no, there's an older man sitting next to him and urging him to sit down. If he's missing school, at least he has an adult's permission.</p>
+
+<p>The audience continues to fill the floating bleachers around the island, though there's nowhere near as much room for seats as Pewter Gym's main coliseum. Still, there are cameras available to stream to anyone that wants to watch the match, and he's confident he'll have more viewers for this match.</p>
+
+<p>"Leader Misty, of Wisteria Town, Indigo League Challenger and Savior of Cerulean North!"</p>
+
+<p>The Ceruleans cheer for their Leader, who strides up to her platform in a white swimsuit one piece and a light blue jacket. Blue puts his earpiece in.</p>
+
+<p>"Hello, Mister Oak. Are you ready?"</p>
+
+<p>"Yes, Leader. We're using Indigo League rules?"</p>
+
+<p>Their platforms are close enough for him to see her smile. "Right."</p>
+
+<p>Excitement surges through him, and he grins back. "I don't remember seeing a 2nd Badge Challenger get this kind of treatment."</p>
+
+<p>"You made quite an impression on the others. Anything else I try on you will be wasting both our times, and I like to force my Challengers outside their comfort zones."</p>
+
+<p>"If you think I can handle it, I'm honored."</p>
+
+<p>"Heh. If I thought you could handle it, I'd do something else. Brock beat you once, I can hardly let myself get shown up, now can I?" Misty switches to the public channel. "Good morning, Cerulean City! Today's Challenge match is against one of the most skilled trainers our gym has seen all year, with an undefeated win streak! Blue Oak, Cerulean Gym honors your request. State the nature of your Challenge."</p>
+
+<p>"I challenge for Mastery," Blue says, voice booming over the water from speakers set in his platform.</p>
+
+<p>"Cerulean Gym accepts. You may use six pokemon to defeat my three, with standard Indigo League withdraw limitations. Prepare for battle!"</p>
+
+<p>Indigo League withdraw limitations are meant to simulate intense battle conditions in the wild. No pauses to talk or rest or strategize, unless it's for safety reasons. No more than 1.6 seconds can pass without a pokemon on the field. If a pokemon is knocked out or killed, it has to be replaced in 3 seconds, or else the trainer is presumed dead by the attacking pokemon, and forfeits. Same with whether his pokemon goes too far from the battlefield, so that it can't protect its trainer if needed. A pokemon can't be withdrawn and sent back out without a different pokemon going in first.</p>
+
+<p>Blue spots the referees in the crowd, now that he knows to look for them. They have tools ready to monitor the battle and call out time if needed. He puts his hands over his belt, not quite hovering over any particular ball so as not to give away his impulse to send Maturin or Kemuri out first. A wartortle and shiftry should at least be neutrally useful against anything she throws out, and if he's right about what her trump card would be…</p>
+
+<p>"Ready… Set… Go, Swanna!"</p>
+
+<p>Misty's swanna erupts into being above the battlefield, and Blue's hand shifts to Ion automatically, the ball already flying through the air before he recognizes the trap.</p>
+
+<p>"Go, Ion!"</p>
+
+<p>"Swanna, return!"</p>
+
+<p>Blue's shinx makes its debut just as Misty returns her Swanna and pulls her hand out of her jacket with the next ball in it. "Go, Marshtomp!"</p>
+
+<p>"Ion, Bite!"</p>
+
+<p>His pokemon streaks forward in a blue and black blur and sinks his teeth into the enemy marshtomp's thick arm. It lets out a pained croak and swings its arm around to try and dislodge the shinx. Blue still has Ion's ball pointed forward, and withdraws his pokemon just as Misty yells "Tara!"</p>
+
+<p><em>Shit, custom commands too? </em>Blue has no time to consider what her attack might be, acting on instinct to reclip Kemuri to send out Maturin instead.</p>
+
+<p>His wartortle materializes just in time to be nailed with an Ice Beam. Blue doesn't have time to celebrate his choice, and orders a tackle as he watches for her next move. If Misty is expecting him to switch into counters, he just has to whittle her down with neutral pokemon and attacks. His pokemon might be weaker than hers on average, but he has twice as many.</p>
+
+<p>Misty seems intent on testing his speed, however, and switches out again. As she continually swaps between the marshtomp and the swanna, Blue lets the battle calm surround him so he can keep up without fumbling. Most swaps happen so fast that neither gets an attack in, but Blue is content to wait until he has an opening before he gives a command.</p>
+
+<p>"Go, Swanna!"</p>
+
+<p>"Return! Go, Ion!"</p>
+
+<p>"Return, go, Mars–"</p>
+
+<p>"Return, Ion, go–"</p>
+
+<p>"Epa!"</p>
+
+<p>Misty's marshtomp slams its arms forward just as Maturin materializes and knocks her across the sand. Blue yells "Bite!" as Misty swaps in her swanna, who stays out of reach as Maturin leaps up at it.</p>
+
+<p>"Asa!"</p>
+
+<p>"Withdraw!"</p>
+
+<p>Maturin ducks into her shell just as the swanna dives and rakes at her. A Wing Attack? Memorizing Misty's custom attacks is going to be rough, and Blue has only a brief moment to wonder if she's using them on him just because he used one against Ariya. <em>That's what I get for testing my limits.</em></p>
+
+<p>"Maturin, Bai!"</p>
+
+<p>Maturin's Ice Beam hits the swanna dead on, dropping it to the sand as its feathers are covered in frost. Blue blinks in surprise, hands going still. He expected a switch. Misty looks calm, in control, and Blue feels a note of panic as he realizes he has no idea what's coming.</p>
+
+<p>"Swanna, alf!"</p>
+
+<p>"Maturin, Withdraw!"</p>
+
+<p>The swanna hops toward Maturin, jerks its neck back… its beak bobs, opens, emits a choking sound-</p>
+
+<p><em>What the fu-</em></p>
+
+<p>-and then a stream of purple goop pours out of its mouth.</p>
+
+<p><em>-uuoh SHIT </em>"Maturin, return!"</p>
+
+<p>Blue's beam catches his wartortle just as the toxic bile covers her shell. He couldn't tell how much she was directly exposed to, and there's no time to think about it: he swaps his bellsprout in and yells "Sleep Powder!"</p>
+
+<p>"Gust!"</p>
+
+<p>The swanna has recovered enough to flap itself back into the air and send the blue spores away over the water. Blue sees some people flinch as the cloud hits the glass in front of their bleacher. Blue replaces his bellsprout with Ion and the dance continues, but now Blue knows better than to try and tank the swanna. Its Toxic would make this fight much harder.</p>
+
+<p>One minute melts into the next, endless cycles of swapping, attacking, throwing, catching. Blue feels sweat drip down his neck, and his arms ache as he keeps them moving almost constantly.</p>
+
+<p>Maturin to Ion to Bellsprout to Maturin to Ion to Maturin to Ion to Bellsprout–</p>
+
+<p>"Vine Whip!" Blue yells as his pokemon materializes while the Marshtomp's ball is still on its way back to her.</p>
+
+<p>His pokemon's vine stretches out and whips the marshtomp a heartbeat before it gets withdrawn, and Blue grins as he moves to withdraw his Bellsprout and send out Maturin. That has to have hurt. If he can do that cycle again…</p>
+
+<p>Maturin to Ion to Bellsprout to Maturin–"Withdraw!"–to Ion to Maturin to Ion to Bellsprout to Maturin to Ion–"Bite!"–to Maturin to Ion to Bellsprout–</p>
+
+<p>Blue opens his mouth to go for another Vine Whip, but Misty withdraws her pokemon blindingly fast. She's watching for it now, which means he has to outspeed her. Blue pushes himself, barely looking at the balls as he throws and catches them again and again, cycling and attacking, trying to force her to send her marshtomp out and lure it into an attack on Ion, leaving the shinx out an extra second so she'll overcommit, <em>now–</em></p>
+
+<p>"Return, go, Bellsprout!"</p>
+
+<p>Shinx get sucked away as Bellsprout replaces him, and Blue lifts his arm to catch its ball-</p>
+
+<p>-and feels it brush his fingertips.</p>
+
+<p>He whips around and leaps, catching the ball before it can spin past into the water.</p>
+
+<p>"Ova!" Misty yells.</p>
+
+<p>Blue turns just in time to see the marshtomp blast his bellsprout with an Ice Beam. It wilts in a second, and he quickly withdraws it, heart pounding as he sends Maturin out to resume the dance, barely clinging onto his battle calm.</p>
+
+<p>He missed a catch. He, Blue Oak, almost <em>dropped his pokeball</em> just as his pokemon needed to be returned. That shouldn't happen, ever, let alone in front of an audience.</p>
+
+<p>"Withdraw!" Blue yells, and swallows against the dryness in his throat. <em>Five to three, now. </em>Maturin's diveball is slick under his sweaty fingers, and Blue's pulse kicks up again. This is exactly what Misty wants. To test his endurance, see how he adapts to new things. He might be wearing down her pokemon, but <em>she's </em>wearing <em>him </em>down. She fights like this all the time, is used to the open sunlight and endless movement. If he can't find a way to break the cycle, he's going to lose the fight long before his pokemon do.</p>
+
+<p>The marshtomp or swanna, one of them has to go. But he has nothing that decisively beats both. Misty is fast. More than that, she's predicting his moves like… well, a psychic. Being dark is useful, but she's still used to being in a trainer's head as she fights them. However good Blue is, and however proud, he knows better than to think his natural impulses are significantly less predictable than any other trainers that have studied competitive battles an extensive amount.</p>
+
+<p>But unpredictable is exactly what he has to be. Which in this case means locking her into a decision and shifting the tempo of the fight, if only to give himself time to catch his breath and rest his arms.</p>
+
+<p>Blue waits for her to send out her marshtomp again, then unclips a rear ball and throws. "Go, Zephyr!"</p>
+
+<p>The pidgeotto gives a piercing cry as it materializes and spots its opponent. Misty immediately withdraws the marshtomp, and Blue's first flute note sends Zephyr climbing up, up, up.</p>
+
+<p>Misty's movements are as smooth as ever, but he thinks there's a moment's hesitation as she unclips her Swanna. Not enough to disqualify her, but when the Swanna appears, she doesn't immediately give it any instruction. She could threaten to disqualify him if his pokemon leaves the battlefield, but Zephyr is still above the island, within striking distance if the theoretical wild swanna were to go for him and leave itself exposed. Blue smiles around his mouthpiece as he carefully steers his pokemon just within the battleground limits, and takes deep breaths, arms and shoulders enjoying the rest.</p>
+
+<p>Swanna are stronger than pidgeotto, and faster, but only at the start of a fight. And now that both Blue and his pokemon have a bit of breathing room…</p>
+
+<p>He blows two notes, and Zephyr banks to the left, accelerating as he does so. The swanna turns to keep him in its sight, but Misty soon realizes what he's doing, and rather than let Zephyr keep gaining agility, she starts to give chase.</p>
+
+<p>As Blue feared, an Ice Beam lances out from the swanna, just barely missing Zephyr. <em>Two TMs on one pokemon… does that mean two on each of them? </em>He'll have to watch out for another TM from marshtomp too, along with two from whatever her third is. There's a limit to how much a pokemon's body can be edited, so hopefully this is the last surprise from the swanna.</p>
+
+<p>Blue keeps Zephyr on the move and lets him keep building speed until he's just a tan blur in the sky. The small size of the arena keeps him from going even faster, but the swanna can't land its attacks, and on its next miss, Blue finally sends it in for a Brave Bird.</p>
+
+<p>The blow is almost too fast to see, but blood and feathers rain down from both of them. Misty withdraws her swanna as it makes a distressed honk, but Blue can't tell how badly it's injured. Blue tracks Zephyr with his ball as he stumbles about in the air for a second, but then his flapping grows stronger and he levels out.</p>
+
+<p>"Go, Starmie!"</p>
+
+<p>A jolt goes through Blue, and he withdraws Zephyr anyway, feeling simultaneously flattered and nervously irritated. An Indigo league match, <em>and </em>coded attacks, <em>and </em>two TMs, <em>and </em>she's using a starmie? The gem in its center flashes red as its five rear arms spin lazily through the sand and lift its body up. As it begins to cartwheel around the battlefield, Blue throws. "Go, Kemuri!"</p>
+
+<p>His shiftry appears on the sand and immediately gets blasted by an Ice Beam, because <em>of course </em>it has that move too. Kemuri shivers under the cold onslaught for a moment, but doesn't go down. "Tal!" Blue yells.</p>
+
+<p>His pokemon whips up a flurry of green particles and sends them out with a flap of its leaves. Blue expects Misty to replace the starmie with her swanna, but instead it takes the attack and just shoots another Ice Beam out.</p>
+
+<p>"Dodge!" Blue yells, too late. One of Kemuri's leaf hands is still up from its attack, and takes the brunt of the beam. When it finally leaps away and moves its arm down, two of its three broad leaves break off with a <em>snap.</em></p>
+
+<p>"Dodge!" Blue yells again, and this time Kemuri avoids the attack. No time to wonder why Misty is keeping her starmie out, but her ability to give it commands instantly and silently means he has to play defensively. He keeps his gaze on her pokemon to predict its next move, and realizes that its wounds from his previous attack are closing. "Lar!"</p>
+
+<p>His pokemon dashes forward and slashes with its remaining arm. The razor sharp leaves slice off a pair of the starmie's arms as it spins away. It responds with an Ice Beam, which Kemuri manages to dodge without Blue's warning, but it tries to counter attack on its own and only manages to chase the starmie around as it recharges for another shot.</p>
+
+<p>Starmie are too fast for a shiftry to hope to get a hit in without the element of surprise. "Af!" Blue commands, and Kemuri leaps forward–only to land short and hit the sand face first. Blue winces as he imagines that long, thin nose slamming into the sand.</p>
+
+<p>The starmie slows down and fires another Ice Beam, but Kemuri is already rolling out of the way and bounding forward for another strike, nose thankfully unbroken and white mane covered in sand. Misty sends her starmie spinning away again, but not before it's struck by another deep gash.</p>
+
+<p>Blue kept his code pretty simple: if an attack is two words, use the first letter of both, flip the order, and put a vowel between them if one isn't a vowel. If it's one word, use the first letter and a vowel. The vowel used can keep track of multiple attacks with the same letters. It's not a hard code to break, but it's easy to remember and implement, which is what he needed to get Kemuri ready for this match.</p>
+
+<p>Both their pokemon seem a hit away from going down, but hers can regenerate. Blue has to get another hit in soon. <em>She won't fall for the same thing twice...</em></p>
+
+<p>"Starmie, return!"</p>
+
+<p>Blue blinks, then lifts Ion's ball and prepares to swap it into her swanna. He was paying so much attention to her pokemon he didn't notice her prepare to switch, costing a chance to get an attack in.</p>
+
+<p>He holds Kemuri's ball out and cocks Ion's back. "Kemuri, re–"</p>
+
+<p>"Go, Marshtomp!"</p>
+
+<p>–ckg!" Blue chokes on the word and tightens his grip on Ion's ball. <em>Too close. </em>"Lor!"</p>
+
+<p>"Ap!"</p>
+
+<p>The shiftry strikes first, blades sinking deep into the marshtomp's abdomen–only to have it belch a glob of poisonous sludge right into Kemuri's face.</p>
+
+<p>His pokemon reels back with a coughing bellow of pain that Blue feels like a stab in his gut. He quickly returns it to its ball, cursing at himself. <em>There's that second surprise.</em> At the same time, the marshtomp falls back from its more literal stabbing, and is quickly withdrawn by Misty.</p>
+
+<p>"Go, Io-"</p>
+
+<p>"Pause," Misty says over the loudspeakers.</p>
+
+<p>Blue flinches, ball sailing forward and hitting the sand without opening. He stares at her, and slowly lowers his arm as his stomach turns to ice. Was he too late? No, her pokemon was down and hasn't even been replaced yet, there's no way he's in violation...</p>
+
+<p>Misty smiles. "Don't worry, Trainer, you're safe. I merely want to confirm our count."</p>
+
+<p>Right. Blue nods, letting his breath out. "I've retired my bellsprout."</p>
+
+<p>"And your shiftry?"</p>
+
+<p>Blue stares at her, thinking fast. "I did think that Kemuri was another attack from going down, but that was from your starmie."</p>
+
+<p>"Do you intend to send it out again, then?"</p>
+
+<p>Blue's jaw clenches. He can't retire Kemuri while she still has her starmie, it's his only pokemon that's immune to its psychic attacks. But… that sludge hit Kemuri directly. He was already badly hurt, and if he's poisoned… he would faint within seconds of being sent out again.</p>
+
+<p><em>Dammit. Dammit, dammit, dammit. </em>"No," Blue says, and slowly transfers Kemuri's ball to the rear of his belt, swapping it with Gon's. "It's too big a risk."</p>
+
+<p>Misty smiles. "A prudent choice, Trainer. In the same spirit, I will retire my marshtomp."</p>
+
+<p>Blue nods, only slightly relieved. It received what looked like a pretty critical hit: Kemuri is still his most unruly and vicious pokemon, and he's lucky it hasn't crippled or killed another trainer's pokemon yet. He'll have to keep working on that.</p>
+
+<p>For now, he's only glad that it took the marshtomp out. Ion can finally have free rein, but he doesn't think the shinx will be able to stand up to a starmie. If only it had evolved too…</p>
+
+<p>"Ready to continue, Challenger?"</p>
+
+<p><em>Four to two. I can still do this. </em>Blue hops down from his platform and retrieves Ion's ball, gaze lingering on the blood, feathers, and leaves that litter the sand. He feels surreal, standing on the tiny island in the middle of the bay, hundreds of silent eyes on him as the sun beats down and the smell of the water fills his nose. Like he's in a painting, or a picture that will be shown in history books. Like everything around him is about to freeze in place, and if he looks to the side he'll see a floating square that he can climb out of and back into "reality."</p>
+
+<p>Blue bends down and picks up Ion's ball. The world is still very mobile, and all he's coming out of is an adrenaline high. He smiles as he climbs back up onto his platform, then stretches his arms out and rotates his shoulders before moving his hands over his belt to disguise which balls he's holding. "Ready."</p>
+
+<p>"Three… two… one… Go, Star-"</p>
+
+<p>"Go, Ion!" <em>Shit. </em>He expected the Swanna. "Return, go, Maturin!"</p>
+
+<p>His wartortle appears, one paw wiping poison off her face as she tries to open her eyes. Blue's heart is in his throat as the starmie's gem flashes, expecting a psychic attack… but it's just healing itself again.</p>
+
+<p>"Bite!" Blue yells as soon as Maturin can see, and his wartortle leaps forward. Basic as it is, an intense and invasive enough attack will mess with any psychic's ability to concentrate.</p>
+
+<p>Rather than let Maturin latch onto her starmie, however, Misty yells "Return, go, Swanna!" and Blue immediately aborts the Maturin's charge with a "Return, go, Ion! Spark!"</p>
+
+<p>The swanna <em>stays out </em>and belches another glob of toxic goop at Ion as the shinx tackles it, electricity buzzing around him. The swanna is jolted away, honking in agony as it rolls across the sand and lies still. Misty quickly withdraws her pokemon and sends the starmie back out.</p>
+
+<p><em>Four to one! </em>"Spark!"</p>
+
+<p>Ion charges forward again and hits the starmie, but his pokemon bounces off something in the air just ahead of the starmie: a Protection barrier<em>.</em> Almost impossible to pierce through, but very hard to maintain for more than a couple seconds. Its timing has to be precise, but combined with the ability to heal her pokemon, it's an incredible stalling ability.</p>
+
+<p>Blue's grip on Maturin's ball tightens. Even now, Misty is changing the rules. Her starmie is going to just tank and let the poison wear Ion down. The starmie starts to heal itself again, and Ion runs toward it for another Spark, which connects. But Misty's pokemon barely seems to feel it, simply healing through the damage.</p>
+
+<p>"Charge!" Blue says, and watches as his pokemon builds up electricity, its blue and black fur crackling with light. If he's wrong and the starmie isn't preparing another barrier, he can only hope Ion survives her next attack and takes her down in one hit.</p>
+
+<p>As far as he can see however, the starmie just keeps regenerating, all of its lost limbs fully regrown now, its skin unblemished. Ion is beginning to tremble, whether from built up electricity or the wearing effects of the poison, he doesn't know, but enough is enough. "Spark!"</p>
+
+<p>The starmie leaps away as soon as Ion bolts forward, and the chase is on. Starmie are ridiculously fast considering their weird shape, and Ion is clearly feeling the growing effects of the poison, but eventually Misty runs out of island and has to turn.</p>
+
+<p>Ion cuts across the intervening space and tackles it with a <em>crack </em>of discharging energy, almost sending it into the water. The starmie bounces and flounders on the sand, electricity running along its body as its skin smokes and blackens. But soon the burnt skin begins to slough off to reveal new flesh underneath.</p>
+
+<p>Blue lets out a breath. If that wasn't enough to take it down, it's time for Plan B, now that Misty has no one to swap her pokemon with. "Return! Go, Gon! Leech Seed!"</p>
+
+<p>His shroomish makes its first appearance in the battle and spits the seeds out. The starmie can heal itself at a frightening pace, but even it can't shrug off the effects of that much electricity so quickly, and Gon has just enough time to release the Leech Seeds before the starmie sends out an Ice Beam.</p>
+
+<p>Frost blooms over Gon's whole body, and Blue withdraws him. <em>Three to one. </em>One of the seeds connected, however, and that's all he needs. His path to victory is set: it's a battle of attrition, and Blue begins a countdown for each of his poisoned pokemon, set to begin when he sends them back out. But first, the unpoisoned one: "Go, Zephyr!" He puts his flute to his lips as the pidgeotto appears and blows.</p>
+
+<p>Zephyr dives at the starmie and strikes another barrier, only for Blue to follow up with a second set of notes that makes Zephyr hover in place to keep clawing and pecking. The leech seed is growing, its roots spreading through the starmie's flesh and sucking its life up into its fruit, which crack out of their shells and drop to the sand. His pokemon occasionally dips to the side to snatch them up in its beak, then returns to attacking the starmie, who can only protect itself every few seconds, spending the rest of its time healing.</p>
+
+<p>Misty has to attack to win. She's waiting for something, but what? Not knowing makes Blue nervous, but he has her on the ropes and can't let up now. His hands tighten on his pokeballs, watching without blinking as Zephyr tries to do more damage to the starmie than it can heal through… surely he's wearing it down...</p>
+
+<p>With a jolt, Blue realizes his mistake. While he's here trying to guess and estimate how the fight is going, Misty can <em>feel </em>the status of her pokemon, intimately. She knows if her pokemon is getting worn down, out healing the damage, or even breaking even. If she's not attacking, it's because she's getting an advantage by prolonging the fight. He only feels in control because it looks like she's out of options, but if that were true, she would just forfeit. She's a Gym Leader, not just some random trainer whose pride or prize money is on the line.</p>
+
+<p>Blue opens his mouth to withdraw Zephyr, then stops himself. He looks at Misty and finds her studying him, having no need to look at the fight to respond to it. What if this is her plan? To make him doubt himself, give up the advantage?</p>
+
+<p>Doubt sends cracks through his battle calm, and he feels it slipping away as the pressure of indecision grows stronger. He keeps thinking that he's one bad decision away from losing his second badge, that any moment now he'll make the wrong choice, or wait too long to make one at all. Is he enabling her plan by letting Zephyr keep attacking, or falling for a psych-out by switching? If he wasn't dark, she would be much more capable of reading and manipulating him, but as he realized earlier, she's had plenty of experience knowing what her opponents think and how to shape their decisions.</p>
+
+<p>There's only one way forward that feels right: he has to be unpredictable. Force <em>her </em>to adapt, for once.</p>
+
+<p>"Return! Go, Maturin!"</p>
+
+<p>His wartortle reappears on the sand, but the starmie bursts into action before Blue can give a command, and a wave of invisible force shoves Maturin up and slams her against Blue's platform. "Bite!" Blue yells, and as soon as she lands Maturin dashes forward to try and reach the starmie. Again she's flung away, skidding over the sand on the back of her shell. "Return, go, Zephyr!" His hands move in a blur, clip-Maturin-right-hand, catch-Zephyr-left-hand, lift-flute-right-hand, <em>tweet, twoot, twit twit!</em></p>
+
+<p>Zephyr shoots up into the sky, flips itself in a tight half-loop and rockets down at the starmie. Blue tweets hard to make Zephyr flare his wings and slow enough for Blue to track him, then lets the flute drop from his lips and unclips Ion. "Return, go, Ion, Spark!"</p>
+
+<p>If Blue is predicting properly, Zephyr dodged another burst of psychic force, then forced her to put a barrier up… and now it should be down, just in time for Ion to slam the starmie. Electricity arcs between its many limbs as it's knocked away. "Spark, return, go, Maturin, Bite!"</p>
+
+<p>His pokemon hits a wall again as Misty predicts the fake out, but Blue's already swapping Zephyr back in and yelling out "Quick Attack," no time to use his flute as his hands swap Ion back out a moment after the pidgeotto strikes.</p>
+
+<p>His pokemon is clearly woozy from its poison by now, but it manages to eat one of the plump leech seeds as it dashes toward the starmie. It connects–then gets flung across the sand.</p>
+
+<p>Misty is changing tactics again, and the timer in his head for his poisoned pokemon keeps narrowing his path to victory further and further, but Blue is already swapping Zephyr back into battle and bringing his flute to his lips for a quick command–</p>
+
+<p>An Ice Beam hits Zephyr dead on, plunging him to the sand as one wing becomes too stiff to flap. <em>Should've switched in Maturin! </em>He moves to do it–but stops as he realizes she's expecting <em>exactly that</em>, and blows a command for Zephyr to use a Sand Attack.</p>
+
+<p>A gust of wind hits the ground and kicks up a cloud. Misty can aim through it with her starmie's mental senses if he keeps Zephyr out, but swapping Ion in to the side of where Zephyr was lets him yell out "Spark!" before she can get in a preemptive attack.</p>
+
+<p>Instead she tries a dodge, but that just gives Ion time to pick up more seeds as he chases the starmie around the island. When it finally hits the edge of the island again, Blue swaps Ion out rather than let it attack, sending Maturin instead and yelling "Bite!"</p>
+
+<p>His pokemon leaps forward and locks her jaws onto the starmie just as a psychic wave ripples outward and kicks sand up, slamming Maturin's body against the ground… but not breaking the grip of her jaws.</p>
+
+<p>"Stop," Misty says, again.</p>
+
+<p>Blue is breathing hard, hands trembling as he points Maturin's ball forward and has Zephyr's ready at his side… but as her word registers, he quickly yells, "Maturin, back!"</p>
+
+<p>Maturin's jaws stay locked on the starmie, and Blue feels a note of panic. "Maturin, back!"</p>
+
+<p>She opens her mouth and staggers away from the starmie, and Blue lets out a breath of relief as he withdraws her. Heart pounding, he looks up at Misty and feels his knees buckle at the smile on her face, hardly daring to trust his hopeful thoughts.</p>
+
+<p>She withdraws her starmie and holds the ball in her right hand as her left leans against the railing on her platform. "Could you explain your last few thoughts on the battle for our audience, and what you were about to do?" she asks, tossing the ball up and down.</p>
+
+<p>Blue's mind is still caught up in the battle, evaluating how hurt his pokemon are and re-evaluating paths to victory, but his mouth moves on its own. "My last major insight was that I had to keep you not just on the defensive, but guessing what my next move would be. I just tried to catch you off guard, but I don't think I would have succeeded if I hadn't guessed that the second time starmie reached the edge of the island, it was a feint. You waited to move your pokemon that way only when you could put another shield up, so I swapped to Maturin and used her to get a decisive hit in."</p>
+
+<p>Misty nods. "Right throughout. You have demonstrated every major skill our gym seeks to impart to at least some degree. Blue Oak, I award you the Cascade Badge."</p>
+
+<p>Blue stares at her as the crowd finally breaks its silence, cheering and applauding. He lets his breath out and leans his hands on the railing, letting the noise wash over him. His legs are still trembling, his heart threatening to jump up into his throat, but a sense of triumph finally wins through, and he turns to the crowd and lifts his arms, fingers forming twin V's.</p>
+
+<p>Blue enjoys the heat of the sun on his hair and face as he basks in their praise, and more, the knowledge of having completed a perfect gym streak. His first of many, hopefully, but a crucial one, to re-establish his legend and allow it to grow.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Red sits at the table in one of Bill's houses and stares at a flat, round stone in his hand, feeling every inch of it against his skin. He stares at it until he can picture it perfectly after closing his eyes, until he can barely tell when he's looking at it with his real eyes or his mind's eye. Its weight and texture are burned into his palm, the shape of it, the edges clearly delineated until he can't imagine what it would feel like <em>not </em>to have this stone in his palm. It's a part of him. Where his skin and its bottom meets, there is perfect awareness. Perfect connection. Perfect focus.</p>
+
+<p>Red molds his will into an invisible, impossibly thin layer that cups the stone in its entirety, and <em>lifts…</em></p>
+
+<p>...and opens his eyes to see the stone sitting stubbornly still, not having moved an inch.</p>
+
+<p>Red groans and lets his head fall forward, cap pushing up as his forehead rests on the table. His pichu, who was lying curled up on the table, opens his eyes to look at Red, then steps onto the brim of his hat and over his head to nestle in the gap between his neck and collar.</p>
+
+<p>The sound of Bill's strange doors opening comes from behind him, then footsteps ascend the stairs. "Still with the rock, huh?" Bill asks. "How hard is floating something that heavy supposed to be, anyway?"</p>
+
+<p>"Not this hard," Red mumbles and lifts his head, slowly enough not to startle Pichu. He clings to Red's collar, then relaxes as he stops moving and burrows deeper against his neck, tail sticking up to brush Red's hair. "I mean, I wasn't expecting to orbit pokeballs around my head after just a week, but I can't even make it wobble." He puts the stone down and rubs his palm on his jeans, enjoying the sensation of something besides the rock.</p>
+
+<p>The inventor grabs a soda from the fridge and sits on the couch near the table, tilting his head back and resting his feet on a leg rest. "Isn't there an easier task to start with?"</p>
+
+<p>"Tried them. Coins, bits of paper, sand… I even tried moving stuff down a slope, so gravity could help, but my teacher, Psychic Ayane, said that my 'feel' for the objects aren't established properly, and gave me this to try with."</p>
+
+<p>"Being familiar with the texture and weight of it is supposed to help?"</p>
+
+<p>"Psychic training is weird." Red sighs and rubs his eyes. "I've never learned something so subjective. When I asked Ayane when I'd know if I 'feel' it well enough, she said I would just know it when I do. I've been carrying this thing around for days, and feel like I know it as intimately I ever will. But whatever trick it takes to twist my powers into a tangible force, I can't do it, even after inhabiting my teacher's mind while she uses psychokinesis. And that usually works for me." Red was more disappointed than he could express when it didn't help. He thought that was his key to learning new psychic abilities, but for whatever reason it isn't enough to just copy mental states to move things. "Meanwhile there's a video online of some six year old in fancy robes marching an army of plastic cups across a kitchen counter."</p>
+
+<p>Bill takes a contemplative sip of his drink. "Reminds me of when I was learning to catch as a kid. Practice for pokeballs. I'd look at others, see their hands moving just where they were supposed to be, automatically, and wonder why my body didn't work like that. Studied enough physics to calculate the trajectory and arc of every throw, but I could never catch them as easily as some others using no calculation, no trick, just some intuitive skill. I got so jealous I just started skipping those classes."</p>
+
+<p>"Huh. That's actually kind of why I want to get this so bad. I'm not as good at catching balls on their return as Blue or Leaf, so I thought maybe I could use my powers to help a bit with it. When did it click for you?"</p>
+
+<p>Bill smiles. "Who says it did? I may have mentioned that I'm not much of a trainer. That's part of why: just never got the hang of the athletic aspects. It's for the best though. I never would have spent so much time on programming if I didn't give up on being a trainer. Hell, might have gotten myself killed off on a journey instead."</p>
+
+<p>Red frowns down at the rock. He supposes if he's just no good at psychokinesis, he can focus on his other psychic gifts instead. But he's not giving up yet. He puts the rock back in his palm. Blue and Leaf should be here soon for their second abra catching session, and he has nothing else to do in the meantime. "So did you get a chance to look at the results so far?"</p>
+
+<p>"I did."</p>
+
+<p>"What do you think?"</p>
+
+<p>"It's promising." Bill makes a gesture with his hand, and the wall across from them suddenly projects some monitor he must have been looking at recently. On it is Red's preliminary data for the abra research, along with some notes and comments by Bill. Ayane is almost done with the original crop, and once the sample population is bolstered by the ones they catch today, Red should have over a hundred subjects in his study.</p>
+
+<p>For now, only about fifty are represented. The graph shows the same X axis as his original research, a simple distribution of the % of the abra's Other category when scanned into a pokedex. The Y axis this time is measured in kilograms, the numbers representing how heavy a weight each abra can lift after being taught the "Psychic" attack from a TM Bill let him use (Red doesn't know why the attack was named "Psychic" instead of "Psychokinesis," but chalks it up to the laziness or pragmatism of Battle Trainers not wanting to have to shout out five syllables for an attack).</p>
+
+<p>Bill rolls his can between his palms. "It looks like the relationship is a lot stronger in abra than spinarak, but the variance is still all over the place. I see you've refined your hypothesis though."</p>
+
+<p>Red nods. The language of his original research paper was too focused on trying to support his hypothesis of a correlation between Other and psychic ability. He also feels like he misrepresented the meaning of his p-value, considering the lack of statistical significance. Small wonder it was so hard to find a publisher.</p>
+
+<p>But from this data, the null isn't looking good. Of the four quadrants, high Other, high Weight Lifted; high Other, low Weight Lifted; low Other, low Weight Lifted; and low Other and high Weight Lifted, there's a clear gap in the top left: low Other, high Weight Lifted. The rest of the graph is filled with a loose curve of dots, but plenty of outliers. "So high Other doesn't predict high psychokinetic ability," Bill says, waving a hand to highlight some of the dots at the lower right of the graph that represent abra with high Other but weak pyschokinesis. "There are a number of high Other abra that are pretty weak at it."</p>
+
+<p>"Which makes sense, since we know individuals vary in strength between different psychic abilities. According to Ayane, I'm unusually good at psychic Reception, but moving things around..." He bounces the rock from one hand to the other. "Not so much. But–"</p>
+
+<p>"–low Other does seem to impact it, right." Bill circles the mostly empty quadrant in a different color. "Which also makes sense, if there's a single particle responsible for overall psychic abilities, but not specific ones."</p>
+
+<p>"Yeah. Maybe as the technology gets better we can identify what this 'mystery matter' is, and whether there are actually two different types for different manifestations of psychic power. Or maybe even three, or four. A wide variability might explain those few spinarak outliers I had. Without those, that research would have been a lot more intriguing."</p>
+
+<p>"Well, if this pattern holds up, you won't have to worry about that any more. It might take you a bit to convince a journal to pay attention, but their boards aren't stupid enough to ignore something like this. I'd be surprised if you don't get your Researcher license from this."</p>
+
+<p>Red smiles as he studies the graph. It's been a rough couple weeks, all things considered. He's still not sleeping well, and he spends a lot of time lying in bed with Pichu when he should be working on his paper, or facilitating the sale of the abra. Without Ayane's psychic lessons, or Blue dragging him to secret training sessions for his shinx, Red would probably have spent most of his week in his room. But aside from watching Blue's victory (and getting swept up in the crowd's excitement again), the major bright spot has been seeing the data slowly accumulate and form a pattern. As long as his research is moving forward, he feels like he's being productive.</p>
+
+<p>Bill finishes off his soda and gets up to grab another one. He brings an extra for Red this time, who takes it and pops the tab for a long gulp. "Ahh, thanks." Pichu stirs against his neck, then crawls over his collar and down his arm, nose sniffing at the can. "And thanks again for all your help," Red says as he tilts the can just enough for some of the sugary liquid to spill into the inner rim. He rotates the can so it rolls away from the opening, then lets his pokemon lap at it. "I owe you big time."</p>
+
+<p>"Right," Bill says, waving the display on the wall away and reaching into his pocket. "About that."</p>
+
+<p>Red looks up at him. "You need help with something?"</p>
+
+<p>"I finally remembered what I called you guys here for in the first place," Bill pulls an envelope out of his pocket and tosses it onto the table, causing Pichu to recoil back up Red's shoulder. "Woops."</p>
+
+<p>"Really?" Red puts the can down and picks up the envelope. Pichu abandons his shoulder and hops onto the table, staring at the envelope in his hands warily. Red keeps an eye on his cheeks in case they start glowing. "What reminded you?"</p>
+
+<p>"Well, I hadn't checked my mailbox in a while. Eventually I got an alert that it was running out of space, and new items would have no Containers to materialize into. I had Eva list what was in there before I chucked it all, and there it was." Bill scratches the back of his neck. "I was thinking about finding someone to send, but only when something reminded me."</p>
+
+<p>Red opens the envelope and stares at the pair of tickets that slide out. "The S.S. Anne? You're giving us tickets to the <em>Cruise Convention?!</em>"</p>
+
+<p>"Yeah. I get invited every year, so it's no big deal for me."</p>
+
+<p>Red is still staring, turning the tickets this way and that to let their holographic seals catch the light. "But… will they even let us on? We're not… well, obviously we're not you, but we're not <em>anyone</em>."</p>
+
+<p>"They'll let you on, if only to avoid offending me," Bill grins. "You'll be going as my 'assistants.' I used to go to stuff like this by popping back and forth with abra, but since some idiots decided to put one on a cruise, I'd rather not spend a week out at sea. But there are a few presentations I want some 2nd hand accounts and notes from. Since they don't allow recordings, I figured anyone Oak trusted to send out with a dex should be reliable."</p>
+
+<p>Red frowns at him. "You didn't actually forget these, right? You just pretended to in order to meet me first, see if I was trustworthy."</p>
+
+<p>Bill rolls his eyes. "I'm not that sneaky. Inviting you into my lab would require way more trust than sending you on the cruise, and besides, you already proved yourself enough for me to let you catch abra on my land." The inventor suddenly meets Red's gaze. "Besides, you're a smart kid. I don't actually have to explain how hard I can make your life if you give me reason to, do I?"</p>
+
+<p>Red swallows against the sudden dryness of his throat. He resists the urge to drink. "No."</p>
+
+<p>"Good." Bill's eyes move away, then go distant, the way they do when he's looking at something on his personal monitor, and after a moment he "flicks" whatever it is onto the wall and begins to scroll down with one finger, muttering to himself.</p>
+
+<p>Red waits a few moments, not wanting to interrupt. He finally takes another sip of soda, though he doesn't really want it anymore. He knows that threat was hypothetical, but it's hard not to realize that giving Bill "a reason to" ruin his life could apply just as easily to not doing something he asks. Is Red beholden to the inventor, now? Would he feel safe refusing any request? Professor Oak trusts him, at least...</p>
+
+<p>Red waits until Bill seems done with whatever he's looking at, then says, "I'm still not sure why you'd send us, though. Couldn't you send, I don't know, anyone else? Someone who could afford to pay you for these?" Red holds up the tickets, which are probably worth more than all the clefairy he sold put together.</p>
+
+<p>"You weren't far off, before, it <em>is </em>actually a matter of trust. I wouldn't expect just anyone to keep quiet about what I'm interested in, not to mention report the info straight. Like you said: you're no one special. Meaning you're not a player. Not yet anyway. You'll pass under most people's radar, you'll do your best, and most importantly, I know that if you <em>are </em>someone's agent, it's Oak, so that's alright."</p>
+
+<p>"I'm not–" Red stops himself, remembering how he and Blue both recommended telling the professor about Leaf's conversation with Giovanni. Maybe he is the professor's agent, sort of. Beyond testing out the pokedex, of course. The thought makes him a bit uncomfortable.</p>
+
+<p>Bill doesn't seem interested in his denial anyway. "Whatever you say. In any case, it's alright. If I can't trust Oak then I've got bigger problems. So take the tickets, and bring your notebook, because you're going to be my eyes and ears in there. The ship sets sail in three weeks, plenty of time for you guys to make it to Vermilion."</p>
+
+<p>Red takes out his wallet and carefully tucks the tickets away. He wonders how the others will take the news. Leaf will be excited, probably end up finding something to write about. And he's pretty sure only having two tickets won't be an issue, with Blue's focus on training for his badges. Red just hopes Blue doesn't mind going for the Thunder Badge next. "So what's the theme for the convention this year?"</p>
+
+<p>"New uses for storage tech. A lot of people trying to take what we can do with matter transformation and extend it in other areas. You can probably guess why I'm interested in it."</p>
+
+<p>Red thinks it over. "Better TM capabilities?"</p>
+
+<p>"Nope."</p>
+
+<p>"True replication?"</p>
+
+<p>"Would be nice, but no."</p>
+
+<p>"Then…" Red trails off, thinking. Bill lets him. What are some of the biggest problems that need to be solved? Not just minor stuff like upgrades to existing technology: what would Bill find <em>interesting?</em></p>
+
+<p>Red remembers his own imaginings of what pokeball tech might allow. He said this was about storage tech and matter transformation… Red thinks back to the various projects he saw or heard Bill talking about, or heard others mention about the inventor. "Human storage?" he asks at last. "So we can fix the problems it causes and fully simulate human minds in virtual reality?"</p>
+
+<p>"You're looking forward to that too, huh?"</p>
+
+<p>Red grins. "I <em>knew </em>it. I knew someone, somewhere would be trying to figure that out."</p>
+
+<p>Bill shrugs. "Still not the main goal. Close though. I want to figure out the source of the error in the first place, so it can be perfectly reversed."</p>
+
+<p>Red's stares at him, eyes growing wide. "Reversed? You mean to fix people that went into a ball and came back out?"</p>
+
+<p>"Or just went in and haven't come out yet."</p>
+
+<p>"Is that possible? Sorry, is it <em>probable</em>?"</p>
+
+<p>"Over a long enough timeline? What do you think?"</p>
+
+<p>"Over a long enough timeline, it doesn't even matter," Red says, speaking slowly as realization dawns. "Whether it's figured out ten years from now or a hundred, time doesn't matter once you're in the ball! We could send people into the future <em>right now!</em>" His imagination races ahead, wondering what it would be like, to go into a ball and wake up a century later, <em>five </em>centuries later, and see how much things have changed-</p>
+
+<p>"Could we?" Bill asks, brow raised as he studies Red.</p>
+
+<p>Red blinks, brought slightly back to earth. "It might not work," he admits. "And people would be leaving behind all their family and friends. But… some people would still want to do that, wouldn't they? Besides, what if they're dying? They'll have better medicine in the future, they might be saved." Red's voice is rising again, and Pichu looks at him in alarm. He forces himself to take a deep breath, though on the inside his stomach and chest are stewing with heat. "Why aren't we putting <em>everyone </em>who's dying into a ball?" he demands.</p>
+
+<p>"Why not put them in <em>after </em>they die?" Bill counters. "Moments after, where better medicine might be able to revive them?"</p>
+
+<p>"Argh!" Red clutches his head. "We have to… I've gotta tell my mom… and Blue and Leaf, and others, everyone…"</p>
+
+<p>"What would you tell them?"</p>
+
+<p>"That no one has to die anymore! There are people in hospitals now, dying of something we can't cure or lying in a field somewhere, bleeding out–" <em>a flash of a forest clearing, and a body lying beneath a swarm of beedrill</em> "–with the means to save themselves right in their pocket! People could just zap themselves into a ball and wait for a future generation to figure it all out and bring them back!"</p>
+
+<p>"Pokeballs that can capture humans are illegal-"</p>
+
+<p>"<em>Fuck </em>illegal," Red yells, and Pichu leaps away. He stands and starts to pace the room. "Why isn't <em>everyone </em>doing this? If it cost a lot of money that would be one thing, but this is practically free. People are dying all over the place, just letting it happen, and <em>no one </em>is thinking, hey, we have a perfectly good time machine right on our belts! I even thought about using pokeballs to teach people things in simulations, or adjust human biology, and <em>I </em>didn't think of it! <em>Dammit!</em>"</p>
+
+<p>"As amusing as it is reliving the same reaction I had upon thinking of this," Bill says, "You're not thinking it through."</p>
+
+<p>Red is still remembering the boy in Viridian, all the people that died in the fire, and at the dig site… that woman, the one who was caught in the spore cloud… if she'd just been able to put herself in a ball, she'd be alive right now… Waiting, suspended in time, to wake up in a better future… His <em>dad</em> would be in one, waiting for him to… to…</p>
+
+<p>"Breathe, Red. Calm down."</p>
+
+<p>Red wipes his eyes with his sleeve, anger doused by the wave of despair. He sinks back into his chair, and when Pichu cautiously pads over, Red picks him up and lets him nuzzle against his neck. "How are you so calm about this?"</p>
+
+<p>"Mostly just numb to it now," Bill says. "Too much trouble trying to convince people. I used to offer perpetual storage of anyone's body if they wanted it, but you can imagine the rumors that spread around." Red vaguely remembers people mentioning that. Blue brought it up recently, as evidence of how being a hermit makes Bill less influential. "Then there are those like my dad, who's just uncomfortable with the whole idea of not dying and living in the future, potentially forever."</p>
+
+<p>Red goes cold at the thought of his mom. <em>I have to convince her</em>… he would, somehow, he can't lose her too. "You said there were things I'm not considering. Like there being no actual guarantee that it's possible? So what? Even if technology just stops advancing at some point, it's not murder if they're already dying, and–"</p>
+
+<p>"No, not that. I mean like how you can't just use any ball you pick up at the store."</p>
+
+<p>Red nods, thoughts racing. Possessing pokeballs without the failsafes against capturing humans is treated almost as harshly as being a Renegade. "And someone would need to be there to capture you anyway. Would a container ball work? Just… lie in the box and have someone else withdraw it? Like in that movie where the Renegade does it to hide the body?"</p>
+
+<p>"Yes, that would work, and that's exactly what I recommended people do. Of course, it's illegal while they're still alive, and would raise a lot of questions even if they're dead. Their family and friends would want to know where the body is, why it's not being buried."</p>
+
+<p>Red doesn't care about any of that right now. Even if he convinces his mom, what if no one's around her that will do it when she's dying? "Could you make a pokeball that works on its own? Maybe on a timer or something?"</p>
+
+<p>"Sure, I could. Again, illegally. But then, once it's triggered, someone else still has to find and retrieve it, knowing what's inside so they can safely store it, before anyone else finds it and figures out what's inside."</p>
+
+<p>Red takes his hat off and runs his hands through his hair. Pichu leaps from his shoulder into his hat and curls up in a ball of yellow fuzz, making Red smile and stroke his fur. "So it's not feasible, is what you're saying. People won't go for it, and if they do, it's risky to do it, and if you try, you still have to figure out the logistics."</p>
+
+<p>"Right. It'll take a huge public awareness campaign and some rather different social shifts before people are ready for something like this."</p>
+
+<p>"But if you make some for Blue and Leaf and I, and we all agree to it, we can look out for each other, bring each other here if…" It suddenly occurs to Red what he's saying, what kind of scenario would require that. But he doesn't shy away from the thought: they're all living a dangerous path, and this is the best safety net they're ever going to get.</p>
+
+<p>Bill is silent for a moment, then shakes his head. "Sorry Red. It's too big a risk if you're found with them."</p>
+
+<p>"Ha! A bigger risk than <em>dying?"</em></p>
+
+<p>"Not just a risk to you."</p>
+
+<p>Red stares at him, smile fading. "You… you seriously won't…"</p>
+
+<p>Bill looks away, gaze unfocused. "I'm sorry. Really. Like I said, if you can get it done and get a container to me, I'll be happy to store it for as long as possible. But I can't put myself at risk like that. I trust you more than a random stranger, but I don't trust <em>anyone </em>that much."</p>
+
+<p>Red sits in shock as he realizes what Bill is saying. He won't do it. He won't help Red save himself and his loved ones, will just let them… let them all…</p>
+
+<p>Red feels a black, hot rage searing up his chest and throat. His hands tighten on the table's edge until his knuckles are white, words stuck in his throat as he looks away from Bill and tries to organize some kind of argument, some plea, some threat…</p>
+
+<p>His eyes fall on Pichu, resting peacefully in his hat. Next to it are the tickets that Bill gave him, and next to that is his rock. The rock he's supposed to be practicing with as he waits for Blue and Leaf to meet him for abra hunting, on the land Bill allowed him to use.</p>
+
+<p>Red's anger and gratitude mix into a confusing swirl, and under it all is the deep, bitter sadness of his dad's loss, and the panicked fear of losing his mom.</p>
+
+<p>Red closes his eyes and takes a deep breath, orienting himself with the sensation of the air rushing into his lungs, then touching on his mental markers one at a time, until the sensations of his body are all he can feel, and his mind is releasing thoughts as quickly as they come.</p>
+
+<p>He planned to tip into many-mirrors-and-a-dim-room, to mute his anger and fear and sadness by brute force. But they've been reduced a little now, and he can think clearer… and instead he reaches out with his mind, trying to <em>understand</em>, stretches his senses out the way Ayane taught him, the way he felt her doing while he was in her mind, and feels-</p>
+
+<p>-<em>regretresolutionfearshame-</em></p>
+
+<p>Red's eyes snap open. He stares at his hands on the table, relaxing his fingers as he breathes out. <em>Shame?</em></p>
+
+<p>"I'm sorry," he mutters. "I shouldn't have lost my temper."</p>
+
+<p>"It's fine." Bill says.</p>
+
+<p>"It's just, my mom–"</p>
+
+<p>"I get it."</p>
+
+<p>And Red knows that he does. Regardless, his tone makes it clear that Bill just wants to move on. Wants <em>him </em>to move on.</p>
+
+<p><em>Shame…?</em></p>
+
+<p>"Bill… When did you last leave your house?" Red asks.</p>
+
+<p>The inventor stares at him, but doesn't answer. Red searches his gaze, trying to piece together what he felt.</p>
+
+<p>"Eva has a protocol in case something happens to you, doesn't she? To keep you stored. But if you leave–"</p>
+
+<p>"I thought you couldn't read minds yet."</p>
+
+<p>Red flinches at Bill's flat tone. "I can't. Not really."</p>
+
+<p>"But you can read what, emotions? Enough to try to infer things about others' private thoughts?"</p>
+
+<p>"I'm sorry, it's the first time I did it. I just wanted to… understand."</p>
+
+<p>"And do you?"</p>
+
+<p>Red swallows. "Yes."</p>
+
+<p>"Good." Bill gets to his feet, and Red feels cold. Did he fuck everything up? Is Bill going to ask him to leave, take the tickets back?</p>
+
+<p>"Your friends pulled up a minute ago," he says instead as he heads toward the stairs. "Good luck with the catches. I'll message you with details about the convention."</p>
+
+<p>Red wets his lips, trying to speak past his dry throat. By the time he remembers the soda and takes a drink, the door to the lab closes before he can thank him, apologize again, or say goodbye.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/41/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/43/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -399,6 +1012,6 @@ Character development comes from such decisions, and how players respond to the 
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

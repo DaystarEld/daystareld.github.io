@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advice Level: Beginner to Moderate Writers, Beginner to Expert Gamers
+
+Writing stories is hard. Everyone who has ever taken the running leap off the cliff of imagination to try and fly quickly learns ...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Novelizing Your Tabletop RPG">
+    <meta property="og:description" content="Advice Level: Beginner to Moderate Writers, Beginner to Expert Gamers
+
+Writing stories is hard. Everyone who has ever taken the running leap off the cliff of imagination to try and fly quickly learns ...">
+    <meta property="og:type" content="article">
+    <title>Novelizing Your Tabletop RPG - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Novelizing Your Tabletop RPG</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        April 25, 2016
+                    </span>
+                    <span>📁 Storytelling Advice</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><em>Advice Level: Beginner to Moderate Writers, Beginner to Expert Gamers</em></p>
+
+<p>Writing stories is hard. Everyone who has ever taken the running leap off the cliff of imagination to try and fly quickly learns that. When the thermals are good, you’ve got smooth sailing; the words pour out, and everything seems to flow. You can coast for pages on a good burst of inspiration, struggling here and there, but overall making good time. When that lifting force fades though, as it eventually does, it’s just you and your arms, flapping harder and harder to try and stay up.</p>
+
+<p>One of the biggest causes of that dead air is a breakdown in plot. When your plot starts to drift or show its holes, then everything starts to fall apart. You can stall for days, weeks, months, until a burst of insight and motivation hits you to fix things or get them back on track. Having a solid plot is like having a map of thermals to ensure that you can always avoid the biggest pockets of dead air.</p>
+
+<p>And that’s the greatest advantage that using a tabletop campaign as inspiration for a novel provides. The plot has already been completed, by the hard work of the GM and the capricious whims of the players. There’s an established beginning, a satisfying (or depressing) end, and all the major events that lead from one to the other is sitting there waiting like checkpoints in a side-scroller.</p>
+
+<p>The second great advantage provided by writing a story based off a game is the characters. Their relationships are fleshed out, their motivation and personalities more or less made clear. All the tagonists are lined up, pro and an, waiting for you to breathe life into them.</p>
+
+<p>So if those are the main advantages of writing a story based on a game, what are the unique challenges? Here are a few of the main things to look out for while worldcrafting:<span id="more-1950"></span></p>
+
+<p><span style="text-decoration: underline;"><strong>Loose plot threads:</strong></span></p>
+
+<p>Your average game more than likely will have had a number of directions it could have gone in.  To ensure player autonomy and choice has an impact in directing the story, the GM often adds in a dozen characters and story threads that end up not doing a whole lot, or having any purpose, because the players go in a different direction or never choose to fully explore all the little paths and back alleys he or she littered the landscape with.</p>
+
+<p>When writing a novel, however, you can’t have superfluous characters and subplots.  It’s your job as the writer to tighten the strands together into one cohesive tapestry.  Use your judgment to cut the extraneous bits so that a reader who has no backstory or knowledge of the game it’s based on won’t get confused.</p>
+
+<p><em>Example: In the game, the party reached an inn in a strange town and decided to spend the night.  While there, the GM presented the players with three potential objectives by way of NPCs.  An attractive bartender bemoaned the theft of her family heirlooms, a wealthy businessman requested aid guarding his caravan, and a suspicious fellow tucked a note in one of the characters’ pockets detailing a time, place, and potential reward.</em></p>
+
+<p><em>Roughly half the party was interested in helping the bartender, while the other half saw more benefit in helping the businessman.  One player, perhaps the one who was given the note, was curious about it, and asked for backup in case it was a trap of some kind.  No one was particularly keen to walk into a mysterious meeting however, especially when there were so many other (potentially) safer options.  They convinced him not to go, and he ended up helping one of the two groups, or perhaps they all end up helping the bartender or the businessman.</em></p>
+
+<p>You as the writer have a choice to make now:  do you take everything, and write it out as it happened? Do you prune out the note, and leave it as a debate between the other two options?  Or, if the party ultimately decided to all work together toward one goal, do you eliminate the other options altogether and focus on the one that was followed through?</p>
+
+<p>There are reasons to keep them in, of course.  Perhaps the conversation everyone had in order to decide together who to assist was made more interesting by the alternate choices.  If you want to, you can certainly keep them in just to keep the character development and relationship tensions in.  Or if the mysterious notegiver ends up being an important part of the later story, obviously it’s important to set the groundwork by leaving it in.</p>
+
+<p>However, note that removing the options doesn’t necessarily remove complexity from the story.  If you’re feeling particularly adventurous, you could try developing other reasons for the debate to take place that still develops the characters and scene without the superfluous NPCs and dialogue.  Ultimately, this is often the best choice: in the framework of a game, it’s perfectly acceptable for strangers to ask a group of adventurers for help in their everyday worries.  In an ostensibly realistic story, it doesn’t quite make as much sense.  Additionally it distracts from the pacing, leaving incomplete and rough cobbles on the road for your reader to trip and worry over fruitlessly.</p>
+
+<p><span style="text-decoration: underline;"><strong>Character consistency: </strong></span></p>
+
+<p>In most games, players take a few sessions to get into the swing of things.  Maybe they’re trying a new personality out, or are in a setting they’ve never encountered before, or perhaps it’s their first tabletop game in a while, if ever.  Over time, character concepts crystallize and behavior becomes more meaningful.  But if you transcribe events and dialogue exactly as it occurred in the game, you might find yourself writing erratic and inconsistent characters, or flat, two dimensional caricatures that turn the readers off before they get a chance to evolve into the well rounded and engaging people you know and love (or love to hate).</p>
+
+<p>The solution is simple: artistic license.  Assuming none of the players get terribly offended by your manipulation of their character’s moods and backstory, feel free to change anything you need in order to present a more stable and smooth character arc.  This applies to interactions as well: if two characters are meant to be friends from the beginning, but at first acted stiff and formal around each other due to their player’s unfamiliarity, liven their starting scenes up to set the right tone off the bat.  As a general rule, whatever helps make your character more relatable and engaging is worth trying.  You can always edit and fine tune it later, but sometimes it's worth starting with the spirit of  how things turn out rather than sticking mechanically to chronicling how things were.</p>
+
+<p><em>Example:  John and Sally had never met before the game started, yet their characters, Justin and Kate, were the first to meet in it.  Their backstories had them both growing up in the same neighborhood of the same city, and while not necessarily friends, they were familiar acquaintances.  When the GM informed them that a storm of unprecedented size and strength was heading toward the city, both go to the same shopping mart to get supplies, and meet there.</em></p>
+
+<p><em>The players, familiar with the setting and expecting trouble of some sort beyond the storm, focused their characters’ interactions on efficiency.  They stocked up on food and medical equipment, bought certain things that could be used as makeshift weapons, and coordinated pooling their resources in the event of emergency.  Before they could leave the shopping mart, the power went out, and in the imposed darkness of the coming storm, they emerged ready to battle whatever evil was befalling their city.</em></p>
+
+<p>There are a number of changes to be made to turn this bit of roleplaying into a fully fledged, novel-quality scene.  You want the first impression the reader has of these characters to be a good one: not too overloaded with information, but giving a strong sense of who they are and what quality a relationship, if any, they have together.</p>
+
+<p>Maybe it turned out as the game progressed that Justin was attracted to Kate and had always had a crush on her.  To that end, some attempts at overt friendliness, if not outright flirting, would be beneficial in setting up his character and the mood of his interactions with Kate.  Perhaps Sally realizes later that her character Kate is so perceptive because she has borderline OCD, which helps her pay particularly good attention to details that the other players miss.  To help set the ground for that, it would be good to briefly show Kate exhibiting minor symptoms of an obsessive compulsive personality, such as straightening things on the shelves as she shops, or buying things in even numbers.</p>
+
+<p>Additionally, the players may have focused on pragmatic details, but the characters almost certainly would not have.  There are certain norms in social settings, familiar patterns in greetings and conversation that could be expanded on not just for realism, but also to establish characters.  Have Kate ask Justin how his father is doing; perhaps she went to his store just the other day to buy some art.  Inject familiar events or locations from their past into their dialogue, to "show" that they’ve lived in the same neighborhood together all their lives, went to the same school, and so on, without "telling" it in the narration normally provided by a GM.</p>
+
+<p>Character fidelity is important to you as someone who played in the game and as a friend to the player of the characters, but your independent reader is the one you have to entertain and inform above all others.  Don’t be afraid to liven character interactions up or shift focus from one aspect of their personality to another to make them more interesting and stable.</p>
+
+<p><span style="text-decoration: underline;"><strong>Perspective:</strong></span></p>
+
+<p>Last but certainly not least, choosing a perspective to tell the story through is perhaps the biggest challenge of the writer in adapting a story from a game to a novel. Roleplaying is largely about action and dialogue: the unique perspective, thoughts, and emotions of the characters in any given scene is much harder to capture, especially for characters other than your own (or any of them if you were the GM).</p>
+
+<p>Assuming you were a player and not the GM, if the entire party stayed together the whole time, you could of course stick to your own character’s perspective, in first or third person, and work the extra information into the narrative in new ways.  In the far more likely circumstance that the party does not stay together for the entirety of the story, this could, however, exclude large portions of the plot and relevant scenes, forcing you to have characters explain what occurred “off-screen” in narrative.  Done well it might not be an issue, but too much of it handled without sufficient care will surely break the cardinal rule of “show, don’t tell.”  If you were the GM, the easiest by far is the third-person-omniscient approach, but this is largely unpopular in literature for a reason: it doesn’t usually give the same feelings of immersion or engagement with the characters.</p>
+
+<p>The best method for including the most information while keeping the writing engaging and immersive is to switch perspectives between characters at different points in the story.  This however poses its own challenges.  Namely, you’ll have to decide whose perspective to use when, how often to switch without being too disorienting, and how to handle chronology.</p>
+
+<p><em>Example: Alice is writing about an important battle that takes place about midway through the story of the last game she played in.  In the battle, her character Amber had taken command of a spaceship after killing its captain, and was directing its crew to assist in the defense of her planet.  Unknown to her character, a mutiny is taking place below decks, and her friend’s character Jayce has gone down to quell it.</em></p>
+
+<p><em>In addition, while Amber and Jayce were struggling aboard the rogue vessel, the other players in their playgroup were involved in the larger battle. Mardec and Chloe were in single fighter ships dogfighting the invaders, while Taric acted as commanding general of the planet’s forces and oversaw the battle. directing ships to newly appearing threats.</em></p>
+
+<p>Alice needs to capture all the events taking place, but is having trouble switching perspectives cleanly in such a fast paced, action packed scene.  She wants to go over what happens in each perspective as well, but keeps running into problems of chronology.  Should she have each perspective shift denote a continuous timeline, or is it okay to have some overlap in events?  There’s no right answer or proper way to do this, but there are ways to mitigate the difficulty:</p>
+
+<p>1) Use perspective shifts for lulls in the action.  Alice doesn’t need to detail every single event from every single perspective.  It’s much more efficient and easier on the reader to switch perspectives between major events, and leave the less exciting bridges to imagination or quick exposition at the beginning or end of a section.</p>
+
+<p><em>Example:  “Jayce saw the men in the engineering bay slumped over their consoles and cursed.  He knew he had to stop the saboteurs from reaching the engine room, but he couldn’t take the time to tell Amber what’s going on: she had enough on her hands.  He said a quick prayer and pulled out his blaster, stepping quietly as he followed the trail of bodies.”</em></p>
+
+<p>Now Alice is free to switch to another perspective, and come back to Jayce when he reaches them.  We can imagine what occurred in the meantime fairly easily, so the author is free to focus on more complex events.</p>
+
+<p>2) Avoid repetition.  Sort of the inverse of the first, Alice doesn’t need to detail every major event from every perspective.  Let’s say Taric has to go through a grueling emotional decision under pressure on whether or not to risk killing his own men, including Mardec, by destroying a deadly enemy carrier that’s nearby them.  She doesn’t have to immediately switch to Mardec’s perspective to detail how he narrowly escaped the explosion.  A quick paragraph in past tense once she does switch to a new character is enough to give a sense of what they went through.</p>
+
+<p><em>Example: “Mardec blasts the fleeing fighter into a bright flash of soundless light, visor automatically dimming to shield his eyes.  That’s the last of them around here… he takes a deep breath, trying to calm himself down.  His heart is still racing from the unexpected explosion of the enemy carrier: he'd been just pulling out of a dive on it when his sensors showed the incoming missiles, and had barely managed to accelerate free of the blast radius, whole ship vibrating enough to rattle his teeth.”</em></p>
+
+<p>Or let’s say Alice wants to keep that part a scene because she believes it’s more entertaining and wants it to be a surprise.  She could detail the unexpected explosion from Mardec’s perspective, and later on in a Taric section describe how hard the decision had been to make knowing that some of his own people might have been caught in the blast.</p>
+
+<p>3) Organize and plan large events out in brief outline ahead of time to ensure each character has sufficient “screen time.”   Maybe Alice can free up a later important scene for Chloe’s perspective if she keeps it in Taric’s perspective, since she has already established Taric’s general mood and the flavor of his struggles in the battle.   Or let’s say Taric has an important scene coming up later that he absolutely must have priority on: this makes it easy to decide that the unexpected explosion happens from Mardec’s perspective.</p>
+
+<p>Perspective can be one of the simplest or most frustrating parts of novelizing your game’s story.  Whether you choose third person omniscient, focusing on a single character’s perspective, or shifting perspectives throughout, the choice you make in how to frame the story is one that will present its own unique problems throughout the entire process, and your best bet is to stick with what you feel the most comfortable with.  With enough determination and skill you can tell an amazing story in any format.</p>
+
+<p>With these things in mind, immortalizing your favorite roleplaying sessions in a novel for all to enjoy can be a fun and rewarding process.  It’s a great practice for any writers who have trouble starting from scratch with their own plots and characters, and can be especially fun in collaboration with other players in the game who enjoy writing as well.</p>
+            </div>
+
+            <div class="article-footer">
+                
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

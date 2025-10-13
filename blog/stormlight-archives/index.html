@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Spoilers below for Stormlight Archives (and some minor ones for Mistborn). Extra warning that this may mildly ruin the books for you even if you enjoy it, maybe, but I&#x27;m a strong believer in being ab...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Stormlight Archives">
+    <meta property="og:description" content="Spoilers below for Stormlight Archives (and some minor ones for Mistborn). Extra warning that this may mildly ruin the books for you even if you enjoy it, maybe, but I&#x27;m a strong believer in being ab...">
+    <meta property="og:type" content="article">
+    <title>Stormlight Archives - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Stormlight Archives</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        December 07, 2019
+                    </span>
+                    <span>📁 Book Reviews</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p>Spoilers below for Stormlight Archives (and some minor ones for Mistborn). Extra warning that this may mildly ruin the books for you even if you enjoy it, maybe, but I'm a strong believer in being able to look critically at things that I can still appreciate for other elements.</p>
+
+<p>So there's four main criticisms I have of the Stormlight Archives (maybe more that I've forgotten), not all of which are spread evenly over all three books. In fact the sequels get a lot better, by my reckoning, and may be worth reading through the first one to get to them. But hoo-boy, that first one's got some problems, and I'll try to highlight those as I go.</p>
+
+<p>First off, the author cheats. He was bad about this in the Mistborn trilogy, and it's no different here. For someone who's codified the "laws" of how to write magic systems, you'd think he would be able to get through a book without pulling some new shit out of thin air to resolve a major conflict. Seriously, pretty much every single major conflict in Stormlight is resolved by a character suddenly having a philosophical breakthrough that gives them new superpowers. It's fine to have superpowers tied to resolve or oaths or wisdom or whatever, but when there's NO indication ahead of time of WHEN these can manifest, or WHAT those superpowers are, or who they work for and not work for… it may feel awesome the first time or two, but it quickly gets more and more cheap and anticlimatic once you see it coming. They start to feel like deus ex machina, which is complemented by all the diabolus ex machina that keep ratcheting up the stakes for cheap tension throughought the series. This may be the only one of these flaws that is actually not as bad in the first book as the later ones.</p>
+
+<p>Second, and even worse, Sanderson hands Idiot Balls out like he’s playing Hot Potato. Why did it take three books for Adolin to use that nifty Shardblade-throwing technique he developed, despite multiple circumstances where it would have been the perfect solution to the problem he faced? Guess he just forgot about that. Why doesn’t anyone put two-and-two together about Elhokar’s mutterings about seeing spren, even after everyone was in the same place and talking about them? For that matter why didn’t he try saying the words just before the battle at Kholinar, rather than waiting until his life was in danger? It goes on and on, I could probably list a dozen in each book and still find more with a reread.</p>
+
+<p>But the most egregious of Idiot Balls is in the first book, where Sanderson hands it to a god. The CENTRAL PLOT of book 1 ends up hinging on whether or not Dalinar could trust both his visions and Sadeas. He does a SMART thing by demanding the visions give him one clear answer to see if he can trust them, rather than vague and ominous statements. In return for his question of whether he can trust Sadeas, the vision says, unambiguously, "Yes." Full stop. Followed by "This is important." Full stop. Followed by some more vaguer comments that seem to tie in to trusting Sadeas.</p>
+
+<p>And after Sadeas betrays him, he asks the visions why they lied, and finds out that they're just recordings. That the god who sent them is dead, and this god somehow decided that randomly saying YES like they were ANSWERING A QUESTION was a smart thing to do. This would be bad enough on its own, but the fact that Sanderson wrote the story so that Dalinar would finally ask THAT question at just THAT moment to get THAT response is so infuriatingly hackneyed that I nearly stopped reading the series then and there. Because there were so many better, simple ways to have the same effect, and he should know better.</p>
+
+<p>Third complaint is that a lot of the characters feel soulless in Way of Kings. This is a general problem I have with Sanderson's writing, and YMMV, but I've talked to a lot of people about his books and this does not seem to be a unique view of mine. It definitely gets a LOT better in the sequels (in direct contrast to Mistborn, where the first book felt like its characters were more alive than in the later ones), but most of the Way of Kings feels like a slog in part because I just didn't care about most of the characters. They don't act like real people to me, they don't seem to care enough about solving the problems they have, they talk like they're reading scripts. The pacing here is part of the problem too: each of the different storylines feel like they take forever to get from point A to point C, and like you're just rereading Point B again and again and again. How many times did we really need to read about Shallan agonizing over whether to steal the soulcaster, or Kaladin struggling with his depression, or Adolin being frustrated with his father? It feels like at least 1/3 of the book could be cut out without much loss.</p>
+
+<p>Fourth complaint is a fairly niche one: Sanderson is not great at writing non-theists. Again, he gets a bit better with it in the sequels, but listening to Jasnah justify her atheism in book 1 made me want to pull my hair out with how canned and unconvincing her arguments were, especially coming from someone who the text keeps insisting is exceedingly brilliant. I can't fault Sanderson for trying, he's at least very clearly treating atheism with RESPECT, but I still can't help but wish he found some better atheists to beta read and give feedback so he could better understand the epistemics that go into skepticism. Also I'm still wary Jasnah might eventually recant and realize the error of her ways, similar to what happened to Mistborn's atheist.</p>
+
+<p>So yeah, that's it just off the top of my head. There's certainly a lot to admire in the series, and I enjoyed the sequels more than the first book, so maybe it's worth reading for that, but I'm not holding out hope for the author to get past these flaws overall. Despite his amazing skills in worldbuilding and designing magic systems, Sanderson has disappointed me too often for me to ever see him as some shining beacon of the fantasy genre that others seem to perceive him as. </p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">book review</span><span class="tag">mistborn</span><span class="tag">stormlight archives</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="To most people, Executive Function is a confusing, mysterious thing that only really comes to attention through dysfunction, particularly mental health disorders like ADHD or depression. Questions of ...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Procedural Executive Function, Part 1">
+    <meta property="og:description" content="To most people, Executive Function is a confusing, mysterious thing that only really comes to attention through dysfunction, particularly mental health disorders like ADHD or depression. Questions of ...">
+    <meta property="og:type" content="article">
+    <title>Procedural Executive Function, Part 1 - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Procedural Executive Function, Part 1</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        July 04, 2022
+                    </span>
+                    <span>📁 Executive Function, Therapy</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p>To most people, Executive Function is a confusing, mysterious thing that only really comes to attention through <em>dys</em>function, particularly mental health disorders like ADHD or depression. Questions of how it works, or how to get more of it, are treated as similar to questions of how to get more "motivation" or "willpower."</p>
+
+<p>I'm here to tell you that's mostly nonsense, and that you can think of executive function in a procedural, explicit way that makes it easy in most cases where you fail to do something you "want to do" to track what's going wrong and why.</p>
+
+<p>To do that, I'm going to break EF into 8 parts that I consider roughly sequential in how people experience "deliberately doing something," from start to finish, to point out pitfalls and how they can be dealt with.</p>
+
+<p>I call it <strong>Procedural Executive Function.</strong></p>
+
+<img class="aligncenter size-full wp-image-3878" src="https://daystareld.com/wp-content/uploads/2022/07/PEF-1.png" alt="" width="957" height="1226" />
+
+<p>Before starting, it's important to take an extra moment to specifically emphasize that <i>this is a process with multiple steps.</i> Part of what I hope people learn from this is to better understand <i>which aspect of the process</i> is blocking them when they feel stuck with their own executive dysfunction.</p>
+
+<p>So if I focus on a certain aspect of the process and share a perspective on how to help ensure that part goes smoothly, that doesn't mean the assumption is everything will go fine as long as that one aspect does. For some actions you take, the whole process will go smoothly. When it doesn't, the part that trips you up will likely change depending on personality, diagnoses, the type of action you're taking, or just the context of your life at that moment.</p>
+
+<p>We're first examining these parts individually so that we can then examine how they interact more systematically; no part of this process should be taken as a final, normative word on how your own inner workings must look. But I hope it will be helpful nonetheless.</p>
+
+<p>If you're still confused and want an even wider frame, and haven't read the <a href="https://daystareld.com/executive-dysfunction-101/">intro post</a> yet, now might be a good time to check it out.</p>
+
+<p>(As a final note, I won’t talk about medical solutions to Executive Function, as it’s outside of my area of expertise. I hope to add more resources for that at some point.)
+<h1><strong>Planning/Prioritizing</strong></h1>
+The first step of any intentional act can be called the "notion" to act. Notions themselves are involuntary, often vague, and not particularly compelling. They're just an idea, summed up generically as a thought like "oh, that's a thing."</p>
+
+<p>This sometimes comes with a <i>should</i> attached. "I should study" or "I should throw out the trash." But the more neutral version is simply a <i>could</i>. "I could get a drink" or "I could watch some  TV." It can also be nonverbal; just an image of something, maybe with a vague sense of desire or worry.</p>
+
+<p>Once the notion occurs, a few things might happen automatically (that is to say preconsciously):
+<ol>
+ 	<li>Our mind discards the notion, sometimes so quickly that a few moments later we might not even remember having it.</li>
+ 	<li>Our body starts acting on it, such as by walking to the fridge or alt-tabbing to a web browser.</li>
+ 	<li>Our imagination starts to plan out how we might do it, or simulate what doing it might be like, or envision what the outcome might be.</li>
+</ol>
+We often become aware we're doing the 2nd one as we do it (though it can take a surprising amount of time), and then decide if we want to continue or not. If the thing is enjoyable enough, it might be hard to stop. This will be covered more in future articles.</p>
+
+<p>The 3rd one, if noticed and latched onto, can then be continued consciously. This is the first point at which <i>intention</i> enters play, which makes it the first relevant step of executive function; by definition, something is only a result of executive function if it's intentional.</p>
+
+<p>It may seem strange to count "what you decide to do" as part of executive function, but this is why it's important that Planning and Prioritizing are grouped together; before you decide <i>how</i> to do something you must decide whether you actually want to <i>at all.</i> And your reasons, context, and frame for prioritizing something is all upstream of how "motivated" you will feel to overcome the various other challenges that might come up during the process, including the actual initiation of the task.
+<h3>So how do we do that?</h3>
+It's difficult to make a full list of things to prioritize for; there are multiple entire frames you could use before you even start listing things, such as short term vs long term, or selfcare vs productivity, or explore vs exploit. Or you can divide your life up into different areas and goals, such as Health, Work, Leisure, and Love and then decide what to prioritize based on which is lowest, or which feels the most valuable in the moment.</p>
+
+<p>Whatever the category or specific thing being prioritized for is, the first step to avoiding executive dysfunction is recognizing what feels, for lack of a better word, <i>alive.</i> That can mean "fun," even if challenging, or "compelling," even if scary... these are just a couple of the many words we use to refer to specific emotions that make up the umbrella term "motivation."</p>
+
+<p>Motivation comes up all the time when talking about executive (dys)function. Sometimes it's called "willpower." Other times people refer to its absence, "akrasia," when they wonder why they're struggling to do things they, ostensibly, want to do.</p>
+
+<p>But this is why distinguishing actual "wants" from feelings of "shoulds" is important. There will always be more notions to do things than things you end up having time to do, and always more "shoulds" that you will feel pressured to follow than the ones you endorse doing.</p>
+
+<p>Again, prioritizing is <i>crucial</i> to executive function. It's how you avoid not just decision paralysis on one hand or regret on the other, but also how you avoid motivation traps (simply not caring enough about the thing to do it, despite feeling like you need to). Trying to do something that doesn't feel <i>alive</i> is similar to getting a car from one place to another without enough gas; the less you have, the more you'll have to push.</p>
+
+<p>So what does it mean to prioritize based on what you "want," in a world that's so often full of things you "have" to do just to survive, or maintain basic quality of life?</p>
+
+<p>There's no easy answer to this, as your wants are to some degree a reflection of reality. There may be some activities that <i>just are </i>more fun than others for you in the territory. There may be some outcomes that <i>just are </i>more scary than others for you. There isn't anything wrong with recognizing this.</p>
+
+<p>But we understand reality through models, and our maps of the territory can change as we gain new knowledge. Some activities turn out to be more fun than we at first think they are, either with experience or with the right knowledge of how to do them a different way, and our motivation to do them increases. Other times we <i>reframe </i>our expectations or experience of an activity, and it becomes more or less motivating based on the attitude we take, or the predictions we have, about it. Genuinely believing that failure is just an opportunity to learn and grow makes activities with uncertain success less daunting to try, but of course this is more difficult the stronger the negative consequences are.</p>
+
+<p>This may seem obvious to some, but it's worth spelling out that this means our ability to simulate what will happen if we do something, or don't do it, is actually fairly important for how motivated we feel to do it. If you can't clearly visualize the steps from where you are to where you want to be, it's much easier to end up feeling stuck, lost, or adrift.</p>
+
+<p>(For those with aphantasia, the alternative process might be similar to what you do when thinking of something in the future you’re excited about; I’m not sure how analogous this is, and would love to hear from anyone who has trouble with mental visualizations, or see research on whether there’s a connection between the two)</p>
+
+<p>We can also find more clues to why things might be emotionally difficult to do by looking at the reverse: habits.</p>
+
+<p>Endorsed or not, we tend to feel no particular rush of motivation or painful akrasia when doing habits because, in order for an action to <i>become </i>a habit, we've done it so often it has become predictable. There's no chance of failure, and no need for thought to ensure a particularly good outcome.</p>
+
+<p>(Probably worth noting, it seems that some people really just <i>don't form habits, </i>or at least the threshold for forming habits is much higher for them such that the closest thing they experience to being able to do things on autopilot while thinking about other things is something like "walking" or driving." This is also something I'm curious to hear/learn more about.)</p>
+
+<p>All of which leads me to my first crystallized insight from research:
+<blockquote><strong>Executive Dysfunction most often occurs when the next step between where you are now and what you want to do is difficult to imagine, and/or painful in some way.</strong></blockquote>
+<h1><strong>Task Initiation</strong></h1>
+This, ultimately, is why a lot of the leading advice for clearing <a href="https://www.lesswrong.com/posts/EFQ3F6kmt4WHXRqik/ugh-fields"><u>ugh fields</u></a> are things like “<a href="https://goblin.tools/">break things down into smaller steps</a>” and “check if there’s anyone you can reach out to for help” and “try approaching the problem from another angle.” It’s also why just talking through a fear and being reassured that the reality won’t be as bad as it seems can help people do things they’ve been putting off.</p>
+
+<p>I suspect it’s <i>also </i>why just having company around can help people get through things they expect to be unpleasant. There’s a sense of ambient safety that comes from being around those we trust to support us, even if there’s nothing in particular they can do about the bad-stuff that we imagine. On top of that, as a separate thing, having pleasant company and conversation can just make unpleasant tasks easier to do.</p>
+
+<p>This might seem really basic, but is worth highlighting as separate from social pressure or worries of how you’ll look to others, which tend to be how people perceive accountability partners or similar. Those can definitely have influence, but for many they’re aversive rather than compelling, and these more positive frames can be more valuable.</p>
+
+<p>But those are all just a few ways to unblock the initial spark/decision/<i>compulsion </i>to do something you deliberately plan to do. If you don’t focus too much on deliberate steps of an action, you might find yourself able to do them more easily by just following notions; “non-doing,” or wuwei, is a phrase often used for this state. Of course, you also might find yourself non-doing something else other than the thing you “intend” to (that’s rather the point).</p>
+
+<p>But that this “cheat” can work at all indicates again that there’s something about deliberate attention and focus that can evoke things which demotivate us, or paralyze us with indecision or fear. Acting before your conscious thoughts can get in the way is, in many ways, like putting yourself in a state of total freedom from consequences; consequences only impact our behavior when we know about and believe in them, after all. This is a great strategy when the risks or consequences aren’t “real.”</p>
+
+<p>Not that non-doing is fool-proof, even if you invoke it and and follow the “right” notion to, say, sit in front of your computer and open your email inbox; once you’re face to face with a difficult email, it might bring your attention back to the things that made it hard to answer them in the first place, sending your attention to something less uncertain or painful. But again, we’ll cover that in a later section.</p>
+
+<p>How does task initiation for any particular course of action happen at all, given all the other possible actions you could take at any given point? What tips the mind in the direction of one over another?</p>
+
+<p>At some level <a href="https://www.lesswrong.com/posts/7zQPYQB5EeaqLrhBh/subagents-neural-turing-machines-thought-selection-and#2__Production_rule_ignition"><u>a calculation is being made from evidence accrued</u></a> about what you want and how likely a given task is to get it for you, set against evidence of risk and consequences of failure.</p>
+
+<img src="https://www.scotthyoung.com/blog/wp-content/uploads/2022/02/ACTR5-1024x512.jpg" />
+<p style="text-align: center; font-size: 60%;">Credit to a <a href="https://www.scotthyoung.com/blog/2022/02/15/act-r/?curius=4332">Scott Young's excellent article on Act-R Theory</a></p>
+So all you have to do is find a way to make something seem more likely to get what you want, right?
+
+<p>Well, yes, except doing that is itself a task that requires initiation, which means it also gets stymied by next-steps that seem unclear or painful. It’s turtles all the way down.</p>
+
+<p>But that’s not to say it’s hopeless; again, what frame you’re thinking of the problem in matters, as does real knowledge about what you want and how to get it, as do incentives.</p>
+
+<p>So here are my practical suggestions, along with all the usual stuff like “reduce friction to doing what you want” and “set up good incentives” and “break tasks down” and “ask for help” and so on:
+<h2><strong>Suggestion 1: Distinguish what you actually want.</strong></h2>
+There are four things people confuse all the time, and use the same sort of language to express, despite them meaning very different things:</p>
+
+<p>1) I want to do X.</p>
+
+<p>2) I want X to be done, but don't want to do it.</p>
+
+<p>3) I want to be the sort of person who does or can do X.</p>
+
+<p>4) I want to be seen as the sort of person who does or can do X.</p>
+
+<p>It's important to notice which of these actually applies to your circumstances, not just to better figure out what sorts of frames and evidence will motivate you to do it, but again to figure out whether it's something you endorse trying to do at all.</p>
+
+<p>(It's also much easier not to beat yourself up over failing to be motivated to do something when you realize that you <i>don't </i>actually want to, and realize what similar motivations might be crossed with the one you thought you were acting on.)</p>
+
+<p>Always be clear whether priorities are guided by intrinsic or extrinsic motivation. I don’t have a source on this, but in my experience and from reports by others it is genuinely easier for a lot of students to do bullshit busy-work when the people asking them to do the bullshit work acknowledge it’s bullshit and take a “let’s just get through this together” approach rather than a “you’re a bad person if you don’t want to do this” one.
+<h2><strong>Suggestion 2: Review the actual costs/benefits.</strong></h2>
+There's something uniquely powerful about <i>letting your thoughts finish.</i> A big part of the value that comes from introspective activities, like journaling, Internal Double Crux, or various kinds of therapy, is that they're containers that give your thoughts time to reach their endpoints, and your emotions space to be felt and sat with.</p>
+
+<p>Our brains are great at blocking or hiding from unpleasant thoughts. It's basic behaviorism, reflexive as catching or flinching away from rapidly approaching objects. So when we need more evidence that something is worth doing to feel motivated to do it, we might keep the examination of that evidence from happening without even realizing it if the information comes "packaged" with painful thoughts or feelings.</p>
+
+<p>You never know what might tip the amount of evidence your brain needs to do something past the initiation threshold, so one of the ways that we can "amass willpower” is by putting all the information in front of our System 2 and giving it time to process. This is part of why just talking to a friend about something difficult to do can make it easier, and we can isolate the effect by noticing a similar value from writing out the thoughts about it instead, or doing Focusing on some felt-sense of urgency, or giving space to internal parts to talk to each other. These can all provide different benefits, but what they have in common is that they’re time spent actually reviewing, sitting with, and absorbing the reasons why we <i>want </i>to do something, if you do, or why we’ll be glad that it’s done.</p>
+
+<p>Let your inner sim slide forward in time, not just to the activity itself (which will likely make your attention focus on things that are fun to do moment to moment) but also to the post-act feeling, which may motivate you by focusing your attention more on the “completed a challenge” joy.
+<h2><strong>Suggestion 3: Prioritize smaller steps.</strong></h2>
+This planning/prioritizing stage can be a lengthy process or a nearly instantaneous one. Many have had the experience of feeling like they <i>want </i>to do something, or <i>should </i>do something, perfectly visualize what it would take to do it, but are simply/just unable to move their limbs.</p>
+
+<p>In an extreme version of this, I heard from someone who reported that they needed to charge their phone, and the charger was even in reach, but the actual act of moving to get the charger felt insurmountable.</p>
+
+<p>As a form of “break the task down into smaller steps,” I also suggest “prioritize smaller steps.” Don’t just break the task down into “turn off TV, get up, go to the computer, open email, select first unanswered email,” etc. That can be helpful sometimes, particularly for complex or obscure problems like research projects or bureaucratic paperwork, but it’s not priming the motivation generator.</p>
+
+<p>Instead, also focus on how each step is itself valuable to you. You know the positive feelings you get sometimes when you stand up after being prone for a long time? You know how being in a sitting position for too long is bad for health? Let your attention focus on those things, and prioritize the task of just getting up first. You know that feeling of pleasure you get when you check something off a list, or remember that you made some progress on a task today? Focus on those feelings, and prioritize just opening the email and reading it if you haven’t, or starting the draft if you haven’t.</p>
+
+<p>In other words, seek the positive valence attached to each step of an activity and focus on those to motivate you from one step to the next. If you’re having trouble feeling anything<i> </i>while doing this, note what your body sensations are as a default; if you feel numb in general, it’s going to be hard to feel motivated to do <i>anything</i>, since you won’t have an associated <a href="https://www.lesswrong.com/tag/focusing"><u>felt-sense</u></a> (this is likely why depression and low-motivation are so correlated) and thus none of the things you imagine will help you reach the activation threshold.</p>
+
+<p>In that case, do something to help you get re-embodied. For some people this is as simple as dancing; put on some music that makes you move, or just notice your body and feel your feet and sway your limbs. For others it means grounding yourself in your breathing or heartbeat, and expand outward from there.
+<h2><strong>Cheat Codes</strong></h2>
+I’m labeling these “cheats” without malice or judgment, simply because I have no plausible explanation for them beyond “they trick your brain into being in another state.” Even the word trick feels perhaps too judgmental, as it assumes that any other state you could change to needs to have some difficult or explicable process. Maybe it doesn’t/shouldn’t, and in any case, it seems worth noting these strategies in case they’re helpful, or to flag them as interesting things to explore in case others have models information to share about why they work they way they do.</p>
+
+<p><strong>Music:</strong> The right music can motivate you to do all sorts of stuff. This likely is related to the positive-valence thing; music can often shift your emotional state, and this is a valuable tool in many cases, such as when you want to exercise, or clean the house, or do something that feels scary. I claim a big part of this comes from narrative power, particularly as music from movies or games or anime seem unusually effective, but it's not exclusive to those.</p>
+
+<p>It’s hard to shift entirely from one emotional mood to a completely different one, so if this seems like it doesn’t work for you, one piece of further advice I have on this is to pick a song that evokes an emotional frame that’s in the direction you want to go while still being in the venn diagram of the one you feel. So if you’re sad, and you know playing a super bubbly, energetic, positive song just makes you feel worse, or can’t reach you at all… instead try a song that’s at least melancholy, but with a hopeful or nostalgic or bittersweet tinge to it.</p>
+
+<p><strong>Totems:</strong> Objects can change your mood too; clothing, teddy bears, pictures taped to your monitor, etc. Anything that alters or changes your state of mind can be a valuable tool for enhancing executive function. If you’re having trouble typing in that journal app you keep insisting to yourself you’re going to do, but wearing a bathrobe and writing in a physical book with a quill by candlelight seems more appealing to you, then go for it.</p>
+
+<p><strong>Frames: </strong>I claim that frames are, quite possibly, the most powerful and ubiquitous psychotechnology there is, but that’s a claim for a bigger post than this. Meanwhile, my assertion here is that they’re not just very powerful for motivation, but also possibly very dangerous if used in the “wrong way.” There are often many different frames that people can use to recontextualize or view the things they “have” or want to do, and it’s worth noting when the narrative you’re telling yourself isn’t working so you can explore what others might feel more true or reach that positive valence tipping point.</p>
+
+<p>An easy example of this is how many people manage to work quite hard for long periods of time, day after day, because they believe it will advance their career if they do, compared to those who believe they're working on something vitally important to the world or their values, compared to those who do because they believe there are people directly relying on them to. These are all things that can motivate different people in different ways, whether true or not... and also, all three can be true, but which one someone's attention naturally focuses on in any given moment might not be the most motivating one.</p>
+
+<p><strong>Gamification:</strong> Adding an extra layer of incentives or accountability can be fairly motivating for many people, and may seem less of a cheat, since it can be obvious why it works, but there are some forms of this that still feel “mysterious” to me, such as the idea of a “winning streak” that many apps use to keep people motivated to keep doing something day after day without missing one, even with no extra tangible reward. For many people, being rewarded with recognition of our effort, even if it’s just pixels on a screen from a computerized process, can still affect our expected emotional valence enough that it can tip us over the motivation threshold when we might not otherwise do the thing.
+<h2>Further Resources</h2>
+The next parts of this series will cover the other 6 aspects of Executive Function:</p>
+
+<p><em>Part 0: <a href="https://daystareld.com/executive-dysfunction-101/">Executive Dysfunction 101</a></em></p>
+
+<p><i>Part 2</i><i>: </i><a href="https://daystareld.com/executive-function-2/"><i>Emotional Control, Self Monitoring, Impulse Control</i></a></p>
+
+<p><i>Part 3: <a href="https://daystareld.com/executive-function-3/">Working Memory, Organization, Flexible Thinking</a></i></p>
+
+<p>And there’s a <a href="https://www.youtube.com/watch?v=j_uT4kyHEng"><u>video</u></a> I’d recommend if you’re looking for another take on Executive Function. It breaks it down into three areas of the brain:
+<ol>
+ 	<li><strong>Frontal-Striatal Circuit</strong>: Response suppression, Freedom from distraction, working memory, organization, planning. "What" network.</li>
+ 	<li><strong>Frontal-Cerebellar Circuit</strong>: Motor Coordination, timing/timeliness, "When" network.</li>
+ 	<li><strong>Frontal-Limbic Circuit</strong>: Emotional Dysfunction, Motivation deficits, hyper-impulsivity, aggression. "Why" network.</li>
+</ol>
+And offers its own list of practical advice with some overlap:
+<ul>
+ 	<li>Reinforce yourself with rewards</li>
+ 	<li>Use verbal self-encouragement</li>
+ 	<li>Take 10 minute breaks between tasks</li>
+ 	<li>Frequent 3 minutes of relaxation/meditation throughout day</li>
+ 	<li>Visualize future benefits</li>
+ 	<li>Engage in routine exercise</li>
+ 	<li>Drink sugary drinks to keep your mental energy up</li>
+</ul>
+Edit: I've presented on this at a couple EAGs, one of which was recorded:</p>
+
+<p>https://www.youtube.com/watch?v=lLRHSmySTQ8</p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">advice</span><span class="tag">psychology</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

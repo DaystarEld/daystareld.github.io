@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoT Game - Pokemon: The Origin of Species</title>
+    <title>Chapter 94: Tilt - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,20 +329,533 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">GoT Game</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/93/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/95/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <p>No content available.</p>
-        </div>
+            <h1 class="chapter-title">Chapter 94: Tilt</h1>
 
-        <div class="chapter-nav">
-            <a href="../93/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../95/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>After sharing what he learned from Sabrina with the Pallet Labs so they could explore evidence of psychic-color-cones, Red spends an afternoon reading through and typing up a copy of the notebook he's been writing in since he began his journey, all the way from the beginning. Once he finishes, he begins a new one with a list of experiments he wants to run next.</p>
+
+<p>There are a <em>lot </em>of old ideas that are still appealing and interesting to him, all the way back from the first night leaving Pallet Town where he wondered about the bonds that form between people and their pokemon. But ultimately he has to cut things down to what seems immediately relevant to his psychic research, which leaves him with a handful:</p>
+
+<p><em>First, what's up with teleportation and walls? Seriously, does it involve traveling through actual space or not? Own experience with it doesn't shed any light on conundrum. Experiments are unusually rigorous for psychic research, likely due to practical value, but no underlying mechanism is understood.</em></p>
+
+<p><em>Second, medium cleansing ritual? Jason and Agatha's advantages with ghost may be inborn, a matter of mindset/training, or due to some seemingly random things they both do. Counterexamples are psychics with ghost affinity from cultures without medium practices, but still worth testing.</em></p>
+
+<p><em>Third, if psychokinesis particles distinct from psychic ones can the difference be measured? One travels farther? One pierces walls. (Can an object be levitated over a dark pokemon?) Glass limitation mental, according to Sabrina's report...</em></p>
+
+<p>Those he can't test himself, unfortunately, but he's already enlisted Tatsumaki's help with it. She seems less standoffish than she used to, maybe because of familiarity, or maybe because of what he's accomplished since arriving at Saffron. In any case she's definitely interested in developing her abilities, and seems to regard his experiments as a way to possibly do that, since it was his experiments and practice with Rei in mirroring a state of mind while projecting it at the same time that saved them in Lavender. Even if all the research fails to reveal anything new about the fundamental nature of psychic phenomena, some of it might still produce useful findings.</p>
+
+<p>He knows he could blow through them in a couple days if he wants to, but instead forces himself to formally write a short paper on each, which means a preregistered methodology and hypothesis, recordings of each attempt, documenting the data, and evaluating the outcomes.</p>
+
+<p>At first he's able to find this an exciting and interesting process, one where he feels proud for embodying the virtues he (likes to think he) holds, eager curiosity coupled with methodical rigor.</p>
+
+<p>By the second week he finds himself procrastinating and putting off new experiments because of the attached process, and almost anything else he can do feels more appealing than writing another damn paper.</p>
+
+<p>After five days of barely getting any work done he has a therapy session, and decides to take a break from grief work to instead bring up his flagging work enthusiasm. Dr. Seward invites him to talk a bit about what motivates him to do it the hard way, and after saying a few things about demonstrating good research practices and appearing "virtuous" to Professor Oak and others, he feels an upwelling of indignation that grows every time he thinks about the body of literature that does exist, and how limited it is. It <em>bothers him </em>how lacking real psychic research is, and how many seem unbothered by that.</p>
+
+<p>Dr. Seward listens to him rant about how few psychics document their experiments and how few scientists are psychic or approach their beliefs about psychic powers with the same attitude they treat other scientific pursuits for a while before dryly suggesting that this might be something he can lean into for motivation. This turns out to be surprisingly effective.</p>
+
+<p>Also effective are more practical ways to reinforce diligent work, such as scheduling calls with other young researchers to work at the same time and then discuss what they did afterward, as well as setting pseudo-public deadlines for sharing his completed work with others. Dr. Seward warned it might backfire and just add more paralyzing pressure, but instead it turned out to be particularly motivating as each deadline approached.</p>
+
+<p>Another thing that slows him down are the requests by others for help in their own research, along with the people who reach out to ask questions about his own work, or just for advice. At first he was more than happy to help share his thoughts or explain something about his experiments, but it starts to get repetitive and tedious to repeat the same things to different people, especially since the volume of them has only continued to rise. He spends some time fretting over it, then remembers the idea they had in Vermilion of hiring a secretary and decides this is another problem that money can solve for him. It takes a while to find one and come up with a system by which he wants his incoming messages filtered and grouped, but once he does it feels like he gained at least an hour a day.</p>
+
+<p>Still, some of the experiments just take time, particularly the ones that can (and should) be split up into stages. Red tests the cleansing rituals by first trying to merge with gastly while in the shower, in case simple contact with running water is what matters. When this has no apparent effect on the invasive emotional spillover, he pulls his thoughts back and leaves the shower, dries, writes out his experience, then dresses in a robe and sits on the floor with a water bowl, censer, and ladle, imitating everything he saw Jason do as best he can without making any attempt to change his mental state. Once the ritual is done he tries again, with no effect, and then repeats the ritual, again to no apparent effect.</p>
+
+<p>After that he tries deliberately invoking the boggling mentality that he developed while trying to mirror Jason's, essentially emptying his mind as best he can of any preconceptions and just being as receptive as possible. This does seem to make things easier, though it's hard to quantify, and when he tries to combine it with the ritual he doesn't notice any difference. Still, he dutifully writes up another separate paper for all five.</p>
+
+<p>The teleportation experiments are the most time consuming, as he first has to get enough large pieces of cardboard to form an enclosure, then keep trying different configurations of walls and ceilings around either himself or his teleportation point. A lot of it involves just replicating what previous experiments have done, but he also tries his own mix of adjustments, such as leaving a shape just big enough for the abra to move through, then just big enough for himself.</p>
+
+<p>He also has to let his abras rest, as they can't teleport more than a few times in a row without getting exhausted. He cycles through them, bringing everything with him to each location they're registered at and setting things up all over again, and by the time he ends up back in Saffron he has a small audience of four abra recuperating out of their balls as he finishes up the experiments he planned.</p>
+
+<p>None of it works. Whatever limitation decides that abra can't teleport into even semi-enclosed places, it seems airtight (so to speak). He knows it's not just a mental limitation too, there's an experiment with someone who didn't know that teleportation isn't supposed to work indoors that still didn't work when it was tried, and all this just makes him boggle all over again at how weird teleportation is, and how fundamentally unlike other "psychic powers." He even catches himself trying to justify why it's actually a Ghost ability before realizing that he's just falling into the same "typing" heuristic he keeps criticizing others for; considering it a Ghost ability doesn't actually help explain anything about how it works.</p>
+
+<p>After a couple days he moves on to another aspect of teleportation that's been thoroughly experimented on: what counts as "attached" for what gets teleported with a pokemon or person. Plenty of people have tried to break the "one person per pokemon" teleportation barrier (the monetization value of "commercial teleporting" is less now that abra are relatively cheap, but it would still be a multi-billion dollar industry), but no one's understood yet what the pokemon itself is thinking when it distinguishes its trainer and their clothes or bags and a stranger.</p>
+
+<p>Red thinks he might as well try it, and spends hours merged with his abra as they teleport, both alone and with him, then with him and various volunteers of varying psychic ability. They definitely distinguish individuals with minds; he can hold a potted plant in his free hand and get teleported with it, but not a bellsprout. The best he can put into words, as he writes his paper, is that abra distinguish their trainer as "family." The familial bond is safe and important, what allows them to carry their children to safety until they're old enough to teleport themselves.</p>
+
+<p>When he tries it with his mother, however, she doesn't get teleported with him, and he finally decides to throw in the towel. He's spent nearly a week on teleportation experiments alone, and the only thing he's gotten out of it is that full, deep merging with any of his abra now feels completely familiar and effortless.</p>
+
+<p>By the second week of April he has nearly a dozen papers written that cover each of his brief exploratory experiments, all without a single real breakthrough or meaningful result. He stares at them a while, neatly listed in the pokedex under his name beside his few previous studies, and can't help but wonder if people will think he's just trying to pad out his list of papers. He decides to take a break from research for a few days and goes to bed early, feeling a little fried and at a loss for what to do next.</p>
+
+<p>Until, that is, his following training session with Blue, when his friend brings Zephyr out to show off his new and final form.</p>
+
+<p>"Congrats, Blue!" Red smiles as the pidgeot has to bend his neck a little to scoop the fruit out of Blue's palm. The plumage on his head has grown nearly as long as Red is tall, and it's strange to remember the way he used to fit comfortably on Blue's shoulder. "Been battling with him a lot lately?"</p>
+
+<p>"Yeah, the dojo we've been training at, which you still need to come check out by the way, has plenty of Fighting types. He's just barely big enough to ride, the learner's license guy said to make sure he keeps growing as I do since I'm just below the comfort mark."</p>
+
+<p>"Weight isn't a problem?"</p>
+
+<p>"Nah, look at those wings! He can Sky Drop a machamp. So long as he grows a few meters in the provisional period, I can get the full license."</p>
+
+<p>"Nice." As Red gives Zephyr a pet, he remembers Leaf's surprise way back when they started their journey that a specific gym leader was responsible for flying licenses in Kanto. That regulation was one of many that changed after the Hoenn incident; after Leader Surge said he was too busy to maintain the duty, Indigo's interregional government decided to spread the responsibility out to the new Travel Agency it was in the process of rolling out to oversee issues arising from all the added teleportation sites people were registering. "You must be excited to start getting around faster."</p>
+
+<p>"Hell yeah. It's no teleportation, but being able to head to Aiko's ranch, or even swing by home for a visit any time I want, for free? Not to mention exploring <em>new</em> places, since Glen and Sumi already have their license, Sumi is actually an amazing flier already, she's been teaching the rest of us how to do really tight turns and … what's up?"</p>
+
+<p>"Huh?" Red asks, torn from suddenly racing thoughts. <em>I could reach out to the network… maybe pay some taxi pilots a retainer...</em></p>
+
+<p>"You've got that look, like you just remembered something." Blue grins. "Or just had an idea?"</p>
+
+<p>"Yeah," Red says, and grins back. "Is Sumi's flier big enough to carry two?"</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>The answer is no, but it turns out not to matter. Some quick research shows that ever since the unown started randomly flying around the islands, even single riders have trouble catching them. While not particularly fast, they are maneuverable; unlimited by things like mass and wind and the safety of their rider, and able to change directions at the speed of thought, most trainers can't keep them in range long enough to even get a lock, let alone hit them with a ball.</p>
+
+<p>Which means that while Artem's coordination of unown sightings pays off in a big way, even if one of the volunteers watching the skies in Lavender or Pallet or Cerulean or somewhere else Red has a teleport registered calls him tomorrow, the hard part would still be ahead of him.</p>
+
+<p>Sending pokemon to injure them until they can't maintain their flight is what most trainers have attempted, but it's difficult to get pokemon to consistently target the unown, since their abstract shapes don't register as threats and they don't fight back. No one's ever had to fight unown before, so it's never been an issue, but even with new programming to train pokemon to attack them it's hard to reinforce the behaviors in meatspace.</p>
+
+<p>None of which matters for Red, since he doesn't want to injure or capture the unown; he wants to merge with them while they do whatever it is they're doing.</p>
+
+<p>"That means no stunning, sleeping, confusing, freezing, not even a big weighted net to keep them in place," Red says. "What do you think? Is there any flier in particular you'd recommend?"</p>
+
+<p>"Hmm." Dr. Madi sips his coffee with one hand as the other taps at his keyboard computer to bring up test data that hasn't been entered into the pokedex yet. In the process of discovering the mechanics of pokemon flight, his old supervisor became one of the leading experts on Flying types (and other pokemon that fly without the particle). He's continued to run experiments that broaden their understanding of them, which made him an obvious person to ask after his appointment with Dr. Seward brought him back to Pallet Town. It's a Saturday morning, so the labs are quieter than usual, but it still feels nostalgic for Red to be here again. It's hard to believe it's been nearly a year since he came to pick up his charmander… "Well, swellow and crobat are pretty agile, though keeping you in range of the unown for a prolonged period may be taxing. How well would you be able to guide them?"</p>
+
+<p>"Honestly, not well once the merge starts," Red admits. "Which is why I first thought of being a passenger."</p>
+
+<p>"I'm sure you've thought of this, but what about a helicopter?"</p>
+
+<p>"I did, yeah… I could give a pilot a bunch of abra, have them register in the same places I am, have them constantly available for who knows how long so they can drop everything and teleport with me to a sighting, summon the helicopter there, and take off, but as a first option it's— "</p>
+
+<p>"Expensive," Madi acknowledges, voice sympathetic as he continues to scan the spreadsheets showing max speed, acceleration, turning arc, and other factors of various pokemon in various weather conditions and with different amounts of weight. "How close is your charmeleon to evolving?"</p>
+
+<p>"Uh, I'm not sure. It's nearly my height?"</p>
+
+<p>"That's a shame. Charizard are pretty fast, and they're not as slowed by riders as bird pokemon."</p>
+
+<p>Red frowns, trying to ignore the stab of doubt over his choices. Maybe he should be training his pokemon more, or at least the ones that would be too expensive to buy evolved versions... particularly since he just spent weeks on experiments with nothing to show for them. But that's hindsight speaking, and he'd still want to perform the experiments at <em>some </em>point if he hadn't done them now, and doing them sooner means others who are curious might save time not attempting themselves (though a few others should try just in case) and—</p>
+
+<p>"Hey, what about noivern?"</p>
+
+<p>Red blinks. "Aren't they super expensive?" He expects a ping of aversion from Unpartitioned Red, these days most major expenditures either get a nudge for or against, but this one seems to evoke ambivalence. The impression he gets instead is that having a super-fast flying pokemon might be worth the price, if it stands out from others...</p>
+
+<p>"Yep, and not recommended for first time fliers. But they're absurdly fast and maneuverable even with a rider, so if you can find a pilot with one—"</p>
+
+<p>"—a second passenger wouldn't affect them much. That sounds perfect." He hesitates. "<em>Do </em>any trainers with noivern work for taxi companies?"</p>
+
+<p>"I've never heard of one," Dr. Madi admits. "They may be ideal for multiple passengers, but they don't have the stamina for long trips, and the margins on short ones probably aren't too high since they take a lot of upkeep. You'd probably make more as a pilot just selling it for a more common mount. There might be some with injuries that make them unsuited to battle? Best I can think of for now."</p>
+
+<p>Red nods and checks the time, then stands. "I should head out. Thanks for this."</p>
+
+<p>"Of course. If I get any other bright ideas, I'll pass them along. Good to see you again!"</p>
+
+<p>Red waves and heads out the door, then through the echoing white halls until he can take an elevator down to the rear exit. Beyond it lies rippling green fields where most of the lab's pokemon are bred, raised, studied, and trained, and as he walks out into the crisp afternoon air he summons Pikachu and Charmeleon so his pokemon can frolic around the new environment as they walk together.</p>
+
+<p>He didn't spend much time here before his journey, instead learning to feed and care for the lab's pokemon in more controlled settings, but he knows the general layout. It takes about ten minutes to find one of the breeders who supervised his basic care training, Sophie, who smiles as he reaches the ramada where her outdoor office is set up.</p>
+
+<p>"Been a while, Verres. Didn't expect to see you back as a buyer so soon."</p>
+
+<p>"Still wouldn't have, but Blue twisted my arm." He smiles to show that it didn't take much twisting.</p>
+
+<p>"Sounds like a win-win to me, keeping you in the family business while ensuring you get a good deal. Hey there little fella!" She bends to scratch pikachu's fur, fingers gentle as they trace the scar along his back. "Not so little, really. And there's Earnest… or whatever you're calling him now?"</p>
+
+<p>"Uh, just Charmeleon still. His nickname was Earnest?"</p>
+
+<p>"That's right, you weren't around long enough to take care of the rarer pokemon. Yeah, he really got focused on whatever he was doing compared to his siblings."</p>
+
+<p>Red wonders if he should try the old nickname on, but it doesn't feel right, somehow. "Is his family out today? Maybe he can visit them."</p>
+
+<p>"Oh, no, they tend to like staying in their caves during winter, so we rarely bring them out unless it's time for mating or a new brood." She stands, and Pikachu skips back over to Red while Charmeleon investigates the wooden pillars of the ramada. "The others are out and about, though."</p>
+
+<p>He sends a mental nudge to his pokemon to come along as he follows her to the lake first, where various water pokemon swim below and along the surface. A pair of attendants are nearby, one running tests on the water whom Red recognizes and waves to, and a new face who's running health checks on a poliwag. Among the various pokemon around them, it's easy to spot the three squirtle playing atop and around the floating brown shell of a blastoise, which draws his attention to the rest of the family nearby; specifically the two wartortles lazing around in the shallows.</p>
+
+<p>"They're usually more energetic, racing around the lake, but—"</p>
+
+<p>"They get less active when it's colder," Red completes with a smile, and Sophie nods.</p>
+
+<p>"It's been nice to have a few days without groundsnow, so we're letting them enjoy it while they can. Shelby's on the left, Snaps on the right."</p>
+
+<p>"Thanks." He already received a file on each of them, their history and measurements and stats, the sorts of documents he spent a lot of time writing up as an intern. "And it really doesn't matter which one I take?"</p>
+
+<p>"From what I understand, your discount agreement would give us first right on breeding and resale, yeah?"</p>
+
+<p>"Yeah."</p>
+
+<p>"Then nah, either works."</p>
+
+<p>Red almost asks which of them seems more attached to their family, but that's the sort of thing he can check himself, and is part of why he wanted to come meet the pokemon rather than just going off the data. So he sends an impulse to Pikachu and Charmeleon to stay away from the lake (not that Charmeleon needs it, but Pikachu is curious and Red doesn't want him to alarm the Water types) and walks over to his two potential new partners as he sends his thoughts out, feeling a bit like he did last time he was at the Lab to pick his starter.</p>
+
+<p>Red can tell even without merging that both pokemon are fairly relaxed, in the general mental state he's familiar with from helping out at Aiko's ranch. As he gets closer their attention shifts to him, but without any alarm or fear, just curiosity… and from Snaps, a touch of wariness, Red thinks.</p>
+
+<p>He confirms it by doing a proper merge, first with Snaps and then Shelby. Snaps, the senior of the two, is more prepared for potential hostility. Not expecting it, just… prepared. Shelby meanwhile is already just accepting him as part of the scenery, more interested in sniffing for food. There's none of the protective wariness in him that his brother has, and for a moment Red deliberately focuses on the feeling of <em>family </em>as he swaps between the two. Which is more likely to miss them? Which would enjoy the potential excitement of going off to see new places more?</p>
+
+<p>There's no clear answer. The pokemon clearly have emotional states, but that kind of abstract imagining is beyond them. There's only the now, and in the now both are content… one slightly more so than the other, or rather he would be if he had some tasty algae to snack on.</p>
+
+<p>"I'll take Snaps," Red says, and as Sophie goes to speak with the caretaker, thoughts of letting Snaps "say goodbye" come and go; he's not sure even a projection would help communicate what's about to happen properly, and might just agitate the family without purpose. He reminds himself that the pokemon will be back to visit.</p>
+
+<p>Hopefully.</p>
+
+<p>"Return!"</p>
+
+<p>The wartortle is sucked back into its dive ball, which gets handed to Sophie, and they make their way toward the small grove near the edge of the enclosed area. Red swaps Charmeleon for Butterfree before they start wandering through it to look for the saurs. The parents aren't currently out to act as a convenient beacon, but Sophie explains that lately the family has found a patch of grass that they enjoy getting sun in and soon they reach a clearing where three ivys and four bulbas are being fed by another caretaker Red doesn't know.</p>
+
+<p>The oldest ivysaur is a female that's even larger than Raff, her bud reaching as high as Red's chin. She's nearly twice the price as her siblings, not just for her age and gender but also considering her stats; higher agility and less prone to tiredness than the average at her age. Still, he doesn't want to jump from being too tight with his money to too loose with it, so Red only gives her sleepy mind a cursory merger before focusing on the younger two.</p>
+
+<p>One comes up to Red as their emotions blend, and he shares the ivysaur's curiosity at the new smells he brings with him. Red hasn't had enough experience with ivysaur mergers to share the smells themselves, but he can tell that's what the ivysaur is reacting to.</p>
+
+<p>He holds his hand out for it to sniff while the other ivysaur just continues munching on berries. Neither of them seem quite as playful and curious as Raff, though the one that approached him is closer... but he's not sure that's what he should be aiming for; it's not like he has the time to play with them the way she does. Or rather, it's not like he <em>makes </em>the time the way she does.</p>
+
+<p>The two are roughly equal in combat capability and price, so he decides to go with the more stoic one, in case someone more like Leaf comes along looking for an ivysaur. Its nickname is Shade (apparently it liked to stick close to its parents when it was younger), and once the caretaker returns it to its ball and hands it to Sophie, they make their way back to her office, pausing a couple times as Butterfree or Pikachu examine some tree or flower bush.</p>
+
+<p>"Do you guys plan on breeding any noivern, by any chance?" he asks. "Ones that would be for sale?"</p>
+
+<p>"Ha! Oh, you're serious." She shakes her head with a grin. "Not on my watch. All dragons are ridiculously fickle breeders."</p>
+
+<p>Red decides <em>not </em>to distract himself by researching noivern more and falling into his massive knowledge hole on pokemon breeding so he can solve an indirect problem that might solve the real one. Not just yet, at least. "Crobat?"</p>
+
+<p>"Already fully evolved? Would cost you quite a bit. What do you need such fast fliers for?"</p>
+
+<p>His explanation carries them all the way back to her ramada, where she sets up the PC for the trades and takes his pokedex to transfer ownership after he signs the appropriate documents. "Huh. Wanting to stay in range of a flying pokemon without hampering it…" She shakes her head. "Definitely not a normal problem, though some of the field researchers might have ideas even if Madi didn't."</p>
+
+<p>"Yeah, I made a forum post to solicit advice. When I think back to other field experiments I've tried, like using spinarak webs to catch pokemon while I slept in Viridian, or the sounds from Dark pokemon to scare abra into a trap, I was playing off of the natural tools and weaknesses the pokemon had. But unown don't <em>have</em> any natural predators, and they don't behave like any other pokemon."</p>
+
+<p>"Have you tried reaching out to Rangers, see if they've had to do things like this before while herding pokemon, maybe?"</p>
+
+<p>"Herding? Huh." He makes the payment, part of him wincing slightly at the cost, then lines the balls up to begin the new owner training programs. "That's a good idea... " He thinks of Blue and his friends maybe all flying together to pen the unown in… but they'd have to keep up with them too, and in the air the unown would be able to evade in three dimensions rather than two.</p>
+
+<p>Still, it <em>is </em>a good idea. "Thanks, I'll look into it."</p>
+
+<p>"No problem. Take care, Verres, and don't be a stranger."</p>
+
+<p>"I'll try. I mean, I will, and I won't—"</p>
+
+<p>She laughs and waves him off, and he clips his new pokemon to the empty spots he left on his belt then returns Pikachu and Butterfree before he waves goodbye and unclips Saffron's ball to teleport back.</p>
+
+<p>After a moment he changes his mind. He's not in a rush, with nothing else planned for a few hours, and he should practice free teleportation again, as he usually does when he has some spare time. So he swaps Saffron for Pallet, then prepares to teleport to the roof of the town's Pokemon Center so he can practice in relative privacy.</p>
+
+<p>As soon as he merges with Pallet, however, he notices something odd.</p>
+
+<p>Abra minds are fairly unique in a lot of ways, one of which is that they're both the most and least confused upon being summoned out of their balls. Programming helps most pokemon get over the disorientation of going from one location to another in a relative instant, but abra are very used to it, only really startled by abrupt shifts in temperature and light; this in turn is exacerbated by abra's naturally extreme awareness of what environments are new to them. Their first order of business when in a new environment is to assess for safety, then "imprint" the location in a way that allows them to teleport back to it if needed.</p>
+
+<p>Pallet definitely hasn't been to this location before, and yet he's not treating it like a new location. Red almost dismisses this—they're still within Pallet Town, after all, so maybe the smells and sounds are similar enough—but no, he's spent too much time looking out for the exact note of confusion he feels to ignore it that easily.</p>
+
+<p>Part of the extreme ease and depth of his merger with his various abra after his experiments came from bringing each to different locations and teleporting back to the same one over and over and over again from just a couple meters away. It made it extremely clear that even slight differences in location register as different, and how. And really, there's virtually nothing about this place that's similar to the roof of the Pallet Pokemon Center.</p>
+
+<p>What makes sense to Red, given just <em>how</em> sensitive abra are to location, is that they're not using familiar senses at all, but rather something else entirely that tracks their position in space relative to a fixed point. Hell, even a higher elevation is enough to trigger a sense of vague unease in the abra until they know it's safe. He's not sure what they <em>are </em>using, maybe they're orienting to something like their first remembered location or the center of the earth itself, but given that teleportation somehow manages to alter not just their location but their orientation and velocity from one moment to the next (objects on the earth's surface are rotating faster closer to the equator than the poles, and yet teleportation works across continents without negative effect (in fact some of the first experiments with teleportation involved testing farther and farther "leaps," with synchronized timing to measure whether it took any longer based on distance crossed))...</p>
+
+<p>All these thoughts flash through Red's mind in a wordless few instants, along with the now-familiar doubled sensations of his and his abra's bodies, summing up to a simple, clear note of unambiguous confusion.</p>
+
+<p>His abra shouldn't feel familiar in this location.</p>
+
+<p>But he is.</p>
+
+<p>Which means it's not the abra's own sense of location that's giving it the sense of familiarity and safety.</p>
+
+<p>It's Red's.</p>
+
+<p>Which means…</p>
+
+<p>Red grins, and closes his eyes, and focuses on the most clear, most definitively <em>safe</em> environment, the most <em>solid </em>spacial point in his memory.</p>
+
+<p><em>Teleport, </em>he commands, the thought instantly shared between him and his fully merged abra, and he feels the shift in every sense, from warm sunlight and cool wind on two sets of skin to nothing, from dim light through closed lids to relative blackness, from grass to carpet, from outdoor smells to dust and linen, from faint sounds to absolute quiet.</p>
+
+<p>Even months removed, he knows these smells.</p>
+
+<p>Red starts laughing before he even opens his eyes, and sees his room around him, just as he left it. He picks Pallet up and hugs him, dropping the merger as he spins them around in an excited dance.</p>
+
+<p>They did it. <em>They did it.</em> Free teleportation!</p>
+
+<p>He laughs again, dancing in a small circle as he lifts his stoic abra up and down, so excited that he doesn't hear the rapid footsteps until his door suddenly gets yanked open and he turns to stare at the shocked and frightened face of a stranger.</p>
+
+<p><em>Oops. </em>Too late he remembers that his mom rented the house out, sans their bedrooms. This must be the tenant staying in the guestroom.</p>
+
+<p>"You… how…?!"</p>
+
+<p>"I'm so sorry!" Red is still grinning like a fool as he puts his abra down and bows. "I didn't mean to scare you! I'll go right away, I just got so excited and didn't think… I just figured out I can freely teleport!"</p>
+
+<p>The man is still staring at him, mouth hanging open, and Red is about to reassure him that he'll leave right away and not do this again when the man looks at the window, then him. "But… but we're indoors!"</p>
+
+<p>Red blinks at him, then looks around, grin fading.</p>
+
+<p>The door was closed. The window was closed.</p>
+
+<p>He teleported into an entirely enclosed space.</p>
+
+<p>Somehow he forgot that he's not able to do that.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>"Oh yes, must have been a dozen of them," the old man says to Leaf, eyes bright. "Leaping from roof to roof so quick, I thought they were pokemon!"</p>
+
+<p>"A dozen, huh?" Leaf dutifully writes this down, suppressing both her excitement and her skepticism. "You were able to count them?"</p>
+
+<p>"Ah, no, I just meant there were a lot, you know, more than a few!"</p>
+
+<p>"And did they move as a group, or single file?"</p>
+
+<p>"Mm, single file, you know, each leaping one after the other."</p>
+
+<p>"I see. And I've heard they each wore long red scarves, is that true?"</p>
+
+<p>"Oh yes!" The man nods confidently. "That's why I thought they were pokemon! Scarves were red as a greninja tongue!"</p>
+
+<p>"And did you call anyone?"</p>
+
+<p>"Eh? Ah, no, they were gone so fast. And I thought, well, there's no law against jumping on rooftops, is there?"</p>
+
+<p>Disturbing the peace, maybe, or trespassing? "Not specifically, that I'm aware. Anyway, I should head out. Thanks for your time."</p>
+
+<p>"Oh, sure. Come on back if you have any more questions, I'm here most nights."</p>
+
+<p>David sees Leaf stand and finishes his drink, then joins her at the bar's doorway. They summon their pokemon together, her ivysaur and his meowstic, and as they walk along the street David casually asks, "You made up the part with the scarves, I take it?"</p>
+
+<p>"Yeah. Something about him made me skeptical."</p>
+
+<p>"A bit <em>too </em>happy to have someone to talk to, I'd say." David's tone is sympathetic. "Older guy like that, sitting alone in a bar, probably used to being the one who strikes up conversation until the other person leaves."</p>
+
+<p>"Probably." Leaf sighs. "Still, it's possible he did see something. After all this time, I was bound to find someone eventually, right?"</p>
+
+<p>"Or you were bound to ask enough people that, statistically, someone's going to lie about it."</p>
+
+<p>Leaf nods and glumly follows the middle aged man down the sidewalk toward the next bar. It's the third week of her almost nightly "tours of the city," and after starting from the middle and working her way south first, she's now making her way up toward the northern district, which seems to have a more active nightlife.</p>
+
+<p>Overall, it's hard to say whether all this time has been worthwhile. As Captain Takara noted, she's too famous these days to get away with being a "curious foreigner" the way she was in Pewter, which combined with the nature of the investigation means she's had to bury the questions she's really interested in among all sorts of others about the city. In the past three weeks she's heard people grumble about how the city's reconstruction from the Hoenn incident is taking too long, praise the mayor's new business initiatives, and whisper all sorts of theories about why crime in the city has been so low.</p>
+
+<p>Not that everyone whispers about it, plenty of people attribute it to some change in policing or random chance, but the ones that do are the most interesting. As it turns out, there are a handful of rumors about people going around chasing gangs out of the city and stopping crime through vigilantism, but no one has claimed to be a first-hand witness until the man she met tonight.</p>
+
+<p>Of course, Leaf could ask the local police about it. But even assuming they'd talk to her, that might draw attention that she's trying to avoid… and besides, she's still wary of talking to them after what happened in Celadon.</p>
+
+<p>It took about a week, four nightly trips through the city in total, for Ranger Kyra to figure out what Leaf is really interested in. They'd gotten to know each other a bit in that time, enough for Leaf to trust the older woman and confirm what she's really looking into. The ranger seemed curious, but not especially so, which Leaf has been grateful for. Her willingness to continue to chaperone Leaf has also been appreciated, and it took another week of Leaf insisting on treating her to dinner before the ranger accepted.</p>
+
+<p>Kyra's schedule can be erratic, however, and David has come to fill in the gaps for nights when she's not available. He's a programmer in his early 30s that attends the daily conferences, one of the people Leaf initially met online as he began to collaborate on her project with Natural and the others. It's been nice getting to know him in person; he's not a trainer, is also new to Kanto, and he's always happy to teach her about anything related to computers or programming, or what it's like working for Devon Corp. While he hasn't particularly seemed to enjoy himself in the group's brief trips into the Safari Zone, he seems happy enough to walk the city with her for a few hours at a time (and plenty of opportunities to rest). He expressed an interest in seeing more of Fuchsia last week, and when she explained that she travels the city whenever Kyra is available to chaperone, he offered to accompany her on the nights when the ranger is busy.</p>
+
+<p>They reach another bar and Leaf spends half an hour talking to another couple people before David suggests they call it a night, which sends a sudden stab of dread through Leaf. "Could we, uh, visit one more?" He raises a brow, and she immediately feels bad. She's always been worried about imposing on his or Kyra's time before. "Nevermind, you're right."</p>
+
+<p>"What's up?"</p>
+
+<p>"Nothing—"</p>
+
+<p>"Hey." Leaf looks back at him to find his patient, kindly gaze on hers. "You were distracted at the meeting today, and looked like you didn't sleep well. Now this. Something going on at home?"</p>
+
+<p>Leaf bites her lower lip, sighs, then nods. David takes her shoulder and steers her back into the bar, and this time they sit at a table together. "What's up, Leaf? Is Mr. Sakai having a bad day?"</p>
+
+<p>She closes her eyes, feeling tears well up briefly. "You can say that. Today was Aiko's birthday."</p>
+
+<p>"Oh." He lets out a breath. "Shit. I'm sorry, kid."</p>
+
+<p>She nods, eyes still closed. Aiko's aunt reached out last night to see how she and her brother were doing, and Leaf cautiously reported that he seemed to be fine; nothing unusual that morning or during dinner.</p>
+
+<p>He was not fine this morning.</p>
+
+<p>"His sister came to spend the day with him. She doesn't usually spend much time at the ranch, she's got her own life, but she said they should mourn together." Leaf lets out a watery breath. "Anyway, she's probably waiting for me to get back before she heads home. Maybe even expecting me for dinner, so I should go back."</p>
+
+<p>"Hold on. If she's still with him then she probably won't mind another few minutes. How are <em>you </em>doing?"</p>
+
+<p>Leaf takes a moment to let the question stir her emotions up, gives them a chance to radiate out like spikes from her chest, to sink her head heavily onto her folded arms. "Not great," she admits in a low croak. It was easy to keep the feelings away, as long as she kept focused on other things. But returning to the ranch… to that room, to the likely sounds of weeping… or somehow worse, silence…</p>
+
+<p><em>I'm sorry, Aiko…</em></p>
+
+<p>"That's understandable," David says, voice low and soothing. "I'd be surprised if—"</p>
+
+<p>"It's not that," she forces out, his sympathy somehow making it worse. "It's… I feel like I've moved on. It's been five months, and… I can't forget her, I'm living in her room, having meals with her dad every day, but…" Guilt twists in her, and she forces the admission out. "I forgot it was her birthday. She told us back when we were celebrating Red and Blue's, and I remember making vague plans around then, but... until her aunt called yesterday..."</p>
+
+<p>She feels hesitant fingers touch her shoulder, then squeeze. "That's nothing to blame yourself for. Hell, even my dad doesn't remember my birthday most years unless my mom reminds him. You didn't even get the chance to celebrate one with her, right?"</p>
+
+<p>Leaf shakes her head, feeling a sob rise in her throat before she pushes it back down.</p>
+
+<p>"Have you spoken to your friends about it?"</p>
+
+<p>"No. They're busy, Blue's got to catch up on his training after working on his flying license, and Red's still trying to replicate the indoor teleport…" It was an amazing discovery, one that only a few people actually believe happened. There's the one witness, of course, and she trusts Red, but to most people it's just too unusual to be believed until he can do it again in controlled conditions, especially since the witness might have simply been tricked; she's seen comments online about how he probably opened the window from outside, snuck in, then closed it behind him. It was his house, after all.</p>
+
+<p>"Mhm. Well, I know your friends are busy guys, but I gotta think they would want to be with you if you were feeling like this. Is there something more to this?"</p>
+
+<p>She shakes her head again. "I don't want… it hasn't been that long since…" She's talked to David about some things, but not this. No one outside of Blue's close friends knows how bad things got between him and Red. How fragile their rekindled friendship might be. "They haven't said anything. I don't want them to feel guilty too, if they forgot." It's not a lie, at least, just a lesser reason.</p>
+
+<p>"But you miss her. And the only person you can share that grief with is her father, who didn't know her the way you did. That's gotta be a lonely feeling, Leaf. It's okay not to put others first at times like this."</p>
+
+<p>Probably. But it's not worth bringing back that distance between them, that anger and hurt. "Maybe."</p>
+
+<p>David lets out a sigh and squeezes her shoulder again before drawing his hand back. "We can stay out as long as you'd like, kid. I'm not in a rush to get home."</p>
+
+<p>"No." She rubs her eyes and lifts her head up, sniffing. "I should go. But thank you, David. Really."</p>
+
+<p>He hesitates, gaze searching her face, then nods, and they head outside. "I'll see you tomorrow. And… feel free to call me, if you need to chat or something."</p>
+
+<p>"I will." Maybe. "Goodnight."</p>
+
+<p>"Goodnight, kid."</p>
+
+<p>She brings her abra out and teleports back to the ranch, letting the salty air of Fuchsia out in a gust before taking in a fresh breath of the open fields around her. When she turns toward the ranch, she sees lights on upstairs and wonders if Kasumi is still here. When she goes inside, however, she hears different voices upstairs, and hurries up the steps, heart leaping.</p>
+
+<p>"—think I heard… yep, there she is."</p>
+
+<p>Red and Blue are setting the table, wearing simple, somber clothes; Red's usual hat and jacket are conspicuously missing, and Blue is wearing a simple black button up shirt. Neither are wearing their pokebelts, and she remembers that bright colors, particularly red, are considered inappropriate for mourning here.</p>
+
+<p>She turns to see Mr. Sakai and his sister in the kitchen. Both their eyes are puffy, and Aiko's father is moving slowly, face drawn as he shuffles from place to place, but he looks at her as he sets the food down, and gives a watery smile. "You're just in time. Don't forget to wash up before it gets cold."</p>
+
+<p>Leaf's paralysis breaks as she nods and hurries to do so, then quickly changes and takes her belt off before joining them. The meal is somber as everyone eats the bowls of simple rice with beans and chopped vegetables, and once they're done Kasumi lifts her glass, eyes wet.</p>
+
+<p>"To my niece. She always had something kind to say, and worked so hard—" Her voice breaks, and she takes a breath. "I never knew just how hard."</p>
+
+<p>They drink, Leaf through a tight throat, and then Blue goes next, voice low and intense. "To Aiko, who saved my life, and others', when we were underground. For teaching us a new way to own our mistakes, and learn from them."</p>
+
+<p>They drink again as fresh tears line her family's faces, and Leaf's vision blurs. She wipes them clear, and speaks as clearly as she can, though her voice is rough, and wavers at the start. "To my friend, who made me feel less alone in what I cared about, and who shared her d-dreams with m-me."</p>
+
+<p>Leaf can barely swallow, and it's like a dam breaks in her chest, all the grief of Aiko's death suddenly fresh again. She can hear the others weeping too, and it takes a few minutes before quiet descends, and Red clears his throat.</p>
+
+<p>"To Aiko. Whose determination moved us all. And was only matched by… by her heart."</p>
+
+<p>They sip their drinks again, and Leaf has to clear her eyes again as she thinks of the way Aiko broke down and cried when she received her refurbished pokedex, and the quiet patience in her voice when she told her father she was leaving. She knows Red must also be thinking of how she died, and wants to hug him, but holds herself back for now.</p>
+
+<p>Mr. Sakai is quiet for so long that Leaf almost thinks he won't speak, until he whispers, "To my daughter. She never complained. About the work. Or me. She just wanted. More." His mouth works, silently, and then he repeats, "More," and drinks, and sets his glass down, tears slipping from under closed lids.</p>
+
+<p>They sit in silence for a while, and Leaf stares at the table, wishing she could hug Joy, wondering if there's something else it would be appropriate to do. She's bone tired, and part of her wants to go to bed, but the thought of whose bed it is causes fresh tears to flow for another indeterminate while.</p>
+
+<p>Kasumi is the first to stir, and starts to clean the table. Blue stands too, and a hollowed-out looking Red, whose partition, she suddenly intuits, has likely been down all night as he lets himself fully be with his grief. Mr. Sakai stands to help, but his sister quickly ushers him to his bedroom, and they hear quiet murmurs, and some brief, joint sobbing.</p>
+
+<p>The three work quietly to clear the table and wash the dishes before Kasumi returns. "I think he's asleep," she murmurs, and reaches out to hug Leaf, then Red, then Blue. "I'll stay on the futon tonight, to see how he is tomorrow. If he follows the pattern of how he was after Ema… his wife… tomorrow he'll likely be back to normal, more or less."</p>
+
+<p>There's a heaviness in her voice, but no bitterness. "Is there anything else I can do…?"</p>
+
+<p>"No, dear, you're doing more than enough. And you two. Thank you all for coming."</p>
+
+<p>"Of course," Blue says, and Red nods before they go to collect their things. Leaf helps her set up the futon, then follows Red and Blue downstairs to say goodbye.</p>
+
+<p>By some unspoken signal, as soon as they're outside and under the stars, they move for a group hug. For a while they just stand quietly together under the stars, as they did in this same place that night nearly half a year ago before she and Red went off to sea, and Blue and Aiko and the others went below the earth. The last time they were together, before the storm that blew them apart.</p>
+
+<p>It's Leaf that breaks the hug, not because she wants to, but because she knows the other two won't. Not as long as they think she might still need it. She takes a few deep breaths, then clears her throat. "When did you guys…?" Another stab of guilt, that they remembered and she didn't…</p>
+
+<p>"Miss Sakai asked if we were free for dinner around noon," Blue explains. "Got here maybe half an hour before you did."</p>
+
+<p>Red picks up on her surprise, whether psychically or just by her expression. "You didn't know? You weren't planning on bearing this alone, were you?"</p>
+
+<p>"I didn't…" Leaf forces the words out. "She's the one that reminded me, yesterday. I didn't think…"</p>
+
+<p>"Idiot," Blue says, but affectionately. She can't tell if he guessed why she didn't bring it up to them. "How's everything down south? Going okay?"</p>
+
+<p>"Yeah. Yeah, fine. Another test tomorrow, on tauros." They've been experimenting with a handful of pokemon, each one needing custom code. It still makes Leaf feel ill, sometimes, particularly when she remembers how angry she used to get at pokemon experimentation… but at least she knows this really is for the pokemon's sake as much as humans'.</p>
+
+<p>"Cool. You guys still going to need us?"</p>
+
+<p>"I think so. That's still the plan, I mean, last I heard."</p>
+
+<p>"Well, we'll be there. Can come down anytime, now."</p>
+
+<p>"I'll head down sometime this week," Red says. "After that, same."</p>
+
+<p>"How's the teleporting going?"</p>
+
+<p>Red makes a face. "I know I should just be happy I can do free teleportation now—"</p>
+
+<p>"Or any teleportation," Blue mutters.</p>
+
+<p>"—that too, sorry. It's just, figuring out what I did, exactly, and failing to replicate it, has kind of sucked the fun and victory out of it. After duplicating the exact steps and conditions leading up to it failed, even I'm starting to doubt what I experienced, like maybe the window was open and me teleporting in made it fall closed or something, even though I know that shouldn't make any difference, I <em>tested </em>for stuff like that, so did others."</p>
+
+<p>"It has to be something with your state of mind, right?"</p>
+
+<p>"That's what I keep thinking, but I'm having trouble figuring out what it is. My best guess is not knowing for sure it'll work, so it can only happen the first time someone teleports, but it's hard to find psychics who haven't done it at least once these days, ironically, and when I tried it with a non-psychic it didn't work. Having psychics invoke amnesia also didn't work, maybe because they can't do it to their pokemon and that's important too somehow, but using a new pokemon also didn't work."</p>
+
+<p>There's a threadbare frustration in his voice that makes Leaf reach out a hand to squeeze his arm. "You'll get it, sooner or later. Don't run yourself ragged meanwhile."</p>
+
+<p>"He hasn't been sleeping much," Blue adds.</p>
+
+<p>"Hey, that's not…" Red trails off as they both stare at him, and he sighs, running a hand through his hair before admitting, "...entirely true. Once I fall asleep I get enough hours, as long as there's no alarm, but I've had trouble with racing thoughts at night. It's hard to move on to anything else, with this kind of discovery teasing me just out of reach. But I found a workaround yesterday, actually."</p>
+
+<p>"Really?"</p>
+
+<p>"Yeah. I just make myself forget I did it, when I want to sleep."</p>
+
+<p>Blue shakes his head. "I don't care if it's sour grapes or what, that will never stop being creepy to me."</p>
+
+<p>"You should meet Rowan sometime. Speaking of which, I've got a meeting to get to." He doesn't make a move to leave, however, and neither does Blue. After a moment Red awkwardly asks Leaf, "You'll be by tomorrow for your session with Sabrina, right?"</p>
+
+<p><em>They're reluctant about leaving me alone. </em>She remembers the way she cried upstairs, and feels a prickle of embarrassment… but just a prickle. "I will. Come by again anytime. You know you're always welcome."</p>
+
+<p>They take the dismissal, and hug her again once each before Blue summons Zephyr and mounts up, taking off with big, buffeting gusts of wind. Red summons an abra, and Leaf raises a brow. "Now that you don't need one for each city, have you sold the others off?"</p>
+
+<p>"Not yet, they might still come in handy." For experiments, she guesses. "You're going to ask me about the nicknames, aren't you?"</p>
+
+<p>"Just saying, doesn't make sense to stick with the labels if you just use one to go everywhere. And don't you dare stick the one you keep with that!"</p>
+
+<p>"What, Everywhere? It's a bit presumptuous, unless I take a year or two to travel." His smile fades after a moment. "You'll really be okay?"</p>
+
+<p>"I will. And if I'm not, I promise to call."</p>
+
+<p>"Good. I'm just a thought away, you know?"</p>
+
+<p>That makes her smile for the first time all night. "You are. Come by soon, Raff still hasn't met your ivysaur."</p>
+
+<p>"I will. Night, Leaf."</p>
+
+<p>"Goodnight, Red."</p>
+
+<p>She watches him disappear, and hugs herself as she lets her eyes slip closed, lets the emotions sink in and fill her for a moment as the tiredness returns. Today took her by surprise, in a lot of ways. Life in the past few months got so busy, so full of new emergencies and new normals, new experiences and new routines, that things like simply mourning her lost friend felt like something that happened to a different her, in another world. Now that she's here, she wonders how long before the grief feels distant again, and she's back in the stream of day to day, with just the occasional sad thought or extra long night staring up at the ceiling.</p>
+
+<p><em>Not long. </em>Maybe it would take a couple days, but things are moving fairly quickly at the Safari Zone, and teaching Sabrina and other psychics her mental state has been challenging, and exploring Fuchsia always brings some novelty even if it doesn't bring her any new answers. Soon this pain would scab over again, and feel like a footnote of her life again instead of tangible, immediate reality.</p>
+
+<p>Maybe she would even be like Mr. Sakai, back to "normal" as soon as she wakes in the morning.</p>
+
+<p>Leaf walks back to the porch, but instead of climbing the stairs simply sits, rubbing her arms against the chill as she decides to stay out a little longer.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>When Leaf arrives at the meeting the next day, there's just a couple empty seats left, and she quickly goes to the one next to David. "Morning," she says with a tired smile as she pets the white tuft of fur between his meowstic's ears. "Before you ask, yes, I'm okay, thanks. And thanks again for the talk last night. Didn't get much sleep, obviously, but my friends did end up coming over."</p>
+
+<p>"That's good," David says, studying her face a moment before he turns back toward his screen, looking distracted.</p>
+
+<p>Leaf blinks, wondering if she's being rude. She meant to express gratitude and reassure him, but maybe he thinks she's giving him the brush off. She really didn't sleep much last night, and is having trouble trusting self-assessments or thoughts. "How was your night?"</p>
+
+<p>"Fine. Just did some work."</p>
+
+<p>Maybe she's misreading him too. Or maybe he really doesn't want to talk right now. She lets it go until later, knowing he can't complain if she pokes him to open up a bit after he did the same, and soon the meeting starts.</p>
+
+<p>Warden Takara reviews the plan to cordon off an area of the Zone, release a captured and re-programmed tauros into it, observe its behavior, and slowly but surely give it more freedom as they expose it to more scenarios, including socializing with wild tauros eventually. It's no different than what they've done already with rattata and nidoran and venonat, but tauros are significantly more rare, powerful, and aggressive, which makes the stakes higher and adds additional considerations. The programmers in the room, and those watching through livestream, have a few hours to do some final overview of the code while the researchers and rangers review the planned activities and safeguards.</p>
+
+<p>Leaf is something of a general purpose member of the team, being only somewhat knowledgeable in each of the various fields at play. Sometimes she feels like she's only really here because the whole thing was her idea, but no, that's just her tiredness and negative thoughts at work. She's made suggestions that the others have found valuable, and at the very least is the closest thing to a "manager" the project has, since she knows everyone working on it and has been following all the changes and versions from the beginning.</p>
+
+<p>She decides to review the new changes pushed last night, and finds another thing to bring up to David. "Hey, nice work with this new error-control segment. Looks a lot more elegant and thorough."</p>
+
+<p>David gives an awkward laugh, "It was nothing. I just… had some free time, thought I should try to do more, you know? Feels like I haven't been pulling my weight."</p>
+
+<p>"That's not true at all." Leaf hides her frown, though she can't help but keep watching David, troubled. He's usually somewhat overmodest, but there's still an off note in what he said, or the way he said it.</p>
+
+<p>Maybe she should poke him now rather than later. If something's wrong, she owes it to him to help if she can.</p>
+
+<p>"Hey, mind if we take a walk? I want to talk about something."</p>
+
+<p>He looks surprised, and hesitates, which only worries her more. Finally he nods, and they slip outside the conference room, taking a brief walk down the hall toward one of the sitting areas by the big windows facing the Zone. They sit in awkward silence for a minute as he strokes his pokemon's fur before Leaf realizes she's supposed to say something.</p>
+
+<p>"Sorry. I'm only at like 70% right now, and this seemed like a better idea before I did it. If you don't want to talk I'll understand. I just… you helped me last night, so… if there's anything I can do…"</p>
+
+<p>David's face is blank at first, the expression sitting oddly in his otherwise easygoing features. He scratches the stubble along his jaw, then lets out a long, slow sigh.</p>
+
+<p>"Right. So. Here's the thing, Leaf… I didn't want to bring this up until I had something more concrete, but I noticed something odd about the pokemon you registered at the start of all this."</p>
+
+<p>It's Leaf's turn to force her expression blank, while inside her pulse kicks into high gear, some of the tiredness fading as adrenaline hits her system. "Odd?"</p>
+
+<p>"I think some of the others have too, but no one's really wanted to talk about it. And when I looked into their code… well, I wondered how you got it to be so similar to wild pokemon's without the very program that the data was used to create."</p>
+
+<p><em>Shit. </em>She thought they covered their tracks well, but… "As I said, Aiko was the one who was working on this before I picked up the torch. It was just an idea, when I thought of it, she's the one that—"</p>
+
+<p>"It's a convenient excuse, and I'm not saying it's not partially true, at least. I believe she was working on it, and somehow found a way to alter the conditioning, or rather gave the pokemon permission to ignore it. But… I'm sorry, I don't mean to speak ill of the dead. But I don't care how genius your friend was, a team this big is still struggling to replicate her work? We've made strides, done it even better in some ways, but that kind of blanket sidestepping of the conditioning is too clean." David sets his jaw in a stubborn angle, fingers tight in his meowstic's fur. "I don't know who she's acting as the cover for, if it's Bill or one of the others on the team or someone else entirely, but what she or they were doing was dangerous. I think you're trying to make the best of that work, but until I know who was behind it, it feels suddenly like we all might just be getting used."</p>
+
+<p>Leaf keeps her expression as neutral as she can while thinking over her contingencies. She thought it would be Bill or Natural who first noticed and asked her about this, but as David said, maybe they noticed but didn't care. Or maybe they're more willing to believe that a young and determined programming genius was able to pull off what the <em>sakki </em>did. It was always a risk, but one she knew had to be taken if this project would be possible within a decade, rather than however long it would take for her to learn to duplicate the effects on her own without asking anyone else for help. Assuming that was even possible for someone with her programming talent; she's no Bill. She's not even Aiko.</p>
+
+<p>"Are you going to quit?" she asks, voice quiet. If he does, he might go to the media, or raise his concern with Warden Takara… or even go to the police.</p>
+
+<p>He lets a breath out. "I'm not sure. But I want to know the truth, and I'm pretty sure you know it."</p>
+
+<p>Leaf keeps her gaze on the window, trying to hide her fear. Here's the first card, tilting out of position. What Red feared might happen as soon as the full scope of what psychic abilities can do gets known to the general public, what he realized he'd inadvertently started when the others in Blue's training group learned about <em>sakki</em>. She thought it might be one of the others that let it slip, or hoped they'd have more time. Time to get farther with the program, show the good it can do.</p>
+
+<p>Maybe it wouldn't change much. Psychics are already afforded a lot of trust, combined with a lot of careful litigation and oversight to prevent abuse. Maybe this would just cause more of the same.</p>
+
+<p>Or maybe it would bring the whole house down.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/93/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/95/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -338,6 +872,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 26: The Right Questions - Pokemon: The Origin of Species</title>
+    <title>Chapter 32: Decisions - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,456 +329,440 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 26: The Right Questions</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/31/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/33/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <em>Tap-tatatap. Tap-tatatap. Tap-tatatap.</em><br>
-<br>
-Leaf sits ramrod straight in the stiff chair, fingers drumming the notepad on her lap. She's the only person in the waiting room besides the receptionist, an older woman with stern half-lens glasses and her hair up in a tight bun. Leaf arrived thirty minutes early, and she has to refrain from checking the time again. She knows it's near time. She should be called in to the mayor's office any moment now.<br>
-<br>
-The museum director declined participation in an interview, but was willing to communicate to the mayor that "a tourist from Unova" wanted to write an article on it. Dr. Brenner said that would get the mayor's attention, as there's been a push recently to improve the city's interregional reputation. Leaf doesn't know if they namedropped her mom or grandpa, but it probably didn't hurt if they did.<br>
-<br>
-<em>Tap-tatatap. Tap-tatatap. Tap-tatatap.</em><br>
-<br>
-The receptionist glances from her computer monitor to Leaf's fingers. She clasps her hands beneath her legs to keep them still and wishes she brought a book. She was worried it would appear unprofessional. She could take her phone out and read from there, but that probably would look even worse. Leaf makes a resolution to bring a book to any similar future situations. Being antsy doesn't look particularly professional anyway, and it's far more boring.<br>
-<br>
-Leaf has met plenty of politicians and famous public figures before. It's something of an occupational hazard when you tour the region with its eminent pokemon expert. But it was easy not to be nervous of, say, the mayor of Driftveil, when the woman was clearly so excited to meet <em>the </em>Professor Juniper… they were always polite to her, and she found the meetings more boring than anything most of the time. As such, not even meeting Professor Oak had made her particularly star-struck.<br>
-<br>
-But this is different. She's not here to just greet and shake hands and exchange pleasantries with Mayor Kitto: she's here to interview him, and if she screws it up…<br>
-<br>
-Leaf takes a deep breath, then another. <em>If I screw it up, the worst that happens is I don't get any material from him for the article. There's nothing to be worried about, and being nervous is just going to make it harder.</em><br>
-<br>
-Whether it's the self admonishment or the breathing, Leaf feels herself calming little by little… until the receptionist calls her name.<br>
-<br>
-"Yes?" she asks, jumping slightly out of her seat, then freezing halfway to standing.<br>
-<br>
-"Mayor Kitto will see you now."<br>
-<br>
-Leaf completes her stand and thanks the receptionist as she enters the mayor's office. Leaf has a moment of surprise at how much more simple and utilitarian it is compared to the ones in Unova. Maybe it's a Pewter thing rather than a Kanto one. Or maybe it's a Kitto thing.<br>
-<br>
-The man himself is sitting at a desk that looks intimidatingly busy with files and folders. Mayor Kitto appears to be in his mid-40s, short dark hair starting to grey at the temples and permanent smile lines around his eyes. He stands and offers his hand over the desk, which Leaf shakes after wiping her palm on her skirt.<br>
-<br>
-"Miss Juniper, good morning! I'm sorry to keep you waiting. Please, sit down. Oh, excuse me…" He begins to clear some of the folders from the middle of his desk and stack them onto those to the sides, clearing a sightpath between them as she sits on one of the chairs.<br>
-<br>
-"It's no problem, thank you for the appointment!" Leaf can't help but look at all the paperwork. "I hope I'm not interrupting anything too important…"<br>
-<br>
-"Not at all. Hard to believe I know, but the stacks were twice as big this morning."<br>
-<br>
-Leaf stares. "Is your… computer broken?"<br>
-<br>
-Mayor Kitto laughs. "Have you ever heard of the virtual office?"<br>
-<br>
-"Sure."<br>
-<br>
-"It's a myth. Especially in the public sphere: too much need for accountability. Which makes all this paperwork a necessary evil, I'm afraid."<br>
-<br>
-"Is that a big concern of yours?" Leaf wants to take her notebook and pencil out, but refrains. Laura told her that taking them out would be a signal that the interview has begun, and a reminder that anything said might be printed. Best to build a rapport in a more casual atmosphere first.<br>
-<br>
-Mayor Kitto leans back in his chair. "One of the top concerns for anyone in public office, I would hope. Without it, there's no trust, and if we don't trust our leaders we might as well go back to letting the warlords rule us."<br>
-<br>
-Leaf smiles. "A desk full of paperwork is all that stands between us and feudalism?"<br>
-<br>
-He smiles back. "You can quote me on it. Accountability is the bedrock of a representative government. But I don't mean to bore you with political science. Tell me how you liked our museum."<br>
-<br>
-"Oh, it's fantastic!"<br>
-<br>
-"Do you have a favorite exhibit?"<br>
-<br>
-"I think the interactive fossil excavation. It was a lot of fun!"<br>
-<br>
-The mayor beams. "My daughter thought so too. Came home after they unveiled it and started digging up the whole back yard, dabbing at rocks with a paintbrush." He chuckles. "She's studying to be a paleontologist now, so I'd say it did its job. "<br>
-<br>
-"I know how she feels. I half wanted to become one myself, while I was there."<br>
-<br>
-"Well, I'm glad you enjoyed it so much. The director said you were writing an article on it, right? What did you want to ask me?"<br>
-<br>
-"Well, why don't we start at the beginning? For you, at least. When did you first go to the museum? What was it like for you?"<br>
-<br>
-The mayor chuckles. "Pretty boring, to be honest. It was much smaller back then, and the exhibits were very dry. My dad took me, he was a biologist who worked on one of them, and it was interesting, but not a passion of mine. My real interest in it came after..."<br>
-<br>
-Kitto begins to recount the history of the museum, along with some context of the city at the time. Much of it Leaf has already learned on her own, but he's a decent storyteller, and she surreptitiously remembers to pick up her notebook at one point and start jotting down lines as she listens.<br>
-<br>
-"-and then they brought those first complete sets of fossils in, and arranged them all into what the pokemon looked like at the time… that was a turning point. Most people around here had no idea how important the fossils were, they just thought it was an interesting exhibit. But within the next month the influx of tourists became noticeable, and then awareness spread quickly as people and the media began to talk about what was drawing them. That's when the shift to a focus on geology and paleontology started, and the city was never the same. The economic impact of increased tourism is hard to overstate, and we've seen regular growth ever since."<br>
-<br>
-"That's great," Leaf says as she writes down the last line for a potential quote. "So are you happy with the latest exhibits?"<br>
-<br>
-"That would be the timeline of the fossil record, right? Yes, very happy. I think it's very important."<br>
-<br>
-"What in specific do you think makes it so vital?"<br>
-<br>
-"Well, you know, the implications. For life, us, everything. It's a big deal."<br>
-<br>
-Hm. Not quite quote worthy. "I think so too. That's why it seems so strange to me how many people are against them."<br>
-<br>
-"Well, hopefully they'll come around in time."<br>
-<br>
-Leaf waits a beat, but that's all he says. She can't help but feel a bit disappointed. Kitto doesn't seem as passionate about it as she hoped when she found out that he made them possible. It makes sense for a mayor to be focused on economic impacts rather than scientific ones, but…<br>
-<br>
-"Is that why you pushed for the newer exhibits on the possible origins of life and species?" When she was preparing her questions she was going to ask Laura recommended against too many questions that imply an answer already, but said that they can get a more direct response on important topics.<br>
-<br>
-Kitto blinks. "Pushed for it? Where did you hear that?"<br>
-<br>
-"Oh, maybe I misunderstood." She taps her lip with the end of her pencil thoughtfully. "Someone at the museum suggested that you recommended it, or gave the go ahead, or something like that. Is that not right?"<br>
-<br>
-"Ah, just some visitor, then? Well, as much as I'd like to claim credit, the museum's board and director decide on exhibits." He gives a wry grin. "All we do from city hall is help pay the bills."<br>
-<br>
-"I see. Is the funding ever increased or decreased based on what's exhibited?"<br>
-<br>
-The mayor glances at her notebook, so quickly Leaf almost misses it. "Never directly, but a large portion of its budget is decided ultimately by the public, and without advocates in public office, it can find itself walking a delicate line."<br>
-<br>
-"In the interviews I've done so far, I've noticed a lot of disagreement on the latest exhibit, mostly by citizens rather than tourists. What has the controversy been like for you?"<br>
-<br>
-"Well, I've gotten my fair share of letters on the exhibit, but then, I've gotten letters about cracks in sidewalks too. It's natural for people to speak their mind and give feedback, but any organized expressions of disapproval have been very mild. And like I said, the Museum's board is in charge of those decisions."<br>
-<br>
-"Is there anyone in the public eye you would recommend talking to for an opposing perspective on the exhibits?"<br>
-<br>
-"Hmmm." The mayor leans back in his chair with his hands clasped, looking up. "Well, there was a letter writing campaign that was organized by some local pastors and religious leaders. Others have been very supportive, however." He lists some names on both sides of the issue, and she scribbles down the ones that are new to her.<br>
-<br>
-"What about Leader Brock?"<br>
-<br>
-"The Leader has been careful to avoid any public comment on the topic." His tone is bland and pleasant enough. Is she imagining hostility because of what Dr. Brenner said? Leaf has to remind herself that she's not trying to stir up drama or make things <em>more </em>political. She just wants to know what's going on.<br>
-<br>
-Leaf pushes her curiosity to the side. "I tried getting an interview already, but I don't think I'll be hearing back from them."<br>
-<br>
-"Well, the Leader is a busy man. More than just papers on <em>his </em>desk." Kitto chuckles. "I on the other hand am happy to help encourage more Unovans to come and visit our city and region. I hope I've done that."<br>
-<br>
-"You have, thanks." Leaf closes her notebook and tucks it away, indicating that the interview is over. Time to clear the air. "I just want to make sure, the director did mention that I would be publishing it locally as well, right?"<br>
-<br>
-The mayor smiles. "He did. That's the main reason I made time for the interview."<br>
-<br>
-Leaf feels confused. <em>If his focus is increasing tourism, why would he care if it's published locally? Unless that's not actually his main goal at all.</em> "Well, I don't expect it'll get a lot of attention here. It's just an opinion piece from a stranger."<br>
-<br>
-"Don't be so sure. An interview with the mayor is no small thing, and I'll be sure to give it a mention when I can."<br>
-<br>
-Leaf bites her lower lip before noticing and stopping herself. "Not that I don't appreciate all the help, but… considering you don't seem particularly interested in the museum's latest exhibit, and that's what the major focus of the article is, why <em>did </em>you agree to the interview?"<br>
-<br>
-The mayor is quiet, and Leaf waits. Eventually he says, "What do you think of a leader's position in the community, Miss Juniper?"<br>
-<br>
-"I never really thought about it before all this. They have a very important role and a lot of influence, don't they? More than I realized."<br>
-<br>
-"More, would you say, than was intended by the Regional Charter?"<br>
-<br>
-"I guess that depends on the leader."<br>
-<br>
-Mayor Kitto smiles. "What's the most important aspect of representative government, Miss Juniper?"<br>
-<br>
-She considers her answers, but she already knows what he's expecting, and she mostly agrees in any case. "Accountability."<br>
-<br>
-"And what's the major difference between a mayor and a leader?"<br>
-<br>
-"Accountability." Again, she knows that's the answer he wants to hear, but now she's thinking further. "Mayors are public servants, and if the public dislikes some policy or action, they're voted out. A leader isn't, they're replaced mostly by Challenge and other checks of skill or competence."<br>
-<br>
-"Does a mayor ever influence a city's defense decisions, or gym standards?"<br>
-<br>
-Leaf smiles. "Not that I've seen." The very idea seems silly.<br>
-<br>
-"And do leaders have no influence on topics outside their purview?"<br>
-<br>
-She shakes her head. "Leaders often command more respect than anyone else in a city. And that can't help but affect people's beliefs on other topics."<br>
-<br>
-"Would you say that's a healthy balance?"<br>
-<br>
-Leaf is quiet this time, and the mayor doesn't interrupt it. "There must be some reverse effect as well though," she says eventually. "Popular leaders affect the public's opinion, but... the public's opinions are part of what decides how popular a leader is..."<br>
-<br>
-Mayor Kitto smiles, then glances at his computer screen. "I'm afraid my next appointment is in four minutes. Thank you for your time, Miss Juniper."<br>
-<br>
-"Thank you, Mayor." She shakes his hand, then gets up and leaves the office, barely noticing her surroundings. It isn't until she's out in the sunlight again that she realizes the mayor never actually answered her question, instead only asking his own.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-Blue and Red sit in the mess hall of the Trainer House, one hand shoveling food into their mouths and the other holding up their pokedex, eyes glued to the screens. It's the tail end of lunch time, and the tables around them are mostly empty.<br>
-<br>
-Blue just arrived from training at the gym with Maturin, Gon and Zephyr, and has about an hour before he's due at the pokemon center to help out with the beginning of the evening shift. Volunteering there doesn't feel like a chore anymore, though it does leave him tired at night.<br>
-<br>
-And nights are when he's been focusing on his shiftry, trying to modulate its behavior through simulations and checking to see if it changed at all in meatspace.<br>
-<br>
-It hasn't.<br>
-<br>
-Every night, he tries to get it to follow his commands, and every night, it continues trying to kill him. He doesn't want to admit it to Red, but he's been considering giving up more and more. He even looked halfheartedly into ads by trainers looking for shiftry, but the vetting process for trading pokemon is strict. Blue would never get through the live test without demonstrating that his shiftry is too wild, even if it's only violent toward him.<br>
-<br>
-People don't tend to want traumatized pokemon.<br>
-<br>
-"Hey, apparently some trainers have found their shiftry calmer after eating the right type of foods," Red says, one hand flicking through the dex's screen while the other twirls noodles around his fork and lifts it to his mouth. "Oh, but it also might not leave them wholly lucid…"<br>
-<br>
-Blue snorts. "Yeah, I considered tranqing him, but it's hard enough to get the dose right between asleep and high as a kite, let alone leaving him fit for training."<br>
-<br>
-"Well, it's an idea to consider."<br>
-<br>
-"Yeah. Thanks." Blue looks through the current simulation's intended goals, then flicks it aside and checks out the next one. "'To housebreak your pokemon,' 'to reduce hostility between your pokemon,' 'to reduce pokemon trauma'... that one might be useful, but where's the sim for 'stop your pokemon from being full of bloodthirsty vengeance?'"<br>
-<br>
-"Hey, I think this is it!"<br>
-<br>
-"What, really?" Blue leans over to look.<br>
-<br>
-"No, not that." Red highlights something on his pokedex with his fingers, then transfers it locally. Blue's dex pings, and he taps the notification of what Red sent him. It's a tab on the shiftry page for their social habits. He goes to the highlighted lines.<br>
-<br>
-<em>Another sign of shiftry's high intelligence, and another behavior that earned them the title of "Wicked Pokemon," is their intricate and violent social structure. Few pokemon species are as vicious in establishing their pecking order. Even obedient shiftry are known to attack the pokemon a trainer used to defeat them...</em><br>
-<br>
-Blue's flare of hope and excitement peters out. "That doesn't help us," he says, closing the page and going back to looking through training and bonding simulations. "I already used violence to subdue it, that's why it hates me in the first place."<br>
-<br>
-"No, keep reading, did you get to this part? '<em>In the wild, this often results in re-establishment of dominance, as shiftry habitually attempt to usurp leadership from those above them in their family.'</em> Don't you see? It doesn't <em>hate</em> you, it just sees you as its dominant!"<br>
-<br>
-Blue stares. "But I <em>am</em> its dominant. How does anyone train a shiftry if…" He trails off as he remembers what was written. "Wait, so because from its perspective <em>I </em>defeated it instead of a pokemon…?"<br>
-<br>
-"It was already down and out when you cut it up, right? Maybe it thinks that it can take you now that it's healthy."<br>
-<br>
-"That's nuts, how do they work so well together if they're constantly trying to kill their superiors?"<br>
-<br>
-"Well, they're not. They might try to sneak in a kill if they see weakness, but for the most part a shiftry that gets beaten stays beaten, and it's easy to remember why when your alpha is bigger and stronger than you. You, on the other hand, look nothing like a man-sized shiftry's superior. No offense."<br>
-<br>
-Blue puts his pokedex down, considering this. "So I need to beat it again, when it's healthy. Or get one of my pokemon to do it, rather."<br>
-<br>
-"That's my current hypothesis, yeah. But you might have to do more than just beat it the normal way, as in capture it in a ball. You need to actually establish dominance." Red glances at his screen, then closes the dex and begins cleaning up his tray. "We can talk about it tonight, I've got an appointment in forty minutes and the psychic's office is thirty away. See you later."<br>
-<br>
-"Later," Blue mutters, barely noticing Red's departure. The idea spins around and around his mind, coming closer to a landing with every revolution. He should have seen it earlier. His shiftry wants to fight him, just like any wild pokemon before it's caught. And just like any wild pokemon, he would have to show it that he's higher in the pecking order.<br>
-<br>
-Which means…<br>
-<br>
-Blue checks the time, then jumps up to throw out his tray and head for the elevators. He has almost an hour before he's due at the pokecenter. And that's an hour he can use to make his pokemon his, for real.<br>
-<br>
-Blue hurries to his room to grab his pack, then down to the training hall. The rooms are mostly full of trainers and their pokemon, and Blue jogs between the doors to find an empty one, not caring what type it's for. He won't be needing the supplies.<br>
-<br>
-Blue ends up in a Rock type training room, which he takes as a stroke of luck considering the layout is similar to the arenas at Pewter Gym. He unhooks the shiftry's greatball and bounces it between his palms as he considers his strategy.<br>
-<br>
-When he first encountered the shiftry in Viridian, taking it on alone would have given him trouble. He barely managed to beat the other, and lost his caterpie, beedrill and nearly Zephyr to do so. But that was weeks of training and experience ago.<br>
-<br>
-His main problems are his pokemon's types. Gon would be all but useless, as his seeds and powders would have no effect, and Maturin is at a type disadvantage. Which means it will be up to Zephyr, the pokemon he has trained with the least since coming to Pewter.<br>
-<br>
-But he's gotten a lot stronger regardless, and he has the type advantage. Blue reaches for Zephyr's pokeball and prepares to release him…<br>
-<br>
-...when the thought comes that he's being stupid.<br>
-<br>
-This is too big a risk to take alone. He won't let fear rule his decisions: he knows he can do this, despite the danger. But if he lets his overconfidence get Zephyr or himself killed, he'll have shown he learned nothing from his time here.<br>
-<br>
-Blue reclips his ball and leaves the training room, deciding to wait until Red is available tonight.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-"Six more," Psychic Ranna says, handing Red half a dozen sheets with the latest test results. They're in her office, its light magenta wallpaper and deeply cushioned couches giving it an oddly soothing atmosphere. It reminds Red of his old therapist's office, though the two look nothing alike.<br>
-<br>
-He thumbs through the surveys and nods. "Good, an even thirty. Are you still feeling okay?"<br>
-<br>
-"Yes, thankfully there are still no lasting effects. How's the data looking so far?"<br>
-<br>
-"Not great," Red admits.<br>
-<br>
-"I'm sorry," she says, and sounds like she means it. "Any appointments for Sunday?"<br>
-<br>
-"Not so far. I have one I think will be free on Tuesday, and hopefully another nine will contact me by the end of next week. I'll let you know if anything changes. Enjoy your Saturday."<br>
-<br>
-"Thank you. Goodnight Red."<br>
-<br>
-"Night." He heads for the door and makes his way to the Trainer House by the light of the streetlamps. It's a bit of a bother coming here to pick up the reports every few days, but he can't have her read the reports to type them up and email them after they're written, so manual pickup it is. Thankfully she's not hard to work with. It's good to have met a psychic who's pleasant, if still a bit distant.<br>
-<br>
-Pewter is busy winding down the workday and preparing for the weekend. Red passes by a lot of couples and groups of friends, laughing and chatting as they head into movie theaters and bars and restaurants. The latter often emit savory scents that make his belly rumble. He has to keep reminding himself that he has to save his money, that five to ten dollars here and there add up, and that cheap and perfectly serviceable food is waiting for him at the Trainer House. After almost a month of eating meals consisting of mostly noodles or rice, he's homesick for his mom's cooking.<br>
-<br>
-More than that, he misses his friends. Everyone's so busy with their projects that other than in the quick nightly tests with Blue and occasional shared meal with him or Leaf, they've all but stopped talking to each other. Red thought his research would keep him happy, but he knows that's where the real problem is.<br>
-<br>
-"Not great" was an understatement. What Red could have said was that his research is a bust. Unless the six in his hand and the next ten subjects are wildly different from the previous ones, he can already see from the emerging data that any correlation between a spinarak's mental attacks and the % of their mass unaccounted for in the pokedex is extremely low, and likely nonexistent.<br>
-<br>
-He knows that it's still important to finish. There might still be something to be learned once he has all the data, or in a qualitative analysis of the reports. And even if not, null results are vitally important in science. What he's learned may not be important, but it can help guide people toward things that are.<br>
-<br>
-None of that helps him feel like he hasn't wasted the past month, or dread the hours more of writing and analysis to come. And all of which just make his feelings of loneliness and restlessness worst.<br>
-<br>
-His only solace is his time spent with his pokemon. He tries to fit in an hour every night to spend time with at least one of them, whether it's for a bit of training, playing a game, or just walking around the city. Charmander and Rattata enjoy the park, and over the past week he's felt safe picking Pichu up and carrying him around without cheri berries.<br>
-<br>
-He hasn't brought his spinarak out since leaving the forest.<br>
-<br>
-Red arrives at the Trainer House and heads to the dining hall. He fills his tray with some rice balls and steamed vegetables, and reads over the reports as he eats.<br>
-<br>
-<em>Subject 25 - 4/10</em><br>
-<br>
-<em>A sensation of intense vertigo and fear, coupled with discomfort in the stomach and chest akin to looking down from a high place. Recording shows shortness of breath for approximately fourteen seconds. Discomfort was bearable but unpleasant.</em><br>
-<br>
-<em>Subject 26 - 2/10</em><br>
-<br>
-<em>Mild fear and discomfort. Couldn't quite pinpoint a theme. Odd sensation in stomach.</em><br>
-<br>
-<em>Subject 27 - 7/10</em><br>
-<br>
-<em>Debilitating fear. Horrible. Feelings of falling from a great height. Coupled with an intense physical reaction. I have nearly fallen from my chair and am gripping tight to ensure that I do not panic entirely. The spinarak's trainer is writing this. By dictation. Before I remove the memory. Now. Alright you can</em><br>
-<br>
-It stops there. Red puts the papers down, skin feeling clammy with nerves from expecting a flashback to his own experience. He had them for the first two weeks of reading the reports, but they've slowly been getting more bearable, and he hasn't had one at all in the past few days. Whatever lingering effects his spinarak's attack had on him seem to finally be wearing off. He drinks some water and moves on to the next one.<br>
-<br>
-<em>Subject 28 - 5/10</em><br>
-<br>
-<em>A sensation of vertigo and terror, with intense discomfort in the stomach and chest akin to looking down from high up. Recording shows intense physical reaction for about twenty-two seconds. Discomfort was fairly strong.</em><br>
-<br>
-Red looks at the similarities between 4 and 5, interested by how they overlap. The similar language and sentence structure in equal scores is something that he wants to study more. Surely other scientists have caught on to how interesting the idea of selective amnesia can be on studies of memory and personality? If so, he hasn't heard of it yet.<br>
-<br>
-Red finishes eating and reading the other two reports, then heads up to the computer lab and enters the data. He sighs as he sees the line representing the attack score vary wildly in relation to the matching spinaraks' "Other" data.<br>
-<br>
-His own spinarak, subject 11, turned out to have a substantially powerful attack after all: it scored an 8/10, tieing it with one other spinarak as the second highest recorded. It made him feel better knowing that his spinarak's mental attacks actually are powerful for its species, even after it became clear from the rest of the data that it's one of the few with a high score on both metrics.<br>
-<br>
-Psychic Ranna told him that she was basing her scale off previous Ghost type attacks she experienced when she was younger and still remembers. It worries him a bit that her baseline is so potentially different from what she's comparing it to now, but that's the downside of having your subject forget each test.<br>
-<br>
-One idea he's glad he had was to use the video recording of each event to monitor how long it takes for her to physically calm down. It's imprecise and not particularly useful for extremely low scores, where she has no visible reaction, or high scores, where she often wipes the memory shortly afterward rather than waiting for it to fade on its own, but he couldn't think of anything better at the time.<br>
-<br>
-With a sigh, Red opens the document where he's been writing the full paper and picks it up where he left off. He's done with most of the Abstract, Introduction and Methodology, and is updating them all and the Results as new data comes in. He's just about to email a question to Professor Oak when his phone rings.<br>
-<br>
-"Hey Blue, what's up?"<br>
-<br>
-"Just got out. You at the House?"<br>
-<br>
-"Yep."<br>
-<br>
-"Okay, I'm heading there. I know it's early, but I want to try out your idea from lunch. You free?"<br>
-<br>
-<em>Right, that. </em>Red hopes he's right about it and Blue manages to tame the shiftry, because he doesn't think his friend will be able to beat Brock otherwise.<br>
-<br>
-"I'm working on something right now…" Red looks at his paper, considering the hours of writing and editing ahead, and grimaces. He's happy to have an excuse to put that off. "But I can put it on hold when you get here."<br>
-<br>
-"Awesome, thanks. See you soon."<br>
-<br>
-Red puts his phone away and works halfheartedly for the next half hour, mind elsewhere. If Blue tries to beat the shiftry again, Red will have to be far away to ensure it works properly, which will make it difficult to help protect Blue if things get out of hand. He wonders if they should get Leaf too, but he knows she probably won't approve of their method of rehabilitating a potentially traumatized pokemon through more violence. It even feels a bit convenient to Red: he expected to find some complex or unique method of calming the shiftry down or getting it to listen to Blue. Just having to rough it up some seems anticlimactic.<br>
-<br>
-But that's silly. They might have just been wrong in their first assumption of the shiftry's behavior, and correcting that assumption would hopefully lead to a different result. Reality doesn't care about convenience or dramatic story progression.<br>
-<br>
-As his research is demonstrating to him.<br>
-<br>
-Red grimaces as he realizes he's been staring at the screen without typing for five minutes. He saves his work and he logs off the computer, then heads to his room to collect his things and wait for Blue downstairs.<br>
-<br>
-Blue arrives in his volunteer scrubs and dashes up to his room to change and grab his stuff, instructing Red to try to find a Rock training room. By the time he does so, Blue has already arrived and jogs over to the right door when Red texts him which one is free.<br>
-<br>
-"Okay, so here's the plan," Blue says, unhooking a pokeball and sending Zephyr out. "I'll try to keep Zephyr moving fast in and out, so it doesn't have a chance to get a solid hit in. Do you think Charmander could slow it down without hurting it too badly?"<br>
-<br>
-Red watches Zephyr soar around the room, then perch on Blue's arm. "It would be risky. I think I have a better idea." He reaches for the pokeball at his back. It's been days since his last flashback. Time to put it to the real test. "Let's see if this works first… go, Spinarak!"<br>
-<br>
-The bug materializes and immediately skitters around a small boulder, then on top of it, turning from side to side with a clatter of its feet. The sound gives Red the jitters, but when he forces himself to look at the pattern on its thorax…<br>
-<br>
-…<br>
-<br>
-…<em>dark…</em><br>
-<br>
-…<br>
-<br>
-…<em>cold…</em><br>
-<br>
-Red grits his teeth, focusing on his breathing. The sense of mental anguish is there, but bearable… just.<br>
-<br>
-"Red? You alright?"<br>
-<br>
-He realizes Blue is looking at him with concern, and flashes a thumbs-up. "Let's do it."<br>
-<br>
-<hr /><br>
-<br>
-Blue unhooks his shiftry's greatball and positions himself in a space without rocks around him. "Ready?"<br>
-<br>
-"Ready," Red says, standing on the opposite end with his spinarak. Both of them have their air masks on.<br>
-<br>
-Blue takes a deep breath, feeling the calm descend. There's a distant fear under it, but it's mostly from the idea that they might be wrong, and that this won't work. But if it doesn't work, there's nothing he can do about it now. Either it will or it won't, and he'll deal with it if not. In the meantime, he knows what he needs to do. All that's left is to do it.<br>
-<br>
-"Go, shiftry!"<br>
-<br>
-It appears halfway between them, facing Red. Blue catches the ball on its return and immediately points with his other hand. "Zephyr, wing attack!"<br>
-<br>
-His pidgey lets out a battle screech as it dives and rakes its talons through the shiftry's long white hair as it flies by. It gives its coughing roar and pirouettes, eyes searching for a target and locking onto Blue.<br>
-<br>
-"Spinarak, string shot!"<br>
-<br>
-Blue is already jumping back as the shiftry springs toward him, but its jump catches short mid-air, and it lands awkwardly as the sticky webbing tethers it to the ground. Zephyr comes down for another pass and sends the shiftry spinning in place again with another long scratch along its side. The shiftry swipes at it with both arms, but Zephyr does a twisting dive that lets it slip under its reach.<br>
-<br>
-"String shot!"<br>
-<br>
-A line of web attaches to the shiftry's right arm, and its attempt to chase after Zephyr is aborted. It turns to try and hack at the restraining lines, and Zephyr rakes its other side, causing it to flinch and swipe at him again.<br>
-<br>
-"Gonna try to get its other arm! Spinarak, string shot!"<br>
-<br>
-The webbing misses the limb and drapes itself over the shifty's shoulder. Blue's about to order Zephyr to peck when the shiftry gathers itself into a ball and tumbles to the side, stretching the strings of web as it moves in an arc around toward Red's spinarak.<br>
-<br>
-<em>Shit! </em>"Zephyr, Feather Dance!"<br>
-<br>
-"Spinarak, dodge!"<br>
-<br>
-Red's spinarak scuttles to the side as the shiftry awkwardly struggles against the webbing to chase it. Zephyr soars overhead and hovers in place above the shiftry, wings flapping in a blur that sends tufts of down and feathers everywhere. The shiftry swipes at them in irritation, then lets out an explosive sneeze, followed by racking coughs that cause its whole body to shake.<br>
-<br>
-"Do bugs breathe? Zephyr, Quick Attack!"<br>
-<br>
-"It'll be fine! Spinarak, String Shot!"<br>
-<br>
-The shiftry gives its coughing roar again, this time literally coughing as it shakes its head, mane of hair rustling and shedding bits of feather dander. It abruptly raises its head and stares at Red… and its eyes begin to glow.<br>
-<br>
-"Gah!" Red clutches at his head and shakes it. A surge of panic makes Blue break into a sprint as Red drops to his knees and frantically scratches at his arms. "AHH, BLUE, MAKE IT STOP!"<br>
-<br>
-Blue dashes in front of his friend, arms down to the sides to try to cover Red as much as possible. "Shit, sorry! I thought it would try it on me! Are you okay?!" The shiftry is still staring at him, eyes aglow.<br>
-<br>
-"Nngh… yeah… ugh, that felt terrible!" There's a sound behind him, and Blue turns to see Red sitting back with his head between his legs. "Gimme… just, a moment…"<br>
-<br>
-Blue stares at his shiftry, anger growing into a slow rage. This goddamn pokemon tried to kill him and the others in Viridian, and after he saved its life it's given him nothing but trouble. Now it's hurting his friend, who's only here for his sake. "Zephyr, Feather Dance!"<br>
-<br>
-Another rain of down and feathers cover the shiftry, and after a moment of continued intense staring, the shiftry begins to twitch and rumble, a low series of coughs building in its chest until it doubles over.<br>
-<br>
-"It stopped, Red. How you doing?"<br>
-<br>
-"I'll be alright. The shiftry?"<br>
-<br>
-"Almost done I think. Just call out for a couple more String Shots and let's end this."<br>
-<br>
-Their pokemon continue to harry and trip up the shiftry as it tries to free itself from the webs and slice the infuriatingly quick pidgey in two. Eventually it begins to tire, stuck by half a dozen weblines and bleeding from multiple wounds. Red eventually recovers enough to stand up and spread out from Blue, and after a few more attempts to untangle itself, the shiftry lets out a groan and falls to its side, chest heaving as it catches its breath.<br>
-<br>
-"Spinarak, return!"<br>
-<br>
-"Zephyr, return!"<br>
-<br>
-They both keep their pokemon's balls ready in their hands as they watch the shiftry struggle to get back up, then collapse back down. "Think that did it?" Red asks, voice rough.<br>
-<br>
-"One way to find out." Blue approaches the shiftry, anger making him fearless. He gets some powerful deja vu, staring down at the shiftry as it labors for breath and struggles to lift its arms enough to reach him.<br>
-<br>
-"Blue, back up. You want it to remember one of our pokemon defeating it."<br>
-<br>
-Blue lets out a breath, the nods and steps to the side. "You got something in mind?"<br>
-<br>
-"Yeah." Red reclips spinarak's ball and takes out another one. "Go, Pichu!"<br>
-<br>
-The yellow rodent appears in a flash of light, and immediately darts to its master's side, tail quivering up as it stares at the struggling shiftry. "Why him?" Blue asks, then answers his own question. "Distance and resistance."<br>
-<br>
-"Yeah. Charmander might do too much damage, and the others have to get too close." Red walks around the shiftry so that he's out of its sight, and Blue does the same. "Pichu, Thundershock!"<br>
-<br>
-The pichu lets out a high pitched squeal, and a jolt of electricity jumps between it and Blue's shiftry. His pokemon jerks and tries to attack, but the shocks combined with the webbing keep it flailing on the ground.<br>
-<br>
-Pichu stops, cheeks losing their glow little by little. "What do you think?" Red asks.<br>
-<br>
-Blue watches his shiftry in silence, and eventually it begins to struggle to its feet again, leaf-blades spreading and closing as it focuses on the pichu. From here they can't see its eyes, and Blue is worried about it attempting another Extrasensory attack. "Another."<br>
-<br>
-"Thundershock!"<br>
-<br>
-Again the jolt of electricity, again the waiting and watching as his shiftry, after a moment's rest, tries to go on the offensive again. <em>Stay down, dammit. </em>"Once more."<br>
-<br>
-<em>Bbzzaaaap!</em> Smoke begins to curl up from the shiftry, and Red calls for his pokemon to stop. Blue watches as his shiftry draws in one laborious breath after another... but doesn't attempt to rise.<br>
-<br>
-"Shiftry, return!"<br>
-<br>
-"Pichu, return!"<br>
-<br>
-Blue lets out a breath as he aligns his greatball lens with his pokedex, tension easing slowly. Red reclips his pokeball and stares at Blue's greatball speculatively. "Think it worked?"<br>
-<br>
-"One way to find out. First though, back to the pokecenter." Blue takes off his mask, and Red follows suit. Blue notices Red's face is a bit pale and sweaty. "Thanks man. For everything." He holds out his fist as they head for the door, and Red bumps it.<br>
-<br>
-"Anytime. I'm going to go get some rest. Let me know when you get back."<br>
-<br>
-"You sure you're going to be okay?"<br>
-<br>
-"Yeah. Just hope I don't have to do anything like that again soon."<br>
-<br>
-"The psychic attack was that bad, huh?"<br>
-<br>
-"Oh, yeah, that sucked too. I meant more what we did to the shiftry. I know it was trying to kill you, and maybe this is the only way it'll become tame, but it still felt... cruel."<br>
-<br>
-Blue lets out a breath and leans against the elevator wall, remembering the hatred that boiled up in him when Red got hurt. "I don't know if you noticed, but it's a cruel world. As long as we can control the shiftry and use it to protect others, that's a net win."<br>
-<br>
-"Then you're okay with that? Becoming cruel ourselves?" Red asks, meeting his gaze.<br>
-<br>
-Blue looks back at him, remembering the pokemon and people that were cut down by the shiftry in Viridian. "If that's what it takes? Sure." He punches the button for the lobby. "Better us than them."
-        </div>
+            <h1 class="chapter-title">Chapter 32: Decisions</h1>
 
-        <div class="chapter-nav">
-            <a href="../31/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../33/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>The room is claustrophobic with so many people in it, and Red stands as far into the corner as he can, trying to be innocuous. His foot bounces with the nervous energy filling his gut, but he makes sure to be quiet as he rocks from toe to heel, not wanting to draw attention that might remind someone to remove him.</p>
+
+<p>Technically he has no reason to be here. He doesn't work at the dig site like Ryback or the site leader, Dr. Zapata. He isn't an ACE on security like Paul, and unlike Leaf and Blue he had no interaction with Yuuta, so Ranger Sasaki has nothing to ask him. But despite being exhausted enough to sleep for hours, as long as no one seems to mind his presence, he has no intention of missing something this important.</p>
+
+<p>Ranger Sasaki arrived and spoke with Blue then Leaf privately to record their statements, then noticed that they were starting to draw a crowd and asked the Barrier to be removed so they could bring Yuuta inside. Yuuta didn't wake up until they began to move him, and has been sitting in sullen silence since his interrogation started. Though perhaps "interrogation" is too strong a word so far…</p>
+
+<p>"...three years, after which you spent a couple months travelling through Johto. A brief bit of surveying work for Silph, a conference in Sinnoh, two research projects back to back…"</p>
+
+<p>Yuuta sits bound to a chair by the ankles and wrists with his back against a wall. Ranger Sasaki stands in front of him as she reads from her phone, while everyone else stands in a half circle around him, Paul with his back to the door. Yuuta's pokebelt is being held outside in case any have been hacked to force-open by voice command regardless of surroundings.</p>
+
+<p>"...some more survey work for a private dig, and then you drop off the radar for about two years before doing another two surveys and then applying to this site." Ranger Sasaki scrolls through the document with her thumb, then tucks her phone away and takes out a notepad and pen. "That's your CV right? Did I miss anything major?"</p>
+
+<p>"No. That's all right." Yuuta's voice is low, gaze on the floor. It's the first time he's spoken since waking, and everyone but Ranger Sasaki reacts in some way, shifting or blinking in surprise.</p>
+
+<p>"What's with the gaps?" Sasaki asks. "Anything you want to clarify for the record, before we do some deeper digging? Maybe point us in the right direction, save everyone some time?"</p>
+
+<p>Yuuta is quiet a moment, then lets his breath out through his nose. "Travelled. Alone."</p>
+
+<p>"Mhm. Didn't happen to use any electronic forms of payment during that time, did you?"</p>
+
+<p>"I did, actually. Sometimes. Cash while abroad, but passed through Kanto now and then."</p>
+
+<p>"Not very helpful."</p>
+
+<p>"Well I'm sorry ma'am, I guess you'll have to do your own damn job. Now I'm done talking until I can see my attorney."</p>
+
+<p>Everyone shifts again at the sudden anger in his voice, and Paul snorts. "Renegade asking for a lawyer, that's rich."</p>
+
+<p>Yuuta's head snaps up. "What'd you just call me?"</p>
+
+<p>Ranger Sasaki gestures to Leaf and Blue. "These two say you used pokemon to attack them."</p>
+
+<p>"What?! <em>He</em> attacked <em>me</em>!" Yuuta jerks his head at Blue.</p>
+
+<p>"No I didn't, my squirtle attacked your abra!"</p>
+
+<p>"And my sandslash attacked your squirtle, so what's this Renegade shit?"</p>
+
+<p>Ranger Sasaki holds up a quieting hand before Blue can respond. Red wipes a drop of sweat from his neck as he studies Yuuta's face. The geologist's outrage seems genuine, with just the right hint of fear in his voice and eyes. Red never met a Renegade before, and has no idea if they're all such good actors. Of course if he assumes from the beginning that Yuuta's a Renegade, then <em>any</em> emotion he shows in denying guilt would seem like good acting, even if genuine...</p>
+
+<p>Blue's question outside still echoes in Red's head: <em>Whose side are you on, anyway?</em> Red didn't mean to imply with his comments that Yuuta wasn't a Renegade. He was just reacting reflexively to potential bias or irrationality. Blue has accused him in the past of getting too much enjoyment out of being a devil's advocate to "infuriating" extremes, but Red never means to do it maliciously. Something in him just naturally pushes back at things that look too sure or damning.</p>
+
+<p><em>What do I think I know, and why do I think I know it? </em>Red can't help but wonder if the whole thing really was a big misunderstanding, but… he trusts Blue and Leaf not to embellish or exaggerate. Not consciously, anyway. And if Yuuta <em>is </em>a Renegade, getting them to second guess Blue and Leaf is his only chance.</p>
+
+<p>"What did his squirtle attack your abra with?" Ranger Sasaki asks.</p>
+
+<p>Yuuta shifts in his seat. "Water Gun."</p>
+
+<p>"And your sandslash attacked with what?"</p>
+
+<p>"Scratch."</p>
+
+<p>Blue and Leaf mix angry denials until the Ranger quiets them again, and Red suddenly wonders why they're here at all. The whole situation is different than in TV shows (less shouting and dramatic reveals of evidence by the Ranger) but he knows from watching them that suspected Renegades aren't left alone with anyone while in custody. Still, having Blue and Leaf here just makes it harder to get a clear story from Yuuta, who's showing more… normalcy, humanity, than the Renegades on the shows.</p>
+
+<p>"They misheard me, that's all!" Yuuta says. "It was a tense situation, and I was panicked at suddenly having to defend myself without warning!"</p>
+
+<p>"You mean while you were trying to teleport away with a bag full of our fossils?" Dr. Zapata asks. "They may not have known if you had permission at the time, but you knew exactly what you were doing."</p>
+
+<p>Yuuta is quiet, then leans his head back, face blank again. "I want a lawyer, I said."</p>
+
+<p>"So you're not denying that you were attempting to steal the fossils?"</p>
+
+<p>Yuuta remains silent, and Red thinks he won't answer any more. If it's one thing Red learned from the shows it's that crime suspects speaking without an attorney is just a terrible idea in almost every circumstance, so he doesn't blame the man for being cautious, even if his silence is as good as an admission of guilt.</p>
+
+<p>But he won't get an attorney if a Ranger and some witnesses agree that he used pokemon to attack someone. Was it two or three? Certainly less than the amount of people in this room. A chill suddenly creeps up Red's spine as it hits home that he's likely looking at a dead man. If Yuuta can't convince the people here that he's not a Renegade, he wouldn't see another sunrise.</p>
+
+<p>"No," the geologist says at last, voice low. "I tried to steal them."</p>
+
+<p>"No shit," Blue mutters.</p>
+
+<p>"How could you, Yuuta?" Dr. Zapata asks. "Bad enough that we all worked so hard for them, were they really worth killing for?"</p>
+
+<p>Red expects defiance when Yuuta raises his gaze, but with a shock he sees a pained expression. "You have every right to hate me, Lourdes. I won't try to excuse it. I put myself first, like I have my whole life. I'm not a good person… but I'm no Renegade!" he says, turning to Blue and Leaf, then Ranger Sasaki. "You have to believe me!"</p>
+
+<p>"The graveler that came through that building and self-destructed," Leaf says. "You ordered it to."</p>
+
+<p>"I didn't know you were there, I swear! If I wanted to kill you, why didn't I just do it while you were taking care of your friend?"</p>
+
+<p>Leaf hesitates, and the room is silent for a time, broken only by the sound of Yuuta's shallow, rapid breathing. The geologist has a point, but no one's brought up what Red thinks is the most important argument. He swallows against the dryness of his throat and wonders if he should say something. Fear radiates off of Yuuta, and Red finds it hard to speak the words that might sentence the man to death. He looks at Ryback, and the man catches his gaze and nods.</p>
+
+<p>"Forget the graveler," Ryback says. "Your job on site was partially to monitor for seismic activity. You didn't warn anyone that the paras colony was coming. You must have detected them, known this was your chance."</p>
+
+<p>"No, I wasn't with the equipment! I just saw an opportunity and took it." Yuuta turns to the Ranger. "Look, get a psychic up here and they can <em>prove</em> I'm innocent. I'll sign whatever waivers they want!"</p>
+
+<p>"I'm sorry, but there's no way to guarantee that you haven't trained to fool a psychic. This situation has too many marks of foresight and planning. Even if you didn't directly use a pokemon to attack a human, you endangered lives by trying to exploit a pokemon attack."</p>
+
+<p>"And the pokemon you used were exactly what you needed to make it look natural," Blue says.</p>
+
+<p>"That's a coincidence, we've been here a year. Of course I have natives of the mountain!"</p>
+
+<p>"What about your abra?" Leaf asks. "You had it ready to teleport you out."</p>
+
+<p>Yuuta scowls. "Any trainer with a brain has a pokemon ready to teleport them in emergencies. You're just looking for reasons to condemn me, the lot of you! You've already made up your minds!"</p>
+
+<p>There's another uncomfortable silence. Despite Yuuta's accusation, no one seems eager to brand someone a Renegade on circumstantial evidence, and even Paul appears to be wavering.</p>
+
+<p>"There's an easy way to verify that," Red says, causing everyone to turn to him. He steps away from the wall to stand beside Blue and Leaf. "Tell us where your abra teleported to. If you're telling the truth and your abra was for emergency escapes, then it should have been trained with a pokemon center as its home, or a hospital. You're not psychic, right? You can't project a new destination on the spot."</p>
+
+<p>Yuuta stares at him, jaw tight. Red forces himself to meet the man's gaze, trying to read some insight or depth in them. But Yuuta only looks angry and scared.</p>
+
+<p>"No unaccompanied abra have been reported," Ranger Sasaki says. "If we're looking in the wrong places, tell us now."</p>
+
+<p>Yuuta's throat works for a moment, then he looks down and mutters, "I'm not saying anything else without a lawyer. You can't charge me as a Renegade just because I was caught stealing."</p>
+
+<p>"And if that's all it was, you'd be right," Sasaki says. "But even putting aside the reckless endangerment by use of pokemon, even putting aside the testimony of these two, your attempted thievery relied on the endangerment of others." Her tone is flat, and she looks from one adult to the next, each nodding. She also looks at Red, who nods reflexively. "You were in the presence of a Tier 1 Emergency, and instead of helping your fellow man, you exploited the situation for your own benefit, and endangered the lives of others with your graveler. For that, I brand you a Renegade."</p>
+
+<p>"No, please—"</p>
+
+<p>"Dawson, Mary, and Tetsu died today, Yuuta," Dr. Zapata says, expression hard. "They died fighting to protect everyone on this site, on this mountain. To protect you. And what were you doing? Trying to steal from them, from all of us. Witnessed."</p>
+
+<p>"I… I didn't…"</p>
+
+<p>"Witnessed," Paul says, voice flat.</p>
+
+<p>"Witnessed," Ryback mutters, gaze down.</p>
+
+<p>Yuuta looks around the room, face drained of color by the time he reaches the trio. "Kids… please, tell them… I could have killed you, if I wanted, I mean I was just… I'm s-sorry…"</p>
+
+<p>Blue stares at him in undisguised contempt, while Leaf looks sick and angry, eyes down. Red feels his stomach roll when Yuuta turns to him again, and forces himself not to step back to the wall. He wasn't there, he can't say anything that would help the man. <em>Didn't stop me from helping condemn him.</em></p>
+
+<p>Then Red realizes that's exactly what the room is waiting for. He remembers now, it's the Ranger plus four witnesses, and Blue and Leaf can't, they were directly involved. His presence wasn't an oversight at all: he's expected to pass judgement. That's why the Ranger looked at him.</p>
+
+<p>Cold sweat breaks out all over his skin, and he takes a deep breath to calm himself. He needs time, he needs to think about all the evidence and angles—</p>
+
+<p>"Red," Ryback says. "Do you need a minute?"</p>
+
+<p>Everyone's looking at him now, Blue and Leaf are looking at him, and he knows what he has to say, he just doesn't want to say it, doesn't want to be the person to decide. Going first or last has too much resistance, they should have couched him in the middle of the witnesses if they were trying to get him to feel less pressure, to conform, but of course they're not doing anything so deliberate. They just expected him to do his duty as a trainer: to listen, decide, and witness.</p>
+
+<p>"Please... please, don't..."</p>
+
+<p>"I witness," Red whispers, and clears his throat. "With all the evidence as it is, I witness the Ranger's branding," he says, louder.</p>
+
+<p>"No… <em>nooo</em>…"</p>
+
+<p>Yuuta shakes his head as he moans, face screwed up in horror and grief. "Branded and witnessed," Ranger Sasaki says. She opens her mouth again, then pauses and looks at the trio before turning to Paul. "If you wouldn't mind staying a moment?" He nods and opens the door. Everyone else files out of the room, and Red, Leaf and Blue follow as Yuuta begins to sob.</p>
+
+<p>Ranger Sasaki leads them outside, into the sunlight. Red feels it dry his sweat almost instantly, and shivers at the sudden temperature change.</p>
+
+<p>"Thank you all for your help," Sasaki says, gaze on the trio in particular. "Encountering and passing judgement on a Renegade are difficult things to do at any age, and I'm sorry you all had to go through it. You comported yourselves well, and are dismissed. I have your contact information for the paperwork, and if there are further questions," she says, addressing Ryback and Dr. Zapata too.</p>
+
+<p>"Thank you, Ranger," Dr. Zapata says, face a mask. As Sasaki returns to the building, Dr. Zapata turns to the trio too. "And thank you. I know I speak for everyone on site when I say that you've saved today from being full of any more heartache. After the friends we've already lost, the theft would have been a crippling blow to our spirit."</p>
+
+<p>"We did as anyone would," Leaf says, and Blue nods. Red stays silent, unsure if she's including him and still preoccupied with the fate of the man he sentenced to death.</p>
+
+<p>Dr. Zapata turns to Ryback. "Thank you, Jon. Would you mind escorting these three to a center or outpost?"</p>
+
+<p>"Of course, Doctor, I was just going to suggest the same."</p>
+
+<p>She grips his arm, then walks toward the distant figures of the other site workers.</p>
+
+<p>"We can make it ourselves," Blue says once she's gone. "You don't need to coddle us."</p>
+
+<p>Ryback raises a brow. "How many healthy, rested pokemon do you all have among you?"</p>
+
+<p>The trio pauses to count, and Leaf raises three fingers.</p>
+
+<p>Blue nods. "I've got three."</p>
+
+<p>"Two." <em>And one of them's a caterpie. </em>Red reminds himself to let Charmander out to rest soon.</p>
+
+<p>"Well this whole half of the mountain range is like a kicked beedrill's nest right now, and frankly I don't like your odds of making it on your own. Partly because you're still newer trainers, and partly because I know at least one of you must be exhausted." Red considers denying it as the other two look at him, but fights down the urge. "Alternatively you all could rest here for the night. By tomorrow the Rangers should have calmed things down a bit."</p>
+
+<p>"Is there room for us?" Leaf asks.</p>
+
+<p>"Normally no, but…"</p>
+
+<p>Red nods. They'd lost some people. It only takes a few seconds of thought to recognize they'd be stupid not to take him up on his help. "Well, if you can be spared around here, I wouldn't mind the escort."</p>
+
+<p>"I'm okay with it too," Leaf says.</p>
+
+<p>Blue looks at them, then shrugs. "Sure. Thanks."</p>
+
+<p>"Don't thank me, you all did a lot here. It's the least we can do to pay you back. Give me an hour to finish some things up, and I'll meet you on the east side of the dig."</p>
+
+<p>They agree and watch as he walks off, circling around the warzone of dead pokemon that blights a third of the dig site. The three stand together in silence and watch the various people moving about. Red wonders when Yuuta will be executed, and how. The day feels like it has gone on forever, probably because he feels so drastically different now than when he woke up this morning. There's a surreal sense of distance as he feels unconnected from his painful thoughts of guilt and uncertainty, but also a feeling of connection with the world around him, all his senses turned up as he breathes deep and feels again the same bittersweet gladness to be alive from just after the battle.</p>
+
+<p>Blue turns to Red and Leaf, a thoughtful, distant expression on his face. Just as Red's about to ask his friend if he feels the same way, Blue says, "So, anyone hungry?"</p>
+
+<p>Red snorts, then giggles, then sits down in the dirt, laughing until he clutches his stomach. Blue gives him a startled look, then tries to exchange concerned glances with Leaf, who merely gives a sad smile.</p>
+
+<p>"Uh. You okay, man?"</p>
+
+<p>Red makes an effort to control himself, speaking through giggles. "Yes… yes, I am hungry. And tired. And maybe slightly delirious because of it."</p>
+
+<p>"Well, we've got time for a snack and nap."</p>
+
+<p>"A snackap," Leaf says in an experimental tone. "Napack? A snap."</p>
+
+<p>Red shakes his head. He knows his friends aren't ready to talk about what just happened yet either, and is grateful for the excuse to put it off. "No, you guys go ahead." He pushes himself to his feet. "There's something I want to do before we leave."</p>
+
+<p>"What is it?"</p>
+
+<p>Red hesitates. Would he rather be alone? He's never done a burial before, isn't even sure why he wants to, other than a feeling of obligation. "My rattata got killed. I want to bury her."</p>
+
+<p>Leaf's hands cover her mouth. "Oh, Red, I'm sorry. How?"</p>
+
+<p>"One of the paras that looked dead… she walked by it and it pierced her heart before I could withdraw her. Spearow also didn't make it."</p>
+
+<p>"Damn, your Flying type too?" Blue demands. "Against paras? What happened?"</p>
+
+<p>Red flushes. "There were hundreds of them, what do you think happened? Some stun spores knocked him to the ground and they tore him to shreds! Sorry not everyone can be as good as you!"</p>
+
+<p>"Hey, I didn't say that!"</p>
+
+<p>"You implied it!"</p>
+
+<p>"The hell I did, I was just asking a question! I've lost pokemon too you know!"</p>
+
+<p>Leaf steps between them, a palm on each of their chests. "Woah, guys, calm down! We've all had a stressful day! Deep breaths!"</p>
+
+<p>Red tries to continue meeting Blue's glare, but it's hard to be menacing when you're constantly shifting your head around a pleasant white sunhat. He finally does as she says, letting his breath out in a hot gust as he steps back. "Sorry. I don't know where that came from."</p>
+
+<p>Blue scratches the back of his neck. "Yeah, well. That sucks about your pokemon. Sorry."</p>
+
+<p>"Yeah. You guys get something to eat, I'm going to the edge of the dig site. I'll be back soon."</p>
+
+<p>"Screw that, we're coming with you," Leaf says with a resolute expression that quickly shifts to apprehensive. "Unless you'd rather do it alone?"</p>
+
+<p>Red shrugs. "I don't mind the company." Maybe he's not the only one that needs to go through some motions right now. He worries he should be feeling more, enough to cry or scream or something, but he doesn't feel enough to do anything like that, and this at least is something constructive he can do. "Thanks."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>The trio walks away from the dig site until they're surrounded by grass and trees, on high alert for any wild pokemon that might still be in the area. Red takes a handheld shovel out of a Container of tools in his bag and shoves the blade through the thick grass with his foot. After it's up the dirt beneath it is easier to scoop, and once his arms can no longer manipulate the shovel in and out without widening the hole he hands it to Blue.</p>
+
+<p>Red unclips the pokeball, then braces himself physically and emotionally. "Go, Rattata," he mutters.</p>
+
+<p>The pokeball kicks and disgorges his pokemon, blood still pooling out of her chest and into the grass. Leaf tilts her head up, eyes closed, and as Blue lowers Rattata into the hole she begins to recite:</p>
+
+<p><em>In life you were a stranger first
+</em><em>A danger tamed and taught
+</em><em>But as life endangers man and mon
+</em><em>As one we trained and fought</em></p>
+
+<p><em>In life you were my guardian
+</em><em>I called you and you came
+</em><em>We rose to any challenges
+</em><em>Our fates became the same</em></p>
+
+<p><em>In life you were my dearest friend
+</em><em>I taught you and you taught me
+</em><em>To fill our days with laughs and love
+</em><em>Our nights warm and danger free</em></p>
+
+<p><em>In life you gave me everything
+</em><em>A debt I can't repay
+</em><em>The road goes on for me alone
+Now rest, your duty's done.
+</em></p>
+
+<p>Her voice is soft and sure, but for a slight hitch at the end that makes Red's chest ache. The last line takes him by surprise: he's used to it being <em>In death your battle's done.</em> He wonders if it's a regional difference, or her own alteration. Blue finishes filling the hole, then places the grassy plot back onto it, mostly undisturbed.</p>
+
+<p>"She was such a little thing," Red says searching for the words as he spoke. "But she fought without hesitation, always. She did her best to keep me safe, and she succeeded. It's only been a month and a half since we started our journey, but she was with us from day one, from the first danger we all faced as a team. She's not the first pokemon we lost," he says, nodding to Blue. "And not the only one we lost today. But she's the first we caught together. And I'm glad we're all together to say goodbye."</p>
+
+<p>Red waits for more words to come, thoughts popping in and out of his mind, spinning through it untethered until they fade. The silence stretches out, too long, so he just nods and whispers "Thank you" to the small grave before turning away and heading back toward the dig site, cheeks red.</p>
+
+<p>Too late he realizes he prohibited any potential last words the other two might have wanted to speak, but they follow him without hesitation, so he supposes they didn't plan on saying anything.</p>
+
+<p>"Thanks guys."</p>
+
+<p>"No prob." Blue has the shovel braced between his arms and shoulders, gaze down. Leaf nods, sniffing a bit. Red waits for some crushing emotion to wash over him, but he feels… okay. A bit sad, a bit bitter at the unfairness of it all, but mostly he just feels hungry and tired.</p>
+
+<p>Red isn't even sure why he feels like he should be more upset. Is he worried there's something wrong with him? That maybe his metric for grief was broken after his dad, just because he isn't falling to pieces over his lost rattata?</p>
+
+<p>It's possible that the psychic block Narud mentioned is affecting his emotions, but the simpler explanation is that his rattata just didn't matter that much to him. It feels horrible to admit, but he can't ignore his feelings, or lack of them. He's sad that Rattata died, and feels it as more of a constant than the sadness of the people that died today, but if he focuses on them, he feels their deaths more acutely.</p>
+
+<p>And they're people he hasn't even met. Leaf, who he's known for about as long as he had his rattata, feels exponentially more important to him. Hell, he even feels more for the Renegade, though that's a more confused jumble of emotions.</p>
+
+<p>Thinking of Yuuta again brings a much sharper pain than before, right through his sternum. The whole thing feels... wrong, the more he considers it. He wants to know more about the man: why he ended up this way, what he hoped to do, what it would take to keep him from ever doing it again. He's a <em>person</em>, trying to fulfill wants and needs, trying to avoid pain and fear, but unlike a pokemon he has a mind that can learn, can change as he learns how to do all that without hurting others. It's hard for Red to just... write him off as "broken" or irredeemable, especially without even spending any time really trying.</p>
+
+<p>But recanting his witnessing wouldn't let him, or others. It would just release someone who almost killed Blue and Leaf, and let his coworkers die to a pokemon attack so he could steal their work, back into society. Not totally free, of course, he'd get charged with attempted theft and maybe other things, but there's no guarantee that he'd be found guilty, or how effective prison would be in rehabilitating him, or if he'd even show up to court at all, if he's allowed bail while waiting for trial.</p>
+
+<p><em>There has to be a better way, </em>he thinks as they approach the buildings around the dig site. But even people like Giovanni, who has argued for more renegade rights in the past, hasn't suggested that they could be rehabilitated, or that it was worth the risk, and he's spoken to dozens, maybe hundreds by now. Who's Red to say different?</p>
+
+<p>Still, the pain doesn't fade, and it seems his prediction at the restaurant the first night of their journey holds true so far. Sad as he is at the loss of his pokemon, they still just don't "matter" to him in the same way people do. Maybe that makes him a horrible person, but Red decides to try and table that worry for now, if he can. It's not particularly productive, and there are more pressing issues at hand.</p>
+
+<p>"I'm going to let my pokemon out to get some rest and heal them up a bit before we leave," Red says. "The last thing I want to face today is another fight, but it's better to be prepared. You guys want to have a bite meanwhile?"</p>
+
+<p>"Sure," Leaf says. "Let's do it at the east side so we're ready for Ryback." They pass site personnel, ACE, and other trainers that are still recovering from the battle and helping clean up the dig site. Red wonders if they should help, but no one seems to expect it of them, and he's too tired and distracted to do more than appreciate being able to sit it out.</p>
+
+<p>They reach the eastern edge of the site and find the road continuing on across the mountain. Red takes his shovel from Blue and returns it to its Container, then they release some unhurt pokemon and sit to eat trail mix, jerky, fruits and veggies.</p>
+
+<p>"Weird day, huh?" Blue asks with a full mouth as he tosses carrot chips to Maturin and Zephyr.</p>
+
+<p>"Yeah." Red rubs his sleeping charmander's head with one hand as the other holds a stick of jerky. "Mom and your grandpa are going to freak when they find out."</p>
+
+<p>"Think you should tell them before the news does?" Leaf asks as her ledyba crawls up her back and onto her hat. "I don't have that problem at least. Or, I don't think I do. Maybe my mom started watching Kanto news too. Hm."</p>
+
+<p>Red and Blue look at each other. "Eh," Blue says with a shrug. "The news is fast, but it's not <em>that</em> fast."</p>
+
+<p>Red smiles. "I'll probably call my mom tonight anyway, so might as well tell her then. She—"</p>
+
+<p>Leaf's phone chirps a tune just then, and they all wait in trepidation as she takes it out and looks at the screen.</p>
+
+<p>"Oh." She relaxes. "It's just an email... from the Pewter mayor?" Leaf scans the screen. "He'll be giving a speech at a graduation ceremony tomorrow, and said to tune in for mention of 'a certain article.'" She raises wide eyes to them. "I thought he forgot."</p>
+
+<p>"That's great," Red says. "He'll give it a huge boost."</p>
+
+<p>"Yeah…" Leaf puts her phone away, gaze distant.</p>
+
+<p>"What's the matter?"</p>
+
+<p>"Mayor Kitto struck me as an acutely political person. I left his office feeling… not manipulated so much as handled. I'm happy for the extra attention, I just can't help but wonder what his goal is."</p>
+
+<p>"Ulterior motives don't necessarily have to be negative. Why not ask him?"</p>
+
+<p>Leaf smiles. "Even if he's honest, I wouldn't trust him to give a full answer."</p>
+
+<p>"He's just plugging your article," Blue says. "Mutual back scratching, a politician's bread and butter. What could he possibly be doing that's so bad?"</p>
+
+<p>"Well, he could be directing funds toward friends on the museum board, or putting himself in more of a position to decide future direction for the museum," Leaf says. "Just because he happens to be on the right side of the latest topic doesn't mean he'll always be. Qualified people need to guide its choices, not leaders <em>or</em> mayors."</p>
+
+<p>"Until we live in a technocracy, that's probably wishful thinking in any case," Red says. "What's your alternative? Tell him not to mention the article?"</p>
+
+<p>Leaf shakes her head. "No, I just don't want to be used or drawn into a political fight that will force me onto the side of a stranger. Kitto seems like a nice guy, but if he's in some scandal a couple years from now, anyone that's seen as close to him could be affected by it. Plus, if I really want to do serious journalism someday, getting used to relationships like that could be compromising."</p>
+
+<p>"Or useful," Blue says. "Gramps has a half-dozen friends in the press that he uses for different reasons when he needs to get the word out on something."</p>
+
+<p>"Ask my mom what she thinks," Red suggests.</p>
+
+<p>Leaf's face is thoughtful as she starts navigating on her phone. "I think I will."</p>
+
+<p>"Wait, hang on," Blue says. "Did he say he's going to mention it tomorrow?"</p>
+
+<p>"Yeah?"</p>
+
+<p>Blue rubs his chin. "You might want to get him to postpone that."</p>
+
+<p>"What? Why?"</p>
+
+<p>"Have you considered the optics on all this? We just single-handedly… double-handedly? The two of us just helped catch a Renegade as he tried to steal a fortune's worth of fossils. We might hit regional news. Even if it's just local, we're gonna get a huge spike in followers."</p>
+
+<p>Leaf slowly nods. "I'm going to get another smaller spike from the mayor's mention, but if the Renegade story hits first… suddenly I'm not just some tourist when he mentions me."</p>
+
+<p>"Exactly. The timing couldn't be better if you planned it."</p>
+
+<p>"Maybe someone did," Red says. "These mountains are owned by Viridian, Celadon and Pewter, and a lot of the workers here are from Pewter. Word could have spread by now: maybe the mayor already knows."</p>
+
+<p>Leaf frowns. "He must have written his speech before today though. I guess it's not hard to slip this mention in, but only if it's topical, and in that case why wouldn't he have originally planned to include it?"</p>
+
+<p>"Maybe he was waiting for you to do something noteworthy."</p>
+
+<p>Blue shrugs. "No way of knowing until we know what his speech is about. Either way, if he mentions it before all this hits the news it won't be nearly as big an impact."</p>
+
+<p>"Why not preempt that, then?" Red asks. "Just tell the mayor what happened, so he can mention it even if it hasn't made news yet."</p>
+
+<p>Leaf tugs at her lower lip. "I guess so," she says slowly. "But that seems a bit too much like self-promoting, doesn't it?"</p>
+
+<p>"No way, it's getting ahead of the story," Blue says. "Just make it clear that you're giving him the heads-up so he doesn't get caught unaware if the news breaks around then."</p>
+
+<p>Leaf is nodding. "Got it." She puts her food down and begins typing away.</p>
+
+<p>Blue turns to Red and catches him gazing up at the sky, where Zephyr is soaring in slow circles. "You alright?"</p>
+
+<p>"Yeah. Just thinking." <em>I need another flying pokemon. </em>He sighs. "What do you think of the Renegade system? Does it seem… fair to you?"</p>
+
+<p>Blue frowns at him. "Of course not. That's the point, isn't it? 'Better to brand ten innocents than let one Renegade go free?'"</p>
+
+<p>"Yeah, I know. The damage that one Renegade can do to society far outweighs the lives of the ten. Are you ever scared of being one of those ten, though?"</p>
+
+<p>"I am," Leaf says, still typing on her phone. "Scared, that is. Today I had some tense moments wondering if we'd made a mistake."</p>
+
+<p>"Come on, no way that guy wasn't guilty," Blue says. "I mean, yeah, it was a bit intense having to get everyone to believe us over him, but it was pretty clear he was up to no good."</p>
+
+<p>"What if it's not so clear next time?" Red asks. "We didn't actually <em>prove </em>anything, it was just all so much more circumstantial than it is on TV."</p>
+
+<p>Blue's eyes narrow. "What are you saying? You think we were wrong?"</p>
+
+<p>"No, no." Red makes a sound of frustration. "Look, I witnessed, didn't I? I just think… he was tied up, you know? He wasn't going anywhere. There was time to look into things more, find more neutral witnesses. I know you guys weren't able to witness, but I'm your friend, even if the evidence wasn't on your side I'd feel pressured to believe you. Dr. Zapata and Ryback just lost three colleagues, they're not exactly thinking clearly right now. And Paul, well, he's leading security here. If something had happened to the fossils it wouldn't look great for him."</p>
+
+<p>"Alright, sure, they could have gotten him a lawyer and put him in court and filled a jury with random people and hoped that the truth came out," Blue says. "But what if it doesn't? We're back to the question of letting a Renegade free. Remember Modama Town? Old Agate Village? One psychopath gets it in his head to wipe out hundreds of people, or even thousands, and we're just supposed to hope they don't? Fuck that."</p>
+
+<p>Red shakes his head. "I know. It's horrifying. But events like that happen so rarely."</p>
+
+<p>"Yeah, and I doubt that's a coincidence."</p>
+
+<p>"What we need are numbers," Leaf says. "People killed by Renegades in a year, people killed as Renegades in a year, people investigated, people branded… the hardest part would be the speculation though." Leaf taps at her phone a few more times, then tucks it away. "We can't know how effective killing suspected Renegades is by just pointing to the lack of terrorist attacks. Maybe we're nipping dozens of them in the bud, or maybe we're just predominantly catching Renegades like Yuuta, who are… indirect. He <em>could </em>have killed us if he wanted to, you know. After his graveler knocked you out."</p>
+
+<p>Blue shakes his head as their pokemon all suddenly focus on something behind him. Red turns to see Ryback approaching. "The guy was scum," Blue says. "He was still out in the open, didn't want to risk anyone seeing him kill us. If he got away with this heist he would have just grown bolder, done something worse."</p>
+
+<p>"Maybe," Ryback says. "Or maybe he would have sold his loot and found some other Region to retire in. Either way, I'm glad he didn't get the chance."</p>
+
+<p>The trio start repacking their food and withdrawing their pokemon. Ryback is dressed in more protective clothing and a full pokebelt. "Hang on a sec, don't finish closing your bags yet. I've got something for you all."</p>
+
+<p>Red, Blue and Leaf exchange glances, then put their bags back down and approach him as he lifts a small sack and takes out a Container. "Got two more of these in here, a fossil in each. I talked to Dr. Zapata, and she agreed… we wouldn't have any of these if not for you all. They're extras, so we're free to do with them as we'd like."</p>
+
+<p>"Um. Wow. That's… <em>really </em>nice of you," Red says slowly. "But I wasn't there—"</p>
+
+<p>"I know, you were helping me. Didn't seem fair to exclude you for that, since you would have been otherwise. Plus you helped with… afterward, and did as much as anyone to help protect the site. Paid a price for it, too. This is our way of saying thanks. Don't worry, they're not super valuable. If you ever go to Cinnabar Labs though, they might be able to regenerate them for you."</p>
+
+<p>"We've been here before," Leaf says as Ryback takes out the second and third Containers, all three balls gleaming in the sun.</p>
+
+<p>"You should pick first this time," Red says. "And you can go second, Blue."</p>
+
+<p>"Nah, you go second. By the time we're at Cinnabar my team is going to be mostly solid."</p>
+
+<p>"What are they?" Leaf asks.</p>
+
+<p>"This one's a ball of amber that we believe has aerodactyl blood in it. It's part of a shipment that's going to Pewter's museum. These two are a pair of fossils for omanyte and kabuto."</p>
+
+<p>"Aerodactyl's the flying one, right? I'll take it," Leaf says with a smile. "Thank you so much!"</p>
+
+<p>Red sighs to himself. He was hoping for that one, though it's not like there's any reason to believe the fossils will be able to be turned to actual pokemon anytime soon; there still haven't been any reliable methods of reviving fossil pokemon, which means these are more like lottery tickets. Still, it would be nice to have the chance, and of the remaining two, he has no real preference. His hand twitches indecisively from left to right, and he finally just chooses at random. "Which is this?"</p>
+
+<p>"Omanyte."</p>
+
+<p>"Cool. Thanks." Red tucks it into his bag and wonders if he'll ever revive it. He always wanted to learn more about the regeneration process, and this is as good an excuse as any to start.</p>
+
+<p>Blue takes his kabuto fossil and they finish packing up. "We've got a few hours of daylight left, think we can make it to the final checkpoint by then?"</p>
+
+<p>Red takes a deep breath, then lets it out, feeling more energized. The rest and food helped a lot. "Sure, let's do it. I wouldn't mind getting off this mountain by tomorrow. Would be nice to have a shower tonight."</p>
+
+<p>"Agreed," Leaf says. "Is that okay with you, Ryback?"</p>
+
+<p>"I'm just here to help, you three set whatever pace you want. I've been on site for almost a week, and after today wouldn't say no to a shower myself. And a stiff drink."</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/31/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/33/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -774,6 +779,6 @@ Blue looks back at him, remembering the pokemon and people that were cut down by
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

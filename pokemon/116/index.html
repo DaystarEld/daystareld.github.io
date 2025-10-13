@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 52: Departing - Pokemon: The Origin of Species</title>
+    <title>116: Conspiracies - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,772 +329,417 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 52: Departing</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/115/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/117/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            Before leaving Vermilion to visit Aiko's ranch again, Red and Leaf register an abra to the city for their return trip. Red has to overwrite Cerulean's teleportation point, and ignores Leaf's scowl as he renames the abra to Vermilion. He expects her to say something about it, but she's been quiet ever since she finished her recent research binge. Red picked up the thread of frustration and sadness in her thoughts when he asked how the investigation was going and she just said it hit a dead end, so he's been giving her space, knowing how frustrating it is to put so much work into something and fail.<br>
-<br>
-Blue packs more than they do, since he and Aiko plan to travel to the Diglett Caves after visiting her ranch. Glen and Elaine decided to join them too, so on the morning before the cruise, Red, Blue, Leaf, Glen, and Elaine pile into an extra large taxi to begin their trip to meet her there. Red spends most of the drive to the southern subway entrance writing out his process of exploring his powers, while Leaf and Elaine go over the article about her abra catching and Blue frowns through a piece on the Vermilion Gym's unique culture and teachings. Glen has a pair of headphones on as he watches recordings of his recent matches.<br>
-<br>
-They're underground and shooting past Saffron City when Red finishes. "Aaand, done," he says as he writes out the last line. "Who wants to hear it?"<br>
-<br>
-"Wait till we're topside," Elaine says, voice raised over the clatter of the train, and points to her ear.<br>
-<br>
-Red nods and does some quick editing before they arrive at the northern terminal, then stands and files out with everyone. The five of them jog up the stairs and into the sunlight, then make their way past the crowd to find an empty space where they can bring their bikes out.<br>
-<br>
-"Okay, what have you got?" Elaine asks as they walk.<br>
-<br>
-"And is it something people without powers will actually understand?" Blue asks.<br>
-<br>
-"Yeah, I think so. That's partly what I'm curious about… tell me if this makes sense to you guys." He clears his throat. "'There are five general trends to my developing new abilities. First, I had to gain awareness of my own cognitive states. Once I knew the usual things that make me angry or upset or excited, it's easier to recognize them when they occur. Second, I cultivated different dispositions and thought patterns. Focusing a lot on the experience of certain moods or feelings or thought processes, and what triggers help me get into them, lets me more easily inhabit them when I want to.'"<br>
-<br>
-"Oh!" Elaine snaps her fingers. "That sounds a lot like… uh… what was it..."<br>
-<br>
-"Hold up, E, let him finish first," Glen says.<br>
-<br>
-"Right! Sorry!"<br>
-<br>
-Red smiles. "No prob. Third… ah, 'Third, I practiced deliberately moving from one mental state to another. This usually included reminding myself of memories and sensations that triggered a change, and focusing on each aspect of the state until I was firmly in it. Fourth was retraining my cognitive reflexes, so that as soon as I noticed a trigger for a mood or thought pattern I didn't want to inhabit, I could actually do step three. As an example, if I noticed myself getting upset, like when my voice gets raised or my pulse kicks up, I could deliberately invoke a state of mind that's calmer. And fifth was kind of an umbrella step, working over time to deeply integrate the thoughts and responses above to slowly move them from conscious thought to automatic.'"<br>
-<br>
-Red looks up at the others, who each have some range of thoughtful expressions on. He takes this as a good sign over something like confusion, but still feels a bit anxious to hear what they think. "Is that confusing? These are just the bullet points, there's more explanation for each, obviously."<br>
-<br>
-"Might be too much all at once to process," Leaf says. "Maybe it would help reading it."<br>
-<br>
-Red passes his phone to her while Elaine makes a humming sound. "You know, I actually liked it a lot, it was really interesting, I think I can even try some of it out myself, even though I'm not psychic I mean, I think it might work anyway, it reminded me of something, like I said earlier."<br>
-<br>
-Red blinks, still getting used to her verbal stream-of-consciousness. "What part?"<br>
-<br>
-"Right, so like that thing about noticing yourself getting upset, that's like, really important to calm yourself down in general, you know? And I can remind myself of pleasant things and maybe not be as upset if I just think of them for a while instead?"<br>
-<br>
-"Oh, yeah. I used to deliberately think 'I notice I am upset' to start my mind going through my flowchart for figuring out why, and calming down that way. Now I just invoke the desired mental state psychically, but the principle is the same."<br>
-<br>
-"No, I think she means something else," Glen says. "Like, that sounds more cerebral, she's talking about something more like meditating on the emotion itself to invoke it. Right?"<br>
-<br>
-Elaine smiles and shrugs. "Maybe?"<br>
-<br>
-Red considers this. "I think the flowchart actually is more meditative than it seems, but I get the point. Is it something you can do without psychic powers? Like, deliberately go into a different mood than the one you're in?"<br>
-<br>
-"Sure," Blue says. "I can think of things that make me angry or happy and feel those things again."<br>
-<br>
-"Music does that well too," Glen says.<br>
-<br>
-Red nods. "Kind of like that, yeah. If you can remember something from a show or your life that makes you feel a certain way, you can re-experience it, a little at least. That works for inspiring quotes and things people tell you too. With my power I can just do it more deliberately."<br>
-<br>
-They're finally far enough from the market to take their bikes out and put on all their equipment. Red summons Metapod and Bellsprout and puts them in their usual positions, then checks on Bellsprout's mood to make sure he feels secure before they begin to slowly make their way through the rest of the crowds and toward the open road.<br>
-<br>
-"What was that thing you were going to say?" he asks Elaine. "It reminded you of something?"<br>
-<br>
-"Right! Um. I don't remember. Some kind of therapy?"<br>
-<br>
-"Oh, yeah, the skills at the root of a lot of that are similar to the ones taught by cognitive-behavioral therapy. That's why I'm hoping they're useful even to those without powers."<br>
-<br>
-"I'll try it and see," Leaf says as they clear the crowd and begin to pedal. "I think I'm practicing the same core skill, with the mindset that keeps the abra calm."<br>
-<br>
-The rest of the ride goes by quickly, and Red's thoughts drift to what's ahead. Aiko told them that there's a partnership of three therapists that come to the ranch, and they each usually have two to four kids for each visit, which are more like all-day series of activities rather than the hour-or-two therapy sessions Red is used to. When Red asked about funding, Aiko delighted Leaf by explaining that she reached out to a local pokemon welfare organization, and they agreed to help fund the treatment as part of an exploratory program to raise awareness of pokemon's benefits in areas other than combat, industry, or food.<br>
-<br>
-They reach the ranch before noon, and dismount to walk through the paths between the grid of pokemon pen clusters in search of Aiko. Red can see two adults in the distance to either side, each with a group of children, but they're too far to hear or see what's going on with them.<br>
-<br>
-Aiko spots them first, jogging down a path that connects to theirs with a wide grin. "Hey everyone!" She calls over the pens between them. "Welcome!"<br>
-<br>
-As soon as they've exchanged greetings, Elaine's rapidfire questions about the ranch keep Aiko occupied, letting Blue, Red, and Leaf show Glen around. After a quick tour of the grounds, Aiko mentions that they should probably leave those visiting the ranch alone for now, and they make their way into the house and upstairs to say hello to her dad and put their bags away.<br>
-<br>
-Mr. Sakai isn't inside, however. Instead some young men and women are in the kitchen and living room, each wearing a shirt with the logo of a pokeball with a heart stamped on it. Above it is written <em>Regional Alliance for the Welfare of Pokemon. </em>Red tries the acronym out in his head with different stresses. Rawp. RAwp. RAWp.<br>
-<br>
-It looks like they're preparing lunch for everyone at the moment, and a new round of introductions is made as they catch sight of the trainers. "We're here to help out, if we can," Leaf says to the guy that seems to be in charge, a lanky Unovan with bleached hair named Adom. "Do you guys have anything for us to do?"<br>
-<br>
-"Cool, yeah." He wipes his hands on his jeans and shakes her hand. "So, we've got this almost taken care of, but let me think. You're all trainers, right? Okay, so the next event starts in a few minutes, and can always use more hands. The kids are going to be wandering around looking for pokemon to learn about and interact with, but they need to be supervised, you know? Sound like something you can do?"<br>
-<br>
-They agree that they can, and the group dumps their bags in Aiko's room and take turns washing up before they go back downstairs with Adom and the others. Everyone splits up to find kids to chaperone, but Aiko tags Red to come with her. He follows her with a curious look.<br>
-<br>
-"I was wondering if you could do me a favor," she asks once they're outside. "My dad should have some kids with him, so I figured we can take a couple off his hands… and while we do, could you do a quick check on him? With your powers I mean. Let me know if he's… you know, how he's doing?"<br>
-<br>
-"Oh! Sure, yeah." Red can still remember the distinct sense of Mr. Sakai's heavy, slow thoughts. He casts his mind out to its limit as they wander the paths around the ranch's pens, but his range isn't that far, and they have to rely on their vision to finally spot him near the ranch's small lake. When they approach they hear him speaking to a young girl next to him. She's holding a bidoof in her lap, looking both excited and nervous.<br>
-<br>
-"Oh. Hello, Aiko. Red."<br>
-<br>
-"Hi Dad. We're not interrupting, are we?"<br>
-<br>
-"No, no. We were just over into how Asha likes her coat to be brushed." He returns his gaze to the bidoof and the girl. "Now, you can see by the tail that she's very relaxed right now… try stroking her back…"<br>
-<br>
-The girl does so, slowly and gently, and the bidoof nestles closer against her. The girl's eyes widen, and her fingers sink a little deeper into its fur.<br>
-<br>
-Red opens his mind to those around him, sensing their different rhythms and beats. Aiko's mood is engaged and ready, the girl's tinged with hesitant wonder, while Mr. Sakai…<br>
-<br>
-His mind still feels ponderous, but there's something calm about it, now, too. Relaxed, rather than lethargic. No, not just relaxed, something more…<br>
-<br>
-Red realizes with a start that there's a fourth human mind nearby. He steps to the side a bit and sees a younger boy hiding behind Mr. Sakai and looking with dull eyes at the bidoof. Red briefly entangles with the boy's thoughts and gets a brief sense of his apathy, mind wandering beneath a numbing cloud of grief.<br>
-<br>
-Aiko crouches beside the girl. "Hello. What's your name?"<br>
-<br>
-The girl doesn't look up from the bidoof, merely continuing to stroke it.<br>
-<br>
-"Asha is one of my favorites. Want to know a secret about her?"<br>
-<br>
-The girl's eyes flick up to her, then back down.<br>
-<br>
-"You just scratch a bit behind her right ear. She <em>loves </em>it when you do that."<br>
-<br>
-The girl keeps petting the bidoof for a few moments… then reaches a hand out and scratches its ear.<br>
-<br>
-The round, furry body squirms, and it emits a croon of pleasure, the sound surprisingly deep and rough. The girl freezes for a moment, then smiles for the first time. Red senses the boy's curiosity increase, but not enough to overcome his apathy or come any closer.<br>
-<br>
-Seized by an urge to help lift that haze, Red goes over to the boy and kneels down too. "Hey there. I'm Red. Want to go look for some other pokemon to play with?"<br>
-<br>
-The boy looks at him solemnly, then shrugs, gaze down.<br>
-<br>
-"Okay. Let's go this way?" He looks up at Mr. Sakai, who stands.<br>
-<br>
-"A fine idea. I'll see you two at lunch."<br>
-<br>
-Red isn't sure if he should take the boy's hand or not: he looks about seven, and might resent being treated like a baby, but as soon as Mr. Sakai leaves he moves over to Red, practically clinging to his legs without touching him.<br>
-<br>
-Red starts walking, passing by the various pokemon in their pens as he keeps skimming the boy's mood. He's careful not to go too deep and get caught up in the grief he feels mirrored there, aware of how even the brush of it beckons his own toward the surface.<br>
-<br>
-"So, let's see… over here there's a meowth that I'm surprised is staying in its pen, to be honest. It likes to find precious metals and eat them, which makes the coin on its head grow. That's why this one's coin is so small. Do you want to pet it?" The boy is silent, so Red moves on to the next pen. "Here's a stantler that was unfortunate enough to have its horns cut off, probably by some poachers…"<br>
-<br>
-Red goes from pokemon to pokemon, tossing out whatever trivia he can remember about each. The boy's mental state barely fluctuates through all this. Red's descriptions become more and more listless as he trudges from one pen to another. Eventually he stands before a sentret, one of the most boring pokemon around. He tries to think of something interesting to say about it, grief dulling the colors of the world as he wonders what the point of all this is...<br>
-<br>
-Red blinks. That thought wasn't one of his normal ones. He realizes he's been too immersed in the boy's thoughts, even at a surface level. He draws back into himself and shakes the gloom off. What was he doing? Right: sentret. Interesting facts.<br>
-<br>
-The sense of boredom returns, and this time it's his own. Sentret aren't particularly interesting, even to him. But he remembers being young enough that, before battle trainer culture irritated him quite so much, he was himself more interested in things about pokemon's battle abilities or survival traits than other facts about them.<br>
-<br>
-Red clears his throat, hoping the boy isn't weirded out by his long silence. "Um. This is a sentret. They like to stand on their tails so they can see farther and know if danger is coming." He tentatively brushes up against boy's mind again as he moves on to the next pen. "Here's a baby doduo. Only one head sleeps or eats at a time, so it can't be taken by surprise. Over there is a female nidoran, it doesn't have a horn like the males but its spines are poisonous…"<br>
-<br>
-Little by little, he feels mild curiosity bud in the boy's mood, tendrils of it spreading out until his boredom is somewhat alleviated. Red warms up to the new angle, glad he has a near endless supply of facts about a pokemon's dangerous abilities, which are always at the surface of a journeying trainer's thoughts.<br>
-<br>
-"And <em>this </em>is a venonat, it likes to stun its prey and then suck the blood out of them—"<br>
-<br>
-A sharp spike of fear comes from the boy, and Red flinches. Was that one too close to some bad memory? Red realizes that he doesn't even know the boy's background, or what brought him to the ranch… He may have gotten a bit carried away. Maybe it's better to stick to safer descriptions after all.<br>
-<br>
-"Do you, ah, want to try feeding any of the pokemon we've seen so far?"<br>
-<br>
-The boy shakes his head. Red feels at a loss for a moment, then decides to just be forward. "Sorry if I said something scary. Do you want me to keep talking about what makes pokemon dangerous, or should we stick to what makes them cute?"<br>
-<br>
-It doesn't seem like an answer is forthcoming, but the boy eventually wanders back over to the pen with the silcoon attached to a bush in it and points.<br>
-<br>
-"You want to know more about them?"<br>
-<br>
-The boy shakes his head.<br>
-<br>
-"You… want to touch it?"<br>
-<br>
-The boy nods.<br>
-<br>
-Red swallows down his discomfort with bugs and sits cross-legged beside the hatch. "Alright. Just be careful where you put your hands, okay? Nowhere near the eyes." Red carefully extracts the silk cocoon from the bush, then lifts it out of the pen and holds it on his lap. The red eyes of the pokemon peer sleepily out of the slits in its white outer layers.<br>
-<br>
-The boy peers at it in fascination. His hand moves up, trembles, goes back down.<br>
-<br>
-"Go ahead, you can touch its back," Red says, and demonstrates. "I know it's big, but it won't attack you. "<br>
-<br>
-The boy tentatively reaches out and feels the compact outer layers of silk, then smiles.<br>
-<br>
-Red smiles back. "Feels weird, right?" The boy nods, and Red remembers his own hesitation to touch the skarmory on the roof, followed by his fascination with how its metallic feathers felt beneath his hand. "Pokemon are amazing, you know? Dangerous, but amazing. Do you want to be a trainer someday?" The boy nods. "Cool. Want me to tell you more about silcoon?"<br>
-<br>
-He nods, so Red does, and they sit there with the silcoon until someone calls out that it's time for lunch. Red puts the pokemon back in its pen, and they make their way back to the house, where the boy walks toward the crowd of other kids, still without saying a word. Red watches him go, and senses his mood quickly returning to what it was earlier. Red hopes he helped somehow regardless.<br>
-<br>
-The bottom floor appears to have been converted into a dining area, the center filled with a buffet and tables set on either side for eating. A pair of lines form on either side so everyone can grab their food, and as Red waits he spots the head therapist who's leading the initiative on the other side. He keeps an eye on her, and once he fills his plate, he goes over to where she's sitting.<br>
-<br>
-"Hello. You're Mrs. Ino, right?"<br>
-<br>
-The therapist smiles. "I am."<br>
-<br>
-"I'm Red Verres."<br>
-<br>
-"Hello Mr. Verres. It's nice to meet you. I've heard a confidentiality-respected lot about you from Dr. Seward."<br>
-<br>
-Red grins. "Nice to meet you too. I wanted to thank you for helping put this together."<br>
-<br>
-"Oh, no thanks needed. It's the sort of opportunity I've been dreaming of."<br>
-<br>
-"Have you been using pokemon in your practice for long?"<br>
-<br>
-"Years. The difference here is like night and day though: this allows such a better environment for groups and children to connect and support each other, as well as providing more variety of pokemon for them to interact with. Things look promising, so far."<br>
-<br>
-"I'm glad to hear it. I actually wanted to offer my help, too."<br>
-<br>
-"Oh?"<br>
-<br>
-"I'm psychic." He taps his temple. "Still learning, but I can get a quick read on emotional states pretty easily now. If there's someone who you're having trouble reaching, maybe I can give a hint for what can help?"<br>
-<br>
-To Red's surprise, Mrs. Ino looks taken aback. "Oh, no, I'm afraid not, Red."<br>
-<br>
-"Oh. How come?"<br>
-<br>
-Her brow creases. "If you've been through therapy, Red, you should know."<br>
-<br>
-It takes a moment for him to realize. "OH. No, sorry, I think I gave the wrong impression… I won't be actually reading their thoughts."<br>
-<br>
-"I'm afraid it would still violate confidentiality."<br>
-<br>
-"But…" Red takes a moment, wanting to make sure he words it right. "It's just like reading an expression. It's imprecise, but a bit deeper and more nuanced."<br>
-<br>
-"Yes, I understand that you see it that way. But people are used to having their expressions read. Most develop some level of control over what they show, and at least are on an even footing with the person reading their expression. I'm sorry, but I have to ask you to refrain from using your powers on any of the clients here." Her eyes suddenly widen. "You haven't done so already, have you?"<br>
-<br>
-Red blinks, and without thinking says "No, that's… I came to check with you, first. That's why."<br>
-<br>
-Her expression softens. "Good. Well, I appreciate you wanting to help, and it's not a bad idea, you just need to make sure they're consenting first. You don't happen to have any of the appropriate paperwork?"<br>
-<br>
-"Oh, uh, no, I just thought of it while I was here. But I'm sure they have a printer here?"<br>
-<br>
-"No need, it would be for their parents. I was just hoping to look it over, and perhaps bring it up with the others. I can get it later."<br>
-<br>
-Red nods, feeling awkward. "Right. Well. Thanks for your time."<br>
-<br>
-"Of course. I'll see you around, I'm sure."<br>
-<br>
-He nods again and wanders away, eyes down. He finds a secluded place to sit, fork moving aimlessly through his food.<br>
-<br>
-<em>Why did I lie?</em><br>
-<br>
-To avoid getting in trouble, obviously. But was he wrong to? He hadn't meant any harm, and no harm has been done. He <em>should </em>have asked for permission first, but admitting to it now wouldn't help anything. It would just make psychics look bad.<br>
-<br>
-<em>Like lying does?</em><br>
-<br>
-Guilt and indignation make Red put his plate down and rub his face. Just weeks ago he was thinking about how unfortunate but understandable it is that psychics are treated with suspicion. Now he's acting in exactly the way that justifies suspicion of psychics! How did he make such a shift so quickly?<br>
-<br>
-The thing is… he really does feel like using his powers this way is as natural as reading expressions. It's become a reflex, just as someone said it would… was it Ayane, or Narud? He hopes it wasn't Narud.<br>
-<br>
-And then Red wonders if he would find Narud as irritating if he met him now. Is he turning into a haughty elitist?<br>
-<br>
-"Heya." Red looks up as Aiko sits beside him. "Not a fan of the food?"<br>
-<br>
-"Huh? No, just thinking."<br>
-<br>
-"Ah. Well, I'm happy to interrupt. Your face looked a bit horrified for a second there."<br>
-<br>
-He smiles and forces himself to take a bite of the stuffed mushroom. He finds himself once again surprised by how tasty the food here is, and begins to eat with more gusto. "How was the girl you were talking to?"<br>
-<br>
-"Okay, I think? It's been awhile since I interacted with kids, but she seemed happy enough to just play with the bidoof and learn about them." She shrugs as she eats, then lowers her voice a bit. "So. How's my dad doing?"<br>
-<br>
-The conversation with Mrs. Ino still fresh on his mind, he wonders for a moment whether he should feel guilty about this too. But… well, it's not like Mr. Sakai is a patient, and Aiko just wants to help her dad.<br>
-<br>
-"Better," Red says, trying to remember the sense he got of Mr. Sakai's mood. He opens his senses and finds the rancher's mind again from the other side of the room. "He's more relaxed than distant. Something about all this makes him feel… comfortable in a way that he wasn't before."<br>
-<br>
-"Oh, good." Tension leaves Aiko's frame in a rush. "I know it's a lot of extra work for him, I was hoping it wouldn't cause him more stress, he <em>seems </em>more lively, but—"<br>
-<br>
-"Aiko. It's fine." Red smiles. "I think he's doing okay."<br>
-<br>
-She breathes out and finally seems to really relax against her seat. "Okay. Yeah. Thanks Red."<br>
-<br>
-"Is there something in particular that makes you worried about him?"<br>
-<br>
-"Not really. I guess I'm just waiting for the other shoe to drop, you know?" She dips some carrot sticks in dressing by the handful and munches on them all at once. "The past few weeks have been great… meeting you guys, learning at the gym, making friends… and still being here so I know my dad's okay… I just don't know how long it can last."<br>
-<br>
-"Why wouldn't it?"<br>
-<br>
-Aiko shrugs, dragging the remains of the carrots through more dressing. "Because it can't. I won't always be able to pursue my goals while porting back home every few hours. I don't want to rush things, though. As long as Dad's not reacting badly to me being out of the house so often, maybe in a few months I can try missing lunch now and then, with forewarning. Maybe by then he'll even be able to talk about it with me."<br>
-<br>
-Red considers this. "A few months seems like such a short time, but a lot has changed for Blue, Leaf, and I in the past few. I hope you're right. It would be nice to have you around more."<br>
-<br>
-She smiles at him. "It would be nice to be around you guys more too. I can't wait to test out your new fighting style again." One of the staff from the organization walks by. "Oh, I wanted to talk to them about something. See you later?"<br>
-<br>
-"Sure." He watches her go, then continues eating, thoughts quickly returning to what he was worrying about before. He takes his notebook out and begins to eat with one hand as he writes out his worries and reminds himself to come up with measurable aspects of "haughtiness," and get feedback on his own soon.<br>
-<br>
-By the time Red finishes his food, lunch is winding down. Red stuffs his notebook in his back pocket and gets up to throw the rubbish away as the kids and therapists file outside. He spots his friends helping clean up the buffet.<br>
-<br>
-"Blue! Have I been acting different, lately?" he asks as he lends a hand.<br>
-<br>
-"Uh. Can you be more specific?"<br>
-<br>
-"Like, have I been becoming, ah, haughty, or elitist?"<br>
-<br>
-Blue's brow rises. "Why, no, Red, you haven't been becoming either of those things."<br>
-<br>
-Red's relief is interrupted by the slight stress on the word <em>becoming, </em>and he switches a stack of paper plates from one hand to the other so he can punch Blue's arm. "Whatever, from <em>your perspective</em> have I been acting that way <em>more than usual?</em>"<br>
-<br>
-"Nah, you're about all that stuff as ever. Difference is you've actually got some reason to be, these days." Blue finishes tying off a full garbage bag, then punches his arm back. "Hey, we're going to go do some training battles away from the ranch, maybe catch some pokemon nearby. You in?"<br>
-<br>
-"What, everyone?"<br>
-<br>
-"Yeah. Well, Leaf's probably staying, but Aiko's coming. There's going to be some group therapy stuff here, so we aren't needed for a while."<br>
-<br>
-Red hesitates, not wanting Leaf to feel left out. But he really wants to explore his powers in battle more before the cruise, and he and Leaf will have plenty of time to hang out and chat once they leave.<br>
-<br>
-"Yeah, I'll come!"<br>
-<br>
-They help finish the cleaning, then run up to grab their stuff with Glen, Elaine, and Aiko before heading off the ranch and riding toward an empty field by the road, distant from any of the tall grass or woods where pokemon might be lurking. Regardless, they keep their eyes peeled for any pokemon along the way, but other than some pidgey and spearow flying in the distance, don't spot anything new to catch.<br>
-<br>
-They put their bikes away and begin discussing what to do. Red asks for some time alone first, so Elaine and Blue pair off to train his rhyhorn against her graveler, while Aiko pits her sandslash against Glen's donphan. Having worked their way through the gym's lower ranks over the past few weeks, everyone's preparing for their battles against Surge by strengthening the Ground Types that will be their most valuable pokemon.<br>
-<br>
-Each MVP can't be expected to take Surge alone, however, as the Leader is sure to have countermeasures among his team. Which is why they keep their ground types for last, and start their battles with other pokemon that can take on whatever their major Ground Types would be weak against.<br>
-<br>
-Red is only aware of this in his periphery, however, as he spends his time practicing with Charmeleon against a pokedoll. Right away, Red can tell that his pokemon's new form is faster, muscles stronger, claws sharper: the doll's thick outer layer, already much abused over the past months by the scratches of a charmander, are soon deeply scored and at places torn out in chunks.<br>
-<br>
-"Stop! Back." Red frowns at his pokedoll. He'll have to get a tougher one, but maybe the fire retardant on this is strong enough for that at least. He rubs Charmeleon's head as he returns to him, fingers moving around the bony spur at the center. He's a little sad that he can't rub the whole top of his pokemon's head as easily anymore, but Charmeleon seems to appreciate it anyway, so Red continues and feeds him a pokepuff for good measure.<br>
-<br>
-Instead of cooking the puff, as Red expected, Charmeleon simply gobbles it up. As he chews, smoke escapes through his teeth, and Red grins. Charmeleon aren't quite capable of breathing out streams of fire, but the internal organs and physiology are at least more developed now, and his pokedex has been running a program to try and take advantage of it for other attacks.<br>
-<br>
-First to make sure the doll is up to it though. "Ready, Charmeleon. Ember!"<br>
-<br>
-Charmeleon flicks his tail and sends a bright glob of fire onto the doll. It burns there for longer than Charmander's did, and when it fades the pit it leaves behind seems bigger, but overall the doll failed to burst into flames or melt, which is all Red needed to know.<br>
-<br>
-"Charmeleon, Fire Fang!"<br>
-<br>
-His pokemon leaps forward and bites onto the doll's shoulder, worrying at it with vicious tugs of his strong neck. "Back!" Red watches as Charmeleon's sharp teeth dislodge from the material for any sign of smoke or burning. He steps closer, calming his pokemon's distress with a hand gesture, and examines the teeth marks carefully. There might be some extra scarring, but he can't tell if it's from a previous attack.<br>
-<br>
-Red kneels to find rear sections of the doll that are less damaged. He spots a mostly unblemished part of the pokedoll's thigh, studies it carefully, then gestures Charmeleon over. He points to that section of the doll, and says "Fire Fang!"<br>
-<br>
-Charmeleon chomps on it again, and again Red tells him to back off before studying the spot. Nothing but teeth marks.<br>
-<br>
-Red stands and brushes the grass from his pants with a sigh. Seems his pokemon isn't grown enough yet. He watches the battles of the other four in the distance for a bit, thinking. <em>Or maybe...</em><br>
-<br>
-Red closes his eyes and reaches out with his thoughts, refreshing his sense of his pokemon's new mood and senses. After his explanation of what he did with Charmander yesterday, he tried out the new mental state of <em>full permission</em> with each of the pokemon he had with him. Surprising no one, Metapod and Pineco had no immediately dangerous instincts beneath all their conditioning, though the latter was more wary and ready to defend itself if needed. Bellsprout was similar, though there was something more there as well, too alien for Red to understand. Spinarak just felt hunger, neutral and merciless, while Nidoran was the first one that had a similar level of identifiable vicious instincts bubbling beneath the surface, similar to Charmander's. His abra, Bill, was extremely skittish. Red didn't dare project the full acceptance state to it, certain it would teleport away if he did.<br>
-<br>
-It was Pichu that turned out to be the most interesting: what Red sensed from him was something his mind interpreted as a live wire running through his thoughts, a vibrating alertness that seemed safe to unleash in battle, so he tested it against Aiko… until he began to lose. Then Red felt a desperation in pichu's instincts that closely mirrored the charmander's viciousness, and quickly forfeited before his pokemon could act on it, so swept up in how it felt that he forgot that he had to actually give it permission to unleash it.<br>
-<br>
-Now that he has his newly evolved pokemon in front of him again, he realizes that Charmeleon is the most unsettling to entwine with. Red has been developing more and more proprioception through his link with his pokemon, their sense of their own bodies, where their limbs are at any given time, as well as their innate sense of balance, and Charmeleon feels <em>tense </em>in a way that none of his other pokemon do. Like his wires are all drawn near their snapping points, even while relaxing. Like he could explode into deadly action at any moment.<br>
-<br>
-Red senses that coiled tension now, and once he feels fully melded with Charmeleon's thoughts, he opens his eyes, backs up to a safer distance, and points at the spot again. "Fire Fang," he says while projecting a feeling of <em>letting loose.</em><br>
-<br>
-Charmeleon pounces on the pokedoll and tears a mouthful of its dark material off. Red quickly releases the projection, but he has to call "Stop!" for Charmeleon to quit chewing at the material. Red, mindful of the advice to never try and pull anything away from inside a Charmeleon's mouth, takes out a pokepuff and places it on the ground beside him. "Eat," he says, pointing at it, and his pokemon finally lets the dark material drop from his jaws so Red can inspect it.<br>
-<br>
-No visible blemish besides the teeth marks, rougher though they are, and he still didn't see any smoke. <em>Ah well. </em>It seems his pokemon isn't ready for that attack yet.<br>
-<br>
-Just as he has that thought, he sees Charmeleon cook the food in his mouth yet again, as if taunting his failure. Red shakes his head and gets some industrial glue out to place the piece back where it was torn out of the pokedoll, then returns it to its container ball.<br>
-<br>
-Once Charmeleon has finished eating, Red gives his head another quick rub, then returns him as well and goes back to the others. Glen and Aiko have already finished their match, while Blue and Elaine are still pitting their final pokemon against each other.<br>
-<br>
-The graveler uses its hands to grip the ground as the rhyhorn charges it, tanking the hit and then throwing its own body weight against its opponent. The grind of stone-against-stone fills the air as they clash again and again, a test of endurance more than anything.<br>
-<br>
-Eventually Elaine commands her graveler to back up, and Red predicts what she needs the distance for: "Graveler, Rollout!"<br>
-<br>
-"Rive, Ba!" Blue yells.<br>
-<br>
-Rather than try to dodge the graveler as it throws itself into a roll directly at it, building momentum all the while, Blue's rhyhorn lifts its legs and slams them onto the ground. The effect is somewhat reduced by the soft, grassy terrain, but the shockwave still makes Red and the others brace their legs, while the graveler loses most of his momentum and barely budges Rive when he slams into him. A quick "Atah!" by Blue has his pokemon lower his head to hook his horn beneath the graveler, preparing for a toss, but when Elaine claps her hands in a quick pattern above her head, its four arms grip the rocky head around the neck and snout.<br>
-<br>
-"No—"<br>
-<br>
-"What the—"<br>
-<br>
-"Way," Red finishes as he, Aiko, and Glen watch the graveler twist, roll backward, and lift the rhyhorn over itself to slam it onto the ground beside it, using its own body as a pivot and driving them all to their knees briefly.<br>
-<br>
-"Was that a Seismic Toss?" Aiko asks as everyone scrambles back up. Elaine calls her graveler back, and they all watch Rive to see if he gets back up. After a few shaky attempts, the rhyhorn manages to right himself, though his movements have slowed.<br>
-<br>
-"Yeah, must be a TM." Glen rubs his neck. "I guess that's her trump card for when Surge brings out a magnemite or magneton."<br>
-<br>
-"Does that happen often?" Red asks.<br>
-<br>
-"Oh, yeah. From the videos I saw, anyway: it's one of the few electric pokemon that can hold up well against both Rock and Ground attacks, once it's floating."<br>
-<br>
-Soon Rive and the graveler are squared off again, and their attacks continue. Blue is careful not to let his rhyhorn get slammed a second time, fighting much more defensively to compensate for his pokemon's slower movements. Elaine's attempts at a more aggressive fight seem to fall flat every time, however, and soon her graveler's movements are even slower than the injured rhyhorn's.<br>
-<br>
-"Something's wrong," Aiko says, tense. "Her pokemon shouldn't be tiring this fast."<br>
-<br>
-"Yeah, it's acting like it's been fighting for hours over the past few minutes," Glen says. "Or…" He turns to Red. "Can you check it?"<br>
-<br>
-Red nods and closes his eyes, mind reaching out to sense those around him. It takes a moment to distinguish the graveler and the rhyhorn, and he waits until their next clash is past before he merges with it—<br>
-<br>
-Red doubles over and clutches his stomach, nausea sweeping through him. "Sick," he gasps as Glen's hands catch him. He withdraws his mind and breathes deep to settle his stomach, head spinning.<br>
-<br>
-"Oh, <em>shit</em>," Aiko says. "We have to stop the match."<br>
-<br>
-"She's still fighting, though," Glen points out. "Her pokemon isn't down."<br>
-<br>
-"It's got no chance though, look."<br>
-<br>
-Red takes another deep breath and glances up, trying to focus. He sees Aiko's point: the graveler is teetering as it lumbers toward Rive, its movements sluggish. Even injured, Blue's pokemon easily avoids the attack.<br>
-<br>
-"Right, I'll call it," Glen says, and steps forward as he takes a deep breath to shout out… just as Elaine holds her greatball out and says, "Graveler, return!"<br>
-<br>
-Blue relaxes, then jogs to his pokemon, potion in hand. Elaine stares at her greatball with a frown, and Glen moves toward her. Red and Aiko follow. She looks up as they approach and smiles.<br>
-<br>
-"Hey guys. I guess Graveler was more tired than I thou—"<br>
-<br>
-"It wasn't that." Red says. He's watching Blue finish healing his pokemon, then rub its rocky head and return it to its ball. <em>Was it something he did? </em>"Your pokemon was sick."<br>
-<br>
-Elaine blinks. "What? How do you, never mind, psychic, right, oh that's <em>terrible</em>, but he was fine earlier, maybe I fed him something bad do you think? I'm so <em>stupid</em>—"<br>
-<br>
-Aiko puts a hand on her shoulder. "It's alright, I'm sure he'll be fine. Things like this happen sometimes. You can't always know. Just make sure to go to a center rather than heal him yourself."<br>
-<br>
-Elaine looks torn between her worry and Aiko's reassurance when Blue approaches. "Hey, great fight, Elaine." He looks around. "Why the long faces?"<br>
-<br>
-"Red says the graveler was sick," Glen says.<br>
-<br>
-Blue blinks. "What? How do you know?"<br>
-<br>
-"I checked mentally, near the end of the match when it was slowing down. It had some really painful nausea."<br>
-<br>
-"Oh," Blue's face clears, and he smiles at Elaine. "Don't worry, he wasn't sick. He's just poisoned."<br>
-<br>
-Everyone stares at him. "Poisoned," Glen repeats. "Poisoned from—"<br>
-<br>
-"Oooh," Aiko says.<br>
-<br>
-Everyone looks at her, Blue grinning slightly.<br>
-<br>
-"Oh, shoot!" Elaine says, worry transforming to frustration. "I missed something, didn't I? When was it?"<br>
-<br>
-Blue shrugs and folds his hands behind his head. "Quite a mystery. Let me know if you ever figure it out."<br>
-<br>
-"Poisoned by a rhyhorn," Glen muses. "I'm sure if I look it up I'll find something… I didn't see anything like a Toxic attack..."<br>
-<br>
-Aiko is frowning slightly at Blue. "Were you guys fighting to incapacitation? That might have taken awhile, her graveler could have gotten badly hurt."<br>
-<br>
-"Relax, I was watching closely," Blue says. "I would have called it soon myself if Elaine hadn't withdrawn."<br>
-<br>
-Aiko looks slightly mollified. It still surprises Red how quick the others are to take Blue's word for things and follow his lead, probably because Red's so used to arguing with him about practically everything for years.<br>
-<br>
-He suddenly has a glimpse of a possible future, the one that they've been working toward: Blue, Champion of Indigo, treated as a modern legend, respected by all, traveling the regions and making changes with an army of loyal followers behind him… while Red, a hopefully just as respected Professor, is one of the few people willing and able to call him on his shit, even while he supports him.<br>
-<br>
-The thought makes Red smile briefly, which Blue catches and raises a curious brow to. Red shakes his head, and Blue shrugs.<br>
-<br>
-"Well, if you guys figure it out, let me know. Either way, good match Elaine."<br>
-<br>
-"Thanks! Did you see the Seismic Toss coming?"<br>
-<br>
-"I was banking on it, actually. I knew you'd need something against a magneton."<br>
-<br>
-"What about you?" Aiko asks. "Poison attacks won't help against them."<br>
-<br>
-"Oh, don't worry. I've got another trick ready for that." The others try to guess it, but Blue just shakes his head. "So what's next? We got time for another match?"<br>
-<br>
-Aiko checks. "Yep, one more pair."<br>
-<br>
-"I'll sit out," Glen offers. "Red hasn't had a chance to fight yet."<br>
-<br>
-Elaine grins. "Ooo, yeah, I want to watch you use Battle Bond again!"<br>
-<br>
-Red blinks at her. "Use <em>what?</em>"<br>
-<br>
-"The thing! Your psychic thing!"<br>
-<br>
-Glen shakes his head. "It's not called Battle Bond."<br>
-<br>
-"Yeah, I don't—"<br>
-<br>
-"It's called Limit Break."<br>
-<br>
-Red looks back and forth between them as they start to argue, then turns to Aiko, bemused.<br>
-<br>
-"We tried coming up with names for it," she explains. "Special techniques need names, right?"<br>
-<br>
-"Ah." He tries to think of something to say, but is distracted by her anticipatory look. "Um. Did you also have a suggestion, then?"<br>
-<br>
-"Yep! Ultra Instinct! You know, from—"<br>
-<br>
-"I got it, yeah. Isn't that trademarked, though?"<br>
-<br>
-She shrugs. "Unleashed Instinct?"<br>
-<br>
-That… doesn't sound bad. Red opens his mouth to say so when Elaine jumps in to denounce the amount of syllables and lack of alliteration, which draws Aiko into the argument, which seems utterly unconcerned with Red's ideas or preference.<br>
-<br>
-"Well, at least they're having fun with it," he tells Blue, who to his relief hasn't gotten involved.<br>
-<br>
-Blue shrugs. "I figured I'd let them argue till they're sick of it, then just call it its real name and they'll accept it."<br>
-<br>
-Red sighs. "And what is the real name for telling a pokemon to give up their conditioning?"<br>
-<br>
-"The kind that's useful in battle?" Blue's lips quirk, smile sharp as the blade of a dagger. "<em>Sakki.</em>"<br>
-<br>
-<em>Killing intent.</em><br>
-<br>
-Red shivers in the warm sunlight, and has no retort.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-Leaf helps feed and care for the pokemon with the rest of the workers from RAWP, then sits down to relax as the kids and therapists go off to do group sessions. She's not there for long before she spots Adom sitting in a corner with his laptop and headphones on. She doesn't want to disturb him, but is curious to know more about his organization, so just checks the comments on her abra article while she waits for him to seem less busy.<br>
-<br>
-To her surprise, when he takes his headphones off and stands, he makes his way over to her and plops down on the nearby couch.<br>
-<br>
-"Hey. So I just read your abra article—"<br>
-<br>
-Leaf blinks.<br>
-<br>
-"—and I was wondering what you think about using it with other psychic pokemon. You warned people not to try it without taking safety precautions, but if they do it right do you think someone could, like, just walk up to a drowzee too?"<br>
-<br>
-"I don't know, really. I didn't want to guess, since I haven't had the chance to try it with other species."<br>
-<br>
-He nods. "You probably should, soon. It would really boost the utility people can expect to get from trying to mimic it though. Assuming others can learn it. I'm going to try to, anyway."<br>
-<br>
-"Oh, great! Will you document it?"<br>
-<br>
-"Yeah, that's the idea. With abra first, of course, since they'll just teleport away if I don't get it right, but if you do get a chance to try it with other species, the sooner you test it out so we know if it's possible, the better."<br>
-<br>
-He's right. Leaf should have tried it with other psychic pokemon before she wrote the article… she can only hope others who try it are as sensible as Adom and won't try to walk up to a sigilyph or woobat and risk getting attacked.<br>
-<br>
-"Damn. I should have thought of this myself, and now there's no time to test it before tomorrow…"<br>
-<br>
-"What's tomorrow?"<br>
-<br>
-"Oh, Red and I are going on the Cruise Convention."<br>
-<br>
-Adom's face lights up. "Are you really? You should definitely test this out before you go if you can, but are you going to write an article on one of the exhibits?"<br>
-<br>
-"That's the plan."<br>
-<br>
-"Sweet. Which one?"<br>
-<br>
-"I'm not sure yet. Aren't they really secretive about what's going to be shown?"<br>
-<br>
-"Sure, but I thought you might have connections, through your mom or Oak." He pauses, face thoughtful. "Hm. Okay, can you keep a secret for like, 12 hours?"<br>
-<br>
-Leaf raises a brow. "Are you telling me <em>you </em>have connections?"<br>
-<br>
-"Depends." He leans forward. "Can you?"<br>
-<br>
-Leaf grins and leans forward too, though no one seems close enough to hear them. "Yeah, I never reveal my sources."<br>
-<br>
-"Okay, so you should find Dr. Marcus Post's exhibit on the first day. He's going to be demonstrating the results of the artificial meat production he developed with pokeball tech."<br>
-<br>
-"Shut up! Seriously?"<br>
-<br>
-Adom leans back with a smile at Leaf's expression. "Yep. Attend it early so you can be one of the first to write about it."<br>
-<br>
-"How do you know this?"<br>
-<br>
-"Just some connections in the pokemon welfare world. If it takes off commercially... you know?"<br>
-<br>
-"Right, it would be huge! This is great, I was wondering whether I'd find something good to write on… and I can start research and outlining tonight."<br>
-<br>
-"Yeah. I figured it would do well following the abra piece."<br>
-<br>
-"For sure. Thanks for telling me! How long have you been involved in pokemon welfare, anyway?"<br>
-<br>
-"A couple years, with this organization."<br>
-<br>
-"That's great. Do you feel like it's making a difference?"<br>
-<br>
-Adom cocks his head, gaze up, hand teetering side to side. "Sometimes. It's rewarding, but I'm not sure it's the best use of my time or abilities. I think there might be other things to work on that have more impact, or address different, more pressing issues."<br>
-<br>
-"Yeah, I can understand that." Leaf thinks of her own constant shift from one project to another. The brief trip into journalism has been great so far, but she wonders how long it'll be before she discovers something else that seems more important. "So what's your next duty after the group therapy finishes?"<br>
-<br>
-"The kids are going to be divided into those that are afraid of pokemon and the ones that are here for depression or grief. The first group will get more direct one-on-one exposure and learning, while the second gets to choose from activities. So I've got a lapras that I'm going to offer rides on at a nearby lake."<br>
-<br>
-"Oh, cool! Is there anything I can help with?"<br>
-<br>
-"If you have any pokemon you think they'd enjoy interacting with, we can list it in the announcements too."<br>
-<br>
-"Hm. Joy is probably the safest bet. She's just so soft and squishy."<br>
-<br>
-"Yeah, I can see that being a big hit. We've got a stoutland that's great for hugs too."<br>
-<br>
-"Oh man, I love stoutlands! My grandpa has one…"<br>
-<br>
-The two talk about Unovan pokemon until one of Adom's peers pokes her head in and signals him, causing him to excuse himself. Leaf looks up any potential nearby psychic pokemon besides abra she can use as a test until Red and the others return. Aiko runs upstairs to take a quick shower and change while the others relax for a bit, and Leaf fills them in on what's happening next. They start to discuss what pokemon they have that might enjoy being played with. Glen's snorlax is tame enough to be safely fed, and it's a rare enough pokemon that a lot of kids might be interested in interacting with it. Red, Blue, and Elaine decide to just help out or watch the existing activities.<br>
-<br>
-Mrs. Ino recommends that Joy be available to the kids that are afraid of pokemon after losing a loved one or witnessing an attack. Leaf is only too happy to summon her cuddle partner and let the kids bask in her shining eyes, cheerful smile, and soft embrace. There are three of them, the youngest a boy of five or six, and two girls aged 9 and 10. The older girl holds the boy's hand as the three stare at Leaf's wigglytuff.<br>
-<br>
-"It's not a danger?" the boy asks, sounding younger than his age.<br>
-<br>
-Leaf thinks of the field of sleeping pokemon that she and the others had nearly walked into. "She won't hurt you," Leaf says instead. "Her name is Joy. See how happy she is? She can fight, like most pokemon, but she doesn't like to."<br>
-<br>
-"What does she like to do instead?" the older girl asks. She seems the least afraid of the three, but her hand is holding her brother's tight.<br>
-<br>
-"She likes to sing, and eat, and give hugs. See?" She wraps her arms around her pokemon, who as always is overjoyed to squeeze her back. "This is how some pokemon are, if they're not threatened. They're just happy to get along with others."<br>
-<br>
-"But only the captured ones, right?"<br>
-<br>
-Leaf considers this, trying to stay honest without scaring them further. "Some pokemon are really peaceful even in the wild… but only the captured ones are <em>really </em>safe. I promise that Joy won't hurt you, if you want to give her a hug."<br>
-<br>
-None of them move to, and Leaf remembers the quick guidelines she got: don't force anything, just let the option to interact be there for them. So she decides to start talking about her favorite pokemon, and the activities she enjoys with them: running around and playing fetch with her ivysaur, sending her recently evolved pidgeotto into complex aerial maneuvers with her ocarina, and of course cuddling up to Joy while reading or falling asleep, as she's doing now.<br>
-<br>
-Soon enough some of the kids are happy to take turns hugging her too. All at least pet her soft fur, and a few even feed her.<br>
-<br>
-Leaf is in great spirits by the time night begins to fall, and everyone goes around to feed and withdraw the pokemon for the evening, then prepare to leave the ranch. She says goodbye to the kids and therapists, then the RAWP members, thanking Adom again for the tip and telling him to keep in touch. Once everyone's gone, she heads upstairs to take a shower, then she goes to Aiko's room to put her clothes away in her bag, expecting it to be empty. Instead she finds her friend there.<br>
-<br>
-The mechanical parts that had cluttered it before are more or less neatly shoved into a corner now, with the majority of the roomspace dominated by supplies that are arranged around her travel bag. Aiko is on her computer, pokedex hooked up to it while she looks over some code.<br>
-<br>
-"Hey. What's up? Everything okay?"<br>
-<br>
-"Yeah, just working on a new idea I had while talking with the others downstairs."<br>
-<br>
-Leaf puts her dirty clothes in their container, then sits on her bed while she brushes her hair. "What on?"<br>
-<br>
-"Trying to design a new sim for the pokedex. One that links a command word with the state of mind Red projects onto his pokemon, to let them temporarily forget their conditioning."<br>
-<br>
-Leaf's eyes widen. "Red's <em>what?!</em>"<br>
-<br>
-"Oh, right, you may not have heard…"<br>
-<br>
-Leaf listens with mounting horror at what Aiko is casually describing as a valuable combat technique. "But… but what if it hurts the other pokemon, or attacks a trainer?"<br>
-<br>
-"He's being really careful with it," Aiko assures her. "We're still testing boundaries and effects, and he still won't use it with his Charmeleon because he's worried about the harm it might cause."<br>
-<br>
-Leaf doesn't understand how careful they can really be with something this dangerous, but she knows Red's methodical nature wouldn't allow for something <em>too </em>irresponsible. Even still… "If something like that becomes widespread, it'll cause pokemon to be even <em>more </em>hurt in battles. How can you be okay with that?"<br>
-<br>
-Aiko turns her chair to face Leaf, brow creased. "This again?"<br>
-<br>
-"What again?"<br>
-<br>
-"You implying I don't care about pokemon enough. What do you think the point of training even is? To make them more deadly for <em>when we need them to be. </em>This is just an extension of that."<br>
-<br>
-Leaf feels her pulse speed up. "Oh, please, like any regional league is going to ban something like this. They barely restrict dangerous attacks, how would they even know you were using something like this?"<br>
-<br>
-"That can change, some day."<br>
-<br>
-"Sure. Some day. Meanwhile how many more pokemon are going to accidentally get killed in battles?"<br>
-<br>
-Aiko throws her hands up. "What do you want us to do, just ignore it? For all we know other psychics are already using this, and just keeping it secret! We're lucky Red isn't like other battle trainers and told us!"<br>
-<br>
-"Lucky. Of course. And here I was just thinking about how responsible he is, but he probably told the whole gym about this already, didn't he?"<br>
-<br>
-"No! Just the group."<br>
-<br>
-"You, Elaine and Glen?"<br>
-<br>
-Aiko fidgets. "A few others too."<br>
-<br>
-"Aauugh!" Leaf buries her face in her arms. "This is what I get for chasing my story and not being around!"<br>
-<br>
-"Leaf, you're not thinking this through. Why do you think I want to make this something the pokedex can teach?"<br>
-<br>
-She raises her head. "For your own pokemon to use it?"<br>
-<br>
-"Sure, but not <em>just </em>that!" She sweeps an arm around her. "All this? It's because pokemon are so incapable of living in the wild after being caught. If we don't take care of them, they'll either sit in storage for years or get released and die. Being able to remove conditioning temporarily might let us remove it <em>permanently, </em>so they can return to their natural habitat again if no one wants them."<br>
-<br>
-This gives Leaf pause, but her frown doesn't lessen any. "But that's not how most people are going to use it!"<br>
-<br>
-"They might, if you can convince them to!"<br>
-<br>
-Leaf is silent awhile, and they both stare at each other, faces flushed. "Do you really think I can?" she asks at last, once her breathing is slowed.<br>
-<br>
-Aiko comes to sit on the bed beside her, hand taking hers. "After everything you've done in just a few months? I know you can."<br>
-<br>
-Leaf thinks of the Mt. Moon article and feels her face flush, for a different reason this time. "I think you're a bit biased."<br>
-<br>
-"Nah, you're just modest."<br>
-<br>
-Leaf almost admits her recent decision right there, almost lays the whole thing on Aiko to judge… but decides to just take the compliment, not wanting to burden her friend. "Even if you're right, it'll still take years. I don't think I'll do it fast enough to stop something like this from becoming widespread."<br>
-<br>
-Aiko snorts. "Well if you're worried about me cracking this in my daily hour of spare time anytime soon, don't be. It'll probably take me twice as long to get it right."<br>
-<br>
-Leaf smiles and squeezes Aiko's hand. "Now who's being modest? Caught and raised your own pokemon, by yourself, and got a badge, all while helping out around here? I wouldn't be surprised if you have it done by the time I'm back, and the Thunder Badge to boot."<br>
-<br>
-"Well, at least that last one seems likely." Aiko lets out a breath. "Before you guys came I thought it would take another two years to get my next badge. Come back soon, okay? Or if you end up loving life on the sea, at least tell me so I know which boat to stick a tracker to and worry about."<br>
-<br>
-Leaf leans her head on Aiko's shoulder and smiles. "It's a promise."<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-Blue is sitting on the porch as the stars come out, feeding Ion and planning out the trip tomorrow. He checks message boards for others looking to group up, sending notices and listing his party's pokemon as he rubs Ion's black fur. It'll be his first time really leading an outing, explicitly in charge rather than the more equal footing he feels he's on with Red and Leaf, despite their lack of badges. He wants to make sure everything goes perfectly, and tries to think of what might go wrong ahead of time as best he can.<br>
-<br>
-<em>Lack of supplies… cave-in… Tier 3 event...</em><br>
-<br>
-He's still there when Red comes out with his backpack on. "Ready to go?" he asks.<br>
-<br>
-"Yeah, I already said bye to the others. Leaf is upstairs with Aiko still." Red sits beside him, and Blue watches as his friend cautiously extends a hand to his shinx to let it get sniffed, then begins to stroke his fur. "When are you guys heading to the caves? In the morning?"<br>
-<br>
-"Not right away. We want to give Aiko as much time as possible between teleports back, so we'll try to time our arrival for when she has to come back at noon."<br>
-<br>
-"Makes sense." Red is quiet a moment, and while Blue is comfortable with the silence, he gets the impression Red wants to say something.<br>
-<br>
-"Battle went well," he says first in case that's it, referring to Red's match with Glen. Red lost, but it was a close thing. "You're still not committing enough to secure the wins."<br>
-<br>
-Red shrugs. "I was trying to test something out, mostly. It would have been dangerous to let it loose too much, so I didn't really care about winning."<br>
-<br>
-"Well, testing stuff is fine. Just keep in mind that we're training to win our fights. Not just for badges, but so we're used to winning against wilds too."<br>
-<br>
-Red turns to him. "How come you didn't tell everyone what your rhyhorn did, then?"<br>
-<br>
-Blue blinks. "What?"<br>
-<br>
-"Why do you keep things like that secret? Take risks? Your battle with Elaine reminded me of why I don't like battle trainers."<br>
-<br>
-Blue feels a spark of heat in his chest. "What's that supposed to mean? What did I do wrong?"<br>
-<br>
-"Her graveler could have gotten hurt, Blue."<br>
-<br>
-"I was watching—"<br>
-<br>
-"You don't know her pokemon as well as she does. You should have told her that was a possibility before you started."<br>
-<br>
-"So you're an expert on battle etiquette now, are you?" he asks, voice cold.<br>
-<br>
-Red opens his mouth, closes it. Rubs his face. Takes a breath. "I'm saying this wrong. I wanted to say, first, that I'm really impressed with the way you've grown lately. The way you act around the others, help them improve. But your battle with Elaine today still felt like the old you."<br>
-<br>
-"The old me. Meaning what?" But part of Blue knows, thinks of the time Maturin hurt his training partner's pokemon in Cerulean... what was her name, again?<br>
-<br>
-"The you that cared more about winning than helping others win too."<br>
-<br>
-Blue feels the fiery form inside him prowling, wanting to snap back at Red's accusations. Instead he tries to focus on the compliment his friend was giving him, and give one back. "Red, you're a smart guy. You're actually good at battling too, despite your mistakes. But this is something you just don't get." Blue holds a hand up to stall Red, searching for the right words. "I've been reading the book Gramps gave me, and it's been teaching me how to think differently about what it means to lead others… but it's also been confirming something for me: the importance of winning. I can't become Champion if I don't win, and I can't win if I don't hold things back. I want Glen and Elaine and Aiko and Amy and everyone to be right there with me on Victory Road, but…" His hand throbs, and he realizes that it's curled into a tight fist. "I almost lost against Elaine, Red. I didn't mention the attack ahead of time because I didn't plan to use it ahead of time."<br>
-<br>
-Blue struggles with his shame and stubborn defiance in the following silence, until Red asks, voice soft, "Is it that big a deal, if you don't win against a friend? What, you think she'll respect you less?"<br>
-<br>
-Blue shakes his head. "That's not it. In the end <em>I</em> still need to know I can win, even if it looks like I can't. So that one day, in that final battle, in front of the world, when it matters most, I know what works. Against anyone. Even Elaine. Even you. If I win there, I can teach all my secrets afterward. If I lose…" He stops, unable to put it into words, the feeling inside him, the hollow fear. "We'll just be <em>stuck</em> again," he says at last, hoping his friend understands.<br>
-<br>
-Blue can see Red struggling to put something into words as well, his frown creasing his whole face as he runs his fingers beneath his hat. "But what makes that different? What sets you apart, if you follow that path? Don't you want to be a Champion that <em>leads</em>? Keeping secrets is important in battles, I get that, but… I think you have a real chance to set a different standard."<br>
-<br>
-"What do you mean?"<br>
-<br>
-"I mean do you want to prove you're the best of this <em>particular</em> generation of trainers? Or do you want to be the <em>actual</em> best<em>,</em> like no one <em>ever</em> was?"<br>
-<br>
-"You're not about to break into song, are you?"<br>
-<br>
-Red doesn't smile. He stretches his hands out, arms wide. "This is it, Blue. This is your chance to do something really different. I think you're halfway there, but you can do more: prove that you can win, reveal your secrets, and then <em>win again anyway</em>."<br>
-<br>
-Blue considers this for a moment, but the lurking fear, the waiting doom, quickly returns. Red just doesn't understand… "I can't risk that."<br>
-<br>
-"You can't risk that you're not that good?"<br>
-<br>
-"I can't risk that <em>no one</em> is that good! And then someone else comes along, using my secrets and keeping theirs, and they beat me and all I've proven is what a swell guy I am. People won't follow me just for being <em>nice, </em>Red."<br>
-<br>
-His friend is quiet for a beat before whispering, "I would."<br>
-<br>
-Blue feels a lump in his throat, swallows past it, smiles. "Sure, I know that. Not everyone's as smart as you though."<br>
-<br>
-Red smiles at that too, and a silence falls on them after that doesn't feel uneasy, but still seems crowded with unresolved issues. Blue tries to think of what to say, reaching for some assurance...<br>
-<br>
-"I'm worried about splitting up," Red says first, surprising him with the topic change. "You'll be careful, right? While Leaf and I are gone?"<br>
-<br>
-Blue raises his brow. "Sure I will. And I've got the others to watch my back now too. It's you guys I'm worried about, off on your own for a week, surrounded by eggheads—"<br>
-<br>
-Red snorts. "There will be other trainers there too, you know."<br>
-<br>
-"Mmhm. Second stringers, or people years past their prime. Just saying, if a swarm of wingull attacks the boat and kills everyone, it would make for an embarrassing headline."<br>
-<br>
-"Heh. I think we could handle that. If not, we can just teleport back."<br>
-<br>
-Blue glances at him. "Could you?"<br>
-<br>
-"What?"<br>
-<br>
-"Teleport back, while the people on the boat are in danger?"<br>
-<br>
-Red is silent for a moment. "I guess not. Not if I thought I could do something about it."<br>
-<br>
-Blue chuckles. "Speaking of still not being <em>fully there </em>yet…"<br>
-<br>
-"What do you mean?"<br>
-<br>
-"I mean what we promised we'd become, one day. You remember, right? Professor doesn't mean just researcher. Champion doesn't mean just a strong trainer."<br>
-<br>
-"Heroes."<br>
-<br>
-"Right. The kinds of heroes that would stop the Stormbringers, eventually. Isn't that what all this is for?"<br>
-<br>
-"I remember." Red shifts. "Still have to survive long enough to get there, though. To reach the hill I'm willing to die on, so to speak."<br>
-<br>
-Blue shakes his head, staring off into a dark sky full of endless stars shining down at them. "Heroes don't get to choose their battles, Red. That's what makes them who they are. What makes them as strong as they need to be." There's silence for a while, and in it Blue senses his friend's disagreement, the weight of unspoken words. He feels momentarily uneasy as he thinks of the way Red didn't want to climb the tree for the pineco, and the way he argued against going to the incident on their way down here the first time…<br>
-<br>
-But then remembers the way Red set up the smokescreen at the beedrill field, directly in the path of danger, and stood on the front lines against the paras on Mt. Moon. <em>He'll get there.</em><br>
-<br>
-The door opens, and Leaf comes out. "Heya."<br>
-<br>
-"Hey." He stands, and so does Red. Blue wraps an arm around his friend's shoulder for a quick hug. "I'll think about what you said. Thanks for believing in me enough to say it."<br>
-<br>
-Red smiles. "Same to you."<br>
-<br>
-He hugs Leaf next. "Take care of him, alright?"<br>
-<br>
-"Nanny duty again," Leaf sighs, but she squeezes him back, hard. "Watch out for the others."<br>
-<br>
-"That's the plan."<br>
-<br>
-They stand around a moment longer, smiles fading but lingering, searching for something else to say. Something feels lodged in his chest, some sense of approaching finality. The last time he felt something like it was in the forest, watching them in the circle of light before he ran off for help. It's silly, comparing the two situations. Blue knows it's just a week, knows they've spent that much time barely seeing each other in cities before, but it still feels different, this geographic separation. He sees it in their eyes too as they summon their abra.<br>
-<br>
-"What do you guys say?" he asks at last, holding a hand out, palm down. "Oaklings forever?"<br>
-<br>
-Red groans, Leaf laughs, and that's how they leave him: standing in the cool night air as they teleport away in a blink, leaving no trace but the warmth of their hands around his.
-        </div>
+            <h1 class="chapter-title">116: Conspiracies</h1>
 
-        <div class="chapter-nav">
-            <a href="../115/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../117/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p><p style="text-align: center;">Chapter 116: Conspiracies</p>
+For all her time in Fuchsia, Leaf has never been to its gym before today, and is surprised how much she regrets that.</p>
+
+<p>She doesn't tend to have much business in them, of course, which is usually reason enough to not stop by on a week to week basis. But Fuchsia has also been relatively lucky with incidents in the past few hectic months. Most have been on the outskirts of the city, and with the Safari Zone's high concentration of rangers, most meeting points have defaulted to their outposts.</p>
+
+<p>But she was invited explicitly at least twice: once when Elaine asked if she wanted to see the scenarios that the gang set up here, and second when Blue's usual emailed ticket offer to his Challenge match (something that might have felt pushy from someone who tried to get her to change her eating or battling habits, but from Blue just felt like him leaving open doors in their friendship). She declined both, despite being more tempted than she's ever been before.</p>
+
+<p>It's been bouncing around in her head for months, the thought that being so squeamish about trainer battles made her less able to help others in a crisis, not to mention put her pokemon at higher risk of dying. She still remembers her argument with Aiko about it, an argument that's tinged with some regret and embarrassment at her own self-righteous confidence.</p>
+
+<p>She's a good trainer, and knows it. She's been proud of the way her pokemon can keep up with battle trainers' during incidents against wilds, and Daisy has even urged her to apply for the next coordinator competition even without formal training as one.</p>
+
+<p>But some part of her expected that, if she somehow ended up in yet another situation like the ones at Mount Moon and the Rocket Casino, if renegade activity was on the rise and she should expect to encounter one again someday, her ability to get through those was a sign that she could make it through others.</p>
+
+<p>And <em>maybe</em>, in a world without Team Rocket, that <em>might</em> have actually been true. But it's definitely not the one she lives in anymore, and she can't afford to pretend it is. Viridian, Mount Moon, Vermilion, Celadon, Lavender… all the worst moments of her life, the times she felt the most powerless, none prepared her for what it meant to feel <em>actually </em>powerless as that day in Saffron, when Agent Looker directly told her she'd be a liability in battles against the renegades fighting her friends…</p>
+
+<p>…and she'd known he was right. She had no delusions about her ability to beat someone who trained to battle trainers, and the renegades would be prepared for <em>them</em>. She wouldn't be able to take them by surprise like she did in Mt. Moon and Celadon, and from what Blue told her about his battles afterward, she would have not just lost, but died.</p>
+
+<p>She spoke with Natural about it, afterward. He was the only one she thought would understand… and he did. He admitted that he was as shaken by Rocket as anyone, and that while he didn't plan to stop fighting for pokemon rights, he saw his father preparing for a world where renegade's place in society changed, where they were more organized and active, and he knew he had to do the same.</p>
+
+<p>Leaf suspects that most people will still never end up facing a renegade, the same way most don't end up directly facing a wild pokemon unless they're a trainer. Even trainers will more than likely just stay back and let the police handle it if a renegade attacks the city they're in.</p>
+
+<p>But she knows <em>Red </em>will end up facing them again, and she can't properly face how scared that makes her… or how sad.</p>
+
+<p>It makes her feel the urge to prepare too, even if she also doesn't expect to face one herself. Not doing so would feel like… abandoning him to his fate, saying that it's okay for him to shoulder the burden alone.</p>
+
+<p>She knows by the way he's back to racing through the badges that Blue feels the same way. Last she spoke to him he said he would be heading to Cinnabar today, before his friends all complete their own Saffron Badge challenge. Her Safari Zone project has come under scrutiny, but she's not really that involved in it anymore, and it's her other projects that she has to weigh against how far she should take this new desire.</p>
+
+<p>Still, none of that is the primary reason she regrets not having come to Fuchsia Gym earlier. Right now, as she walks along the paper walls around the courtyard, what's on her mind is just how pretty the gym's unique aesthetic is, and how peaceful she finds it.</p>
+
+<p>She takes her time to enjoy the carefully maintained landscaping that's so different from Celadon's lush grounds, pausing by each small pond and sand garden, admiring the splashes of greenery that stand out like islands throughout the gym. Now and then she sees a class of trainers attending a lecture, or a pair doing battle over one of the sand arenas, or a small group practicing some scenario that Blue and his gang popularized here, but so far she hasn't seen anyone she recognized, which is fair given she didn't tell anyone she was coming.</p>
+
+<p>The invitation by Leader Koga took her by surprise. She couldn't imagine what led to it until she realized he's probably as aware of the vigilante running around in his city as anyone, and finally decided to speak with her about her investigations (which she continued, now and then, to make it seem like she still hasn't been in contact with the informant). When she asked he only said it was a private matter that he'd prefer to speak about in person, so she agreed, and came a little early rather than arrive late.</p>
+
+<p>Leaf eventually comes across a pair of trainers dueling on a sandy arena, and, still feeling the sting of Looker's comment, pauses to watch the battle. A beedrill stinger clicks against a sandshrew's shell, who swipes a claw back across its abdomen, only to then be pierced in the chest by the twin needles of its forearms, causing her to wince and look away.</p>
+
+<p>She tries to shift her perspective, looking back and imagining she has Red's powers to just… rearrange her frame of what's happening in front of her. <em>It's a wild battle, they're getting hurt because it's the only way they can survive…</em></p>
+
+<p>"Scratch!'</p>
+
+<p>"Bug Bite!"</p>
+
+<p>"Sandshrew, return! Go, Vulpix!"</p>
+
+<p>She moves on before the inevitable fire attacks start getting used, heart pounding as her mind keeps flashing back to images of pokemon she's seen being burnt to death.</p>
+
+<p>It's <em>painful</em>, painful and <em>jittery </em>in some way that makes it hard to hold onto, hard to sit with, and all at once Leaf is angry with herself.</p>
+
+<p><em>What's wrong with me? </em>All around her there are trainers doing something for hours at a time that she couldn't stand for more than a few moments, and it would be tempting to believe this is a choice on her part, some matter of taste or morality, but it would be a lie. She's not <em>choosing </em>not to engage in trainer battles or watch them, she <em>can't, </em>not if someone's life isn't at stake, no more than she can hold her hand in a fire, and normally she'd say that's good, that people shouldn't do something that's painful for them, but it doesn't answer why <em>everyone else </em>is able to.</p>
+
+<p>She waits a few minutes for her pulse to slow, watching some goldeen get fed until her body feels mostly back to normal before she wanders close to another arena. A weezing is getting battered around by a kadabra's mental attacks, and Leaf's gut churns as she watches its body vibrate with each hit, knowing that the psychic attacks are upsetting its internal chemistry and causing it to feel more pain than the attacks imply. She focuses on how it's pushing on despite that, tries convincing herself that the pokemon is learning to better fight through pain by experiencing it now, that it will be more ready in the wild… but when the weezing's whole body undulates with a psychic strike and it falls to the ground like a half deflated balloon, she's forced to look away again, staying just long enough to ensure that the trainer swaps it out rather than keep fighting before she hurries away.</p>
+
+<p>She had this thought back in Pewter after watching Blue's first badge challenge, and then just… never thought about it seriously again, not until she spoke with Aiko and noticed that despite also not eating pokemon her friend <em>was </em>able to enjoy trainer battles. That should have confused her more, it felt so clear to her that caring more about pokemon is right that she just wrote off trainers who didn't mind seeing their pokemon hurt as not caring enough, and for Aiko… she just thought the same, really, that she cared but not <em>as much</em>.</p>
+
+<p>It's too easy, she knows, to do that with <em>any </em>difference between people. Just decide that caring more would lead to more ethical actions. And maybe it's even true; if others don't actually feel this level of pain and discomfort from watching pokemon get hurt, it's probably accurate to describe that as "caring less" when they get hurt.</p>
+
+<p>But if she lets go of the idea that this is the <em>only </em>reason for the difference… if she admits to herself that it might be a necessary part of the answer, but not a sufficient one…</p>
+
+<p>She can feel it, some part of her wanting to reject the idea out of hand. It's like a pressure, or a… slipperiness in her mind, a way in which the thoughts don't chain as smoothly from one to the next.</p>
+
+<p>Red taught her about the "focusing" thing his therapist taught him not long after he learned it, and she tried it a few times herself after. She's not sure if she's ever done it quite right, but even the process of paying more attention to how she feels, trying to put it into words, has been helpful for introspecting on things.</p>
+
+<p>She pulls out her phone and sits on a bench in a stone garden, but doesn't start writing yet. Instead she just watches the way a gardener creates swirling patterns in the sand with rakes, thinking around the slippery part of her mind, deciding on whether that word is actually correct. After a moment she decides it is, but there's something more. There's a… pulling, or like… a fear of being pulled, a sort of faint gravity in there somewhere.</p>
+
+<p>She writes a few things out, testing different thoughts and frames before it becomes more clear. There's a feeling of <em>imminent slippage</em>, of being on the <em>edge of a slope</em> and knowing that an extra step could send her careening down.</p>
+
+<p>Once that's recognized, finding the right words is easy.</p>
+
+<p><em>I'm worried that if I'm able to watch battles, it'll be because I care about pokemon less.</em></p>
+
+<p><em>I'm worried that watching battles enough will </em>make <em>me care about pokemon less.</em></p>
+
+<p><em>I'm worried that caring about pokemon less would make me…</em></p>
+
+<p>She trails off there, staring at the screen as her thumbs twitch to start new words a handful of times. What is her care of pokemon, to her? Is she afraid she'll start mistreating pokemon, even beyond trainer battles? Would start eating them? It didn't happen to Aiko.</p>
+
+<p>…<em>make me less special.</em></p>
+
+<p>That resonates more than the other two did, and she tucks her phone away, feeling vaguely embarrassed and guilty. She doesn't remember what's supposed to come next; thanking the part of her that she was focusing on? If so, she's not sure it would feel genuine.</p>
+
+<p>She does <em>like </em>being special. She can admit that there's a part of her that's proud of the way, after years of being treated like a weird extremist for her views, her connection with pokemon has turned out to have actual <em>effects</em> on the world, a tangible benefit that others have to pay attention to. It makes more people read her articles, even if some are just looking for a practical advantage. It gives her words some weight.</p>
+
+<p>She doesn't actually understand why she's so different, though, and maybe that's why the feeling of losing something that makes her special feels scary.</p>
+
+<p>But maybe the two things aren't related at all. Maybe there's something that causes her to care about pokemon so much that it keeps abra from teleporting away, and maybe it's different than the part of her that feels incredibly stressed by watching pokemon get hurt.</p>
+
+<p>She just doesn't have enough information to know, and she <em>wants </em>to know. Maybe it's the sort of thing she should talk to someone about… a therapist doesn't sound like the right choice, exactly, but it's probably not a bad place to start, assuming she finds one that understands her values and doesn't just assume there's something wrong with her that she has to "fix."</p>
+
+<p>One thing that immediately springs to mind is to check whether there are studies of this sort of thing, or online groups for people who struggle with it too. She hasn't heard anyone talk about it before, but if it's rare enough, maybe they wouldn't… particularly if there's a stigma attached.</p>
+
+<p>She's in the middle of searching for that when she notices there's just a couple minutes until her meeting, and hurries toward the Leader's office, which is situated in one of the miniature houses near the center of the gym. There's no one to talk to at the doors, not even a secretary, and she cautiously makes her way through a couple inner doors until she reaches a room that looks like it's at the center. When the door slides opens, the first thing she notices is—</p>
+
+<p>"Blue?" She closes the door behind her, then steps over for an automatic hug as he rises from the cushion on the floor he was seated on. "I thought you were on your way to Cinnabar!"</p>
+
+<p>"I <em>am </em>on my way to Cinnabar. Got an invitation to stop by along the way." He looks at Leader Koga, who's sitting on the other end of the table in the middle of the room. There's a tea set placed there, with four cups.</p>
+
+<p>"Thank you for coming, Miss Juniper. I hoped to speak with you both without giving an opportunity to discuss this meeting with others, for reasons that will soon be clear." Leaf isn't sure if it's meant as an apology, but she takes it for one, and approaches to sit beside Blue at the table. She's just wondering who the fourth cup is for, and whether Red is coming too, when the back wall's door slides open and Leaf's informant steps into the room.</p>
+
+<p>The shock of it dumps adrenaline through Leaf's body, and she's on her feet before she even realizes it, blood rushing through her ears. It only takes a moment for her brain to catch up enough to feel ridiculous; she's hardly less safe meeting <em>here </em>than she is alone on a dark rooftop. But she normally has hours to mentally prepare for those meetings, and something about the masked figure in dark leather feels more obviously… aberrant, and potentially unsafe, when seen so clearly. It would look more comical if it weren't so real, and instead comes off as more unhinged.</p>
+
+<p>Blue is frowning as he looks between them, clearly tense but also confused, and Leaf realizes that of course he's never seen her informant before. Koga isn't reacting at all other than to patiently watch her, and Leaf's shock starts to fade as it finishes sinking in how unlikely this situation is to be actually dangerous.</p>
+
+<p>"Oh," Blue says after what feels like a minute but was probably just a few seconds. "You're her. And…" He looks at Koga. "You know her? Wait… Oh. <em>Oooh</em>…"</p>
+
+<p>The informant sighs, then reaches up to pull down her mask, and Blue curses. It takes Leaf a moment to search her memory before recognition hits, and a mix of indignation, nervousness, and excitement blooms through her stomach. Leaf doesn't know much about Janine Koga that she hasn't heard secondhand from conversations between Blue or Elaine and the others who were here, mostly conversations that talked about how to attract more of the gym members she was giving lessons to, and that mostly concerned her general competence and severity (or outright unfriendliness, from Elaine's perspective, though Lizzie disagreed).</p>
+
+<p>"So," Leaf says as casually as she can manage. "I guess I know why you've mostly stayed in Fuchsia."</p>
+
+<p>"My father hasn't helped me at all," her informant—Janine—says, sounding affronted by the implication. "He found me out, eventually, and told me to stop before he'd be forced to report me. He also told me some stuff that, combined with… recent events… convinced me that my approach has to change."</p>
+
+<p>A part of Leaf that wants to reach for her notebook marks the way Janine didn't say <em>when </em>Leader Koga found out, but all she says is, "Rocket."</p>
+
+<p>"That is not their name," Koga says, voice quiet but firm. "It is one they are using to connect them to recent events, to mask their long history in an illusion of recency. I am confident that the organization behind it is older than the Rocket Casino, and invited you here because the way they operate from the shadows is one I'm familiar with."</p>
+
+<p>Leaf takes a moment to absorb this before asking the obvious question. "Why me? Why not the police? Or Interpol, if you don't trust them?"</p>
+
+<p>"I distrust both. They may already know what I plan to reveal, and are unable to act, which makes them useless at best. If they are complicit, I would be risking much by revealing what I know." Koga holds her gaze for a moment. "Janine told me how you refused to steal from Silph during the renegade attack. She may have had good intentions, but I disagree with her methods. I would equip you to be an ally of equal footing, such that the goal may be achieved through better means."</p>
+
+<p>Leaf has noticed how most of the Leaders in this region talk in a certain way, more formal, almost like Unown was a second language to them and they were compensating for it by speaking like a textbook, or like they were giving a lecture. Misty and Surge (obviously) were the least like this, and Giovanni stood out the most compared to Brock or Sabrina, until now. Koga speaks like he's in some historical drama, though that might just be due to his accent, which is much stronger than most Kantonians; for him she could believe Unown really <em>was </em>his second language, which would mean an unusually old-fashioned upbringing.</p>
+
+<p>All of this distracts her a bit from the substance of what the Leader was saying, which she doesn't really know how to respond to given she doesn't know the full extent of what Janine has actually been up to. She's spared the need by Blue, who's frowning slightly as he rests his weight on his ankles, hands on his knees.</p>
+
+<p>"And me? If this is the thing you almost told me after my Challenge, what's changed? I want to take Rocket down as much as anyone, but I'm focusing on becoming a different kind of tool."</p>
+
+<p>Leaf wonders at that phrasing as Leader Koga pours some tea for them, which she supposes is a polite way to invite her to sit back down. She does so, gaze on Janine, who's watching Blue in turn.</p>
+
+<p>"As you say, I had some thought to share this with you after your last battle with Janine. Your meta-honesty policy made me less certain you would keep the secret, given your relationship with your friends. But it is exactly because of what you hope to become that I wanted to include you in this conversation."</p>
+
+<p>Blue picks up his tea, brow raised. "Have you been speaking to Sabrina, by chance?"</p>
+
+<p>"No more than is usual, given our roles." Koga finishes pouring into his own cup last, and sets the kettle aside. "Why do you ask?"</p>
+
+<p>"Well, not sure if you watched our match—"</p>
+
+<p>"I did."</p>
+
+<p>"—but I asked her, after, if she let me win. There was a moment where it felt like she could turn the tables if she wanted to, but didn't."</p>
+
+<p>"Hm. The Barrier?"</p>
+
+<p>"Right, exactly. She said no, that I'd exhausted her pokemon enough by then. Anyway, she said she <em>was </em>treating the battle as a test of something rather than a normal Challenge, but she did nothing to make it easy." He stares into his teacup. "I'm not sure how much I believe her, particularly since she made it seem like there was something she was looking forward to, about me being Champion."</p>
+
+<p>"Meaning she believes you'll do it," Janine says, and Leaf can't quite interpret her tone. Irritated? Skeptical? "You don't sound happy about it."</p>
+
+<p>"Oh, I was proud enough at the time. But if you're basically saying the same thing... I don't like it. If I'm about to learn some deep dark secret of the League, like that you all choose who's going to be Champion… well, I won't say I don't <em>want </em>to know something like that, but I'll be pretty pissed."</p>
+
+<p>Leader Koga smiles, and the expression is unexpectedly warm on his stern face. "No, nothing like that. But I admit that I hope, if you <em>do </em>become Champion, that you will reject a conspiracy that does exist among the regional powers."</p>
+
+<p>"Including the Champion?"</p>
+
+<p>"That, I don't know. <em>Some </em>previous Champions, almost certainly."</p>
+
+<p>"What you're talking about is bigger than us," Leaf says, hands warmed by her own teacup as steam rises from it, the scent bracing. "<em>Way </em>bigger. I'm not saying I don't want the information, though I am getting a little... full up, on conspiracies. But I don't get why, even if you don't trust the police, Laura at least is not here, let alone Red, who can't possibly be involved with the people he's been fighting. Was it because of the differences in his meta-honesty policy?"</p>
+
+<p>"In part, but not entirely. In truth, were it not for his current enmeshment with Interpol, the roots of which I have no knowledge of, I might have included him as well."</p>
+
+<p>Blue laughs, suddenly, and shakes his head.</p>
+
+<p>"Something funny?" Janine asks.</p>
+
+<p>"Nah. I mean, yeah, sort of. You're trusting Leaf with a secret despite her not being psychic or dark, you're trusting <em>me</em> with a secret that I can't guarantee I'll keep anymore because of Miracle Eye… but you're not trusting the one person who is probably best in the world, now, at actually keeping secrets."</p>
+
+<p>Koga sips his tea, gaze flicking between them. "You trust him so much, even after what he revealed?"</p>
+
+<p>"Yes," Leaf says, somewhat surprised by the surety in her own voice. It's not something anyone has explicitly asked her since the news conference, but she could see it in a lot of their eyes, the wonder about how different her relationship with Red might be now. She was nearly as surprised as anyone by the revelations Red made, but they didn't really <em>change </em>anything. Their talk on the SS Anne seems so long ago, but the idea that Red could perfectly deceive other psychics doesn't feel scary to her, since she doesn't think he could perfectly deceive <em>her.</em> It's always been the other psychics she's worried about, and that's all the more true now.</p>
+
+<p>Maybe that's stupid of her. Naive and childish, to believe that someone who can perfectly mirror others' mental states and alter his own personality couldn't conceal things from her if he wanted to, even things that were the result of a mental merge.</p>
+
+<p><em>A flash of heat, a rosy glow…</em></p>
+
+<p>Her cheeks are growing warmer, and she forces herself to push on. "More than ever, actually. He could have kept this to himself indefinitely. I get why people who don't know him don't want to trust anyone with the powers he has, but they don't get how lucky we are that he's the one that has them. Any other psychics who could do what he can <em>have </em>clearly kept it to themselves, people should be throwing him a gods damned <em>parade.</em>"</p>
+
+<p>Everyone is staring at her, and Leaf realizes she's raised her voice despite the paper walls. She picks up her teacup and sips it, wondering if she came off too strong… but after a moment Blue nods.</p>
+
+<p>"She's right. After what he did at Silph, if you trust us but not Red—"</p>
+
+<p>Koga holds up a palm. "As I said, I've read both of your meta-honesty declarations, as well as Red's. The reason I've invited you both, but <em>not </em>Red Verres, is that I do not know how to judge his candor and character. But I have judged yours, and Janine agrees. I share my secrets knowing that you will determine for yourselves what information you should or should not pass along, and to whom."</p>
+
+<p>"Same goes for Laura," Janine says, looking at Leaf. "I trust her a fair bit, obviously, so I'll get it if you want to tell her, but I don't know how biased she'd be toward her son, and if she tells him for the wrong reasons it might get him killed, or it might get a whole lot of others killed."</p>
+
+<p>Leaf's pulse quickens again at the idea that they might learn something that dangerous. She can't seem to stop frowning, maybe because she can't seem to stop feeling like she's missing something. "So to be clear… you're not asking us to agree to anything? You're just… sharing information with us, and hoping we agree not to tell anyone else?" It sounds too good to be true, especially after all the careful maneuvering her informant has done with her and Laura.</p>
+
+<p>"Correct." Koga's gaze is distant. "We are past the point where the secrets can be reliably kept anymore. I realized this as soon as the Miracle Eye was revealed, though it took me some additional time to emotionally accept it. Sooner or later, someone with the secret I've been holding my whole life will have their mind read, and the veil will fall."</p>
+
+<p>"A renegade conspiracy among dark people," Blue muses, eyes narrowed. "And you want to fight it with a new conspiracy of just us four?" He turns to Janine. "I thought you were investigating Silph. Not you, I mean what I heard about the vigilante. For what it's worth, I get why this distracted you from the gym stuff, now that I know, but if you knew about this your whole life—"</p>
+
+<p>"I didn't. I stumbled onto it recently, though I didn't realize what exactly I'd found until Father told me." Janine looks at Leaf. "You were the one that did it, actually, though you also didn't realize how big it was."</p>
+
+<p>"Mount Moon?" Leaf's stomach tightens as Janine nods. "You know for sure, now, who killed Yuuta? Who sent him?"</p>
+
+<p>"It is a long story." Leader Koga breathes in, sips his tea, then sets it down. "And it began, for me, in my home village…"</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Red watches the countryside flow by the window, enjoying the freedom of being out in the world again… even if it's in an air-conditioned car, going toward a set destination, rather than riding a bike beneath the warm blue sky.</p>
+
+<p>Between his ability to free teleport and how busy he was even before the attack on Silph, he can't actually remember the last time he was out in the semi-wilderness between towns and cities. Some incident after the ditto emerged, probably, but they've begun to blur together in his mind, and visiting Leaf at the ranch is the clearest he can recall.</p>
+
+<p>Agent Looker—now a Special Administrator, technically—sits in silence beside him, gazing at his phone and quietly muttering the occasional voice-to-text responses to things. Red doesn't see him as much as he expected at the start of all this, but they do usually meet on a daily basis so Red can answer some questions about how things are going… questions that seem as much a matter of checking whether Red is okay with his sudden workload as it is whether he can handle even more training more quickly.</p>
+
+<p>He started training the day after his questioning and press conference, then got to take a day off when it was clear he was still in need of rest. He spent it sleeping for about twelve hours, waking up for a quick brunch, then sleeping for another four and spending his evening with his mom, eating dinner and telling her what he's been up to and reassuring her that he's alive and well, and that he's doing what he thinks is right, even though it's dangerous.</p>
+
+<p>His second break was a week after that, and by then they'd set up a secure apartment building for the Interpol agents that had been arriving throughout the week. It was sad saying goodbye to his room at Sabrina's school; he hadn't expected to be there forever, but he'd been there far longer than he expected. It felt like his second home in many ways, and he wondered if he'd ever return to it.</p>
+
+<p>Red got two days off, the first of which he spent sleeping for ten hours, then lying in bed for two more and checking the internet for the first time since his public announcement. He managed to keep himself from commenting on any of the posts, but only by writing all his thoughts up in a draft post giving his side of things "for later" that he knew he would probably never finish. The rest of his day was spent apologizing to various people he had planned to meet up with or have a call with before the recent events totally upended his life, and then a long session with Dr. Seward that he spent much of crying for reasons he couldn't really put into words, though she didn't push him too hard to try in the moment, which he appreciated.</p>
+
+<p>He also got to watch Blue's battle with Sabrina a week later, admiring the complete unity and sense of control she had with her alakazam and wondering how long it would take for him to get that synchronized with his own pokemon. Afterward it became unclear to him whether asking for the time was necessary; it's strange to be doing something as structured as his current training regime, and he's not quite sure how to relate to it yet.</p>
+
+<p>School wasn't this regimented, nor was interning at the lab, but it's a strange mix of interesting and uninteresting. So far the majority of what he's learned have been laws; specifically, a crash course on all the laws concerning the interregional police, what their mandate is (focused on the particulars of Kanto and Johto), as well as policies and protocols for how they interface with regional authorities, rangers, and common citizens.</p>
+
+<p>Most of it would be pretty dry and uninteresting if it wasn't so immediately relevant to what Red's going to be expected to act on soon, but it's all interspersed with the basics of Renegade hunting, and that he's definitely not getting a short version of. There was some debate over Red attending the standard training until the security risk was brought up, and for now he just cycles through tutors every few days.</p>
+
+<p><em>Security risk </em>is a phrase that made Red's stomach twist the first time he heard it in reference to himself, and that hasn't really stopped. Thinking about all the people who might want to kill him is anxiety inducing enough, but the idea that he's <em>actually </em>a danger to those around him, not because of anything he might do but just as a result of being who he is, sent him into a depressive spiral for a few days once it really sank in.</p>
+
+<p>His mom didn't bring it up when they talked, but he knows it's been on her mind. Not the risk to herself, but the effect it would have on his relationships and dreams. Red would like to believe that dismantling Rocket would change that, but he knows better. No foreign regions have officially commented on him yet, but he knows, and Looker confirmed in the blunt way that he has, that they're <em>thinking </em>about him, and worrying about him.</p>
+
+<p>"<em>First we figure out how to keep you alive against Rocket," Looker said. "Then we'll talk about how to keep you alive against foreign governments. If we handle this right I'll have a lot of clout to try and work something out."</em></p>
+
+<p><em>Work something out </em>wasn't the most reassuring thing to hear, but Red appreciated the honesty. He looks over at Looker now, and the Special Administrator glances back, then tucks his phone away with a sigh.</p>
+
+<p>"Everything alright?"</p>
+
+<p>"Fine. A few of my peers have been working in the region for years, some for decades. Given the varying ranks and priorities, developing more robust coordination and cooperation between us all is more difficult than I expected."</p>
+
+<p>"Don't you have… uh, 'full administrative power,' or whatever it was called in the charter?" Red was given a look at that on his second day, something that he suspects Director Tsunemori pushed for him to have access to now that he has a better sense of the political tensions between them. Still, they seem mostly on the same page, so far as he's directly observed their interactions.</p>
+
+<p>"Only so far as I can make a reasonable case that it's relevant in stopping Rocket." He adjusts his tie, looking suspiciously out the window as if a renegade will ambush them in the middle of the bright day. Or maybe just watching for wild pokemon. "Most of the agents here before were part of their own projects, and most of those are need-to-know, which I don't even with my new position. But one's been working with Bill for nearly a decade, and he's been passing along a bit of help recently."</p>
+
+<p>"You… don't seem happy about it?"</p>
+
+<p>"I trust Bill about as much as anyone outside of Interpol," Looker says, which Red already understands to mean not very much at all. "It would be hypocritical to fault him for his paranoia but he's the anarchic type, and it's always hard to predict how much of that bottoms out to being against conspiracies on principle, or just against those by the government."</p>
+
+<p>"You think, what, that he might be helping Rocket?"</p>
+
+<p>"I think relying on one person who's accountable to no one to give us information on them is a bigger gamble than I usually like to take. But we don't have the luxury of turning down his info either, so by accepting it I'm on net willing to bet his information will be more helpful than harmful, particularly if we can cross-verify."</p>
+
+<p>Red isn't surprised to learn that Bill has a working relationship with Interpol—given all the stuff he's been working on, Red would be surprised if he didn't—and can't help but wonder if the secret human storage project is part of it. After reflecting back over all the things Bill talked to them about, he thinks it more likely it involves his efforts to keep artificial intelligence from growing past a certain point, but the resources to do that probably extend to things like monitoring for activity by secret organizations.</p>
+
+<p>It's nice to have all of his partitions down, to be able to remember all the secrets he's been keeping. It's a perk of being in a car with a non-psychic as the only person around, their escort ahead and behind far enough that any psychics in them are out of range. He's been able to keep more of them down than usual given his recent disclosures, but it was sobering to realize how many secrets he still holds for others.</p>
+
+<p>The high concentration of partitions he created in Silph also took some time and effort to work through, relaxing each a little at a time until those few seconds of wildly different and totally nonsensical beliefs were integrated. He wished he had time to talk to Sabrina or Rowan about them, or even see Dr. Zhang, but he also hasn't been sure what he should say about his capabilities and what made them possible. Something Looker emphasized to him is that they have to be careful not to give the impression that he's teaching others how he does the things he does; he's much less of a threat to people if they think he's unique, strange as that might sometimes seem.</p>
+
+<p>He knows he'll have to bring some of the partitions back up soon, to allow him to perfectly conceal others' secrets if he's asked to merge with anyone at the meeting. But meanwhile, he has one thing that he wants to know without any division between his selves, so he can integrate it as fully as possible first.</p>
+
+<p>"What drives you, so hard, Agent Looker?" he asks after a moment of thought. "What keeps your courage up, when you're facing danger, or just feel exhausted by a rough week?"</p>
+
+<p>Looker glances at him, as if trying to judge how serious the question is, or maybe worried it's a sign of Red being at the edge. The silence goes on long enough that Red starts to think he won't answer, and then:</p>
+
+<p>"I have people counting on me." The Interpol agent shrugs a shoulder. "That's all it boils down to, really. When I think of the renegades getting their way, or the world thrown into chaos by some rampaging myths… I think of them. Not going to say who, it doesn't matter. They're enough, on their own, to make me know it's all worth it. That giving up just isn't an option. And if I can save the world, hey, that's nice. But the world's too big for me. I'm just one guy. It's the few that are close that matter most." He shrugs again and looks out the window. "We're all in this together, in the end."</p>
+
+<p>It's the least cynical thing he's heard the Interpol agent ever say, and Red has to wonder how much he might be getting manipulated. Probably at least a little. But all he does is nod, say "Thanks," and start putting his partitions up…</p>
+
+<p>…</p>
+
+<p>"Looks like we're here," Looker says, and Red snaps out of his random daydream to look through the front windshield.</p>
+
+<p>Giovanni's mansion has extra security compared to Red's first visit, police interspersed with his private guards, but looks otherwise the same. Their forward escort has already stepped out of their vehicle to speak with some of the police at the perimeter, and Red sees Rei waiting at the door. She gives a small wave as they step out of the car before leading the way inside.</p>
+
+<p>"The meeting room is this way," she tells Agent Looker as she gestures down a side hall at the grand staircase. "Leader Giovanni would like to speak with Red alone for a moment before he joins the rest of you."</p>
+
+<p>"Leader Giovanni will learn to live with disappointment."</p>
+
+<p>She turns to Red. "He specifically asked that I put the request to you, if need be, since you're a free citizen who can in fact make your own decisions about who keeps you company when in a safe location."</p>
+
+<p>"Who are you, exactly?"</p>
+
+<p>"Rei. I work here." She says this without turning away from Red.</p>
+
+<p>"It's okay," Red says to Looker. "She's an old friend. And I don't think Giovanni is going to kill or kidnap me, or else we're all kind of screwed, aren't we?"</p>
+
+<p>Looker's gaze seems to be trying to bore a hole through Rei's skull, but she's studiously ignoring him, and eventually he turns on his heel and walks away, coat flapping slightly behind him.</p>
+
+<p>"Charming," Rei says once he's gone, then leads on toward Giovanni's office. "Nice to see you again, Red."</p>
+
+<p>"And you. Been okay?"</p>
+
+<p>"The usual. No new dreams since the Rocket attack, have you heard?"</p>
+
+<p>"I… didn't, no." Red wondered what to make of that. Probably a coincidence? It wouldn't quite make for the longest gap between them just yet. "What have you been up to instead?"</p>
+
+<p>"Trying to learn Miracle Eye, of course. I've nearly got it."</p>
+
+<p>Red musters a smile. "Congratulations."</p>
+
+<p>"So tell me, did you figure out how to lie to psychics before our experiments, during, or after?"</p>
+
+<p>His smile fades. "After." He doesn't feel any guilt, which mildly surprises him. Maybe it's because she might not actually be bothered. "It was the exeggcute experiment, actually, that did it."</p>
+
+<p>"Huh. Ironic. And you're welcome."</p>
+
+<p>Red snorts, feeling relieved, on reflection, that Rei is being her usual self. If she's experiencing any public backlash, she apparently doesn't blame him for it. Which, to be fair, would be pretty hypocritical of her. "Want credit?"</p>
+
+<p>"I'll pass for now, but maybe once public opinion settles." They reach Giovanni's office doors, and she opens the door for him without entering herself. "Take care, Red."</p>
+
+<p>"You too." Viridian City's Leader is sitting behind the same desk as before, though he stands as Red enters, and steps around his desk to offer Red his hand.</p>
+
+<p>"Good to see you again, Mr. Verres." Giovanni says as Red takes it. "And good to know how right I was about you, last we met."</p>
+
+<p>Red knows immediately what Giovanni means. <em>The thought of just standing aside… it is not in me. Nor is it, I think, in you.</em></p>
+
+<p>"Thank you." He's not sure if it makes sense, as a response, but he's not sure what else to say, and casts about for a moment before releasing Giovanni's hand and asking, "Did it come out okay? With whatever you had in mind, or were doing to set things up... I wish I could have given some warning, but—"</p>
+
+<p>"I understand completely. And it was sooner than we'd hoped, but far better than we could have expected, given the otherwise unfortunate circumstances." Giovanni's smile has faded, though there's a thread of dry amusement in his words. "I'm optimistic, though. Rocket is a unique threat, but it's one I have more confidence we can defeat than, say, a new legendary, and in the meantime they've created an atmosphere that will let us review how our society treats all sorts of things."</p>
+
+<p>"Like how we treat renegades?"</p>
+
+<p>"Exactly. And how much cooperation the regions are willing to engage in to face common threats."</p>
+
+<p>It takes Red a minute to notice, but Giovanni looks… different, than last time they met. Lighter, somehow, more… relaxed.</p>
+
+<p>"You wanted to speak in private before the meeting?" Red prompts, unsure how long Agent Looker would wait before getting suspicious.</p>
+
+<p>"Just to get a quick sense of how you're doing without the Special Administrator breathing down your neck. You look well enough."</p>
+
+<p>"It's a lot," Red admits. "But I think I'm handling it okay." He doesn't really have a choice but to.</p>
+
+<p>"I'm glad to hear it. Relatedly, I also wanted to make an offer that, if all this is ever too much, if you ever feel unsafe in any way, uncertain of what will happen to you… I know there are some you might reach out to for aid, and I'm offering to be one of them. Particularly if the situation seems hopeless, if you feel your situation is beyond anyone else's power to solve. Do you understand?"</p>
+
+<p>Red looks up at Leader Giovanni and wonders whether he actually does or not. "It sounds like… you're telling me you'd be willing or able to do something extreme, if needed, to keep me from being arrested?" Or worse.</p>
+
+<p>"Or even just trapped by some sense of duty or obligation." Giovanni gives a gentle shrug. "It would not be a mild thing. It could cause scandal and worry for you. But in such a situation that warrants it, it's a thing that I can offer in friendship, and that I trust you won't share without good reason."</p>
+
+<p>"I… thank you, Leader." Red feels touched, and grateful…</p>
+
+<p>…and suspicious?</p>
+
+<p>Red has a moment to wonder where the emotion is coming from, and whether it's coming from his partition. But, well, he <em>has</em> noticed how spending enough time with someone who's being blunt about their thoughts and perspectives tends to make him able to think like them. Considering the Leader's offer further, he doesn't even need to imagine what Looker would say to see his frown in his head.</p>
+
+<p>Whatever allows Giovanni to make an offer like that, Red isn't sure it's entirely legal. And putting himself in the Leader's power like that, even if in an extreme circumstance, would be putting a lot of trust in him not putting Red in a position just as bad as the one he was trying to escape.</p>
+
+<p>"I'll keep that in mind," is all he says, and smiles. It's a genuine smile, for what that's worth; the offer itself is a sign of support, even if he doesn't end up taking it.</p>
+
+<p>"Please do. Now, let's not keep them waiting any longer."</p>
+
+<p>The meeting room is like the inverse of the rented conference room in Lavender, a circle table instead of a square one, walls of dark wood instead of white, a colorful woven rug instead of gray carpeting. Sabrina is sitting beside Leader Surge and Erika, while Agent Notebook, as well as Director Tsunemori, are at their own side of the table.</p>
+
+<p>Other notable attendees include a holographic Bill, who waves at Red as he walks in, Champion Lance and Elite Bruno, who are watching a tense-looking conversation between Tsunemori and Sabrina, and Ranger General Taira, who's quietly discussing something with Agent Looker. For each name Red knows, there's two or three more that he doesn't, and for a moment he's unsure which empty seat to head toward while Giovanni makes his way to one of the closest.</p>
+
+<p>It's the kind of gathering that Red is used to seeing Professor Oak at. But there are no Professors here, and Red feels so out of place that for a moment it's dizzying. It makes the past few weeks feel more real, suddenly, and the months before that feel more distant.</p>
+
+<p>After a moment he realizes he's drawing stares, and moves blindly to sit at the nearest empty seat, which puts him next to someone that looks like a high ranking police officer on one side and Agent Notebook on the other. "Good morning," he says to Red.</p>
+
+<p>"Morning." Notebook has been one of his teachers, now and then, tutoring him in some of the ways psychics are employed by Interpol, and he finds himself getting along well with the relatively young agent. Notebook is looking around the room, but not at the people. "First time here?"</p>
+
+<p>"Yeah. Didn't realize Giovanni had such a fancy place."</p>
+
+<p>"He barely stays here," Red says. "At least, that's what my friend Rei says. She works here, says it hosts a lot of meetings and conferences from groups in Viridian looking for a cheap venue. Did I miss anything, uh, important?"</p>
+
+<p>"Nah, they're just relitigating the 'who told whom what and when' thing. Felt kind of pointless without Giovanni in the room, but now that he's here maybe things will—"</p>
+
+<p>"The League is not meant to keep secrets like this from governance," Tsunemori says.</p>
+
+<p>"The 'League' did not," Lance says, voice patient, but with a pointed look at Sabrina. "But the dates on the files seem to match."</p>
+
+<p>"The idea that these reports sat unread for months on end—"</p>
+
+<p>"Seems like an inner departmental issue," Sabrina says, looking almost bored by the discussion. "I shared what seemed relevant with my contacts, after due consideration for the nature of the disclosure and consultation with a peer."</p>
+
+<p>"And as one of the peers in question, I'm happy to speak to why I thought <em>my </em>contacts in your department would be sufficient," Giovanni says. "But while it's clear our system has some bugs that need fixing, for now the most relevant issue is how we'll proceed with Operation Rocketfall. My resources have been consolidated, and are ready to be deployed."</p>
+
+<p>"As are mine," Bill says. "The raw data is already coming in, it shouldn't take more than a few days to get automated analysis, and then it'll be up to you folk to do the final review."</p>
+
+<p>Director Tsunemori nods. "We'll be running our own search, and with the Rangers and Interpol's help that will allow us to split the region up into quadrants—"</p>
+
+<p>"No," Looker says. "Everyone reviews everything. It'll take longer, but it'll be more thorough. Once we've identified enough locations for a decapitating strike, we go in after calling for enough support to hit every single one."</p>
+
+<p>"That could take months," Giovanni notes. "And we don't know how close they are to completing their Master Ball."</p>
+
+<p>"That has a secondary effect, even if they don't ever complete it," Lance adds, leaning forward onto his forearms. "The threat of a renegade region with legendary pokemon at hand has resurrected the unown research issue. Many have pointed out, both within our region and outside of it, that renegades would have no such compunctions about developing pokemon generation. Kanto will <em>have </em>to begin our own if others on the island do."</p>
+
+<p>Giovanni rubs his face. "You know my position on this, I won't recount it again."</p>
+
+<p>"And mine," the Ranger General adds with a frown.</p>
+
+<p>"I cannot change reality," Lance says, hands folded in front of him. "I'd hoped that Master Balls would serve as sufficient deterrent, but this is where we're at. If we can crush Rocket quickly, then—"</p>
+
+<p>"No," Surge says. "A battle like the one you're envisioning, against massed and organized renegades fighting for survival, has never been seen before. Even in warfare, there are boundaries, limits, tested though they may often be. You are not prepared. <em>Kanto </em>is not prepared."</p>
+
+<p>"He's right," Looker says. "We do this methodically, and we do it right, or we'll face the consequences for years."</p>
+
+<p>"And if they attack more of the region meanwhile?" someone Red doesn't recognize asks. "How many are you willing to sacrifice for a flawless victory?"</p>
+
+<p>"That is exactly what our defensive contingencies will be for," Tsunemori says, and looks at Red. Heads turn with hers, until Red is the focus of the entire room. "With the proper training, Red Verres will become a Hunter like no other. A garrison stationed in every city and town, and multiple teleportation points for him to use in each, will ensure a swift response to anything they attempt."</p>
+
+<p>Red's heart is pounding as he tries to sit tall and straight, to look more reliable than he feels. He wonders if they're expecting him to say anything, until Lance stirs, golden eyes on his.</p>
+
+<p>"I don't mean to detract from your achievements, Verres. You did Kanto proud that day, as you have before." It's the first time he's been addressed directly by the Champion, and Red has no idea how to feel about it. "But they'll be ready for you next time. Will you be ready for them?"</p>
+
+<p>Red instinctively wants to hedge, to qualify, to warn them not to put too much confidence in him. But before he can, a trickle of confidence seems to seep through his mind, relaxing his rigid muscles until he's more confidently straight in his seat. Flashes of Leaf and Blue, of his mother and the Professor, of Jason and Maria and all the psychics whose fates may be tied to his go through his mind, and with the whole room watching and a warm desire to protect them in his stomach, only one answer seems right:</p>
+
+<p>"I will."
+<p style="text-align: center;">End of Part II</p></p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/115/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/117/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -1090,6 +756,6 @@ Red groans, Leaf laughs, and that's how they leave him: standing in the cool nig
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

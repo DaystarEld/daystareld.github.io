@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 13: Theory Induced Blindness - Pokemon: The Origin of Species</title>
+    <title>Chapter 19: Great Expectations - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,758 +329,533 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 13: Theory Induced Blindness</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/18/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/20/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            As night descends on Viridian, Red checks their map for other travelers setting up camps nearby. There's one within the wards of the Ranger Outpost, so they head east to join it. The forest darkens quickly, and soon they have their flashlights out to avoid walking into trees or bushes. Red has one eye on his phone to guide them, so he sees when they cross the proximity border of the wards. Whoever's on watch at the Ranger Outpost just got an infrared image of them, and knows nothing dangerous has arrived.<br>
-<br>
-Eventually they find a small clearing with a ring of dim lanterns hanging on the trees at the perimeter. In the middle are a quartet of sleeping bags with three girls and a boy sitting on them. They rise as Red, Blue and Leaf arrive, and Red can see pokeballs on each of their belts, though the boy only has two.<br>
-<br>
-"Hey there. Mind if we join you?" Leaf asks.<br>
-<br>
-"Sure-sure," one of the girls says, beckoning with one hand. "The more the merrier." She's a bit shorter than the other two, with pitch black hair worn in a pixie cut. The taller pair are identical twins with light auburn hair, while the boy has blonde hair cut in a bowl and wears glasses. All three girls are a bit older than Red, though the boy looks a bit younger. "I'm Allie, this is Ayame and Kiku, and that's Matthew."<br>
-<br>
-"Nice to meet you all. I'm Leaf, this is Red and Blue." Red waves, and Blue tips a salute with his fingers.<br>
-<br>
-The four rearrange their bags in a half circle so the newcomers can start unpacking their things, the bright flashes of their containers lighting up the night. "So, where ya from, where ya headed?" Allie asks as they open the boxes and take out their sleeping bags.<br>
-<br>
-"Pallet." Blue says. "Headed to Pewter. You?"<br>
-<br>
-"Matthew and I are going south to see our uncle."<br>
-<br>
-"We're going to take the Pallet ferry to Cinnabar," one of the twins says. Red has already forgotten which is which.<br>
-<br>
-He lets the others field questions as he sits on his sleeping bag and takes out his notebook. The whole walk here, he couldn't get his mind off Luke and the beedrill. Maybe his daily assessment will help him stop circling around it.<br>
-<br>
-Red takes out a granola bar and begins writing as he eats. He knows it might come off as rude, but at least Matthew seems similarly disinterested in small talk, playing on a handheld game system.<br>
-<br>
-<em>Mistakes I made today… </em>He taps his pencil on the sheet, thinking over the trip from Viridian City. Nothing too major there. He overcame his fear of the skarmory, and didn't make any impulse purchases. Once he got to the forest though, he nearly lost his pokedex. Red grimaces and writes, <em>Be more careful with pokedex. Invaluable asset is not worth risking for higher chance of encountering pokemon.</em> At least he hadn't tried it at night first; he can just imagine a noctowl swooping by and snatching it out of his hand.<br>
-<br>
-Now that he's crossing that strategy out though, he needs a new one. He turns back to a previous entry where he'd written down ideas for how to find pokemon-<br>
-<br>
-"You're from Unova?"<br>
-<br>
-Red looks up to see Matthew talking to Leaf, his game system forgotten. "I am," she says with a smile.<br>
-<br>
-"Cool! Do you watch League of Heroes?"<br>
-<br>
-Her smile turns to a grin. "You know League of Heroes? I didn't think it was available here."<br>
-<br>
-"Allie and I watch it online," the boy says. "It's great!"<br>
-<br>
-"What's League of Heroes?" Ayame or Kiku asks.<br>
-<br>
-"It's a Unovan cartoon, like Power Force Ten. There's a video game too."<br>
-<br>
-"What's Power Force Ten?" Leaf asks, and the group chuckles. Red turns back to his notebook. Using forms of bait or instructing his pokemon to find natural prey in the area are his best bets. Though now that he has a spinarak… He writes <em>String up webs, maybe wait on a branch for it to catch something.</em><br>
-<br>
-"You first." Allie says.<br>
-<br>
-"Well, it's about a team of superheroes," Leaf says. "There's Crobatman, he's an assassin with super reflexes and a wingsuit; Luxia, she's my favorite, she manipulates light; Ironman, he's a robot that's artificially intelligent; Supermon, who has all the powers of the different pokemon types-"<br>
-<br>
-"What, <em>all</em> of them?" Blue asks.<br>
-<br>
-"Seems kind of overpowered," Red says, distracted despite himself as he erases a miswritten word.<br>
-<br>
-"No, no, he can only use one of them at a time," Matthew says.<br>
-<br>
-Leaf nods. "He has to switch between them—"<br>
-<br>
-"—he can only do it once every ten minutes—"<br>
-<br>
-"—and he gets their weaknesses too. There's also Techno—"<br>
-<br>
-"—she's <em>my</em> favorite—"<br>
-<br>
-"—she has no powers, but she's super smart and has a bunch of inventions—"<br>
-<br>
-"—she made Crobatman's suit!"<br>
-<br>
-"Stop interrupting, Matt," Allie says, batting his arm. "Anyway, it's a pretty cool show. Power Force Ten is sort of like Kanto's version of it, in terms of popularity. Nine humans found some of Arceus's legendary Elemental Plates, the ones for Sky, Earth, Mind, Body, Flame, Sea, Meadow, Lightning, and Stone."<br>
-<br>
-Leaf blinks. "Why is it called Power Force Ten, then?"<br>
-<br>
-"Oh, Milo is the tenth. He's considered the 'Normal' type-"<br>
-<br>
-Red snorts, and everyone goes silent. When he looks up, everyone's looking at him. "Sorry, it's nothing."<br>
-<br>
-"Ignore him," Blue says. "He's a hater."<br>
-<br>
-"I am not. Milo is my favorite character."<br>
-<br>
-"Does he have a power?" Leaf asks.<br>
-<br>
-"No," Matthew says. "But he makes up for it by being really smart."<br>
-<br>
-"Like Techno?"<br>
-<br>
-"Not so much with technology, but other ways."<br>
-<br>
-Red nods. "He's good at getting the team to work together, thinking outside the box, and is a great strategist."<br>
-<br>
-"And since he uses pokemon instead of relying on powers, he's the best trainer among them," Blue adds.<br>
-<br>
-"What made you laugh then?"<br>
-<br>
-"I just think their idea of the Arceus Plates is funny. I mean, a 'Sky Plate' that grants 'Sky Powers?' Like having wings is a power, somehow?"<br>
-<br>
-"It's just a show," Matthew says with a frown.<br>
-<br>
-"I know," Red says quickly. "I like the show. I just laughed because calling Milo the 'Normal Type' made me imagine them writing in a 'Normal Plate'…" Now Allie is frowning at him too, and the sisters are raising mirroring eyebrows. "Forget it," Red mutters and turns back to his notebook, biting into the granola.<br>
-<br>
-There's a pause, then Leaf says, "So what about the other types?"<br>
-<br>
-Ayame or Kiko tick them off her fingers. "The Dread, Frost, Insect, Spirit, Toxic, Iron, and Draco Plates were found by Renegades."<br>
-<br>
-"They're pretty cool too, if totally evil," Kiko or Ayame says with taboo relish.<br>
-<br>
-<em>Once spinarak spins a web, I could put pokepuffs in it to attract prey...</em><br>
-<br>
-Blue nods. "My favorite is Magnus. His wife and kid were killed by a metagross, and when the Dread plate came to him and gave him the powers of dark pokemon, he decided it was so he could wipe out all psychics, pokemon and human."<br>
-<br>
-"No way, Lung is the best," Matthew says. "He can actually <em>turn into a dragon</em>, it's awesome—"<br>
-<br>
-<em>...though it might still take too much time while traveling...</em><br>
-<br>
-"He's in trouble now that Crystalla might be switching sides," Allie says, then says to Leaf. "She's got the Frost Plate."<br>
-<br>
-"No way, she's not going to break up with Lung," one of the sisters say. "Kagari's charming, but he's a jerk."<br>
-<br>
-"He's a <em>hot </em>jerk," the other sister says with a giggle.<br>
-<br>
-Blue turns to Leaf. "Kagari's the—"<br>
-<br>
-"Flame Plate?" She grins.<br>
-<br>
-Red sighs and wishes he'd brought some headphones. He hadn't really imagined needing to be able to tune out sound on his journey. <em>That excuse isn't going to be valid forever.</em> It's not like he has infinite resources though, and no matter how thorough he is in trying to think of them, there are countless things he won't realize he might need until he does.<br>
-<br>
-He tries his best to focus and writes a bit more as the conversation continues about the different character dynamics, but it's too distracting. He feels himself getting more and more frustrated as his train of thought keeps derailing, and when he finishes his granola he forces himself to his feet.<br>
-<br>
-"Gonna go call my mom," he explains, and steps away from the clearing while the others continue talking. Once he's outside the ring of lanterns and the voices are a mess of indistinguishable noise, he sits down with his back to a tree and he takes a deep breath. He has no reason to be so irritated with the others.<br>
-<br>
-The forest stretches dark and still ahead of him, quiet but for the hum of voices behind and the occasional sound of pokemon in the distance. He hears a flutter of wings at one point, and wonders if a noctowl is on the hunt. Trying to catch one in this darkness would be worse than stupid though.<br>
-<br>
-Red just listens to the wind in the branches and his own breaths until he feels himself again. As he gazes out into the night, he can't help but wonder if somewhere out there, there are others lying dead or dying, unable to find a safe place to camp for the night.<br>
-<br>
-He shakes himself and lets his breath out, then takes his phone out to make the call. His mother answers on the third ring. "Hi Honey! How is everything?"<br>
-<br>
-"Hey, Mom. Everything's alright. We're all safe, getting ready to turn in for the night."<br>
-<br>
-"Are you enjoying the city?"<br>
-<br>
-"We left this afternoon actually. We're in Viridian Forest."<br>
-<br>
-"Already? Aren't you going a bit fast, Red?"<br>
-<br>
-"There just wasn't much reason to stay. We didn't become trainers to hang out in the city, you know."<br>
-<br>
-"I'm just worried about the storm…"<br>
-<br>
-"Yeah, that's kinda scary," Red says. "But hopefully it'll pass before we get there, and if not, there are few safer cities in summer than Pewter."<br>
-<br>
-"I know. Just be careful."<br>
-<br>
-Red rubs his knee, which is mostly pain free now. "We will. So how's everything with you?"<br>
-<br>
-"Productive! I have some news, actually." She tells him about her plans to return to work in Celadon, which Red is happy to hear. Then she mentions what Daisy showed her last night.<br>
-<br>
-"Pitch and tone…" Red marvels. "That's an amazing discovery."<br>
-<br>
-"It was really something else, Red. I wish you could have seen it!"<br>
-<br>
-"I can't wait to," Red says. "Daisy has her Researcher license, so once she unveils it at the Coordinator competition, I'm sure she'll post demonstrations and trials on the pokedex."<br>
-<br>
-"I'm not sure what the applications of it would be though. Not battles, surely?"<br>
-<br>
-Red's pencil is in his hand, though he can't remember taking it out, and he hasn't enough light to write by anyway. He taps it against his leg instead. "Hard to tell. It sounds like it requires way too much buildup to be used in battles, but if you could pinpoint a certain power's requisite tone, and if it's all the same with different clefairy, then it could be invaluable for certain tasks. There'll be a huge demand for clefairy when the news gets out, especially among researchers."<br>
-<br>
-"Well then, it's a good thing you have a heads up."<br>
-<br>
-Red grins. "I'm definitely not leaving Mount Moon without one. In fact… would you mind if I dipped into my savings a bit?"<br>
-<br>
-"What for?"<br>
-<br>
-"To buy some clefairy."<br>
-<br>
-There's a pause. "I don't know that that's such a good idea, Red."<br>
-<br>
-"It's definitely a sound investment, I promise—"<br>
-<br>
-"It's not the financial angle. I don't think Daisy showed me what she did so you could profit off other people's ignorance, and I certainly didn't tell you about it so you could. She's the one that put the hard work into making clefairy more valuable, not you."<br>
-<br>
-"But I could really use the money!"<br>
-<br>
-"So could the people who are selling clefairy, for all you know."<br>
-<br>
-Red scowls. "It's not like I can corner the market or anything."<br>
-<br>
-"So it's alright if you can only cheat a few people instead of many?"<br>
-<br>
-"Cheat seems a strong word for it—"<br>
-<br>
-"Do you know how many stories I've covered on insider trading?"<br>
-<br>
-"That's completely different!" Red realizes he's almost shouting, and takes a deep breath, lowering his voice. "I'm not influencing how much clefairy will be worth."<br>
-<br>
-"It's not just about whether you have influence, it's about a mutual understanding of value. The person you're buying from doesn't know as much as you do, <em>and you know it.</em> You are deliberately taking advantage of their ignorance."<br>
-<br>
-"So, what, I can't buy something I think is undervalued? Different people have different reasons to value something, that's why trade happens at all."<br>
-<br>
-"But they share an understanding of each other's values and motives. Red, if you wanted to buy a clefairy for personal use, it wouldn't be a problem. But you want to do it just to sell to someone else! If the person selling it to you cares that you'll be a good trainer for it, you'd have to lie or admit you don't plan to keep it. If they ask why you're buying it just to sell it yourself, again you'd have to lie, or you know they wouldn't take the deal; not unless they're so desperate for money that they need to sell it now rather than in a few weeks."<br>
-<br>
-Red opens his mouth, then closes it. He… actually doesn't have an argument for that… but... "But I <em>really</em> need the money!" he says, hating how juvenile he sounds.<br>
-<br>
-"What for?"<br>
-<br>
-"Lots of things! I need to buy a new Container, and a TM, and some trainer supplies—"<br>
-<br>
-"Those sound like wants, not needs. You can afford them now, if you really need them, or I'll give you the money if you can't."<br>
-<br>
-<em>I saw a dead trainer today, do you want me to end up like him because I'm not prepared? </em>Red bites his lip. He feels guilty just thinking it, and knows he would feel even more guilty if it works. She's right though; he doesn't <em>need</em> the supplies so much as he'd feel better or safer having them, which doesn't necessarily place his need over that of the person selling the clefairy.<br>
-<br>
-"What if I research the person selling it and see if they're wealthy, first?"<br>
-<br>
-"Pretend for a moment that Blue isn't related to Daisy, and he's selling a clefairy without knowing how much more it will soon be worth. Would you buy it from him just to resell it, or would you tell him that the price is going to go up soon even though he's wealthier than you?"<br>
-<br>
-"Dammit," Red mutters. It does feel different when he considers doing it to a friend...<br>
-<br>
-"Or what about—"<br>
-<br>
-"Alright, alright. I get it. You're right. Sorry."<br>
-<br>
-"Don't be sorry, be thankful your mother is smart enough to stop you from making mistakes."<br>
-<br>
-Red smiles a bit. "Thanks, Mom."<br>
-<br>
-"You're welcome."<br>
-<br>
-"What if—"<br>
-<br>
-"Red!"<br>
-<br>
-"No no, hear me out. What if I just buy <em>one </em>clefairy, strictly for personal use? I'm still a bit far from Mount Moon, and they're really rare. If I don't see any, at least I'll have the one. Even if I <em>do</em> see one, Blue or Leaf might catch it. And if I see one <em>and </em>I catch it, <em>then </em>maybe I can sell it. Which is fine, because I caught it myself, right?"<br>
-<br>
-"That... seems reasonable…"<br>
-<br>
-He grins. "Thanks! If you see one for less than a thousand, feel free to grab it."<br>
-<br>
-"...fine. But if you sell it—"<br>
-<br>
-"I won't. Promise."<br>
-<br>
-She sighs. "Any preferences?"<br>
-<br>
-"Nah, the gender ratio pretty well balances out the price distortion for breeding."<br>
-<br>
-"Alright then. I'll check the markets tomorrow."<br>
-<br>
-After a few minutes of idler chat concerning her moving plans, Red says goodnight and ends the call with another promise to "stay safe."<br>
-<br>
-He stares into the dark forest afterward, thinking about Daisy's discovery. Kanto legends talk about the clefairy family having all sorts of unusual powers. There are records that classify them as part of their own unique type, but most of their supposedly special properties seem exaggerated, if not completely made up.<br>
-<br>
-Still, there are so many unusual things about them that it's not hard to imagine there being more to them than is readily apparent… and this might be the key to discovering what they are.<br>
-<br>
-Red catches a hold of his excitement and tries to stuff it into a box of lower expectations. Whatever secrets he might discover in clefairy are a long way off. In the meantime, he already has a mystery to tackle: his spinarak. That mental bla—<br>
-<br>
-—<em>dark emptiness, silent and still</em>—<br>
-<br>
-—st had crippled him, and he still doesn't know why. If the spinarak wasn't already hurt and ready to run, it might have killed him while he was prone. Blue and Leaf would have found him lying there on his belly, dead as Luke.<br>
-<br>
-Red still hasn't told the others. He's too embarrassed to… but it's not something he can ignore. A weakness like that can get him killed if it cripples him again at the wrong time, and it can get his companions killed. They have a right to know.<br>
-<br>
-But first he needs to know more about it himself. He takes out his pokedex and goes to spinarak's file, opening it past the menu summary he'd read earlier. He does a search for "psychic" and reads the first paragraph that shows up.<br>
-<br>
-<em>Both in the wild and after capture, spinarak have demonstrated mental attacks similar to some other insectile pokemon[23]. Experiments have ruled out the possibility that it uses psychic reception to identify prey[24], or protect itself; their capabilities seem purely projection of the psychic and ghost variety. However, they are not often the spinarak's first or even second strategy of attack. The venom its stinger excretes...</em><br>
-<br>
-Red taps the [24] and skims the referenced research paper. Observations showed spinarak preparing to deal with captured prey differently before it even saw what it had caught. Some experiments were done to determine if it was indicative of psychic powers, or if it was some other sense like scent or the vibrations on the web. The tests indicated the latter, as they were not able to distinguish between an actual pokemon's thrashing and artificial manipulation. Furthermore, their behavior changed even when dark pokemon were introduced to their webs. Red goes back to the main article.<br>
-<br>
-<em>...can kill pokemon its size in minutes from a small scratch, and if it has room to maneuver, it will often sting its opponents and then use its web to immobilize them until the opponent succumbs to the toxin.[25] However, despite not being classified as Psychic or Ghost pokemon, some rare spinarak have the ability to attack the mind by inducing some mental discomfort through the patterns on its abdomen. While experiments have shown that the visual component is not necessary[26], it does seem to greatly increase discomfort[27]. The exact method and nature of the mental attacks are currently unknown.</em><br>
-<br>
-Red looks over the rest of the biological info for any more relevant references. He tried reading about psychic phenomenon when he was younger, but the research on it (what little there was) quickly went beyond his comprehension. He moved onto other things after his tests came back negative. There were just so many other things to learn…<br>
-<br>
-Unfortunately, now he finds himself with serious need to know, and little time to get back into the literature. Red closes the file and takes out his phone. He begins to search for Professor Oak's number, then stops. The professor had insisted he feel free to call whenever, but Red doesn't want to take advantage of their relationship. He can do some research first, then call the professor when he has specific questions to ask.<br>
-<br>
-He begins to put the phone away, but there's a niggling discomfort at the back of his mind. He almost ignores it, but months of training in self-awareness has helped occasionally identify cognitive dissonance. He takes a deep breath and closes his eyes, thinking about his motives.<br>
-<br>
-Lying to himself is one of the most useless and dangerous things he can do. If he's being honest, it's his pride that made him hesitate to call the professor. Two days into his journey and he already needs help? It doesn't fit his mental model of himself, where he's smart and capable enough to learn and understand things on his own.<br>
-<br>
-But objectively, he knows what a stupid thought that is, not to mention conceited. <em>If I have seen further, it is by standing on the shoulders of giants. </em>Some of the greatest minds that ever lived had purportedly said that.<br>
-<br>
-Red wants to prove himself as at least Professor Oak's equal. But progress comes from starting farther than the previous generations, and not taking advantage of his mentor's knowledge would be as dumb as trying to train pokemon without pokeballs or dex, just because the professor had to.<br>
-<br>
-His ego still doesn't like it, but Red dials the professor before it can come up with another reason to put it off.<br>
-<br>
-"Hello Red, it's good to hear from you. How is everything?"<br>
-<br>
-"Hi professor. Sorry to bother you so late—"<br>
-<br>
-"Not at all, not at all. I was hoping you'd call soon, actually. Blue's too proud to do more than check in by text, but I knew you'd let me live vicariously through you. What exciting adventures have you all been up to?"<br>
-<br>
-Red winces. "Actually professor, it took something of an emergency to get past my ego enough to call."<br>
-<br>
-The professor's tone sobers. "Is everyone alright?"<br>
-<br>
-"Yeah, we're fine."<br>
-<br>
-"What happened?"<br>
-<br>
-"We saw a dead guy today."<br>
-<br>
-There's a moment of silence where Red has time to be as surprised as Professor Oak. That… wasn't what he planned to say...<br>
-<br>
-"What happened?" the professor asks again, quieter.<br>
-<br>
-So Red tells him about the beedrill swarm, their argument over what to do, the rangers' arrival, how well the plan went, and how ultimately useless it all was. Professor Oak listens without interruption.<br>
-<br>
-"Ranger Akio said he'd let me know if they learn something. Not sure if I believe him, but it's better than nothing. I just hate not being able to find out what happened. And I feel guilty, even though it's hard to think of something else we could have done. Maybe that's why, because I can't think of anything better. What if I had a slingshot? I could have shot a potion and antidote capsule at him, maybe it would have kept him alive until the Rangers came. Or Blue could have done it, he's a better shot than me—"<br>
-<br>
-He stops and takes a deep breath. "Sorry."<br>
-<br>
-"It's alright. I'm sorry you all had to go through that, especially so early on your journey. I empathize with your guilt, but you should know better than to listen to it."<br>
-<br>
-"I'm not just angsting, though. At least I don't think I am."<br>
-<br>
-"Is there something you're not telling me about why you decided to wait for the Ranger? Convincing Blue wouldn't have been easy if your reasons weren't sound."<br>
-<br>
-"I could barely keep myself from rushing in, honestly."<br>
-<br>
-"Be glad you didn't or the three of you would be dead right now. You're going to have to get used to the frustration of not solving every problem, or you're going to get yourself killed before you write your first research paper."<br>
-<br>
-"But I don't think I've <em>learned</em> anything from it. I can't think of something different to have tried, or something new to do to be prepared in the future."<br>
-<br>
-"Then maybe it's because there isn't anything. Red, your father was a brave man, and he instilled great values in you—"<br>
-<br>
-Something hot and painful coils through Red's chest. "I'm not trying to be my dad."<br>
-<br>
-"Then what… ah. Have you been reading Leader Giovanni's blog?"<br>
-<br>
-Red blinks. "Yeah, for a few weeks now actually. Do you?"<br>
-<br>
-"Now and then. Giovanni was one of my students at some point, you know. Let me guess: you're worried you failed in your Heroic Responsibility. That you took the easy way out, waiting for the Rangers to arrive."<br>
-<br>
-"The Bystander Effect—"<br>
-<br>
-"Doesn't apply nearly as much if you were the only ones present at the time. What's really bothering you?"<br>
-<br>
-Red closes his eyes and rests his head against the tree. "I felt relieved, when the Rangers came. I thought, 'Now they can handle it.' And now I don't know if my motives for not trying before that were genuine or not."<br>
-<br>
-"You're being too hard on yourself, Red. It's not your responsibility to solve the world's problems."<br>
-<br>
-Red sighs. Professor Oak is a genius in a number of ways, but... he wonders what Leader Giovanni would say to that. "Maybe you're right. Anyway, sorry for not having a more exciting story to share. I know this probably wasn't the kind of thing you had in mind for vicarious adventuring."<br>
-<br>
-"Not quite, but I knew to expect it at some point. And I'm glad you told me. Have you spoken to your mother yet?"<br>
-<br>
-"Yeah, but I didn't want to worry her. Could you…"<br>
-<br>
-"As long as she doesn't ask me, I won't bring it up."<br>
-<br>
-Red lets out a breath. "Thank you."<br>
-<br>
-"Of course. Despite my grouching, I still remember what it was like to be young."<br>
-<br>
-"How long did you go, before something like this happened?"<br>
-<br>
-The professor is quiet for a moment, and Red hears a chair creak. "About two weeks. Some trainers tried to stop a graveler that was stomping through a town. Would have been easy with today's pokeball technology, but back then… it crushed two of them, and five pokemon, before it was stopped."<br>
-<br>
-Red's mind shies away from the mental image. Graveler are often slow enough to be easily captured today, but he can see why they'd be a bigger threat back when Professor Oak was his age, and the precursor to pokeballs only worked within touching distance. "What did you do?"<br>
-<br>
-"Me? Nothing. I was good even at that age, but I didn't have any pokemon that could help. I knew I would have just gotten in the way."<br>
-<br>
-Red wonders if the professor had selected this story among multiple he could have told. "That must have been frustrating."<br>
-<br>
-The professor gives a short laugh. "Very. I was so upset with myself I didn't even stick around for the funerals. Over time, the guilt got better… especially once I got into situations where I <em>did</em> get involved. When I proved to myself that I had what it takes to help others. Just as I have every confidence you will."<br>
-<br>
-"Thanks, Professor," Red whispers.<br>
-<br>
-Professor Oak doesn't respond, merely humming to himself as he settles in at his desk. Red can hear drawers opening and closing, and the sound of rapid typing on a keyboard. Red looks back at the campsite behind him and sees the others still sitting in a circle, talking. He can make out the sound of their voices, but not the words.<br>
-<br>
-"There was something else I called about. The main thing, actually."<br>
-<br>
-"You have my undivided attention," Oak assures him, still clacking away on the keyboard.<br>
-<br>
-Red smiles briefly. It's rare to see the professor at his desk doing any less than two things at once. "I caught a spinarak earlier today—"<br>
-<br>
-"—yes, I saw. Very well done—"<br>
-<br>
-"—but during the fight I was caught in some sort of mental attack against Charmander. It incapacitated me completely for at least a few seconds, and I didn't fully recover from it for a few minutes."<br>
-<br>
-The sound of Oak's typing slows to a stop. "You say it incapacitated you? A spinarak?"<br>
-<br>
-"Yeah."<br>
-<br>
-"Tell me everything."<br>
-<br>
-He does, going into detail about the way it felt during and after. As he describes it, he feels the echo of it again, raw and painful in his mind.<br>
-<br>
-"And it still hurts when I try to think of it, professor." Red's throat is dry from so much talking, and he considers going to the campsite for his water bottle. "Is that normal?"<br>
-<br>
-"Yes and no." The professor is typing again, faster than before.<br>
-<br>
-"Could you be a bit more specific? And possibly reassuring?"<br>
-<br>
-"It's normal for victims of strong mental attack, but quite rare for a spinarak to be capable of that strong an attack."<br>
-<br>
-"So either my spinarak is an outlier, or I'm the outlier, and I'd react at least as badly to other mental attacks. Or both."<br>
-<br>
-"First let's gather some data by testing out one of the pokedex's new features. Take yours out and go to your spinarak's entry."<br>
-<br>
-Red switches his phone to speaker and places it on the grass, then does so. "Okay. Now what?"<br>
-<br>
-"We've added the ability to read pokemon's digital data and quantify it in easy to read metrics."<br>
-<br>
-"That sounds pretty cool." He begins poking around the options on the menu. "One of Bill's programs?"<br>
-<br>
-"Yep. The Indigo League has been doing the majority of the funding, and we've made a lot of progress. Unfortunately, it's almost impossible to get objective interspecies measures. The best we can do is estimate a pokemon's capabilities compared to others of the same species."<br>
-<br>
-Red navigates to the page labeled "Biology," and looks down the list of options. <em>Diet, Life Cycle, Chemical Composition… </em>"Okay, I think I see it." He taps <em>Comparative Metrics,</em> and a bar graph slowly begins to populate, comparing things like muscle mass, chitin density, neuron count, and more to the total average of registered spinaraks within the same age and gender range. Some of the bars go up, while others go down from the baseline of 0% difference. "Woah. This is awesome."<br>
-<br>
-"Indeed. We're working on one that will compare performance metrics directly, measured through simulations in virtual space, but in the meantime this might help."<br>
-<br>
-The bars continue to populate, none stretching very far from the center line. "Now let me see…" Red hears a keyboard clacking, and a little notification pings on the corner of his screen to let him know it's being shared by PROF. OAK. "Ah, it works. Excellent. And it's just about done… well now. See the outlier?"<br>
-<br>
-"I do, but what does it mean?" Most of the % differences listed are under 20%, either positive or negative. In Chitin Density, his spinarak has a 16% increase in thickness over others. Its venom sacs on the other hand are -12% the size of the species average. But in the last category, labeled "Other," the difference is 37%, making it stick out from the rest of the metrics and skew the range of the y axis.<br>
-<br>
-"'Other' is where the pokedex puts everything else in the data that can't be easily categorized, or things we haven't been able to fully study in a species yet."<br>
-<br>
-Red feels excitement stir in him. "So this could be something new, right? I mean, potentially, this could be important."<br>
-<br>
-"Absolutely. I think you just found the topic for your Researcher license article, Red."<br>
-<br>
-Red's eyes narrow. "Wait, this isn't like the charmander tail flame again, is it?"<br>
-<br>
-Professor Oak laughs. "Not this time. Just keep in mind, 'Other' is something of a useless metric for the most part. It's a calculation based on mass and defined by the pokemon's coding. Whatever was left over that we couldn't easily account for or distinguish goes there, everything from a pokemon's stomach bacteria to the dirt or other material that might be in its fur."<br>
-<br>
-"So... I might discover that psychic powers in spinarak are positively correlated with how much bacteria are in its guts?"<br>
-<br>
-"Just think of the headlines. You might start the first diet fad for psychics. Of course, it might also be completely unrelated."<br>
-<br>
-Red lowers his pokedex. "Professor… could you explain what psychic powers are?"<br>
-<br>
-"Unfortunately, I don't know that <em>anyone</em> can do that. Even the psychics themselves fall into camps, some decidedly less scientific than others."<br>
-<br>
-"But you can explain the leading theories, right? I'm feeling a bit vulnerable at the moment, and short of seeking out another pokemon with psychic attacks and letting it blast me, I want to know how likely it is that the… variance is on my end." He'd almost said "weakness."<br>
-<br>
-There's a moment of hesitation. "Red, do you know what theory-induced blindness is?"<br>
-<br>
-"I think I've heard the phrase before..."<br>
-<br>
-"A psychologist named Daniel Kahneman coined it. You've run across his ideas before, even if you didn't know it. Theory-induced blindness is a kind of confirmation bias, where <em>thinking</em> you know the way the world works means you ignore facts or dismiss ideas that show how it <em>actually</em> works."<br>
-<br>
-Red processes this, then smiles. "And there's experimental evidence that supports this? I knew it. I <em>knew </em>it! This <em>totally </em>helps explain the intractability of perceptions of pokemon types—"<br>
-<br>
-"This isn't just a layman's bias, Red. Scientists are also vulnerable to it."<br>
-<br>
-"Really? That sounds… pretty unscientific. How could they just ignore something that contradicts a theory? That's half the point of testing predictions!"<br>
-<br>
-"Ah, the voice of youth." Red can hear the Professor's grin. "You might be surprised how many otherwise intelligent and accomplished scientists can fall prey to it. Especially when perverse incentives are involved."<br>
-<br>
-"Even you, Professor?"<br>
-<br>
-"Even me. Why do you think I keep so many fresh young minds around?"<br>
-<br>
-"I just figured it's the next best thing to cloning yourself." Despite what the professor says, Red finds it hard to believe that a scientist wouldn't immediately recognize contradicting evidence like a flashing red light. Especially one as accomplished as Professor Oak. He probably did it when he was less experienced—<br>
-<br>
-Red blinks, then abruptly laughs at himself. "Okay, wow. That's kind of scary."<br>
-<br>
-"Hm?"<br>
-<br>
-"I just went from doubting what you said to experiencing it first hand, and almost missed the irony."<br>
-<br>
-The professor chuckles. "Like all biases, it can be subtle. So you see, I'm a bit worried about telling you the predominant hypothesis on psychic phenomenon, let alone whether it's the one I think is correct. I don't want to bias your thinking."<br>
-<br>
-"But I need to know <em>something</em> to help figure it all out, don't I?"<br>
-<br>
-The professor lets out a breath. "Something, yes. Let me think."<br>
-<br>
-Red stays quiet as the professor types, using the time to pull his notebook out of his pocket and write "BEWARE THEORY INDUCED BLINDNESS" on the cover by the light of his pokedex, drawing squares around it and putting an exclamation mark at either end, then doodling the open jaws of a gyarados over the top and bottom. After a few minutes, the professor speaks again. "Alright, here's the crash course. I'm going to do my best to present all the competing theories fairly without promoting one over the others. Forgive me if I go over anything you've heard before."<br>
-<br>
-"Don't worry about that, it's been a while anyway." Red turns to a fresh page and labels it "Psychic Phenomena."<br>
-<br>
-"For starters, psychic phenomena are generally classified in two categories: projection and reception. Projection powers are the ones that are the most noticeable to others. They include telekinesis, barriers, teleportation, and reconstruction, among other things. Reception are the subtler powers, like perception, precognition, and focus."<br>
-<br>
-"Not all psychics have all the powers though, right?" Red asks as he writes.<br>
-<br>
-"Right. Humans psychics vary wildly in strength compared to pokemon of a given species, and are weaker in the few projection powers they have. They seem to be weaker in reception powers too, but since we can't talk to pokemon, it's harder to tell. But even all this is controversial, as some academics object to the blanket classifications, and many psychics prefer other interpretations."<br>
-<br>
-"What do you mean? Mysticism?"<br>
-<br>
-"It's admittedly a fine line. Some of the powers we once considered magical have since been revealed to be psychic, while others we thought were psychic don't behave the way the majority of psychic powers do, or even the way Ghost or Dark powers do for pokemon. We think of them all as 'mental powers,' but then there are the other unusual abilities people and pokemon have demonstrated; is reading auras a psychic power, or a distinct and separate part of being in tune with <em>ki, </em>as the otherwise non-psychic martial artists insist? Are you starting to see the shape of the problem?"<br>
-<br>
-Red frowns. "There are way too many theories, none of which account for all the evidence."<br>
-<br>
-"Not by half. And there's another major problem that throws a snag in everything."<br>
-<br>
-"What is it?"<br>
-<br>
-"Let's see if you can figure it out. Pretend you don't know there are any human psychics, and have only been studying pokemon. What would you say if I told you that humans can exhibit psychic powers?"<br>
-<br>
-Red puts his pencil down and closes his eyes, thinking it over. His first reaction would be skepticism, because if he doesn't know there are psychic humans, it must be because he hasn't seen any evidence of them. "I would ask you to show me the human with the powers."<br>
-<br>
-"What if I said you can't test their powers right now, but insist you believe they're true anyway?"<br>
-<br>
-Red opens his eyes, nonplussed. "I… would say you can insist whatever you want, but I can't <em>make </em>myself believe psychic humans exist outside of a temporary hypothetical, especially when such a thing goes against the natural order as I understand it."<br>
-<br>
-"So you'd be blinded by your confidence in accepted theories."<br>
-<br>
-"What? No, that's ridiculous. There's a difference between rejecting evidence contradicting your theories and being skeptical of unsupported assertions."<br>
-<br>
-"Then what argument would you use to try to convince me they don't exist?"<br>
-<br>
-"None. Until you provide me a reason to believe they might exist, it would be a waste of time. I might as well go around trying to disprove everything random people believe without evidence."<br>
-<br>
-"But I'm not a random person," the professor says patiently. "I'm your superior, and I'm telling you that psychic humans exist. How would you convince me I'm wrong?"<br>
-<br>
-Red grumbles and closes his eyes again, turning the problem over in his mind. If he has to try and disprove an untestable assertion, he can only rely on natural laws and time-tested theories that contradict that assertion to cast doubt on it, or refer to ones that would increase the burden of proof beyond reasonable levels. What would make him the most skeptical of psychic humans?<br>
-<br>
-<em>If I haven't seen or heard of any psychic humans before, my natural inclination would be to assume they don't exist. But psychic powers do exist, so what makes me so skeptical of the idea that a human could develop them? For them to exist they would have to be an exception to some rule that I already believe about the world, or that my experience leads me to believe is true</em>—<br>
-<br>
-"Oooh, of course. There are no psychic rattata!"<br>
-<br>
-The professor laughs. "Go on."<br>
-<br>
-"No psychic rattata. Furthermore, no psychic machop, no psychic rhyhorn, no psychic krabby, and no psychic charmander! Pokemon species are either capable of psychic powers or not. Some pokemon like spinarak are capable of limited, narrow mental powers, but there are <em>no</em> pokemon species where one member has exhibited them, but the others haven't!"<br>
-<br>
-"Exactly. It's a subset of something called the 'Speciation Paradox,' but I like 'No Psychic Rattata' better."<br>
-<br>
-Red runs his fingers through his hair, taking his hat off for a moment and scratching his head as his mind races. "Wow. I've occasionally considered ways humans seem fundamentally different from pokemon, but I never really considered the way psychic powers manifest. Now that I recognize it, that's a pretty major incongruity. It must drive researchers nuts."<br>
-<br>
-"It does. Unlike the narrow bounds of a pokemon species, humans exhibit wildly varying psychic powers. A tiny fraction have extremely powerful abilities, some have fairly weak powers, and the vast majority apparently have none at all."<br>
-<br>
-Red puts his cap back on, and begins writing rapidly to cover everything. "So maybe humans, as a whole, are a psychic species with tons of variance. Maybe a lot of what we dismiss as intuition, or even the special bond between some humans and their pokemon, are due to subtle psychic powers. There must be something about our accepted models of psychics, or our accepted models of humans as a species, that this evidence is contradicting."<br>
-<br>
-"Very good. But it gets worse."<br>
-<br>
-Red frowns. "Yeah. What about dark humans? There aren't any dark rattata either, outside of those from Alola, which are basically just a different species."<br>
-<br>
-"Some think it's just a unique variation of psychic abilities, a defensive adaptation that makes a person or pokemon completely immune to psychic powers. Like pokemon, dark humans project a 'dead zone' around them that psychic abilities can't penetrate, but unlike pokemon, and unlike psychics, no dark human has been able to manipulate that field or take advantage of the other abilities dark pokemon have."<br>
-<br>
-"That seems significant…" Red says slowly. "I wish I could talk to one of them, and a psychic."<br>
-<br>
-"I'll see if I can call in a favor for the latter, but why not just ask Blue?"<br>
-<br>
-Red blinks, pencil pausing mid-stroke. "Wait, what?"<br>
-<br>
-"Oh. Oh, dear..."<br>
-<br>
-Red gapes. "That jerk, he never told me! When did he find out?"<br>
-<br>
-"Shortly after he met Elite Agatha. She informed me afterward, and I told him in private. He was quite upset."<br>
-<br>
-"That's understandable." Red was disappointed as a kid when he didn't manifest psychic powers, but at least he could still train psychic pokemon to respond to this thoughts. A pokemon trainer with a dark mind would have twice as hard a time training psychic types, and for some they'd find it completely impossible, not to mention being unable to teleport.<br>
-<br>
-That said, Red can appreciate the trade-off better now that he knows what a mental attack feels like. A blanket protection against psychic attacks, and a resistance to ghost attacks, could be invaluable.<br>
-<br>
-Professor Oak sighs. "I'll have to apologize for letting his secret slip, I suppose."<br>
-<br>
-Red hesitates. "If you'd like, I can pretend—"<br>
-<br>
-"No, no. It's my mistake, and better that he knows you know than maintain a double-deception. It should be something you're aware of if you're going to be traveling together anyway."<br>
-<br>
-"Yeah. Ooo, and this means I can test if my spinarak's mental attack was Psychic or Ghost Type!"<br>
-<br>
-"You're going to ask it to blast my grandson, aren't you?"<br>
-<br>
-"…maybe?"<br>
-<br>
-The professor laughs. "Well it wouldn't be the first time a scientist risks Renegade branding. Just make sure you get him to sign a waiver. Better make that multiple waivers."<br>
-<br>
-"Wouldn't it be useful to know, though?"<br>
-<br>
-"You're wondering if it had such a strong effect because you're a latent psychic?"<br>
-<br>
-"It crossed the optimistic part of my mind, yeah. But I mean in general, since we're trying to figure out if there's something special about my spinarak."<br>
-<br>
-"Yes, it could definitely be useful to know. Some think psychic and ghost powers are related, certainly more related than psychic and dark. Others think that they're all variations of the same one. The only things we really <em>know</em> are that some psychics have an affinity with ghost pokemon, and dark trainers have difficulty training either, though psychic types more than ghosts."<br>
-<br>
-Red's wrist is cramping from writing so much so quickly, switching between summarizing and writing questions as soon as they spring to mind. "And nothing relates them to <em>ki </em>energy so far?"<br>
-<br>
-"No, no relationship between psychic and dark trainers and <em>ki. </em>Why?"<br>
-<br>
-Red puts the pencil down and flexes his wrist to relieve the ache. "Just thinking out loud. You know my perspective on pokemon types reflecting emergent properties…"<br>
-<br>
-"Ah, yes, I see. Are you reconsidering something about it?"<br>
-<br>
-"Sort of. I've been starting to group the types as 'substantive' versus 'descriptive,' because it helps them make more sense. Like, Water type is substantive, while Flying is descriptive. One is inherent to a pokemon's genetics, or biological composition. The other is just a description of a property they have."<br>
-<br>
-"So a pokemon that's strong is considered Fighting, a descriptive type, but there is nothing inherently "Fighting" about it, unless <em>ki </em>energy proves to exist independent of psychic powers. I imagine you classified Psychic pokemon as descriptive too?"<br>
-<br>
-"Yeah. But now… I don't know. I'll have to think about it after I learn more."<br>
-<br>
-"I'll let you know if I find anything interesting out."<br>
-<br>
-"Thanks. In the meantime, I think that's all the questions I have for now."<br>
-<br>
-"My advice is to not worry too much about the bigger questions yet. Break the mystery down into smaller problems, and work at solving those. Put the clues together from the outside in."<br>
-<br>
-"Yeah, that makes sense. I'll be starting with spinarak anyway."<br>
-<br>
-"Good luck Red, and don't hesitate to message me again if you think of something else."<br>
-<br>
-"I will. Thanks again, Professor. For everything."<br>
-<br>
-"Anytime. Goodnight."<br>
-<br>
-"Night." Red closes the call and puts his phone away, ear throbbing from holding it against his shoulder. He finishes writing out his thoughts, and after a few minutes has a page with a flowchart of sorts on it:<br>
-<br>
-<em>Hypothesis: Some biological metric the pokedex classifies as "Other" influences strength of a pokemon's psychic powers.<br>
-</em><br>
-<br>
-<em>Step 1: Find multiple pokemon within a species that exhibit psychic powers.</em><br>
-<br>
-<em>Step 2: Determine what the relative strength of those powers are between them.</em><br>
-<br>
-<em>Step 3: Measure their biological metrics to check for correlations between psychic power and Other.</em><br>
-<br>
-<em>Step 4: If it does, repeat steps 1-3 for another species. If it doesn't, repeat steps 1-3 with pokemon exhibiting ghostly powers.</em><br>
-<br>
-Red frowns. He's going to need a lot of spinarak.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-When he gets back to the clearing, the group is still talking about Power Force Ten.<br>
-<br>
-"I'd want the Lightning Plate for sure," Matthew says. "The superspeed alone makes it awesome."<br>
-<br>
-"More awesome than <em>flying</em>?" Leaf says. "Sky Plate for me, for sure." She looks at Red and grins. "Assuming Sky Powers are a thing, of course."<br>
-<br>
-He smiles back as he sits, feeling considerably more at ease than he had upon first entering the clearing. "Hey, if something like a Sky Plate really exists, far be it from me to decide whether it makes sense. Clearly my view of reality is what's flawed." Red takes out his water bottle and drinks, easing the ache in his throat.<br>
-<br>
-"What about you, Red?" Allie asks. "What Plate would you get? Fire?"<br>
-<br>
-"Psychic," Blue guesses.<br>
-<br>
-"Actually, I'd choose the Fairy Plate."<br>
-<br>
-Everyone looks surprised. "For the Fairy Type? Those are a myth," Matthew says.<br>
-<br>
-Red doesn't remark on the irony. "Maybe. But if Fairy pokemon actually exist, then they should have their own Plate, right?"<br>
-<br>
-"I guess so," Allie says. "But why do you want it? What would it do?"<br>
-<br>
-"Exactly. What would it do? If it exists, I'd want to find out."<br>
-<br>
-"I heard legends where they controlled light, like Luxia," Leaf says. "Turned it into a weapon."<br>
-<br>
-"I read a book where they could charm others into doing what they want," Matthew says. "Like mind control."<br>
-<br>
-The others begin debating what possible powers the Fairy Plate might grant. Leaf turns to Red after a few moments, looking at him speculatively.<br>
-<br>
-"You seem in a better mood."<br>
-<br>
-He shrugs, then nods. "Had to get something off my chest I guess. Spoke to my mom and Professor Oak."<br>
-<br>
-"Care to share?"<br>
-<br>
-"Later," he promises, and she seems satisfied with that.<br>
-<br>
-The conversation continues, then slowly winds down. They arrange for who will take what watch, and Red volunteers to go first, since he woke up so late that morning. After another few minutes of quiet talking punctuated by more and more frequent yawns, the others slip into their bedrolls and drift off one by one.<br>
-<br>
-Blue, who has second watch, is the last to fall asleep. "Want me to wait up with you, Red? Pull a double shift?" he says, voice low.<br>
-<br>
-"Nah, get some rest. Thanks though."<br>
-<br>
-"No problem," he mumbles, yawning and turning onto his stomach, arms under his pillow and beside his pokebelt.<br>
-<br>
-"Hey Blue."<br>
-<br>
-"Hm?"<br>
-<br>
-"Just wanted to let you know… uh… I spoke to your grandpa. I know you're dark."<br>
-<br>
-Blue lies quietly for a moment. "That so?"<br>
-<br>
-"He didn't mean to let it slip, but… well, there's something I need to tell you. I was kind of embarrassed to before."<br>
-<br>
-"What's up?"<br>
-<br>
-"I should wait to tell Leaf too. I just wanted to let you know that I know."<br>
-<br>
-Blue shrugs his shoulders. "Daisy is too. She doesn't let it bother her, and I'm over it."<br>
-<br>
-Red relaxes a little. "Oh? Good. I think it's kind of cool, in a way."<br>
-<br>
-"Yeah. Gives me an edge against psychic trainers." Blue shifts deeper into his bedroll. "Remember to wake me on time."<br>
-<br>
-Red smiles. "See you in a bit."<br>
-<br>
-As the sounds of the others' quiet breathing surrounds him, Red takes his phone out and he finds Leader Giovanni's email address on the Viridian Gym's site. Then he checks the blog and notices there's a different address there. Probably better to use that one, since this isn't concerning gym business.<br>
-<br>
-He thinks over what he wants to say to catch the Gym Leader's attention. He probably gets hundreds of emails a day. What sorts of things would he instruct a human filter to pass on to him?<br>
-<br>
-Red remembers a podcaster who gets a lot of mail going over his criteria for "Delete, read, or save for later," and decides it's as good a set of guidelines as any:<br>
-<br>
-<em>Esteemed Leader Giovanni,</em><br>
-<br>
-<em>My name is Red Verres, and I'm an apprentice of Professor Oak's. I have learned a lot from your blog about the responsibility and values of pokemon trainers and citizens, and want your advice on something…</em><br>
-<br>
-He succinctly summarizes the events at the flower field. It bothers him a bit to namedrop Professor Oak, but he knows that's just his ego again. He wants a response, and without something early on to distinguish it, there's little reason for the letter to even reach Leader Giovanni.<br>
-<br>
-<em>...Professor Oak insists that I did all I could. Part of me wants to believe him, but another part is wary of doing so. I think if I do, it would be too easy to excuse myself for not thinking of something that could have worked, and shirk heroic responsibility in the future.</em><br>
-<br>
-<em>So I was hoping to get your insight on the matter, if you have the time to respond. If you were in my place, with the resources I had, what would you have done?</em><br>
-<br>
-<em>Thank you for your time,</em><br>
-<br>
-<em>Red Verres</em><br>
-<br>
-By the time he finishes, his hour's nearly up. He does some reading on Theory-Induced Blindness, then puts his phone away and wakes Blue.<br>
-<br>
-"Lucky bastard," his friend mutters as he rubs the sleep from his eyes. "First and last watch are always the best."<br>
-<br>
-Red grins as he slides into his own bedroll. "I can stay up if you want, keep you from nodding off."<br>
-<br>
-"Nah, I've got to refresh myself on caterpie lifecycles. Night bud."<br>
-<br>
-"Goodnight." Red covers his eyes with one arm to block off the light, quickly sinking into sleep.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-<em>Ranger Akio rides his meganium through the forest, the swarm of the beedrill so loud he can't even hear his own pokemon's pants for breath. He glances back and sees them coming, a shifting mass of yellow and black, red eyes seething hatred at the prey that stays just beyond their claws.</em><br>
-<br>
-<em>Once they're far enough back, he grips tighter with his thighs and reaches both hands down to his pokebelt. With meganium's pokeball in one hand and arcanine's in the other, he slowly rises to his knees, plants one foot on his pokemon's back, and leaps off, pointing it at the plant pokemon and shouting "Meganium, return!" and "Arcanine, go!" in quick succession.</em><br>
-<br>
-<em>From one direction, his meganium disappears in a flash of light. From the other, his arcanine rockets out of the ball in his hand, crimson fur bright in the brown and green forest. Akio lands, leaps, and spins onto the fire pokemon's back, digging his heels in to command him forward</em>—<br>
-<br>
-—<em>and instead gets knocked to the ground, a line of pain etched across his side as the lead beedrill buzzes past him. He tumbles over the grass as his pokemon roars and spews fire at the swarm. Half a dozen fall, but the rest quickly bury the arcanine in a tide of piercing stingers. Akio grabs another two pokeballs and opens his mouth to command them open, but instead a cloud of blood sprays from his lips. He looks down and sees the armblades of a beedrill piercing his lungs. His pokeballs fall from numb fingers as the green blades withdraw, not a beedrill's after all, thicker and longer, like those of a scyther, and Red's father falls to his knees</em>—<br>
-<br>
-Red wakes with a cry, kicking at his bedroll and crawling out of it, gasping and trembling as he feels his body for puncture marks.<br>
-<br>
-"What is it?! Are you alright?"<br>
-<br>
-Red looks up to see one of the twins staring at him in concern, one hand on her pokebelt. Fourth or fifth watch, then. He looks around to see if he woke anyone, but the rest are still asleep. Red rubs the cold sweat from his face.<br>
-<br>
-"Fine. I'm fine. Just a nightmare. Sorry."<br>
-<br>
-"Oh... okay. Um. Do you want to talk about it?"<br>
-<br>
-Red shakes his head and crawls back into his bedroll. "No, I'm okay. Sorry again."<br>
-<br>
-"That's alright." She looks uncomfortable, but sits back down and picks up a book beside her.<br>
-<br>
-Red's heartbeat begins to slow. He closes his eyes and focuses on his breathing until it evens out again, but he can't go back to sleep without picturing Luke or Ranger Akio or his father.<br>
-<br>
-Eventually he sighs and takes his phone out to check his mail. He scrolls past some daily reports and newsletters, then spots one in particular.<br>
-<br>
-<em>No way…</em><br>
-<br>
-Heart racing for a different reason now, he opens the letter from Leader Giovanni, cautioning himself not to get too excited, that it's probably just an automated response.<br>
-<br>
-But when it loads, the message on his screen reads:<br>
-<br>
-<em>From what details you have provided, I would have acted as you did. If that is not sufficient to your sense of responsibility, and you still fear that you acted out of cowardice, consider this: is there any amount of money that would have convinced you to try? -G<br>
-</em><br>
-<br>
-Red lies awake into the next watch change, thinking about it. He eventually responds simply with <em>No,</em> thanks the Leader, and then sleeps until morning without dreams.
-        </div>
+            <h1 class="chapter-title">Chapter 19: Great Expectations</h1>
 
-        <div class="chapter-nav">
-            <a href="../18/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../20/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>Red wakes from vague dreams to find himself lying on a comfortable bed. He opens his eyes, and it takes a moment to register his surroundings. Clean white walls, bright lights, a particularly distinct combination of smells, and…</p>
+
+<p>"Mom?"</p>
+
+<p>She sat with her eyes closed in the chair beside the bed, and they suddenly snap open at his voice. "Red!" She moves as though to hug him, then hesitates and rests a hand against his hair instead. "How are you feeling?"</p>
+
+<p>He frowns and tentatively sits up, attention shifting to his arm. It doesn't hurt much, but it's in a cast that heavily restricts movement. "Pretty well, I think. Am I on any medication, or is it healed?"</p>
+
+<p>She smiles, brow still creased with worry. "You're clean. They said it'll take about a week to <em>fully</em> heal, so be careful with it. You've only been asleep for a day."</p>
+
+<p>"<em>Only?!" </em>He nearly sits up, but her hand suddenly exerts force to keep him down. "I was out a whole day?! Is the fire under control? Are Blue and Leaf still in the forest? Do you know if they're alright?"</p>
+
+<p>"Yes, no, and yes, they're fine. Calm down, Red, everyone's safe."</p>
+
+<p><em>Not everyone.</em> But he feels himself relaxing, bit by bit. "Where are they now?"</p>
+
+<p>"At the pokemon center I think. Leaf was getting her injuries treated here, and left just an hour ago. She was tenacious in finding out how you were before she went. I quite like her."</p>
+
+<p>Red looks out the window. He's on a fairly high floor of the hospital, and can see the sun is setting over the mountains. He can't believe he was out for so long. "When did you get here? You didn't go through the forest, did you?"</p>
+
+<p>"No, Sam brought me. He came over this morning before I even turned the news on, and we flew straight here. He dropped me off and went to get the others."</p>
+
+<p>Red recognizes the strain behind his mother's calm expression and tone. "Sorry for worrying you. I'm glad you're here."</p>
+
+<p>She runs her fingers through his hair briefly, seeming about to say something, then bends forward and kisses his head. "Are you hungry? Thirsty?"</p>
+
+<p>"I could eat, yeah."</p>
+
+<p>She smiles and stands up. "I'll be right back."</p>
+
+<p>After she's gone, Red looks around the room a bit more. His pokebelt is hanging from the wall beside him, his backpack on the dresser under the window with his hat placed on top of it. He can't see his clothes anywhere, but the stuff he had in his pockets are in a clear bag on the nightstand beside the bed. A bit of tension he didn't realize was there eases from his chest when he sees his pokedex in it.</p>
+
+<p>Unfortunately it's on the side with his broken arm, so he has to sit up and shift around to reach for his phone. While moving, his arm begins to ache, and he stops immediately until it fades, then moves more carefully. He never studied any medicine and has little idea of how his arm was healed, but the memory of his bone pressing against his skin makes his stomach churn. He'll have to remember to thank the doctors that helped him when he gets the chance, and the woman that brought him here.</p>
+
+<p>He finally manages to open the bag and extract his phone. He lies back and checks his messages, then finds Blue in his contacts.</p>
+
+<p><strong><em>Hey, I'm up.</em></strong></p>
+
+<p>No response for a few seconds, and then:</p>
+
+<p><strong>o shit</strong></p>
+
+<p><strong>good to hear man</strong></p>
+
+<p><strong>how u doin?</strong></p>
+
+<p><strong><em>I'm alright. Is Leaf with you?</em></strong></p>
+
+<p><strong>ya just got here</strong></p>
+
+<p><strong>she says hi</strong></p>
+
+<p><strong>u able to leave?</strong></p>
+
+<p><strong><em>Don't know, haven't seen a Dr. yet. Will get back to you. Your pokemon okay?</em></strong></p>
+
+<p>There's a pause, and a brush of anxiety makes his pulse speed up. Did they lose anyone?</p>
+
+<p><strong>theyre ok</strong></p>
+
+<p><strong>still waiting on some</strong></p>
+
+<p>Red lets his breath out. <strong><em>Well glad you guys are safe. I'll let you know when I can head out.</em></strong></p>
+
+<p><strong>same here man</strong></p>
+
+<p><strong>ttyl</strong></p>
+
+<p>Red opens the local news sites and scans the headlines. Twenty seven dead, over fifty wounded, and six still missing. He looks over the names, feeling a touch of surrealism at spotting his own. And then, under deceased...</p>
+
+<p>… <em>Fara Melissa, Kuroda Ayame, Kuroda Kiku</em>, <em>Marcone Walter...</em></p>
+
+<p>Red is suddenly cold beneath his hospital gown. <em>Ayame and Kiku… </em>they sound familiar, but they might not be the twins they met, he's so bad with names...</p>
+
+<p>But should it even matter? He shouldn't be more sorry for those deaths just because they're people he met, even if it was just once. Each death is a tragedy, even if he doesn't know them: they're still someone's sister, brother, son, daughter, friend. One less person who might create new art, spur new research, or just share a companionable night around a campfire with, able to sleep sound with the knowledge that you'll keep each other safe.</p>
+
+<p>Red puts his phone down and leans back against his pillow, staring up as a sick burning sensation spreads through his stomach. Twenty seven or more lost, and Red could have easily been one of them. He was worse than useless, nearly getting himself killed right at the start…</p>
+
+<p><em>No. </em>He cuts off that line of thought, forces himself to think of how he used the onix roar to save himself and Leaf, and how his foresight ensured they had the lightning rods. It was a team effort, and he hadn't been useless.</p>
+
+<p>Soon he manages to completely banish the self-pity. He's still sad about those that lost their lives, but he needs to think more constructively. Heroic responsibility doesn't mean he should ignore the things he did right, or else he wouldn't be able to expand on them.</p>
+
+<p><em>Assess, evaluate, optimize…</em></p>
+
+<p>Red picks his phone back up. First things first: be prepared for similar situations in the future.</p>
+
+<p>He starts researching other pokemon in the surrounding area, first checking how sensitive their hearing is, then finding their most audibly distinct predators. The major issue is where there's no local apex hunter: if he uses a beedrill buzz to scare off some breloom, he might attract some hungry fearow. <em>Maybe I should make a list of apex predators first...</em></p>
+
+<p>He's still working ten minutes later when a doctor arrives. She looks just a bit older than his mom, though that might just be the carefully controlled exhaustion on her face. Red realizes she's probably been up all night and day with others from the forest continually coming in. When she gets closer, he reads Dr. Willow on her nametag.</p>
+
+<p>"Good evening, Mr. Verres."</p>
+
+<p><em>Mr. Verres. </em>Feels strange being called that. "Hello. Are you the one that patched up my arm?"</p>
+
+<p>"One of them, yes. How's it feeling?"</p>
+
+<p>He experimentally lifts it again and stops when it aches. "Starts hurting here, but just a bit. Thank you for all you've done."</p>
+
+<p>She dips her head. "Not the cleanest break we saw last night, but far from the worst. You got off fairly lucky."</p>
+
+<p>"Lucky to have such good friends, mostly." He immediately regrets saying it. The others who died no doubt had good friends with them too. "So, am I free to go?"</p>
+
+<p>"Let's find out." She unstraps the cast around his arm and his skin tingles as it comes in contact with the air again. Red winces as he sees how mottled with bruises his arm is, but when the doctor carefully prods at his skin he doesn't feel any pain. She doesn't seem satisfied though. "Not for another day to be safe. Think you can keep from moving your arm that long?"</p>
+
+<p>"Do I have to stay in bed?"</p>
+
+<p>"Not if you're careful."</p>
+
+<p>"I'll manage then." There's work he can do in the meantime, like researching spinarak, and maybe doing some experimenting with his.</p>
+
+<p>His mom returns with a tray of food in both hands, and the doctor leaves them to it. The smell of mashed potatoes and pidgey nuggets stokes Red's hunger to a fever pitch, and he begins shoveling them into his mouth as fast as he can move the spoon.</p>
+
+<p>"Chew, Red. It's not going anywhere." Once she's satisfied that he's slowed down, his mom begins eating too, and for a time there's silence but for the scrape of plastic cutlery and the distant sound of the hospital's intercom.</p>
+
+<p>Once his hunger is tamed and he has attention for other things, the silence begins to make him apprehensive. Part of him is glad his mom is here, but the rest is worried about her reaction to his injury.</p>
+
+<p>"Well?" he says after a minute. "Are you going to try and convince me to stop? Keep working in the lab until I'm older?"</p>
+
+<p>His mom raises a brow without looking up from her food. "Would it do any good?"</p>
+
+<p>He smiles. "Do you have any new arguments to add?"</p>
+
+<p>"No. But recent events might have changed their impact."</p>
+
+<p>Red just shakes his head.</p>
+
+<p>She sets her fork down. "I heard that the three of you helped some Rangers on the way up."</p>
+
+<p><em>Oh. Right.</em> "I… it was just-"</p>
+
+<p>"I'm glad."</p>
+
+<p>He looks up to see her smiling at him.</p>
+
+<p>"Glad that you're out there, helping others. Your father would be proud."</p>
+
+<p>Red stares at his tray, heart pounding. It's the best reaction he could have hoped for, but it feels dishonest. This seems too big a thing to be brushed off as a white lie, and too deliberate to be a lie of omission. "I miss dad. A lot." The constant ache at the back of his thoughts sharpens for a moment, and he takes a deep breath to push it back into the vault he'd constructed for it. "But I'm not doing this for him."</p>
+
+<p>She takes his hand and squeezes it. "I know that, Red. That's why he would be so proud."</p>
+
+<p>He shakes his head and pulls his hand away. "That's not it."</p>
+
+<p>She tilts her head, brow furrowed.</p>
+
+<p>"I don't want you to have the wrong expectations. One day I'm not going to live up to them, and it's better to know that now than be… disappointed." She's about to speak, and he hurries on. "And I don't just mean that I'll fail to save someone, or be too afraid to try. I mean I might decide against trying, as a conscious choice. Do you see? I might deliberately choose against what dad would have."</p>
+
+<p>His mom is silent for a time, and Red grows more and more worried. This is the frankest discussion they've had about his dad for years, and it's the closest Red's come to criticizing him. He should have waited, thought more about how he'd word it…</p>
+
+<p>"I married your father because he was the best man I'd ever met," she says at last. "I miss him every day. And sometimes I think that if he'd been just a bit less good, he'd still be here with us, and still be helping others."</p>
+
+<p>"We don't know what happened that day," Red says quietly. "That's what you always said. Is there more to the story?"</p>
+
+<p>She shakes her head. "No. It was his duty to go, and for all we know he did exactly as much as he needed to, as much as was smart to. He wasn't the only one lost, and the others… his friends, they said he saved a lot of lives. That he just got unlucky."</p>
+
+<p>She takes his hand again, and this time he lets her hold it, her eyes as intense as he's ever seen them. "However many lives he saved that day, he might have saved more if he lived past it. Maybe that's just a rationalization. Maybe others would call that a cowardly excuse, but you're not their child, you're mine. Whatever the situation, whatever you choose to do, at the end of the day, all I care about is that you're safe. Understand?"</p>
+
+<p>A number of thoughts and situations come up that he wants to test her statement against, but it doesn't feel appropriate just now. Unsure of what else to say, Red simply nods.</p>
+
+<p>His mom smiles and lets his hand go. "Good." She picks up her fork again. "So, tell me what happened after we got off the phone last night. I want to hear everything."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Blue's foot taps on the tile of the pokemon center, gaze fixed on the overhead screen above the lobby's reception desk. He's been watching the numbers tick slowly upward, both those currently being treated and the average wait times.</p>
+
+<p>It's been almost twelve hours since he arrived, exhausted and footsore. Gramps picked him and Leaf up from the forest once they were close enough to the city for their cells to start working again. They went to the hospital to get looked at, and while Blue's wound took just a few minutes to inspect and finish healing, Leaf had to stay for longer. Afterward Gramps brought him here before heading back to the forest on Glory, the pidgeot moving quick as a dart through the early morning sky with only one rider.</p>
+
+<p>After Blue handed his pokemon over and was given his frustratingly long wait time, he went to the lobby. It was packed with dozens of other trainers fresh from the forest, and Blue picked himself a comfortable couch to rest on. He intended to at least stay up until he heard from Leaf or Mrs. Verres on how she and Red were doing, but he was out the moment his head touched the top of the squishy backrest.</p>
+
+<p>He woke around noon, groggy and in serious need of a bathroom, to find a message on his phone from Leaf. She and Red were alright, and she was on her way to the pokemon center closest to her and wanted confirmation that it was the same one he's at. He checked the name and told her it was, then went to relieve himself and wash his face.</p>
+
+<p>By the time she arrives he feels like himself again, but his pokemon are still far from the front of the queue. He stops his leg from jittering and gets up as she approaches. She's looking much better than the night before, and dressed in fresh clothing. "Hey. Feeling alright?"</p>
+
+<p>She smiles. "A hundred percent. The healing went quick, I mostly stayed to get some rest and so they could check for any lingering effects."</p>
+
+<p>"And?"</p>
+
+<p>She stretches her arms up and to the sides, then twists at the waist and touches her feet one at a time. "No permanent damage. The shock didn't go anywhere important, thankfully. How are your pokemon?"</p>
+
+<p>He grunts, mood souring again. "No clue." He points to the screen.</p>
+
+<p>"Oh. And what number are you?"</p>
+
+<p>"103."</p>
+
+<p>"Oh dear. I'd better go get mine then."</p>
+
+<p>They head over to the front desk, whose staff has changed a couple times since Blue arrived. New arrivals have thankfully slowed, and there's just one nurse manning it now.</p>
+
+<p>"How much longer on 103?" Blue asks the guy while Leaf hands her pokemon over in exchange for her own number.</p>
+
+<p>The young man glances pointedly at the overhead monitor, which shows the numbers that just finished being treated as 82, 89, 92, 94, and 95, while the average wait time is twenty minutes. "Perhaps another few hours, sir."</p>
+
+<p>Blue grunts his thanks, and they head back toward the couches. "What number are you?"</p>
+
+<p>Leaf shows him her 148. "It's going to be a long night," she says. "We should go see Red."</p>
+
+<p>"Did you get a chance to?"</p>
+
+<p>"Just for a minute or so. He was still sleeping, but his mom was super nice."</p>
+
+<p>"Yeah, Aunt Laura's cool." Blue wonders what Daisy's up to. Gramps said she was helping out elsewhere in the forest, and he shoots her a quick text to see what's up. "Let's get some food first, the diners at pokemon centers are usually better than the stuff at hospitals."</p>
+
+<p>They go and do so, the tables around the food corner just as crowded as the rest of the center. As they eat their sandwich and salad, Blue gets a text. He expects it to be from Daisy, but it's Red's picture that appears.</p>
+
+<p>"Hey, he's up!"</p>
+
+<p>"Awesome, tell him I said hi!"</p>
+
+<p>Blue nods, fingers already moving, and a moment later he's staring at the text asking how his pokemon are doing. He still doesn't know how Zephyr or the shiftry are, but he doesn't want to tell Red that he lost his caterpie or beedrill either. Maybe it would be better over the phone, get it out of the way, but he wants to be able to tell the whole story at once, give some context. He finishes the convo and puts his phone away. "At least his arm's okay."</p>
+
+<p>"Yeah. It's good that he got to the hospital when he did."</p>
+
+<p>Blue frowns at the crowd around them. "Some of these people should be there themselves. Their pokemon aren't going anywhere, even if the line wasn't so long."</p>
+
+<p>Leaf shrugs. "Maybe they're too concerned for them to have any peace of mind. They've got to make sure they're okay first."</p>
+
+<p>"But they're in their pokeballs. It doesn't matter to them if they wait an hour or a week."</p>
+
+<p>Leaf opens her mouth, then closes it and spears a tomato slice, chewing with a distant look on her face. Blue takes a bite of his sandwich and gets another message, opening it with his other hand to see it's from his sis this time.</p>
+
+<p><strong>All's good. Got home a couple hours ago.</strong></p>
+
+<p>And here he was, worrying like a chump. <strong><em>thx 4 checkin in w/ me</em></strong></p>
+
+<p><strong>Grampa said you're OK. Whine more <333</strong></p>
+
+<p>Blue snorts. <strong><em>well</em><em> he didnt tell me u were home</em></strong></p>
+
+<p><strong>Aww were you concerned about me?</strong></p>
+
+<p><strong><em>my mistake</em></strong></p>
+
+<p><strong>That's sweet bro but I was runnin through Viridian when you were just out of diapers. Anything a newbie like you could get through is nbd</strong></p>
+
+<p><strong>Appreciated though ^_o</strong></p>
+
+<p>Blue shakes his head and puts his phone away. "Be glad you don't have any siblings."</p>
+
+<p>"Were you interested in seeing Red in the hospital, even if he wasn't awake?" Leaf asks.</p>
+
+<p>He blinks. "Uh. Yeah?"</p>
+
+<p>"So how is that different than what they're doing?"</p>
+
+<p>Blue stares blankly at the trainers she gestured toward, and after a moment he remembers the conversation they were having. "Oh! Man, were you thinking of a response that whole time?"</p>
+
+<p>"It was thirty seconds at most. Well?"</p>
+
+<p>"Well what?"</p>
+
+<p>"How is it different?"</p>
+
+<p>Blue frowns. "Red wasn't trapped in a pokeball in complete stasis. He might have woken up while I was there. Also I could have looked at him, seen how he was doing. It would have been reassuring."</p>
+
+<p>Leaf shakes her head impatiently and tucks some hair that gets loose behind her ear. "So let's say you know he won't wake up for another few days, and you popped your head in for a quick look. Is that enough? Would sitting beside him for a few hours be a waste?"</p>
+
+<p>"Uh. Sort of, yeah. Red's a smart guy, he wouldn't mind if he found out I did more productive stuff. Hell, he'd probably agree with me."</p>
+
+<p>"What about Mrs. Verres? Would you have told her to leave him be, that he'd be fine without her waiting beside him?"</p>
+
+<p>Blue shifts in his seat. "That's different. She's his mom."</p>
+
+<p>"So?"</p>
+
+<p>"So it's not about what makes sense, it's emotional. That's just the kind of bond parents have with their kids." A pang of loneliness and pain, chased away with long practice. He knows Gramps would stay at his bed if something happened to him. So would Aunt Laura, come to that.</p>
+
+<p><em>Hm. </em>That thought was kind of comforting. Is that important to Leaf's point? He has to admit it might be, even if he still thinks it's kind of a waste of time.</p>
+
+<p>"Well that's the kind of-"</p>
+
+<p>Blue puts a hand up. "Wait. I get it."</p>
+
+<p>Leaf's brow rises. "Get what?"</p>
+
+<p>"I get what you're saying. It hit me."</p>
+
+<p>"Just like that?"</p>
+
+<p>"Yeah, just like that."</p>
+
+<p>Leaf looks skeptical, and he rolls his eyes. "No need for that look, Gramps taught me about admitting when I'm wrong long before Red turned into a pain in the ass about it."</p>
+
+<p>"Sorry."</p>
+
+<p>"Besides, I wouldn't say I was wrong unless I really believed it."</p>
+
+<p>She grins. "True."</p>
+
+<p>"Anyway, I still think it's different. Pokemon aren't humans. They won't know whether these trainers waited here or not."</p>
+
+<p>"Maybe not. But it's not for the pokemon. It's for the humans."</p>
+
+<p>Blue considers this, then nods. "The way funerals are for the living." He stands up. "So, I've got a few hours and you've got longer. Let's go see Red, now that he's awake."</p>
+
+<p>They leave the pokemon center and begin to walk toward the hospital as twilight cloaks the city. Pewter is very different from Viridian: far more open, with all the tall buildings spread out. Cars are rare here, with the forest to the south and the mountains to every other side, so the streets are much more narrow, and the walkways wider.</p>
+
+<p>Soon they pass through a residential area, where the houses are almost all made of stone. A few young kids are playing on the lawns, some with each other, others with pokemon. A marill swims around two giggling children in a portable pool, and farther along a toddler rides the back of a growlithe under the watchful eye of their parents.</p>
+
+<p>Despite the circumstances, Blue suddenly feels naked without his own pokemon resting at his waist. It feels strange to be uncomfortable around tamed pokemon when he spent his whole life around them. Especially since he's only had his own for less than a week. Is this what exposure to wild pokemon does? Makes you wary of them all?</p>
+
+<p>"Oh! Look!" Leaf whispers, and Blue follows her gaze to see a woman leaning out a window to splash some milk in the shadow of her house. Leaf stifles her grin behind her hand until they pass, then says, "I can't believe that's really a thing. I half thought you guys were joking."</p>
+
+<p>"Nope. Me and my friend Batu used to wear black and hide in the shadows to leap out at people when we were younger. We'd get splashed with a lot of milk, but it was always worth a laugh. One time-"</p>
+
+<p>Blue's phone chimes, and he pulls it out while Leaf tries to get a hold of her giggles. He stops walking, and she turns to him with a questioning look.</p>
+
+<p>"It's the pokecenter," he says, heart suddenly pounding. "They're telling me to come in."</p>
+
+<p>"What, now? They can't have finished with your pokemon so quickly."</p>
+
+<p>"Yeah." The message doesn't say they're done being healed, just to report to a certain room as soon as possible. Blue swallows the dryness in his throat and meets Leaf's concerned gaze. "I guess I'll catch you later."</p>
+
+<p>"Do you want me to-"</p>
+
+<p>"No, it's fine. Go tell Red I'll be there soon."</p>
+
+<p>"Alright." She returns his wave halfheartedly, and then he turns and jogs back the way he came.</p>
+
+<p><em>Zephyr or the shiftry? Which one did I lose? Or was it both?</em></p>
+
+<p>Blue makes it back in less than half the time, sweating and out of breath. He quickly follows the directional signs toward D9, and soon finds himself in an intensive care unit.</p>
+
+<p>Blue's stomach is clenched up like a fist by the time he reaches the door and knocks. A moment later a doctor opens it, almost as old as Gramps, with her long greying hair tied in a braid. After confirming who he is she invites him inside the room. It looks less like a medical room and more like a computer lab, each console surrounded by periphery equipment and sporting numerous screens, and he realizes he's in an assessment room rather than one devoted to treatment.</p>
+
+<p>His pokeballs rest on a machine with spherical indents, each slot including a lens aligned with the ball's to stream data from it to the nearby terminal. He notices that his shiftry's ball isn't among them.</p>
+
+<p>"Hello Mr. Oak, thank you for coming so quickly. Some concerns surfaced while treating your pokemon."</p>
+
+<p>"Yeah, I figured." Blue wipes his palms on his jeans. "So what's up? Are they okay?"</p>
+
+<p>"For the most part. I want to know about one in particular." The doctor meets his gaze, and Blue suddenly notices how cold hers is. "Your shiftry. What happened to it?"</p>
+
+<p>Blue stands a bit straighter, suddenly wary. "I told the guy at reception, it had some acid burns, puncture wounds, poisoning, and its limbs were cut off."</p>
+
+<p>"We can see that. I want to know how the amputations occurred."</p>
+
+<p>"Another shiftry's leaves cut them off. What's the problem? Are you able to heal it or not?"</p>
+
+<p>"Your shiftry's healing has already begun, and is going as best as can be expected. It should make a full recovery within a few days." The nurse's eyes are hard on his. "The question is whether it will be returned to you or not."</p>
+
+<p>Blue's concern fades, anger taking its place. "What are you talking about?"</p>
+
+<p>"I've seen thousands of pokemon injuries. Often from wild battles, some from trainer brawls. The wounds to your shiftry's arms and legs are different from the rest. We have abuse laws in this region, Mr. Oak."</p>
+
+<p>Searing heat flares through Blue's chest, each beat of his heart pumping magma through his veins. <em>Calm. Steady. </em>"Are you accusing me of something?" he says, jaw tight.</p>
+
+<p>She doesn't flinch at his tone. "Those wounds were specific, deliberate. Another shiftry didn't do that. I want to know what did."</p>
+
+<p>"I don't see how it's any of your business."</p>
+
+<p>"As a matter of fact it is. If we suspect trainer abuse we're required to report it to the licensing association. You can tell me or you can tell an investigative review board, but until you do either, you're not getting your pokemon back."</p>
+
+<p>He unclenches his fists and takes a deep breath. After Gramps dropped him off, Blue waited until he flew away, then jogged to a small pokemart nearby. He restocked on some supplies, including a few greatballs. Once outside, Blue released his shiftry and quickly recaptured it in a greatball before returning to the pokemon center.</p>
+
+<p>Now he's wishing he'd kept it in the original ball and just handed them the greatball to put it in when it was healed. "Look, I didn't have a greatball on me when my group was attacked by the shiftry near the forest fire. I tried to use a pokeball, but it was too big. After we fought them off, this one was still alive, so I used one of the other shiftry's arms that were severed and made him small enough to fit. He was badly wounded, and I didn't have any other way to capture him. It was either this, heal him and risk someone else getting attacked, or letting him die. All things considered I thought this was the best option, since grass types can heal almost any wound."</p>
+
+<p>The doctor's posture is still rigid, but her expression is a bit less severe. "You were with a group of trainers, and none of you had any greatballs?"</p>
+
+<p>"No, there were only three of us," he says immediately, while internally kicking himself for not having asked the others. He didn't even consider it at the time. "Also we were busy last night, you know, trying to <em>stay alive</em> and keep the forest from burning down. If anyone had any before they probably used them by then."</p>
+
+<p>Her gaze lingers on his for a moment, then she nods. "Given the circumstances, then, I think you did the best you could. It helps that its wounds were promptly cared for. Just to be sure, please give me the names of the other trainers, so I can corroborate your story."</p>
+
+<p>"Oh <em>come on!</em> Why would I cut up my own pokemon and then bring him here to be healed?"</p>
+
+<p>"Sir, please lower your voice."</p>
+
+<p>Blue fumes silently for a moment as he calms himself down. Just as he's about to give her the names, footsteps approaching from the hallway make them both turn.</p>
+
+<p>"Ah, there you are Blue. I thought I heard your voice."</p>
+
+<p>Professor Oak stands in the doorway, looking tired but smiling. He approaches the monitors, stripping gloves off his hands and tossing them in the trash before he examines Blue's pokemon info. "Good, good, your pidgey healed just fine."</p>
+
+<p>Blue's brain seems to have locked up at his gramp's unexpected appearance. "His wing's okay?" he asks after a moment, unable to pick beyond all the other questions.</p>
+
+<p>"Yes, he'll regain full use of it. The cut was deep, but it missed the bone."</p>
+
+<p>The doctor is staring at Professor Oak in shock, then turns to Blue. "You're…?"</p>
+
+<p>"Yeah, that Oak."</p>
+
+<p>Her cheeks flush, and she turns to the cheerful smile on the Professor's face with a stammering apology that he waves away before it can take form.</p>
+
+<p>"It's quite alright, you were only exercising due diligence. I was hoping to have a talk with my grandson before we visit his friend in the hospital, however. Please excuse us, and message me if you need anything."</p>
+
+<p>"Of course, Professor. Thank you for everything." She smiles and bows. "Your help has been invaluable, and I've never seen my people maintain such good morale in a situation this bad."</p>
+
+<p>Gramps beams at her and returns her bow, then heads for the door. Blue glances at the doctor as she gives him an apologetic look, pushes his bruised pride aside to mutter some thanks, and follows him.</p>
+
+<p>As they walk through the corridor, his grandpa's cheerful demeanor doesn't disappear, but it does gradually fade to its normal, less weaponized form. Blue's not sure what to say at first: did he just get rescued? It feels like he did, even though he was doing totally fine. He did nothing wrong. So why does it feel like he was let off the hook just because he's <em>the</em> Professor Oak's grandson?</p>
+
+<p>To be fair, the Professor hadn't said anything that could remotely be taken that way. Nor had the doctor implied it. It just seemed taken for granted that the grandson of Professor Oak would of course have the best intentions regarding pokemon wellbeing, and wouldn't have acted in any way improperly.</p>
+
+<p>Not that he's complaining. Expectations like that will surely come in handy someday.</p>
+
+<p>Still, even planning to make good use of the Oak name, Blue feels disgruntled. He was fully capable of handling this situation on his own.</p>
+
+<p>Blue lengthens his strides to catch up to his grandpa. "So what are you doing here?" he asks, unable to keep quite all the hostility from his voice.</p>
+
+<p>"Helping with the pokemon, of course. It's all hands on deck from the surrounding cities, and since you all are here I decided to come to Pewter instead of help in Viridian. I arrived while you were sleeping in the lobby."</p>
+
+<p>"Ah. Well, thanks for the help back there. Saved me the whole minute it would have taken to give her the trainer's names."</p>
+
+<p>The professor's pale blue eyes flick toward him, and then they're at the elevators. His grandpa waits until they're inside and headed for the roof, then turns to him, face serious.</p>
+
+<p>"You're going to have to be more careful, Blue."</p>
+
+<p>"With what, exactly?"</p>
+
+<p>"Your choice of victory conditions. There are many paths to becoming Champion, but the one you've chosen to walk is narrow as a razor's edge. Stray too far on either side and you'll get the title, but accomplish nothing with it."</p>
+
+<p>Blue scowls, leaning back against the wall and watching the numbers tick up. "You don't think I know that? I did the best I could with what I had."</p>
+
+<p>"I believe that, and you believe that, and the two trainers that were with you probably believe that. But when the story gets out, as it certainly will once your fame starts to rise, you're going to have to be ready to counter the unflattering colors some will paint you in." The door of the elevator opens. "Start considering what you can do to give them something else to talk about."</p>
+
+<p>Blue follows him out, thinking it over. Gramps is speaking from experience, and Blue would have to be an idiot to ignore him. "So, what, like spread the story myself?"</p>
+
+<p>"Is that the best you can come up with?" His grandpa waves at someone as they walk through the rooftop's lobby, with its glass ceiling revealing that night has finally fallen on the city. Once they're outside on the landing and launching area, he takes out Glory's ball and summons the pidgeot in a flash of light.</p>
+
+<p>Blue strokes the huge bird's wing, and when it kneels he climbs onto the second seat on its back. <em>I can't wait until Zephyr's this big. </em>"I could help out here with you. Assist with pokemon injured in the forest."</p>
+
+<p>His grandpa smiles and mounts up before turning Glory toward the edge of the building, the pokemon's wings spreading as it crouches for takeoff. "That'll do, for a start..."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>"Heyyy, look who's conscious!"</p>
+
+<p>Leaf turns to see Blue and Professor Oak enter Red's room, the latter carrying a small bag. Mrs. Verres ("<em>Please, call me Laura")</em> rises and hugs each of them, then excuses herself to get more chairs. The boys bump fists, and Blue leans on the edge of the bed to get a look at Red's cast.</p>
+
+<p>"Does it hurt if I do this?" Blue asks, extending a finger toward it.</p>
+
+<p>Red bats his hand away before it can touch. "Thanks for coming, Professor."</p>
+
+<p>"Of course. From what I gather, you all did remarkably well in the forest, and I wanted to hear your stories personally." The professor lifts the bag. "I also brought you each something. Ah, thank you Laura." He takes the seat from her and lowers himself into it.</p>
+
+<p>"You brought us gifts?" Leaf asks, excitement bubbling up in her. "You've already given us so much!"</p>
+
+<p>"He's just protecting his investment," Blue says as he takes another chair to the other side of Red's bed. He flips it around so he can prop his arms up on its back while he faces them. "Would have been embarrassing if we kicked the oxygen habit less than a week out."</p>
+
+<p>"Blue," Mrs. Verres says, voice calm but firm. "I know you're joking, but keep in mind that many people didn't make it out of the forest. You're all lucky to be alive, despite your achievements."</p>
+
+<p>To Leaf's surprise, Blue looks genuinely embarrassed. "You're right, Aunty. Sorry. So what'd you get us, Gramps?"</p>
+
+<p>"First, for Red, an ultraball." He takes it out and hands it to him.</p>
+
+<p>"Oh Sam, you shouldn't have!" Laura says, admiring the sleek black and yellow ball that Red takes reverently. His finger traces the small gold lightning bolt etched into its cover.</p>
+
+<p>"Think of it as a safety precaution. Training a pikachu can be dangerous, and at the very least you need to make sure the ball you hold it in can handle a stray bolt."</p>
+
+<p>"Thanks Professor," Red says. "I was going to buy one, but now I can use the money on other things."</p>
+
+<p>"May I suggest some cheri berries? Besides their medicinal uses, they can be fed to your pichu to temporarily weaken its electricity."</p>
+
+<p>"Really? How does that wo-"</p>
+
+<p>"Later, Red," Blue says. "Next gift!"</p>
+
+<p>Professor Oak smiles and turns deliberately away from him and toward Leaf. "Miss Juniper. Your decision to catch the pichu at great personal risk was admirable, but exceedingly dangerous. Rather than attempt to convince you not to try such a thing again in the future, I'd rather equip you so that you can do so a bit safer."</p>
+
+<p>He hands her a clear plastic jar of some thick amber liquid, tightly sealed. "Is this combee honey?" she asks, voice hushed, and Red gives a low whistle. A cup of the stuff can sell for as much as a hundred dollars, and this looks like a whole pint at least.</p>
+
+<p>"It is, of a particularly strong potency. A small dab should be enough to attract any pokemon with a sense of smell. Use with extreme caution."</p>
+
+<p>Leaf grins and carefully tucks it in her bag. "I will! Thank you!" She's already imagining all the ways she can use it, not just to catch pokemon, but also to train Bulbasaur. On top of that, plant pokemon are very adaptive at incorporating the effects of new substances in the plants and seeds they grow. <em>He might even be able to develop his own attractive liquid or pollen...</em></p>
+
+<p>"You're quite welcome. As for you, Blue, I give you this." He hands his grandson... a book.</p>
+
+<p>Blue takes it with a frown that looks more like concentration than pique. "Nobunaga's Ambition," he reads from the cover, and flips through it. "Thanks, Gramps," he says, and only sounds half grudging.</p>
+
+<p>"So, what are you all planning now?" Mrs. Verres asks.</p>
+
+<p>"I'm going to hit the gym when my pokemon are better," Blue says. "Hopefully I can grab the Pewter Badge in a few days."</p>
+
+<p>"I have some research I need to do with my spinarak. If you have time, Professor, I could use some help organizing my thoughts on it…"</p>
+
+<p>"Certainly."</p>
+
+<p>"And you, Leaf?"</p>
+
+<p>She smiles. "The museum here has the largest fossil collection in the region, right?"</p>
+
+<p>"Cinnabar might rival it," Professor Oak says. "But it would be close."</p>
+
+<p>She nods. "I'm going to check it out. I'm really curious to know more about your region's myths and history." The older the better, and it doesn't get much older than fossilized pokemon remains. She's seen how historical evidence could alter or clash with local myths and beliefs back in Unova.</p>
+
+<p>"It's a fascinating place," Professor Oak says. "You should all go."</p>
+
+<p>"Pass," Blue says. "Seen it. Pretty boring."</p>
+
+<p>"I'm down," Red says.</p>
+
+<p>She smiles at him. "Cool."</p>
+
+<p>"Well, now that's settled." Professor Oak checks the time, then smiles and leans back in his chair, eyes sparkling with excitement. "It's time for my payment for the gifts. I want to hear everything that happened last night. Who's going to start?"</p>
+
+<p>Leaf's phone chimes, and her heart sinks as she sees it's her mother asking her to call when she can. "Excuse me, I have to take this," she says as she gets to her feet. "I'll let Red cover my part."</p>
+
+<p>She leaves the room and finds a quiet corner of the hospital. She was putting off this conversation, but part of her is glad it's finally upon her. After the numerous near death experiences in the forest, she doesn't want to let some misaligned expectations get in the way of her and her mother's relationship.</p>
+
+<p>Leaf presses the call button, heart hammering as she tries to think of what to say. Should she sound calm and casual, as if nothing's wrong? Cheerful? The usual cool and controlled?</p>
+
+<p>She's still trying to decide when the ringing stops, and her mother's voice is in her ear. "Leaf!"</p>
+
+<p>"Hi mom."</p>
+
+<p>"Oh honey, it's good to hear your voice. I checked the Kanto news today and it showed a forest fire near where you said you were! Are you alright?"</p>
+
+<p>Tears prickle at Leaf's eyes at the naked concern in her mom's tone, and she closes them. "I'm fine," she says with a smile as she leans back against the wall. "And… Mom, I wanted to say sorry…"</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/18/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/20/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -1076,6 +872,6 @@ Red lies awake into the next watch change, thinking about it. He eventually resp
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is an intro post for the Procedural Executive Function sequence, which is now complete, to help give some general background of how to orient to executive dysfunction both philosophically and pra...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Executive Dysfunction 101">
+    <meta property="og:description" content="This is an intro post for the Procedural Executive Function sequence, which is now complete, to help give some general background of how to orient to executive dysfunction both philosophically and pra...">
+    <meta property="og:type" content="article">
+    <title>Executive Dysfunction 101 - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Executive Dysfunction 101</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        July 04, 2022
+                    </span>
+                    <span>📁 Executive Function, Therapy</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p>This is an intro post for the <a href="https://www.lesswrong.com/s/oTMuc9C3KKdZ6FcCB">Procedural Executive Function </a>sequence, which is now complete, to help give some general background of how to orient to executive dysfunction both philosophically and practically.</p>
+
+<p>First things first; “executive dysfunction” is not a diagnosis. Executive functions are what govern our ability to plan actions, take those actions, maintain focus on them, adapt to changes, and more subtle steps between.</p>
+
+<img class="aligncenter size-full wp-image-3877" src="https://daystareld.com/wp-content/uploads/2022/07/PEF-0.png" alt="" width="963" height="1405" />
+
+<p>ADHD is a diagnosis that points to a cluster of common struggles with executive function: working memory, impulse control, and self monitoring. But there are plenty of other diagnoses that can impact one or more of those eight, and of course even things like lack of sleep, hunger, being irritated, disruptive environments, and other stressors can affect them.</p>
+
+<p>So in general when we talk about executive dysfunction what we’re really pointing at is a symptom we witness when someone isn’t able to act on their desires, or on things they think they should do, or on things they think they should desire.</p>
+
+<p>Which brings up the more philosophical question; what does it mean to “fail to act” on a desire? Does someone “have executive dysfunction” if they struggle to complete something they don’t want to do, but feel they have to? What about what they “want to want” to do, but don’t find interesting, even while they can still work on passion projects without issue? Or is it only executive dysfunction if they can’t bring themselves to work on something they feel a strong desire to do, in which case what does “strong desire” mean?</p>
+
+<p>All this makes the question of whether someone struggles with executive dysfunction ill-posed. The better question is “in what domains or in what types of circumstances does someone struggle with executive dysfunction,” followed by narrowing down to which of their executive functions are the chokepoint. Organization? Task initiation? Emotional control?</p>
+
+<p>(I’m also not a fan of “emotional control” as a phrase, as it implies something like stifling or dampening or wrestling with your emotions. This might accurately describe the feeling for some people, but integrating emotions in a healthy way doesn’t have to feel like any of that)</p>
+
+<p>With this more precise understanding, the possible interventions also become more clear. Organization and planning skills can be learned, as can self-awareness and emotional integration. Multitasking and working memory, meanwhile, are harder to improve, and so reducing distractions by adjusting the environment might be more effective.</p>
+
+<p>But most importantly, the question of whether the task is tied to a “want” or a “want to want” or a “should” can itself guide people to better understanding whether their struggle is one that is worth resolving at all, as compared to one that isn’t worth the costs compared to other actions or paths. Many people have pushed through some difficult job or university degree and were glad they did; others regret time wasted and emotional suffering endured for a goal that didn’t end up mattering to them.</p>
+
+<p>Which is why executive dysfunction should not be treated by default as a difficulty that needs to be overcome. Instead it can also be a signal from one or more of your parts that the path you’re on is not the right one for you, and that you might benefit from searching for other, better roads, or even goals.</p>
+
+<p>Along with depression and anxiety, additional factors can exacerbate executive dysfunction, such as perfectionism. The idea that anything tried must succeed, or be done perfectly, often leads to a feeling of dread or hopelessness at the prospect of even starting a task. This is particularly exacerbated by OCD.</p>
+
+<p>Which leads to a general theory of treatment that includes things like exploring motivations and dissolving “shoulds” as a first step before taking for granted that failure to do something is about the person rather than the thing they’re trying to do.</p>
+
+<p>[The above refers to the parts model of the self, and to the therapeutic idea of systematically replacing the concept "should" with less normative framings. A lot of people find these helpful, but they're not consensus views and they don't work for everyone.]</p>
+
+<p>Once that’s done, only then is it useful to focus on strategies for breaking tasks down into simpler versions of themselves, finding tools and contexts for improving focus and accountability, and generally working up and down that colorful flowchart up there to improve whatever part of executive function might be rate limiting. For example, since past difficulties can exacerbate this sense of predicted suffering or failure, it’s also important to focus on small, achievable steps that are more likely to succeed and thus increase predictability of success.</p>
+
+<p>To further explore this, I plan to write a series of posts on how to procedurally explore executive function within ourselves so that we can identify the places where we get stuck when we have trouble doing stuff we want to do, and have a better idea of what can help.</p>
+
+<p><em>Part 1: <a href="https://daystareld.com/executive-function-1/">Planning & Prioritizing, Task Initiation</a></em></p>
+
+<p><em>Part 2: </em><a href="https://daystareld.com/executive-function-2/"><i>Emotional Control, Self Monitoring, Impulse Control</i></a></p>
+
+<p><i>Part 3: <a href="https://daystareld.com/executive-function-3/">Working Memory, Organization, Flexible Thinking</a></i></p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">advice</span><span class="tag">psychology</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

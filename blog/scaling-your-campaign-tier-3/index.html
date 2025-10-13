@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advice Level: Beginner to Advanced Gamers
+
+
+
+Tier 3: Worldwide Story
+
+The previous post explored the unique themes a Tier 2 story can have, and the opportunities and challenges it can present: Tier 2 ...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Scaling Your Campaign, Tier 3">
+    <meta property="og:description" content="Advice Level: Beginner to Advanced Gamers
+
+
+
+Tier 3: Worldwide Story
+
+The previous post explored the unique themes a Tier 2 story can have, and the opportunities and challenges it can present: Tier 2 ...">
+    <meta property="og:type" content="article">
+    <title>Scaling Your Campaign, Tier 3 - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Scaling Your Campaign, Tier 3</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        May 08, 2016
+                    </span>
+                    <span>📁 Storytelling Advice</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><em>Advice Level: Beginner to Advanced Gamers</em></p>
+
+<img class="decoded aligncenter" src="http://rack.3.mshcdn.com/media/ZgkyMDEyLzEyLzA0L2JmL2VhcnRoaXNzaW5nLmJNNS5qcGcKcAl0aHVtYgk5NTB4NTM0IwplCWpwZw/ec1609ba/091/earth-is-singing-like-a-whale-says-nasa-hear-it-now-b7ef5781e6.jpg" alt="http://rack.3.mshcdn.com/media/ZgkyMDEyLzEyLzA0L2JmL2VhcnRoaXNzaW5nLmJNNS5qcGcKcAl0aHVtYgk5NTB4NTM0IwplCWpwZw/ec1609ba/091/earth-is-singing-like-a-whale-says-nasa-hear-it-now-b7ef5781e6.jpg" width="423" height="241" />
+
+<p><b>Tier 3: Worldwide Story</b></p>
+
+<p>The <a href="https://daystareld.com/scaling-your-campaign-tier-2/">previous post</a> explored the unique themes a Tier 2 story can have, and the opportunities and challenges it can present: Tier 2 adds a wider scope to player choices and interactions in regards to consequences, potential allies, and symptomatic effects.  The third tier broadens all those themes, but also adds the potential of its own unique element: Change, with a capital C.</p>
+
+<p>A Tier 3 story involves a threat or challenge not just to the players, not just to the town or city or country around them, but to their whole world. Keep in <img class="alignright" src="http://doug-johnson.squarespace.com/storage/when-change-is-hard.jpg?__SQUARESPACE_CACHEVERSION=1314973950229" alt="http://doug-johnson.squarespace.com/storage/when-change-is-hard.jpg?__SQUARESPACE_CACHEVERSION=1314973950229" width="250" height="359" />mind that this is a flexible concept: in a science-fiction adventure, a Tier 2 story may well be global, as the planet is treated as the “locality,” while a Tier 3 story would be interplanetary, or even intergalactic, to encompass that <em>everything</em> is affected. A Tier 3 story means that everything the characters once knew to be normal or thought were eternal are now up in the air.  The old rules no longer apply, and nothing will ever be the same again.</p>
+
+<p>Almost all stories are about change in some way or the other, especially regarding the protagonists. But when we speak about change being central to a Tier 3 story, we aren’t just talking about the scale or breadth of the change, as some result of the story’s conclusion.  What’s unique to Tier 3 are changes that occur all around the players, changes that are an integral part of the story itself, moment to moment.  It’s Change as an <em>ambiance</em>.</p>
+
+<p>The best Tier 3 stories are absolutely saturated with a mood of imminent and drastic Change.  Whether it’s a direct result of the major conflict or a symptom, it should be evident in every chapter.  Fear, uncertainty, and risk should be reflected in setting and NPCs… as well as, ultimately, hope.  In a classic fantasy saga, perhaps races that have historically done nothing but fight and hate each other are beginning to set aside ancient grudges for the first time ever, in order to fight the rising primordial evil. In a cyber-steam-punk tale, perhaps the barriers between the classes are starting to break down as some mechanical rebellion forces everyone to revert to pre-industrialized technologies and skills.  In a modern supernatural  story, perhaps some Big Bad is taking actions so huge that the mortal/mundane world can’t help but notice, and thus the masquerade dividing them and the various supernatural communities is crumbling: for the first time since the Age of Enlightenment, humanity as a whole is becoming truly aware of the “monsters” that have lived hidden among them all this time.</p>
+
+<p>These changes may be ultimately good, bad, or both.  But a conflict on a scale and magnitude so big that it metaphorically shatters the planet should not leave everything as it was before, once all the pieces have been picked up.  When the hobbits return home, they should find the Shire, if not burning, at least militarized and vigilant against a world that trembled on the brink of eternal darkness.</p>
+
+<p>And whether these changes are desirable or not is ample fuel for side plots in the story.  Now that the main plot is so massive, smaller story elements have plenty of room to grow and challenge the Player Characters.  Xenophobic elements of each race that refuse to ally with the others, despite the threat.  Technophiles that believe the mechanical rebellion is the natural course of things, and side against humanity.    Members of the supernatural community that believe they will be wiped out or worse without the masquerade to protect them, and fight violently to remain a secret.
+<p class="wp-caption-text">These are all side challenges to the main struggle that add depth and richness to the more linear “the world is in trouble, save it” narrative that is far too easy to fall into in a Tier 3 story.  And these challenges need not be exclusively NPC driven: if any of the players feel their characters end up on different sides of whether the changes are positive or negative, they should feel free to express that.  If it starts to really split the group’s goals and loyalties, you’ve got a <em>really</em> interesting campaign on your hands…</p>
+(Note: As mentioned in Tier 1, the scope of the danger is not ultimately what determines the Tier of a story.  It’s perfectly possible to write a story in which the threats to the locality or planet are completely hidden from the rest of the world, and there are no consequences or collateral damage to initiate changes.  These are essentially dressed up Tier 1 stories, where the focus is still entirely on the heroes, and the only changes are personal ones. Ultimately, a story’s Tier is about range of elements and scope that can occur in it, not how big the stakes are.)</p>
+
+<p><b>Transitioning to a Tier 3 Story:</b></p>
+
+<p><i>Michael’s story is advancing fairly well.  First he presented a personal challenge to his players, beginning the story at Tier 1 and letting them get used to their characters and learn about them on an intimately scaled story.  Then, as the Cassy and Don looked into their son Jacob’s death and Jeff and Mary investigated his sister Lara’ s disappearance, they learned that both events are not just connected, but similar to tragedies that dozens of other families have experienced, transitioning the story to Tier 2. </i></p>
+
+<p><i>With some detective work and the police department’s resources, along with a little breaking-and-entering, they interrogate a scientist from Lara’s biotech company.  They gain access to her computer and files, and learn that the biotech company Lara worked for has perfected a method of cloning that allows the clone to grow very quickly in a controlled environment, but quickly sicken and die outside it.</i></p>
+
+<p><i>The symptoms of the clones’ breakdown matched the mysterious “illness” Jacob had died from.  Cassy and Don are suddenly hopeful that their <b>real</b> son is in fact alive, though they fear what purpose he was abducted for.   The group assumes that Lara must have discovered Jacob was being targeted, and set out to warn Cassy and Don.  Jeff is afraid that his sister was killed to prevent her from doing so.</i></p>
+
+<p><i>The heroes confer and decide to take what they know public.  After a coordinated effort and planning, they release the information simultaneously with the other parents through the network Cassy and Don set up of the other affected parents, along with Jeff’s news sources.  The information spreads too quickly  and too widely to be suppressed, and soon more and more voices are heard, not just in the United States, but around the world, demanding an explanation.  Theories begin to fly as to what the true purpose of these abductions and clones are, and who’s ultimately behind them.</i></p>
+
+<p><i>Soon whistle-blowers begin coming out, and the truth is made known:</i></p>
+
+<p><i>A gene has been identified that allows humans, with some tweaking, to develop “super powered” abilities.  The government has been identifying children with the gene and has abducted and replaced them in order to study, develop, and train the use of their abilities in defense of the earth against extraterrestrial beings that are hidden among us.</i></p>
+
+<p><i>The story has now entered Tier 3.</i></p>
+
+<p>So, adding in flash clones, superpowers, and aliens might drastically shift things in too many directions at once for some players. Any one of those revelations would be enough to change the world on their own. What happens next can go a dozen different ways.</p>
+
+<p>But without a doubt, the events the heroes have set in motion will have worldwide implications, and consequences.  Panic and riots.  Distrust and paranoia.  The knowledge that we’re not alone in the universe.  The reality of superhumans. The moral applications of clones. Questions of ends justifying the means.</p>
+
+<p>Of course, if Michael had wanted, he could have simply started the campaign at Tier 3.  Told the players that it was a sci-fi story and covered everything setting up the plot in narration. But think of what the players would have missed out on.</p>
+
+<p>Even if the players now want or need to take the roles of superpowered abductees, for example, he could still have the players switch characters at this point in the story… but the unique perspective of bringing about and revealing the monumental change, from the ground level, would have been lost, and the consequences of the reveal on society would have felt much less personal and impacting.</p>
+
+<p>Each tier offers unique perspectives and focuses the lens of those experiencing it on different aspects of a truly great campaign.  While not all stories need go through each tier, the next time you develop a campaign, challenge yourself to try putting it through at least two of them, and think about the transition points, and how you can best convey the changes in the experience to your players before and after them.</p>
+            </div>
+
+            <div class="article-footer">
+                
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

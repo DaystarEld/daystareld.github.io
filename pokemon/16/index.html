@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 10: Avoidance - Pokemon: The Origin of Species</title>
+    <title>Chapter 16: Diversions - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,260 +329,388 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 10: Avoidance</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/15/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/17/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            In general, travel through Viridian Forest is safe in groups. While the more territorial or aggressive pokemon like weedle or mankey might choose fight over flight, lone pokemon that are willing to face down three humans, even adolescents, are the exception rather than the rule. It's the primary reason people are encouraged to travel in groups, but it does pose an issue for trainers who are actively seeking out new pokemon.<br>
-<br>
-Red, Blue and Leaf quickly conclude that sticking to the main road through the forest wouldn't let them encounter many pokemon, while tromping through the forest together would only scare most off. Knowing how foolhardy it would be to go off in separate directions, they compromise with a variation of the tactic Rangers use to sweep an area.<br>
-<br>
-Red checks the map on his phone as he walks through the underbrush. The screen shows an aerial view of the forest overlaid with a grid. The two dots representing Blue and Leaf's phones form a rough triangle with his own, all within a hundred meters of each other. If someone goes too far from the other two, the phones would alert everyone. In the meantime they have enough personal space to find and catch pokemon without fighting over each one they see, and are still within safe distance of each other for emergencies.<br>
-<br>
-Red smiles and puts his phone away, mentally patting himself on the back. They've only been in the forest for half an hour, and have at most another full hour of daylight left. After approximating their distance traveled so far with how much forest is left to the north before Pewter City, Red is confident his "competition" will keep them busy for at least a couple days. Hopefully that'll be long enough to miss the storm if it continues south, but worst case scenario, Zapdos attacks after they arrive when at least one of them has a full belt of pokemon. And if any help requests pop up nearby meanwhile, it might take even longer before they get to Pewter, giving them an excuse to miss it entirely without bruising Blue's ego.<br>
-<br>
-Not that he doesn't intend to try and win their little competition, of course. There are a number of pokemon in the area he wants, and a free dinner is a free dinner.<br>
-<br>
-Red breathes in the earthy smell of the forest, mostly filtered by his gas mask. He'd put it on as soon as they split up, and has an empty pokeball ready in one hand so he can try for a quick capture if he spots a wild pokemon. But even walking alone, he's big enough to scare away most pokemon in the area. Poking his head in every bush or tree trunk looking for those that are hiding is a great way to get a cloud of poison or stinger to the face, and while his mask will protect him from the former, he doesn't want to test the latter.<br>
-<br>
-Which leaves using his pokemon to flush wild ones out. He wants to keep charmander fresh, so he puts away his empty ball and unclips his rattata's to summon it for the first time. "Rattata, go!" he yells as he throws.<br>
-<br>
-The ball sails forward into a relatively clear patch of grass and disgorges his rattata in a flash of light before rocketing back toward Red. His throw had a bit too much of a downward arc, so he has to reach above his head to snatch it out of the air with both hands cupped together.<br>
-<br>
-"Yes!" Red pumps his fist with a grin, then looks around. Unfortunately (or fortunately), no one had been around to see it.<br>
-<br>
-No one except his rattata, who seems surprised at the outburst. She stands on her hindlegs and peers around the forest, nose twitching in the air.<br>
-<br>
-Red approaches and kneels to scratch the fur along her back. "Hey there little lady. Nice to see you again," he says, wanting her to get used to his voice in the real world. He puts her ball away and takes out some dried berries and nuts for her to eat.<br>
-<br>
-His rattata's whiskers twitch over his cupped palm, then her front paws begin scooping the food into her mouth, munching quickly at each mouthful before grabbing more. Standing on her hindlegs she's as tall as his knee, and when she finishes feeding she drops back down to all fours and rubs against his ankle.<br>
-<br>
-He plays with her a bit, letting her get the scent of his hands and scratching her white belly. He tries to stroke her tail, and smiles as she squirms, then twists it away from his hand. "Okay, no tail touching. Got it."<br>
-<br>
-Red finds some rocks and hefts them to ensure they weigh a solid amount. Once he has a dozen in his pocket, he begins walking forward again with one in each hand. His rattata follows at his heels, occasionally running to the sides or ahead briefly to sniff at some moss or munch on a fallen acorn.<br>
-<br>
-Red stops when they near a particularly large clump of bushes, turning one of the stones over and over between his fingers. He doesn't want to go rooting through the bushes for pokemon, and he doesn't want his rattata to stick her nose into potential danger either…<br>
-<br>
-"Rattata, ready," he says, and the rodent dashes in front of him, planting its feet and staring forward, long tail curled up above it. Feeling his pulse begin to speed up, he prepares himself for a fight, then cocks his arm back and throws the rock into the bushes.<br>
-<br>
-The round stone swishes through the leaves and rustles some branches as it hits something with a dull thud. Red waits, body tense, not blinking as the bush sits still… silent…<br>
-<br>
-Eventually he realizes his lungs ache, and lets out his breath. "Rattata, follow," he says, and they continue onward.<br>
-<br>
-The next bush is smaller than the last, and when he throws the rock it sails straight through it. Red waits with his heart in his throat, but nothing emerges, and he walks on, checking every group of bushes big or dense enough to hide a pokemon.<br>
-<br>
-On his fifth throw, a pidgey flies out of the bush with a startled flap of its wings. Red had an empty pokeball ready, but it's already too far for the lens to get a lock, and he frowns as it flies up and away through the tree branches. Rattata hisses at a feather that floats down at them before pouncing on it, and Red laughs, frustration draining away.<br>
-<br>
-He tries another two bushes with no result. Just as he's about to throw at the third one, his phone chimes, causing him to jump and drop his rock. Blushing furiously, he takes his phone out and checks the screen.<br>
-<br>
-<em>3 to 2. Have I mentioned how much I love tentacool soup?</em><br>
-<br>
-Red returns his phone to his pocket without replying. He's dying to know what pokemon Blue had caught, and how, but that's why Blue hadn't mentioned it, and asking would just waste more time.<br>
-<br>
-Throwing rocks into bushes and hoping a pokemon would pop out and fight his rattata may be the safest way to go, but it could take hours, and the daylight's fading. It's time to put some of his riskier ideas to the test.<br>
-<br>
-He needs a flying pokemon, but hoothoot and noctowl won't be up and about until it's full dark. He could try to find one's roost, but that would involve a lot of tree climbing, and without a flying pokemon of his own he'd be at a major disadvantage if he angers one.<br>
-<br>
-Against anything but other flyers though, his charmander gives him a huge advantage over the local flora and fauna. One on one, the fire lizard could take down practically any pokemon in the forest, as most are bug or plant types.<br>
-<br>
-But being the strongest thing around isn't going to attract contenders. He needs to seem like the weakest.<br>
-<br>
-Red takes his pokedex out and opens its audio folders. In them are recorded the cries of every pokemon ever captured and studied, most with a number of different entries: anger, playfulness, fear, challenge, affection, and pain.<br>
-<br>
-It's the last one that interests him at the moment.<br>
-<br>
-In every ecology, there exists a food chain. It's rarely a straightforward line, but rather a shifting mess of predators and prey. Viridian Forest has over a dozen species of pokemon with almost three dozen different forms that have lived amongst each other for thousands of generations, each filling different niches in the environment and adapting to one-another's strengths and weaknesses.<br>
-<br>
-Caterpie are without doubt the weakest pokemon in the forest. The only thing that keeps their species going is their incredibly short juvenile period, usually lasting no more than a few days before they "evolve" into metapods, which themselves only take a week or two before metamorphing again into butterfree.<br>
-<br>
-In any other environment, a pokemon like butterfree might stay near the bottom of the food chain. It has no sharp claws or mandibles, and its poisonous spores are slow acting. Encountering any predator should spell a quick doom.<br>
-<br>
-Or it would, if not for a peculiar adaptation.<br>
-<br>
-As far as official classifications go, there are very few Bug/Psychic pokemon on record. It's theorized that most just aren't intelligent enough for the true breadth of mental powers psychics are capable of. And psychics do have a harder time defending themselves against bug pokemon, lending some merit to the idea that their minds are too simple, or just too different, for psychics to interact with the way they normally would.<br>
-<br>
-Nevertheless, some bug pokemon like butterfree and venomoth seem capable of low intensity bursts of psychic energy to ward off predators, disorienting them long enough for an escape. There's debate in academic circles whether it's a truly psychic attack, or some low frequency sound or vibration the bugs use that just have similar effects; trainers with psychic and dark minds can't seem to come to a consensus, which leads Red to think that the answer might be both. The end result is that butterfree are able to stay near the top of the food chain, despite not actually being a predator to any other pokemon. Even spinarak and ariados, with their own mental attacks, can't keep butterfree in their webs.<br>
-<br>
-Which is where hoothoot and noctowl come in. Another "non-psychic" pokemon with rudimentary psychic powers, their mental defenses are strong enough to resist butterfree's disorienting attacks, allowing them to swoop in for a kill. Lacking the weaknesses of the more powerfully psychic birds like xatu, noctowl are the perfect predator to butterfree.<br>
-<br>
-Unfortunately, it's still light out, which means playing the distress sounds of an injured butterfree isn't likely to bring any noctowl or hoothoot to him. But if there's one pokemon that will catch the attention of any nearby predators, it's caterpie.<br>
-<br>
-Red goes to the tenth entry in the pokedex and turns the volume all the way up. He briefly considers switching Rattata out for Charmander, but the rodent is much faster than the fire lizard, and if some predators come charging out of the trees at him, he's going to need Rattata's speed to intercept them.<br>
-<br>
-Red checks to make sure Rattata is at attention, then wipes his sweating palms on his jeans before he holds the pokedex up and presses the button.<br>
-<br>
-A pained, warbling cry fills the quiet forest air. It only lasts a couple seconds, and then the hushed rustle of leaves returns. Rattata whips its head around, nose twitching as it tries to locate the source of the sound, and Red stands tensely still, ears straining for the sound of wings or rustling underbrush to alert him of incoming pokemon.<br>
-<br>
-After a few seconds pass, Red presses the button again. When nothing approaches, he begins to press it repeatedly, waiting two to five seconds between repetitions as he starts walking forward. His rattata follows, still looking puzzled as she tries to see or smell the injured caterpie she hears.<br>
-<br>
-His arms begin to get tired holding the pokedex above his head, so he lowers it to chest level with the speakers pointed outward, occasionally shifting its direction. Red's spine feels like a coiled spring, and he keeps one eye on the forest around him while the other watches the ground for roots or stones to ensure he doesn't trip in the dense underbru—<br>
-<br>
-A line of silk shoots down and nabs the pokedex, tugging it out of Red's grasp. For a second he simply gapes upward as it floats away to a tree branch above. Then he throws himself at the tree with a cry of horror, scrambling up the rough bark. "Rattata, climb!"<br>
-<br>
-He lifts himself onto the lowest branch before checking to confirm that his pokemon is following, then looks up and around... <em>There!</em> Now Red can make out the spinarak hanging from the underside of the branch, drawing the pokedex up with its forelimbs.<br>
-<br>
-Including the width of its six legs, the green and black arachnoid is as wide as Red's torso, half again as big as his rattata. It finishes pulling up the pokedex, but seems confused by what's clearly not a caterpie. Red's veins fill with ice as the pokemon scuttles onto the top of the branch and away, pokedex still attached by some string hanging from the end of its abdomen. The slim red device tips this way and that under the branch, and Red begins to climb to the next branch up. <em>Don't fall don't fall don't fall...</em><br>
-<br>
-To say his pokedex prototype is priceless would be a bit of an overstatement, but to Red it might as well be. Even older models that act as little more than indexes cost hundreds of dollars, and Red's is by far the most valuable thing he's ever owned. Part of what made Red work so hard the past year was the sacred trust Professor Oak would be putting in him; the only other person he'd given his personally designed, off-the-market software to were his grandchildren. Breaking the pokedex would be bad enough, but if the spinarak gets away and someone else finds it...<br>
-<br>
-Red pulls himself onto the second branch and stands, legs only shaking a little. The third is another head above him, almost parallel to his own. He takes out an empty pokeball and points its lens up at what he can see of the bug pokemon. He waits for the <em>ping</em> with his heart in his throat, but the line of sight isn't clear enough.<br>
-<br>
-"Shit!" Rattata climbs up the trunk beside him, claws still hooked in the bark, and Red points to the retreating spinarak. "Rattata, Bite!"<br>
-<br>
-Rattata follows the direction of his finger and gives a high pitched growl before leaping onto the branch and giving chase. Red places his feet carefully and follows on his own, feeling the whole thing bend and sway beneath him as he watches her attack. The spinarak turns just before she reaches it, and rears onto its hind legs, hissing and aiming the stinger on its forehead to break her charge.<br>
-<br>
-Rattata stops herself short of being impaled, head darting in for a nip here and there. Spinarak retreats with its hind legs to avoid the bites while its forward claws draw blood along rattata's forehead and stomach. All the while, the pokedex bobs and spins on the end of its string under the branch, out of Red's reach.<br>
-<br>
-Red grits his teeth as his rattata squeals in pain. Rattata's greatest strength is her speed; on the narrow branch, the spinarak has home advantage that completely nullifies her maneuverability. Red pulls out his remaining stones and tries to chuck some at the bug. He nearly loses his balance on the third attempt, and his shots all go too high or bounce off the branch. Heart hammering, Red watches helplessly as Rattata over commits and gets stung, only managing a light bite in response.<br>
-<br>
-<em>I need to even the playing field.</em> The only way he can think to do that is to get them off the branch. <em>Just gotta avoid landing on my head. Or my neck. Or my back. </em>"Fuck it," Red whispers. "Time for heroics." He shucks off his backpack and lets it fall before he bounces on the branch once, twice, then jumps to the one above, hands reaching.<br>
-<br>
-His fingers scramble at the bark, digging in as his body hangs six meters off the ground. He feels the whole thing bend with his weight, and for a moment thinks it's going to crack. <em>That would be one way to do it.</em> The wood holds though, and he begins to pull himself toward the pokemon, arms burning and breath coming in short pants. His eyes are fixed on his pokedex, bobbing closer with every hand. <em>Come on… three more… two… there…</em> He reaches out with one hand, fingers on his other screaming with his whole weight as he snatches the pokedex.<br>
-<br>
-As soon as he has it in his grip and pulls, the spinarak scuttles under the branch, following it down as the webbing stretches to point its stinger at his hand and dash at him.<br>
-<br>
-Red gives a heroic yelp and lets go before yelling, "Rattata, down!"<br>
-<br>
-He only has a heartbeat of weightlessness to curl protectively around the pokedex and lift his head before he hits the grass. He turned onto his side a bit while falling, and a knobby root sends a bolt of pain up his knee. When he looks up, he sees the pokedex is still attached by its damn string, now stretched long and thin. Red instinctively rolls just as the spinarak leaps down at him.<br>
-<br>
-Completely unfazed by its fall, it dashes for him again, stinger forward. Red holds the pokedex tight as he whips his arm up and spins his whole body, using his uninjured knee as a pivot the way Hamato had.<br>
-<br>
-The spinarak is lifted into the air, and finally releases the web rather than smash into the tree. It lands on its feet and leaps for Red again just as his rattata falls on it in a clawing, squealing fury.<br>
-<br>
-Red forces himself to his feet and stuffs the pokedex in his pocket as he shouts, "Rattata, Quick Attack!"<br>
-<br>
-His pokemon immediately disengages, then dashes in for a bite, running past the spinarak before it can retaliate. She's breathing hard and bleeding from a number of wounds, but now so is the bug, its green and black abdomen leaking pale fluid.<br>
-<br>
-"Quick Attack! Quick Attack!"<br>
-<br>
-Rattata dashes at the arachnoid again and again, taking a quick nip out of it with each pass. The spinarak occasionally tries to leap at it, but Rattata is too fast on the open grass, juking from side to side before speeding in for another bite.<br>
-<br>
-But Red can see his pokemon getting slower from the blood loss and poison. The time between attacks grows longer, and her exhaustion is palpable as she tumbles over the grass after a close dodge. The spinarak curls its abdomen and shoots a string of web at Rattata as she scrambles to her feet.<br>
-<br>
-Red already has Charmander's pokeball in one hand and Rattata's in the other. He points it at her and yells "Rattata, return!" In the space of a blink, a red beam shoots out and reverts his pokemon to a glowing mass that's sucked back into the open pokeball. The web is left behind, and Red feels a surge of relief. Rattata would be safe in her ball, wounds suspended until he could treat her. "Charmand—"<br>
-<br>
-The spinarak leaps for him. Red rolls to the side, dropping Rattata's pokeball as he tries to clip it back to his belt. He throws Charmander's ball haphazardly as he comes up hard against a tree. "Charmander, go!"<br>
-<br>
-The ball explodes with light and sound before shooting back into some bushes to Red's side. He doesn't spare it a glance, eyes on the fire lizard as it takes a bewildered moment to look around and orient itself to its new surroundings.<br>
-<br>
-"Charmander, battle!"<br>
-<br>
-Charmander snaps into a combat stance and focuses on the only other pokemon present. The spinarak's forward charge slows. Maybe it thinks the rattata is still around somewhere, or maybe it's the open flame at the tip of Charmander's tail, but the spinarak begins to back away, its abdomen rising to shoot web at the branches above.<br>
-<br>
-"Charmander, Scratch!" He doesn't dare use ember; bugs are easily killed or crippled by fire, and now that he has his pokedex back, his priority is to capture it.<br>
-<br>
-The spinarak is forced to leap aside as the lizard claws at it, arching its back and raising its body upright above its head, hissing. The black dots and stripe on its abdomen look like a frowning fa—<br>
-<br>
-<em>Freezing, empty night, no light or warmth, not cold but simple absence of heat, a vacuum of sensation or sound that unhinges his mind-</em><br>
-<br>
-Red gasps, pain radiating from his chest. He's lying face down in the grass, nose pressed against his breath mask with no memory of when he'd fallen. <em>Was I poisoned?</em> He can't recall being stung, but a wave of nausea almost makes him hurl when he tries to remember the last thing he'd seen. Red raises his head and spots Charmander weaving erratically toward spinarak, as if he can't get his balance right. Instead of pressing the advantage, the spinarak turns and begins to scuttle away.<br>
-<br>
-"No... you... don't," Red wheezes. He forces himself up and pulls an empty ball from his pocket, holding it outstretched and bracing it on his uninjured knee. The max distance a pokeball beam will work is roughly ten meters, and the bug is almost out of range when he hears the <em>ping </em>of its lock. Heart in his throat, he throws…<br>
-<br>
-...and misses, the ball bouncing on the grass to the right of the spinarak.<br>
-<br>
-"Charmander, Scratch!"<br>
-<br>
-The fire lizard leaps forward, stumbling onto all fours as he tries to recover from whatever had happened. His first claw attack misses, but his flaming tail keeps the spinarak from retaliating so he can get another attack in. This time his claws rake the spinarak's body, drawing more clear ichor. The arachnoid hisses and jabs its stinger forward, barely missing as charmander jumps away.<br>
-<br>
-Tossing dignity aside, Red crawls forward until he can aim another pokeball, focusing it on the spinarak as it rears up and shoots web at Charmander, sticking his legs together.<br>
-<br>
-Just as it turns to run again, Red throws. The ball nails the spinarak in the thorax, and it vanishes with a flash.<br>
-<br>
-Red collapses back onto his stomach. He still feels queasy, and takes deep breaths until his stomach settles a bit. Charmander struggles to free its legs from the webbing, then curls its tail around to burn the stuff off. Afterward he approaches Red with a chirp and curls up beside him, tail flame warming Red's arm to just the edge of comfort. He checks to make sure Charmander isn't injured, then reaches out to rub his smooth head. "Good boy, Charmander. You did great."<br>
-<br>
-His mask is beginning to hurt as it's pressed against his face, and he flips himself onto his back with a sigh. After a minute he feels a bit more grounded, but he still can't think of what had happened without intense discomfort. He groans in frustration, removing his face mask and pressing his palms to his eyes. It's like there's a part of his brain that's broken, a memory scooped out to leave a raw wound that he keeps brushing up against.<br>
-<br>
-The spinarak hit Charmander with something, and Red, standing behind him, was hit much harder. It can only be a mental attack of some kind, but spinaraks aren't usually capable of more than minor emotional manipulation, the type usually classified as Ghost attacks…<br>
-<br>
-Chill fingers brush his spine. He'd never experienced a Psychic attack before, but he'd also never experienced a Ghost attack. He doesn't know which it had been… but the fact that it was so strong pointed to two possibilities. Either his mind is incredibly vulnerable to all forms of Psychic attack, or… he's psychic himself, and the attack had been a Ghost one that turned his own mental powers against him.<br>
-<br>
-<em>But I'm not a psychic.</em> He underwent the tests last year. They aren't 100% accurate, a lot of psychics' powers only manifest when they encounter others, but he tried all the practice techniques he could find just in case he was one of the rare few. What kid doesn't dream of having special powers?<br>
-<br>
-But now the thought of enduring things like… that… again makes Red reconsider the various advantages of even mild psychic abilities.<br>
-<br>
-His thoughts are interrupted by his phone ringing, and he suddenly realizes he's been holding still for awhile. Had he dropped behind the others' positions? He takes his phone out and sees that Blue's calling him.<br>
-<br>
-"Hello?"<br>
-<br>
-"Red! Chasing a caterpie right at you! Cut it off!" Blue sounds like he's running.<br>
-<br>
-Red blinks, then scrambles to his feet, ignoring the cry of protest from his knee. "What?! From where?" He looks around and realizes his pokemon are all scattered. He pulls his mask back on and hobbles forward to grab Rattata's ball.<br>
-<br>
-"Northeast! I'll be on you in ten seconds! Catchers keepers, but just stop it from getting away!"<br>
-<br>
-Blue hangs up, and Red stuffs his phone away and runs over to grab his new spinarak, attaching it to his belt and cursing his weakness. He'd wasted time he could have used to register his spinarak or heal Rattata. But a caterpie shouldn't be hard to deal with, and all he has to do is stop it from running.<br>
-<br>
-"Charmander, battle!" The lizard was watching him curiously as he dashed about, and now drops back into an aggressive stance. S<em>hit, where's his ball? </em>It went somewhere in those bushes...<br>
-<br>
-He hears Blue before he sees him, crashing through the underbrush like a stampeding tauros. Red spots the caterpie bounding ahead of his friend just before Blue's visible between the foliage. About as thick as Blue's leg and half as long, its green segmented body blends in with the grass and leaves around it, whole body scrunching up to propel itself in hops from grass to tree to bush.<br>
-<br>
-When it spots Red and Charmander waiting for it ahead, it aims its body straight up and flings itself up to a tree branch, sticky feet allowing it to start climbing.<br>
-<br>
-"Not again," Red mutters as he runs forward to meet Blue at the base of the tree. "Where's Zephyr?"<br>
-<br>
-"I was afraid he'd eat it," Blue pants. "Can you send up your rattata?"<br>
-<br>
-"She's hurt." Red looks at Charmander and hesitates for just a moment. "Get Squirtle out, I don't want to start a forest fire. Charmander, Ember!" He points just ahead of the caterpie as Blue summons the water turtle, hoping his pokemon can interpret the difference.<br>
-<br>
-Charmander looks up, then drops onto all fours. His tail relaxes downward before flicking sharply up, and the glob of fire hits the tree just beside the caterpie, though not quite where Red pointed. Still, the pokemon immediately curls up and shies away from the heat, falling to the grass.<br>
-<br>
-Red and Blue have their pokeballs out and ready, both <em>pinging</em> almost simultaneously. The balls collide mid-air and bounce away from each other, and Red sees Blue's hand move in a blur, already replacing Squirtle's ball and grabbing another empty one. Red is still aiming his second when Blue's new ball locks, and a moment later the caterpie's gone in a flash.<br>
-<br>
-"Squirtle, Water Gun!" A jet of water splatters against the trunk and puts out the fire. Blue rubs the turtle's shell, then withdraws her.<br>
-<br>
-Red does the same with Charmander after retrieving his ball from the bushes, trying not to feel disappointed as they gather up the pokeballs that missed. "Nice catch."<br>
-<br>
-Blue smirks and bows in the foreign style their generation uses mockingly, one arm across his stomach and the other to the side with one heel planted forward. "Thanks for the assist. That's four to two now." Blue takes out his pokedex and registers his new caterpie, beginning its virtual training.<br>
-<br>
-"Four to three, actually," Red says as he does the same with his new pokemon.<br>
-<br>
-"Oh right, you said Rattata's hurt. Whatcha get?"<br>
-<br>
-"Spinarak."<br>
-<br>
-"Shit, that's a good one. I got a shroomish."<br>
-<br>
-"With Squirtle?"<br>
-<br>
-"Yeah, she's pretty drained. It kept running through bushes so Zephyr couldn't grab it, and I couldn't get a clear throw. Got scratched to hell chasing it."<br>
-<br>
-"Tell me about it. This damn bug nearly made me break my neck…"<br>
-<br>
-They exchange stories as they heal up their pokemon. Red doesn't mention the mental attack, still not quite sure what to make of it. It would sound like bragging if he emphasizes the possibility that he's psychic. And what if he's wrong? He would just sound weak. <em>I need to do some research first.</em> He considers writing a note to remind himself, then realizes he's not likely to forget the event. He shudders slightly as just thinking about it brings back a vivid echo of the sensations.<br>
-<br>
-Red looks over his medical supplies once he finishes spraying Rattata's wounds with some antivenom and a healing potion. He has six more potions, three more antidotes, and two each of paralyze and burn heals. Red watches Blue spray a bit of his own anti-burn medicine on his new caterpie, while Red uses one of his potions to heal his spinarak's wounds.<br>
-<br>
-It's hard to look at the arachnoid's green and black abdomen, expecting another burst of mental torment at any second. But nothing happens, and Red strokes his new pokemon tentatively after feeding it some berries. Once he withdraws it, he checks the pokedex entry:<br>
-<br>
-<em>Spinarak is a patient hunter that can wait motionlessly for several days for unsuspecting prey. Even juvenile specimen can spin webbing as strong as iron, and adults have been known to spin strands five times as strong as an equal weight of steel. The patterns on their backs are used to project some forms of mental attacks in an outward cone, and the venom in its forehead stinger can melt flesh into a nutrient-rich soup within their cocoons.</em><br>
-<br>
-His seems to fall within the averages for weight and size. Red begins to look for more details on their mental attacks when his phone chimes. A moment later, both his and Blue's phones chime at the same time.<br>
-<br>
-They look at each other and say "Leaf!" before pulling their phones out. Red flushes as he realizes he'd forgotten to tell her that they'd stopped moving. It had been just Blue and him for so long that he'd forgotten… if she was hurt because of their negligence…<br>
-<br>
-The second message said "<em>Come quick as you can!" </em>The first was a CoRRNet alert… with Leaf as the author.<br>
-<br>
-"This way!" Red takes off through the trees quick as he dares, keeping one eye on his phone's map and the other on the ground for roots or ditches. The wilderness training he'd gone through, first in class as a kid, then with his father, then with Blue over the past year, taught him how dangerous running through forests can be, especially with low light, and he tries desperately not to twist his ankle as he hurries to Leaf's location, the pain from his knee getting worse with every step. Leaf didn't press her panic button, taking the time to write out a ticket on CoRRNet instead, so what—<br>
-<br>
-They find Leaf just before reaching a clearing. She's crouched around the side of a tree, and puts her finger over her lips as soon as she turns and sees them.<br>
-<br>
-"Quiet. Look." She points.<br>
-<br>
-Still catching their breath, Red and Blue stare past her. It takes a moment for Red to realize what he's seeing.<br>
-<br>
-The clearing is full of flowers. Above them, a swarm of at least a dozen beedrill fly from one to the other, collecting pollen.<br>
-<br>
-And lying on the ground in the middle of the field is a body.
-        </div>
+            <h1 class="chapter-title">Chapter 16: Diversions</h1>
 
-        <div class="chapter-nav">
-            <a href="../15/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../17/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>Hundreds of hours in simulations prepared Blue for a lot of situations, but running through a forest at night was not one of them.</p>
+
+<p>Foliage rakes at his clothes and skin as he weaves around trees and tall bushes. It's hard to move fast and hold a flashlight straight, and he also struggles to keep the lightning rod from snagging every bush he passes. He contracted it to half its length, but it's still over half as long as he is tall.</p>
+
+<p>Worst of all, even with the flashlight to spot the obvious roots, every other step seems to almost land on one. Anyone else would have a twisted ankle in less than a minute.</p>
+
+<p>But Blue Oak, future Champion of Indigo, has the physical agility and reaction time of a born pokemon master, and pokemon masters do not trip and eat dirt on the way to a double rescue, even with no one around to see it.</p>
+
+<p>Instead he begins to run in an odd hopping motion, feet not swinging at all as he lands and pushes off with his whole foot. It's tiring and probably looks ridiculous, but it's faster than walking would be, and lets him avoid a faceplant.</p>
+
+<p>And after all, there's no one around to see it.</p>
+
+<p>Thankfully he also doesn't trip over a pokemon every five feet like in the sims. He sees a few pikachu and raichu in the distance as he travels, but none get close enough to be a threat. The frequency of wild pokemon encounters there were always annoying, but he supposes it's to make up for the other challenges trainers face, like hop-running through a dark forest until your lungs burn and your legs feel like lead so you can stop a fire and get help for your friends before they die a horrible death.</p>
+
+<p>Assuming there's help available, that is. The glow of the fire above the trees seems to have intensified, and soon he begins to smell smoke. He pauses and drops the lightning rod just long enough to tuck his phone between his knees and put his facemask on. Then he picks it back up and keeps going, flashlight aimed at the ground to find safe spots for his feet. In the distance he hears a voice, amplified by something as it shouts orders. He uses it as his directional reference, figuring whoever is doing the shouting is probably in charge of stopping the fire.</p>
+
+<p>Just as he's beginning to see a glow between the trees, too steady to be the fire, a pikachu zags through the forest to his right and heads straight toward him. Blue feels his adrenaline spike as he quickly jabs the rod into the ground as hard as he can and jumps back, unclipping Shroomish's ball before his feet hit the ground. A bolt of electricity strikes his rod, and he sidesteps to keep it between him and the pikachu as he throws, world narrowing down as calm settles over him.</p>
+
+<p>"Go, Shroomish."</p>
+
+<p>Even while moving and in the dark, he judges the angle right and feels the pokeball smack back into his palm as it returns. Blue feels a moment of fierce pride, which cuts off abruptly when his foot hits a root and topples him onto his back.</p>
+
+<p>"Leech seed!" Blue yells just before the fall knocks his wind out. He scrambles to get his soles under him and shines the light forward so he can see the fight.</p>
+
+<p>His pokemon is shooting seeds up in an arc to land around the pikachu like hail. They're faster than the powder, and Blue sees some manage to land on the rodent, sticking to its fur and spreading thin tendrils around it. The pikachu sends shocks at Shroomish again and again, but doesn't seem to realize why none of them are connecting.</p>
+
+<p>But the electricity is still traveling through the ground, causing his pokemon to jump and cry out in pain. "Sleep powder!" Shroomish sends out clouds of spores, and the pikachu begins to dodge, sending out erratic bolts here and there as its glowing cheeks leave streaks of light through the air.</p>
+
+<p>It's hard to keep the phone's flashlight on it, but even harder to get a lock with a pokeball. Blue watches for an opening, a slight stumble, a slow turn-</p>
+
+<p>The pikachu leaps forward and begins scratching at Shroomish, the two pokemon tumbling over the grass. It seems to have given up on its electricity, or maybe it ran out, but its claws and teeth are still dangerous enough to draw blood.</p>
+
+<p>"Absorb!" Blue yells as he steps around the pokemon to keep the lightning rod between him and the 'chu, just in case. Motes of green light appear on his pokemon's wounds as it absorbs the pikachu's skin and blood and uses its nutrients to regenerate itself. It's enough to help his pokemon heal some of the damage it's taking, but the pikachu has energy to spare, and doesn't even slow down as it leaps off and begins to jump in and out of range for hit and run attacks, quick as a blink even while blood seeps down its fur from the eroded flesh.</p>
+
+<p>"Headbutt!" Shroomish shoves forward with its feet to try and slam into the rodent, but it misses and tumbles over the grass, torn and bloody from the scratches. It gets back up and tries again and again, but it's just not fast enough to match the pikachu's speed.</p>
+
+<p>Thankfully it doesn't have to. Blue feels a distant, savage satisfaction as he sees the pikachu stumble for the first time, finally beginning to feel its losses. The leech seeds' vines are now firmly wrapped around it and embedded in its skin, growing fat off its blood. Most grass pokemon aren't unusually fast or lethal, but if you can stall your opponent long enough, they're champions at endurance matches.</p>
+
+<p>The pikachu starts to go wild as it feels its life being drained away by the plants, rolling along the ground and sending electricity through its own body as it tries to get the seeds off. Blue keeps trying to get a lock, but it's moving too erratically. "Sleep powder!"</p>
+
+<p>Shroomish sends out a cloud of spores, but the pikachu leaps away, tumbling into a roll. As soon as it's back on its feet, it suddenly dashes off into the dark forest.</p>
+
+<p>Blue stands frozen for a second, torn in two by conflicting desires. Then he curses, free hand moving in a flurry <em>minimize-pocket, unclip-return-reclip, yank </em>before he's off after it, trying not to stumble as he holds the light ahead to keep the pikachu in sight and the rod up by his shoulder, ready to jam it into the ground the second the pikachu turns toward him.</p>
+
+<p>Its energetic leaps are interrupted by constant tumbling along the grass, just hurt enough that he can keep up with it, but not enough to get close. Even worse, it keeps scrambling between and under dense bushes that he has to detour around. He loses sight of it a few times, only able to stay on its trail because of the occasional flashes of electricity.</p>
+
+<p><em>This is stupid, </em>he thinks as he run-hops, but he doesn't stop. Even knowing he might run into another 'chu or some other pokemon at any moment, even knowing that he's running in the wrong direction from the fire, even knowing that he left the others to get them help quicker, not catch a pikachu, he can't just let it get away. This is his best chance to get an electric pokemon anytime soon, and a rare one at that.</p>
+
+<p>The pikachu finally starts to slow down enough for him to close the distance a bit, and then his foot comes down on the side of a root. He hits the ground face first, nose smacking into the plastic of his mask and sending a bolt of pain through his head. It takes him a couple seconds to push himself up and grab the lightning rod, then he's off again, nose stinging with every breath as he looks frantically around for the 'chu.</p>
+
+<p>Nothing. A bitter frustration wells up as he slows, chest heaving as he flashes the light around, then points it away over his shoulder. He's wasting time, he should be heading toward the fire… <em>Come on, a spark… just one spark…</em></p>
+
+<p>A flash to his left and he's off again, hoping it's not a different pikachu, hoping his nose isn't broken, and hoping above all that he's not endangering his friends with this mad chase.</p>
+
+<p>The spark goes off one more time as he runs forward, and then there's nothing but the light bobbing along the ground in front of him. His eyes flick from left to right in case it turned in a different direction, but there's nothing, and he starts to feel the despair again. It can't have gotten far, not moving as slow as it was…</p>
+
+<p>His side aches, his nose pulsing with every beat of his heart. He trips again, barely managing to keep his feet, and just as he's about to slow and turn the light away to look for more sparks, he sees something yellow in the distance, lying still.</p>
+
+<p>Blue rushes forward in a surge of triumph, jabbing the rod down and pulling out a ball. An eternity passes before he hears the ping, and then he throws, hits, bounces, captures.</p>
+
+<p>"<em>Yes!"</em> He pumps a fist in the air, then falls to his knees as he clutches a stitch in his side, breathing hard through his mouth and fogging his facemask. He lets himself drop onto his side and lie still until his pulse has slowed down a bit, pulling his mask off so it rests on his head to prod his nose gently. No blood, so it's probably fine. <em>All worth it.
+</em></p>
+
+<p>As soon as the stitch fades, he gets to his feet and goes to the ball with a grin. With a pikachu on his team he's got a strong play against flying and water types, which will make Cerulean Gym significantly easier. He takes out his pokedex to register it, using the light of the screen to line up their lenses.</p>
+
+<p>Blue's grin slowly fades as his pokemon doesn't appear on the screen. Instead there's just text listing the mass and atomic makeup of the contents, along with other basic information. <em>No… it wasn't that long, just a few seconds…</em> He pulls the ball away, then realigns it. Again the pokedex treats it like a Container rather than a pokeball. The DNA of the leech plants and pikachu are listed, but there's no brain activity, which means…</p>
+
+<p>Blue's hand trembles, and the lens unaligns briefly, causing the text to wipe and reappear. Not a pokemon, as far as the 'dex is concerned. Just atoms of meat, and some plant. The seeds took too much blood, or maybe their vines entered its skull. A pokecenter could heal almost anything else, but not that. A damaged brain is unrecoverable. Dead.</p>
+
+<p>Blue screams, throwing the ball at a tree. It bounces off and rolls back, and he kicks it against a bush where it comes to rest. His heart is pounding again as scalding tears gather at the corners of his eyes, and he rubs them away with his palms, chest burning as his anger roars through him.</p>
+
+<p>"It's not my fault. You ran, you stupid rat, you had the leech seeds on you and you… you attacked me, I didn't… you made me waste <em>all this time!</em>"</p>
+
+<p>Blue clamps his lips shut as his yell rings through the forest. <em>I'm talking to a ball. A dead pokemon in a ball.</em> He focuses on breathing until the anger is back under control, then wipes at his face again and pulls his mask back down, tucking the pokedex away. He picks up the ball and braces his arm to release its contents, then unclips Shroomish's ball.</p>
+
+<p>"Go, Shroomish," he says, just loud enough to be heard as he tosses it forward, arm catching it reflexively.</p>
+
+<p>His pokemon is moderately hurt, but he doesn't want to waste potions that they might need later. Instead he kneels down and picks his shroomish up, placing it by the body without looking directly at it. Some of the leech seeds fell off in its mad dash, but there are a few left, swollen and cracked. Shroomish waddles closer and begins to pick the seeds off with its teeth, crunching the soft shells to get to juicy innards.</p>
+
+<p>Blue looks away, feeling his stomach churn. Within moments his pokemon's wounds begin to glow green, body using the nutrients to repair itself.</p>
+
+<p>There's a flash of light to his side, and Blue turns to see another pikachu running through the forest, cheeks glowing like angry eyes. He watches it run off, then withdraws his pokemon after it finishes and goes to picks up the lightning rod. He turns to the body of the pokemon that was almost his. His lips tremble briefly with something fighting to come out, and he's not sure if it's going to be more anger or some pointless apology-</p>
+
+<p>Another flash of electricity on his other side, closer. Blue takes a deep breath, then turns to the glow of the fire above the distant trees and jogs toward it, gaze ahead.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>As Blue approaches the light he saw earlier, too steady and white to be the fire, this time he sees the lanterns hung here and there from the trees. Around them is a thin haze of white smoke, and as Blue gets closer he begins to see it in the beam of his phone's light. Soon it's thick enough to see around him like fog, and by then there's enough light to put his phone away. Once it gets noticeably warmer, he finds the first trainers and pokemon working to contain the blaze beyond.</p>
+
+<p>Blue stands and watches for a moment, panting for breath and slipping the lightning rod snug between his bag and his back along his spine so he has both hands free. Ahead and to the right, a sandslash is digging along the side of a trench to widen it, tearing up the grass and bushes in its way. A sudden crack makes him turn toward a falling branch, and he sees a primeape jumping from tree to tree above with its trainer. Others on the ground quickly drag away any uprooted or broken plants to keep the firebreak clear of anything that might burn. Some of them, especially the rangers, have bright orange fire suits on, but everyone has some kind of breath mask.</p>
+
+<p>He's close enough for him to make out the words of the person with the megaphone he heard, their voice made strange and alien by a facemask and the amplification. "<em>Second squad, flare up to the east!"</em> they yell, loud enough to cut through the distant roar of the fire and various other shouts of trainers to each other and their pokemon. Blue follows its tone of command to a Ranger standing beside a fallen log with a megaphone in one hand a tablet in the other. When he gets closer, he sees she's an older woman, greying hair cut short beneath her Ranger cap.</p>
+
+<p>She glances at him as he approaches, then looks back to the screen. "Pokemon?"</p>
+
+<p>"Squirtle, pidgey, shroo-"</p>
+
+<p>"Phone." He offers it to her, and she opens the map and sets a marker on it before handing it back. "Head west, find Ranger Malcolm."</p>
+
+<p>"My friend has a broken arm, he needs hel-"</p>
+
+<p>"Is he alone?"</p>
+
+<p>Blue pauses, irritated. "No, there's someone with-"</p>
+
+<p>"Then they're as safe as they'll get until this fire is under control. Check if their distress call came through." She tilts the screen to him.</p>
+
+<p>Blue's anger almost erupts, but one look at the digital map makes him swallow it. The fire is a mass of thermal colors in the otherwise dark forest, with pinpricks of light showing people and pokemon. A river runs from northeast to southwest, creating a natural barrier for the fire on that side, while the Rangers and trainers spread out over a long, uneven half circle to contain it in the other directions.</p>
+
+<p>The CoRRNet outpost is gone, lost somewhere in the middle of that bloom of color.</p>
+
+<p>"Is this live?"</p>
+
+<p>"Mostly. The pikachu and raichu knocked out the local tower, and it's hard to get a steady signal."</p>
+
+<p>A graphic overlay shows different colored pings over various spots, and after a moment Blue finds their location, then traces his finger over the screen in the direction he came. "That one," he says, pointing to the distress signal that marks where they made camp. <em>So many…</em> His friends' red marker is just one among dozens blinking in and out of existence, crying for attention. He can see some pinpricks of light there though, so assuming it updated recently, at least he knows they're still okay.</p>
+
+<p>"We have their location then. They'll get help when we can spare it." A message pops up on the screen beside one of the lights to the east side of the fire, and she raises the megaphone. "<em>Squad five, raichu attack to the east!"</em> She lowers it and continues watching the screen. "Get moving trainer. Head back to your friends or go find Malcolm."</p>
+
+<p>Blue stares at her grim face for another moment, her attention wholly on the screen in front of her, and turns away with a sick feeling in his stomach as he begins to run toward Malcolm. The fire is so big... Red and Leaf would be okay.</p>
+
+<p>As he gets closer, the smoke in the air hangs thick. The diffuse illumination is tinged with yellow and red as the lamps grow less frequent and the fire's light grows closer. It makes visibility a bit difficult again, lack of light replaced with too much smoke and shadow.</p>
+
+<p>As he runs he catches glimpses of others around him, some widening the firebreak, others nursing burned pokemon. The earth trembles beneath his feet, and he sees a rhyhorn emerge from the smoke. A Ranger sits on its back, her hands tapping the ridges of its shoulders to direct it toward the fire. Two trainers walk out of the smoke to his right with their arms around a third's waist, the middle trainer's legs burned through his pants. Blue looks away quickly and checks his phone to adjust his course a bit farther from the fire, breath loud in the facemask as he pushes himself to move faster.</p>
+
+<p>When he hears a new amplified voice shouting "<em>Tree coming down!" </em>he turns toward it and jogs around a particularly dense clump of bushes in time to see a pinsir finish wrenching a tree out of the ground, its huge horns digging into the bark. Its trainer gives a whistle, and it releases the tree and steps back to let the whole thing fall.</p>
+
+<p>The crash is enormous, but as soon as the tree settles a handful of pokemon and their trainers set at it, hacking the branches off and carrying them away. The trees here are dense enough to stop the firebreak from continuing, but they've brought down about a dozen so far, and the pinsir is already moving on to another.</p>
+
+<p>Blue jogs over to the coordinating Ranger and waits until he finishes speaking with a pair of others. Blue realizes he can see the smoke in the air moving subtly. They're downwind, though thankfully it's not a strong breeze.</p>
+
+<p>The two trainers run off, and Blue steps up to the Ranger. "Ranger Malcolm?"</p>
+
+<p>"Yes. Haru send you?"</p>
+
+<p>"No, a woman, I didn't get her na-"</p>
+
+<p>"That's fine. What've you got?"</p>
+
+<p>"Squirtle, pidgey, shroomish, caterpie, beedrill."</p>
+
+<p>He frowns and looks at the tablet for a moment before shaking his head. "Squirtle might be useful, but it can't hold enough for what we need. Can your pidgey create a whirlwind?"</p>
+
+<p>"Not yet."</p>
+
+<p>"Have you got a firecoat?"</p>
+
+<p>"No."</p>
+
+<p>"Any ultraballs?"</p>
+
+<p>He resists the urge to say he has greatballs. "No."</p>
+
+<p>"Ever fight a fire before?"</p>
+
+<p>Blue just shakes his head, frowning.</p>
+
+<p>"Well, we could use more hands to keep the firebreak clear. Just head over to—"</p>
+
+<p>"Hang on, you want me to <em>carry branches</em>?"</p>
+
+<p>The Ranger's gaze flicks up from his tablet, eyes cool. "Is that a problem, trainer?"</p>
+
+<p>"I left my friends to stop the fire and get help to them quicker, not fetch and carry."</p>
+
+<p>"Why are you wasting my time then? By all means, stop the fire." He turns back to his tablet.</p>
+
+<p>Blue grits his teeth. "Look, I know my pokemon aren't the best for this, but I'm telling you, you'd be wasting me on pick up duty. I can give cover to others, stop 'chu—"</p>
+
+<p>"I'm not here to appease your ego, kid," the Ranger says without looking up. "I've got over sixty—" He stops as Blue feels the wind pick up and raises his megaphone. "<em>Southwest breeze,</em><em> fire line at five hundred meters and closing! Forward squads, fall back!"</em></p>
+
+<p>"I want to help," Blue insists after it's lowered.</p>
+
+<p>"It's not about what you want, it's about what we need. You don't have the skills or pokemon to do what's needed, which means you do what you can. If you don't like it, you can go play hero somewhere else." He turns as another Ranger approaches, and the two begin analyzing wind patterns.</p>
+
+<p>Blue stomps away, half intending to head back to Red and Leaf and half deciding to find another coordinating Ranger to offer his help to. He can't just run around helping at random. For one thing he might do more harm than good... and for another, he needs to be officially recognized to get any prestige from this.</p>
+
+<p>Most Champions are barely known before they reach the League, and are little more than figureheads once they gain the title. Instead of leading, of pushing society to the next step, the Championship title is treated like just another badge. A footnote in what they do after. Even those like gramps and Giovanni are known more for what they did after they relinquished their title.</p>
+
+<p>It's worse than pathetic. It's a damned <em>waste</em>.</p>
+
+<p>Gym Leaders can do more than just protect their lands and train others. They can change the face of <em>entire cities</em> with the power of their personality and vision of the future. When they're loved and trusted by their people, they deserve their title: not "Protector," or "Teacher." <em>Leader</em>.</p>
+
+<p>Blue isn't going to be a figurehead. He's going to lead Kanto and Johto into a new age. An age without fear. Without calamity. An age of action, rather than reaction.</p>
+
+<p>An age without the Storm Gods.</p>
+
+<p>And to bring the people with him, to make them <em>want </em>to go with him, he needs to be the kind of person they're willing to follow into a storm's very heart, so they can rip it out.</p>
+
+<p>All that starts here, helping however he can. Showing what he's capable of. Who's he to demand a more important task? He hasn't earned their trust yet.</p>
+
+<p>He can't even catch a pikachu without killing the damn thing.</p>
+
+<p>Blue takes a deep breath, then lets it out. When the anger is all but gone, he turns to walk back toward the Ranger. As he does, two women jog over to them through the smoke, one tall and willowy under her windbreaker, the other muscular and dressed in a judogi. The Ranger looks up as they approach. "River side?"</p>
+
+<p>"Secure," the taller one says, voice heavily muffled. She's wearing a mouth filter and goggles instead of a full face mask, making it hard to tell her age. "But we had some trouble with raichu that came by."</p>
+
+<p>"What happened to Pam and Derek? They were supposed to give you cover."</p>
+
+<p>"They never showed up."</p>
+
+<p>"What? I sent them to you 20 minutes ago." The ranger runs a hand through his hair. "Are you alright?"</p>
+
+<p>"Fine," the woman in the judogi says. "But my pokemon are hurt, and we're almost out of potions and balls. I don't know if I'll be able to fend off many more."</p>
+
+<p>"Hey," Blue says as he reaches them. "Here, take these." He pulls the lightning rod out from where it's wedged between his back and bag, then hands some of his potions and pokeballs over, including his three greatballs.</p>
+
+<p>They look at him in surprise, but the trainer takes it, relief plain as she extends the rod and practices sticking it in the ground. "These will help. Thanks kid."</p>
+
+<p>"I'm Blue. Blue Oak."</p>
+
+<p>Her eyes widen behind her mask. "Thanks, Oak. I'll get it back to you after."</p>
+
+<p>"Sure." He turns to the Ranger. "I'll help clear the firebreak. Tell me where you need me."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>The first thing the fire teaches Blue is to fear the wind.</p>
+
+<p>He walks the firebreak with Luis and Sarah, a pair of trainer siblings in their late teens. The three work together to drag fallen branches and uprooted bushes out of the firebreak, sweaty, exhausting work made worse by the oppressive heat all around them. But the occasional brush of air against his skin brings danger rather than relief, causing them all to stop what they're doing to look around, waiting, listening for the sound or sight of the fire racing toward them, of a warning called. The last stiff breeze had come in an unexpected direction and sent the fire a hundred meters in seconds, trapping a trainer and almost killing him. It had taught them all to be wary.</p>
+
+<p>The trench is wide enough to stop the fire when it goes too far in any direction, but that means they end up walking a stone's throw away from the fire in some areas.</p>
+
+<p>Passing through those are the worst, the heat almost unbearable as they widen the firebreak at its far edge. Blue watches with a hand on squirtle's ball in case any embers are blown across. The smoke is so thick that it's like walking through a red cloud.</p>
+
+<p>"I don't think we can move this one!" Sarah half shouts over the roar of the fire, tugging at a branch that's twice as long as she is tall. "Any of you got a strong pokemon?"</p>
+
+<p>Blue shakes his head, wiping sweat from his neck. "Nothing that can cut it, either!"</p>
+
+<p>"I've got one that might!" Luis unclips his pokeball and braces his arm. "Go, Jaws!"</p>
+
+<p>A raticate flashes into existence, the muscular rodent immediately cowering from the light and heat. Luis kneels down and strokes it, murmuring something, then guiding it toward the middle of the tree branch. He stands it and points straight at the wood.</p>
+
+<p>"Cut!"</p>
+
+<p>The raticate begins to chomp at the bark, oversized teeth sinking into it with a <em>crunch</em> and jerking it off to spit to the side. It grips and chews and spits again and again while the trainers watch, and eventually it manages to bore through the branch and snap it in half with its final bite as it crawls through to the other side.</p>
+
+<p>"Good girl!" Luis feeds and withdraws it as Blue and Sarah grab a half and begin to drag it away. Once they have both pieces a good distance from the firebreak, they continue walking again, breathing hard and occasionally stopping to clear other things off.</p>
+
+<p>The break curves away from the fire for a bit, and they take a break to drink some water and rest in the lower heat. A dugtrio approaches and passes them from behind, its trainer following the three bobbing heads as they widen the firebreak by another few meters, barely visible claws sending grass flying as it burrows up and down. Blue and the others quickly scoop up the clumps of grass and toss them to the safe side of the break.</p>
+
+<p>"Where were you guys, when this all started?" Blue asks as they set off again.</p>
+
+<p>"To the west, across the river," Sarah says, loosening her dark hair from its messy ponytail and rebinding it tighter. "One second we were asleep, the next there were pikachu everywhere. One of them ran right over our friend, got caught in her sleeping bag." She grimaces and looks away.</p>
+
+<p>Blue looks at her, then Luis. "Is she…"</p>
+
+<p>"We fought them off and got her to the Outpost, but by then it was already ablaze. They stabilized her, but…" He shakes his head, eyes angry and desolate. "One of the Rangers strapped her to his pidgeot and took off for Pewter. They're worried there might be permanent nerve damage."</p>
+
+<p>Blue doesn't know what to say to that, so he says nothing, fighting the fear for Red and Leaf that rises up in him. Even if he gets help to them, he has no idea how bad Red's arm is. What if it doesn't heal right? A one armed trainer is at a serious disadvantage, and far more vulnerable in the wild. Would his journey be over already? Over before it really began?</p>
+
+<p>The thought makes him cold, even in the stifling heat around them. He always figured Red would end his journey as soon as he got his Researcher's license: he's a good trainer, but he's not, well, Blue. He's better suited in a lab or writing books. He'll probably even become a Professor some day. But experience in the field is essential to be a researcher, and if he gets crippled this young…</p>
+
+<p>Blue chases the fear away with anger. Red would be fine, and one day he'd pay the Storm God back for this... But his strongest rage seems so insignificant against the nearby blaze, a charmander throwing embers at the sun, and he can't shake the niggling fear for his friends.</p>
+
+<p>Blue feels the wind pick up again, and the three of them immediately tense, watching the fire and preparing to run.</p>
+
+<p>"Shit." Luis points. "It's headed toward the break, that way."</p>
+
+<p>He's right. Blue can feel the direction in the caresses of air, stoking the fire and blowing burning debris in that direction. They begin to run along the trench, listening to the fire crackle and roar as it spreads through the trees.</p>
+
+<p>Then the fire is visible again, a glowing light through the smoke. Blue begins to hear a faint popping sound, and looks around with a hand at his belt. It doesn't sound like the electricity from earlier… "What is that? It sounds like it's coming from the fire."</p>
+
+<p>"It's… nothing dangerous." Luis shakes his head. "We heard it earlier. Metapod hanging in the trees…"</p>
+
+<p><em>Oh.</em> Blue's glad Leaf isn't around to hear it. She cares about pokemon so much that it surprises him how competent she is in a fight. Even coordinators like Daisy don't think of pokemon the way Leaf does. Unovans are strange.</p>
+
+<p>Blue pulls out his phone for any messages that might have gotten through to him from the others, but the screen's illumination makes it hard to make out details through the smoke. He puts his phone away and shoves his worries away again. "Another branch up ahead."</p>
+
+<p>The night drags on, an unending journey through smoke and heat. Another sandslash, or maybe it's the one from earlier, eventually comes by to widen the break another few meters. A few minutes later they find a tree that the sandslash dug around, and wait for a trainer with a pokemon that can knock it down to come by so they can help clear it. In the meantime, they drag a huge bush that was uprooted off the firebreak and onto the grass. Blue's muscles protest as his breath catches in his throat, and when Luis shouts that they're clear, lets it go with a gasp, arms burning.</p>
+
+<p>He leans his hands on his knees to catch his breath, closing his eyes against sudden dizziness. A hand touches his shoulder, and he looks up to see Sarah holding a water bottle.</p>
+
+<p>"Go," she says and points away from the fire. "Get away from the heat and rest a bit. We're waiting here anyway."</p>
+
+<p>He wants to argue that he's alright, but she and her brother haven't treated him as lesser just because he's younger, and he can tell she's not doing so now. Besides, the sight of her water bottle makes him realize how parched his throat his. "I've got my own. Thanks." Blue stumbles away until the heat is more bearable, near the outer edges of the lamp light. He puts his back to a tree and slides down to the grass, one hand digging his water bottle out of his bag.</p>
+
+<p>Blue lifts his mask and takes a long drink. After the first swallow his throat seems to open up, warm water pouring down it almost faster than he can swallow. When his lungs start to burn for air he stops and secures his mask again. He pours the rest of the water over his hair before resting his head against the trunk and closing his eyes. His interrupted sleep is starting to catch up to him after laboring in the heat, and he struggles not to doze off as he lets his muscles rest.</p>
+
+<p>He hears the crunch of footsteps approaching, and waits for Luis or Sarah to say something. Their steps are slow, almost awkward. When he hears them in front of him they still don't say anything, Blue opens his eyes. He sees nothing at first, nothing but the white and brown and green of smoke and trees, and then his heart stutters in his chest.</p>
+
+<p>A shiftry stands before him, over two meters tall hunched over, taller even than gramps. Its white mane of fur fades into the smoke perfectly, drawing his eyes to a bark covered humanoid body nearly as thick as the tree he's sitting against. The branches that make up its arms are extended outward, fanning the air around it as it hop-steps delicately from one T shaped foot to the next, leaves rustling.</p>
+
+<p>The leaves' razor sharp edges are stained red, blood smeared across their stems.</p>
+
+<p>Blue's hand inches toward his pokeball pocket, heart pounding as the pokemon takes another step closer to him. He doesn't know what sense it used to find him, but just as the smoke gives it incredible camouflage, it doesn't seem to be able to see well in it.</p>
+
+<p><em>Shiftry, Dark/Grass. Known as the 'sinister pokemon,' they excel at picking enemies who are weakened or at a disadvantage. Low defenses, but agile and deadly, capable of brute force mental attacks...</em></p>
+
+<p>The shiftry balances from one foot to the next, legs moving with an awkward grace that reminds Blue suddenly of the way he'd run through the forest. As it hops a bit closer, the razor sharp edges of its leaves slice through the smoke, first one way and then the other in sweeping gestures that buffet him with gusts of air.</p>
+
+<p>Blue wonders if it's trying to fan away the smoke to see better. His fingers slide into the bag and search for the ridges of a greatball... and then his heart sinks as he remembers he gave his away.</p>
+
+<p><em>This is what you get for trying to be helpful...</em></p>
+
+<p>He swallows the bubble of nervousness rising in his chest, then plucks a pokeball out and expands it with this thumb.  Most shiftry are just outside the edge of what a pokeball's mass limit can hold, but the fog makes it hard to tell just how big this one is. Either way, it would buy him time to get a pokemon out. Squirtle, shroomish or caterpie wouldn't stand a chance. Zephyr could distract it and do some damage, but not enough.</p>
+
+<p>That leaves one choice, risky as it is. Pokeballs can train even the most vicious pokemon to not see people as targets, but it's not always a sure thing, and that doesn't mean they'll follow orders well.</p>
+
+<p>Suddenly there's the sound of voices, and the shiftry goes still, turning toward them. Panic constricts Blue's chest, and he barely stops himself from calling out a warning. It might kill them in seconds if they walk near it unsuspecting, but it would kill him even quicker if it notices him. He turns the ball's lens to face it, other hand putting down the water bottle and going to his belt… the ball isn't pinging. <em>Smoke is causing too much interference. </em>He holds it up a bit, putting it closer…</p>
+
+<p>"Blue, you ready?"</p>
+
+<p>The shiftry turns its back on him and Blue shoves himself forward, holding the ball straight out toward it. It pings just as the shiftry leaps away, and the ball strikes it in the back and snatches it out of the air.</p>
+
+<p>Blue rolls away before it even hits the ground, drawing his beedrill's pokeball and getting to his feet to watch as the shiftry's rolls to a stop. He has a brief moment of hope, and then the ball shudders and wiggles. <em>Ah shit</em>—<em>!</em></p>
+
+<p>"Blue!" Luis and Sarah materialize in the smoke, pokeballs in hand.</p>
+
+<p>"Get back! Shiftry in the ball!"</p>
+
+<p>"What b—"</p>
+
+<p>The shiftry explodes back out of the ball in a flash of light and an unusually loud bang that hurts Blue's ears, the emergency rematerialization blowing the two halves of the pokeball apart. It stumbles on its awkwardly shaped feet, seeming disoriented from the sudden change.</p>
+
+<p>"Go, Beedrill!" Blue yells as he throws the ball high up. It opens with a flash, and as he catches the pokeball, his pokemon falls to the ground in a limp heap, wings moving slowly. Blue stares at it in horror. <em>I forgot, the sleep powder…</em></p>
+
+<p>"Go, Prince!" Luis shouts.</p>
+
+<p>"Go, Rafflesia!"</p>
+
+<p>The shiftry focuses on the nidorino and gloom that suddenly appear beside it, leaves fanning out as the trainers catch their balls and yell simultaneously "Poison Sting!" and "Acid!"</p>
+
+<p>Blue rushes to his beedrill as the fight begins. He opens the pouch in the side of his bag and pulls out bottles until he finds the awakening potion, shoving the rest back in and spraying the beedrill. Its delicate wings beat a bit faster, arms and legs twitching as it struggles toward consciousness. Blue can see some spores still covering it, and begins to carefully brush them away, not sure if an awakening potion would work while it's still covered in the stuff. How do insects breathe? Should he be focusing on the head? He's about to ask Red when he remembers he's not here, and his hands brush faster, ignoring the unnerving feel of the bug's chitinous body under his hands.</p>
+
+<p>The shiftry gives a grinding, cracking roar, like tree bark twisting against itself. Blue looks up and sees the shiftry swing at Luis's nidorino, leaves drawing bloody furrows along its hide. The shiftry isn't looking good, mane and skin covered in dark patches where the gloom's acid has burned it. Sarah's pokemon shoots stream after stream of the caustic liquid out, hissing and bubbling on the shiftry's skin.</p>
+
+<p>"Double Kick!" Luis yells. His nidorino leaps and spins in the air to slam both hindlegs into the shiftry's knee. It roars as the bark cracks and buckles, and its retaliatory swipe misses the nidorino as Luis's pokemon leaps away. Another spurt of acid hits the shiftry's leaves, almost dissolving one of them completely.</p>
+
+<p>From all appearances, they're winning. Strong as the shiftry is, the pokemon they chose are well suited to the fight, and they have it outnumbered.</p>
+
+<p>So why is Blue still so tense?</p>
+
+<p><em>Because shiftry are called the "sinister pokemon" for a reason. They target the helpless, and don't fight fair.</em></p>
+
+<p>"Horn attack!"</p>
+
+<p><em>Why isn't it using its a mental attacks?</em></p>
+
+<p>Blue's heart beats faster and faster as the shiftry spits seeds toward the gloom at an incredible speed, the hard shells striking it without much effect.</p>
+
+<p>"Poison powder!"</p>
+
+<p>Blue's hands are paused above his beedrill, heart racing to a painful pitch. They're missing something. What? <em>What?</em></p>
+
+<p><em>Why is it staying to fight when it's so outnumbered?</em></p>
+
+<p>"Oh, hell," Blue whispers, and turns slowly around in a circle. He sees nothing but smoke and trees.</p>
+
+<p>Nothing but smoke and trees.</p>
+
+<p>The ball is already in his hand, already cocked back, already sailing out. "<em>Go, Zephyr!" </em>Blue yells, and as soon as he materializes, "<em>Gust!"</em></p>
+
+<p>His pokemon loops haphazardly midair so that he's behind Blue, then begins to flap faster and faster, thinning the smoke in front of them as he blows it away.</p>
+
+<p>The whiteness sticks in one spot ahead of him, and a second later his eyes adjust to see it for what it is: the mane of another shiftry. Another solidifies to Sarah's right, and a third closer to Luis, like optical illusions made real. <em>Three… four...</em> Blue spins around. Now that he's looking, he can see the shiftry that was creeping up on him through the smoke.</p>
+
+<p><em>Six.</em></p>
+
+<p>Six shiftry against three of them, and his only pokemon that can stand against them is asleep. Luis and Sarah stare in shock as the trap is revealed, and then step back to back, hands going down to their belts.</p>
+
+<p>The revealed pokemon seem to realize their cover is gone, and then the forest rings with their grinding roars as they close in from all sides.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/15/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/17/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -578,6 +727,6 @@ And lying on the ground in the middle of the field is a body.
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

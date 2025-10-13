@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 14: Desensitization - Pokemon: The Origin of Species</title>
+    <title>Chapter 20: Body and Mind - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,503 +329,363 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 14: Desensitization</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/19/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/21/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            "So, what if we cut off Blue's finger?" Leaf asks as they walk.<br>
-<br>
-Blue glances at her, then steps to the side of the road so Red is between them. "I'd tell Squirtle to bite off two of yours, is what."<br>
-<br>
-Leaf grins. "She'd have to get through Bulbasaur first. My point is, would a psychic be able to lift it immediately after?"<br>
-<br>
-Red scratches his hair, considering Leaf's question. The morning dawned with clear blue skies above, and after a communal breakfast, they said goodbye to Allie, Matthew and the twins and resumed their journey north. Once they were on their way, Red filled the others in on the details of his spinarak capture, and his conversation with Professor Oak.<br>
-<br>
-"It's a good idea-"<br>
-<br>
-Blue steps farther from him too.<br>
-<br>
-"-but hard to test, obviously. From what I read, cut hair and nail clippings lose whatever protection they have as soon as the dark type moves away, since the 'dead zone' they passively emit doesn't extend past their skin. And psychics have reported that the dead zone fades shortly after death, though that's medical death, not brain death. So I'm not sure how long a severed body part would retain it." Red puts on a speculative look and peers intently at Blue's hands, stroking his chin.<br>
-<br>
-"Hey!" Blue says as Leaf laughs, and slows his pace so that he's behind both of them. "Keep your beady eyes to yourself and find a pokemon to chop up for your experiments."<br>
-<br>
-Leaf's laughter cuts off, and she frowns over her shoulder as Red mutters "beady eyes?" to himself. "That's disgusting! You'd have to do it while it's still alive to test it."<br>
-<br>
-"You just suggested chopping off my finger!"<br>
-<br>
-"It was a hypothetical! Some pokemon are actually butchered alive."<br>
-<br>
-Red blinks. "Are they? Which?"<br>
-<br>
-Leaf grimaces. "Shellfish meat has a bad taste if it's killed before it's cooked, so they often boil or chop up living ones."<br>
-<br>
-"At least they're killing them for food," Blue says.<br>
-<br>
-"Is that supposed to make it better?"<br>
-<br>
-"Uh… doesn't it?"<br>
-<br>
-They start to argue over the ethics of eating pokemon, but Red is too distracted by her example to get involved. He pulls his pokedex out to see if there are any dark-type crustaceans.<br>
-<br>
-"If you care about what happens to your pokemon you must recognize they're capable of feeling, so why is it alright to kill them for food when we don't have to?"<br>
-<br>
-"I care about my pokemon because they're <em>mine</em>, pokemon get hurt and killed in the wild all the time."<br>
-<br>
-"So that's an excuse to hurt more of them?"<br>
-<br>
-"It's a fact of nature. Even plants can feel, if feeling is all you care about, well, something's gonna die no matter what you eat-"<br>
-<br>
-"Found one," Red says to cut off their argument before it escalates further. "Crawdaunt, Water/Dark. A group of psychics went to different restaurants preparing them and reported that after they were, er, chopped up, their parts kept their own dead zones for a short time after being separated, but before the crawdaunt died."<br>
-<br>
-Leaf looks faintly nauseous. "Well, that's that, then. If the deadzone is tied to the body parts, then it can't be something in the mind."<br>
-<br>
-Red shakes his head. "Not necessarily. We don't actually know the mechanics of how it works. What if the source is the mind, and the field it subconsciously covers the body with just takes a while to fade?"<br>
-<br>
-They continue to discuss it for the rest of the morning, all the while keeping their eyes peeled for cocoons, webs, or nesting pokemon as they travel. Despite the lower chances of running into pokemon together, no one suggests splitting up again.<br>
-<br>
-Short of blind luck however, Red despairs at finding a hoothoot or noctowl before they leave the forest, let alone some of the rarer pokemon like pikachu or budew. They've been walking at about 3 kilometers an hour, and would likely leave the forest by tomorrow afternoon. Thinking of the bird that flew overhead last night, he's more frustrated than ever that he's the only one among them without a flier. He'd rather not settle for a pidgey or spearow, neither of which are capable of mental attacks.<br>
-<br>
-In the meantime they bring their own pokemon out and train with them as they travel. Leaf sends her rattata from one bush to another on her side to hone its precision in following directions. She eventually nicknames him "Scamp" after he tries to grab a bit of pokepuff from Blue's shroomish. The fungal pokemon waddles along beside them on its stubby feet, dutifully sending clouds of different spores and powders over bushes Blue wants to check for hidden wilds.<br>
-<br>
-Red decided to summon Charmander for some physical training. The fire lizards' strongest muscles are in their hind legs, vital to help them leap out of harm's way while young and launch themselves into the air when they grow wings.<br>
-<br>
-Once Charmander manages to grab the bit of pokepuff Red holds near his chest, he lifts the next bit to eye level.<br>
-<br>
-"Jump!"<br>
-<br>
-Charmander leaps, biting at the air before he falls back to the grass.<br>
-<br>
-Blue smirks. "Speaking of losing fingers…"<br>
-<br>
-"Come on, Charmander, you can do it. Jump!"<br>
-<br>
-Charmander crouches, then leaps again, snagging the pokepuff.<br>
-<br>
-"Good job Charmander!" Red tears off another piece and lifts it above his head. "Again, jump!" His pokemon tries, again and again, but can't go higher than Red's head. He growls and leaps again, snapping at the air before falling to the grass, breathing hard.<br>
-<br>
-"Go on boy, you're getting higher. Jump!"<br>
-<br>
-Charmander looks at the pokepuff, then him. He makes a gurgling sound, and suddenly starts climbing Red's leg.<br>
-<br>
-"Hey!" Red stops walking, stretching his arm higher as his other hand reaches for his pokemon. "That's cheating!"<br>
-<br>
-Charmander pays him no mind, crawling around his side to avoid his hand, tail kept carefully apart as he makes his way up Red's shirt, then leaps off and grabs the pokepuff. Upon landing, the fire lizard happily curls up on the grass and munches on his prize. Red sighs.<br>
-<br>
-"So are you going to punish that?" Blue says. "Since he was supposed to jump?"<br>
-<br>
-"I wouldn't," Leaf says as she tosses a berry to Scamp. "Might discourage creative problem solving."<br>
-<br>
-Red nods. "Guess he's had enough jumping for now." He rubs the soft hide on Charmander's head, then returns him to his pokeball as the others walk ahead.<br>
-<br>
-Red summons his spinarak for the first time since he caught it. As soon as it's out, he avoids looking directly at the face-like pattern on its back. He feels his thoughts shying away from the memory for fear of feeling its echo again, but the problem with trying not to think of something-<br>
-<br>
-<em>dark</em><br>
-<br>
-<em>alone</em><br>
-<br>
-Red focuses his gaze on one of its legs, quickly bending down to check if its wounds from before healed properly. He can't quite bring himself to touch the arachnoid, and simply pulls some jerky out, shredding it into small bits for it to eat.<br>
-<br>
-Something simple to start… "Spinarak, string shot!" he says, pointing at the branch of a nearby tree. The bug turns to see what he's pointing at, then shoots its webbing up, attaching a line to the branch. "Climb!" It scuttles up the string until it can hang from the branch. "Return." It drops and scurries back over to him. "Good job."<br>
-<br>
-Red drops the meat strips, and suppresses a sudden shudder as its mandibles clack audibly. He's glad bug pokemon don't react as positively to physical affection, because he can't bring himself to treat it as warmly as his rattata or charmander. And that's even putting aside the-<br>
-<br>
-<em>cold</em><br>
-<br>
-<em>hurts</em><br>
-<br>
-Red shakes himself, breath catching in his throat. This is going to be harder than he thought.<br>
-<br>
-Bug pokemon always creeped him out. Just the thought of his spinarak crawling up his body or resting on his arm makes him break out in goosebumps.<br>
-<br>
-<em>I need to desensitize</em> <em>myself</em>, Red realizes. <em>Pokemon professors need to be capable of studying all kinds of pokemon. Professor Oak doesn't get squeamish when handling venonat, or paras.</em><br>
-<br>
-Unfortunately, Red never mastered that particular brain hack. He knows the theory though: small exposures in safe and calming circumstances until he no longer feels an aversion to that, then moving on to more extreme circumstances.<br>
-<br>
-Red sighs and tells his spinarak to follow him as he catches up with the others, then begins training it in basic webbing commands: string shot, trip lines, web traps, slowly working his way up to the more complex traps and obstacles. The other two watch his new pokemon curiously for a bit, but if they notice the way Red avoids looking directly at or touching it, they don't comment.<br>
-<br>
-The hours pass, and the sun rises to its zenith. Eventually the trio finds a clearing to stop in for lunch. There's a small boulder resting beside a nearby tree, and Blue points at it as the other two feed their pokemon, then withdraw them.<br>
-<br>
-"Shroomish, Leech Seed!"<br>
-<br>
-His pokemon's soft body contracts, then pulses, the dimples in its fungal dome sending out half a dozen seeds over the rock. A gel around the seeds causes them to stick, and soon they split open. Thin roots snake out to find the minuscule pits and wedges in the stone, and within few seconds a dozen small cracks are heard. Leaf steps closer and kneels to watch, keeping her hands away from the glistening roots as they slowly press into the boulder.<br>
-<br>
-But soon the vines stop growing, and the seeds fall off one by one, the ends of their roots wilting. Blue frowns and sends his pokemon to eat them. "That wasn't particularly impressive. In the vids I've seen, leech seed can eventually bring down even an onyx."<br>
-<br>
-"Well, there's a difference between 'living' stone and 'dead' stone. This," Leaf says as she knocks a fist on the boulder, "Is just rock. It's virtually devoid of nutrients for the roots to absorb, and is much harder for the digestive enzymes of the leech seed's roots to break down. But living stone is basically like really hard chitin. It's still organic."<br>
-<br>
-"Damn. I wanted to get a sense for how well it would work on Leader Brock's pokemon. " Blue pulls out some berries for his shroomish once the pokemon finishes eating the barely grown plants.<br>
-<br>
-"The leader of your Rock Gym is named 'Brock'?"<br>
-<br>
-"His name's Takeshi actually, but he goes by Brock." Red says. "Don't any of your Leaders use nicknames?"<br>
-<br>
-She smiles. "Yeah, our Flying Gym leader's is Skyla. So what kind of Leader is Brock?"<br>
-<br>
-"Very involved locally," Blue says. "The city loves him, which means anyone who wants to be mayor there has to hold his favor."<br>
-<br>
-"So much for the separation of powers."<br>
-<br>
-Red shrugs. "The people have spoken. Thankfully he seems smart and competent, so things in Pewter have been going pretty well. They have a lot of civic pride."<br>
-<br>
-Blue withdraws his shroomish, and the three remove their facemasks and take out food for lunch. Leaf has some bread, cheese, and tomato slices, and Red realizes that he hasn't seen her eat any meat. Granted, most of their trail food consists of fruit, rice balls and granola. Rather than put her on the spot about it, he tests his hypothesis by offering her some jerky, which she politely turns down. After hearing her objections to the way pokemon are treated, he wonders if she avoids eating any pokemon at all, even the plants and water types.<br>
-<br>
-After they eat, Leaf steps away for a bit to call her mother while Red quickly confirms that Zapdos's storm is still safely north of Pewter. Blue begins setting up some virtual training for his new pokemon, and Red checks his mail.<br>
-<br>
-He looks at the message from Leader Giovanni again before going to his new messages. It's still hard to believe that such a huge figure had actually taken the time to respond to a random message by a fan. Red doesn't consider himself easily star-struck after growing up knowing the world famous Professor Oak, but Giovanni's accomplishments are just as impressive in their own way. More than that, he has a unique way of rationally looking at the world, and Red always learns something new by reading his blog posts.<br>
-<br>
-Red goes to his new messages and sees one from Professor Oak:<br>
-<br>
-<em>Hello Red,</em><br>
-<br>
-<em>I sent an email to Elite Agatha last night, and she responded to me this morning. Psychic attacks are generally felt as mental, while ghostly attacks are experienced as emotional. This seems like an antiquated conception of the division between the mind and emotions, which is why we call both mental attacks, but she insists the difference is noticeable to those sensitive to such things, however fine the line is to others.</em><br>
-<br>
-<em>I'll ask some others just to verify, but this is Agatha's area of expertise, and if we take what she says as a working hypothesis for now, the description you gave of the attack makes it seem more emotional than mental. Hard to be sure though. I would make finding out your top priority.</em><br>
-<br>
-<em>Safe travels,</em><br>
-<br>
-<em>Sam</em><br>
-<br>
-Red puts his phone away. "Hey Blue, wanna do me a favor?"<br>
-<br>
-"What's up?" Blue taps at the pokedex screen, gaze intent.<br>
-<br>
-"Would you mind letting my spinarak use its mental attack on you?"<br>
-<br>
-Blue's fingers pause, and he lowers his pokedex a bit to look at Red. "Say that again?"<br>
-<br>
-"I'm still not sure if it was a psychic attack or a ghost one, and since you're dark…"<br>
-<br>
-"No." Blue turns back to his pokedex.<br>
-<br>
-"I don't mean right now, but after I train it a bit-"<br>
-<br>
-"Sorry. I'll pass on testing out its poison too, or Charmander's fire."<br>
-<br>
-Red laughs. "Come on, seriously. It won't affect you at all if it's psychic, and you'll barely feel it if not."<br>
-<br>
-"No shit? I didn't realize." Blue raises the pokedex a bit higher, leaning back against his bag so his face is hidden behind it.<br>
-<br>
-Red's smile fades, brow furrowed. "Why not?"<br>
-<br>
-"I just don't feel like it."<br>
-<br>
-"That's not a reason."<br>
-<br>
-"Sure it is. Not my concern if you won't take it."<br>
-<br>
-A hot flush spreads through Red's chest. "What's your problem?"<br>
-<br>
-"An annoying bidoof who can't take no for an answer."<br>
-<br>
-And ignites. "I guess it was too much to expect a rational justification from you."<br>
-<br>
-"Guess so."<br>
-<br>
-Leaf rejoins them, looking a bit apprehensive. "What's up?"<br>
-<br>
-"Nothing. Blue's just being a self-centered jackass."<br>
-<br>
-Blue lowers his pokedex and sits up with a scowl. "You asked me for a favor, but <em>I'm</em> the self-centered one?!"<br>
-<br>
-"You refused without even explaining why!"<br>
-<br>
-"Sorry <em>professor</em>, better get used to the fact that you don't always get to know everything!"<br>
-<br>
-Leaf steps forward, palms out to both of them and looking a bit shocked. "Woah, guys, calm down…"<br>
-<br>
-Red can't remember standing, but Blue is too, and he cranes his neck to look at him around Leaf. "If you're not going to supply a reason for your actions," Red says as blood pounds in his ears, "Then you can't complain if I come up with my own."<br>
-<br>
-"I can if you're calling me selfish for not obeying your every command!"<br>
-<br>
-"'Every command?' Excuse me for assuming you'd want to help me get my researcher license!"<br>
-<br>
-"Well excuse me if I don't like being experimented on just because I'm dark!"<br>
-<br>
-Red's anger hits a wall. "What? That's not-"<br>
-<br>
-"Yes, it is! I'm just a test subject to you now, aren't I?"<br>
-<br>
-"Come on, you know me better than that! Besides, you said you were over it!"<br>
-<br>
-"I <em>lied</em>, you idiot!"<br>
-<br>
-The two of them are breathing hard as that last shout fades away, and as Red tries to think of something to say, Blue makes a sound of disgust and grabs his water bottle before striding away,<br>
-<br>
-"Wait, Blue-"<br>
-<br>
-"I'm gonna take a leak, Red. Mind if I have some privacy?"<br>
-<br>
-Red stops following, cheeks hot as he glances at Leaf. She's looking after Blue with a mix of puzzlement and sadness though, and when she turns to Red there's a fierce light in her eyes.<br>
-<br>
-"You. Explain."<br>
-<br>
-"It was… I just asked him if… ah, hell." Red sighs and sits back down, wanting to simultaneously punch Blue and apologize to him. "I asked if he'd mind me testing my spinarak's mental attack on him. When I told Blue I knew he was dark last night, he said it doesn't bother him any more."<br>
-<br>
-"Did you consider whether he was putting on a brave face?"<br>
-<br>
-Red rubs his face. "Not at all. He's right, I <em>am</em> an idiot."<br>
-<br>
-Leaf lowers herself to a crouch, leaning back against a tree. "I don't think taking your friend at his word makes you an idiot. It was a mistake. If you did consider it but ignored it, that might be a different story."<br>
-<br>
-"You don't know Blue the way I do. In retrospect it's obvious that it would bother him more than he let on, like the fact that he didn't tell me himself after all these years."<br>
-<br>
-Leaf has a brow raised. "Is it really that big a deal, here? There's some prejudice in Unova, but..."<br>
-<br>
-"When my mom was our age, it was illegal for them to hold public office," Red says. "People said someone with a dark mind could hide any corruption from psychics. Like mind reading's reliable enough to detect that anyway, right? It was stupid superstition at the heart of it. Dark pokemon have pretty much always been seen as evil in Kanto, and a lot of villains in our movies and shows are dark. Things are a bit better now, but you'll still meet some that make a big deal of it."<br>
-<br>
-"Wow. That kind of explains why he kept it secret though, doesn't it?"<br>
-<br>
-Red shakes his head, anger returning. "Even from me? Talk about lack of trust!"<br>
-<br>
-Leaf frowns. "Red… don't take this the wrong way, but how many other friends do you have, besides Blue?"<br>
-<br>
-"What's that got to do with anything?"<br>
-<br>
-"Can I make a prediction? Or speculation, rather?"<br>
-<br>
-Her phrasing helps Red take a step outside himself. "Uh… yeah. Go ahead."<br>
-<br>
-She picks up a dead leaf and begins to slowly shred it with her fingers, gaze down. "I know I just met you and Blue, so let me know how far off I am. You made a few friends when you were younger, but none of them really kept up with you in school as well as Blue did. After he lost his parents and you lost your dad, it became more than just a rivalry. Blue didn't focus as much on academics, but he's still smart, and you both had the same drive. Took your goals seriously. Other kids became hard to relate to, and eventually you started to spend most of your time with him or older researchers and lab assistants. But they weren't really your equals, while Blue was."<br>
-<br>
-Red is watching her with a mix of embarrassment and admiration. "Okay, you're not far off at all. In fact your model is surprisingly good considering what info you have. What made all that so obvious?"<br>
-<br>
-She smiles. "Not just you. I think that summary fits him too. I've never heard either of you refer to others your age when you talk. Your past agreements or arguments all seem to be with each other. Other than family members, it's like there's no one else for either of you. You guys aren't just friends."<br>
-<br>
-Red feels a bit uncomfortable as she talks, then distinctly nervous by the end. "Woah, woah, you're not saying… it's not like we're…"<br>
-<br>
-Leaf looks puzzled for a second, then laughs. "No, I don't mean it like that! I'm just saying, if you were just close friends, he probably would have told you. But beyond that, you guys act like brothers, and brothers sometimes have a sense of rivalry. My guess is, he didn't avoid telling you out of lack of trust, but because he was embarrassed at being seen as lesser."<br>
-<br>
-Red thinks back to how he felt after his spinarak blasted him, careful not to think of the blast itself. He hadn't wanted to tell Leaf and Blue because he hadn't wanted to admit his weakness. It was only the necessity that made him do so. He wonders how many other important sides of themselves people hide from each other, even those they care about, out of embarrassment. It's easy to say "He should just trust me" when it's not you that feels ashamed.<br>
-<br>
-"Yeah. I get it." Red sighs. "So you think I should apologize?"<br>
-<br>
-"Damn right you should."<br>
-<br>
-Red gets to his feet as Blue walks back into the clearing. "Hey man, I'm really s-"<br>
-<br>
-"Forget it." Blue waves a hand. "Let's just drop it, alright? We should keep moving anyway."<br>
-<br>
-"Uh... sure. You got it." <em>Shit.</em> Despite all that, he still hoped to perform the spinarak test. Now he can't think of a tactful way to bring it up. Red's movements are aggressive as he packs his bag, but he keeps his irritation off his face as they start walking again.<br>
-<br>
-It's so frustrating to have the answer to a question so close, and be unable to test it. The itch to know is still there, and it gets worse the longer he tries to think of alternate ways to determine the attack type, all of which are significantly less precise. Worst case, he could just wait to find another normal or dark type to test it on, but a pokemon wouldn't be able to communicate what it had felt. He finds himself getting angry at Blue again for refusing. Maybe he could arrange to accidentally-<br>
-<br>
-Red slams the door on that train of thought, a sick feeling in his gut. Even knowing Blue would be immune or resistant to its effects, it's a horrible thing to think of doing to his friend.<br>
-<br>
-<em>To anyone!</em> he screams at himself. <em>That's Mad Scientist thinking! That's the kind of thing that gets people branded as Renegades!</em><br>
-<br>
-Red forces himself to take out his notebook and start writing about something, anything else, as they walk. His hands are shaking a bit. <em>I'd never do something like that,</em> he assures himself. <em>L</em><em>east of all to a friend. Never.</em><em><br>
-</em><br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-The kilometers pass steadily underfoot as afternoon gives way to evening, and each of them gets some training in with the rest of their pokemon. Blue and Leaf train with their starters and pidgey, but neither takes out their beedrill, wanting to do some extensive virtual training with them first. Having fewer pokemon than the others, Red brings Charmander back out after finishing with his rattata's training, and lets the two of them get used to concurrent orders as they walk. After a couple hours, his rattata has gone through three pokepuffs and Charmander two, but they've mostly stopped reacting to his words unless they're prefaced properly. Red is impressed by how much smarter his well-bred Charmander is compared to the wild rattata.<br>
-<br>
-Eventually the sun begins to set, and they find another Ranger Outpost to camp by. They stop at the outpost itself, a small collection of buildings where they can pick up some free traveling rations and food for their pokemon, courtesy of their Trainer IDs.<br>
-<br>
-There's no spare room for uninjured travelers in the buildings themselves, so the three set up camp within the wards again, using a trio of handlamps to light the perimeter before laying out their bedrolls in a loose triangle. Red calls his mom briefly to assure her he's still alright, then checks CoRRNet with some trepidation for any news in the area he might have missed. All seems quiet in the forest, however. They're about twelve kilometers from its northern edge, and fifteen from Pewter. Zapdos seems to have swung to the west, and Pewter is no longer in a state of high alert.<br>
-<br>
-"I'll take last watch," Blue says as he finishes eating, then slips into his bedroll and turns to his side before waiting for a response.<br>
-<br>
-"Okay," Leaf says. "Night."<br>
-<br>
-"Night," Red echoes. Despite saying they'd put the fight behind them, Blue was distant all afternoon. Red isn't sure how long he'll stay upset, but he's willing to wait at least a day before poking at it. Normally after a big fight they would keep their distance and cool off for a bit, but that's not really an option here.<br>
-<br>
-He turns to Leaf. "You tired?"<br>
-<br>
-She shakes her head. "I'll probably stay up for a bit. First one to fall asleep gets second watch?"<br>
-<br>
-"Deal."<br>
-<br>
-They lie down and open their pokedexes. Red looks up efficient ways to set up webbing with spinarak, wondering how to make use of it tonight. He could put a bit of pokepuff in it to draw prey. It would probably work on caterpie and other bugs, but a hoothoot would free itself within seconds without spinarak hanging around nearby to distract or attack it after it's caught.<br>
-<br>
-He closes his pokedex and starts sketching out different web patterns that might better secure a bird pokemon. He could have two sets of vertical lines to the sides of the main web to snare its wings, but what about the talons?<br>
-<br>
-It's hard to use a bug pokemon's skills to try and stop a flying type. They got lucky before with Bulbasaur and the pidgey, and Bulbasaur was badly hurt all the same. Red frowns, thinking of psychic and ghost and dark interactions again, and begins writing them all out, then categorizing all the pokemon types.<br>
-<br>
-<em>Substance:</em><br>
-<br>
-<em>Normal, Fire, Water, Plant, Electric, Poison, Rock, Metal, Bug, Ghost</em><br>
-<br>
-<em>Descriptive:</em><br>
-<br>
-<em>Flying, Fighting, Ground, Dragon, Psychic, Ice</em><br>
-<br>
-"Whatcha writing?" Leaf asks, voice low.<br>
-<br>
-Red cranes his neck to look at Leaf and sees her lying with her hands behind her head, staring up at the dark. He turns back to his notebook and reads the lists out loud.<br>
-<br>
-"Huh. That's an interesting way to divide them."<br>
-<br>
-"Remember our conversation a couple days ago? When we just set out?"<br>
-<br>
-"Yeah. You think of the types as emergent properties rather than fundamental aspects."<br>
-<br>
-"For some, yeah. But I'm not sure if I'm right in all of them."<br>
-<br>
-"Ground being descriptive does seem odd. But why wasn't Dark listed?"<br>
-<br>
-Red sighs. "Because I have no idea where to put it."<br>
-<br>
-He hears her shift and sees her lying on her side to face him, so he turns to do the same. "From what we learned today, it seems like a fundamental aspect of their biology."<br>
-<br>
-"Possibly."<br>
-<br>
-"Probably."<br>
-<br>
-He shrugs a shoulder. "Maybe probably. The way their immunity works is moderate evidence for it. But there's other evidence against. Before, I would have said Dark Type was descriptive for the same reason Psychic is. That there's nothing inherent to the biology that interacts uniquely with certain elements or substances, the way water conducts electricity or metal is harder than rock. Is every cell in a psychic type psychic? Probably not: all the phenomena we observe with psychics relate to their mental powers' strengths and shortcomings, not their biology. So I thought Dark types were similar, because other than their unique resistance and immunity to ghost and psychic phenomena, they don't really have any unique interactions."<br>
-<br>
-"But that's not actually true," Leaf says. "You have Fighting down as Descriptive-I understand why, I remember your point from earlier-but even if it's just a label put on anything that is really muscular and agile, fighting pokemon tend to have a clear advantage against Dark pokemon, even the physically tough ones."<br>
-<br>
-"But is that because of something unique to the Dark typing, or just an interaction of the individual species? There aren't really many physically strong Dark pokemon. Some are very fast, and some are bulky, but by and large, they're not <em>strong</em>. So what if it's just the result of that?"<br>
-<br>
-"But then other strong physical types, like Rock-"<br>
-<br>
-"Think outside the bounds of the typing system for a moment: is there <em>any reason</em> that a Fighting pokemon's punch should be so much harder for an umbreon or mightyena to recover from than, say, a heavy rock thrown at them, or a body slam?"<br>
-<br>
-Leaf takes a few moments to think about it, eyes staring down. Red waits patiently for her to finish setting aside the assumptions their cultures surround pokemon types with.<br>
-<br>
-Eventually she looks up and says, "No. But from all we can observe, that's just the way it is."<br>
-<br>
-Red slumps back, arm covering his eyes. "I know," he moans quietly. "It doesn't make sense!"<br>
-<br>
-Leaf laughs, hand over her mouth. "If the evidence doesn't match your beliefs…"<br>
-<br>
-"Right, right." Red sighs. "Just because something doesn't make sense to me doesn't mean the world's wrong. It just means my model of the world is off somewhere."<br>
-<br>
-"Why do you care about this so much anyway? It seems like the kind of thing a competitive trainer would obsess over."<br>
-<br>
-Red feels himself get defensive, then realizes she's asking out of genuine curiosity. After only having Blue to discuss things like this with for so long, he's not really used to that. "Because it confuses me, and things that confuse me are the best warning flags I have to unknown unknowns."<br>
-<br>
-Leaf smiles. "Unknown unowns? You think there are more than twenty-six?"<br>
-<br>
-Red grimaces, lips twitching up. "That was a terrible pun."<br>
-<br>
-"Inown."<br>
-<br>
-Red groans and mimes throwing his pencil at her. She ducks her head, then comes up grinning. "So you mean it's the way you realize there's something you don't know that you don't know?"<br>
-<br>
-"Right. When we feel confusion, it's the result of some new data that's at odds with our model of how reality is. So either our model is flawed for not being able to account for the new stimulus, or the stimulus is false."<br>
-<br>
-"Like if Blue wakes up tomorrow and starts reading science journals?"<br>
-<br>
-It's Red's turn to cover his laugh, and he turns to glance at his friend's still form. Blue's breaths are steady and even. "I'm still holding out hope he will eventually, but if it was something sudden, then yeah."<br>
-<br>
-"And since your model of Blue includes a disinterest in science articles, then maybe that part of the model is wrong."<br>
-<br>
-Red nods. "Just the first few times though, after which my model of him will have updated, and it won't be confusing anymore. Alternatively-"<br>
-<br>
-"Alternatively, your model of the article might be what was wrong. Your confusion would be from 'why is Blue reading something he normally finds boring?' but maybe it's about something relevant to competitive battles."<br>
-<br>
-"Have we been reading the same blogs?"<br>
-<br>
-"Not in this case, but it makes sense. Except, what do you mean by the stimulus being false? Like if it's just an illusion of Blue, or a hallucination?"<br>
-<br>
-Red smiles. "That's a possibility, though a very low one. More likely is that he's just pretending to read an article to irritate me."<br>
-<br>
-She raises a brow. "Does he do that?"<br>
-<br>
-"Not really. Though when we were younger he once started carrying around a notebook and randomly scribbling in it every time I did or said something."<br>
-<br>
-Leaf buries her laugh in her arms. "It's not funny," Red says, indignation fighting his own smile. She nods without looking up, and his smile wins out. "Okay, it's a little funny. Anyway, that's why I'm so interested in pokemon types. They're a major clue to the way the world really works, and the more they don't make sense, the more I wonder whether what we know is really accurate."<br>
-<br>
-Leaf is still smiling when she raises her head, but her tone is serious. "Have you considered whether we just can't understand it? If it's just something unknowable?"<br>
-<br>
-Red shrugs. "Sure, but what's the use of that kind of thinking? Just throw our hands up and stop trying to figure things out? There may be limits to what our flawed and feeble minds can do, but until there's a sign we've reached it, I don't see the point in being pessimistic."<br>
-<br>
-"Just checking to make sure. It's at least worth recognizing when you might be on a dead end path."<br>
-<br>
-"Yeah. What about you? Doesn't the weirdness of typing interest you at all?"<br>
-<br>
-Leaf turns to lie on her back again. "Sure. But then, everything interests me. That's kind of my problem."<br>
-<br>
-"What do you mean?"<br>
-<br>
-"I was raised by two generations of professors. Mom just got her title and lab last year, but she's always been a researcher. Grandpa specialized in pokemon population distributions when I was a kid, so we traveled all over Unova when I was growing up."<br>
-<br>
-Red refrains at the last second from exclaiming over how cool that must have been. Her mood is too melancholy, so instead he just says, "What was that like? I've lived in Pallet my whole life."<br>
-<br>
-"It was fun, for the most part. I made a lot of different friends… but I had a hard time relating to them, and always had to move again soon. I had a lot of cool experiences and opportunities, but never stuck around in one place long enough to really feel like I belonged, or focus seriously on a single project. I'm interested in a lot of different fields of study, but not really an expert in any of them. I'm good at living outdoors. I'm an okay fisher, back when I fished. I'm good with pokemon, I'm good with numbers. I liked gardening, but wasn't so good at that. I'm okay at programming, I actually enjoyed it a lot, but I only had a few tutors spread out over the years and there was never much time to really learn it formally or practice much."<br>
-<br>
-Leaf goes quiet after that, and Red keeps the silence, waiting. Eventually she says, "I want to find something I'm really <em>great</em> at. I want to be an activist, maybe go into politics, but I'm too young to be taken seriously in most fields other than as a trainer. And I felt like my worldview was too tied to Unova's culture. I wanted a wider perspective, to see how other regions think about pokemon and human interactions. I had the idea for a book on the legends of different cultures because I like writing, and Grandpa's research on Unova's legends always fascinated me. The way people describe the old stories of Zekrom and Reshiram's battles as a clash between Truth and Idealism, or how they ascribe meaning and purpose to the Forces of Nature when they go around causing disasters."<br>
-<br>
-Red smiles a bit. "Well, you came to the right place if you're looking for parallels to that."<br>
-<br>
-"Yeah. Comparing the different views on your Storm Trio and our Weather Trio should be interesting. Speaking of which, are you and Blue really planning on heading into the storm if Zapdos comes?"<br>
-<br>
-"Yeah," Red says after a moment. He doesn't bring up his contingency plans in case Blue might not be fully asleep or wakes up at any moment. It occurs to him that he could send her an email, give her an idea of his plans and enlist her help. "But like we said, we're not going to just rush at Zapdos and try to take it down. We just want to help others, for now."<br>
-<br>
-"Still, you'll need well trained pokemon just to handle any wild pokemon rampaging due to Pressure. Do you think three pokemon are enough?"<br>
-<br>
-"No, I don't. We're not likely to find new pokemon training ours while we travel though."<br>
-<br>
-"So what's your plan?"<br>
-<br>
-"What makes you think I have one?"<br>
-<br>
-Leaf smiles. "Unless your notebook is full of nothing but doodles, you'd better have <em>something</em>."<br>
-<br>
-Red smiles back and pushes himself to his elbows. "You know, I actually do. And you might be able to help with it…"<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-Red wakes to the feel of a hand shaking his shoulder. There's a second of disorientation, then he scrambles off his belly and looks up at Leaf, who's smiling. "Getsumthin?" he mutters, rubbing at his eyes. "Caterpie again?"<br>
-<br>
-"Nope. Say hello to your first flier."<br>
-<br>
-Red blinks at her, then pushes himself to his feet and turns to the branches above, where Leaf is shining one of the lamp lights. The second web he instructed his spinarak to weave is still up there, and the pokepuff he'd climbed up and put there is gone. In its place...<br>
-<br>
-Red grins. A hoothoot hangs tangled in the web, sleeping. Its feathers are covered in the sleep spores Leaf's bulbasaur had coated the web with.<br>
-<br>
-"Awesome," Red says, mind coming fully awake as he gets out his pokeball. "When-"<br>
-<br>
-"Just now. I heard its wings, then it struggled a bit in the web. I think its beak was full of the pokepuff, because it didn't make much noise. We should set up another one, maybe we'll get another!"<br>
-<br>
-"Yeah, let me just-"<br>
-<br>
-"What's going on? We under attack?"<br>
-<br>
-Red and Leaf turn guiltily to Blue, who's staring blearily up at them. They forgot to keep their voices down.<br>
-<br>
-"Sorry Blue, everything's fine. We caught a hoothoot."<br>
-<br>
-Red turns back and aims his pokeball, but the web is too far up. He set the first one lower so they could see it in the light, but a caterpie crawled into it before he even fell asleep. Leaf insisted he take it after giving up his chance at the beedrill, so he caught his second bug pokemon. The second web was put higher, and between the long branches of two trees in hopes of being more accessible to a flier rather than a crawler.<br>
-<br>
-Red puts his pokeball away and begins climbing, and Leaf shines the light on the tree to help him see.<br>
-<br>
-"Oh, nice," Blue says, getting to his feet and rubbing his face. "Hang up another and catch me one, would you?"<br>
-<br>
-"Sure," Red grunts, limbs burning as he pulls himself up to the branch parallel with the web.<br>
-<br>
-"We actually hung another two," Leaf says, pointing. "Nothing in them yet though."<br>
-<br>
-He straddles it and drags himself carefully closer, then takes out his pokeball and aims it. After a moment it pings, and he lobs it onto the sleeping pokemon. The ball absorbs it in a flash of light and falls to the grass below. "That's five. Told you I'd catch up to…" Red trails off as a second flash registers to his side. He turns, thinking one of them had caught another that appeared just then, but they're both looking up at him.<br>
-<br>
-"What is it Red?"<br>
-<br>
-"Thought I saw something. You guys didn't-"<br>
-<br>
-The night briefly lights up again, and suddenly Red has trouble breathing. His heart races in his throat as he automatically starts to count, feeling his body tremble.<br>
-<br>
-<em>0… 1... 2... 3...</em><br>
-<br>
-"What was that?" Blue turns to face the direction of the flash. To the west.<br>
-<br>
-<em>4… 5... 6... 7...</em><br>
-<br>
-"Red! What's wrong?" Leaf asks.<br>
-<br>
-<em>8... 9... 10... 11...</em><br>
-<br>
-Red stares out into the darkness of the trees, and sees another bolt of electricity light the distant forest.
-        </div>
+            <h1 class="chapter-title">Chapter 20: Body and Mind</h1>
 
-        <div class="chapter-nav">
-            <a href="../19/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../21/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>The next morning Red finds himself alone in his hospital room and looking for something productive to do. His mom left with Professor Oak last night, Blue is gone to the Pewter Gym, and Leaf is checking out the museum. So Red sets to work looking through all the advertisements for local psychics that offer their services.</p>
+
+<p>Assisting trainers with challenging pokemon or difficult to learn commands is a psychic's most common trade, followed by testing people for psychic ability or damage. But since Red wants a psychic who's also willing to potentially get attacked by a spinarak, he needs someone whose profile advertises being open to "unlisted requests."</p>
+
+<p>He realized after talking with Professor Oak that testing his spinarak's mental attack would be harder than he first thought. Even if he squared it off against his rattata, since he doesn't actually know what the attack was he can't reliably ensure that whatever it ends up using against her would be the right one.</p>
+
+<p>So the Professor suggested turning to the experts. In the meantime, Red also put up a bulletin in the city's online forum. His advertisement asks for a five minute meeting with anyone who has a spinarak and is willing to answer questions about it and submit its data for research purposes. Since Red doesn't have the funds to pay for their time, instead he offered the opportunity for the trainers to get detailed data about their spinarak from his new pokedex model.</p>
+
+<p>"Sounds good," Professor Oak says over the phone. "And the psychic?"</p>
+
+<p>"Colan Narud. His resume looked alright, but his main qualification is that he's available today."</p>
+
+<p>"I'm sure he'll do fine. This will be your first one-on-one meeting with a psychic, won't it?"</p>
+
+<p>"Yeah."</p>
+
+<p>"Nervous?"</p>
+
+<p>Red reflects on his mood, then frowns. "Well I wasn't before, but now that you ask..."</p>
+
+<p>"I just want to warn you that psychics can be difficult to interact with."</p>
+
+<p>Red's brow rises. There are a lot of unflattering sites that discuss psychics and their powers. He tends to ignore most of them, especially those that express superstitious fears, but he remembers commenters in more general forums that expressed a distaste for the <em>attitude</em> or <em>personality</em> of psychics. Red always figured it was a mix of unease and jealousy, but he doesn't expect Professor Oak to have such prejudices. "Difficult how?"</p>
+
+<p>"It's like dealing with someone from a different culture, with different social norms and concepts of personal space."</p>
+
+<p>"Is he going to try and mentally hug me or something?"</p>
+
+<p>Professor Oak chuckles. "More of a mental handshake. Psychics tend to dip into the surface level of people's thoughts in much the same way we use facial tics and body language for cues about someone's emotional state. By all accounts it isn't entirely in their control: just be aware that what you find offensive might not be intended to be."</p>
+
+<p>"Alright," Red says slowly. "And how do I tell if they <em>are </em>doing something I should take offense at?"</p>
+
+<p>"Well actual mind reading, though difficult and unreliable, is always a conscious choice. If he seems to pick up on something too specific to glean from surface impressions, you have every right to end the interview. If you want to take extra steps to ensure your privacy, the best bet is to just keep your attention focused on your goals and the current conversation. It can help to write down questions ahead of time, and keep your gaze on them so that your mind doesn't wander far."</p>
+
+<p>"That's not foolproof, is it?"</p>
+
+<p>"No, any more than me asking you not to think of a pink donphan would stop you from doing so. If there's something specific you desperately don't want him to know, you would need much more preparation and practice to avoid him learning it as it pops up from time to time in your thoughts."</p>
+
+<p>"Ah. So this is why people sometimes hire psychics through intermediaries."</p>
+
+<p>"Absolutely."</p>
+
+<p>Red's fingers tap the plastic railing of the bed. "Would you advise against meeting him?"</p>
+
+<p>"If so, I'd have said so by now. I don't mean to bias your perspective, just prepare you."</p>
+
+<p>"Alright. Is it okay if I call you after?"</p>
+
+<p>"By all means."</p>
+
+<p>"Thanks professor."</p>
+
+<p>Red paces the room after he closes the call, biting his lower lip. Is there anything he knows that he absolutely doesn't want to be read by a psychic?</p>
+
+<p>Not really. Red considers himself a private person, but as long as the psychic is as discreet as his professional confidentiality requires, he doesn't really see any harm in having his memories or thoughts dredged up. It's not like he has any secrets a stranger would find interesting.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Psychic Narud looks about the same in person as his pictures online, but for one thing: he appears to be much younger. Red had a vague idea that the psychic was in his early thirties, but when he walks through the door Red drops at least a decade off that. When Red meets his eyes, however, there's a weight to them that seems incongruous with the impression of youth. The psychic has decades packed behind his gaze, like an old mind in a young body.</p>
+
+<p>The thought is so odd that Red blinks and looks away, suddenly distrusting his perception. It's a disconcerting feeling that makes him feel on edge, and Red has to unclench his left hand to extend it as they exchange greetings. He tries to focus on more mundane details.</p>
+
+<p>Narud's dark indigo hair is cut short everywhere but the front, where it hangs down the sides to frame his smooth face. He's dressed in black shirt and pants, with a white overcoat that flares out at the collar and coat tails that trail down to his upper thighs, almost but not quite a robe. Red's seen a few psychics wearing a similar outfit, but not all of them do. He vaguely remembers there being different schools or sects, some of which have their own dress code or uniform. There's writing on Narud's white coat, not in the universal Unown, but in the old regional Kanji. On the left is written "ataru mo hakke," and on the right "ataranu mo hakke." It's somewhat encouraging to see a psychic so dismissive of fortune-telling.</p>
+
+<p>"I confess to some surprise," Narud says as he sits on the chair beside Red's bed. "I expected my client to be a doctor. Is your arm your only physical injury?"</p>
+
+<p>"Yeah. Do you normally get called to hospitals?"</p>
+
+<p>"I do, though not for mundane ailments. I hope that is not what you contacted me for: as I mentioned on my advertisement, my fee is only half refundable."</p>
+
+<p>Red fights a frown. "No, it's unrelated. I was injured in the Viridian pikachu frenzy."</p>
+
+<p>Narud nods. "A troubling affair."</p>
+
+<p>"Were you in the forest?"</p>
+
+<p>"I was not."</p>
+
+<p>"After I meant, to help."</p>
+
+<p>"No."</p>
+
+<p>Red waits for something further, but Narud stays silent, gaze steady on his. Red realizes he's waiting for an explanation, an excuse to justify the psychic not helping out, and one clearly isn't forthcoming. Perhaps it's unfair to expect one, or maybe Red's seeking justification for the vague irritation he feels toward the psychic, with his overly formal speaking and quick reminder of his refund policy.</p>
+
+<p>Chiding himself for being uncharitable, Red clears his throat. "Well, it was pretty hectic. But no, my arm isn't what I called you for. I have two requests: first, I'd like to check and see if I'm psychic."</p>
+
+<p>"Of course." Narud reaches into one of the discreet pockets in his coat and pulls out a deck of cards. "First, simply concentrate on-"</p>
+
+<p>"Wait, I'm sorry, I should have mentioned that I took the standard tests a couple years ago."</p>
+
+<p>He pauses, then tucks the cards away and reaches into another pocket. "Indeed? Then you want me to apply the more direct approach."</p>
+
+<p>"I do." No matter how hard he tried during the test, he wasn't able to visualize the shapes on the cards from the other person's mind as they stared at it. From what he read that just meant he wasn't a natural, but there are a rare few with weaker abilities that don't develop the skills automatically.</p>
+
+<p>"Very well." The psychic pulls a pen and a folded sheet of paper out of his other pocket, opening it. "You are aware that this will constitute a direct intrusion into your mind, and that I am not responsible for any new mental discomfort or harm lasting less than twelve hours from our meeting?"</p>
+
+<p>"I am."</p>
+
+<p>"And are you currently suffering harm from any mental attacks or damage?"</p>
+
+<p>"Er. I think so? I was hit by something a spinarak did recently…"</p>
+
+<p>"Describe the effects."</p>
+
+<p>Red does so, and the psychic writes them down on the paper. "I believe that's sufficient. Are you aware of what this form is?"</p>
+
+<p>"Yeah, I read it online."</p>
+
+<p>"Good. Please sign here."</p>
+
+<p>Red scans the document to make sure it's the same one from the net, then scrawls his signature with some difficulty, trying to ensure it looks like the one produced from his right hand. When he's done he hands it back, palms slightly sweaty.</p>
+
+<p>Narud examines the signature, then nods and tucks it away. "Thank you. Are you ready?" Red nods, pulse beginning to speed up as he tries to prepare himself. "Then I will begin. There is no need to do anything: please let your thoughts wander as they will."</p>
+
+<p>Red sits still and makes an effort to relax. A few deep breaths later he feels his heartrate begin to slow, but when he wonders if Narud has begun or not it begins to race again. He knows the mental scan won't feel like anything, but after the last experience of something messing with his head-</p>
+
+<p><em>empty</em></p>
+
+<p><em>dark</em></p>
+
+<p>Red winces at the memory, and the psychic's eyes widen. And suddenly Red <em>can </em>feel something… except <em>feel</em> is the wrong word. It's not a sense of pressure or temperature or texture, nothing like a physical touch. It's like a part of his brain separate from where his "consciousness" resides is suddenly… awake.</p>
+
+<p>Goosebumps rise along Red's arms, and he has to stop himself from yelling aloud. The sensation is distinctly unsettling, like watching a movie of yourself doing something you have no memory of. His sense of <em>me</em>, the "core self" residing somewhere just behind and between his eyes, suddenly feels like it has company in his skull. And that company is movingshifting<em>turningtwisting</em>-</p>
+
+<p>"Stop!"</p>
+
+<p>The sensation immediately ceases. Red's whole body relaxes and he slumps back against his pillow, breathing hard. A drop of sweat slides down the side of his face, and his left hand trembles a bit as he wipes it away. "Was that… you?" Stupid question, but he can barely think past the lingering disorientation. Part of him wonders if his body's reaction is a "real" one to a sudden and uncomfortable experience, or specifically a side effect of the invasion.</p>
+
+<p>"It was." The psychic reaches into yet another pocket in his coat and pulls out… candy. A variety of it. He unwraps something orange and eats it, then opens his palm to Red.</p>
+
+<p>Red is about to refuse, then realizes the psychic might be offering for more than politeness. He takes a honey flavored cube and sucks on it, biting down to crunch on the outer shell and let the sweet, gooey center free.</p>
+
+<p>"Thanks. So, uh. Was that supposed to happen?"</p>
+
+<p>Narud actually smiles, making him look even younger for a moment. "It was not outside the realm of possibility. Now that I have touched your psyche, I have both good news and bad."</p>
+
+<p>Red swallows some of the candy, its comforting sweetness keeping him from getting too disappointed. He knew it was a long shot. "Bad news first, please."</p>
+
+<p>"I apologize, but it will be easier to explain the other way around. The good news is you have the Gift."</p>
+
+<p>Red's breathing stops. "You're sure?"</p>
+
+<p>"There is no question. Even if you did not notice my touch upon your mind, it was immediately evident from the strength of that memory. It was the spinarak's attack, yes? As I thought. The effects of Night Shade vary heavily, and while the fears it evokes in the minds of most are generally harmless, those of us with the Gift have much more fertile ground for trauma to grow."</p>
+
+<p>A confused jumble of emotions are gathering in Red, and he finds himself grinning wide until the last line puts a damper on his jubilation. "Trauma?"</p>
+
+<p>The psychic's face smooths out. "Would it be fair to say your father's passing was a traumatic experience for you?"</p>
+
+<p>Red stares as shock and anger and the echo of deep pain rise up in him. He picked that much up from the brief touch?</p>
+
+<p><em>No. Psychics can only pick up surface emotions and vague impressions.</em></p>
+
+<p>"Well, you certainly did your homework before coming," Red says, voice cold.</p>
+
+<p>It's just a guess, but the psychic dips his head in a nod, completely unabashed. "It's important for those with the Gift to know as much as possible about our clients. We research the lives of those whose minds we will come in contact with to avoid any unexpected shocks from the use of our powers."</p>
+
+<p>"And it helps you look more mystically all-knowing." The psychic's eyes narrow slightly, and Red tries to force his anger down and soften his tone. "Some people might call that manipulative. Not that stereotypes are always borne of truth, but there's a reason many people don't trust psychics. Maybe you should be more upfront with people?"</p>
+
+<p>The psychic's smile returns, slightly bitter. "It would do little to change perceptions. People fear what they do not understand."</p>
+
+<p>"People fear what they don't understand, yes, but that should be more reason to be as honest and upfront as possible, not an excuse to be mysterious."</p>
+
+<p>"I believe you will see the necessity of such practices after you come into your powers."</p>
+
+<p>Red's irritation with the psychic is tempered by the excitement that rushes through him again. "What powers do I have? How can I develop them? Is there a-"</p>
+
+<p>Psychic Narud holds a hand up, and Red stops. "There is still the bad news. I mentioned trauma earlier for a reason. We do not share this information lightly, but those who fail the initial test who are in fact gifted often do so because some traumatic experience halted the natural development of their powers. For many, such intensely negative emotions seems to cut them off from their abilities permanently."</p>
+
+<p>Red stares at the psychic with growing horror and, unexpectedly, shame. A week ago he hadn't even suspected he was psychic, and was content with that. Not two minutes after finding out he is, being told he's psychically crippled makes his gut clench up and his breaths come shallow.</p>
+
+<p>"Be calm. I refer mostly to those who do not recognize their potential until late in life. You are lucky enough to have done so early, though it will still mean many years of work to undo the damage that was done. And I must honestly tell you that you may never fully develop every aspect of your powers. Some may be permanently stunted. But I believe you can recover."</p>
+
+<p>"I… see. Thank you, that's kind of reassuring."</p>
+
+<p>Narud dips his head briefly. "The Gifted are obligated to help welcome new members however possible. Allow me to formally congratulate you, Mr. Verres. The discovering of one's Gift is usually a great day for us, even in such negative circumstances." The psychic smiles. "You must have many questions. Please feel free to ask."</p>
+
+<p>"Many questions" doesn't even begin to cover it. Red is still trying to get his thoughts in order from the double discovery that he both has psychic powers and that they're likely stunted somehow. It's far too much to take in at once, and Red's right hand itches to start taking notes. He'd dictate them to his phone if he didn't have company.</p>
+
+<p>"I do, thanks, but I don't want to take up your time, and I'd like some to put my thoughts in order. Would you mind tabling that for now?"</p>
+
+<p>The psychic nods, though there's a slight crease between his brow. "Yes, the second request you mentioned. How else can I assist you?"</p>
+
+<p>"You said that the effects you felt were from Night Shade. Are you absolutely sure of that? Could anything else have had the same result?"</p>
+
+<p>Narud shakes his head. "Mental attacks are often misclassified into different categories by effect, as is convenient to trainers. But those with the Gift can sense their true nature, and once we become familiar with them they are impossible to misinterpret. The signature here was how it turned your own deepest trauma against you. The strength of the reaction is from an unusually high loss that runs through the very core of your identity."</p>
+
+<p>Red swallows the last bit of the honey candy, feeling simultaneously embarrassed and irritated. "I'm obviously still sad about my dad, but it's not ruining my life or anything. Couldn't it have just been the strength of the spinarak?"</p>
+
+<p>"You misunderstand: think of your psyche like your biological body, with its own specialized organs, its own homeostasis, its own immune system. Our Gift allows us to manipulate our psyche in ways that others can not, but only after intensive practice and training. Before that point, our powers act on a purely instinctual level, and will often act independently to protect our minds from harm. Your latent powers devoted themselves to partitioning the pain of your father's loss into its own separate segment of your psyche, and have been maintaining it ever since. This partition was weakened by the spinarak to use your own trauma against you."</p>
+
+<p>Red opens his mouth to deny the psychic's words, then realizes he's just reacting, not actually thinking about what's being said. He tries to ignore his agitation, but he doesn't like to remember the months immediately following his dad's death. Is it possible his recovery wasn't from his own resilience and the help of his therapist, but the effects of fledgling psychic powers? Now that he's paying attention, he notices the way his mind shies away from the thought and comes up with excuses that reaffirm what he already believes.</p>
+
+<p>"Hold on please, I need to digest this," he says as he lies back and closes his eyes without waiting for a response. He begins to take deep breaths, simply focusing on the feel of the bed beneath him and the flow of air in and out of his lungs.</p>
+
+<p><em>I notice that I am upset.</em> That's step one: acknowledging that he isn't thinking clearly anymore. To get back to some semblance of objective thought, he needs to follow through with the rest of the flowchart his therapist helped him construct when he was younger, using each point as guideposts to lead him back to clearer thinking.</p>
+
+<p>Step two: identifying why he's upset. Is it on the behalf of others, or himself? Clearly himself.</p>
+
+<p>Step three: is he upset at something tangible, or because he encountered an idea he found offensive? Again, clearly the latter. He's not being harmed in any way. It's just his ego at stake. So he can take his time in responding to the offending notion.</p>
+
+<p>Step four: is he upset because of something he's afraid of being true, or because of something he knows is false?</p>
+
+<p>If he's upset at something because it might be true, then his sense of self is going to be reduced. Part of his identity is attached to his resilience. Accepting the idea that his psychic powers helped hide his trauma from him means giving part of that up.</p>
+
+<p><em>If the truth hurts, it's time for change. If the truth hurts, it's time to grow.</em></p>
+
+<p>Red rubs at the stubborn frown line between his brow and sighs. That's the question. Is what he's upset at true? If it is, then he'll have to change to accommodate it. And, as his therapist would say, to thank Psychic Narud for the opportunity to grow.</p>
+
+<p>He opens his eyes and turns to the psychic, who seems unperturbed by his abrupt withdrawal. "Can you prove any of this? Is there any experiment we can perform to demonstrate what you're saying is right?"</p>
+
+<p>Narud's brow rises and he spreads his hands. "You use the words of science to clarify that which is intangible."</p>
+
+<p>"Intangible just means it can't be felt. You're still making truth claims about reality, and that means you should be able to support it with a prediction. Oxygen in the air is intangible too, but if you doubt its necessity to remain conscious, I could make this room air-tight and predict that you will black out."</p>
+
+<p>"The Gifted and ungifted alike require oxygen to live, but one cannot prove the existence of light to the blind."</p>
+
+<p>"Sure one can: just let them hold up an object and tell them what each one is without touching it."</p>
+
+<p>Narud shakes his head. "Your ability to see gives you an advantage over them, but you cannot prove the mechanism by which it's gained. They must simply take your word for it."</p>
+
+<p>"I'm pretty sure there are ways to do that too, for light anyway, but I'm not asking you to prove the existence of the mechanism. I know psychic powers exist. I just need evidence to support this particular assertion."</p>
+
+<p>"Why hire an expert if you do not trust what they say?" Narud asks, sounding more curious than irritated.</p>
+
+<p>Red frowns. "I hired you to tell me if I'm psychic, and I trust you on that because it's something I've heard is within a psychic's abilities. I didn't hire you to judge whether my being psychic is what got me over my dad's death. It's possible that you're just attributing something to it that is unrelated. Do you deny that if I asked a different psychic the same question, they might come up with a different interpretation of events?"</p>
+
+<p>Narud frowns. "The majority would agree with me. But not everyone is equally skilled or capable of more subtle insights."</p>
+
+<p><em>Uh huh.</em> "See, that's reassuring and all, but from my perspective that doesn't tell me much. Just that if you're wrong, you're wrong in an understandable way, like the person who taught you believed in the majority perspective. Without hearing what the others who disagree with you think and why, it's your word against theirs."</p>
+
+<p>Narud meets his gaze impassively for a few moments. Eventually he nods and looks away, gaze distant. <em>I probably offended him.</em> Is an apology in order? He's not sure what he would apologize for: he really does need something to help change his mind, especially when it's on a topic so entangled in his self-image.</p>
+
+<p>After about a minute, the fingers of Narud's left hand drum briefly against the arm of the chair before stopping, and the psychic frowns and shifts a bit. Red wonders if he's having trouble thinking of a way to prove his claims. It can't be that Red's the first person to ask him for evidence of what he says, can it?</p>
+
+<p>"If you want some help-"</p>
+
+<p>"No, I have an idea of what to do. The problem is whether you are prepared for it. I am trying to think of an alternative that does not leave you a weeping wreck."</p>
+
+<p>Red stares. "Um…"</p>
+
+<p>"The most straightforward method would be to remove the partition. But this would mean returning your psyche to the immediate aftermath of your father's passing, and would certainly constitute Unprovoked Mental Harm by law. Even with your permission, I can not do it."</p>
+
+<p>Red doesn't deride the convenience of this answer: on the possibility that Narud is right, Red absolutely agrees that it would be a terrible idea to return to such a state.</p>
+
+<p>But that still leaves him without a good reason to believe the psychic's interpretation. "If you remove a partition, can you put it back up?" The psychic gives him a look Red can't quite interpret, and he rushes to add, "Just out of curiosity. I'm not saying I want you to."</p>
+
+<p>Narud is quiet for a moment, and finally says, "It would be extremely difficult, and severely invasive. Think of the psyche as a body again. It would be like plunging my fingers into your chest to pinch a leaking vein from your heart. More likely to do harm than good."</p>
+
+<p>Red has the impression there's more to it than that, but the answer makes sense on its own. "It's easier to destroy than create."</p>
+
+<p>"Just so. And that counts when dealing with one's own psyche as well."</p>
+
+<p>"So I could learn to remove my own partition, and then build it back up if I don't like the result?"</p>
+
+<p>"Not without months of work developing your abilities. And that is assuming you can handle the result of removing the partition."</p>
+
+<p>Red smiles, and it feels bitter even to him. "I survived it before, I can do it again."</p>
+
+<p>"Can you? The spinarak's mental attack, Night Shade, is considered a Ghost attack because it targets the emotional weak points in our psyche. For most others the effects of this are mild, but those with the Gift have our own powers turned against us. What you felt from Night Shade was enhanced, but still real. Are you so eager to experience that again in full, permanently?"</p>
+
+<p>Red twitches as another echo of</p>
+
+<p><em>alone</em></p>
+
+<p><em>hurts</em></p>
+
+<p>flashes through his mind. The original attack practically knocked him out, and he's still getting echoes of it days later. He thought he just needed to desensitize himself from it, but apparently the damage is done.</p>
+
+<p>Red's body breaks out in a cold sweat as he imagines trying to live with it</p>
+
+<p><em>dark</em></p>
+
+<p><em>cold</em></p>
+
+<p>permanently, and he sees Narud wince and raise a hand to rub his temple briefly. "Did you… get that?"</p>
+
+<p>He lowers his hand. "I did, as before. But it is easily remedied."</p>
+
+<p>"How?"</p>
+
+<p>"Amnesia. The effects of mental attacks are often compounded by repeated exposure. To increase our resilience to them, the Gifted remove the memory of them."</p>
+
+<p>"Wait, you can actually make yourself forget things? Specific things, without it affecting other stuff?"</p>
+
+<p>"With training, yes."</p>
+
+<p>"But… how would you even know if you succeeded? Or messed up?"</p>
+
+<p>Narud smiles. "It is difficult to explain to the uninitiated. If you would like to begin your psychic training, I am available for that as well. It is also how we could test what I have told you: when you have gained adequate use of your abilities, you will be able to sense the partition for yourself. Keep in mind however that while it is up, your Gift will be significantly weakened, and it will take you longer than usual to develop it. With that in mind, I can assure you that my rates are quite reasonable."</p>
+
+<p>Red frowns and looks down, hand rubbing at his neck. "Just to check, is the partition permanently damaged? Is this… symptom going to get worse?"</p>
+
+<p>"Without renewed attack, your psyche should be able to maintain the current equilibrium. There is a chance the damage to the partition will be healed over the months ahead, but yes, there is also a chance that it will weaken, and the symptoms will get worse."</p>
+
+<p>"Also over a span of months?"</p>
+
+<p>"It would require some other heavy mental shock for it to happen more quickly than that. But I do not mean to frighten you: as I said, it is only a possibility that it will get worse, and it may in fact get better. Just so long as you understand there is a risk."</p>
+
+<p>Red nods. "I appreciate the honesty." His mouth is dry, and he reaches for the cup of water on the nightstand. He isn't sure how long they'll be in Pewter, and he can't afford to keep spending money on psychic lessons right now. He could barely afford today's hundred dollar fee. Especially if he doesn't know how soon they'll be useful. Maybe if he starts making money off his research, but for now it's not really feasible. At least he knows for sure the spinarak's attack wasn't psychic. It kind of puts a damper on his hypothesis, but it still might be worth following through to see the results.</p>
+
+<p>He puts the cup back and clears his throat. "Psychic Narud, you've been very helpful. Your offer is appreciated, and I'll have to think over my situation before making a decision. I don't know how long I'll be in Pewter, and am still working on getting my finances in order." Also, he doesn't entirely like the young man. He isn't sure if other psychics are better or worse, but it would be foolish to take Narud as his teacher just because he's the only one he knows.</p>
+
+<p>If the psychic picks any of this up, none shows in his reaction. He merely rises to his feet, hands disappearing into his wide sleeves as he bows his head. "It was my pleasure to assist you today, trainer."</p>
+
+<p>"I might contact you about another matter soon, if you're free."</p>
+
+<p>"When you have a time and day in mind, you are welcome to check my listing. Be well, Red Verres, until we speak again."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>After the psychic is gone, Red does some research online to try and verify as much of their conversation as he can, and takes notes about their conversation. It's unfortunate that he has to type, and one handed at that, since it doesn't have the same memory aid as writing by hand does, but it's better than nothing.</p>
+
+<p>The results from the web verification is mixed, especially on the metaphor comparing the psyche to a biological body: many seem to find it too clinical and mundane, which is not the direction Red was expecting the criticism to come from. Most of what Narud said seems decently supported however, and when Dr. Willow comes in to check on his arm after lunch, Red asks her if they have a psychic on staff.</p>
+
+<p>"Of course," she says without looking up from his cast as she undoes it. His arm looks much better than yesterday, most of the bruises faded to yellows and greens. "Why?"</p>
+
+<p>"I had a guest today, a psychic I hired. He told me I've got a form of mental damage from a spinarak attack, and I <em>do</em> seem to have the symptoms... I was hoping to get a second opinion."</p>
+
+<p>She gives him a severe look. "Why didn't you report mental damage earlier?"</p>
+
+<p>"Er... I sort of forgot about it?" He gives a weak smile. "It's not debilitating, just occasionally painful. But the psychic said it might get worse, so..."</p>
+
+<p>Dr. Willow mutters something under her breath as she applies ointment that makes his skin tingle. "Well, just going off your arm, you should be out of here tomorrow, so I'll flag him for a visit when he's free."</p>
+
+<p>"Thanks Doctor."</p>
+
+<p>"Don't thank me yet. If you think I'm grumpy about not being told sooner, wait till you meet Psychic Laurie. Brilliant man, but not the greatest people skills. Comes with being a doctor and a psychic I suppose: worst of both worlds."</p>
+
+<p>"Seems to be a running theme." Hopefully it doesn't come with the territory of being a trained psychic, because now that he knows he has the potential, or "Gift," Red is resolved to become one as soon as possible. Even if it means cracking open the vault in his head and letting out the horrors within, he doesn't like the idea of his powers doing things without his control.</p>
+
+<p>His mind is all he is, all that he really has and can ultimately rely on. And if he has to lock away some painful memories or emotions in a corner of his mind, at the very least he should do it consciously. The alternative is never knowing for sure how he feels, what he thinks, and why.</p>
+
+<p><em>When the truth hurts, it's time for change. When the truth hurts, it's time to grow.</em></p>
+
+<p>Red sighs. He always dreamed of finding out he was psychic, but instead of being excited, it just seems to come with more worries. "Nothing's ever easy," he mutters, not realizing until after that he said it aloud.</p>
+
+<p>"Well, one thing is," Dr. Willow says as she reapplies his cast. "But you've still got a potentially long life ahead of you, so better get used to it."</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/19/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/21/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -821,6 +702,6 @@ Red stares out into the darkness of the trees, and sees another bolt of electric
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

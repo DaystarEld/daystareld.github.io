@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 67: Postmortem - Pokemon: The Origin of Species</title>
+    <title>Chapter 133: Interlude XXVIII - Null Reference - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,972 +329,472 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 67: Postmortem</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/132/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/134/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <!-- wp:paragraph --><br>
-<p>Blue sits in the uncomfortable hospital chair and stares down at the heavyballs in his hands, morning sun glinting off of each through the window. Aptly named, they're notably heavier than other kinds, with thicker cases. It reminds him of when he first held a pokeball, fingers too small to comfortably grip the round orb, and he knows he'll have to train with them soon to make sure his catches and throws aren't off. A steelix and a snorlax give him more power than he expected to have for months yet, if not years, and chances are he'll appreciate them more in a few days, when his thoughts don't drift to less happy thoughts every few seconds.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>He can't quite remember when he fell asleep, but he woke downstairs half an hour ago feeling tired, but not exhausted. The city is in cleanup mode; trainers present for the storm are resting, while others arrive from all over the region to help catch wilds and assist with rescue and repair. Wireless networks are back up, but reserved for official use for now. Occasionally backed up messages and emails come through to Blue's phone, but none from his friends, who he assumes are still asleep.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue needs to find them, needs to make sure everyone's okay and reconnect his team. He knows Glen is safe, at least, and Elaine and Aiko were with two highly competent gym members, but Red and Leaf...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Mr. Oak?" Blue looks up and sees the doctor. "He's awake. I can give you ten minutes, but then he needs to rest."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue clips the balls to his belt and hurries to the room. It seems wrong to hurry in a place like this, at a time like this. Like he should be walking slowly, out of respect. But there are other places he needs to be, and ten minutes won't go slower just because he does.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>When he reaches the doorway, however, he stops and stares, one hand going to the doorframe.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Gramps is lying in the bed without his coat on, dressed in a simple hospital gown like any other patient. Like he's not a Kanto Champion, and one of the greatest researchers in the world, and just helped save thousands of people.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>For once, Professor Oak looks as old as he is. Older, in fact.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>He looks like he's dying.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue's throat is clogged, and he bites down on his lip to keep from making any noise. When he finally walks forward, however, it's with all the fear and pain and childish shock of seeing a parent brought low.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>He has to keep repeating to himself that Gramps will be okay in order to keep from breaking down and clutching at his grandfather's form as he lies prone, to simply stand beside his bed and take his frail, liver spotted hand. Those faded blue eyes open, unfocused at first, until they lock onto his.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Hey, Gramps," Blue whispers.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Blue." Professor Oak squeezes his hand back without any strength. "Okay? Daisy?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue nods, and has to clear his throat before he can speak again. "She got you out. And I'm fine."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Lines of tension ease away, leaving the professor's face simply wrinkled, his sharp jawline shifting and rounding as his lips part for a sigh. "Good." His chest rises under the sheets as he breathes in deep. "So. Your first. How was it?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue knows what he's asking. "Too easy, at the start." He remembers what felt like hours of staring at a rain-obscured barricade, struggling to keep his feet in place and not rush around to sate his impatience. "Then… harder."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>It took less than a minute for the Oaks working together to pummel the first steelix into submission. As soon as Blue caught it, the end came quickly for the second, and they all stood for a moment in the dwindling rain amid the torn up concrete, catching their breaths and recovering from the adrenaline rush.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>And then Gramps collapsed, opening a gash on his cheek as it hit a chip of broken stone.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Daisy and Blue rushed to his side together, and after determining he was alive, Blue helped recall his pokemon while Daisy pulled him onto her pidgeot so she could take him to the nearest hospital. "Stay alive," Daisy said, hugging him tight and kissing his wet hair before climbing into her saddle. "He came for you."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Her words echoed in his head as he watched them fly off, and were hard to put aside when he went to help the others. Pokemon were coming out of the rift in the concrete that the steelix made when they burst free, and the entire stadium of civilians had to be moved while the trainers there fended them off.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>It was tense a while longer, but with no other truly powerful pokemon around the defenders were able to secure the civilians' safety with minimal casualties.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Relatively speaking.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Tori was killed by a fissure that opened up under her and a ranger who were defending a group of civilians. No warning, just an almighty <em>crack</em> that could have been thunder but wasn't, and they were gone. Efforts to rescue them weren't quick enough before the pokemon beneath the streets reached them.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue almost lost Maturin to a jumpluff, of all things, then did lose both his ekans and one of his bellsprout to it before he and Glen took it down together. Glen lost a couple of his own pokemon, but luckily nothing too powerful. Less luckily, his leg and hip were broken. Blue spent the rest of the battle keeping him safe while they moved, slowly but surely, along the path of the evacuations.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>All told, the exodus from beneath the city lasted almost two hours, and an estimated six hundred people of the roughly seven thousand in the coliseum were killed, with another three hundred wounded. It would have been far worse, without Gramps and Daisy.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue never got so much as a scratch.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Once Glen was seen to, Blue could tell that Peter was pissed at him. It was hard to care while worrying about everyone else, and still is. He's already gotten thanks from other trainers and civilians who saw how he helped stop the steelix and snorlax from coming after them, and he figures any reprimand would likely be done in private. Or maybe Peter would just tell Surge, and leave his judgement to their mutual superior.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Worries for the future. Right now his thoughts are still trying to expand on his answer to the question. Gramps gives him time, knowing that he would eventually.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Harder, because I couldn't take on any of the real threats," Blue finally adds. "I let Aiko and Elaine get sent off, don't know where Red and Leaf are, and Glen got hurt, and… then you collapsed and I thought you might be dead..."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>He trails off, throat tight as he regains control of himself. "I was just one person, by the end, no different from anyone else," he whispers. "Was all I could do to keep my friend alive."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"M'sorry," the professor says, closing his eyes. "Wasn't there… for you..."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>No trick can stop the burning from spilling down Blue's cheeks now, and he clutches his grandfather's hand. "You <em>were </em>there. A lot more people would have died without you and Daisy, and I might have been one of them." He takes a deep breath and wipes his face with his other arm. "And the only thing I did of any real importance was because you were there. Without you… would have been a gap in the story."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"First time," Gramps repeats, as if to remind him. "At 12… still impressive." He sighs. "Not strong enough... for more."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I know," Blue says, letting out a breath. "I need more powerful pokemon, and <em>I </em>need to be stronger against the Pressure, and... I need more <em>social power</em>, to do something meaningful next time, but I don't know what kind would best..." He catches himself before he keeps venting his frustrations, and squeezes his grandfather's hand. "Sorry. Can talk about that later. Can I get you anything? Or do anything for you?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>His grandfather shakes his head. "Not yet." He takes a deep breath. "Just let Elm know… long recovery… and leave a message… for Samson..."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Yeah. Of course." Blue wonders if his twice-removed cousin would even get the message before he's back from wherever he's currently exploring, and his brow furrows as he imagines Gramps in here for day after day. "How long will you be in here?" Surely not more than a week...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Last time was… almost a month. This time… don't know."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue stares in horror. "No, that's… why would you... You can't <em>do</em> that!" His voice is rising as his heart pounds, guilt and indignation warring within him. "Why didn't you <em>tell </em>me, it's bad enough you risked your life, but this is… You can't just throw your life away, the world <em>needs </em>you—"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Sky blue eyes blaze into Blue's, and a soft, weathered hand cups his face. "Will always come for you," his grandfather whispers between labored breaths. "You and Daisy… are my world."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue's tears scald as they slide down his cheeks, and he clasps his grandfather's hand against his face as he tries to regain control. It's not <em>fair</em>, he's not supposed to have to worry about this, to think that every time he faces them Gramps will...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I'm sorry," he whispers.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"You are who you are... And I have no desire... to bury another child..." His lips twitch upward briefly. "So you see… I'm actually quite…" The next word comes out in a shaking breath. "Selfish…" His eyes slip closed.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue doesn't respond, simply holding his hand tight as his mind races to find a workaround. Zapdos came to him, this time, but if he decides to go into another Stormbringer attack… He would have to disable the tracking on his equipment first… no that would just tip Gramps off. He'd have to leave all his trackable equipment elsewhere, and his companions' too. But what if he calls…</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Mr. Oak? It's time."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue glances back at the whispered voice of the doctor, then turns back to the professor, whose eyes stay closed. He gently releases his hand and places it on his chest, then bends to kiss his forehead. "See you later, Gramps."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>He gathers his things and heads down to the lobby. He's expected at Vermilion Gym to debrief and coordinate with others. He doesn't know if Surge is waiting for him or not, but he wants to hurry up and do whatever needs to be done there, so he can make sure his friends are okay.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:separator --><hr class="wp-block-separator" /><!-- /wp:separator --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf spent the night after the storm ended in a haze, drifting in and out of sleep as medicine coursed its way through her veins, repairing the damage to her body and draining it of energy so fast that she was given a meal's worth of calories every three hours. She was faintly aware of Elaine sitting with her as she drifted in and out of sleep, waking only for treatments and bodily necessities, while her dreams were full of dark streets and rain, lightning and danger, all of which seemed more real to her than the hospital room she kept finding herself in.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She's reliving the battle in the clothing store, but with a far worse ending, when a jolt sends her gasping awake. Daylight streams through the window, and a nurse is preparing to wheel her out for what she fuzzily assumes will be more x-rays and injections.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Red?" she croaks, looking around and blinking sweat from her eyes.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Don't worry about them," Elaine responds from her seat by the window, bringing a cup of cool water to her lips, which she thirstily gulps down. "Just focus on getting better." Her voice is thick with worry and exhaustion of her own.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>Them? </em>she thinks, then remembers Aiko left with him. She assumes she missed a whole cycle of them changing who stayed with her, which is disappointing. She wanted to talk to Aiko...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>There's a nurse with her when she next wakes, an older woman who smiles upon seeing her eyes open. "Hello there, hon. Happy to say you're out of the woods, now."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>For a moment Leaf thinks she's back in the hospital she slept in after Viridian. After a few seconds she recognizes that the stiffness in her arm and side aren't from an electric shock, and soon she's remembering the injury and back to full awareness.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Thank you," Leaf whispers. She's starving. Her unbound arm stretches out from under the blanket to drink from the water cup beside her bed. There's a note beside it. "Where's Elaine?" she asks as she opens it.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"The girl who was here all night? Left you that."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>Leaf,</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>Morning! Doctors said you were stable, so I went to put our pokemon in queue at a nearby center. Don't know when they'll start accepting them, but they're going to be backed up for a while, and I thought I should check in case it's soon, otherwise it might take days. If not I'll be back as quick as I can!</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>Hope you feel better when you wake!</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>Elaine</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf smiles. She knows it makes little sense to worry about her injured pokemon while they're in stasis, but it'll be nice to have them healthy again as soon as possible. "Am I free to go, then?" she asks as she puts the note back and drains the water cup.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The nurse finishes marking something, eyes on a monitor next to Leaf, then looks at her in surprise. "Go? Well, we can't stop you, but you really shouldn't. It's still a bit of a warzone out there, and your injuries aren't really healed yet; they just aren't at risk of getting worse unless you're too forceful with them."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Okay." Without her pokemon the word <em>warzone </em>had killed her intention anyway. Leaf reaches for her phone and checks for messages, finding no new ones besides those sent on the emergency channels. Leaf tries sending Red one, and watches the indicator beside it spin endlessly for a few seconds before she gets back an unsent error. She sighs and sits back against the pillows again. "Is there anything I can do around here?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The woman raises a brow. "Do you have any medical training?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Not really. Mostly just for pokemon, and basic first aid."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"No fresh injuries coming in now, thankfully. Not here at least. Just get some rest."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf makes a frustrated sound. "I've been resting for…" She checks the time and blinks. "Thirteen hours? Thirteen hours! I can't just sit here a whole day while my friends are still out there, I'll go crazy."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The nurse pats her leg in a decidedly unsympathetic manner. "From what I heard, you've done enough for now. I'm sure your friends will show up soon as they can." She finishes tapping Leaf's blood pressure into her tablet, then starts moving to the next bed. "If you want to do something so bad, take a walk around, ask people if they want water. Your legs and other arm are fine, and you can use the exercise."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>So that's what Leaf does, slowly and carefully getting to her feet, then shuffling around the makeshift hospital. She notices that a lot of the nurses and doctors are different from the ones she remembers, while the familiar ones look exhausted. Probably nearing the ends of their shifts, but with how many people need help it's possible they <em>have </em>no shifts. She hopes they get rest soon, regardless.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>It's still painful to breathe too deep, and with one arm immobilized she feels unbalanced and clumsy, but for once she's thankful that she's left handed. She spends an hour walking each floor of the makeshift treatment center, fetching water or blankets or extra pillows. It's distracting and repetitive work, which is just what she needs to keep her mind off her worry for the others.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Most of the distraction comes from seeing so many people injured, many of them as bad as Leaf, though anyone worse was likely transported to the actual hospital. She sees a lot of family or friends gathered by bedsides, some having murmured conversation, others asleep, hand in hand. For the first time in what feels like days, Leaf thinks of her mother and grandfather, and wishes they were here.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>An hour passes, and in that time the change in her thoughts is subtle. Seeing heartbreak after heartbreak eventually starts to lead her to thoughts about what caused all this, to <em>why </em>she's worried about the others, which effectively means it stops working as a distraction. It isn't until she sees one of the survivors from the apartment complex that she and Red saved, sobbing like he's being torn in two as he sits at the bedside of a little girl missing a leg that Leaf has to take a moment to herself.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She goes to her bed and sits on it, eyes closed and breathing deep as she tries to identify the burgeoning pain.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>You're saying that as sad as a pokemon's death might be, a person's death... ripples outward more, and is much more affecting.</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>This very name you use, 'pokemon,' shows how little respect there is... I cannot describe to you what the world was like before such a word existed.</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>I don't hold all pokemon accountable for what happened to him…</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Don't you?" she whispers, repeating what she told Red that night. How could he not?</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>How many tragedies are playing out right now, thanks to one pokemon? One pokemon that weaponized <em>thousands</em> of others with no conscious thought, and turned them into murderous, rampaging monsters?</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She closes her eyes as a bloody crib flashes through her thoughts, sending a pulse of anger and grief through her. Blue's ambition is right. This… all of this… once every few years? No wonder so many people are indifferent to pokemon suffering. No wonder they're considered so much lesser.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Something must be done.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue wants to capture or kill the Legendaries, but that might not be possible anytime soon, if at all. It's audacious...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>...but not enough. There are still more deaths from non-Tier 3 events. They </em>all <em>need to stop if people and pokemon will ever coexist.</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>But how? There's an idea burgeoning in the back of her mind, but she can't think of what it is, it's too vague… something about the Stormbringers, about the stampede of pokemon caused by their Pressure...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She sits frozen for a moment, mind racing over the new idea, feeling it out. Their pokemon are immune to most of the effects of Pressure due to virtual conditioning to prevent any aggressive actions without command.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>What if they catch every single wild pokemon in the region, then release them, but with an altered program that only prevents aggressive action against humans or buildings, so they can reintegrate into the wild and maintain an ecosystem? They would still be immune to Pressure in all the ways that matter… and better yet, this would prevent the problems of lower tier incidents as well.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>It could work. No more violence by pokemon against people… and then… peace.</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She feels something soul-deep clicking into place. A possible path to victory, a purpose she can meaningfully dedicate her life to. She knows that she found it, at long last. Not just getting people to stop eating pokemon, which artificial meat might do, and not just making people treat pokemon better, but eliminating any need for people to feel threatened by pokemon <em>at all</em>. Practically no more need for <em>trainers</em>, which combined with artificial meat… would mean that the vast, vast majority of harm against pokemon would be eliminated.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She wants to stand up and pace, foot bouncing off the floor, and recognizes that she's getting too excited. <em>Calm down. Someone must have thought of this before, right?</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Even if so, just because she hasn't heard of it doesn't mean it was dismissed for good reason. Maybe they dismissed it as too difficult, or thought that new pokemon being born would make it too much effort to maintain, especially if no such programs exist yet. She doesn't want to assume that the only reason this hasn't already been done is that no one <em>cares enough </em>about pokemon suffering to recognize how it might benefit humans too.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>But in any case, all it would take is two things: the right programs, and a way to convince the world to do it, one region at a time.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf smiles. <em>Right. Easy as pie.</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She needs to talk to her mom and grandpa about this. And Professor Oak, and Bill if he's not too mad at her and Red for leaving the cruise, oh and Red of course, and Aiko would probably be all on board…</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She checks her phone for messages again. Still nothing.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>A meal arrives for her as she tries to send another message, and she eats mechanically before getting up to take a careful sponge bath in the washroom, thoughts turning her new idea from every angle she can until she returns to helping around the makeshift hospital.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Another hour passes before someone shouts in surprise, causing Leaf's head to snap around toward them. It's a middle aged man staring at his phone, and after a moment he clambors onto a nearby chair.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Hey! Everyone! The list is up!" Conversation breaks out in a babble, and he has to raise his voice further to yell, "Front page of CoRRNet, last update was ten minutes ago!" A nurse is trying to reprimand him for yelling while another calls for everyone to be quiet, but most are already checking their phones with intense expressions of worry and hope.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf hurries back to her room as she pulls her own out, then carefully sits on her bed and opens the webpage, heart pounding. She has to try refreshing the page a dozen times before it loads, after which she just stares at categories of names and wonders if she has the courage for this.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>There are three categories, and her eye gets stuck on the third one: <em>Confirmed Deceased. </em>The number next to it seems absurdly low given what she experienced that night, but she knows that it's still early, and that many of those currently counted in the much more populated <em>Missing </em>and <em>In Treatment </em>columns are likely to migrate.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"<em>Migrate." What a pleasant euphemism I've created. And now I get to ruminate on that instead of just looking at the names.</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Okay. It's very simple: she'll just open a search field and type in names, one at a time.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Before she can, a wail of grief erupts from outside, followed by choked sobs. Leaf closes her eyes and takes a deep breath, then another. <em>I'm going to start typing as soon as I open my eyes. Three… two… one...</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf's fingers shake only slightly as she starts to tap out <em>Blue Oak, </em>and she lets out a breath of relief as the number beside the field became 0 when she reached the <em>O</em>.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Next comes <em>Red Verres, </em>and a knot forms in her stomach until she reaches the <em>V </em>and the number goes to 0 again. She deletes back to just <em>Red </em>to look through the two that popped up. Only one is a first name, the other being part of Redmayne.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She's still stalling. She swallows and starts tapping again.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>Aiko S</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf's fingers stop. The number beside the search window still shows 0, and she feels the last tension relax inside her. There are still other names she wants to search, but if she's being honest with herself, those were the ones she most cared about.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She quickly searches for Elaine and Glen, and is just about to look up Takada when someone says, "It updated!" and she quickly presses refresh and gets an error message.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf curses and lowers her phone. <em>We should just find a big monitor and cast one of their phones to it, reduce the server load…</em> The thought reminds her that she can try sending a message again, and she guiltily does so, even though she knows Red and the others are alright now.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Except she doesn't know that at all, because new reports are still coming in and the page is constantly updating. She could spend the whole day here just refreshing the page and searching her friends' names, and she <em>still </em>wouldn't know if they're okay until she sees or hears from them, so… really, she should just skip all that and wait until she does.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>So resolved, she lowers her phone with what feels like a massive expenditure of will and looks up to see Red standing in the doorway, lowering a pair of bags beside his feet.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf's eyes widen, and they just stare at each other for a moment. There's a burning in her throat as sudden relief spreads through her, not just the absence of anxiety but a wave of warm gratitude that makes her smile and finally stagger to her feet and toward him.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>He catches her in a careful hug, and Leaf closes her eyes. It hurts a bit, but not enough for her to care. "Swords of Justice, Red, don't ever scare me like that again." Her arm wraps carefully around his waist, which is bereft of his pokebelt, for a brief squeeze.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Sorry," Red says. His voice is quiet and calm. "You're… okay?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Yeah. Going to take a while to heal, but… okay." She relaxes her arm, which he takes as a sign to lower his too, and she leans back to look him over. He looks tired, but not as much as before he left with Aiko, and the fact that he's dry and wearing new clothes probably goes a long way toward her feeling of relief. It wasn't just his physical health she was concerned about, but somehow the visual observation of him just looking... clean and dry and relatively put-together translates in her mind as him being emotionally better. "Where have you been?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"The gym. Leaf… can we sit down?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Something in his voice makes her gaze snap to his, not even registering it as a simple request to rest. There's an odd hollowness in his eyes that she missed before, or maybe it just wasn't as strong, but when they meet hers, she sees grief and pain lurking in that emptiness, and her heart freezes.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>And then she looks down at the bags, registering the implication of a second one for the first time.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"What happened to Aiko?" She grips his shirt. "Is she here? How bad is it?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red pulls away from her to sit on the bed, hand taking hers, and she follows without resistance, barely feeling her body as she lowers herself beside him. He won't look at her, which scares her more than anything.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>Not dead. Just don't say that, anything else…</em> "Red. Tell me." It's hard to breathe, like shallow breaths aren't enough but if she breathes deeper her side hurts...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I'm sorry," Red says, and then</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>she watches his lips form words that hammer her chest</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>(no, that's her heart beating)</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>vision going white around the edges</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red's face is panicked and tilting out of view</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>blood rushes through her ears in a roar</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>that ends in darkness. Leaf drifts from glimpses of her new friend's intense gaze, hears harsh words exchanged on rooftops, sees a smile that's sometimes wry, and sometimes bitter, but often genuine and surprised and warm, like she just couldn't believe that life had this to offer her, and when Leaf wakes it's with wet eyes pressed against a damp pillow.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She stays still a moment, recognizing where she is by the feel of the hospital bed and the sounds around her. For a moment she allows herself to think it was all a dream, and she'll turn to find the nurse beside her, but when she turns her head and opens her eyes a crack, she sees Red sitting beside where Elaine used to, looking about half of how she feels.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Leaf, are you—"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"How?" Leaf croaks. Her throat is dry, and she shifts herself to sit up. A nurse must have been by, because there's a pulse monitor around her wrist and a fresh cup of water beside her bed. She sits up and drains the whole cup, then scrubs her face with her sleeve. "How did it happen?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red stares at her. "I think you fainted, you shouldn't—"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"You have to tell me. It won't be real until you do." She draws her legs up and wraps her good arm around them, not looking at him as shock settles in around her thoughts again. The tempting denial. "Now, Red. Tell me what happened."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>He's silent for a minute, and just before she yells at him to just <em>tell her </em>she realizes that she's not thinking, that it must be hard for him too, maybe even harder, but before she can say anything he starts talking, and she's transfixed by her need to know.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"We went to one of the hospitals that got hit by Zapdos. It was on fire, being evacuated. An onix was moving through the city, probably trying to avoid…" Red pauses, blinks rapidly, shakes his head. "Sorry. She was inside, and the roof collapsed."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf stares at him, heart hammering and breath catching in her throat as she tries to speak twice. "Did... you see?" <em>Is it possible you're wrong?</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"No."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Then how..." she trails off as Red raises a finger and taps his temple, and Leaf's last bit of hope fades.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Tears blur her vision and trace new lines down her cheeks, but this time there's no merciful unconsciousness to divorce her from the rising tide of pain. She imagines Aiko trapped under rubble and bleeding out, mind flinching from more horrible outcomes, and then imagines Red staring at the rubble and knowing that she's gone… "Gods, Red. I'm so s-sorry…"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She reaches an arm out, and he's there for her to press her face into his shoulder. As the grief floods through her, she feels and hears his own stifled sobs, and grips him tighter. Even through the pain, she thinks of what he showed her on the cruise; the effect his dad's loss had on him. And now this…</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>That thought makes her suddenly think of Aiko's dad, and the flood feels like it expands into every corner of her thoughts. Gods, what are they going to say to him? He barely seemed to accept her leaving for her journey… the thought of him not accepting that she was gone, just… living on as if she's coming home at some point…</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>It feels like her heart is being squeezed into pulp, the pain so great that her muffled keen is as much from the simple physical feeling as the grief.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>Have you ever lost a person?... There's like a crack in your life that doesn't ever really go away.</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She can feel it, already formed. A dark rift into which all the plans and hopes and dreams of her friend have disappeared forever, a fissure that cuts across the future and splits it off forever from what could have been, and the more she contemplates it, the more it feels like it'll pull her in too, sink her through inky depths that will crush her like an empty soda can.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>And she does get pulled in, and she does get crushed, and for a time all the world is reduced to the compact agony.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>When the storm finally passes, it does so in stages of awareness. First Leaf becomes more cognizant of the feel of Red's shirt. Then her own hospital gown. Then the sounds of others in the building. Then some stray thought clutches her leg and drags her back down until she's ready to try coming back again.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red is quiet and patient beside her, until the world returns little by little again and stays. She keeps her head where it is, feeling like she's cried out, for now. Red seems content to stay still too, and what eventually makes her lift her head is a sound of grief from elsewhere in the hospital.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Another tragedy, only tangentially related. Another ended future.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf opens eyes that feel puffy and sore, and notes with only minor surprise that it's still light out, the bright midday sun shining down on a city full of cracks. There's even a rainbow in the distance, a testament to the insanity of this new world she's sidestepped into. In a saner one it would be night already, and raining again.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"How did you stand it?" she eventually murmurs. "With your dad."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red shakes his head. "Didn't, remember? I broke. Took a long time for the pieces to settle, but even then a lot was blocked by my partition."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf pulls away slightly to search his face. "And did this break you again? Or…"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red meets her gaze, then slowly shakes his head. "It's… different." His voice is quiet, but she can hear the thread of pain under it. "I think I understand how partitions form, now."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"How?" she asks, because it's something to talk about, anything, that's not...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Sometimes it seems like memories and preferences and perceptions are all we are. Like a messy bundle of data files, sensory equipment, and programmed directives that..." He stops, frowns, shakes his head. "Sorry, that's not... Anyway, partitions divide your memories. Memories are almost like a person, right? Just… with no access to the senses, or intentions… it's just a pattern. When I was younger… I didn't realize I had powers, but they were still developing and working to revert harm through partition."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"So they formed… what, another person inside you?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"No. Sorry, I'm butchering it, and I think it's hard to explain anyway." He sighs and closes his eyes. "I lived a pretty sheltered life as a kid. My mom and dad were my world, and that world was good. There were things that made me sad, but life still felt... fair. Sensible."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf's chest aches. What Red's describing sounds very much like what life was like for her, before she decided to leave Unova.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I was practically a baby when Blue lost his parents. Only have vague memories of them, but my dad was… more than a person. He was like an idea given form. A heroic font of wisdom about how to survive, he taught me <em>so much </em>about how to stay safe on my journey…"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"And then he died," Leaf whispers. "No, not just died. Was killed by pokemon." Leaf watches Red study her bed, focusing on the sound of his voice and the ideas he's expressing, to keep herself from dwelling on things that would make her fall apart again.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red nods. "It was like… if some new mythical pokemon shows up and reverses gravity for a few seconds. Forget the planetary effects, I mean just from the earth's surface. And everything goes flying up into the air, then comes crashing down. Bunch of people die, probably, and maybe a lot of houses collapse, I don't know. But the point is you just can't take it for granted anymore that gravity is constant. That pokemon might do it again at any point, and everyone just… The world is different. <em>You're </em>different. And you're less shocked, the second time it happens. But a partition… it holds onto the old mental pattern, or something." He rubs his face. "Sorry, this analogy is breaking down. I have a lot of questions I need to ask another psychic."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf worries her lower lip, watching him. "I think it made sense, sort of. So with your partition weak, you were… more prepared, for this?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Not prepared," he murmurs, gaze down. "And I don't know if the partition being weak mattered. I just… there wasn't as much, built on some idea that we were all invincible. I think if I wasn't psychic it would have been the same. It all feels like it's part of the same pattern now. Maybe that's why it was easier for me, to not go in the building."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf stares at him. "What do you mean?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red sighs and closes his eyes. "I wasn't with her, Leaf," he says, voice finally descending into full monotone. "I tried to stop her from going into the hospital, but I let her go in with just Vermilion Gym's Second. They were going in to rescue his people and others that were still trapped inside and I said not to, I said it was <em>too dangerous</em>, but they went in anyway. No one came out."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She stares at him, unable to understand what he's saying for a moment, then unable to accept it. "You didn't… no, Red, you risked yourself to save <em>strangers, </em>you don't… how could you not…"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Now he does open his eyes, and they're wet and angry. "How could I what, Leaf? How could I not throw my life away too? How many times did we almost die last night? I count three for myself, you probably had more. What would it have taken? A command given a second too slow? A trip or slip at just the wrong moment? If that nidoqueen meant to attack you instead of just turning while you were in the wrong place, <em>you'd be dead.</em>" His anger has faded, anguish coming through instead. "Dead, Leaf, just gone, like Ai..." Her name turns into a sob that brings her own tears back, and then they're holding each other again as the tears flow, and this time Leaf feels like she's comforting him more than the other way around.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>It's hard to fully grapple with the idea of her own non-existence in any circumstance, let alone through the numbing grief. But she can feel a little bit of the horror at how close she came, through the fear in his voice.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Another endless moment passes as Leaf lets the grief take her away again. There were just so many things she was waiting for… conversations that would never happen now. Talking to Aiko about the diglett caves, and the cruise, and her ranch, and lab grown meat, and cloning… Blue probably has his own list, and Red too, and it all adds up to sorrow that has nowhere to go. A lifetime of pain that may fade, but will persist until each of them are gone.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>And all because of what? Leaf finds herself searching for justification in what Red said, for and against, because it still doesn't make sense to her. Red was so brave all that night, despite all the fear he was dealing with… Could it be that he was using his powers to keep himself steady, and then they ran out? Or maybe…</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Red," she whispers. "The Pressure was really hard on you. Did it—"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"No." He sounds so tired, like he's argued this a hundred times before. Maybe he has, to himself. "Zapdos was gone. If anything I felt less afraid for myself, after that. It was me, Leaf. Just me. I decided the risk was too high and I didn't go in. That's all."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf hears the words, but still... doesn't believe him. She saw how affected he was by it, even lost in her own nearly hysterical concern for the pokemon around her—</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"So it's true?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>They both jump at Blue's voice, and Red stands and steps around the chair so Leaf can see him, standing in the doorway like Red was.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Blue! You're okay!" The relief is such an unexpected positive thing to feel that she forgets her injuries and tries to get up too. She quickly stops, hissing in pain, and relaxes back into her bed. "How did you find us?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>He doesn't answer, doesn't even move further into the room to hug Red. He just stares at Red with an expression of barely leashed anger, and it takes her a moment to remember that he asked a question.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Just when she thinks he won't answer, his gaze moves to her. "Just came from the gym. Found out where Red was going. You're okay?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I'll be fine." She searches his face, heart sinking at his clipped tone. This isn't the tearful reunion she imagined, let alone the joyful one. "The others… are they…?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Glen was hurt too, but he's also recovering. Elaine?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"She's fine. Went to a pokemon center."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Some tension leaves Blue at that, and he leans against the wall. "Glad you're okay." He opens his mouth, then closes it and turns to Red. "You still haven't answered me."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"You didn't specify," Red says, and Leaf looks at him in surprise at the leashed anger in his voice too.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Sudden foreboding fills her, and she's about to speak when Blue answers.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"They told me you were there. When the Second and Aiko died." Blue's voice is controlled, but his hands are fists as he crosses them over his chest, and there's anger under the calm like hints of flames licking an underbrush. "That you let them go into the building alone."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Yes," Red says. Just that. As Leaf looks at him, all traces of the sadness from before are gone.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue waits, clearly expecting more of an answer. Blue's jaw sets, and he shakes his head. "You're not a coward. You wouldn't have come if you were. How could you do that?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Guys," Leaf says, forcing herself to speak against the sense of pressure she feels filling the room. "Maybe now isn't the right time for this. We're all still exhausted, maybe feeling after effects of the Pressure. Let's just… let it go, for now. She wouldn't want us to—"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Yes, she would," Blue interrupts, and she sees his fists tighten as the heat enters his voice, now. "You two didn't know her as well as I did, you weren't there after the caves, you don't understand. We all take responsibility for our fuckups. She understood that, started it. Now tell me what the fuck happened, Red!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>A silence of three parts fills the room: Leaf's shock and dread, Blue's angry expectation, and Red's detached hostility. It's broken not by any of them, but by a nurse who walks by the door.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Is everything alright in here?" she asks, looking at Leaf.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"No," she says. "We… lost a friend."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue lets a breath out through his nose and turns to the nurse. "Please excuse my outburst. It won't happen again."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She eyes him briefly, then looks back at Leaf, waiting for her confirmation. After a moment, Leaf nods, and the nurse walks away. It's only after she leaves that Leaf realizes she was probably asking if she was okay, if she wanted them to stay.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>As soon as she's gone, Blue closes the door. When he turns back to Red, the silence returns.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"That's what you want?" Red asks at last. "You just want me to say I made a mistake?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"No, that's not it. But it would be a start." Blue lets out a breath and rubs his face. "It's more than that, but just… explain what you did wrong, and why, and we can go from there."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"If you want a real post mortem, there were three mistakes," Red says, voice soft and hypnotically monotone. "The first was made by Vermilion's Second. It wasn't when he sent his team ahead while waiting for Aiko and me, that made sense. Don't think they could have reasonably predicted the onix. The mistake came when, after arriving at the clearly unsound and doomed building, he decided to go in at all. It was too high a risk. He should have known that. He <em>did </em>know it, but went anyway. He didn't make a plan for the roof collapsing, didn't have a way to deal with that, so he shouldn't have—"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Stop," Blue says, and the anger is back. "You're not doing it right. You talk about <em>yourself, </em>not what other people did wrong. That's for them to do, and he's not here. His friends and gym mates were in the building, and he couldn't just watch and not go try to save them. Some people can't live like that."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Maybe they can't," Red says. "But if that's true, those people shouldn't be leaders. Ask Surge, if you disagree," he quickly says, seeing Blue about to speak again. "But fine, you want me to admit my own mistake? That's the second one. I should have lied to him. The Second asked me if there were still people alive in the building. Don't know if he would have believed me if I said no, but… I should have said no."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>They both stare at him, and Leaf can't keep her silence. "Red, what if someone had made it out? No one would ever trust you…"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Maybe not. But Aiko might be alive right now."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"That's all you care about?" Blue asks. "You would have condemned them all to death, just to save two lives?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"My dad taught me that risk is something you have to <em>actively manage</em>. It's not just about having knowledge, it takes <em>time</em>. Effort. Sometimes resources. If you're not spending anything to manage risk, you're just rolling dice." Red shakes his head, and now some emotion enters his voice as he leans back against her bed, gaze down. "Aiko should have known that. That's the third mistake. She's… she was… smart, she understood risk, and I wish… I wish I could have just paused time and <em>talked </em>to her about it, I'm sure I could have convinced her, but it all happened so fast…"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf reaches out to put a hand on Red's arm as he trails off, sounding close to tears again. "Red, you can't blame yourself for this. It was her choice to come with us, we all tried to get her to come but she's the one that ultimately chose it, just like she made the choice to go in there." She turns to Blue. "Tell him." He bites his lip, staying silent, and anger suddenly sparks in her own chest. "Blue, <em>tell him!"</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue rubs his eyes, then lets out a breath. "She did it because she chose to. But you're wrong saying it was a mistake. She followed what she felt was right. She knew it was a risk, and maybe it was the wrong call this time. <em>Your </em>mistake wasn't that you failed to <em>stop </em>her, Red, it was not going in after her. It's the same mistake you make in battles, that you could have learned in Pewter if you went for the badge: you're too hesitant to take risks."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"This wasn't just a risk, it was suicide."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"You didn't <em>know </em>that ahead of time, you're saying it now, after the fact!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"The <em>roof collapsed, </em>Blue, if I'd gone in then I'd be dead too!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"<em>Then you should have died!"</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The silence is back, and this time Leaf pushes through her shock. "Blue, you don't mean that."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Would you have done different?" Blue asks, eyes piercing her. "Be honest, Leaf. For her, for him, for me. Would you have stayed outside?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf's throat locks. She can't <em>know </em>what she would have done... she could say that, could try to stand up for Red, but...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue reads it on her face, and nods. "That's what it means to be someone's <em>friend,</em>" Blue says, looking back at Red now. "That's what you don't get, Red. You're talking about risk and the smart thing to do like it's a game, like your decisions don't say things about who you are, how people see you. Forget strangers you're on a mission with, how could anyone trust you to have their back on a journey, if they know that's how you see things?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Of <em>course</em> that's what you care about," Red says, bitterness spilling out with every word. "Your precious fucking persona. Word gets out that one of your journeymates will leave a friend to die and people wonder if you feel that way too, right? That's what being a hero is, to you, what <em>looks </em>heroic, not what actually saves lives."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Shut up," Blue says, face red and voice deadly calm. "That's not how it is."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"No? That mean you're going to stop pretending that your definition of a hero is the only one?" Red sticks a finger forward. "Did you consider that maybe she heard your voice in the back of her head, telling her she had to go in there or she didn't belong at the great Blue Oak's side?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Get that finger out of my face before I—"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Stop it, both of you!" Leaf cuts in, heart pounding. Both boys have moved closer to each other, faces flushed, and she forces herself out of the bed to stand between them, looking back and forth. "You're <em>best friends</em>, you can't let this change that, Aiko wouldn't want this, you <em>know </em>she wouldn't!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue swallows, hands balled into fists at his side as he takes a slow breath. "Just… admit your mistake. Just say it, Red, it's okay if you were afraid," Blue's voice shakes slightly on the word, "You can overcome that, we'll help you, but you can't go forward like this, thinking that what you did was right."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>For a moment all Leaf can hear is her heart pounding and their breaths. The world outside the door is oddly quiet, as if the whole building is waiting for Red's response.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"That's where you're <em>demonstrably</em> wrong," he says at last, and steps around Leaf. Blue's arms flinch up, but Red just takes his bag from the floor and pulls its straps onto his shoulders.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Red..." Leaf steps forward, struggling to find the right words, frustration mixing with panic. <em>Say something, if you want to persuade the world to do the right thing then you should at least be able to stop a friend from making a mistake!</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>He pauses and glances at her. There's something in his gaze that reminds her of that night on the cruise, and she feels heat go up her neck in the moment it takes for him to look away. "You don't have to worry about me tarnishing your reputation, Blue. Maybe you're right, maybe I'm not fit to be a trainer after all. Either way, my journey's done."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Red, don't," Leaf says, but he's already opening the door, and he closes it without looking back.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:separator --><hr class="wp-block-separator" /><!-- /wp:separator --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red spends the day walking through the city. It's shocking to see the damage in the daylight; all the bodies seem to have been collected, thankfully, but there are entire blocks that are a wreck. That said, watching the repair efforts that are already underway is soothing, in its own way. It's a reminder that not everything that happened last night would leave a scar.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red doesn't have a specific destination in mind. He mostly just walks to keep himself busy as his thoughts churn, and his emotions ebb and flow. Occasionally he thinks of the conversation that just happened, of Blue's tone or the look on Leaf's face, but those pains are minor.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Mostly he just thinks of Aiko, and practices manipulating his partition.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>At one point Red reaches the shopping mall that he and Leaf took shelter in, and goes inside to ensure that the group who hid there is okay. A path is cleared through the spike trap they laid, so he assumes they got out okay, at least. Afterward he goes to a pokemon center and puts his pokemon in queue. It would take a few days, but he waits a couple hours anyway to speak with a doctor who examines Pikachu's ball, and reports confidence that he would walk again. It doesn't undo last night or this afternoon, but it's a small stone off Red's heart. He misses his pokemon's weight on his shoulder.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Wireless signal gets fully restored by dinner time, and Red eats a meal bar in a park as he composes a message, then sends it.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>He doesn't call his mom. He would probably have to tell her that he got off the cruise at some point, but right now it seems a better problem for Future Red. He does let Bill know, and apologizes for not seeing the whole convention. He reads updates about the search for Elite Karen, which resolves just as the sun begins to set: she was found in critical condition, but alive, atop her slain pokemon. The death count for the city is up to seven thousand. It's being cautiously referred to as the least deadly Stormbringer attack on a major city in history. Mass funerals are already being planned, and there's a speech by the mayor and gym leader tomorrow afternoon.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The sun is setting by the time he gets a response to his message. As he gets up he spies the messages waiting for him from Leaf. Each expresses caution and reassurance that Blue will come around. He sends her a quick response telling her he's okay and would visit tonight. There are none by Blue.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>It's a forty minute bike ride from the park to the cafe, and by the time he arrives it's fully dark. He does his best as he packs up his bike and pads to ensure his mental state isn't too uncomfortable, then walks into the cafe.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Most businesses aren't re-opened yet, but Sabrina is already there, waiting with a cup of something. Or maybe she's not waiting: Leader Giovanni sits beside her, along with Leaders Koga and Erika. Their conversation stopped before he even entered, and so he steps into silence as he stares at the four Leaders, heart pounding in his chest.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Sorry," he says, and gives a slight bow. "I didn't mean to intrude."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Not at all, Red," Sabrina says as Giovanni and Koga nod in greeting, and Erika twiddles her fingers. "I already told them this would only take a moment. In fact, it's already done." Her gaze is sympathetic, but warm. "I'm truly sorry for your loss. But your assessment is correct. Your partition is now partially under your control."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>A thread of hope pierces the grief, for a moment. "You'll take me as your student, then?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Sabrina sips from her cup, gaze thoughtful, then seems to reach a decision. "I will. When can you start?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:separator --><hr class="wp-block-separator" /><!-- /wp:separator --><br>
-<br>
-<!-- wp:paragraph {"align":"center"} --><br>
-<p class="has-text-align-center">End of Part I</p><br>
-<!-- /wp:paragraph -->
-        </div>
+            <h1 class="chapter-title">Chapter 133: Interlude XXVIII - Null Reference</h1>
 
-        <div class="chapter-nav">
-            <a href="../132/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../134/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p><p style="text-align: center;">Chapter 133: Interlude XXVIII - Null Reference</p>
+In Artem's dream, the lab is being visited by some big names. It's not quite clear who—Lance maybe, Professor Oak and Elm, probably, maybe even Wally? He's rushing around, trying to get everything in order for their arrival, helping the rest of the team prepare to show off their research breakthrough… he's not quite clear what the breakthrough <em>is, </em>but feels pretty strongly like it's going to change <em>everything</em>—</p>
+
+<p>—until the dream is shattered by the sound of his phone ringing. Not an alarm, not a message notification, but full-on <em>ringing, </em>and his immediate reaction, once he gets past the befuddlement of finding himself in bed rather than at the lab, is sleepy indignation…</p>
+
+<p>…up until the implications catch up to his foggy brain and he scrambles to pull the phone toward him and open the call. "Hullo?" He clears his throat. "Hel—"</p>
+
+<p>"Check your messages."</p>
+
+<p>Artem blinks. "Lian?"</p>
+
+<p>"Check them. And, sorry, Tai asked me to poke everyone who's not in yet."</p>
+
+<p>The call ends before Artem can respond, and he sits up fully as he rubs his eyes with one hand and swipes at his phone with the other until he sees it:</p>
+
+<p><em>[everyone] Novel unown activity. Report in ASAP.</em></p>
+
+<p>He stares at the message, then the time, then the message again, then pushes himself out of bed and lurches toward his closet, alarm and fear shifting closer to nervous excitement.</p>
+
+<p><em>Novel activity. </em>As in something that's never been seen before… ever, or just at their lab?</p>
+
+<p>New patterns in the unown clouds? New sounds that haven't been recorded before?</p>
+
+<p>Or pokegenesis, at long last, from one of the lab's samples?</p>
+
+<p>The sooner he gets to the lab the sooner he'll know, and he tries to keep his expectations low as he pulls his coat on. They'd mention in the message if there were a new pokemon, surely…?</p>
+
+<p>His stomach feels full of fizzy water as he rushes out the door, distantly wondering if he's still dreaming, deposited from the middle of the events back to the beginning of a new loop. He's been having dreams about some major breakthrough on and off for months, from even before he started working at the unown lab. Like his brain got a taste for notoriety at some point, and was looking forward to the next hit.</p>
+
+<p>Not that it's a mystery about what that point was. When his research took him to Lavender Town, meeting the Pallet Trio had felt surreal enough. Their fame was still relatively mild at the time, but he'd felt vaguely dissatisfied with his trainer journey that only grew in contrast to seeing from a distance what they'd accomplished during theirs.</p>
+
+<p>That dissatisfaction, along with his desire to tackle bigger mysteries than the work that got him his researcher license, is what gave him the extra push upon seeing the message about investigating Lavender Tower to bid his journeymates a temporary goodbye and taxi halfway across Kanto to meet them.</p>
+
+<p>It wasn't until the battle in the tower, a far more dangerous and unique experience than anything else in his life until that point, that he realized how much that impulse that got him to Lavender, that <em>dissatisfaction, </em>had been looking for more than just some big achievement to list on his profiles and CV. Not the battle itself; that had been terrifying, and he'd barely kept his composure together afterward. It took two weeks before he wasn't having nightmares every evening, and he gave up on his trainer journey altogether to focus on more research for a while.</p>
+
+<p>But it all felt worth it, after, because he'd found what he really wanted all along as a result<em>. </em>Getting to meet Professor Oak, pursuing unown research with Red, getting increased attention and opportunities after his observational studies, that was all icing on the cake.</p>
+
+<p>What made life feel more, well, <em>alive </em>after<em>,</em> was the memory of brushing up against something truly unknown. He'd been part of first contact with it, had helped defend against it and contributed to understanding it. It made him feel simultaneously like the world was too big for him to ever fully grasp, but also more empowered than ever to actually get up in the morning and <em>try</em>.</p>
+
+<p>Everything he's done since has been in pursuit of someday getting a text like he did this morning. Another moment where he'll get to stand on the cusp of the truly unknown.</p>
+
+<p>Or, once he's outside and has a clear path toward the lab, get to <em>bike </em>toward it, practically standing as he pedals hard and fast.</p>
+
+<p>Winter has finally come to Cinnabar, encroaching little by little through the early morning hours until a few snowflakes are melting in Artem's hair as he finally steps through the lab doors, breathing in deep gulps. He lets out a grateful sigh as he feels the insulated warmth seeping through his jacket, shows his ID to the guards, then hurries for the lockers to swap his jacket for a lab coat, looking around all the while for any clues as to what's happened. He lives close to the lab, it wouldn't surprise him if he's one of the few here who wasn't already on shift…</p>
+
+<p>"Nuri!" he calls out as he spots his coworker hurrying from one room to another. "What's going on?"</p>
+
+<p>"Have you seen them?"</p>
+
+<p>"No, just walked in twenty seconds ago—"</p>
+
+<p>"Go look, you'll see!"</p>
+
+<p>Then he's gone, and Artem jogs the rest of the way to the central unown chamber where all the samples are laid out in their various biomes, heart pounding as he finally steps through the final soundproof doors to the central chamber, and is immersed in the sound of the cloud.</p>
+
+<p>The first thing he registers is that the sound is <em>off. </em>The chaotic blend is usually so diverse and numerous that it's almost impossible to pick out any particular noises in the static of the combined sounds, but now he almost immediately picks out distinct warbles, pops, clicks, murmurs…</p>
+
+<p>He looks up at the dome above the terrariums, half expecting to see most of the unown cloud gone. Instead it looks as numerous as ever, but… almost organized? The diffuse cloud is no longer bouncing off each other on the individual level, but rather moving in strings and cluster, some moving in almost-patterns that his brain seems to insist it can predict until a minor change keeps the next iteration from being predictable.</p>
+
+<p>Artem tries to focus his attention on a small subpart of the cloud, watching as an H, T, M, A, and Z fly in a curving orbit around an almost-diamond-shaped cluster of Hs and Ls, some of the Hs swapping between both as they pass each other. This continues for a few revolutions, the string altering its trajectory each time, the diamond rotating in new directions until a passing R, U, W, P, E, R string collides with it, and the whole triple assembly of unown disperse and reform into new shapes and strings.</p>
+
+<p>And everywhere he looks, it's similar. Order among the chaos, or chaos among order, but nothing like the cloud of the past few months, or any other large scale gathering of unown he's seen.</p>
+
+<p>Artem isn't sure if he stares for just a few seconds or several minutes before he takes note of the various researchers rushing around, both on the walkway and below. Excitement pumps new adrenaline through him as he realizes some of the terrariums are broken, and he grabs Zhen's arm as she rushes past. "Which ones?"</p>
+
+<p>"Omanyte, kabuto, aerodactyl."</p>
+
+<p><em>Three!</em> No new species, but it's still more than he dared hope. "<em>Aerodactyl? </em>Did it cause the damage?"</p>
+
+<p>"Most of it, also ate some of the unown cloud before it got caught. We're still trying to catalog which ones we've lost." Zhen gives him a pointed look.</p>
+
+<p>"Right." He releases her arm. "I'll get on it, just gotta… this is huge!"</p>
+
+<p>Zhen grins and winks before rushing away. Artem watches the cloud for another few moments, then jogs toward his office, breaking into a run when he reaches the long hall. He's hoping he can identify what they lost from the cloud quickly so he can start looking over the logs and recordings of what happened around the genesis points. Or was there just the one…?</p>
+
+<p>Two minutes to pull up the list of active tags in the building and double check which are still active, two more to write up a quick report to share on the lab's intranet, and then he can finally open the logs and start reviewing the sensor data on one monitor while the raw video feeds plays at 5x speed on the other. He's distantly aware of his phone ringing as his eyes dart from electromagnetic sensors to decibel ratings, and reaches for it without looking as he skips the footage ahead to match the time of a spike coming up—</p>
+
+<p>He glances at the screen even as his thumb prepares to end the call—if it's not someone from the lab it's probably not important enough to answer right now—until he sees that it's from Red.</p>
+
+<p>They haven't spoken in over a week. To get a call now, this early in the morning?</p>
+
+<p>Not a coincidence.</p>
+
+<p>He puts it on speaker so he can set the phone down and keep working. "Red, what—"</p>
+
+<p>"Are you at the lab?"</p>
+
+<p>A thrill runs up his spine as his suspicion is confirmed. "What's happened?"</p>
+
+<p>"Are you?"</p>
+
+<p>"Yeah, I'm in my office—"</p>
+
+<p>"One sec."</p>
+
+<p>The call ends, leaving Artem staring at the phone. It takes him just a moment to realize what's about to happen, and he stands and looks around, tense and waiting…</p>
+
+<p>…and waiting…</p>
+
+<p>…until he realizes Red has never been to his office before, and relaxes, just in time to hear a knock at his door.</p>
+
+<p>He strides over to open it, and there's Red Verres, dressed in his black and red hunter uniform, complete with the abra-backpack combo and that (kinda scary, kinda cool) high tech helmet with the dark visor. "Red, <em>what</em>—"</p>
+
+<p>"The unown did something?"</p>
+
+<p>Artem is still staring, brain still trying to integrate all the things his friend's call and arrival might mean with what's happened today. "They revived some fossils, and if you passed by the central chamber you'd see, they're <em>incredibly</em> active, we've never seen anything like—"</p>
+
+<p>"Listen, who's in charge of the lab? Are they here?"</p>
+
+<p>It finally registers that Red being here likely means something is <em>wrong, </em>wrong in the way their trip to Lavender went wrong, and cold fear floods Artem's stomach. "How bad is this?"</p>
+
+<p>He can't see his friend's face through the helmet, but his voice sounds hard as he says, "Worse than you're thinking. I need to talk to your director as soon as possible. Can you help?"</p>
+
+<p>Much of Artem's status has been well earned, not just from his participation at Lavender but for his research as well. But he got an additional, sizable share secondhand, just from being Red's friend before he became… well, there isn't really a label for it, but "one of the most famous young trainers in the world" is fair to say.</p>
+
+<p>He never really felt the price of that, other than a few questions and comments that compelled him to defend Red from the suspicions of others. A favor now and then, asked for or not, assuaged his conscience. Pushing himself to help with extra wild battles now and then did too; Lavender was, among other things, a strong reminder not to let his trainer skills suffer for his research.</p>
+
+<p>But it feels like he suspected, in a half-conscious way, that the true price would come due sooner or later, because he barely registers the question, doesn't even consider the potential implications or fallout, before he says, "Follow me."</p>
+
+<p>Back to jogging through the hallway, this time to the director's office. Dr. Tai is an older man, lean and as bald as Leader Blaine but with a gray beard lining his jaw instead of a mustache. Artem is half expecting him not to be in his office, but he can hear people talking inside, and when he knocks there's a pause, followed by a "Come in."</p>
+
+<p>Artem steps inside to see his boss standing in front of one of the wall monitors. There's no one else in the room, meaning they just interrupted a call. "Artem, what's the ma—" He blinks and stares at Red. "Are you…?"</p>
+
+<p>"Red Verres. I'm sorry to be so abrupt, but there's no time for a full introduction; there's been an incident at an unown lab, and I want to make sure it doesn't happen here too. What's the process for releasing the unown, and how long would it take to do it in an emergency?"</p>
+
+<p>Tai stares at Red incredulously, which Artem only gets a glimpse of because he turns to do the same. <em>Release the unown? </em>"What happ—"</p>
+
+<p>"<em>Release</em> them? <em>Now? </em>Do you have any idea what just—"</p>
+
+<p>"I've been informed," Red says, sounding calm in a way that feels at odds with how urgently he arrived here. "I didn't know before I arrived, but I suspected, it's why I'm here."</p>
+
+<p>"What happened at the other lab—" Artem starts to ask again, before his boss cuts him off with "It took us <em>months</em> just to—"</p>
+
+<p>Red holds his hands up toward both of them. "Guys. I'm here because I can teleport anywhere I want, including directly indoors, but Agatha should already be in Cinnabar and is likely arriving soon, and I can have Director Tsunemori on the phone if you'd rather talk to her. Please treat this as seriously as if they were all already here in the room, and tell me <em>how long?"</em></p>
+
+<p>He didn't raise his voice, but there's a steel in the words that helps Artem feel, for the first time, the true weight of authority his young friend now has. Authority enough to teleport right through the lab's security, walk into the director's office, and demand compliance… maybe even get it, if it's an important enough reason.</p>
+
+<p>A flare of indignation rises up as Artem thinks of what this might mean. It was bad enough when the Champion forbade any unown research months ago, after all the effort he and everyone else put into trying to learn more about them. Labs like these were carefully designed compromises, attempts to show that they <em>could </em>be researched with safety in mind. To just give up on the research, <em>now, </em>when they're <em>so close?</em></p>
+
+<p>The director is squeezing the edge of his desk, knuckles turning white… but he seems about equal parts worried as indignant, now. "Is Elite Agatha visiting in an <em>official</em> capacity?"</p>
+
+<p>"Yes."</p>
+
+<p>"Red, how bad was it at the other lab?" Artem asks, finally getting the question out.</p>
+
+<p>"We have word of multiple casualties."</p>
+
+<p>The words douse Artem's frustration as his thoughts turn anxiously to friends and acquaintances at the other unown labs. Neither he nor Tai have an immediate response, other than to ask, "Which one?"</p>
+
+<p>"Rustboro." Red reaches up to remove his helmet before holding it under one arm. Without it he looks, well, less intimidating, and his age is contrasted even more with Dr. Tai's… but the determination in his eyes wasn't visible with the dark glass over his face, and seeing how calm he is despite his words lends even more authority to him. "I know how frustrating this must be, but I'm not here as your enemy. I would be on my way to Hoenn if not for the fact that I might start an interregional incident if I go and investigate it directly. But I believe that whatever you've had happen here is connected, and the start of something <em>dangerous.</em>"</p>
+
+<p>The relief in hearing it happened in Hoenn is shallow. He never met anyone there in person, but there are forums and other online spaces where unown researchers have all chatted, now and then, both formally and informally… "And our lab has Indigo's largest wild unown population," Artem says, feeling the fear prickle through his stomach again, cold araquanid legs that skitter around and make his heart beat faster.</p>
+
+<p>The director's jaw works, lips twisted to one side. "With all due respect, it sounds as though you have a hunch, not evidence of danger. A lot of time and money has been poured into this research, and I've only been empowered to make a call such as you're suggesting due to an <em>imminent </em>and <em>obvious </em>threat, which we're nowhere near to seeing. Maybe the other lab wasn't properly prepared, but so far we have been."</p>
+
+<p>"I'll admit that I don't know what happened here, so it would be stupid of me to make presumptions," Red says after a moment. "But my assumption is any safety measures you have are not going to scale properly. Maybe I'm wrong, though. Can you explain what happened?"</p>
+
+<p>"We've only just begun investigating it ourselves, but the overview is that a few hours ago the unown began to shift their behavior. Most began flying in formations instead of staying an endlessly shifting cloud, and their sounds changed as well."</p>
+
+<p>"According to our instruments, some of the sub clouds or strings began canceling each other out, audibly," Artem adds. Both Tai and Red are looking at him in fascination, and he smiles. "It's really cool, actually."</p>
+
+<p>Red briefly smiles back. "And then they started reviving pokemon?"</p>
+
+<p>"No, not for a few hours yet. I was in the middle of looking into what was happening around then when you arrived, but a few others are also looking over the data. Maybe one of them will pinpoint what it was."</p>
+
+<p>"Sorry."</p>
+
+<p>Artem thought he kept the disappointment from his expression and tone, but, well, Red's a psychic. His sincerity at pulling Artem away from something so interesting reminds him why they're friends. "That's alright. This is important too."</p>
+
+<p>"Once the pokemon began appearing, our automated systems took care of them," Tai says. "State of the art proximity tracking and capture systems—"</p>
+
+<p>"Yes, I'm familiar with them."</p>
+
+<p>The director spreads his hands. "You mentioned scaling, but we're equipped for every specimen in the central chamber to be captured even if all are turned into a pokemon at the same time, let alone in waves. I'm not sure what else would be expected of us."</p>
+
+<p>"Stop me if this is obvious," Red says slowly. "But you know the unown might turn <em>anything </em>into pokemon, if they're the ones doing it at all. What makes you think they won't turn other things into one, besides the samples we've left so carefully for them? What if they turn the <em>autocatchers </em>into pokemon? Who catches them then?"</p>
+
+<p>"We have trainers on staff and on standby every day as redundancy backup, despite the extra costs," Tai says, and rubs his eyes. "We've had a recorded, <em>controlled </em>instance of pokegenesis. You were a scientist, once, you must know how vital it is to continue observing and testing our hypotheses."</p>
+
+<p>At the words <em>you were a scientist, </em>Artem winced at the same time Red's jaw clenched, and he steps forward. "Sir, I've worked with Red on numerous occasions, and I've rarely met anyone as interested in discovering the origin of pokemon genesis, or learning new things about the world in general. But if he's this worried… Rustboro lab was funded by Devon. They must have thought they were prepared too."</p>
+
+<p>"I understand the risk, but as I said, risk was anticipated. My authority only allows the drastic, costly action being suggested with something substantial."</p>
+
+<p>"I see." Red closes his eyes and runs a hand through his hair. "You have no idea how much I'd love to just spend the next few days here helping learn whatever we can from what happened. But the unown can be recaptured if need be, and your staff are more important. Is there <em>anything </em>you can do?"</p>
+
+<p>Tai taps his fingers against the desk in a rapid beat, three, four, five times, then shakes his head, but says, "I'll alert everyone of the danger. Rescind the all-hands, make sure they know work shifts today are voluntary, for those willing to take on extra risk. But I won't release the unown without a more obvious sign of danger, or a direct order from the League. If the Elite is coming to give that order, then we'll do as much research as we can in that time."</p>
+
+<p>Artem thinks Red is going to argue more, but after a moment he just nods and says, "I'll be investigating in the meanwhile." He holds a hand up again as Tai opens his mouth. "I understand you're concerned about trade secrets and publishing priority, but I swear to you I will keep anything I learn in this role confined to it."</p>
+
+<p>"I don't really have a choice, do I?"</p>
+
+<p>Red pauses a beat before saying, voice a little stiff, "I can cite Article 7 and call Director Tsunemori if my word isn't good enough."</p>
+
+<p>Director Tai is already flapping his hand and turning back toward the monitors on the wall. "Go, go. Please tell the Elite that I'm at her service when she arrives."</p>
+
+<p>Red nods and turns to leave, and Artem follows him. Once they're a few steps away, he murmurs, "You kept your temper better than I would have."</p>
+
+<p>His friend glances at him, then… <em>relaxes </em>isn't really the right word, it's like his expression and posture collapse into a completely different form. One with about half as much "chill," judging by the mix of anxious energy in his gait and how wide his eyes are. "Artem I have a<em> really </em>bad feeling about all this but I can't explain it and I know it's a shitty thing to do but I need your help—"</p>
+
+<p>"Woah, hey." He's never really been the huggy type, but he puts a hand on Red's shoulder because it definitely seems like the young teen could use it. Artem's fear was starting to fade, before, but it's back now in full. He looks around, then steers Red into a nearby storage room. "You saved a lot of lives in Lavender, including mine. I'm a bit anxious about the lab losing its cloud, especially now of all times, but I trust you. What do you need?"</p>
+
+<p>"I'm not sure." Red takes a breath, eyes closed as he rests the back of his head against the door. "I was hoping we could just release the unown first and figure things out later. But I get why your boss doesn't want to do that, and I don't actually have a good, legible reason for it, so… I think the best way to figure out what's happening, if something is, is to merge with the cloud."</p>
+
+<p>Artem isn't sure what to say, but Red must have read something in his expression when he opens his eyes because he quickly adds, "Not all of it! But if it's possible to section some of them off…"</p>
+
+<p>"Red, isn't that the thing that may have driven that guy, Rowan, uh, crazy?"</p>
+
+<p>"We're not sure, but… listen, when I heard about what happened in Hoenn, I really wanted to go and see myself because I think… for some reason I believe it's connected to Rowan, directly or not. Coming here, where I'm allowed, was the compromise. If I can find something more tangible that can justify Interpol sending me, or me going independently to Hoenn, then I have to try."</p>
+
+<p>The sense of surreality washes over him again as he realizes what the stakes are, here. Just like in Lavender, he feels swept up in something bigger than himself, something that he can either contribute to or step aside from, but not take lead on, not play the pivotal role.</p>
+
+<p>But maybe still a deciding one. Red's other friends aren't here this time to help him this time, and while Elite Agatha may take point on the psychic stuff when she arrives the way Jason did at Lavender, there's no one else to assist with the lab side of things.</p>
+
+<p>"So long as we're not releasing them, I should be able to isolate a few. Maybe a whole string if they'll stay together?"</p>
+
+<p>Some of Red's rigidity seems to ease, though whether it's because the suggestion is that good or because it's a sign of <em>some</em> support, Artem can't tell. "That would help a lot. Thank you."</p>
+
+<p>"Alright, come on. I'll take you to one of the containment rooms, then let someone know to try and herd a few your way."</p>
+
+<p>"Not yet, I should wait for Agatha. In the meantime, I'm going to talk with your security guards and see if they'll consent to being checked for signs of memory tampering. Can you get someone to herd them there first?"</p>
+
+<p>"On it."</p>
+
+<p>They part ways, and as Artem walks his mind keeps turning to what Red said about being here because of what happened in Hoenn. If there's a connection between that lab and this one, there's reason to think this, or <em>something</em>, might be happening at the other labs too.</p>
+
+<p>If so, there might be more he can do to help. He's not sure if he <em>should</em>, but Red thinks this is important, and needs information… and Artem's own curiosity wants answers too.</p>
+
+<p>He starts sending messages as he walks, a simple <em>Good morning </em>to an older colleague, a <em>hey, you up? </em>to a friend. Six in all, to the people he'd consider closest and most trustworthy among his acquaintances and friends in other unown labs.</p>
+
+<p>Simple messages, ones that wouldn't mean much to him if he received them on any other early morning. Ones that he would probably ignore, if he was sleeping when he got them, since none are expressing any alarm or sign of danger.</p>
+
+<p>But on a morning like this?</p>
+
+<p>It only takes a few minutes before a response comes back, and it doesn't beat around the bush:</p>
+
+<p><em>hey. you guys too huh</em></p>
+
+<p>Artem's pulse kicks back into high gear, and he takes a few breaths to think of how he should respond. He can't reveal lab secrets, particularly not to competitors… but he's pretty sure he can keep the conversation such that a lawyer looking over the texts wouldn't be able to find any obvious signs of revealing private information.</p>
+
+<p><em>Exciting stuff, </em>he replies. <em>But also a bit freaked.</em></p>
+
+<p>He reaches the control room and lets them know about Red's request, and that the director has signaled cooperation for now. By the time he's done, there's another response:</p>
+
+<p><em>freaky yeah. expected a one-off if something happened but doesn't seem to be</em></p>
+
+<p><em>Feels like something else is coming?</em></p>
+
+<p><em>yep</em></p>
+
+<p>Artem nods to himself and watches as a string of unown gets herded, with some difficulty, into a separate room. Before he can think of a response, a new message arrives from another person he texted: <em>I'm up, yeah. Everything okay?</em></p>
+
+<p>He considers a moment, then sends an emoji of a person looking dazed and overwhelmed. The response is almost immediate: a sweating laughing face, followed by a hug. Artem sends a hug back, then goes to look for Red to let him know about the "confirmation."</p>
+
+<p>When he finds him, he's talking to one of the security guards, and he's not alone. Artem recognizes the tall hunter with shades from the day Red, Leaf, and Blue came to see the lab and drop off their fossils.</p>
+
+<p>"—reckless to not have someone else to do it."</p>
+
+<p>"If Agatha agrees, I'll step aside, but I think I'm better equipped than anyone else to not be affected by it."</p>
+
+<p>"Even if that's true, and if anything I'd say you're at a higher risk, a ten percent risk to you has a much worse outcome than a thirty percent risk to someone else."</p>
+
+<p>Red shakes his head. "That's your priority, and I get it, but if—hey, Artem. All set?"</p>
+
+<p>"Yeah, ready when you are. Also, thought you should know…" He glances at Red's guard, who stares impassively back from behind his shades, then returns his gaze to Red. "Plausible confirmation, from private chats, that at least two other Kanto labs have odd activity happening."</p>
+
+<p>"Shit," Red mutters. "<em>Shit. </em>Okay, I need to figure this out then head to them next, or find a way to send someone else… they're okay at those places, so far?"</p>
+
+<p>"Yeah, though… I sent six messages out, no response from four of them. All at different labs, last I knew."</p>
+
+<p>Red is rubbing his face, and for a moment Artem feels bad about bringing it up, about <em>burdening </em>Red with extra issues he may not be able to do anything about. But after a moment Red just sighs and nods, then pulls his helmet on. "Poke them again in a few minutes, then send their names and what labs they're at to me or Jensen and we'll get people over there to check. Thanks, Artem."</p>
+
+<p>"No problem." He holds his phone up and raises a brow at Jensen, who does indeed pull his phone out for a tap, looking fairly neutral about everything as he scans their surroundings, despite what he said. "Did our security agree to being examined?"</p>
+
+<p>"No. Not unless it's mandated, which goes back to convincing police of one kind or another." Red sounds frustrated, and starts to pace, pulling out his notebook and scribbling some things down. "It's fine, it's a long shot anyway, but it leaves an uncrossed checklist that keeps us from being able to systematically determine we haven't missed anything."</p>
+
+<p>The hunter puts two fingers to his ear, then says, "The Elite has arrived."</p>
+
+<p>It doesn't take long for her to get through security, and they hear her cane clacking on the tiles before they see her. Soon the thin, gray haired woman is stumping over to Red and shaking her head. "You're going to insist on doing this yourself?"</p>
+
+<p>"It's safer," Red says. "I can't help you the same way you helped me in Lavender, and I think I've got more defensive ability, with the partitions. Unless I'm wrong about that?"</p>
+
+<p>"Hmph. No. But they may be counting on you doing this."</p>
+
+<p>"They?"</p>
+
+<p>"Them. Whatever is behind the unown. Maybe even Rocket, somehow."</p>
+
+<p>Red smiles. "You sound nearly as paranoid as Looker."</p>
+
+<p>"Nearly? Ha! Must be my age tempering me with all this offsetting wisdom." She smiles as she looks over the others for the first time, and takes a second look at Artem before nodding her head. "I remember you, though names escape me often these days. Doing well?"</p>
+
+<p>"Artem, and yes, very." He bows. "It's good to see you again, Elite."</p>
+
+<p>"Too early in the morning to be seen, truth be told, but my beauty is behind me and duty is duty. Shall we?"</p>
+
+<p>"I'm going to wait at the area where the unown have been prepared for me," Red says. "You should talk to the director before you join me, then we'll begin?"</p>
+
+<p>"I still object strongly to this," the hunter bodyguard says.</p>
+
+<p>Elite Agatha reaches out to pat his arm as she passes. "He'll be safe with me, don't you worry. Show me the way so we can get down to it. I'll admit to being curious, even if this all turns into an unholy mess."</p>
+
+<p>Artem quickly walks ahead of her to lead her to Dr. Tai's office. Once she arrives, she walks in without waiting for announcement, and he and Red glance at each other. Red shrugs, and Artem smiles and leads the way to the holding chamber beside the main floor of the central hub, where a handful of unown were herded.</p>
+
+<p>Word has clearly gotten around about what's happening, both from people having spotted Red and from the Director's message about the danger they may be facing. On any other day they'd probably have a small crowd following them around, but everyone's so busy that by the time Red is ready to go into the room, there are only a few others who seem happy to take a short break to surreptitiously gawk.</p>
+
+<p>If Red notices, he doesn't comment, simply flashing Artem a smile before saying, "I'll wait inside with Jensen. Send Agatha my way when you're done?"</p>
+
+<p>"Sure." Part of him is disappointed he won't be inside with them, but maybe he can join when Agatha does… "I'll poke the other labs meanwhile."</p>
+
+<p>"Thanks, Artem."</p>
+
+<p>He nods, then closes the door behind the two…</p>
+
+<p>…and within moments, all the unown in the lab stop moving or emitting sounds, suspended in midair like bugs in a massive invisible web.</p>
+
+<p>Artem slowly looks around, blinking as a pit of dread forms just below his heart. He reaches back slowly to open the door, let Red know what's happened…</p>
+
+<p>…but a moment later the unown cloud is moving again, and Artem's hands dart for his pokebelt by instinct despite knowing the unown aren't violent.</p>
+
+<p>He summons his magneton just as a cluster of spheres appear around a string of unown, whirling and shooting out in rings that smash and burn and freeze and and scorch everything around them indiscriminately.</p>
+
+<p>Within moments the screams of people, panicked or hurt, fill the air to contend with the resumed sounds of the unown cloud, the chaotic mix once again sounding <em>off</em> from what he's used to in a whole new way. "Thunderbolt!" he yells, and a handful of unown are zapped to the ground, which seems to break the paralysis for others who have summoned their pokemon to also start attacking.</p>
+
+<p>About a dozen unown fall within moments. But a few are getting back up already, and their cloud has nearly a hundred. If they start attacking in concert instead of seemingly at random, they don't stand a chance.</p>
+
+<p>Artem hasn't had much time to be afraid just yet, still running on instincts and adrenaline as he yells, "Protect Red!" and runs for the control room. He passes by rows of terrarium, all thankfully still but many damaged in a variety of ways. A cluster of unown swoop down toward him at the same time an omanyte pulls itself up out of the destroyed remains of a terrarium, and he yells "Thunderbolt" until everything coming at them stays down.</p>
+
+<p>It works somewhat, though more of those spheres hit his pokemon and the habitats around him, destroying glass and cardboard and even some fossils. Artem rushes past the destruction and toward a communal work desk set between inner and outer rings…</p>
+
+<p>Wait, no. The desk and chairs are gone.</p>
+
+<p>In their place is—</p>
+
+<p>—he flinches, whole body drawing back in response to the spike of <em>wrongness </em>that hits his brain. He looks away, tries to <em>shake </em>the image out of his memory, and realizes after a moment how nonsensical that is. But it feels like a bit of the image is stuck in his eye, like a floater across his vision, and panic starts to claw at his chest and throat as he keeps backing away, rubbing at his eyes…</p>
+
+<p><em>Calm</em>.</p>
+
+<p>It floods through him like potion against a burn, washing away the fear and replacing it with clear thinking. There's confusion, and a distant sort of alarmed awareness that something is wrong, but he can prioritize his thoughts.</p>
+
+<p>He opens his eyes, keeping them pointed down as he backs away from whatever-the-thing-was. There's a sound like a high pressure stream of water hitting metal, and his magneton is sent spinning into his field of vision, causing him to skip a few more steps back, half-turned to make sure he doesn't trip over anything. "Thunderbolt!" he yells, and hopes his pokemon will attack the right thing.</p>
+
+<p>Artem knows the calm isn't normal, but it's helping, so he ignores it for now. He has to prioritize the thing in front of him, has to find a way to deal with it, but he doesn't know what it <em>is…</em></p>
+
+<p><em>So start with what it's not. </em>It's <em>not </em>any pokemon he's ever heard of before. Artificial pokemon like the ones he favors have some sort of structure to the way they're built. This thing looked a mashed together bunch of objects in a sim, clipping through each other and exposing bits that shouldn't be visible, normally.</p>
+
+<p>Another stream of water hits his pokemon, and a part of him is wondering <em>how is that thing a Water Type </em>but the rest of his thoughts are already flowing naturally to the next; there is at least <em>one</em> type of pokemon that he knows affects people like this, and he remembers Lavender Town enough to move automatically as soon as it occurs to him.</p>
+
+<p>He unclips the container ball from his belt and points it to the side, summoning his supply box. As soon as it appears he rushes over and lifts the lid, resisting the urge to rub the floating weird blob from his vision again as he pulls out the Silph Goggles inside and straps them around his head.</p>
+
+<p>When he finally looks back toward the new pokemon, it… doesn't look much better.</p>
+
+<p>It doesn't hit his brain as <em>painfully wrong </em>as before, but he still can't make any visual sense of it. It's like someone just jammed a bunch of objects together to form a thin, rectangular tower, shaving off everything that wouldn't fit at the edges and jamming them elsewhere to fill in the gaps.</p>
+
+<p>It even <em>moves </em>unnaturally, jerking across his field of vision with no obvious contraction of its parts. As it passes some kabutops fossils, it seems to shatter apart, then draw itself back up together, and now it looks a bit like a skeletal kabutops, much of it still trapped in stone, sharp arms reaching forward with each step.</p>
+
+<p>It suddenly becomes <em>very important </em>to Artem that this thing, whatever it is, doesn't get in reach of him or anyone else.</p>
+
+<p><em>Why aren't the automatics working?</em> he thinks as he enlarges an ultra ball, aims until he hears the <em>ping, </em>then throws.</p>
+
+<p>To his surprise, it connects, and sucks in the skeletal "pokemon," despite it being a collective of animated objects, as far as he could tell. Which implies that the reality the goggles are trying to show him is even more strange than it can manage.</p>
+
+<p>He snatches up the ultra ball just as more unown swoop down, and he dives behind a terrarium wall as they attack indiscriminately all around him, ducking and covering his head as bits of wood and glass shatter around him. "Thunderbolt!" he yells, legs trembling and heart fluttering in his chest as the calm from before continues to slowly fade.</p>
+
+<p>After a moment he looks up, noting the destruction around him and feeling mildly shocked he wasn't hit. His magneton has taken a few too many hits, however, and he withdraws it, unsure if it's even still alive before bringing out his claydol.</p>
+
+<p>The small part of Artem's mind still running analysis of what's happening has been mostly drawing up blank in terms of theories, but as he forces himself to start moving again he looks around for some kind of pattern in what the unown are attacking, if anything in specific.</p>
+
+<p>Nothing obvious pops out at him as he makes it to the control room at last. He barges through the door, shouting, "Open the roof! We have to release the—"</p>
+
+<p>"I know!" Kiran yells back, looking halfway between panicked and infuriated as they type something on their computer. "It's not working, the whole system is acting up!"</p>
+
+<p>"Manual release?!"</p>
+
+<p>"I need a second key, either from Shen or Tai!"</p>
+
+<p>Artem curses, says, "I'll get it," and turns to rush toward the director's office…</p>
+
+<p>…only to see Tai run over himself, wide eyed and pale, key clutched in his hand.</p>
+
+<p>Artem falls back against the wall in relief, and to get out of the director's way as he stumbles to a halt inside and jams his key into the console. Kiran scrambles to pull another from his pocket, then does the same, and both turn together, followed by Kiran slamming their palm down on the big red button between.</p>
+
+<p>There's an immediate rumbling as the roof retracts, and even from in here, with just the doorway open, Artem feels the air turn colder. It's also fresher, the smells of destruction fading as snow starts to fall into the central chamber.</p>
+
+<p>"Is everyone… okay…?" Dr. Tai pants, but Artem is watching the unown, heart sinking. "Artem? What's—"</p>
+
+<p>"They're not leaving," Kiran murmurs, watching out through the glass as well.</p>
+
+<p>The unown are acting exactly as they were before, randomly attacking everything around them (though not, so far as Artem can notice, each other) as they fly around together.</p>
+
+<p>He tries to think of what else they can do, whether there's some sound or widespread attack like Hurricane that might drive them out…</p>
+
+<p>…and then he hears the clacking of a cane, and turns to see Elite Agatha walking from the direction of the director's office.</p>
+
+<p>With his Silph Goggles on, he can see the shapes around her clearly enough. A gengar, a haunter, a gastly, and a mismagius all out together, all facing the same way with her as she looks over the rampaging cloud of unown.</p>
+
+<p>He watches her place both hands on her cane as she looks up at the open roof, then back down at the unown as they continue to battle with some of the researchers. A moment passes, and then she distinctly but quietly says, "Feast," and her pokemon rush forward as one.</p>
+
+<p>Artem's knees nearly buckle in relief as he watches, equal parts fascination, relief, and fear. The ghosts move through the unown cloud like sharpedo in a school of fish, and within moments the cloud has been cut in half, small bodies floating gracefully down until the unown carpet the ground.</p>
+
+<p>The sounds of battle quiet one by one, until finally the remaining dozen or so unown are back to wandering on their own in discordance. As the ghosts return to their mistress, Artem takes a few deep breaths to calm himself down, still amazed he got through that unscathed. After checking to make sure there's no one around him that needs help, he hurries back toward Red to make sure he and everyone he left there are okay.</p>
+
+<p>The entire chamber is a mess, broken glass and limp unown everywhere. It doesn't feel like the danger is really past, yet, and in the distance he sees a couple people finish catching a few kabuto and kabutops that were put to sleep by one's venusaur. He feels foolish for having run off and not accomplished anything…</p>
+
+<p>…well, except the capture of the strange blocky "changing" pokemon. He looks down at the ultra ball still gripped tight in his hand, then takes out his pokedex to see what happens when he registers it, hoping to have at least some answers for the others when they talk…</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>"<em>Sckkhh </em>Alert."</p>
+
+<p>"Say again, Eva?" Bill shifts half of his concentration away from the microscope, frowning slightly. "I didn't catch that first word."</p>
+
+<p>"Network Alert. A <em>sckkk </em>is spreading through Kanto Pokedex Network."</p>
+
+<p>Bill's attention is now fully removed from the circuit board he was examining. "Isolate from all Pokedex Networks and run diagnostic on previous sentence."</p>
+
+<p>"Complete. Null pointer corruption."</p>
+
+<p>"In the database?"</p>
+
+<p>"In referent."</p>
+
+<p>Bill frowns. Whatever the bug is, it's messing specifically with Eva's ability to articulate that she couldn't articulate it? "Veto both token and referent, identify through description, then answer: what is the thing spreading through the network acting most like? Worm? Wiper? Mimikyu? Something else?" <em>Please don't say another AI…</em></p>
+
+<p>"Higher priority detected."</p>
+
+<p>His heart sinks. "Speak."</p>
+
+<p>"Referent detected in Pallet lab intran—"</p>
+
+<p>Bill is already running. "Isolate all Indigo networks!"</p>
+
+<p>"Command code ne—"</p>
+
+<p>"Code <em>Usurper!</em>" He passes out of Materials and reaches Computing, running straight to the central cluster and starts disabling the safeties to swap everything in the labs to manual control.</p>
+
+<p>"Executing. Complete."</p>
+
+<p>Sentiment rises up, surprising him with an urge to say something. Words of gratitude, or congratulations for doing so well. This would be a pretty thorough reversion, and while he doesn't believe Eva is sentient… that's the rub of it all, isn't it? How could they even know?</p>
+
+<p>He pulls the final lever, shutting Eva down, followed by another lever to cut all power to his home and lab. Only afterward does he whisper, "Goodbye."</p>
+
+<p>Bill only stands still for a few moments in the dark before the emergency lights come on. He takes his phone out and messages a few people before they start freaking out too much, then navigates by the red glow to start removing all pieces of Eva so he can switch the lab over to the backup version from last week.</p>
+
+<p>He works quickly, anger burning like hot coals in his stomach. It's possible all this was an accident of epic proportions, but if not he's eager to get some payback against whoever or whatever just derailed his morning… not to mention inconvenienced everyone in Indigo relying on the internet today.</p>
+
+<p>He can only hope he caught and isolated it in time, and the others know what to do next.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/132/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/134/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -1290,6 +811,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advice Level: Beginner to Moderate Gamer
+
+
+
+
+One thing a childhood of non-verbal video games taught me is how valuable sound can be as a means of conveying story.  I’m not just talking about the amazi...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Gaming with Sound">
+    <meta property="og:description" content="Advice Level: Beginner to Moderate Gamer
+
+
+
+
+One thing a childhood of non-verbal video games taught me is how valuable sound can be as a means of conveying story.  I’m not just talking about the amazi...">
+    <meta property="og:type" content="article">
+    <title>Gaming with Sound - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Gaming with Sound</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        April 25, 2016
+                    </span>
+                    <span>📁 Storytelling Advice</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><em>Advice Level: Beginner to Moderate Gamer</em></p>
+
+<p><a class="fancybox" href="http://www.dmfiat.com/wp-content/uploads/2013/02/chronotrigger.jpg" rel="gallery-0"><img class="size-medium wp-image-2470" src="http://www.dmfiat.com/wp-content/uploads/2013/02/chronotrigger-300x180.jpg" alt="With great sound, comes great responsibility. " width="300" height="180" />
+</a></p>
+
+<p>One thing a childhood of non-verbal video games taught me is how valuable sound can be as a means of conveying story.  I’m not just talking about the amazing music of Chrono Trigger or Final Fantasy: Tactics, but also the sound effects, the ambiance.  The rabble of mixed voices when in an outdoor market or tavern, the creak of a door when exploring a dungeon, the agonized cry of a party member or enemy being KO’d… these things were invaluable in making the experience immersive.<span id="more-2460"></span></p>
+
+<p>And there’s absolutely no reason they can’t do the same for tabletop gaming.  The GM’s voice is the most powerful tool in their arsenal for conveying the story, but when they’re not narrating exposition or switching voices for NPCs, they can give it a well-deserved rest and draw on other sources.</p>
+
+<p>Namely, technology!  Even a decade ago, using sound effects in tabletop games would have taken quite a bit of forethought and effort.  But thanks to smartphones, tablets and youtube, it couldn’t be simpler. (Lifehack: for best acoustics from smartphone, place it in a tall cup. Ensure cup is empty first.)</p>
+
+<p>Players going through a dungeon?  Just put this on loop in the background:</p>
+
+<p><a href="http://www.youtube.com/watch?v=yAmYNTJDCsk" target="_blank">http://www.youtube.com/watch?v=yAmYNTJDCsk</a></p>
+
+<p>A dragon about to swoop down on the group? Find a good roar to have them shaking in their boots:</p>
+
+<p><a href="https://youtu.be/JIjNln61s4U?t=51" target="_blank">http://www.youtube.com/watch?v=JIjNln61s4U</a></p>
+
+<p>And if an enemy gets killed? Just before you slam the table to indicate their body hitting the ground, play one of these: everyone loves Wilhelm!</p>
+
+<p><a href="http://www.youtube.com/watch?v=AGce8M-MZxs" target="_blank">http://www.youtube.com/watch?v=AGce8M-MZxs</a></p>
+
+<p>(Note: not everyone loves Wilhelm)</p>
+
+<p>There are dozens of sound effects you can use to help immerse your players in the story, and players can get in on it too for generating their own sound effects.  And this goes beyond just playing gunshots when a character fires a weapon, or a distant police siren to alert players that cops are approaching the scene.</p>
+
+<p><a href="http://inception.davepedu.com/" target="_blank">See this Big Red Button?</a> Push the Big Red Button.</p>
+
+<p><i><strong>BRRRAAAAAWWRRRrrr</strong>… </i>Glorious.</p>
+
+<p>Imagine using that bad boy when giving a dramatic synopsis of the previous session:
+<div id="attachment_2472" class="wp-caption alignleft"></p>
+
+<p><a class="fancybox" href="http://www.dmfiat.com/wp-content/uploads/2013/02/night_of_the_fortress_castle_marina_water_lightning_fires-1920x1080.jpg" rel="gallery-0"><img class="size-medium wp-image-2472" src="http://www.dmfiat.com/wp-content/uploads/2013/02/night_of_the_fortress_castle_marina_water_lightning_fires-1920x1080-300x168.jpg" alt="http://fantasy-wallpapers.com/night_of_the_fortress_castle_marina_water_lightning_fires-wallpapers.html" width="300" height="168" /></a>
+<p class="wp-caption-text"><a href="http://fantasy-wallpapers.com/night_of_the_fortress_castle_marina_water_lightning_fires-wallpapers.html" target="_blank">This setting is just BEGGING for thunder and rain sounds.</a></p></p>
+
+<p></div>
+<i>When last we left our heroes, they decided to work together to solve the murder of the night watchman.  Little did they know that as the coroner was returning the body to storage, another had just been found at the church…</i></p>
+
+<p><i>…and a dozen more remain unfound.</i></p>
+
+<p><strong><i>BRAWWWWWRRRrrr.</i></strong></p>
+
+<p><i>Night is falling on the sleepy town of Serenity.  A night that will bring darkness far beyond the absence of light.</i></p>
+
+<p><strong><i>BRAWWWWWRRRrrr.</i></strong></p>
+
+<p><i>What stalks this hamlet is an evil that walked the earth before man tamed fire. The first wave of victims were mere accidents, whetting its appetite.  The next…</i></p>
+
+<p><strong><i>BRAWWWWWRRRrrr.</i></strong></p>
+
+<p><i>…will herald the new Dark Age.</i></p>
+
+<p><strong><i>BRAAAAAAAAAAAAAAAAWWWWWWWWRRRRRRRRRRRrrr.</i></strong></p>
+
+<p>You get the idea.</p>
+
+<p>(Note: the Big Red Button is a sacred responsibility. Do not abuse it, or be warned, thee may verily be struck upside the head by thine companions.)</p>
+
+<p>Gone are the days of banging coconuts together to imitate horse hooves clopping down the road: now you can just play a <em>recording</em> of someone banging coconuts together to imitate horse hooves clopping down the road!  Not that you can’t still use the classic methods, if you prefer them.  Whatever your method of delivery, don’t forget to include Sound in all its myriad forms when telling your game’s story: too often it goes overlooked, despite being just as important as Sight, if not arguably more so. Try to keep all of the senses in mind, <a href="http://www.dmfiat.com/dm-tips/www.dmfiat.com/dm-tips/gaming-with-5-senses-taste">even taste.</a></p>
+
+<p>If you’re looking for more sound resources check out the following links:
+<ul>
+	<li><a href="http://www.freesound.org/" target="_blank">Freesound</a> (Free searchable uploads of a variety of sounds)</li>
+	<li><a href="https://itunes.apple.com/us/app/storytellers-companion/id447006121?mt=8">Storyteller’s Companion</a> (iPad app with a few great ambiance noises)</li>
+</ul></p>
+            </div>
+
+            <div class="article-footer">
+                
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

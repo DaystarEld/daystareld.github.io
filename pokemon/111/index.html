@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 49: The Paradox of Choice - Pokemon: The Origin of Species</title>
+    <title>111: Shell Game - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,670 +329,459 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 49: The Paradox of Choice</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/110/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/112/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <!--more-->Red goes to meet Kanto's "Mistress of Psychic Pokemon" at a cafe in the richer western portions of the city, where the buildings are all clean and gleaming, and there are noticeably fewer construction projects going on. As Red navigates the busy streets on his bike, he calls Psychic Ayane to get some quick advice for keeping secrets hidden when meeting with a powerful psychic. Bill's human storage activity is the only real bit of information he has that he doesn't want getting out... and not just because it's not his secret to tell.<br>
-<br>
-<em>"Besides, you're a smart kid. I don't actually have to explain how hard I can make your life if you give me reason to, do I?"</em><br>
-<br>
-Red curses as the phone goes to voicemail, and doesn't bother leaving a message, simply switching to the next best thing.<br>
-<br>
-"Hello, Red! How's Vermilion City? Did your Research license arrive?"<br>
-<br>
-"Hi Professor!" Red half shouts as he weaves through some pedestrian traffic and onto the bike lane in the road. "Yes, it's awesome, but sorry, no time to chat, important question!"<br>
-<br>
-"One moment." There's the sound of footsteps, then a door closing. "Go ahead, Red. What's wrong?"<br>
-<br>
-"I'm meeting Leader Sabrina in about ten minutes. Any advice would be highly appreciated!"<br>
-<br>
-Professor Oak is silent for the time it takes for Red to ride back onto some sidewalk and cut across a shopping strip, then asks, "How much do you know about Sabrina?"<br>
-<br>
-"Nothing, really. Saffron Gym Leader, powerful psychic despite her age… uh… I think that's it."<br>
-<br>
-"Do you know how she became Leader?"<br>
-<br>
-Red recalls something Blue said about it at some point. "She beat the last one there, right? When it was a Fighting Gym?"<br>
-<br>
-"Yes. People believe it was easier for her than it might normally be, since her affinity for Psychics gave her a natural advantage against the previous Leader's Fighting pokemon. This is obviously not the whole story."<br>
-<br>
-"Right," Red says as he checks the map and turning onto the road that leads to the cafe. "Otherwise someone who's good with Dark pokemon would just move in on her instead. I figured Gym Leaders would use their best pokemon, and a mix of Types, if being challenged for Leadership, wouldn't they?"<br>
-<br>
-"You're right, though for most, their strongest pokemon will often be the type their Gym focuses on. However, the battle between Sabrina and Leader Koichi had layers beneath the surface. Koichi was an enormously skilled trainer, but not a particularly effective Leader. He was adequate at best in teaching his Gym members, and his grasp of wider strategy outside of individual pokemon battles was… lackluster. There were a number of incidents that made people question his capability to protect the city, but anyone who challenged him for Leadership was beaten. He became more and more draconian as people turned against him, and his gym lost members. In battles with challengers, his pokemon began to cripple and even kill their opponents on a somewhat regular basis, until people completely stopped attempting to supplant him, not wanting to risk their pokemon."<br>
-<br>
-Red's eyes widen. A Leader may not be the best at everything, but a competent one would at least raise up other trainers who can advise them well. One that lets their ego get in the way, and then loses control of their temper like that, or worse does it intentionally... That's the kinds of things villains in shows did, almost as bad as being a Renegade. "What happened?"<br>
-<br>
-"There was something of a final exodus among his gym members, and over time, Saffron city and the outlying areas were hit with a number of pokemon attacks it was unable to contain. The neighboring cities and local Rangers did their best to pick up the slack, but it got to the point that people began asking when the League would intercede. I happen to know that Elite Bruno was preparing to challenge Koichi, and step down from the Elite Four to take over Saffron Gym, when instead Sabrina, who was well known by that point for her powerful psychic abilities and devastating psychic pokemon, stepped in."<br>
-<br>
-"And beat him."<br>
-<br>
-"And <em>destroyed </em>him. I don't use that word lightly, Red; it should not have happened. Sabrina was a powerful trainer with a handful of badges to her name, and she had type advantage for most of her team, but Leader Koichi was a monstrous opponent. He wouldn't have kept his position for so long otherwise. His defeat was so complete that there were suspicions, even amid the relief of the city and region, that the fight was fixed, or that he or his pokemon were sabotaged in some way."<br>
-<br>
-Red is so caught up in the story he forgets to check the map in time, and doesn't realize until after he passes the place. He curses under his breath and skids to a stop, then turns his bike around, breathing hard. "And what do you think?"<br>
-<br>
-"My best guess? Nothing so blatant. But by the end, Koichi was a broken man, and I believe Sabrina knew when that point came. She was in the city for months before her challenge, meeting with gym and ex-gym members, organizing trainers in the city during nearby incidents, even opening her own classes, both for psychics and for training pokemon, within the city."<br>
-<br>
-"So she <em>did </em>bring about his downfall, in some purposeful way."<br>
-<br>
-"I doubt she gave him the alcohol that he allegedly took to bed every night, but… yes, that's my belief. And I suspect she had advice and financial aid from some other Gym Leader, possibly multiple. Those in the nearby cities certainly had incentive to no longer carry the extra weight. Whoever was involved, it does seem that Sabrina worked purposefully to undermine Koichi until only his most obstinate and incompetent supporters remained, his Gym all but collapsed around him. Her preliminary matches were painful to watch."<br>
-<br>
-Red sees the cafe, and quickly stops and dismounts a block away. "Okay. I appreciate the history lesson, but I'm still not sure what to take away from this. I don't <em>think </em>I have anything she wants enough to turn my friends against me or drive me to drink, but in general, I should be aware that she's manipulative?"<br>
-<br>
-"A strong word, but perhaps fair. And I don't want to give you the wrong impression; I've met her a handful of times, and believe her to be a good person, or I would suggest you not meet her at all. What she did to Koichi, <em>if </em>she did it, was perhaps the best outcome for the city, and likely necessary for the region to avoid the embarrassment of requiring League intercession. I still do not know if the plan was hers, or someone else's… I was in contact with the League fairly often then, and do not believe any of them assisted her." Professor Oak sighs. "But regardless of all that, yes, most powerful psychics appear, ah, 'socially strategic' to <em>some</em> degree. I suppose it's inevitable when you have so much more information than most do about those you interact with. So whatever Sabrina wants from you, be aware that she can be subtle, even if she offers something that seems fair in return."<br>
-<br>
-"Got it. Expect to get something out of this, but watch out for manipulation, or a long con," Red says, heart pounding both from the quick ride and anxiety over the coming meeting. He takes his helmet off, then shucks his knee and arm pads into the box with the bike.<br>
-<br>
-"She probably won't try and corner you in any way, but if she makes you <em>want</em> to give it to her, you will be easier to deal with. As long as the exchange seems equitable, well and good. But I thought it was worth warning you, either way."<br>
-<br>
-"I understand. Thanks, Professor." He checks the time and sees he has four minutes left. "I gotta go."<br>
-<br>
-"Good luck, Red."<br>
-<br>
-Red hangs up, and only then remembers that he didn't ask for advice on keeping her out of his head.<br>
-<br>
-<em>It's okay. I can do this. </em>He closes his eyes, and takes a few deep breaths, ignoring the few pedestrians that pass by and letting himself calm down little by little. Eventually his pulse returns to a normal rate, thoughts clearing as he feels more centered.<br>
-<br>
-<em>So. While I now have to worry about getting manipulated, my first priority is still to avoid spilling Bill's secret. What do I know about keeping thoughts secure?</em><br>
-<br>
-Few psychics are powerful enough to actually pick up words or full ideas from others' minds, rather than just emotional states… but Sabrina is one of them, by all accounts. Still, the target has to be thinking about whatever it is for her to pick it up, and now that Red knows how psychic powers work, he understands that she would be joining her mind with his, which he would notice.<br>
-<br>
-Or at least, that's the common understanding. Red doesn't actually <em>know </em>what the limits of psychic powers are, the best research is spotty and inconsistent, which means he doesn't know what Sabrina's limits are. If she can pick up more than just surface thoughts without merging their minds, it's not in her interest to make that common knowledge.<br>
-<br>
-Which means Red will need something to distract more than just his surface thoughts. He takes out his supply list and searches through it for anything that can help him. Whatever it is, it would preferably be something subtle, so he can't just blare music into his earphones when he wants to...<br>
-<br>
-Red is scanning through the Ts and pauses when he sees <em>thumbtacks </em>between <em>thermos </em>and <em>toiletries</em>. He remembers looking around his room and trying to come up with some obscure use for anything he saw that didn't have too much mass, but he can't remember what he thought justified bringing thumbtacks. Putting sheets of paper up on trees to leave directions? Something like that.<br>
-<br>
-Red considers taking one out and putting it in the end of his shoe, carefully angled so he can prod himself with it if needed. If the pain registers on his face or in his mind, he might be able to play it off as having an injury… but that would be a lie, and she would probably be able to detect that if nothing else…<br>
-<br>
-<em>Forget painful things, do something pleasant instead. </em>Maybe if he buys some cookies when he goes inside...<br>
-<br>
-Red's watch beeps, and he sighs. Out of time, and any benefits from further thinking would be marginal compared to potentially irritating her by arriving late. He quickly takes out some wet wipes for the dried sweat on his face and neck, then straighten his collar and puts his hat on. He stares at his reflection in a curtained window to make sure he looks presentable, then puts everything away and walks to the cafe.<br>
-<br>
-The interior is bright and clean, its walls lined with colorful booths and its front counter displaying all sorts of delicious pastries. Red sees some of the booths are in alcoves with curtains over them, and wonders if anyone is in them. If not, the place is empty save for the young man working the counter, an older man in a long coat and woolen hat, and the Gym Leader sitting across from him.<br>
-<br>
-Sabrina is immediately recognizable, even dressed casually in a pink tank top and white pants, her dark hair sweeping down and out above her shoulders. It feels weird seeing a Leader in a cafe, fancy as it is, and he hesitates at the entrance of the sitting area, not wanting to interrupt. She glances at him and holds a finger up, and he nods and steps back toward the front counter, scanning their menu for something to use as a distraction.<br>
-<br>
-<em>Ah! Perfect...<br>
-</em><br>
-A few minutes later his chocolate milkshake is ready, and the cashier refuses any payment, gesturing to the Gym Leader. Red turns to see Sabrina's guest rising from his seat. He takes her hand and bows, muttering something, then leaves. Red waits until he's out of the shop, then approaches again, feeling nervous butterflies in his stomach. He recognizes that he's feeling a little star struck, like he was upon meeting Bill, then quickly takes a sip of his drink, letting the cold, overwhelming sweetness fill his mouth. <em>Damn. That's good milkshake</em>. He'll have to be careful not to finish it too quickly.<br>
-<br>
-"Hello, Mr. Verres." Sabrina inclines her head, stirring tea in a porcelain cup with a lotus on it. "Please join me."<br>
-<br>
-Red sits across from her and meets her gaze for the first time. Despite knowing she's somewhere in her mid-twenties, as soon as Red notices the unusual rose-quartz color of her eyes, he feels what he did with Psychic Narud: a sense of weight, of years layered on top of each other, that makes him suddenly feel like he's in the presence of someone much older. Red shifts his gaze to her nose, wondering why he never felt something similar with Ayane or Ranna.<br>
-<br>
-"It's an honor to meet you, Leader. Thank you for the drink. How can I be of assistance?" He sips the milkshake again, letting the flavor fill his mouth and mind. He's tempted to bring his mental shields up too, but decides against it; even if it would work on her, it would be too distracting to maintain, and she might even consider it rude.<br>
-<br>
-"First, I'd like to congratulate you on your Researcher's License," Sabrina says. "I'm curious, do you intend to continue pursuing psychic phenomena in particular?"<br>
-<br>
-"Oh. Thank you. Uh, for now, yeah. I don't want to limit myself, if something else comes up I might change tracks, but I think it's worth pursuing at the moment."<br>
-<br>
-"May I ask why?"<br>
-<br>
-Red wonders how much detail he should go into. "That's kind of a long answer."<br>
-<br>
-"You're worried I'll be bored, despite me specifically seeking you out to speak with?" Sabrina sips from her cup, smiling slightly.<br>
-<br>
-Red blinks, processing this. The gym leader seems very much at ease, and her gaze stays mostly on him without feeling oppressive, occasionally letting her gaze wander to her cup, or the window behind him. Red makes himself relax, settling into his seat and going through a quick calming technique.<br>
-<br>
-"Good awareness and response time," she says, taking him by surprise and causing him to become flustered. "Oh, and now I've ruined it. I apologize."<br>
-<br>
-"That's okay," he says automatically, and tries to concentrate on relaxing again. It's a little harder, but as he breathes in and out, he lets his mind wander to his research until it calms. "Well, the short version is I want to discover the origin of pokemon species. Any deeper and more fundamental understanding of them will help with that, such as what makes them so different. We know that natural selection creates variation in species, but there are also pokemon that seem to spontaneously arise out of their environment. So did the pokemon we know already do the same, in ancient history? Or did they come about from biological changes over time?"<br>
-<br>
-"Biological changes. You mean coming from the same ancestor, such as mew?" she muses, sipping her tea.<br>
-<br>
-"I was thinking of even simpler life forms, but if mew existed, and was really the first pokemon, then yeah, learning about psychic pokemon might be important."<br>
-<br>
-"Then your interest in psychics is incidental to your interest in biology."<br>
-<br>
-"A little. The type system often seems incomplete or misleading, but psychic phenomena, and the related Dark type, are something we humans seem to share with pokemon, so it's probably fundamental in a way that, say, studying Fire or Plant pokemon wouldn't be." <em>Also discovering how psychic phenomena work might help develop technology that mimics it and allow Bill to make something that spurs better machine understanding of human values mmmmm chocolate...</em><br>
-<br>
-"Yes, I see." Sabrina's gaze is distant, and Red ignores her as best he can, gulping down his milkshake until he suddenly feels the sharp pain of brain freeze. He grimaces and stops drinking, one hand rising to rub his forehead.<br>
-<br>
-Sabrina chuckles. "I apologize if that was on my account. I don't mean to make you nervous, and have no intention of trying to connect deeper with your mind. If your emotional mood itself is what you fear me sensing, then we can end the conversation. I hope you didn't feel pressured into coming."<br>
-<br>
-"Oh, no," Red says as he puts his cup aside, cheeks flushed. "I'm just… still new to interacting with other psychics."<br>
-<br>
-"Why do you not simply use your shield? Or was I misinformed about your having one?"<br>
-<br>
-Red shifts. "Would you mind me asking first, how <em>did </em>you find out about that?"<br>
-<br>
-She smiles. "The psychic community is rather interconnected, for all our layers and divisions. My Third asked me if I ever knew of someone who could shield their mind while sensing others probing it, and I told him I had not and asked why. He reported that someone had asked <em>him </em>the same question, and from there it wasn't hard to discover that Psychic Ayane's new student had apparently exhibited the ability. Am I to take the question as confirmation of it?"<br>
-<br>
-Red nods. "Yeah, I can do it. Or I did with Ayane, anyway. The reason I'm not using it now is I don't know if it's rude or not." He hesitates, then says, "Or to be honest if it would do any good against a psychic of your caliber."<br>
-<br>
-"An understandable fear. But such a breach should be felt even by someone with a regular shield, and if such a thing were to happen, you could simply throw your drink in my face and run."<br>
-<br>
-She says it so matter-of-fact that Red grins. "I wouldn't do that."<br>
-<br>
-"Oh? And what would you do, then, if a psychic were to force a merge?"<br>
-<br>
-Red considers this a moment, then purposefully remembers what it felt like to be attacked by his Spinarak. But while the memory isn't pleasant, there's no sudden, sweeping reliving of it. Using that as a double edged defense wouldn't work.<br>
-<br>
-But there is something that still has that power over him, however much he's gotten better at dealing with it.<br>
-<br>
-"I'd probably try drowning them in grief," he says, smile fading. "Assuming I could tell they were doing it at all." It's not like she has an incentive to tell him the truth if she <em>can </em>breach people's shields without them knowing…<br>
-<br>
-Sabrina sighs, the age behind her eyes becoming more pronounced. "I see you understand why many psychics' lives can be… difficult."<br>
-<br>
-Red is lost for a moment, then realizes she probably picked up on his suspicion. "I'm sorry."<br>
-<br>
-"Don't be. Trust is a valuable thing, and it is completely understandable that others would withhold it from those who have power over them. But without it, true and meaningful relationships are difficult… and so the suspicion and discomfort that psychics face throughout their lives, particularly powerful ones, can often be quite isolating. Even from one another."<br>
-<br>
-Sabrina's face is still calm, but there's something in her words that makes him feel how personal this topic is for her. Red wonders who she's thinking of, and feels wretched for being so suspicious of her even as he knows he shouldn't, that this too can simply be an additional manipulation. Red suddenly wonders if she's the reason the cafe is so empty. Who would want to sit for tea in the same room as the most powerful psychic in the region? "I didn't mean to…"<br>
-<br>
-"I know." Right, she can probably sense his remorse too. But then she smiles, and the sense of sitting across from someone far older than she appears fades. "Believe it or not, it doesn't often bother me so much, anymore. Today was just a particularly hard day. My previous meeting dredged up some painful memories."<br>
-<br>
-"Oh." Red doesn't quite know what to say to that. The Gym Leader appears to be confiding in him, which is probably as good a way as any to make him feel more at ease and trusting. He decides to reach out as well. "I know what that's like." And he explains, as briefly as he can, his partition and the difficulties it had caused him.<br>
-<br>
-Sabrina's gaze is sympathetic, but also speculative. "I don't envy you the experiences, but… I can't help but wonder what role they've played in your particular expression of your powers."<br>
-<br>
-Red frowns. "Because of the partition? Seems a stretch, unless you have a bigger sample size to draw from?"<br>
-<br>
-"There are other psychics with unique, or at least very rare, extra abilities," she says. "Whether they had experiences similar to yours, I don't know. But this partition you describe is the root of a psychic's ability to shield their mind while still using their powers. Normally it is something a psychic develops. To have it develop on its own, before you learn to control your powers, is what intrigues me."<br>
-<br>
-"What do you mean? And what sorts of extra abilities?" Red takes out his notebook, which seems to amuse Sabrina, who lifts her cup and sips as she thinks.<br>
-<br>
-"Let's see. Sufficiently powerful psychics can project not just feelings, but static images and monotone words to others, but Elite Lucian of the Sinnoh region has the ability to share moving pictures and a full range of sounds, as well as physical sensations and tastes and smells, into another's mind. As far as I'm aware he is unique in this. He likes to use it to entertain his nieces and nephews, projecting mental movies of books he reads for them. An old woman I met once in a faraway region could move incredibly small objects, such as grains of sand, with a dexterity that most others cannot come close to. I watched her make beautiful mandalas in moments with her mind, and though I've practiced ever since, for all my strength I cannot emulate her. And I have a student whose psychokinesis can even reach through glass, which should be impossible. Seeing him do so broke all our previous understandings of the limit of telekinetic powers."<br>
-<br>
-Red listens in rapt fascination, scribbling each down for future investigation. Psychokinesis that can go through solid objects? "Is it just glass, or can he move things through other materials too?"<br>
-<br>
-"Just glass, for now," she says. "For various complicated reasons, it is difficult for him to find time to participate in experiments, but rest assured that we hope to get to the bottom of it soon."<br>
-<br>
-Red feels a stab of longing, he would <em>love </em>to be part of that research, his mind is already racing with ideas to test such a unique power's limits... "And you? Do you have any powers like that? Unique abilities?"<br>
-<br>
-Sabrina is quiet a moment, then says, "In a sense. Perhaps it is just my imagination, but… at times I can see psychic phenomena."<br>
-<br>
-Red's eyes widen. "What does it look like?"<br>
-<br>
-"Light," she says, voice soft. "Light in many colors, often colors I can't name, radiating off of a psychic in proportion to how much power they use. It's… beautiful."<br>
-<br>
-"That's amazing! Can you look at mine, tell me how strong it is?" Hell, he's been looking for a way to measure psychic strength all this time, but if she could <em>see </em>it...<br>
-<br>
-She shakes her head, smiling. "Unfortunately I can't do it at will. It comes and goes."<br>
-<br>
-"Oh." Red can't hide his disappointment, and he puts a question mark next to that one. Still, worth looking into later. "Well, some of these abilities seem more unique than others. Like, Lucian or the woman's, they're just normal psychic powers with an unusual level of power or precision, right? But moving things from the other side of glass… that's what I'm more interested in. Finding phenomena that break 'rules' are the ones most likely to teach us something really new about the world. Do you think I can meet your student some time? Or get their name?"<br>
-<br>
-Sabrina smiles. "Perhaps someday, but he's rather secluded, and quite busy."<br>
-<br>
-"Ah." Someone like Bill then, who appreciates their privacy. He quickly takes another sip of the shake, careful not to drink too much. "I get it. Well, it's still good to know that sort of thing is possible at least."<br>
-<br>
-"Indeed. The more psychic powers are explored, the more the 'rules' we believed inviolate, few though they were, are proving more flexible instead. It's why your research has been so interesting to many… and your power."<br>
-<br>
-"Well, I think that has a lot to do with who's trying to come up with the rules, to be honest." Red shrugs. "I wouldn't put too much stock in the psychic community's ability to create meaningful beliefs about how their powers really work."<br>
-<br>
-It takes two full seconds for Red to realize he just said that, out loud, to one of the leaders of that community, who no doubt contributed greatly to generating such beliefs.<br>
-<br>
-The gaze the Gym Leader has fixed on him, one dark brow raised, is suddenly hard to ignore. "Oh? And you feel this way due to your few months of lessons and single experiment on psychic phenomena?"<br>
-<br>
-Red swallows, trying to backtrack. "I mean… ah… it just all seems very… unscientific."<br>
-<br>
-"Hmm. Granted," Sabrina says as she pours some more tea into her cup, and Red lets his breath out. "Most psychics aren't scientifically oriented in the slightest, or seem positively allergic to such ways of thinking. But I have seen more researchers than you might credit, well-funded and highly motivated, attempt to unlock its secrets, and produce few results as well."<br>
-<br>
-Red thinks carefully before he responds, determined not to stick his foot back in his mouth. "Okay, I didn't know about that," he says at last. "If they're <em>really </em>motivated to find stuff, and aren't being held back by sacred or deeply ingrained beliefs that prevent them from thinking outside the box, then maybe making new discoveries about it will be harder than I thought. I'll update in that direction, thanks for telling me."<br>
-<br>
-Sabrina looks amused. "You're quite welcome. But you still mean to pursue it?"<br>
-<br>
-"Well, sure. I mean, I'm going to be trying to understand my own powers as best I can anyway, along with pokemon. Ayane was a great teacher, and she seemed impressed by my progress. Maybe I can find out something new."<br>
-<br>
-"And what progress was that?" Sabrina doesn't appear skeptical, more curious, but Red still feels nervous.<br>
-<br>
-"Well. My shield isn't the only thing that surprised her. Because of my partition, it's hard for me to really use my powers for a significant amount of time. Or it was, anyway, I feel like it's getting a bit easier. But still, my solution was to just try mimicking the mental state I experienced in her, then adjusting them as needed. And it seems to work pretty well."<br>
-<br>
-Sabrina's curious look has sharpened into real interest now. "So in a way, it <em>was</em> your personal experiences and impairment that led to your unique shield."<br>
-<br>
-"Maybe? Earlier you said the partition was important to making a shield…"<br>
-<br>
-"Partitioning one's mind is how a psychic accomplishes many of their feats, such as selective amnesia, or shielding while still being free to project or merge with others. By arranging the 'outer' portion of your mind in the right pattern, you can keep your thoughts and feelings hidden while the rest of your mind engages in other activities."<br>
-<br>
-"But… the shielded portion isn't responsive? Normally?"<br>
-<br>
-"Correct. It is a separate part of your mind that remains inert so as not to reflect your hidden thoughts and feelings. To be able to sense something from it should defeat the purpose, but the way your powers developed, the partitioned mind seems particularly connected to yours regardless. My suspicion is that your partitioned mind is the conduit through which <em>all </em>your psychic abilities have been channeled. Your development of your powers has in truth been the development of a second partition, distinct from the one that has held in it the bulk of your grief, and so you have felt it less as that grief is shared more and more between them, and lessens on its own besides."<br>
-<br>
-Red considers this new metaphor, finding it plausible even as he has a sinking feeling. "Does that mean I'll lose the ability to sense others while shielding, when the partition fades?"<br>
-<br>
-Sabrina stirs sugar into her drink, face thoughtful. "Perhaps a new, intentional partition would retain the ability. If so then it should be teachable to others, and that is, in large part, why I asked to meet you." She puts her cup down, then takes a consent sheet out of the bag beside her, voice becoming formal. "May I examine your ability, Psychic Red, and try to breach it?"<br>
-<br>
-Red doesn't have to consider this long: the conversation has put him much more at ease with her, as it was no doubt designed to do, and if in some way this would help contribute to the world's understanding of psychic powers… he holds a hand out for it.<br>
-<br>
-Sabrina watches him sign, then inclines her head as she takes it back and tucks it away. She shakes her dark hair back, hands rising to tie it up with a band from her wrist. "By your leave."<br>
-<br>
-Red turns to a fresh sheet near the back of his notebook and prepares to repeat the line-drawing he did with Ayane, wondering if Sabrina's mind would feel significantly different than his teacher's. He dutifully closes his eyes and concentrates on his breathing, slowly sinking into himself until his powers feel like a central part of him, prepared for use. He constructs his mental shield with deliberate slowness, wanting to make sure he gets it right, then says, "Okay, ready."<br>
-<br>
-There's no sense of anything for a while, but eventually he recognizes the now familiar feeling of not being alone in his head, and starts drawing the line. He feels her mind slip around his, as expected, but instead of surrounding him or fading, the sensation changes. It becomes a sort of pattern imposed on his thoughts, like a drum beat that he has to tap his foot to, a rhyming couplet he keeps completing in his head.<br>
-<br>
-Red's closed eyelids tighten, and he begins to jaggedly run the pencil up and down as it keeps moving from one end of the sheet to the other, not thinking much anymore, simply trying to resist the urge to give in to the pattern as it focuses more and more, like he's being swept away in some dance that he need only take the first steps to, and the rest will flow, he will flow, flow into the pattern and become it...<br>
-<br>
-The careful hold he had over his shield falls apart, and Sabrina's mind is suddenly there with his. He stiffens, feeling the sudden flood of grief… but then he merely feels happy, and excited, and curious, and—<br>
-<br>
--<em>she's Projecting these feelings to keep the sadness away-</em><br>
-<br>
--then he's alone in his head again, and he lifts the pencil away from the sheet and opens his eyes, staring at the Leader in wonder.<br>
-<br>
-"What was that?" he asks, eyes wide.<br>
-<br>
-"What did it feel like?" Sabrina asks, gaze lifting from the sheet of paper to meet his.<br>
-<br>
-"Like… I was compelled into dropping my shield." A word suddenly occurs to him, and his eyes widen. "Was that hypnotism?"<br>
-<br>
-"Not far off. The mental shield works by arranging your thoughts in a certain pattern that is, for reasons we don't fully understand, hard for psychic powers to recognize. By tricking the shielded mind into changing to a different pattern, particularly one I can recognize, it was made visible, and thus reachable, to my senses."<br>
-<br>
-"Is that hard to do?"<br>
-<br>
-"I did not find it difficult, but perhaps others would."<br>
-<br>
-"Yeah, Psychic Ayane didn't try anything like that. So I just have to think about a certain pattern and it will reveal hidden minds around me?"<br>
-<br>
-"Most people cannot sense psychic minds probing for theirs while shielding. But with you—"<br>
-<br>
-"I can sense your mind in the first place, so I'm getting it directly." Red frowns. "Huh. My shield feels a whole lot less impressive, suddenly."<br>
-<br>
-"It's a weakness, to be sure, but perhaps one you can train against. In the meantime, as long as others do not know how your shield works, it still holds an advantage."<br>
-<br>
-"Right. Wait, does that mean you just came up with that attack just now?"<br>
-<br>
-Sabrina nods. "It seemed an idea worth testing."<br>
-<br>
-Well damn. And Red thought <em>he </em>came up with novel solutions quickly.<br>
-<br>
-Then Red realizes that the advantage his shield possesses might vanish by the end of the day. "Er. Leader Sabrina… are you planning on telling others about my shield, or how you got through it?"<br>
-<br>
-Sabrina's eyes watch his, two chips of rosequartz. "Is there any reason I shouldn't?"<br>
-<br>
-<em>Shit. </em>"Well, it would make it a lot less useful."<br>
-<br>
-She shrugs a shoulder. "Then it is up to you to learn to defend yourself against it, if you can."<br>
-<br>
-"Ah. Right."<br>
-<br>
-Sabrina smiles, not unkindly. "You are a psychic now, Red. One of the 'gifted,' as others would say. It has ever been a race between offense and defense, among our kind, unregulated and vital to the continued development of our powers."<br>
-<br>
-Red sighs, then nods. "I need to hire another teacher soon, then. And figure out how to do that hypnotism thing, in case others learn my trick." He glances at her, then away.<br>
-<br>
-Sabrina's smile widens. "You can ask."<br>
-<br>
-Red suddenly worries about thinking of Bill, which of course makes him think of Bill more, and quickly swallows a mouthful of his shake. "That was more than a surface impression," he says after his senses are flooded with the sweet taste, trying not to sound accusatory.<br>
-<br>
-"Our abilities do not work in a vacuum. When you are more used to sensing people's moods and emotions, you will be able to guess their thoughts or desires more accurately in a way that appears to be true mind reading."<br>
-<br>
-<em>Which is exactly what she would say even if she can actually read deeper. </em>And now he's back to being suspicious. But then why reveal the guess if she didn't want him to suspect her?<br>
-<br>
-Red takes a breath, then lets it out. This train of thought isn't getting him anywhere, and he <em>would </em>still like to learn… "Can I inhabit your thoughts while you do it again?" Red asks.<br>
-<br>
-"To be clear, you wish to merge with my mind as I repeat what I did so that you can try to mimic it, and thus become privy to <em>my </em>thoughts, as you were worried about me doing with you?"<br>
-<br>
-Red tries not to fidget. "I know it's presumptuous—"<br>
-<br>
-Sabrina laughs. "Normally it would be. But, you indulged my interest, so I am happy to trade." She closes her eyes, then says, "Begin."<br>
-<br>
-Red is surprised at her acquiescence for a moment, then suddenly more nervous than he can remember being in years. He feels simultaneously like he's about to ask a girl to dance for the first time, while that girl is also a dancing master and judge and enormously important and influential figure besides.<br>
-<br>
-<em>Get a grip and just do it. It's not like you're about to pet a skarmory.</em><br>
-<br>
-Somehow that thought is not helpful: he feels as though he'd rather be mauled by a skarmory than come off as an inept psychic to Sabrina, or worse, hurt her psychically in some way, laughable as that seems. But he notes the utter ridiculousness of that sentiment<em>, </em>calls himself a few pejorative names, and closes his eyes as he focuses on his breathing once again, before extending his mind outward.<br>
-<br>
-He notices it immediately: the normal thrum a mind makes in the not-space between them is always distinct, once he focuses enough on how, but in this case the difference between someone walking by outside and Sabrina's are like night and day. It's not just because she's psychic, he's sure, he notices that as a separate quality: rather, the raindrops of Sabrina's mind fall in a pattern that's almost inhuman, its vibrations so distinct that as soon as he reaches out to enmesh with her and feel her thoughts and sensations, he's swept up in the pattern.<br>
-<br>
-—<em>a leaf spinning in the air, blowing in the wind, dancing gracefully from place to place, but looping in the same ways, forming a pattern of ideas—</em><br>
-<br>
-For a while, Red simply lets himself follow it. He understands that it's Projection, a simple and blatant sending out that brings back his metaphor of being about to dance with a girl. For that's the metaphor that his mind latches onto, as his mind connects with Sabrina's and follows the movement of her thoughts through eddies and whirls: a dance, one that the Leader gives herself to completely, an unabashed series of motions that she's been immersed in since childhood.<br>
-<br>
-And that thought is connected to others as her mind reflects his: a childhood that's deeply lonely, not understanding why no one else was like her, only knowing in a uniquely intimate way that they didn't understand what she lost, what she wanted, and how those years of isolation make her relate to—<br>
-<br>
-—<em>stillness so complete the ground below suddenly vanishes mid-step—</em><br>
-<br>
-<em>CRASH</em><br>
-<br>
-Red blinks, finding himself on the floor and staring up dizzily as he reorients to where he is.<br>
-<br>
-"Mr. Verres! Are you alright?"<br>
-<br>
-Red looks around, taking a moment to come back to himself. "Fine…" He rolls onto his side out of his chair and gets up, checking for bruises. Just one on his shoulder. He smiles at Sabrina, who's half out of her seat with concern. "I'm okay." He turns to the barista, seeing the concern on their face even from across the room. "I'm fine!" Red realizes with detached interest that he didn't feel the young man's mind earlier, and wonders if he's Dark, or a psychic who can shield his mind too.<br>
-<br>
-He rights his chair, only noticing then that his chocolate shake fell over and is dripping off the other end of the table. Sabrina's face is tight, and suddenly a flurry of napkins rises from the tables around them, descending like a flock of birds upon the mess to soak it up, the glass righting itself on the table.<br>
-<br>
-"I'm terribly sorry about that, Mr. Verres."<br>
-<br>
-"What happened?" Red says as he slowly sits back down, eyes still on the moving napkins as they rise up, heavy with milkshake, to deposit themselves in his empty glass. It's his first time seeing psychokinesis used outside of the basic lifting of objects that Ayane demonstrated in lessons, and it makes him feel both awed and frustrated at his own inability with it.<br>
-<br>
-"I attempted to show you what a normal mental shield looked like, to see if you could mimic it. This closed my mind quite abruptly, which I imagine was a disorienting experience."<br>
-<br>
-"Yeah, it felt like… you know those dreams where you're falling and abruptly wake with a start? Like that. But before…" Red smiles. "The hypnotic pattern thing, it was really cool. Like dancing with your thoughts."<br>
-<br>
-Sabrina's eyebrows rise, and her consternation appears to fade a little. "I'm glad you got something out of it, at least." She tilts her head. "Do you believe you can mimic it, now?"<br>
-<br>
-"I'm not sure, but I can try if you'd like?"<br>
-<br>
-"Please do, if you're feeling up for it."<br>
-<br>
-So Red takes a breath and closes his eyes again, remembering what he sensed and locking down each part of it, bit by bit, until all that was left was the pattern. At first he tries mimicking the pattern she used, but it's too difficult to remember properly without breaking, like knitting with cobwebs. He's not sure if it's his state of mind that's off or if he just needs to experience it again to remember, but maybe it's easier to try something more familiar to him… what if he follows a rhyme, some poem or couplet?<br>
-<br>
-For some reason, the first thing the idea of forcefully concentrating on a rhyme brings to mind is something a classmate with a stutter used to repeat that stuck in Red's head: <em>Amidst the mists and coldest frosts, he thrusts his fists against the posts and still insists he sees the ghosts.</em><br>
-<br>
-Red frowns, eyes still closed as he tries to let his thoughts flow into a pattern, his own mental dance connecting one idea, one word, to the next to the next to the next, in effortless but repeating freeflow, the kind he experienced before. Just repeating the couplet isn't enough, it becomes too rote, his mind wanders, he has to fully commit his thoughts to the pattern it makes, remove the words and let his ideas flow in that meter, and it's <em>hard, </em>like lifting a door knocker that weighed a hundred pounds and trying to bang it at a particular rhythm (the metaphor coming to mind from his experience as a baby trying to lift a knocker while on his dad's shoulder, to his general encouragement and laughter)...<br>
-<br>
-<em>...he THRUSTS his FISTS agAINST the POSTS and STILL inSISTS he SEES the GHOSTS...</em><br>
-<br>
-Red wipes at his eyes, the grief finally rising to the point of distraction and breaking his concentration. He takes a moment to collect himself, and Sabrina says nothing as she finishes cleaning the spilled milkshake.<br>
-<br>
-"Would you like another drink? On me, of course."<br>
-<br>
-"I'm okay, thanks." Red looks around for a dry napkin to use, and one suddenly flutters over, causing him to smile as he plucks it out of the air and wipes his face. He would actually like something to drink, both for the sensation overload and to cheer himself up. Realizing that she probably picked up on that, he smiles. "Actually, maybe some masala chai?"<br>
-<br>
-"Of course."<br>
-<br>
-By the time she returns with it, Red has enough presence of mind to feel awkward about a Gym Leader fetching him tea, even if she did inadvertently cause his first drink to spill. Just covering the milkshake that he bought wasn't the same, but at least it gave him some time alone to recover, which he suspects was the real motivation anyway. "Thank you. So, did you feel anything? Was I doing it?"<br>
-<br>
-"You were certainly doing <em>something," </em>she says, and smiles as he snorts. "I think you managed to capture the mental state, the idea of what it means to form a mental pattern, but it will still take time and effort to replicate it, and psychic power to project it."<br>
-<br>
-"Oh yeah, it usually takes a lot of practice to get these right," Red says, taking a drink and enjoying the warm mix of spices and flavors for a moment before he scalds his tongue a little, and begins to blow on it.<br>
-<br>
-"It likely would from anyone else trying to learn it, so your shield still has value for a time at least. I am eager to see if it's something others can learn. Perhaps your more valuable skill is in copying of mental states. If you haven't tried teaching it to others, that must be the first thing you do."<br>
-<br>
-"You don't think it's a unique ability, then?"<br>
-<br>
-"I hope it is not, and you should as well," Sabrina says, sipping from her tea and watching him.<br>
-<br>
-It takes Red a moment to get it. "If I can teach it, that means I have something valuable to offer other psychics."<br>
-<br>
-"Precisely."<br>
-<br>
-It takes Red <em>another</em> moment to put together the <em>real</em> reason for the meeting. "So… now that you've gone to such lengths to make sure I know the value of my ability, what do you want in exchange?" What she did is the opposite of what someone wishing to barter should do, and Red feels grateful for her transparency, as he knows he's probably intended to. <em>I guess this is what the Professor was talking about. It's hard to call something manipulation if it's just using your natural incentives and feelings… even watching for it, it can still get you.<br>
-</em><br>
-Sabrina smiles. "Do you know why you can't move someone's arm with a mental connection? Why it would take direct psychokinesis?"<br>
-<br>
-Red shakes his head, unsure of the relevance but curious.<br>
-<br>
-"Because everyone's body works differently, even among the same species. The broad strokes of our brains are similar, but when it comes to individually moving a single finger, the wiring is different. The best we can do is interpret the sensations of similar appendages and movements that we've experienced. But because all mental communication is symmetrical, a mirroring of mental states and thoughts and images and feelings, it is something that can be communicated on a level beyond conscious understanding, theoretically."<br>
-<br>
-Red considers the act of catching a pokeball. "Like learning something by muscle memory without really understanding the physics of it any better."<br>
-<br>
-"Precisely. Our brains are constantly calculating and making predictions at a bottom level, while simultaneously our mind, our attention, what we consider <em>us, </em>is observing and matching experiences against what our brain generates. Psychic abilities, in a way, allow the mind to pass information down to the brain in a different way, or allow the brain's upper activities to be consciously applied to the basic, invisible level.<br>
-<br>
-"But still, every mind works differently in subtle ways," Sabrina continues. "I often think that the more minds a psychic meshes with, human or pokemon, particularly those with psychic powers themselves, the more agile and versatile their ability to interface with their powers, with their own brain in general, becomes. And so I value finding promising students, not just for their sake, but also my own."<br>
-<br>
-Red blinks, then blinks again. "You want me… as a student? Like, a <em>personal </em>student, or just a gym member?"<br>
-<br>
-"I occasionally teach some of the more advanced classes at my gym, and tutor individuals, but that mostly relates to training Psychic pokemon. I mean one of my personal students, for the development of your psychic powers."<br>
-<br>
-"I… don't have a lot of money," he says, still reeling from the offer. After a moment he realizes, "Wait, that's not true, I guess I have money now… sorry, I'm still getting used to that. Um. How much…?"<br>
-<br>
-"We can discuss price later. And because you have a unique ability that I would like to learn as well, if it can be taught at all, I am willing to remove the fee of some lessons in exchange for what I would learn from you."<br>
-<br>
-"You want <em>me </em>to teach <em>you?" </em>he asks, flustered for a whole new reason.<br>
-<br>
-Sabrina's tone is patient. "Such lessons would mostly involve being able to observe your powers while you use them, and fully investigate how you use them, as I guide you through specific tasks."<br>
-<br>
-"Oh. Of course." Red can feel heat in his cheeks.<br>
-<br>
-"However, this is not an open offer yet. I still need to know if you understand your own powers enough to be ready for lessons as advanced as I would give."<br>
-<br>
-Red's heart sinks. "I've only been really using my powers for a month, and I'm still dealing with the partition thing, and… I still can't use telekinesis at all, so... probably not," he finishes, voice quiet.<br>
-<br>
-"I see." Sabrina looks thoughtful. "Perhaps a few more months would be better, then. But you are the right age for students I begin teaching, so it's not a matter of maturity or intelligence, but practice."<br>
-<br>
-"I can practice a lot," Red quickly says. "I already practice once a day, at least!"<br>
-<br>
-Sabrina blinks at him, then smiles. "And what else do you do once a day?"<br>
-<br>
-"Well, I try to fit in some pokemon training every day, and I go over my personal notes, and keeping up with the latest research publications, and I've been trying to get some physical training in but I often forget…" Red trails off, feeling foolish. "Right."<br>
-<br>
-"It's not impossible for someone to become an expert psychic and trainer," Sabrina says, voice kind. "But it is difficult and demanding. To try to fully dedicate yourself to your psychic abilities, and your pokemon training, <em>and </em>your research, <em>and </em>other projects… the phrase 'fully dedicate' quickly becomes meaningless."<br>
-<br>
-Red can't help but feel disappointed, but he stifles the urge to argue that he can do more, try harder. He knows she's right, but the opportunity to learn from Sabrina… he can't pass that up, can he?<br>
-<br>
-<em>This is why we talked about goals, </em>Red remembers. <em>Do I value my development as a psychic more than I do my journey with Blue and Leaf? Or more than my research? I finally got my license, am I just going to put it aside now for who knows how many months or years?</em><br>
-<br>
-"Would I have to come to Saffron Gym?" Red asks, some part of him still seeking a solution.<br>
-<br>
-"If you would have a predictable schedule, it isn't necessary," Sabrina says. "I've registered teleportation sites all over Kanto, certainly in every city and town. But if you're traveling, you would need to be capable of free teleportation and have a registered point in Saffron."<br>
-<br>
-"I can't do free teleportation yet, but I have two abra," Red says. It would mean unregistering Bill's house though...<br>
-<br>
-"<em>And </em>you would need to be able to commit to appointments. Some exceptions can be made if an incident occurs, of course, but if you're traveling between cities, your companions may have to wait for hours, or you would need to catch up to them another way. Generally speaking, most do choose to stay in Saffron, and if they're also trainers, often become Gym members as well."<br>
-<br>
-Red gnaws his lower lip. "Is it okay if I have time to think about this?"<br>
-<br>
-"Of course." Sabrina says. "You may reach out when you have an answer. But try not to take too long: I may take other students in the meanwhile, and my time would become limited."<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-Red spent the rest of his day in a bit of a daze, thoughts on the conversation and the choices ahead of him. He considers returning to the gym, then instead goes to the Trainer House to practice his psychic abilities, only trying his psychokinesis briefly before giving up on it again and focusing on sensing his partition. He still gets distracted occasionally by worries that he's not trying hard enough, not making fast enough progress in that area as well.<br>
-<br>
-Once night falls on the city, Red gratefully leaves to meet up with the others so they can celebrate the two birthdays and his Researcher license. His brain feels bruised, and he's happy to occupy it with lighter things as the group travels to the Kalos district and checks out its various shops. They spend some time in the clothes stores to try out foreign fashions, then check out the video studio that offers them a ten second promo clip for each of them and one of their pokemon.<br>
-<br>
-Red is too embarrassed at first, but after Leaf and Aiko appear to have so much fun trying out the various outfits and training their pokemon to pose properly, he and Blue decide to do one together, going completely over the top with a background animation of a fiery explosion on one side and a stormy sea on the other behind each of them, as Charmander and Maturin face off. They arrive in the lobby just in time to see Aiko's clip show up, her and her Eevee dancing in a starlit sky, and then Leaf's video of her doing a handstand with Bulbasaur holding itself up by its vines appears, which the others compliment her on until she blushes. Aiko and Leaf laugh at Red and Blue's video, mimicking their poses as they leave and walking down the street in slow motion.<br>
-<br>
-Eventually it's time for Aiko to return home. She wishes them a happy birthday, congratulates Red again, and brings her abra out to teleport back to the ranch. After seeing her off, the trio continues through the district, focusing more on the restaurants now.<br>
-<br>
-One of them seems to be advertising some kind of mid-meal pokemon battle entertainment. Leaf insists that they can go to it if Red and Blue want to, but Red knows it would ruin her appetite. He uses the exorbitant price as an excuse to turn it down anyway, and Blue remarks that the fights can't be <em>that </em>good if they're in the middle of a restaurant.<br>
-<br>
-The night drags on as they pass one restaurant after another, unable to decide on anything among all the different, equally interesting choices available. Each suggests a different way to deal with it: Blue suggests just picking the next restaurant they come across, since they've all seemed pretty amazing, Leaf insists Blue or Red make the decision without consulting her, since it's their night, and Red suggests listing their preferences and finding one that all of them share to use as their guide in what to choose.<br>
-<br>
-Eventually Blue throws his hands up and says they can just go to <em>different restaurants </em>and get what they each want, which reminds Red that something which capitalizes on not having to make just one choice called <em>buffets </em>exist, and after a quick search on his phone they find one that offers a wide variety of Kalos dishes for a reasonable price. As an added plus it also happens to have small pens beside each table for their pokemon to eat in, as long as they're well trained and not left unattended. After purchasing a table, the three release their starters into the pen, then take turns staying as the other two go back and forth from the buffet lines, each of them thoroughly sick of having to make choices and happy to just take everything they want.<br>
-<br>
-Eventually, after multiple trips each, they're all sitting together for an extended period, feeling absolutely stuffed. Blue lets out a sigh of contentment and tosses his last piece of seared magikarp to Maturin, then turns to Red and says, "Well?"<br>
-<br>
-Red doesn't pretend to wonder what he's asking about. "It was… interesting."<br>
-<br>
-Leaf looks between them. "What'd I miss?"<br>
-<br>
-So Red launches into a brief recount of his conversation with Sabrina, including an even further summarized version of the story Professor Oak told him. By the end of it Leaf and Blue are staring at him in shock.<br>
-<br>
-"You went to meet a <em>psychic Gym Leader with a history of being manipulative</em>? After what happened to me?" Leaf asks.<br>
-<br>
-"You turned down <em>Leader Sabrina </em>as your psychic teacher?" Blue demands.<br>
-<br>
-"I couldn't have just walked away," Red tells Leaf, then turns to Blue. "And being her student would mean giving up all this…" he trails off, doubt and uncertainty filling him again.<br>
-<br>
-Blue rubs his chin. "There's got to be a way to make it work. How long did she give you to change your mind?"<br>
-<br>
-"Um. No specific time frame."<br>
-<br>
-"Try to figure something out before we leave Vermilion then," Leaf says. "We've got the cruise convention coming up anyway, so it's not like you could commit to anything before that."<br>
-<br>
-"Right." Red didn't consider that, and feels a little relieved that he <em>can't </em>actually make a commitment for now.<br>
-<br>
-<em>That's not really a justified motivation for indecision, </em>Future Red complains. <em>The actual factors aren't likely going to change by then anyway, so you should still work on thinking of something now, even if you can't make the commitment until later.</em><br>
-<br>
-<em>Sounds like a whole lot of your problem,</em> Present Red replies. <em>Tonight I'm supposed to be celebrating. </em>He drowns out his future self's response by having some more tasty garlic-cream potatoes. "Still," he says, "As cool as it is to be noticed by someone like her, I wish I could turn that interest into a different kind of value."<br>
-<br>
-"I said something similar, earlier," Leaf says. "About taking advantage of all this influence we have, even if we're getting too many opportunities that we can't take at the same time. Aiko made a pretty great suggestion, and I checked with the Coordinator schools to see if any would let me write an article for their sites. One agreed, so I'm typing up a piece on what I did with the abra, and hopefully afterward I can pitch a second article on deeper pokemon ethics themes. You should try something similar, Red."<br>
-<br>
-Red rubs his chin. "You mean, what, check if Sabrina's Gym has a blog?"<br>
-<br>
-"Or start your own," Blue says.<br>
-<br>
-Leaf nods. "You've got a spotlight on you. Anything you put out that others can read, they will. The interest is going to fade if you let it, or if the things you write aren't interesting, but if they are you can start building an audience. Whether you commit to being one of Sabrina's students at some point or not, you could end up getting a different teacher if you become popular enough, or others find out about your unique abilities."<br>
-<br>
-Red is already considering what his first post would be. Perhaps a journal of sorts on his experiences with his powers, something that could formalize the concepts that are so frustratingly vague among psychic circles…<br>
-<br>
-Red is grinning, fingers itching to get to writing. "That's a great idea, Leaf, thanks!"<br>
-<br>
-She smiles. "Just don't spend too much time on it that you fall even farther behind on practicing with your powers, if that was a concern with Sabrina. It might be with other teachers too."<br>
-<br>
-"Right. I'll try to slot it into my usual writing and review time."<br>
-<br>
-"Oh, and you should fill out your online profile," Leaf says. "Yours barely has any info about yourself, you have followers now who probably want to learn more about you. It would help people know to give you credit for the things you discover."<br>
-<br>
-Red blinks. "Why would I have trouble with that?"<br>
-<br>
-Leaf hesitates. "Try not to get mad, but… I mean, Blue and I were raised by Professors, from the outside a lot of people <em>expect </em>us to be the ones making most of the discoveries. I've been seeing people give us more credit than we deserve for the abra thing, even with the interview, and I think it's because people don't really know who you are, the way you think, how much time you spent on it."<br>
-<br>
-Red is frowning as she speaks, more bothered than he thought he would be. "Ugh. Okay, I'll flesh out my profile too."<br>
-<br>
-"Yesss," Blue whispers, steepling his fingers together. "Join us, Red… join us… on the PR side!" Before Red can reply, Blue winces, one hand going down to rub his leg as Leaf glares at him.<br>
-<br>
-"Are you trying to get him to change his mind?"<br>
-<br>
-"It's not public relations," Red insists. "I'm just sharing the ideas I have and giving context for them, like how I learned things and what resources I use."<br>
-<br>
-Blue smirks. "Whatever, my point is you'll be actively building a following and public image instead of just letting it develop on its own. That's all I've ever been asking you to do, and it's about time."<br>
-<br>
-Red refrains from insisting again that it won't be like that. Mostly because he won't know if it's true until he has a chance to see if he <em>actually</em> feels some urge to shape his own narrative and persona in his public writing.<br>
-<br>
-"Is it that bad, for you?" Leaf asks, clearly reading his hesitation.<br>
-<br>
-"It's… it just feels…" Red tries to put it into words. "It feels insincere. I don't want to care what other people think of me."<br>
-<br>
-"But don't you?" Leaf asks.<br>
-<br>
-"No!" Red says reflexively, then says, "Well, a little, but only by people I respect too, like you guys, or Professor Oak, or Bill, or Sabrina…"<br>
-<br>
-"So people who can do things for you," Blue says.<br>
-<br>
-"You can make anything sound cynical if you try."<br>
-<br>
-"Well, I care what others think of <em>me.</em>" Leaf says, voice a bit too casual. "And I care what others think of you guys. I'm always aware that the things I say online may reflect on the two of you."<br>
-<br>
-That gives Red pause, and he takes a moment to find his true objection. "Doesn't that ever… feel restrictive?"<br>
-<br>
-"You're not getting it," Blue says. "It's not about looking for people to like you, or even agree with you all the time. You're looking for people to <em>respect </em>you<em>, </em>and that means you'll be doing more things <em>worth respecting. </em>Like when I started helping out at pokemon centers, was that bad?"<br>
-<br>
-"Well, no, but—"<br>
-<br>
-"Or when I gave more abra to the centers and rangers?"<br>
-<br>
-"Of course not—"<br>
-<br>
-"So what's the problem? I'm glad I started helping at pokecenters, it taught me a lot and I've been able to help a lot of people." Blue's voice is rising, face hard. "If I also got respect for it, isn't that something people <em>should </em>be respected for?"<br>
-<br>
-Red feels himself getting on edge from Blue's tone, but… there's a note of confusion as something in him agrees with Blue. It stops him from responding to his friend's anger, and instead he frowns down at his plate for a moment. "I didn't realize it bothered you so much."<br>
-<br>
-Blue huffs out a breath, hands rising to grip the back of his chair. "It doesn't <em>bother </em>me, it's just such a… it's such a…"<br>
-<br>
-"A cliché," Leaf says, and they both turn to her. "All those shows and movies where people talk about being popular like it's a problem, like being popular isn't <em>important, </em>when it <em>obviously is. </em>It comes with downsides too, but..."<br>
-<br>
-And Red remembers, somehow he <em>forgot, </em>he didn't really <em>think about it...</em> as Leaf said, both she and Blue have lived their whole lives raised by Professors. Some of the people with the highest status in their regions. They witnessed firsthand the doors that opened for them, and while they both want to step out from under those shadows and make their own marks on the world, there's no part of them that's confused about the value of being respected by others, of having people who will <em>listen</em> when you speak, who will go out of their way to help you.<br>
-<br>
-"Just look around." Blue lets the chair go with one hand and starts raising fingers. "Gramps, Lance, Giovanni, hell, <em>every</em> Leader worth a damn... Doesn't matter if you want to be a politician or a famous singer or whatever, being respected by a lot of people? It makes things easier. It opens opportunities, it gives you privileges that help you gain even <em>more </em>power."<br>
-<br>
-"Hold, please," Red says, putting a hand up. "I need to process this."<br>
-<br>
-"Take your time," Blue says, getting up. "I'm grabbing ice cream."<br>
-<br>
-Leaf grins. "Oo, yeah, the dessert buffet's almost as big as the other foods. Want anything, Red?"<br>
-<br>
-He shakes his head, then takes his notebook out and starts jotting down bullet points as he thinks...<br>
-<br>
-<em>Is</em> it okay to be driven by a desire to have others respect you? Why does it feel so... "slimy?" Is it <em>just </em>because of all the stories he's absorbed over the years, all the narratives of heroes being humble and not seeking the limelight?<br>
-<br>
-Or is it also because in <em>his </em>field, the ideal is that a person's ideas change the world not through popularity, but their own merits? That's a profession Blue didn't list, being high status or low doesn't help you discover new things about reality… a scientist can make a new discovery whether they're in the public eye or some obscure research hobbyist… but he can't deny that Blue's right in pointing out that it's easier to get the equipment, funding, and opportunities if you're already popular and respected, not to mention easier to get others to pay attention to what you discover.<br>
-<br>
-Red draws a box around those thoughts, then a line down to a new bullet point. Maybe there's a deeper belief here, one that says something like "good actions are only good if they're not done for self-gain?"<br>
-<br>
-But the world <em>is</em> objectively a better place because Blue is the kind of person that wants to be respected. If Red could learn more, teach more people, and do the right thing more often because he wants to be the kind of person others respect, what's the harm in that?<br>
-<br>
-Red takes a deep breath and sinks deeper into himself as he tries to imagine the worst case outcomes.<br>
-<br>
-<em>The majority of people don't always respect positive things, </em>he thinks, remembering how people are so afraid to test human-pokeball interactions that they made it illegal to research it further. <em>What if I get so attached to wanting status that I become afraid of doing the right thing?</em><br>
-<br>
-<em>Also, respect is fickle. I might have it today and lose it tomorrow because I didn't do something people expected me to do, like condemn a politician loudly enough, even if I try to stay out of politics completely. Or maybe people will get upset if I don't donate enough the next time I make a new catching technique because I need the money for something important.</em><br>
-<br>
-Would he be worse off, in that case, than if he never gained their respect in the first place?<br>
-<br>
-Possibly, he might not be <em>expected </em>to say anything if he's not a public figure, if he just sticks to his research, which is what he wants to be known for.<br>
-<br>
-But if his personal experiences can help others, shouldn't he also share that too? Isn't it okay to be known for that too? And if he sticks to just stuff he's somewhat confident about, he won't have to worry about getting drawn into unrelated things…<br>
-<br>
-Or will he?<br>
-<br>
-Red taps the page with his pencil a few times, then puts it down. The other two are still gone, and he tears a piece of pidgey meat into bits and tosses them underhanded toward Charmander, letting them sail up first so that his pokemon jumps for them. His pokemon's growth has continued to increase his strength, allowing him to leap far higher than he used to. Once he proves he can leap as high as Red's head, Red stops tossing the meat so high as he starts to notice nearby patrons looking nervously at his pokemon's flailing, fiery tail.<br>
-<br>
-Soon the two are back and begin digging into some ice cream and cake. They brought a third bowl and place it in front of him too, just a tiny scoop of ice cream and a tiny slice of cake, and he grins. "Thanks guys," he says, and enjoys the offerings.<br>
-<br>
-"So?" Leaf asks.<br>
-<br>
-"I think I'm mostly worried about being in the public eye," he says slowly. "I don't <em>want </em>to have to think about how much status something will get me, or how much I might lose if I say the wrong thing."<br>
-<br>
-"If it's going to happen anyway, isn't it better to think about it?" Blue says. "Instead of blundering around?"<br>
-<br>
-"If I'm worrying about that stuff it feels intrinsically like changing who I am for the worse. Or at least, being put into uncomfortable positions more and more. But maybe that's just me confusing something that <em>is </em>bad, as a judgement, for something that <em>feels </em>bad, physically. When I try to simulate myself being interviewed again, like when we got to town, I feel squeamish."<br>
-<br>
-"You know, being a Professor will mean having to be interviewed now and then," Blue says in a dry voice before sucking some ice cream off his spoon.<br>
-<br>
-"That's different though, I'll be talking about my research."<br>
-<br>
-"So just talk about your research," Leaf says. "You can write about whatever you want. Just be aware that you'll be occasionally judged for it, and sometimes attacked for it. But that's how you learn, right?" Her tone has changed, become contemplative as she gazes into the distance. "You give your perspective, and others point out why they disagree with you… and if there's merit there, you engage… and if not, you ignore it..."<br>
-<br>
-"Easier said than done," Blue mutters. "Have you <em>seen </em>online discussion? What am I saying, of course you have."<br>
-<br>
-"I… think I just thought of a new thing to write about," Leaf says, with a slow smile. "Standards of discourse. Rules to productive online conversation, or something like that. Not everyone will care obviously, but if even 5% of people start to follow it, and some sites begin adopting parts of it... Gah, there's so many things to write about!"<br>
-<br>
-"Oh, speaking of!" Blue says. "You should totally come to the gym tomorrow, Leaf. Not for pokemon battling, for the other classes! It's great, isn't it, Red?"<br>
-<br>
-Red is still trying to untangle his feelings. "I didn't go yet, remember?"<br>
-<br>
-"Right, shit. Well great, both of you can go to them together! It's really amazing what Surge is doing here, I think you could get a great article out of it, Leaf."<br>
-<br>
-She looks surprised. "Why don't you write it then? Don't you have a bunch of ideas for how the gym system could be improved?"<br>
-<br>
-"Writing's not really my thing."<br>
-<br>
-"You share training tips with your followers, don't you?" Red asks.<br>
-<br>
-"Well sure, but that's not formal or anything."<br>
-<br>
-Red grins. "You know, being Champion might mean having to write formal stuff now and then…"<br>
-<br>
-Blue frowns. "Also, I've got training to do."<br>
-<br>
-"What, and we don't?" Red asks.<br>
-<br>
-"That's different," Blue protests. "I'm going for a badge."<br>
-<br>
-"It sounds like you don't think it's that important." Red turns to Leaf. "Does it sound like that to you?"<br>
-<br>
-Leaf nods, face sad as she fends off one of Bulbasaur's vines while it tries grabbing the cake from her plate. "Too bad. All those trainers, not aware of how awesome Vermilion Gym is…"<br>
-<br>
-Blue glowers at them. "I'm telling you, I'll mess it up. It would be better if one of you wrote it."<br>
-<br>
-"It's okay, Blue. We'll help you," Leaf says. "Won't we Red?"<br>
-<br>
-"You bet," Red says after a moment, realizing that Blue might be legitimately insecure about his writing. "It'll be good for… what's it called? Public..." He snaps his fingers and holds a finger up, frowning. "Public…"<br>
-<br>
-Blue rolls his eyes, but he's smiling. "I'll think about it. But you'll come, Leaf? You guys will like the classes here, I promise."<br>
-<br>
-Leaf considers a moment, then nods. "Sure, why not. I'm not against gyms overall, I would have gone to Cerulean's water classes, but I didn't have any aquatic pokemon."<br>
-<br>
-"Great! And speaking of which, try to catch some Water pokemon before we leave the city and I'll train you guys with them. Who knows when we'll be near a beach again, after we leave."<br>
-<br>
-"I'll check which ones are available around here." A vine reaches around her chair and tries to sneak in from below, Bulbasaur now standing at the very edge of his pen. Leaf slaps the appendage away without looking, and her pokemon starts to make pitiful sounds, causing her to turn to him. "No! It's bad for you!"<br>
-<br>
-Her pokemon quiets, but somehow manages to continue to look pleading.<br>
-<br>
-Leaf manages to look stern for another second, then melts. "Fine, I'll get you something you can have." She gets up. "Make sure he doesn't eat my cake."<br>
-<br>
-But Bulbasaur just watches along with Red and Blue as Leaf goes back to the buffet tables and takes a small portion from a bunch of different desserts. She brings them back and holds the tray out to Bulbasaur. "Watch this, I've been trying to teach him… Bulbasaur, take one. Take one."<br>
-<br>
-"Aw, Leaf," Blue says. "Why you got to go and inflict that torture on your pokemon too?"<br>
-<br>
-Her pokemon reaches its vines out hesitantly, swaying it above the plate for a while as if about to sweep them all off… then one vine delicately curls around a small piece of honeycake and brings it to its mouth.<br>
-<br>
-"Good <em>boy</em> Bulbasaur!" Leaf puts the plate aside and crouches to vigorously rub his head and ears. "Very good! <em>Very</em> good boy!"<br>
-<br>
-Red is grinning as he watches Bulbasaur gambol about in his pen, and then grow even more excited when she takes a second treat from the plate to hand to him as a reward. "Who's my best boy? Who's the bestest-"<br>
-<br>
-Her words are cut off by a burst of light that suddenly fills the restaurant. Red shields his eyes, heart leaping into his throat. <em>Is this… did it just….</em><br>
-<br>
-When the light clears, Leaf is staring in shock at an ivysaur that looks enormously pleased with itself.<br>
-<br>
-"Bulbasaur…" she breathes, eyes filling before she grabs her pokemon in a hug, ignoring the broad new leaves from his bulb that get shoved into her face. She laughs as four vines instead of his usual two wrap around her. "I guess it's time to give you a new name."<br>
-<br>
-Someone starts to clap at a nearby table, and soon the whole restaurant is applauding. Leaf looks around in surprise, then smiles and bows before she sits, cheeks flushed and her pokemon on her lap, though he doesn't quite fit.<br>
-<br>
-"Congrats, Leaf!" Red says. He looks at Charmander, who's roughly as big as the average charmeleon, and resolves to help his partner evolve before they leave on the cruise convention. <em>It's going to be a busy week...</em><br>
-<br>
-"The perfect end to the evening," Blue declares, and gets up, plates in hand as he heads for the dessert table again. "Now we all have something to celebrate."
-        </div>
+            <h1 class="chapter-title">111: Shell Game</h1>
 
-        <div class="chapter-nav">
-            <a href="../110/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../112/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>Blue is just arriving at the elevator when Red and his kadabra pop into existence in front of him.</p>
+
+<p>The utter weirdness of seeing someone do that indoors is buried by a wave of relief, and Blue's steps only falter for a moment before he strides forward to pull his friend into a hug.</p>
+
+<p>"Holy shit am I glad to see you." He pulls back to look Red over. "You're okay? What happened to Silph? Are there other hostages?"</p>
+
+<p>Blue registers a moment later that Red didn't hug him back, and there's a disturbing moment where he meets his friend's gaze and Red just stares back at him in blank incomprehension. Then his crimson eyes clear and he smiles and he's the one hugging Blue, hard.</p>
+
+<p>"Good to see you too. I'm fine, and I don't know yet. I came to check on you first."</p>
+
+<p>The words send a wash of warmth through Blue's chest, but… "What do you mean, first? Weren't you with him?"</p>
+
+<p>"Yeah, in the security office. But he left once all the major people here were vetted. Everything started a few minutes later."</p>
+
+<p>"How did you—"</p>
+
+<p>"Hang on, sorry, there isn't really time for questions, I only have ten minutes before the police chief tells the hunters to break out, which will kill the hostages. Which won't matter since they'll be breaking out to bring the whole building down."</p>
+
+<p>Blue boggles at him for a moment before he gets it. Hunters wouldn't allow renegades to escape, with or without their prize. "Unless we can stop them. Where are they?"</p>
+
+<p>"We're not sure, but probably the lab on the fifth floor."</p>
+
+<p>"Alright, I was heading there anyway."</p>
+
+<p>"Blue, you should—"</p>
+
+<p>"I'm staying, Red, don't waste time—"</p>
+
+<p>"I'm <em>not, </em>I know I can't talk you out of it, but bring out Tops so I can tell him to Miracle Eye you."</p>
+
+<p><em>What for? </em>Blue almost asks, but realizes that a moment later too. Red wants to make sure Blue can teleport away if needed.</p>
+
+<p>Blue almost starts a <em>different </em>argument about how he wouldn't use it even if he had the option; being willing to give up on everyone here is bad enough, but it would also be the end of his aspirations. No one's going to follow him as Champion against the stormbirds knowing he's the sort of person who will just teleport away and leave others behind if things get bad.</p>
+
+<p>But if he says that, Red might not teleport out himself, and Blue's not sure that would actually be the right choice for him. This is different than Vermilion, if the building is being brought down it would be an order by the commissioner to stop the renegades, and he wouldn't be able to save anyone else anyway…</p>
+
+<p>But none of that matters right now anyway. "I don't have him on me, and I'm not leaving to get him either. Especially not if we only have ten minutes. Now what's the plan?"</p>
+
+<p>Red still looks like he wants to argue, but after a moment just shakes his head. "I don't really have one yet. They're probably in the labs, or storage if they're trying to get the raw materials and blueprints separately."</p>
+
+<p>"Do they need Silph for that, or is he just a big hostage to keep security away?"</p>
+
+<p>"Sicong—the head of security—said the Master Ball is in multiple parts that are each independently secured by lab workers, <em>and</em> each requires Silph."</p>
+
+<p>Blue runs a hand through his hair, staring at the ceiling. "So they need multiple hostages to get everything, but Silph is the only one they need for all of them. We either get him away from them, or save enough other hostages that they can't get every part... but they still might get some parts." Blue's not sure how hard it would be for others to create the rest of the technology with a sample, but it makes his stomach clench just thinking about renegades trying.</p>
+
+<p>"Less hostages also means less dead people if they bring the building down," Red reminds him. "Or if the renegades clean their tracks."</p>
+
+<p>"Right. Either way, best strat may be to go up the floors taking out any renegades we find."</p>
+
+<p>Red hesitates. "That… may be right. But maybe we should split up first."</p>
+
+<p>"Ha, right…" His smile fades as he takes in Red's expression. "Wait, you're serious? What kind of shitty horror movie did you step out of? Just because you can teleport—"</p>
+
+<p>"That too, but also because I can… uh, maybe turn renegade pokemon against them."</p>
+
+<p>Blue stares at him a moment, unsure of what to say. He's aware that time is ticking by but can't think of how to react to that besides "Red, what the fuck are you talking about?"</p>
+
+<p>And it's like the words had to be said before his brain caught up with things, and Blue holds a hand up while the other covers his eyes. It's so obvious now, and he can't believe he didn't think of it, or put the pieces together after the casino...</p>
+
+<p>"In Celadon," he says, each word coming out slowly. "You used <em>sakki </em>on them. Who else knows?"</p>
+
+<p>Red doesn't respond right away, and Blue uncovers his eyes to see his friend's naked fear. "I don't know if now is the time—"</p>
+
+<p>"Right, fucking meta-honesty, I know, it's not. But we're going to talk about this." Blue realizes that the words are coming out too hard, and he takes a breath. "I'm not mad or anything, Red, I just… it's a lot." If the others in his group knew… if people assumed <em>he </em>knew…</p>
+
+<p>Still. Not the time. And he can't deny it changes things.</p>
+
+<p>"What if you face a dark pokemon?" he asks, thoughts jumping ahead to re-analyze their situation with the new resource at their disposal. "Miracle Eye takes a moment, and if there's more than one pokemon out you're screwed. Hell, so is your Kadabra if you can't get them to turn on their trainer first."</p>
+
+<p>"I'm not saying it'll be easy, but I need to check the top floors, and I can't take you with me. So the alternative is that you wait for me to find out where Silph is, and <em>if </em>he's easier to reach from the bottom with two of us, I'll come back."</p>
+
+<p>Now it's Blue's turn to hesitate, and it bothers him how much relief he feels. He's not suicidal, he doesn't want to face danger for nothing, but he resents the idea of just standing here and not helping as minute after critical minute passes by. Speaking of which…</p>
+
+<p>"Look, there could be someone getting killed a floor above us—"</p>
+
+<p>"There isn't, unless they're dark."</p>
+
+<p>"—two floors, then, or three, or whatever. See, this is useful, we know to skip a few now. Why don't we at least start looking?"</p>
+
+<p>"Because there's no way we'll make it to the top floor, and if the president is there, or the ones just below it—"</p>
+
+<p>"I know, I <em>know. </em>Fucking… fine, just go. But I can't just stay here, not if he might be a few floors up!"</p>
+
+<p>Red rubs his face, then sighs. "I know. But even if you find him, <em>I </em>won't be able to find <em>you</em>, or find out. You might save him just in time for the renegades to run outside and blow the building up."</p>
+
+<p>Blue feels the bitter frustration over being dark rise up in him again for the first time in what feels like months. "You can find my pokemon, though, right? I'll keep Maturin out as much as possible. If I find him and have a minute to spare, I'll bring <em>all </em>my pokemon out. Then you can tell them to wait, and find a way to me."</p>
+
+<p>"Right, but I won't be able to signal <em>you </em>if… okay, how about I project fear into Maturin to make her go into her shell? If I do that, if she's not in a fight and suddenly goes into her shell I mean, that's a signal."</p>
+
+<p>"Of what?"</p>
+
+<p>"I don't know, I can't make her pop in and out precisely enough to do any sort of complex message, I'm just thinking out loud because we don't have time!"</p>
+
+<p>"Alright, fuck, just… use it if you're about to do something big that might be a distraction?"</p>
+
+<p>"Yeah, alright. No wait, what if I use it to signal you to get out of the building?"</p>
+
+<p>"I'd rather plan for success, now come on, let's get moving!"</p>
+
+<p>"Oh! Wait, hold on, one minute, okay? Don't leave yet, I just realized when you said… you being here might change things!" Red steps back and puts a hand on Kadabra's shoulder.</p>
+
+<p>"Change things for what? Where are you—"</p>
+
+<p>"Just hang on, I'll be right back." His friend's gaze goes distant, and then he closes his eyes.</p>
+
+<p>"Red don't you da—"</p>
+
+<p>Red and his kadabra vanish.</p>
+
+<p>"—re fucking <em>dammit!" </em>Blue stomps in a brief circle, venting his frustration in a prolonged, low yell, then starts to count down from sixty.</p>
+
+<p>Once he finishes he takes two steps toward the elevator before groaning and walking back to where he was to start counting down again from 30 while cursing Red throughout.</p>
+
+<p>"...fourteen idiot thirteen moronic bidoof twel—"</p>
+
+<p>And then Red is back. Once again he stares at Blue with a blank look on his face for a moment, then grins and hugs him, unperturbed by Blue's scowl.</p>
+
+<p>"Thanks for waiting. We now have fifteen minutes, and… here."</p>
+
+<p>Red pulls back and hands him a container ball. Blue raises a brow, then releases it behind him and opens the box to reveal a keycard, a datapad, and…</p>
+
+<p>"Woah." He picks up the police belt, slots between each pokeball slot filled with a stun gun, sleep spray, flash bomb... the good stuff, too, not what's been sold to civilians. "You got this from—"</p>
+
+<p>"One of the cops offered hers. Commissioner Burrell said to consider yourself deputized 'for the duration of the incident.' The pad has the building's blueprints on it."</p>
+
+<p>"Right." Blue feels the weight of the belt in his hands. It's… heavier than he expected, even without pokeballs on it. He'd have to be careful it doesn't throw off his movements. "Thanks."</p>
+
+<p>"Yeah. I've got some of my own stuff that I bought months ago, if you want extras?"</p>
+
+<p>"No, you might need them. Even with <em>sakki.</em>" He still doesn't know how to feel about that, but puts it out of his mind until later. Right now he just raises a fist, and Red bumps it, then pulls him into a third hug. Blue's happy to squeeze briefly back before pulling away. "Be careful."</p>
+
+<p>"You too." Red puts a hand on his kadabra's shoulder, the second trainer-owned pokemon in the world to learn Miracle Eye, and the whole reason they're here in the first place—</p>
+
+<p>"Wait!"</p>
+
+<p>—Red jerks his hand back as if stung. "What?"</p>
+
+<p>"Copy my battle calm." Blue's heart is beating hard in his chest at how close he came to letting his friend leave without it, not out of a choice on his part, but just from forgetting that he'd asked and could copy it at all.</p>
+
+<p>From Red's expression, it takes him a moment to remember too, and then his eyes widen. "Are you sure? You said you wanted time—"</p>
+
+<p>"I said I'd think about it, actually. And yeah, I meant over a few days or something, but I also meant what I said about not being able to live with myself if something happens to you and I didn't give you every bit of help I could." Blue shrugs. "Plus, something happens to you today in particular, I might not be able to live at all. So stop wasting time and do it."</p>
+
+<p>"It might not work, you're not actually in a battle—"</p>
+
+<p>"What, you think you're the only one who can practice entering different mental states? Just do it, see for yourself."</p>
+
+<p>Red bites his lip, then nods, and Blue closes his eyes and thinks of the moments when his battle calm was the most clear: in the stadiums, facing down Brock and Misty and Surge and Erika and Koga. The eye of the world on him, no need to worry about unseen wild pokemon joining the fight, no need to worry about anyone else around him.</p>
+
+<p>Just the purity of the fight. The purity of seeking <em>victory</em>, and the paths open for him to take.</p>
+
+<p>It's harder doing it deliberately, compared to the natural transition that happens as soon as he's in a battle. He feels it settle around him, little by little, slowing his pulse and collapsing his awareness to just those things that matter right now; finding the renegades, and stopping them by any means necessary.</p>
+
+<p>The paths immediately span out around him, leading outdoors where he could use Rive to try to bring the building down himself, or deactivate its sprinkler systems and use Soul to start an inferno. But those paths fade a moment later as new constraints are added. <em>No renegade acts, nothing that causes casualties, strict time limit…</em></p>
+
+<p>"I got it, Blue. You can stop."</p>
+
+<p>He blinks, then takes a breath as he lets his awareness spread back out again. Red's tone was odd: calm and intense at once, focused and detached, and after a moment Blue realizes it's what he must sound like, when he talks during battles.</p>
+
+<p>Something feels hollow in his chest, hearing it coming from someone else. But at the same time… he feels less alone, too.</p>
+
+<p>Red smiles, and Blue realizes he must still be feeling what he is, after which Red withdraws his kadabra. "Okay, you should be dark again in a few moments."</p>
+
+<p>Blue wants to ask how the battle calm feels to him, but there's no time. He also wants to ask if Red picked up anything else when he was in his mind, or whatever he was doing, but just the thought of that makes him feel anxious and angry, so he just says, "Good."</p>
+
+<p>"Thank you, Blue. I feel like… I can do this, now, maybe."</p>
+
+<p>"You'd better."</p>
+
+<p>"I set an alarm to give me reminders. You should do the same." Red resummons his kadabra, then checks his phone. "We've got thirteen minutes left."</p>
+
+<p>For a moment the sheer absurdity of trying to do this in that short a time sends a wave of hopelessness through him, making his knees suddenly weak. It's not a feeling Blue is used to, and he forces it away to take out his own phone, setting alarms for the ten, seven, five, two, and one minute marks. "Set. See you soon."</p>
+
+<p>Red opens his mouth, closes it, then just nods and puts his hand on Kadabra's shoulder. "You too."</p>
+
+<p>Blue waits until Red disappears, then rushes past him to press the elevator button…</p>
+
+<p>…only to get an error message about damage to the machinery.</p>
+
+<p>Because of course they'd do that. He just took for granted that if the power is on…</p>
+
+<p>Blue groans and spins on his heel before he runs for the nearest stairwell, but sees the smoke before he even reaches them and wonders why the fire alarm hasn't gone off, until he realizes what it must be.</p>
+
+<p>It's just a faint haze at first, but quickly thickens as he runs down the hallway until he can barely make out the smoke coming out the bottom of the door leading into the stairwell. He trusts his mask to filter it, but when he throws the door open there's nothing but a wall of smog, and he finds himself suddenly wondering just what the limits on the filters are. Is there even enough oxygen in the air in front of him to breathe if filtered?</p>
+
+<p>He closes the door before the whole hall gets filled, relying on his battle calm to keep him focused through the rising desperation. He summons Maturin, as he promised Red, but there definitely isn't space here to summon Zephyr and blow the smoke back up the stairs. He could order Rive to break down the wall opposite the door, start venting the smog elsewhere, but if more keeps pouring down from above then it wouldn't matter much once he starts climbing.</p>
+
+<p>What are his other options? He could try to light it, but he's pretty sure it's the type that's not flammable, and he's not sure how to test that safely. He can't take a slow and steady approach, he needs to get up the stairs quick. He can't damage the building and risk hurting people, he could… fly through a window? Zephyr wouldn't fit through them but he could get him to hover and try to climb through… But if they caught him as he was trying to get in he wouldn't stand a chance.</p>
+
+<p>He takes his phone out to look at the blueprints Red gave him, tapping the icons along the side of the digital model until he finds the one that highlights power flow. It looks like the backup power can come from generators in the basement or the sixth floor… so even if he takes out the basement one, they'll still have the one on six, which he can't reach.</p>
+
+<p>As his eyes roam the blueprints, most of which are marked up in ways he can't understand, he starts tapping the icons along the side at random, highlighting a different variety of objects and subsystems. <em>Knock down a few pillars to cause the building to tilt…? Send powder through the air systems? No, they probably have masks…</em></p>
+
+<p>His phone buzzes to warn him of the ten minute mark, and Blue feels his teeth gritting before he forces himself to take a deep breath. There has to be <em>something </em>he can do from here to disrupt them... Glen would likely be fighting his way up the stairs by now. What would Elaine do? Maybe find a way to bring the renegades to him... yeah, that's probably right, though it would be hard given they're here for something specific. He'd have to threaten their ability to get it, which would require reaching them…</p>
+
+<p>…or maybe not. Lizzy made sure everyone on the team knew how to identify and operate them after the Rocket Casino. If he can cut power to the building, they'd rely on the backup generators. If he can knock <em>those </em>out… maybe use Ion to overload the internal grid?</p>
+
+<p>For lack of any better ideas, he withdraws Maturin and carefully searches for the handrail, then moves down along it, counting out four flights before he starts groping for the door.</p>
+
+<p>There's just one more floor below where he is now, and it seems much of the smog is actually diffused before it gets here. Blue walks through empty halls featuring more office space, some labs, a workout gym, and... then there it is.</p>
+
+<p>He summons Maturin, checks to see if she has an urge to hide yet, then walks into the building's backup power room.</p>
+
+<p>"Excuse me!" calls a voice from deep in the humming machinery. "Whoever you are, you're not supposed to be in here!"</p>
+
+<p>"How do you know that if you don't know who I am?" Blue shouts back, walking around the room to mark each of the four generators that hold the voltorbs. Now he just needs to check if they're hooked to automatic backups...</p>
+
+<p>There's no response right away, and Blue wonders if he's stumped the inquirer. Then he hears rapidly approaching footsteps, until a thin, tall man in a white coat spots him and scowls. "You're Blue Oak."</p>
+
+<p>"That's right. Who are you, and what are you doing here?"</p>
+
+<p>"Me? I work here. Or nearby, in the labs." The man looks nervous. "I heard there were renegades upstairs, and I, well, I thought I should just... hide. You can... join me if you'd like?"</p>
+
+<p>Blue takes out Rive's ball as his phone buzzes another time warning. "Nah, I think I'll just wreck this stuff. You should leave the building, some hunters might bring it down if we can't stop the renegades."</p>
+
+<p>"Oh."</p>
+
+<p>It's just one word. One syllable. But the tone is enough to get Blue to turn to the scientist, which is why he catches him nudging aside his lab coat to pick two greatballs from his belt.</p>
+
+<p>Blue has summoned Soul and Rive by the time the other man has brought out a magneton and hypno, and his last thought before the battle calm takes over is <em>Not again...</em></p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Red appears facing the window, Saffron City spread out below him, and his first thought is <em>Wait, this isn't my bedroom.</em></p>
+
+<p>The dissonance that spreads outward from the thought hitting another (<em>of course not, it's Silph's private office)</em> is almost painfully intense, and then his partitions all drop, leaving him his full self again.</p>
+
+<p>He spins in place, hand dropping from Kadabra's shoulder to his belt, but there's no one else here, dark or otherwise, and the relief makes him brace against his pokemon.</p>
+
+<p>Kadabra reflects his feelings with a mix of confused alarm, and Red quickly sends reassurance back as the pokemon strokes his whiskers. The motion would look thoughtful on a human, but Red knows it's a sign of nervousness, a way to self-regulate back down from the triggered state of being prepared for battle.</p>
+
+<p>He's relieved this worked at all. The first floor hallway seemed like a more sure bet, given how unlikely it was for any renegades to be there. It was still a relief that he was right, and Red isn't sure how many times his pokemon is going to keep trusting the fake feelings of safety he projects onto these teleport locations if this is how he keeps reacting afterward. It helped that Blue was the first thing he saw when he got downstairs, but for all he knows the trick won't work after this, or after the first time a renegade or pokemon is around where he teleports to.</p>
+
+<p>Speaking of which…</p>
+
+<p>Red extends his senses past the walls around him. There's one mind about where he estimates the front reception area to be, and a couple more on the opposite side of the floor. Even without a merger he can recognize the pulses of alarm and fear radiating from them all, and dipping in quickly confirms that they're the receptionist and a couple other administrative assistants.</p>
+
+<p>Barring potential dark minds or shielded psychics, there are no renegades on this floor.</p>
+
+<p>Red pulls his senses back and takes a moment to look around before he starts searching the floors below. The room is as he remembers it, which is good considering how easy it is to disrupt a teleportation site. The most clear emotional memory Red has that's rooted to a location was standing by the window, and if someone had moved the small desk beside the nearby armchair it would have invalidated it.</p>
+
+<p>(Now that he knows that teleporting indoors isn't a hard limit he can't help but wonder how absolute the "unoccupied space" one is, but he's also decided to never try it given the imagined risks.)</p>
+
+<p>Whatever happened once Silph left the security room, it didn't take place here, and he doubts anyone else will come in here during the crisis. Meaning if Red needs to teleport back here it'll probably stay a valid destination.</p>
+
+<p>So he reaches down to unlatch then open the window, stomach a painful knot. If he needs to teleport here again, it will probably be because they're about to bring the building down. Which would mean abandoning everyone here, including Blue.</p>
+
+<p>It's hard to think about it without mentally flinching, so he doesn't let himself dwell on the chasm of horror and pain and guilt lying on the other side of the thought. Instead he invokes Blue's battle calm, and immediately feels the tension in his shoulders relax as his attention shifts with the change in his mood to one that better recognizes why he did what he did: namely, that not taking a few seconds to give himself the option to leave would have been more distracting. With the escape plan in mind, he feels like he can think a little more clearly.</p>
+
+<p>Red takes a breath to center himself, then sends his mind down and outward through the 10th and 9th floors.</p>
+
+<p>The most obvious draws on his attention are the handful of other psychic minds that are desperately reaching out to those around them, trying to communicate with someone or understand what's happening. Red does his best to query them for information, but most psychics aren't good at explicitly talking through their mental senses, particularly with strangers. When he sends them an impression of President Silph with the feeling of <em>searching for,</em> all he gets back is uncertainty and worry.</p>
+
+<p>He also checks if Renegades are around them, but each denies that as well. One sends back the impression of elevators, and Red does his best to search in that direction without feeling anything.</p>
+
+<p>He wonders if he should take it as a clue to get in an elevator and go lower, until he realizes he should be looking for the weaker signals of pokemon, the same way he plans to locate Blue, and a moment later he has them.</p>
+
+<p>The 9th floor has a raticate and arbok radiating readied-alertness by where he guesses the elevators are, and there's a distinct sharpness in the fear of the minds in the adjacent rooms. From what Blue explained happened downstairs, it's easy to guess that a renegade is standing guard at the elevator.</p>
+
+<p>Which confirms that they're trying to restrict movement within the building. But then why not be posted on every floor?</p>
+
+<p>Maybe because there aren't enough of them, and they only need to stop people from getting on certain floors. It makes sense that there wouldn't be enough to cover everything that matters, but does that mean they can't cover the stairs? Or are there just dark pokemon there?</p>
+
+<p>If so, his powers won't do much for him unless he can hit them with Miracle Eye first, which means he'll need interference. A flashbang might buy him some time, but it would blind Kadabra too. He'd have to run interference with his other pokemon in those cases.</p>
+
+<p>Which means the first thing he has to do is get better pokemon on his belt.</p>
+
+<p>Red enters the rest of the office space and goes straight to the PC, thankful for the opportunity to bring his strongest pokemon… particularly since the ones he has on him are also some he'd be particularly sad to lose.</p>
+
+<p>He knows it's a cold way to think about his pokemon, but he knows even Leaf would admit to favoritism like that, even as she pushes for people to treat all their pokemon as valued friends. It's not like he planned it this way; if anything it's more of a natural consequence of spending less time with pokemon he has that are already strong, which leads to less of a bond with them.</p>
+
+<p>His fingers fly over the keys, hands swapping the balls in the slot again and again to trade each pokemon on his belt until…</p>
+
+<p><em>Magneton, Nidoqueen, Kingler, Forretress… Hypno…?</em></p>
+
+<p>His phone vibrates four times. <em>Eleven minutes left. </em>He skips Hypno and brings Dodrio instead, clips it to his belt, then takes a deep breath and merges with Kadabra fully to check the 8th floor…</p>
+
+<p>Interpreting through Kadabra's psychic senses, stronger though they are, comes with the downside of not being able to communicate in nearly as nuanced a way. The psychics can tell they're being probed by a kadabra that's merged with its trainer, and he can tell that they can tell that, but it's much harder for them to know whether it's friend or foe, and most minds immediately close up.</p>
+
+<p>The non-psychics (and a few sensitives) don't give him much info, so he searches for pokemon again and finds more by the elevator. Same with the 7th and 6th, and that's where his pokemon's psychic range ends.</p>
+
+<p><em>Why all these floors?</em> he wonders again. Is there really something they need on all of them? Or is it just misdirection?</p>
+
+<p>No, that's not likely. If he wants to get what they're doing, he needs to think like the renegades.</p>
+
+<p>They have a goal. They have a plan to achieve that goal. And they have expectations of what others might do to stop them. They may not be able to predict someone like <em>him</em> would be here, but if he imagines what <em>others</em> could try…</p>
+
+<p>He closes his eyes and thinks. <em>I'm a renegade leader who just successfully took hostages, including President Silph, and need to get something on a few floors. I have a bit of time before a big response comes, and I need that time to convince the hostages to give me access to the Master Ball, or maybe just hack it. What could stop me, after I trapped the hunters in a specific room?</em></p>
+
+<p>Someone like Blue, coming in from outside maybe, riding up the elevator shaft or going up the stairs. Or someone they missed on a higher floor making their way down.</p>
+
+<p>What would he be worried about, once the elevator shaft and staircases are covered…?</p>
+
+<p>What Red thinks of is what happened in the Casino. Glen and Elaine couldn't find a way down to the secret lowest level, so they <em>created</em> a way down.</p>
+
+<p>He's not sure how tough these floors are, but he doubts they're harder to get through than those were.</p>
+
+<p>And these renegades, whether they're part of the same group or not, are clearly worried about the same thing. If they just defend the floor they're on, they risk being dropped in on or attacked from below.</p>
+
+<p>Which isn't too different from wild pokemon safety precautions, now that he thinks about it. If the renegades are smart…</p>
+
+<p>He sends his senses out through kadabra again, and tries his best to recognize the species through their sensorium, comparing each to his experiences merging with various pokemon.</p>
+
+<p><em>Golbat… raticate... arbok… sandslash?…</em></p>
+
+<p>Red's heart sinks as he recognizes the pattern; pokemon that have particularly sharp senses for detecting sound and vibrations, the latter of which are unlikely to be put to sleep by sound attacks. The renegades themselves probably have earplugs, so using a wigglytuff is out. And now he recognizes the weezings in the stairwells, which are likely filling them with smog…</p>
+
+<p>Something else stirs inside him beside the growing dread, however. As he finds more and more evidence for how well prepared these renegades are, there's a sensation similar to the one he feels when figuring out how to win in a trainer match, but even more so. Not just competitiveness, not just the interest in how to solve the puzzle being presented to him, but something more.</p>
+
+<p><em>They can't get away with this.</em></p>
+
+<p>And then—</p>
+
+<p><em>I can't let them get away with this.</em></p>
+
+<p>These people came here with a plan for all this, preparing for people to try to stop them. But not for him.</p>
+
+<p>Indoor teleporting and <em>sakki </em>are the two largest things they can't account for. <em>Sakki </em>works through physical barriers, but he can't use it through Kadabra. Which means his first step, to be able to do anything, is go to a lower floor.</p>
+
+<p>If he assumes they're all on the 4th-9th floors, whatever they need is probably on the 6th or 7th. He doesn't have long to plan, but a quick premortem makes it obvious what would go wrong if he starts fighting renegades before he gets to where they are; those in charge notice their allies are being taken out, and kill the hostages before they escape.</p>
+
+<p>No, that doesn't make sense. They're not just there to act as an early warning, they're there to slow would-be heroes down.</p>
+
+<p>But if he takes out the ones on one floor, then the next, then the next… at some point they'd probably run for it, right? Maybe?</p>
+
+<p>His phone vibrates again, five quick pulses this time, and he forces himself to ignore that worry. There's no sense trying to avoid any plan where they find out something is happening, he doesn't have the luxury to think through a stealthy approach.</p>
+
+<p>Which means he has to hit them fast and hard, and hope he can get where he needs to go faster than they can stop him.</p>
+
+<p>Less than ten minutes. He can't delay any more.</p>
+
+<p>Red runs to the elevator, ignoring the surprised gasp from the receptionist as he runs through the entrance hall, then skids to a stop as he sees the Out of Order message above the elevator (<em>Of course…!</em>) and rushes for the stairwell… which is absolutely full of smoke so thick he can barely see anything through it.</p>
+
+<p>Damn it, he can't just rush down there blind, not if there might be some dark pokemon hiding in the smoke and ready to attack anything that comes near. Worse, Blue wouldn't even have psychic senses to tell if non-dark pokemon are waiting for him…</p>
+
+<p>"Graaah!" The sound pushes its way out of his chest as the frustration inside builds to a painful boil. He doesn't have <em>time </em>for this, he needs a way down, <em>now. </em>If only he had another teleport point besides the security room and lobby…</p>
+
+<p><em>Think. List your resources. Pokemon, survival gear… climbing gear? Projection/sakki, reception… mirroring…</em></p>
+
+<p>…<em>mirroring…</em></p>
+
+<p>The idea stills his breath, and he wastes a few precious moments vacillating between feeling like an absolute idiot for not thinking of it months ago and telling himself it's too absurd to actually work before he finally convinces himself that the idea isn't so absurd that he can't <em>try </em>it.</p>
+
+<p>By the time his phone vibrates again <em>nine minutes </em>he's already merged with one of the office workers two floors down, taking in every part of their sensorium and emotional state he can and locks it into a distinct mental state even as he builds a partition around it all.</p>
+
+<p>Now the tricky part: getting the office worker to move, without putting him in danger. Red could at least tell he wasn't in the room with a dark renegade, but the man is lying on the ground as instructed, understandably scared of doing anything that might draw attention to himself.</p>
+
+<p>Luckily it's not hard to project a sense of <em>urgency </em>and <em>restlessness</em>. Combined with a bit of the man's own natural urge to stay hidden, he decides after a few moments to find another hiding spot, after which Red puts his hand on Kadabra's shoulder and focuses… first on the saved mental state, then on putting up the partitions to feel completely safe as he returns home…</p>
+
+<p>…Red blinks as he looks around the strange room. Warm brown and tan rug, clean white walls, a fancy desk with some pictures of children beside the monitor… this is an office, not his bedroom…</p>
+
+<p>…right. It worked.</p>
+
+<p><em>It worked.</em></p>
+
+<p>In any other circumstance he would be ecstatic. Forget "free teleportation," he's just discovered the next best thing to "perfect" teleportation. Being able to teleport to any point anyone he can make psychic contact with feels like it opens an endless sea of possibilities, like the world just became <em>much </em>smaller…</p>
+
+<p>…but he has to survive today for any of that to matter, and so he sends his senses down through the floor and finds the highest weezing at the stairwell that he first detected after merging with Kadabra.</p>
+
+<p>It's still being commanded to keep spewing smog downward, but Red can tell it's feeling the strain of keeping it going for so long. He can predict what would happen once <em>sakki </em>is projected well enough, but first…</p>
+
+<p>He spreads his awareness down to the next floors to find more employees that seem safe to nudge into moving (reminding the anxious voice inside that insists he's going to get someone killed that <em>everyone here might die if he doesn't do something so maybe we should put a hold on debating the morality of this </em>and ignoring the protests from that part that '<em>worry about morality later' isn't a good sign for whatever we're doing</em>), then copies their mental states too, creating partition after partition to set a number of teleport points that he can use to go between the floors.</p>
+
+<p>Three more precious minutes pass <em>five </em>before he's ready, and…</p>
+
+<p>…a couple…</p>
+
+<p>…hops later…</p>
+
+<p>…Red comes back to himself in yet another individual office, and this time when he spreads his awareness out he finds President Silph almost immediately.</p>
+
+<p>The older man's mind radiates some mix of worry and outrage and helplessness, as well as something that feels like… guilt, and nervousness…</p>
+
+<p>Red sinks deeper into the merger, throwing the usual confidentiality worries aside as he tries to process the president's sensorium. It's hard to get an accurate mirror of what a pokemon sees and hears and feels because of their different biology, but with humans the difficulty comes from not getting distracted by the richness of their thoughts and experience.</p>
+
+<p>On one level, what Red perceives through President Silph's mind is a room with about a dozen people in it, half of which have pokemon out. But it takes him nearly a minute to process all that, because what he actually experiences is—</p>
+
+<p>—<em>room(storage), people-enemies-traitors(OUTRAGE)-renegades(?)-pokemon(DANGER)-actors(?)—</em></p>
+
+<p>—<em>confidentmustbeconfidentdon'tshowfear—</em></p>
+
+<p>—<em>legdiscomfort, painful, desire-to-sit—</em></p>
+
+<p>—before he has to pull away from the merger and try to focus on the details of the room and its inhabitants. Three hostages besides Silph… three renegades, with… a crobat, a mightyena, an arbok, and a sandslash… lots of big containers and tanks around, along with a few PCs… the lab's storage room, if he's understanding the blueprints correctly.</p>
+
+<p>The tightness in Red's chest has eased considerably. Silph is alive, and hasn't given in yet. He almost sends the president some psychic reassurance, but if Silph reacts in the wrong way that might tip the renegades off that something is up.</p>
+
+<p>So instead he takes one…</p>
+
+<p>…more…</p>
+
+<p>…hop…</p>
+
+<p>"I found him," Red says to the room of startled police and Silph employees as soon as his partitions fall and he remembers what he's doing here. "They're in the lab storage, and I think I have a plan, if you guys are willing to risk fighting instead of bringing the building down."</p>
+
+<p>Commissioner Burrell is the first to recover, which is lucky since half a dozen people start asking questions, all of whom stop as soon as he holds a hand up toward them. "Tell us."</p>
+
+<p>Red turns on his blueprint and starts to point. "So far I can move here… here… here… uh, somewhere here. And I can use my powers to reach most of the renegades blocking the stairs and elevators."</p>
+
+<p>"All at once?" Jensen asks, and when Red shakes his head, looks more relieved than disappointed. Red supposes it might be more obviously worse for the world if all psychics could do something like what he can, but that's a problem for future Red to deal with. "Then they'll go for help and alert the others. They could kill the hostages right away."</p>
+
+<p>"I think I might be able to pick them off, actually. I can let you know through Lin when the rest of them notice, and I can alert Blue so he moves in at the right moment." Assuming he hasn't already started, which is another time pressure weighing on the back of Red's mind. "I just need a little more time."</p>
+
+<p>The Commissioner has his hat again, and creases it between his hands as he stares at the clock for a few breaths, then turns back to Red. "This is the last extension. If President Silph isn't safe in the next ten minutes, the hunters will have full permission to either join the fight, or do what they need to ensure they fail their mission."</p>
+
+<p>"Got it. Thank you." He turns to Valentin, then the two hunters, battle calm helping him stay confident and steady as he says, "I might signal something like 'open skies' to Lin. If I do, it's because I cleared a path for you to go straight for storage. The pokemon they had there were sandslash, arbok, crobat, and mightyena."</p>
+
+<p>"Why not just use your power to knock the non-dark ones out?" Stocky asks.</p>
+
+<p>"It's too dangerous to use it with civilians nearby, since it makes renegade pokemon hard to control." Not a lie, but a more convenient answer given their time constraints. "I'm going to go start."</p>
+
+<p>A few murmur variations of "Good luck," and then Red is back in one of the offices, recovering from the disorientation again. He can't tell if he's actually doing harm to his partitioned self or not, but either way that's all also future Red's problem.</p>
+
+<p>He takes a breath as he closes his eyes and reaches down through the building for Maturin, whom he sends a burst of fear through. Then, once she reacts by hiding in her shell, he withdraws his mind and reaches out to the first weezing nearby, on the lowest floor they're on…</p>
+
+<p>And just lets it go.</p>
+
+<p>The results are quick. Smoke can't go through the mask, but acid can.</p>
+
+<p>He doesn't let his mind linger, instead finding another pair of renegade pokemon and projecting <em>sakki </em>at one of them so that it attacks the other.</p>
+
+<p>That one might get messy, but he's already on to another, then another. By the time his phone buzzes again, half of the renegades in his range have been killed, the other half injured or lost some strong pokemon.</p>
+
+<p>And when he reaches everyone that he can from here, he teleports to another office and begins to do it again, despite the sickness churning through his stomach that not even the battle calm could alleviate.</p>
+
+<p>That's also future Red's problem. Present Red's problem...</p>
+
+<p><em>..."Intruder!" </em>he hears through a pokemon's ears, shouted from one renegade to another...</p>
+
+<p>...is what to do about that.</p>
+
+<p>They're confused, alert that something is happening to their people but not sure what. He can sense them coming through the hall, looking for him, and so he teleports to another floor so he can keep killing as many of them as possible before they find him.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/110/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/112/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -988,6 +798,6 @@ Someone starts to clap at a nearby table, and soon the whole restaurant is appla
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

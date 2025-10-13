@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 70: Mind Boggling - Pokemon: The Origin of Species</title>
+    <title>Chapter 141: Sacrifice - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,280 +329,625 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 70: Mind Boggling</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/140/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/142/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <!-- wp:paragraph --><br>
-<p>It takes ten minutes for Red to notice he's going about things all wrong.</p><br>
-<p>What's more concerning is that after realizing that, he can't get himself to stop.</p><br>
-<p>His foot bounces against the floor as his thoughts keep jumping to solutions. Hypotheses to suggest, experiments to run, ideas to research, crosscheck, pare down. It's not until he's pacing around his room that he realizes he needs to calm himself, and meditates to take a step back from his thoughts and examine them as they stream by, breath by breath.</p><br>
-<p>The pressure to solve this feels immense. It wouldn't just be an (almost) novel and groundbreaking discovery, it would also give him the credibility he needs to have more time with Sabrina, and to set more lesson goals with everyone.</p><br>
-<p>But he's not going to do that by just mass guessing, and that's really all he's done so far. Giovanni often points out on his blog that people shouldn't commit all their resources to finding solutions until they have reason to be confident they understand the problem, and that's something Red completely lacks.</p><br>
-<p>If a non-psychic were to ask him to explain why it's such a big deal that someone could have part of their mind think/feel something while the rest doesn't, he's not sure he could do it. He <em>feels like </em>he understands why it's so bizarre, but "feels like" isn't good enough, it's following intuition, not knowledge, and while intuition can be valuable, it can also be misleading when not trained on good data. He doesn't actually <em>know</em> why it's so impossible, it just seems like it should be because that's what he's used to expecting from minds; a singular intention or thought process, with any internal conflict being apparent to psychic senses as internal conflict or dissonance.</p><br>
-<p>He could do more research on the topic now, try to better understand brains and thoughts and minds and partitions (no, maybe not partitions, that would still be jumping to conclusions), but he feels too antsy to do something that passive.</p><br>
-<p>As he continues to focus on his breathing, continues to examine the thoughts that come by and let them go with his exhalations, he starts to notice a pattern in what he's worried about. It's not just that he wants to solve the problem; what he keeps imagining are the others not listening to his ideas, or outright dismissing his feedback or participation. He knows it's likely exaggerated, but he can see how the pressure to get this right comes in part from his social concerns.</p><br>
-<p>Well, he did decide to focus on those too, didn't he? Maybe he should try that first.</p><br>
-<p>Red opens his eyes, then rises and goes to slip his feet into some sandals at the door before he makes his way to Rei's apartment, gaze down. He isn't used to being in a group with a hierarchy, and the more he thinks about it the more he dislikes it. He didn't mind so much back at Pallet Labs, because it was clear there that he was subordinate and why. He wanted the adults to like him, but it was easy to get their approval and friendship; he just did whatever menial tasks they needed help on, happy to absorb all the knowledge he could along the way.</p><br>
-<p>Compared to having to worry about and navigate the social politics among the other students, Red finds himself missing the equal footing he was on with Blue and Leaf, even if the memories with Blue are bittersweet. He knows Blue's new traveling group will have a hierarchy, he felt it in those days when he went to train with them at the gym; those with more badges had more status, with Blue at the top despite only having two, and Red somehow just below him despite having none. Even with his privileged position it had felt strange, and he's glad to be out of it, even if he can admit to himself that he sometimes misses the battling and camaraderie.</p><br>
-<p>For Sabrina's students, the hierarchy is less clear. Rei and Rowan seem the most respected, but they don't seem to get along, and Daniel is often at odds with Satori and Jason, who Red feels are the most distant from everyone but Rei, including each other. And Tatsumaki is just... there, fairly respected but not interested in anyone. As for Red, he feels like he might have the best chance befriending Rowan or Daniel, but he doesn't particularly <em>like </em>Daniel, and the most valuable friend he could make would likely be Rei. It makes him feel slimy, thinking of things that way, but he reminds himself that this doesn't mean he's not going to try befriending the others too, and he's definitely not going to pretend to like her if he has no reason to.</p><br>
-<p>Red steps in front of her door and takes a breath, patting down his hair and checking his clothes one last time, then drops his mental shields and knocks.</p><br>
-<p>The probe comes immediately. Rei tests his mental presence, and upon finding it unprotected, merges for a moment to fully sample his mood before withdrawing.</p><br>
-<p>"Enter."</p><br>
-<p>Red opens the door to Rei's apartment, which is sparsely furnished but comfortable looking, with a pair of huge beanbags taking center stage. Rei is on one of them, sitting lotus position in what looks like silk shirt and pants that seem much more comfortable than her kimono, but still elegant and expensive, with a stylized xatu embroidered on them.</p><br>
-<p>"Yes?"</p><br>
-<p>"Hello. I'm sorry to bother you, but I was hoping you'd have a moment to talk?"</p><br>
-<p>"I hope this isn't related to Sensei's assignment."</p><br>
-<p>"No, nothing like that. Well, a little related, but we agreed not to discuss the issue itself."</p><br>
-<p>She nods, then gestures with an open palm. "Please, sit."</p><br>
-<p>Red walks over to the beanbag across from her, and sinks into its warm cover. "Thank you."</p><br>
-<p>"What's on your mind?"</p><br>
-<p>As if she hadn't just checked. Red has gotten good enough at controlling his thoughts and purposefully redirecting them that he no longer worries about others reading secrets he has, which means that on occasion he's willing to engage in "open communication," where psychics leave their shields down so their conversation partner can sense whatever genuine emotions they want to show or thoughts they want to share. It's occasionally broken up by shields coming up, or sudden flashes to a meticulously remembered image or song, but this is understood as an integral part of retaining some privacy, and the social norm is to not assume that the person is being dishonest in those moments.</p><br>
-<p>It's almost like learning a second language, but not one that's mutually exclusive. Any non-psychic listening would think they're just talking in unown, but would miss all the mental communication overlaying the spoken words and threading the silences between.</p><br>
-<p>Normally it would be hard to voice what's on Red's mind without him worrying about sounding antagonistic, or petulant, or paranoid. But with his mind unshielded, he trusts that Rei can "hear" more than the words he speaks. "I've only been here about a month and a half," he says, letting his emotions of uncertainty and curiosity and good intentions stay clear at the surface of his thoughts. "And I've never been in a setting like this before. So I know I might be jumping to conclusions. But I just thought I'd check whether you dislike me, in case I did something wrong?"</p><br>
-<p>A hint of fear and hurt at the end makes it hard to keep his gaze on hers, and his shields down. He sees her own surprise, quickly schooled, and feels the tentative touch of her mind become more firm, reading both his anxiety and sincerity.</p><br>
-<p>She takes a breath, then slowly lets it out. "I did not intend to be rude, and apologize if I have been," she says with such careful tact that Red's worry doesn't decrease. "But I suppose it's fair to say that I don't particularly have an interest in speaking to you, or spending time with you."</p><br>
-<p>Despite having suspected as much, Red still feels hurt by hearing her say it, and has to remind himself that he's being stupid, and obviously she has no particular reason to feel friendly or interested in him. "Oh. Okay."</p><br>
-<p>"But that's not what you asked," she continues, still meeting Red's gaze and sending out a brief projection of apology. "Not wishing to befriend someone is different from disliking them, and it's also fair to say that I disrespect you."</p><br>
-<p>Red blinks at her, says "Oh," and then just sits there a moment, absorbing that. He'd planned for her to say something about him that bothers her, but it still feels disorienting hearing her put it so bluntly. He realizes that despite considering it as a possibility, he hadn't actually <em>expected</em> it, and he struggles not to hide his sudden inner turmoil behind a shield. "Why?" he finally asks.</p><br>
-<p>"You feel fake," Rei says, voice and face still calm. "It's hard to trust those who use a partition to lock away a part of themselves. It's like talking to someone wearing a mask, except the mask is real, and they may have any number of them they can put on at any time. I do not believe Leader Sabrina was referring to you or Rowan when she mentioned a psychic who could evince false emotions, but I cannot completely dismiss the possibility."</p><br>
-<p>Red's throat is dry. "I don't… I didn't choose this," he whispers, stung by the unfairness of it even as part of him feels guilty. Past Red is definitely going to throw this in his face the next time they "chat."</p><br>
-<p>"Intention has little to do with it." Rei shrugs, and he senses her regret. "Perhaps my opinion of you will change, when you have more control. In any case, it isn't personal. As I indicated, I feel similarly about Rowan, who molds his mind intentionally."</p><br>
-<p>Red hesitates a moment. "I can bring my partition down, if you want to talk to..." He can't say the real me. It doesn't feel true, and would just be confirming Past Red's perspective. "Me without it."</p><br>
-<p>"I see little point in that," she says, apologetic. "Since you would not keep it down. It would be like speaking with someone else entirely."</p><br>
-<p>Red resists the urge to slump in his beanbag, knowing he's radiating disappointment and closing himself off as he sighs and nods. "Well. Thank you for your honesty."</p><br>
-<p>"Of course. I do hope you resolve the issue soon." Rei tilts her head slightly, considering him. "If I may ask… why do you want to be my friend?"</p><br>
-<p>Red blinks. He hadn't expected her to ask that, and he's glad his shield is up so that none of the immediate thoughts come to mind. But he can't keep it up while he answers if he wants to be taken fully honestly…</p><br>
-<p>He thinks it over a moment, everything he knows about her as compared to the other psychics, and to his surprise actually thinks of something genuine. He lets his shield drop. "Other than the social benefits, you read Giovanni's blog, and are one of the few others I know who actually tries to put the ideas there into practice. It would be nice to talk about it with someone..." <em>again. </em>His shield comes up as his thoughts turn suddenly to Aiko.</p><br>
-<p>Rei smiles slightly. "Well, that seems a reasonable request. Perhaps we could, after Sabrina's assignment."</p><br>
-<p>Red takes it as the dismissal it is, and says goodbye. He walks down the hall without really thinking for a bit, replaying what happened in his mind and wondering if there was something else he should have said. Eventually he's back at his door, and only then remembers he planned to visit the others.</p><br>
-<p>Tatsumaki and Daniel aren't home when he knocks, so he goes down a floor to see Satori. There's silence for a moment after he knocks, and once again he feels his peer mentally touch his thoughts before the door opens. Satori is dressed as she was at the meeting, her torracat padding around her skirt, its tail brushing her waist. Both look at him inquisitively, their heads cocked to the side at the same angle.</p><br>
-<p>He quickly redirects his thoughts from the disquiet of the image.</p><br>
-<p>"Hey!" She's not inviting him in like Rei was. Maybe he should just cut to the chase. "So I was thinking, if we're all going to be working together on this project, maybe we should get to know each other better? I don't feel like I've got many friends here, and I would like more. Do you want to hang out a bit? I'm happy to do anything, or just chat while you go about your business, if it's not private."</p><br>
-<p>Saying the words makes him feel anxious, and he does nothing to hide that feeling. He's used to feeling excluded from the other kids at school, to feeling different, but it was easy not to let that bother him while he had Blue to hang out with. This is the first time he can remember that he's actually come out and asked someone to be his friend. It makes him feel like a kid again, and he's sure he appears even younger to Satori, whose closeness in age feels all the more significant suddenly.</p><br>
-<p>Satori shakes her head. "I'm sorry, I'm trying to finish a project with my pokemon, and find other people distracting." She closes the door before he can respond, and without lowering her shield to express any regret or other emotional signal.</p><br>
-<p>Red sighs, then moves on. He supposes it's nice that she even answered, considering how much she generally keeps to herself and sensed his intentions through the door…</p><br>
-<p>When he knocks on Rowan's door and gets a muffled "Busy!" in response, he moves on without much regret. Rowan seems nice enough, but he often feels slightly off, making Red question his memory of who he interacted with before meeting the "new" Rowan, and <em>ah yep that's what Rei meant...</em></p><br>
-<p>Red tries to think of something to talk about on the way to Jason's, something they wouldn't normally talk about during their lessons, since that clearly hasn't helped. So far Jason has been trying to learn to mimic different mental states while Red attempts to get as good at detecting and deciphering emotions as Jason, and so far they haven't had much success.</p><br>
-<p>Or any, really. Their sessions have all ended in quiet frustration for both as they seem to keep talking past each other while trying to explain what they did in their own terms. Red tried being as precise and clear as he could, like "imagine that mental state and anchor it in your memory through what your body feels," while Jason spoke through metaphor and symbolism, such as "follow the echo my emotions are leaving in the astral realm" which didn't really mean anything to Red, no matter how much he tried to pin down what an "echo" is or feels like, or what the "astral realm" is. He's wanted to ask the others if they find their lessons with Jason more productive, but worried he would seem incompetent or like he's badmouthing his peer.</p><br>
-<p>So clearly he needs another topic to focus on, and after a moment he finds one. Like Satori, Jason is a pokemon trainer in addition to a psychic. Maybe they could discuss that. He specializes in ghost pokemon, which Red thinks he would find interesting enough to talk about.</p><br>
-<p>When he knocks on the door he doesn't sense any mental probe from Jason, and the medium answers his door with a cautious look on his face, dressed in the same clothes as earlier in the day. "Hello. Did you come about our assignment?"</p><br>
-<p>"No." Red smiles, trying not to let his earlier failure color his attitude. "I was just hoping to talk for a bit, if you're free."</p><br>
-<p>"I was just finishing a cleansing ritual."</p><br>
-<p>"Oh." Red only has a vague idea of what that is; some spiritual practice to ensure an environment or person is free of negativity? He's not sure if Jason is saying that the ritual is already finished, or if Red had interrupted. "I can come back later?"</p><br>
-<p>He steps back, preparing to leave, but Jason's frown stops him. "Are you projecting your emotions on purpose?"</p><br>
-<p>Red blinks, then checks. His mind still isn't shielded, but... "I don't think I'm projecting them at all?"</p><br>
-<p>"Ah." Jason's hand finds his prayer beads and moves over them as he sighs. "I suppose the ritual wasn't working anyway, then."</p><br>
-<p>Red is about to ask how he would know if it had, then stops himself and focuses on his curiosity. "What do you sense?" he asks instead.</p><br>
-<p>"It feels like you're hurt and anxious," Jason says matter-of-factly. "It confused me because you were smiling when I opened the door, so I thought you were trying to project those feelings to alert me that you need help."</p><br>
-<p>"Huh." Red detected no mental merger at all, but this isn't the first time Jason has shown that he can pick up complex and deep emotions from simple proximity, just the first time Jason is treating it as something out of his control.</p><br>
-<p>He was hoping to avoid any discussion too similar to those in their lessons, but this doesn't feel like something he can just ignore, and… maybe in a more casual setting like this, if he just stays open minded and curious, he can learn more about Jason's perspective. "And your cleansing ritual is supposed to help keep you from feeling that?"</p><br>
-<p>Jason nods. "It doesn't always work, of course. Sometimes I do it wrong, or my spirit is too open to others. I'll have to try again."</p><br>
-<p>"Can I… is it okay if I observe it?" He keeps his thoughts focused on his curiosity and interest in learning more about Jason's views (and abilities, but he believes the two are linked so same thing (he wonders briefly if Jason feels any dissonance in him over that bit of rationalization, then focuses on the curiosity again)).</p><br>
-<p>Jason looks surprised, and fidgets in place for so long that Red is about to apologize when he opens the door and steps back. Red enters to find a simple apartment much like his own, though with a strong smell of jasmine incense coming from a small shrine in the corner. The plumbing must have been done special, because beside it there's a basin of running water flowing from the mouth of a small stone gyarados.</p><br>
-<p>The whole thing is small as a bathroom sink, and Jason folds his legs beneath him to sit in front of it while Red sits on the floor to the side to observe.</p><br>
-<p>"So," Red says, as he watches Jason take the long wooden ladle in his right hand and dip it in the water. "I just came to talk because I realized we haven't really spoken much outside of classes. I guess I got the impression you didn't like me, and wanted to make sure that wasn't just my insecurity speaking."</p><br>
-<p>Jason doesn't respond, and simply pours the water over his left hand, then switches the ladle to it and pours some over his right, then switches again and pours into his cupped left. He brings the water up to his lips, then lifts the ladle so the remaining water pours down the handle and into the basin, and sets it face-down.</p><br>
-<p>Red realizes he should probably have waited for the ritual to finish before saying anything, and just stays silent as Jason lifts a censer and moves it around himself. One hand stays on his prayerbeads, fingers moving from one to the next, and the other brings the censer first over his stomach, then his heart, then his throat, then his forehead, taking a deep breath of the incense each time. On the last exhale he puts the censer down and sits in stillness, eyes closed.</p><br>
-<p>Red watches the medium's face, the only motion of his body the steady rise and fall of his chest, and wonders what's going on in his head. He knows better than to check in the middle of something like this, but the curiosity itches at him.</p><br>
-<p>He never felt particularly comfortable with religious practices, but ever since he started learning to use his powers, and particularly practicing meditation, he began to see them differently. Even without any spiritual component, his own "rituals" to ground himself, or reflect on his internal state, or to execute a particular mental motion, are all useful to him, and result in real, tangible differences. And he knows how powerful placebos can be; maybe a lot of what Jason is capable of that Red isn't genuinely comes from his different beliefs, or the meaning he ascribes to things like his clothing and prayers.</p><br>
-<p>Red would like to think that any thoughts someone can have, however they have them, can be reasoned through and understood and shared by others. He would like to think that this applies to psychic powers too; that is why they're all here teaching each other, after all, despite the fairly strong evidence of hard limits to what different psychics are capable of. But within those limits, he feels wistful regret at the idea that his method of thinking, as useful as it is to him, may forever keep him locked out of the kinds of insights and abilities that those like Jason have.</p><br>
-<p>Until he remembers that he can just copy Jason's mental state while he's engaging in spiritual practice, if he really wants to understand it.</p><br>
-<p>Red feels a creeping unease, and quickly brings his shield up. He's never tried copying a mental state that was so fundamentally other. The closest thing was Leaf's views on pokemon, and from what he remembers of the feeling, it was transformative. He can't even say for sure that it didn't permanently affect his views, though part of that is likely just entangled with his feelings for Leaf.</p><br>
-<p>Still, does he want to risk some permanent change to his thinking that's so... superstitious? What if some of it stays with him?</p><br>
-<p>He tries to convince himself that it's a silly concern, and that believing something temporarily, no matter how wrong it may turn out, doesn't lead to bad epistemics. Hell, that happens all the time to him and his epistemics are great! Mostly, anyway.</p><br>
-<p>But what if it's more fundamental? What if it leads to the growth of certain neuron patterns that will make faith-based beliefs feel more justified?</p><br>
-<p>Red shakes the thought away. He needs to talk to others before trying it, obviously. His ability to copy mental states isn't entirely unique, there have been others with somewhat similar abilities that might be able to indicate probable outcomes. Maybe he can-</p><br>
-<p>Jason's eyes open, and he stretches slightly, rotating his shoulders with a sigh. "You're shielding, right?"</p><br>
-<p>"Yes."</p><br>
-<p>"Would it be okay to bring it down?"</p><br>
-<p>Red takes a moment to refocus his thoughts, then does so. "Done."</p><br>
-<p>Jason closes his eyes, then opens them and nods. "Thank you. It worked." He stands. "Can I get you something to drink?"</p><br>
-<p>"No, I'm f… actually, black tea would be good, if you have it?"</p><br>
-<p>"I do."</p><br>
-<p>A few minutes later they're facing each other on the couch, tea in one cup and juice in the other. Jason looks calm, but there's something about his body language that makes Red feel like he's nervous. One hand keeps twitching up from his cup, then returning to it, as if aborting impulses to touch his prayer beads.</p><br>
-<p>Red tries to think of how to fill a silence that quickly feels awkward. He's just about to repeat what he said earlier when Jason clears his throat.</p><br>
-<p>"I do not think it was just insecurity," Jason says, gaze down. "But I wouldn't say I dislike you. It's just that your way of thinking often feels painful for me."</p><br>
-<p>Red blinks, opens his mouth, closes it. He hadn't expected that. "Painful as in… physically, or emotionally, or…?"</p><br>
-<p>Jason shrugs. "To be honest, I don't always understand the difference. When people say physical pain, they seem to mean the result of being physically harmed. But if you describe emotional pain, there's often a physical component, isn't there?"</p><br>
-<p>Red considers that, and feels an ache in his chest as he thinks of Aiko, or how much he wants to spend more time with Leaf, or the painful mix of anger and… something, that comes from thinking of Blue.</p><br>
-<p>"Yeah," he says after a moment. "I can see that. So… there's a physical component to it, but it's also tied to some emotional reaction?"</p><br>
-<p>"That's the closest I can come to explaining it." Jason sips his juice. "It's not just you though, I feel this way pretty often. I've been told it's part of being a medium." He shrugs. "I don't know if that's true."</p><br>
-<p>Red shifts in his seat. "Do you have any specific examples of what I've thought that felt harmful to your psychic senses?"</p><br>
-<p>"They were not often thoughts themselves, more the underlying… perspective. And I don't know that they are actually 'psychic' senses," Jason says. "Elite Agatha said that what I do—what we do—it's related to what psychics do, but distinct."</p><br>
-<p>"In what way?"</p><br>
-<p>Jason gives him an appraising look, as if deciding how candid to be. "My connection is to the soul, not just the mind. But you don't believe in souls."</p><br>
-<p>Jason still hasn't uncovered his own emotions during the conversation, so Red isn't sure how to take the statement, and he feels himself struggling not to respond in a challenging way. Is Jason trying to bait him into an argument, or just expecting one? He came here to be friendly, dammit!</p><br>
-<p>"No, I don't," he finally says, speaking slowly. "I haven't seen any evidence of it that can't be explained by other things." He'd resolved to stay curious, so that's what he focuses on. "But I've never talked about it with a medium before. What makes you so sure?"</p><br>
-<p>Jason blinks, gaze meeting Red's for a moment before dropping again as he sips his drink. "Have you interacted with any Ghost pokemon?"</p><br>
-<p>"No, but I was hit with a Ghost attack from a spinarak, once." Even after all this time Red still occasionally feels a shadow of the pain and disorientation, though it's not enough to really distract him.</p><br>
-<p>Jason is shaking his head. "You need to be in their presence to understand."</p><br>
-<p>"You're talking about surrealism."</p><br>
-<p>"I am. What do you know about it?"</p><br>
-<p>Red recalls his research in Viridian Forest, after he caught his spinarak. "People often compare it to Pressure, though that just seems confusing, since it's not as personalized or powerful, and only really affects you if you're interacting with ghosts in some way rather than being around them." And having recently experienced Pressure for himself, it's hard not to dismiss anything else for not being as bad. "Common symptoms are headaches, disorientation, distrust of senses, all of which quickly goes away once their thoughts aren't focused on the ghost anymore. It's part of what makes it harder for non-psychic trainers to deal with ghosts, since it doesn't seem to be worse for psychics and we're already used to directing and focusing our thoughts and attention."</p><br>
-<p>Jason smiles slightly. "It sounds so simple, put like that. As I said, you need to experience it yourself to understand, which is another reason people often compare it to Pressure. But what do you make of surrealism, even having never experienced it? Doesn't it mark such pokemon as different, in some way?"</p><br>
-<p>Red shrugs. "Sure, and I think it's significant." It's one of the main reasons he categorized Ghost as a substance over descriptive type: there's clearly something fundamentally different about them. "But significant in what way is the question. It's something we don't understand, but that doesn't mean we should jump to conclusions about its origin, or what it means about reality itself."</p><br>
-<p>"Hmm." Jason slowly turns his cup in his hands, then sips from it. "I agree."</p><br>
-<p>Red blinks. "You do?"</p><br>
-<p>"Yes. It makes sense, from your perspective, to be skeptical. I don't believe as I do because I have answers to all the questions you're carefully not asking. But my experiences are enough to point me along the way, and my faith acts as a bridge for the rest, to explain those experiences and overcome that skepticism."</p><br>
-<p>It sounds like the medium is using "faith" to mean the same thing Red would call a "theory." It's the first time he's heard someone frame it that way… but scientific theories can be falsified, they contain specific claims about cause and effect that could be proven wrong. They're not just an explanation that makes sense of phenomena, they allow people to make predictions about future ones.</p><br>
-<p>He has to remind himself again that he's not here to argue epistemics, but just learn more about his peer's perspective. "By experiences, you mean your connection to Ghost pokemon," Red guesses. "Did you really train one without a pokeball?"</p><br>
-<p>"I didn't train it," Jason says, seeming a bit embarrassed by the myth of himself. "Only established a mental connection, without it attacking me. We formed what I would call a familiarity, if not a friendship."</p><br>
-<p>"That's amazing. I mean with any wild pokemon, but with a Ghost in particular. How did you do it?"</p><br>
-<p>Jason drinks as he considers the question, though surely he's been asked it many times before. "I came to Kanto when I was about your age. I always wanted to be a trainer, but I already knew I was gifted, and my family considered that a stronger trait to explore, a more meaningful path. They hired a mentor for me to explore my gift, but I was still fascinated by pokemon, in understanding their thoughts and feelings. Lavender Town is a small, spiritual community, not particularly known for its trainers. I couldn't find one to teach me, and while I could buy a pokeball and dex, there was no safe place I could reliably find pokemon that I would be able to travel to alone."</p><br>
-<p>"Except Lavender Tower," Red says, smiling slightly.</p><br>
-<p>"Except Lavender Tower," Jason agrees. "The Rangers there ensure no wild Ghosts harm visitors or escape into the town proper, but there are often a few lurking somewhere inside, and it was easy to find them with my inner eye. After I experienced surreality for myself, sensed their strange minds, I became obsessed with Ghost pokemon in specific. There seemed a depth of mystery and meaning in their 'otherness' that I wanted to understand. I spent months being frustrated as they resisted my attempts to interact with them in a meaningful way, and even my psychic training did not help. Eventually I realized that perhaps I was the problem. That all of us are, that our view of them is what causes the tension in us, the disorientation, the pain. After all, they seem unharmed by interacting with us. Who was I to impose my flawed, human perceptions on them?"</p><br>
-<p>Red slowly nods. "So you played with different perspectives until you found one that helped."</p><br>
-<p>Jason raises his brow. "No. I began studying religious beliefs, read the accounts of those like Elite Agatha and Leader Matsuba, and began practicing rituals to better connect with the spiritual world. And eventually I was able to look upon them without difficulty, and merge with them without tainting my spirit."</p><br>
-<p>"Huh." Red drinks his tea and tries to accept the statements at face value, the mildly bitter flavor somehow calming. "But not everyone can do that, right? It's also related to your abilities as a medium?"</p><br>
-<p>"Ah, yes, I'm not claiming any unique piety or spiritual virtue. My gift enabled the connection in the first place."</p><br>
-<p>Red nods. Ultimately, there are three probabilities that he finds most likely. The first is that what Jason can do is semi-unique to him, whether it's because of his connection to the "spirit world" or because he has a unique element in his psychic powers. The second is that the changes Jason underwent in his spiritual journey, the wisdom he gained, are just a perspective shift that could be learned, a lens to see the world through that could be put on and taken off. And the third is that his connection to Ghost pokemon and/or ability to sense deep emotions is something that operates on a level beyond intellectual understanding, something fundamental to the way he forms beliefs.</p><br>
-<p>Maybe his own perspective would shed some light on it. "And what advice would you give, then, about Ghosts for those that don't have your gift or faith?"</p><br>
-<p>"The same as what I believe for myself. That we must resist our attempts to rationally understand them." Jason shrugs. "More generally, that the very belief that we can truly understand anything is an illusion, though a useful one for our time in the material plane. But Ghosts are windows into something beyond the material, and so it is <em>not</em> useful to try and decipher them rationally."</p><br>
-<p>Red's mouth twists to the side, torn between the multiple strong objections that rise up. And though it brings with it a flash of anger and sadness, Blue's voice is clear in his head; <em>Who cares if it sounds logical? If it works, it works.</em></p><br>
-<p>And of course he's right. Understanding the actual mechanism at work is important so he doesn't believe extraneous things that are wrong, but if there's a link between Jason's epistemics and the outcome, Red has to be able to include that evidence in his theories, no matter how much it clashes with his own epistemics. It could be as simple as Leaf's pure love of pokemon keeping abra from fleeing, but if it's something deeper...</p><br>
-<p>"I would like to learn more about your beliefs," Red says. "And maybe even try to mimic your perspective psychically, eventually, if that's alright with you."</p><br>
-<p>"You believe it's my perspective, then, as Leader Sabrina does, and not my gift?"</p><br>
-<p>"Maybe it's both," Red admits. "But it's worth a try, and we've been having trouble during our lessons anyway, so I think better understanding your perspective could help with that too. Or at least, I've felt like we've had trouble?"</p><br>
-<p>Jason nods, and finally brings his shield down for a moment, just long enough to signal a mirror of Red's relief that it hadn't just been him. "Alright. How would you like to begin?"</p><br>
-<p>Red shrugs. "You're the expert here. I'll do whatever you think is best."</p><br>
-<p>"I would never claim to be an expert."</p><br>
-<p>"Relative to me, I mean."</p><br>
-<p>"Still, the word has… baggage. As I said before, it was not through understanding but the release of the need to understand that I finally found connection."</p><br>
-<p>Red is about to argue that it's just a semantic point, and that all "expertise" means in this context is the person who has accomplished the thing being discussed, but then he imagines someone calling him an expert on mirroring mental states and kind of gets Jason's point. "You're right, word choice can influence perspectives. So as we are both seeking humility together, what would be the first step toward recognizing the need to be humbled at all?" He hopes that made sense.</p><br>
-<p>Jason spins his cup again, face thoughtful, then brings it to his lips and tilts it back, draining it and standing. "Experiences are more important than words. If you've never encountered a Ghost before, then experiencing surrealism for the first time might be best. We can go to the roof, and I'll summon my pokemon there."</p><br>
-<p>Red swallows his sudden nervousness along with a mouthful of tea. The things he's read about surreality don't seem quite as harmless as a moment ago. But it wasn't so long ago that he overcame fear of a different pokemon on a different roof, and this wouldn't be worse than what Donovan's skarmory could have done to him.</p><br>
-<p>Red remembers the discomfort of the spinarak's attack again, and feels a thread of fear. <em>Probably.</em> "Yeah, alright."</p><br>
-<p>The medium goes to put his cup in the sink, then slips his sandals on while Red finishes his tea. Once Jason retrieves his pokebelt and ties it on, they make their way to the rooftop, which is fairly small but only has a small number of spots taken up for registered teleportation, namely those of the students and Sabrina.</p><br>
-<p>The sun is setting, but there's still enough light to illuminate the city. <em>The</em> city, as far as most Kantonians see it; the biggest and most populous, home to both its most prestigious pokemon contest hall as well as the world famous Silph Corporation. It's a culturally powerful place that he's just starting to consider a "home" of sorts, and he draws some strength from the sight of it in the day's last golden light, like nothing truly bad can happen to him while he's standing here atop the shining city.</p><br>
-<p>He recognizes how silly that feeling is, especially since he was just worrying about downloading superstitious wetware from Jason, and has to check his rationale for doing this again before he turns to his fellow psychic and nods. "Ready when you are."</p><br>
-<p>"Alright. I'm going to summon a gastly. Pull back your mental senses."</p><br>
-<p>And now he feels less ready. "Okay. Uh. I could also go downstairs and get my gas mask, or should I stay upwind of it, or…?"</p><br>
-<p>"No, there isn't enough wind to affect it, and as long as you can't smell it you won't be harmed. Just stay at least an arm's length from the visible parts." With that, the medium braces his arm and says, "Go, Gastly."</p><br>
-<p>The pokeball snaps open and a blinding flash of light leaps forth… but unlike with most pokemon, it doesn't coalesce into a sensible shape. Instead the afterimage behind Red's lids when he blinks appear to be a wide, irregular cloud.</p><br>
-<p>What takes its place a millisecond later is about half as big, at least as far as he can see; a purple discoloration in the air that hangs about six feet above the rooftop. Only the center of it is opaque enough that he can't see through it, and from within that purple mass he sees a dark orb with—</p><br>
-<p>—two gleaming white voids—</p><br>
-<p>—the glint of… fangs(?)—</p><br>
-<p>—Red blinks, then blinks again, trying to get used to what he's seeing. In videos, gastly appear to just be a black ball surrounded by thick purple gas, with wide, solid white and somewhat disembodied "eyes" over a pink pocket that holds what looks like two sharp canines, just floating in the blackness of the orb. But without the abstraction of simple images, his mind is struggling to make sense of what's in front of him, which is… very much not that.</p><br>
-<p>Except what else could it be? He closes his eyes, imagining the slightly cartoonish mental image of a gastly that he has in his memory, then opens them to see… something else, something that he can only vaguely recognize as having the same features as the mental image he was holding onto a moment ago. If he hadn't known what they're "supposed" to look like, he wonders if he would even make this much sense out of it.</p><br>
-<p>After a handful of heartbeats, his gaze flinches away, the disorientation fading once he's not looking directly at it. He has to swallow, throat dry, before he says, "All ghost pokemon are like this?" He reminds himself to be on the lookout for a headache or any other symptoms.</p><br>
-<p>"In their own ways," Jason says, pokeball still in hand. "The ones that possess some physical object are easier to perceive, but those with the gift can still see through to what they really are."</p><br>
-<p>"And what is that?" Red asks. He glances back at the gastly and feels a chill go down his spine. From the corner of his eye it had seemed like the black sphere's "eyes" were staring aimlessly into the distance, but as soon as he looked at it, its gaze locked with his. Is that the surrealism? Has it already started?</p><br>
-<p>"The spirits of pokemon." Jason says as Red starts to shift his head from side to side, experimenting. Its "eyes" (he can't even think of them with that word without a sense of skepticism) stay locked on his perfectly as he moves and when he looks away, its features return to vague impressions. "Instead of moving beyond our world after death, a ghost is a spirit that has imprinted onto things in it, such as a candle or doll, or in gastly's case, the decomposing gasses emitted by corpses."</p><br>
-<p><em>Unfalsifiable</em>, Red immediately thinks. Spontaneous pokemon genesis occurs in other places, labeling the ones that appear near dead bodies 'Ghosts' does nothing to distinguish whether that's true from a world where their origin is any different from something like a magnemite.</p><br>
-<p>But he's here to learn about Jason's perspective, not argue against it. It takes Red a moment to word his response through how unnerved he is by the gastly, even after looking away. "I've heard that hypothesis," Red says. "But I don't understand what differentiates it from one you'd consider false."</p><br>
-<p>"Such as?"</p><br>
-<p>"Well, I've actually thought a lot about pokemon origins," Red says, glancing at the gastly again, then away. It's difficult, like the dark sphere is a black hole whose gravity is pulling at his attention, but not physically, just from simple fascination, or maybe a mix of fascination and fear, like leaning over the edge of a building despite knowing the sight will scare you. The call of the void, he's heard it called, and that's what the gastly looks like, a void in the world—</p><br>
-<p>"Red?"</p><br>
-<p>Red blinks. "Sorry, I… what was I saying?"</p><br>
-<p>"Pokemon origins. Do you want me to withdraw it?"</p><br>
-<p>"No, I'm fine." He turns his body solidly toward Jason. "Right. So… if I'm understanding your beliefs correctly, magnemite could be spirits of pokemon that attach themselves to metal objects too, right? But they're not Ghost pokemon."</p><br>
-<p>Jason shrugs. "There are many potential answers. I am a spiritualist, but find no religious doctrine more convincing than all others. I have heard that everything has a spirit, even inanimate objects, and some things may attain enough spiritual energy to become living things. Perhaps the gods are still active in the world and decide by their own whims, or perhaps there are rules they have written to guide such events in their absence that we may one day deduce. But the unnatural sensation evoked by surrealism makes it clear that only Ghost pokemon are the spirits of the already departed, rather than new souls like any others we encounter."</p><br>
-<p>"I feel like you're…" Red stops himself. "Sorry. I'm confused. My brain is insisting that maybe it's the substance that's inhabited that matters. Like… imagine a world where 'Ghost pokemon are spirits of dead pokemon' wasn't true. What would you expect to see different in that world, that couldn't be explained by the 'spirit of candles' or 'poison gas' also attaining enough energy to become living beings, for example?"</p><br>
-<p>Jason is quiet a moment, and Red lets him think, looking back at the gastly for a minute to try to get a handle on the way it looks. He wants to try using his powers on it to see what its mind is like, but he's still having trouble getting his mind to see its parts as distinct things, and he should probably do that first.</p><br>
-<p>Suddenly Red sees the Gastly's "mouth" open, and calling the slimy, squirming thing that briefly comes out a "tongue" doesn't even occur to him until after it's back inside the sphere and he can retroactively process what he saw. He raises a hand to wipe some sweat from his forehead, even though it's rather cool outside with fall well underway. He knows it's from exposure to the gastly, which…</p><br>
-<p>...is it getting closer?</p><br>
-<p>Red suddenly realizes he can smell it, a sickly sweet, cloying scent, and panic blooms in his chest as he quickly takes a step back—</p><br>
-<p>"Red, look at me," a voice demands, and Red snaps his gaze around to Jason, who has stepped to the side so that Red can't see the gastly in his peripheral. The medium looks calm despite suddenly sounding like an entirely different person, his whole stance feels different as he holds Red's gaze with his own. But it's nothing overt; Jason's hands are folded in front of him, his shoulders are relaxed. It's Red's perception that has changed, his need for something stable and reassuring.</p><br>
-<p>"Everything is fine," Jason says, calm but firm, like he's talking to a skittish ponyta. "You're experiencing the first stage of surreality. Just focus on me, and breathe."</p><br>
-<p>Red does as he instructs, despite his confusion. The literature said that surreality would manifest as something minor at first, like a headache or increased pulse or sweating… right, he was sweating. How did he forget that symptom? No, he didn't forget it, he recognized it as it was happening, but then the panic hit and he couldn't connect the dots.</p><br>
-<p>"Better?" Jason asks after a moment, watching him steadily.</p><br>
-<p>Red nods. He feels back in control of his thoughts, though there's a part of him that's still thinking about the gastly, hovering just out of sight, and wondering if it's creeping closer. "Yes, thanks. Even expecting it, it's like it went straight to my automatic reflexes." He steels himself, then turns his head to look at the gastly. Still far away.</p><br>
-<p>"I'm not sure what I would see different," Jason says, drawing Red's attention back to him. Not sure what...? Oh, right, about different worlds. "I guess if it weren't true, then I would expect there to be nothing uniform between the different Ghost pokemon compared to other pokemon that are not Ghost types. A candle and a cloud of gas have no similarity to justify belief that both should evoke surrealism."</p><br>
-<p>"But that uniqueness is what we use to classify Ghosts," Red says. "It feels tautological to say that because they have this unique attribute, they must share this unique origin that we identify through this attribute. Especially when we don't even know what the origin of other pokemon without that attribute is."</p><br>
-<p>"Then what is your answer? What would you expect to see in a world where Ghost pokemon are borne of dead spirits, rather than by the same process as other pokemon?"</p><br>
-<p>"Weeeell," Red says, dragging the word out as he organizes his thoughts. "First off, wouldn't we see an infinite variety of Ghost pokemon? And wouldn't their different species be more widespread? We don't have any phantump here in Kanto, but we have plenty of woods and forests. If we just put a pile of screws and magnets around some pokemon graveyards, what would you expect to eventually see? Ghost magnemite, or 'regular' ones?"</p><br>
-<p>The medium is quiet again as he thinks, and Red resists the urge to look at the gastly again. "I believe I see your point," Jason finally says, speaking slowly. "Perhaps... magnemite are the spirits of pokemon as well, and their natures have been changed by the objects they bound to. Rotom at least are examples of ghost pokemon whose nature changes while inhabiting different 'bodies.' Though…" Jason frowns. "It's not a strong example, given that even though they can leave those bodies behind and inhabit new ones, we have never seen any other Ghost pokemon do such a thing, and of course Rotom are limited to electronic devices that do not mimic any other known electric pokemon."</p><br>
-<p>Huh. Red hadn't expected the medium to refute his own argument so well. He begins to grow hopeful about the conversation. "Right, as you pointed out, there's no consistent pattern between what Ghost pokemon are embodied as. Cloth, candles, gas, plants, clay, metal… I mean, spiritomb is just a rock, right? The glowing face it creates isn't tangible."</p><br>
-<p>"That's correct, it's the keystone that contains the pokemon's various spirits."</p><br>
-<p>"So they're all different substances, and then there are also pokemon like jellicent and oricorio and decidueye, which are living creatures. Or do those pokemon not feel the same to be around?" If they don't cause surrealism, they probably shouldn't qualify as Ghost types in the first place…</p><br>
-<p>"No, they do, though it's even less strong than Ghosts that inhabit objects," Jason says. "Here, let me show you one of those... Gastly, return!" The beam of light spreads not from the gastly's dark core, but from somewhere on the edge of the visible cloud around it, pulling it away in a mass of red light. "Go, Lampent!"</p><br>
-<p>The sky is starting to darken, but Red can still make out the twisted black lantern that appears a few feet above the ground, its core illuminated by a bright blue flame. Red prepares himself for more surrealism, but… it looks totally normal.</p><br>
-<p>Except for the fact that it's clearly suspended in midair for no reason. Red knows it's a pokemon, intellectually, but the way it looks like a simple object makes it hard to square with the fact that it's definitely not supposed to be doing that. And then there are the yellow glowing eyes on the round, clear "glass" of its body, but those are only unsettling if he looks at them too long.</p><br>
-<p>"Huh. Yeah, this is less extreme. Instead of doubting my whole perception of it there's just this one thing I'm fixating on. Which is weird, since there are other pokemon that float that don't make me feel like this..." He walks a few steps to the side, then back, gaze on the lampent. The effect is a little worse as he changes his reference frame and the lantern stays suspended exactly where it is, making it seem slightly unreal, like a hologram or computer graphic overlaid onto reality...</p><br>
-<p>"Oh, there's the headache." He quickly looks back at Jason and the pressure at his temples starts to fade. "So you were right, it's hard to understand how different Ghosts are without experiencing surrealism for myself. But the degree is different enough that I feel like this could be a different thing entirely, if I didn't know already to start out thinking both are Ghosts."</p><br>
-<p>Jason nods. "Your mundane senses are more easily fooled. Use your inner eye."</p><br>
-<p>Red scratches his neck, curiosity more than a match for his nervousness. "That would be okay?"</p><br>
-<p>"Just don't merge. You'll understand why."</p><br>
-<p>Red nods and closes his eyes, wanting to focus as much as possible on what his "inner eye" senses. His range and precision have expanded over the past weeks, and he immediately becomes aware of not just the gale of emotions in front of him, but also Jason's watchful and expectant mind, and Rei's unshielded focus, and Rowan's shifting mood as he sets up and brings down partitions in some exercise or experiment, and Satori's mind as it interacts with both her swellow and torracat at the same time, and the less Red focuses on that disorienting jumble the better...</p><br>
-<p>Good thing he has a gale of emotions in front of him to focus on.</p><br>
-<p>It's like standing in a crowded room, except it's all coming from one single mind. The lampent feels unlike any other pokemon or human Red has encountered, its emotions more alien than even Bug pokemon.</p><br>
-<p>Red is still relatively new to deciphering emotions without a merge, but he recognizes <em>desire</em> burning off the lampent like a bonfire sheds heat. There's no question in Red's mind of what he's feeling, it wants something, and it wants it badly. He's never felt anything so strong coming from a pokemon, the closest were fear from abra and when he was merged with Charmeleon and projected <em>sakki</em>…</p><br>
-<p>"It's hungry," Red says, opening his eyes and taking an involuntary step back as he withdraws his mind again. As soon as he says the word, he identifies the feeling in himself, or at least as close an equivalent as he can understand. He feels his stomach rumble and twist. Is it projecting onto him? "No, <em>starving</em>… why..."</p><br>
-<p>"It had a caterpie recently," Jason says. "But it's never enough."</p><br>
-<p>Red expects the hunger to fade once he brings his shield up, but it doesn't. Both arms are pressed over his stomach now, and he sucks in a breath, tries to meditate on the feeling, dissolve it, but it feels <em>real</em>, like he needs to find food <em>now</em> or his limbs will start to shake…</p><br>
-<p>Then Jason is in front of him, wooden beads looped around the fingers of one hand as he passes it over Red's head. Red feels the medium's mind brushing his through his shield, Jason doesn't try to merge. Instead the feeling of hunger starts to dwindle in time with the scrubbing motion of his hand around Red's chest, until he abruptly feels fine.</p><br>
-<p>It all took place in the space of a few heartbeats, and Red slowly straightens. "You felt things like that?" Red asks, letting out a shuddering breath as he eases his arms down and looks back at the lampent. "For months?"</p><br>
-<p>"I had some help. My psychic teacher knew, of course, from the emotional residue that would be left on me, which you experienced. She taught me how to manage it, as all gifted trainers of Ghost pokemon must, but it wasn't until I began walking a more spiritual path that truly cleansing it became a possibility." He tucks the wooden beads away in a pocket. "And by enduring it more, I found my own ability to detect emotions improving, though..." He shrugs. "It was no longer always intentional, or always accurate."</p><br>
-<p>"Then maybe that's what happened," Red says, pulse finally slowing down as he breathes in and out. "Everyone talks about how Ghosts twist our powers and turn them against us, maybe yours have changed permanently to better sync with them."</p><br>
-<p>"Perhaps," Jason says. "But I don't believe all mediums have gone through the same things. If that's a viable path, would you try it?"</p><br>
-<p>Red frowns, considering a moment. "Not sure. I'd have to know more about the side effects. But in the meantime, I still want to try adopting your perspective."</p><br>
-<p>Jason nods and withdraws the lampent, which relaxes something in Red he hadn't realized was tense. "My perspective is to simply remind myself of what I do not understand. It is a genuine humility that only feels forced insofar as it fights natural instinct to create explanations for things, to grasp at facts we have heard and knowledge we believe we have. Knowledge that, upon further examination, is revealed to be just symbols between minds to imperfectly share disparate shards of reality."</p><br>
-<p>Uh oh. They're back at deep sounding phrases that Red can't quite parse. "Alright… so what should I do to help fight those instincts?"</p><br>
-<p>Jason shrugs. "Remind yourself of what you do not know. Do not accept your mind's attempts to insist otherwise. When you truly realize how complex all this is," he opens his hands out to the sides, "It seems trivial to not also realize how impossible understanding it is."</p><br>
-<p>Red frowns slightly as he grapples with such a fundamentally different ideology. Sure, the world is complex, from the mind boggling vastness of space to the alien world of subatomic particles, but impossible to understand? No. There's humility, and then there's surrendering to ignorance, and he can't accept that. It's not a conscious choice; he just knows it, as surely as he knows his name.</p><br>
-<p>But a scientist should be willing to embrace uncertainty, and philosophically he knows there are few things he can really be <em>sure </em>are true besides that he exists and is conscious... so maybe he can reach some understanding of the same "fundamental humility," with effort.</p><br>
-<p>"I'll consider that," Red says after a moment, and bows. "Thank you for your time, and patience with me."</p><br>
-<p>Jason bows back. "Thank you for your vulnerability, and your trust."</p><br>
-<hr noshade="noshade" size="1" /><br>
-<p>Red stays on the roof after and watches the sun set over Mt. Silver, thinking about what he experienced and the goal he set out to accomplish. He isn't sure if he made a friend, but it feels like progress at least. Now he should try talking to Rowan too, or get to work on Sabrina's assignment.</p><br>
-<p>Instead his mind keeps turning back to what Jason said. The medium seemed so certain that they can't understand anything, and it bothers him the more he thinks of it.</p><br>
-<p>Part of him wants to go back down to his apartment and knock on Jason's door, show him, like, a simple algebra equation, or do some basic physics experiment.</p><br>
-<p>He doesn't understand why it's so important to him that Jason see the flaw in his perspective, as stated at least. Maybe it's more nuanced in his head, but Red can't help feeling that the older boy is wrong and needs to know <em>why</em>, even if in the meantime…</p><br>
-<p>...in the meantime, he can interact with Ghost pokemon without surrealism while Red can't. And he was able to argue against his own ideas, so he's clearly not lacking basic reasoning abilities either. So whose perspective is actually more useful? Or maybe both are useful in their own ways…</p><br>
-<p><em>Remind yourself of what you do not know. Do not accept your mind's attempts to insist otherwise…</em></p><br>
-<p>He sees the wisdom in that, so maybe it's not as far a step from recognizing the value of humility to what Jason has accomplished, without quite swinging as far on the actual epistemics.</p><br>
-<p>Red watches the last sliver of gold light fade behind the mountain, and twilight cloaks the city. He shivers at the sudden chill, and abruptly feels sure that there's a gastly behind him. Floating toward him, ready to envelop his head, ready to open its mouth and bring out that "tongue"—</p><br>
-<p>Red spins and sees nothing but the empty rooftop, and lets out his breath in something more than a sigh. Great, now he's going to be jumpy about that for a while too…</p><br>
-<p>"Red?"</p><br>
-<p>Red yelps as he spins to find Tatsumaki on the roof with an abra. She withdraws her pokemon and steps off the teleporting platform, frowning at him. "What's gotten into you?"</p><br>
-<p>"Nothing," he says, breathing deep to slow his racing heart. "I just… met my first Ghost pokemon and… I guess it left an impression."</p><br>
-<p>"Yeah, they'll do that." She looks around. "It wasn't a wild was it?"</p><br>
-<p>"No, Jason's. I wanted to know what it was like."</p><br>
-<p>"Good to get it out of the way in a safe place I guess." She sticks her hands in the pockets of her collared dress. "So, got any ideas about sensei's assignment yet?"</p><br>
-<p>Red hesitates. "We're not supposed to discuss it yet…"</p><br>
-<p>"Whatever," she says with a roll of her eyes, and heads for the door.</p><br>
-<p>Red stares after her a moment, then blinks. "Wait! If you want, we can talk about other things—"</p><br>
-<p>"Nope," she says, and mentally opens the door ahead of her, then swings it shut after passing through.</p><br>
-<p>Red sighs and heads for the door himself. He doesn't know if he should have just said yes, but he'll have to have something better before he tries befriending her again.</p><br>
-<p>A quick check confirms that Rowan is still messing with his partitions. Red is fairly confident Rowan will have one of the more promising ideas in the meeting tomorrow. He wonders if Rowan himself feels any pressure over that expectation.</p><br>
-<p>Daniel still isn't back, so Red goes to his room, sits at his desk, and takes out his notebook so he can try to decipher the problem again.</p><br>
-<p><em>Brains. Minds. Hiding thoughts and emotions under others.</em></p><br>
-<p><em>How?</em></p><br>
-<p>Red stares at the paper, rapidly tapping both ends of his pencil against the desk as he shifts it between his fingers.</p><br>
-<p><em>Don't spend resources searching for an answer until you're justifiably confident you understand the question.</em></p><br>
-<p><em>It seems trivial to not also realize how impossible understanding it is.</em></p><br>
-<p>Red wonders what Jason would say to Leader Giovanni. What the Leader would say to <em>him</em>. When it comes to the mind, it's true enough that currently there's no real understanding it. Red isn't going to solve the question of consciousness in (he checks the time) five hours. But he could at least check how confident he should be that he understands the question.</p><br>
-<p>Red's pencil moves to the page. He'll start with what he knows… <em>Thoughts are patterns of neurons firing in a specific order and shape. Feelings are experiences… of physical sensation…</em> His pencil slows as he frowns. What are emotions, really? He could write something down, something that sounds right, like <em>emotions are certain neurotransmitters and the felt effects they have on the body</em>, but is that a useful definition? How does psychic power hide or sense neurotransmitters, let alone the feelings associated with particularly complex emotions?</p><br>
-<p>He realizes that if he's satisfied with that answer, he would just be "accepting his mind's attempt to insist he understands something he doesn't," and decides to drill down to basics. <em>What is a brain? A collection of billions of neurons, tens of billions, which encode sensory experiences and process thoughts and send commands through the nervous system by chemicals and electrical impulses.</em></p><br>
-<p><em>Where do the impulses come from?</em></p><br>
-<p>He doesn't know.</p><br>
-<p><em>Are all emotions from neurotransmitters, or are some purely in the brain, if that even makes sense?</em></p><br>
-<p>Maybe it doesn't. Especially since he just thought of another problem, maybe more fundamental...</p><br>
-<p><em>What is a mind? A self-reflective emergent property of the processes of the brain, which experiences feelings and memories and desires as fuzzy, indistinct things that are somehow independent of the absoluteness of the brain. (Why are minds so fuzzy?) There's some inherent disconnect between what the mind is aware of and what the brain does and stores. Optical illusions are strong examples of this, as is the idea of a subconscious, or waking from a dream with just an emotional reaction but no memory of what happened… Self-awareness likely comes somewhere between the top-down predictions that are being made constantly but that we're unaware of and the bottom-up observations of reality...</em></p><br>
-<p>Red stops and puts his pencil down, staring at the sheet a moment.</p><br>
-<p>Sure, brains are probably the most complex thing in the universe, and may be the only thing literally impossible to understand given that the thing it's trying to fully understand is itself, and if it were good enough to do that it would just become even more complex.</p><br>
-<p>But Red would have guessed he could have answered more about brains if asked. Now all he can think of are irrelevant factors that don't actually explain how it works…</p><br>
-<p>...and he suddenly feels an inkling of something different, in his mind. A new track being laid, maybe even the start of a new perspective. He'd thought of space as mind bogglingly vast before, but really, everything is so complex that it boggles his mind to think about them in sufficient detail.</p><br>
-<p>Is this what Jason meant? Is he touching the same frame of mind, at least a little?</p><br>
-<p>Red flips to a new page and decides to try testing what he really understands about something basic. Not math basic, but… well, maybe, actually, especially if even basic things are mysteries to him when he looks deep enough.</p><br>
-<p>What's a comparison to what Sabrina's asked them to do that's not about psychic phenomena? Some other "impossible" problem, like... if someone told him there was a plant that grows without water, and asked him to figure out how, would he be able to? He's not even sure how bizarre that might be compared to the perfect shield, but whatever, he'll try it.</p><br>
-<p>What does he actually know about what plants need to grow? He could say "photosynthesis" and haltingly describe how light contains energy (is energy) and certain wavelengths can be harnessed by certain plant cells, all wavelengths but green, actually… wait, do flower petals do photosynthesis? Doesn't matter, so without nutrients from water, plants get some from light… wait, nutrients? Is that right? How would light have nutrients in it, nutrients are just a word that means the useful molecules and atoms for a certain life form. That stuff must be gotten from soil… but there are some plants that grow in water and off sunlight… is there carbon in water? No wait, duh, the air, they get carbon from the air… somehow… okay he just realized he has no idea how plants breathe, and again, what's the light for? Energy? Instead of using sugar, their cells absorb energy from lightwaves and use it to extract and repurpose the nutrients (useful molecules) they need from the air, water, and maybe ground?</p><br>
-<p>That... sounds right. So a plant that grows without water must be getting enough of the nutrients they need from the air and maybe ground. If there are absolutely fundamental nutrients in water, then maybe there's a lot of moisture in the air and that's how they get it. If the question is specifying there's no moisture around at all then he would say that… the plant must somehow be able to build itself from other materials besides the ones normal plants need from water.</p><br>
-<p>After a minute of thought, he nods. That would be his hypothesis. Maybe it wouldn't even <em>be</em> a plant, anatomically, maybe it would just look like one, or be some unique cross between a plant and fungus, or something. Of course, his understanding of how plants work could be flawed in some way. It's been a while since he learned plant biology, and if he's wrong in any single belief, then the whole hypothesis could be way off, might not even make any sense.</p><br>
-<p>He realizes that the moment before has passed. He's no longer as uncertain about what he knows, and the idea of the world itself as bizarre and unknowable has faded somewhat as he feels more like, as little as he understands, there's still a <em>way to understanding</em>, a path that he could follow.</p><br>
-<p>But maybe that's an illusion too, of sorts, if he keeps "boggling" at things enough to get down to the atomic and subatomic level, where reality seems to genuinely stop making sense to brains that evolved on such a different scale.</p><br>
-<p>Red smiles slightly and turns the page to start again with something else. He's not sure if he's on the right track to the exact mental state Jason lives in, but he's glimpsed what might be a lens of his own, and that's worth pursuing too.</p><br>
-<!-- /wp:paragraph -->
-        </div>
+            <h1 class="chapter-title">Chapter 141: Sacrifice</h1>
 
-        <div class="chapter-nav">
-            <a href="../140/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../142/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p><em>Hey all, sorry for the delay. The last few months have been rough here and there, but this time I feel compelled to explain.</em></p>
+
+<p><em>May was a difficult month for me. My dad's cancer came back, I lost an entire week (no work, no writing, little sleep) to an intense interpersonal issue that left me exhausted and heartsick after, and I went to LessOnline, which was incredibly fun but also much more taxing than I expected; a combination of massive back-to-back jetlag and various random complications means I've gotten about an average of five hours of sleep every night for the past week, and that's being optimistic. Also my bike got stolen, and my shoes. No, really. It's distracting, but honestly small potatoes compared to the stuff I mentioned before, which are weighing on me even still and making it hard to focus on anything for too long.</em></p>
+
+<p><em>On top of all that, I struggled with this chapter a lot. I've mentioned a few places before that the pokemon battles are the hardest part of the story for me to continue to feel excited by; once in a while I still enjoy writing them, but overall they've become something of a slog. I hope that's not reflected too much in the reading experience; I work hard to think of new dynamics and polish each exchange until I still get some enjoyment out of the end result, and people do seem to still enjoy them.</em></p>
+
+<p><em>But overall I wanted to say that, now that I've missed my deadline by half a week rather than a day, it seems responsible to say that I can't be sure what will happen this month, or the coming ones. I still hope to get back on track, and I still plan to finish this story, come hell or high water. I appreciate your patience, either way, and particularly appreciate my patrons for sticking with me through all this.</em></p>
+
+<p><em>Take care everyone, and hug your loved ones. Life can be hard sometimes, but there's still a lot to be grateful for, and I hope this story continues to be one of them for you.</em></p>
+
+<hr noshade="noshade" size="1" />
+<p style="text-align: center;">Chapter 141: Sacrifice</p>
+The first sensation is a soft, slow settling.
+
+<p>Not of the body, of thoughts. Sediment after a storm, fragments that scattered, noisy, first quieted…</p>
+
+<p>…then slowed…</p>
+
+<p>…then…</p>
+
+<p>Walls. Gossamer thin threads, suggestions of division rather than barriers.</p>
+
+<p>Shredding, almost immediately, shattering the quiet stillness</p>
+
+<p>until the threads reform.</p>
+
+<p>Again. And again</p>
+
+<p>and</p>
+
+<p>again</p>
+
+<p>until</p>
+
+<p>they</p>
+
+<p>hold.</p>
+
+<p><em>Good. Don't rush. Rest.</em></p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Blue wakes on the morning of his final badge challenge in a cold sweat, fragments of the dream racing through his mind. Within moments the details are a blur, mostly leaving behind the emotions.</p>
+
+<p>Fear. Loss. Grief. Futility. He lets them roll through him, each one evoking memories that are mixed with the lingering nightmare.</p>
+
+<p>Battling Leader Giovanni, but without his battle calm. Panicking, making mistakes, losing… not just the badge, but his battles with the renegades at Silph, losing his pokemon, losing Red… fighting in Vermilion, fighting to save Glen and Elaine and Aiko as the Pressure suffocates him, failing them all, losing Gramps and Daisy to the steelix, losing his parents as Zapdos/Moltres sweeps down toward him…</p>
+
+<p>He breathes, slowly and steadily, until the emotions are less sharp. He reaches for his phone and checks the time.</p>
+
+<p>8:28. A couple hundred new messages, which he skims within a minute of scrolling. Mostly people wishing him luck.</p>
+
+<p>No news about Red.</p>
+
+<p>He sets the phone down on his stomach, letting the emotional noise wash through him again, then again, and again, until it all feels faded enough that he can push himself out of bed and to the shower, muscles somewhat sore despite the extra time he took to rest yesterday.</p>
+
+<p>Giovanni set the challenge date a week after his battle with Arnaud. It's been a hell of a week.</p>
+
+<p>The motions feel rote. Wash, dry, dress. He doesn't normally have trouble eating when stressed, but lately he's been relying on meal substitutes half the time. He drinks one as he straps his belt on, then heads to Viridian Gym.</p>
+
+<p>It's a short walk from the Trainer House, so it doesn't make sense to mount up to get there faster. He does his best to look relaxed and confident, to smile and wave at everyone he passes who does the same, or wishes him luck. Their wellwishes are a blur, and Blue is sure he says all the right words, has his tone and expression down pat, but Elaine still gives him a long, crushing hug, and there's a look in Glen's eyes as he squeezes his shoulder.</p>
+
+<p>Blue puts his hand over his and squeezes back. Glen nods, and Elaine pulls away, and then he's free, gliding through the halls until he's in the main arena's ready room, hands on his knees, breaths seeming to echo in the silence.</p>
+
+<p>He wants the calm. He wants the reassurance that it'll be there, when the battle starts.</p>
+
+<p>But stressing about it won't help, and he reminds himself to go over what he'll say before the match. Blue's been wondering on and off for months what pre-match speech or banter Giovanni will give. He tends to be less dramatic than others, often purfunctory; if he does more than recite the formalities, it's often <em>after, </em>win or lose, and even then usually only for those winning at least their fifth badge.</p>
+
+<p>Still, he reviews the talking points he wants to make, if given the opportunity, and eventually a buzzer goes off, the light above the door going from red to green, and he stands, and walks to it, and steps through.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p><em>Focus on the breaths. Move outward.</em></p>
+
+<p>He knows this. Lungs expanding, then contracting. Expanding, then—</p>
+
+<p><em>Test each connection.</em></p>
+
+<p>Who said that?</p>
+
+<p>Which voice?</p>
+
+<p>The boundaries hold, gossammer blowing in tumultuous winds.</p>
+
+<p>—out and in and out and in and—</p>
+
+<p>Sobbing laughter reverbrates wrong, distorted, seeping between—</p>
+
+<p><em>There. Contain it. Remove it.</em></p>
+
+<p>Memory fragments refuse to align.</p>
+
+<p><em>Let them blend.</em></p>
+
+<p>Whose thought was that?</p>
+
+<p>Whose</p>
+
+<p>mind</p>
+
+<p>are</p>
+
+<p>we?</p>
+
+<p><em>That is yet to be determined, but whatever the case, you are almost whole.</em></p>
+
+<hr noshade="noshade" size="1" />
+
+<p>The main stadium is as big as Pewter's, built similarly in most respects, with a wide, deep arena of earth and stones below the platforms, a strong border around it, and a wide empty space between it and the bleachers, where protective barriers stand below the hanging monitors. Blue stares straight ahead as he walks, peripheral vision showing the way the last few stragglers rush to find their seats among the packed crowds. He only sees his opponent once he finishes climbing the stairs to his platform.</p>
+
+<p>Giovanni stands opposite him dressed as he always does for badge challenges: not in the gym uniform he wears when in the field responding to incidents, but in the three piece suit he began to wear after he became Champion.</p>
+
+<p>Blue admired Giovanni as soon as he learned about him, spent hours reading everything he could about Viridian's golden child. There were decades-old comments on the net about the young Champion "overcompensating" for his youth by trying to appear more like a businessman, but within days he'd claimed the estates and companies owned by his biological mother, and those comments stopped appearing as his notoriety and fame continued to grow by leaps and bounds.</p>
+
+<p>By the time he took Leadership of Viridian Gym two years later, he'd already cemented himself as one of the most revered names in Kanto history, right alongside older men and women like President Silph, Elite Agatha, and Blue's grandfather, who had just announced the construction of Pallet Labs.</p>
+
+<p>As far back as Blue could remember, he knew he would face Giovanni and prove he was at least as capable. Tempting as it was to accept his offer months ago, and as twisted as his guts feel right now, he's glad for it. It would feel hollow, otherwise.</p>
+
+<p>"Blue Oak. Viridian Gym has been anticipating your arrival since you transformed Vermilion." Giovanni pauses a beat. "<em>I </em>have been anticipating you."</p>
+
+<p>Blue's rejoinder, a smiling <em>sorry to keep you waiting, </em>dies in his throat. Instead he feels the compliment spread warmth through his torso. Giovanni already confirmed in private that he had confidence in his abilities, but to do it in public hits different. "I'm sorry if I disappointed. In less dire times, I might have attempted to join your gym and help it realize its full potential."</p>
+
+<p>"But the world changed since you began your journey, then changed again."</p>
+
+<p>Blue nods. "I started with the belief that I should get through each gym as quickly as possible. Pewter taught me that was a mistake, and created space to take an active role in most of the later gyms. But the Hoenn Incident, Team Rocket, the Dreamer's warnings, the unown… I don't feel I have that luxury anymore."</p>
+
+<p>Giovanni shifts his stance, hands on the railings around his platform, leaning forward slightly. "What do you feel, Young Oak?"</p>
+
+<p>The arena is perfectly silent, and Blue can hear his own breaths, even as they are, and his heartbeat, steady as it is. He waits a few beats, then a few more, wanting to give the unorthodox question its due.</p>
+
+<p>"I've been waiting for this day for as long as I can remember," he finally says. "Battling for my final badge. Facing <em>you </em>for it, Leader. Strange enough, how now that I'm here, I can barely feel the excitement or thrill I expected. They're faint compared to my impatience, and my worry."</p>
+
+<p>"Worry of defeat?"</p>
+
+<p>"Some," Blue admits. "But what I realized is that there are more important things than this match. There are friends missing in the audience. There are things I plan to do, to help the world become more safe and stable rather than less. Compared to that, this all feels like just another obstacle in the way of the real work."</p>
+
+<p>"It is the nature of a Gym Leader to play a variety of roles, one of which is a step in a trainer's ambitions. And yet you chose to challenge me last."</p>
+
+<p>The question hangs implicit in the air, and Blue lets it, lets the silence linger. He almost breaks it, almost offers an explanation, but something inside keeps him still, watching Giovanni across the gulf of the arena.</p>
+
+<p>Eventually the leader smiles, a sardonic twist of the right side of his mouth. "Do you regret it, now that your priorities have changed?"</p>
+
+<p><em>Do you regret turning down my offer?</em></p>
+
+<p>Maybe Blue is reading into it. But the answer is the same, either way. "No. I still have something to prove, to myself as much as anyone, and receiving my eighth badge from Giovanni Sakaki is part of it."</p>
+
+<p>"Proving what?"</p>
+
+<p>"Could you have defeated your current eight badge team, at my age?"</p>
+
+<p>Giovanni's smile widens marginally, only visible to Blue because of the monitors around them that are zoomed in on the Leader. "No."</p>
+
+<p>"Could Lance?"</p>
+
+<p>"Possibly. But becoming champion would require proving your strength over him in any case. You're taking the hardest path you can."</p>
+
+<p>"I am."</p>
+
+<p>"To prove that you're better than all of us."</p>
+
+<p>"No," Blue says, and realizes why this is happening. Giovanni is setting him up… not to knock him down, but to present his case. It somehow means even more to him than the Leader's offer for a quick, straightforward battle. "To conquer my own fears, so that it's easier the next time, and the next. To <em>inspire </em>others to do the same. I want to prove that it's <em>possible </em>for us to take the harder path, and succeed."</p>
+
+<p>"Some might say that their path is hard enough, the risks great enough. Why add more?"</p>
+
+<p>"You said it yourself, after the Hoenn incident. I began What Comes Next because I felt it too; we can't be complacent. Our problems are growing, not shrinking." Blue turns to the audience, head turning slowly from left to right. "I've always felt lucky to have been born who I was. Being Professor Oak's grandson provided a lot of advantages, both in growing up and starting my journey. But all of us, everyone in my generation, and our parents, and our grandparents, we've all been lucky."</p>
+
+<p>He turns so he can continue scanning the audience in a slow circle as he speaks. "The islands haven't seen war between its regions for generations. Poketech and medicine are more powerful than ever, and when I was still planning my journey, incidents that wiped out entire towns or cities were scary stories from history books, not reality."</p>
+
+<p>He's facing Giovanni again, and shifts his attention to the Leader. "Since I left Pallet Town, there have been <em>three </em>that could easily have ruined entire <em>regions</em>. We didn't just sacrifice good people and pokemon each time to stop them, we got <em>lucky</em>. I spent months helping Cinnabar stabilize and recover from the ditto, and all of it was almost undone by the unown. We still have no idea if these events are connected, and personally, I can't tell if it would be worse if they were. The world has changed, and we need to change with it."</p>
+
+<p>Giovanni nods. "And what would you change, as Champion?"</p>
+
+<p>This is it. The time to make it clear what he wants to do and why he thinks it's necessary. "Champion Lance has been an inspiration for as long as I've been alive." He doesn't mention the fact that his <em>own </em>hero-worship of the Champion was stunted early on; Lance was at the incident where Blue's parents were killed, and a young Blue blamed him for not saving them. As he got older the unfairness of that blame became more clear, but the feeling that Lance had still failed them was an extension of the sense that Lance, and every other Champion, was failing <em>everyone </em>by not doing enough. "Indigo is stronger with Kanto and Johto working as one, and I particularly admire all the work he's done to help integrate the strengths of each region's gyms and League culture into the other.</p>
+
+<p>"But the time for reactivity is past. The Master Ball is one potential solution to our problems, but it's not the only one. If Rayquaza descends on us, if the Dreamer's nightmares become reality, if a trio of titans rise up in Johto… we can't put all our hopes on one trainer, even with a legendary on their belt. As a society, we need to take the fight to them, starting with the Stormbringers and Beasts."</p>
+
+<p>Blue has been practicing some version of this speech for years, unsure if he would be giving it now or in front of Lance (or whoever else might have become champion meanwhile). He's sure Lance would push back, challenge him to give more specifics, or defend his actions. He's not as sure what Giovanni would say.</p>
+
+<p>But instead of saying anything at all, Giovanni just lets the ensuing silence linger, gaze steady on Blue… until he just nods, once, and straightens.</p>
+
+<p>"Your ambition has been made clear. What is your Challenge?"</p>
+
+<p>Blue's surprise only lasts a second, not enough for a noticeable pause. "I challenge for Mastery."</p>
+
+<p>"Viridian accepts. Our battle will be four against four, allowing two pokemon out at once. The battle will not stop for potential fatalities."</p>
+
+<p>A heartbeat of silence passes as Blue feels his pulse quicken, and then another, before he hears the first of the murmurs, distant and hushed. But only a few, and they quickly fade. The attendees knew what they were coming to: an eighth badge challenge, against Leader Giovanni.</p>
+
+<p><em>The battle will not stop for potential fatalities.</em></p>
+
+<p>Blue understood Arnaud's comment about keeping his dragonite in, or something equal to it, to mean that whatever he faces here will be as serious as a pokemon battle could get. Blaine had factored the risk of deaths into the battle, but Giovanni basically just said to expect it.</p>
+
+<p>It's the default ruling for battles against the Elite, and of course against the Champion. The Viridian Gym Leader probably wouldn't <em>try </em>to kill his pokemon, no more than Elites or Champions would even in battles for their positions, but no one would blame him if it happens.</p>
+
+<p>He knows Leaf would be disappointed. If Blue accepts, he's risking his pokemon's lives. Not to fight wilds, but for his ambition.</p>
+
+<p>But his ambition is to save more than he could alone.</p>
+
+<p>"Understood." He unclips two balls from his belt, then aims them forward. Any moment now the calm would wrap around him, and everything would be fine. "Ready."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>He feels himself wake with a deep breath, so deep it hurts his lungs, or maybe it's just a normal breath and he's grown unused to the sensations. Pins and needles spread throughout his body as he becomes aware of other sensations; soft mattress, sheets, pillow. He's in bed.</p>
+
+<p>He knows what he'll see when he opens his eyes, but instead of the muted colors and soft lights of a hospital ceiling, what greets him is a young woman's face.</p>
+
+<p>"Hello," she says, the word carefully enunciated. He watches her concerned eyes swap between his, sees the cautious hope in them. "Are you awake? Are you able to understand me?"</p>
+
+<p><em>Yes</em> he tries to say, but a rush of mental noise interrupts, a dizzying cacophony of confused sensations and memories. When it passes he realizes his eyes are closed tight, muscles taut, and slowly relaxes.</p>
+
+<p>"Relax. Go slow." The woman's hand tentatively takes his, and he grips it. "One squeeze for yes, two for no?"</p>
+
+<p>He squeezes once.</p>
+
+<p>"Good. Confirm a no?"</p>
+
+<p>It takes him a moment to get it, then he squeezes twice.</p>
+
+<p>"Good. Very good." Her voice is warmer, losing a bit of its careful distance. "Do you… remember who you are?"</p>
+
+<p>The question confuses him, at first—</p>
+
+<p><em>you are nearly whole</em></p>
+
+<p>—but... yes, he knows who he is. He squeezes once.</p>
+
+<p>"Bear with me, okay? Does your name start with an R?"</p>
+
+<p>One squeeze.</p>
+
+<p>"Does your last name start with a D?"</p>
+
+<p>One squee—</p>
+
+<p><em>No.</em></p>
+
+<p>His heart is pounding, and he can't tell why, but he squeezes a second time.</p>
+
+<p>She's silent for a moment. "Does it start with an L?"</p>
+
+<p>Two squeezes, quicker this time.</p>
+
+<p>"Does it start with a V?"</p>
+
+<p><em>V for victory. </em>A man's voice, two fingers pointed up at angles…</p>
+
+<p><em>Dad.</em></p>
+
+<p>One squeeze, and Red feels himself settling a little more, feels himself pulling together a little firmer.</p>
+
+<p>"Great." She squeezes back, relief shining through the single word. "Fantastic. Welcome back, Red. A lot of people are going to be very happy to see you. My name is Marin. I've been one of your nurses. Are you in any pain?"</p>
+
+<p>Red unconsciously starts a mental scan, searching through his body methodically. He feels tired, but not sleepy, just some stiffness and aches, and he just noticed he has things stuck on and in his skin, the latter of which does hurt a bit when he moves them too quickly. Otherwise… two squeezes.</p>
+
+<p>"Do you need something? Toilet? Water?"</p>
+
+<p>His attention is drawn to his stomach, which feels... odd. He's not starving, exactly, but his stomach feels incredibly empty. Two squeezes, and then he pauses before squeezing twice again, but slower.</p>
+
+<p>"Is that a maybe, for water? Or do you want food?"</p>
+
+<p>He smiles and opens his eyes, the expression feeling odd on his face. One squeeze.</p>
+
+<p>She smiles back. "We'll have to take it slow for your stomach, liquid foods first, but I'll get you something." She squeezes his hand back, then releases her grip—</p>
+
+<p>—and he closes his eyes as a sudden spike of panic rises up, like he's about to be dropped off a cliff, back into the churning, endless dreams. He grips her hand desperately tight as his body curls inward.</p>
+
+<p>If he hurts her she doesn't show it, instead putting her other hand over his. "Okay. Okay. Not yet. It can wait."</p>
+
+<p>The panic passes slowly, and when he relaxes his grip, shame floods his cheeks with warmth. He opens his eyes again, slowly, looking into her calm and patient gaze, and tries to say <em>Sorry</em>.</p>
+
+<p>Instead the mental noise returns, and he tries to keep his grip around her hand as light as he can through the full-body shudders. The disorientation fades slowly, and when he opens his eyes again, her brow is slightly creased with concern.</p>
+
+<p>"You should rest. I'm going to let others know, and bring you some soup. Okay?"</p>
+
+<p>Red considers this, then carefully nods, and releases her hand. She squeezes his once more, then rises and leaves.</p>
+
+<p>He looks around, taking the surroundings in. It's spacious, for a hospital room. There are two whole couches, a small fridge, and the monitor on the wall opposite him is bigger than usual. A table is covered in flowers and envelopes, and he realizes after a moment that this isn't just a hospital room, it's <em>his </em>hospital room. He was probably brought to the medical wing of the Interpol base.</p>
+
+<p>His things are in the corner. Clothes, folded neat and clean looking. Pokebelt, with the balls detached and on a charging grid. No helmet, but—</p>
+
+<p>Wait, where's his helmet? It should be with his things in case… he's needed…</p>
+
+<p><em>Why am I here?</em></p>
+
+<p>Memories rise slowly, like bubbles in syrup, each popping with a burst of intense emotions.</p>
+
+<p>Unown, flying in chaotic shapes. Bizarre monsters, Artem in a puddle of blood, Rowan chasing Bill through his lab…</p>
+
+<p>…until they psychically fought…</p>
+
+<p><em>Where are my powers?</em></p>
+
+<p>Panic starts to set in as he realizes he can't feel them at all. He became used to subconsciously checking the minds around him, but he didn't even try since waking up, and now when he attempts to send out a pulse of psydar he gets <em>nothing, </em>he can't even feel <em>how </em>to<em>—</em></p>
+
+<p><em>Calm.</em></p>
+
+<p>It's like a cold blanket thrown over the buzzing panic, and a feeling of reassurance arises next, vague but warmer. Red is surprised to find himself curled up, muscles tense from the re-emerged memories and emotions, and it takes him a moment to realize his unpartitioned self must be sending him the feeling of <em>everything is fine.</em></p>
+
+<p>The door opens, and Red uncurls slightly so he can turn and see Doctor Zhang enter, followed by Marin with a tray. He's so surprised to see the psychic doctor that for a moment he wonders if he got it wrong, and he's somehow in a remodeled room of Sabrina's apartment building, or the Saffron Gym.</p>
+
+<p>"Hello, Red," Dr. Zhang says as he approaches. "It's good to see you awake, but I'll skip the pleasantries until after we check you over, alright? No need to respond, Marin said you're having trouble speaking."</p>
+
+<p>Red almost tries anyway, frustrated and desperate to get some answers to the burning worries he has about what happened with the unown. He half expects his inner self to send reassurance again, but nothing comes, and he realizes his unpartitioned self probably doesn't know either.</p>
+
+<p>Marin sets the tray down beside Red, and the rich, savory smell of the soup on it makes his stomach rumble. What grabs his attention more, however, is the notebook and pen beside it. He uncurls further as Dr. Zhang opens a drawer and pulls out various tools, then shifts to sit up, body feeling stiff and weak as he reaches for the pen.</p>
+
+<p>Marin's hand lightly touches his, causing him to pause. "Maybe some soup first?" she asks. "I didn't heat it too much so it's comfortable to drink right away, but that also means it'll get cold soon."</p>
+
+<p>Red hesitates, then nods.</p>
+
+<p>"Do you feel up for feeding yourself, or do you want some help?"</p>
+
+<p>He looks at the soup, then shifts his arm toward it. Her hand stays with his as it moves, gently supporting, then lifting then lowering it above the bowl, watching his arm closely. After a moment she seems satisfied, and lets him take the handle. "Go slow."</p>
+
+<p>Red nods, and starts to cautiously lift the spoon toward his mouth despite another eager rumble in his stomach. The taste of seaweed and miso fills his mouth, and he closes his eyes in brief bliss.</p>
+
+<p>The doctor starts removing the various things from around his torso and wrists, the skin beneath feeling slightly sensitive as the adhesive is wiped away. A quick spray of potion heals the punctures from an IV and feeding drip, and Red takes a second spoonful of soup as the doctor listens to his heartbeat, then a third before his eyes are checked, then a fourth after he scoots forward so his reflexes can be tested as well.</p>
+
+<p>All the while, Red's questions and worries whirl in the back of his mind. What happened to Rowan and Bill? Were the unown labs all destroyed? Did they manage to get the networks back up?</p>
+
+<p>How long has he been asleep?</p>
+
+<p>The door opens, and Elite Agatha bustles into the room, practically shoving her cane off the ground with each movement as she propels herself toward the bed. She plants it between her feet and settles her hands on the top, giving him a stern look that manages to also communicate relief.</p>
+
+<p>"Well," she sighs. "There you are. Gave us a hell of a scare, boy." Her voice is quiet and rough with some emotion, and Red lowers the spoon into the half-empty bowl as he feels a lump in his throat, tears rapidly gathering in his eyes.</p>
+
+<p><em>I'm sorry</em>, he wants to say, body curling inward again, but the bed shifts as Agatha is suddenly sitting beside him, thin but strong arms wrapped around his torso.</p>
+
+<p>"Shh. Shhh, that's alright. Everything's okay, now, so long as you are."</p>
+
+<p>She strokes his back as he sobs, forgetting everything for a moment as he imagines it's his mother holding him. He wants her to be here, and he can't even ask where she is, or if she's coming.</p>
+
+<p>He must have frightened her so much.</p>
+
+<p>And he's not sure he <em>is </em>okay.</p>
+
+<p>He hears Dr. Zhang and Marin murmuring to each other in the corner of the room, and feels embarrassment slowly creeping through him, until he's about to pull away from Agatha, who grips him more tightly.</p>
+
+<p>"None of that. After what you've been through, it'd be worrying if you didn't have a cry or two, or a dozen. Understand?"</p>
+
+<p>Red's cheeks are burning, but he slowly nods.</p>
+
+<p>"Good. Your mother will be here soon, and if she's not it's probably because she's busy crying a bucket first to not put you through that, but she'll likely cry again anyway, and that's usually better than either of you crying alone, so take those moments when you can. Right?"</p>
+
+<p>Red nods again, less slowly.</p>
+
+<p>"Right. Now, you take your time, and I'm going to just give you a lookover. Nothing deep, no merging, so feel comfortable with your thoughts. Keep eating if you want."</p>
+
+<p>Red nods a third time, taking a deep breath. Marin is suddenly beside him with a box of tissues and a gentle smile, which he returns as he blows his nose, then starts to have more soup.</p>
+
+<p>He pauses after one spoonful to take the pen, giving her a questioning look. She nods, and he opens the notepad and writes: <em>How long?</em></p>
+
+<p>"Over a month," Marin says, voice quiet.</p>
+
+<p>Red's heart kicks, whole body flushing cold. Panic shoots through him as he thinks of one thing after another, and only Agatha's hand stroking his back with renewed vigor keeps him from spiraling.</p>
+
+<p><em>Rocket?</em> he writes next.</p>
+
+<p>"Oh, I'm not sure..."</p>
+
+<p>"Hm?" Agatha turns to look over at what he wrote. "Ah. I told Looker to let us do our work before coming in here and stressing you, but… no major attacks. Some minor crimes they're suspected of, but nothing you could have helped with."</p>
+
+<p>Red feels some muscles relax around his shoulders and neck. <em>Bill? Rowan?</em></p>
+
+<p>"Bill is fine. Some lingering side effects, but we've gotten him mostly sorted." She squeezes him briefly. "Rowan is dead. I'm sorry, Red."</p>
+
+<p>He'd begun to relax more at the first bit of news, but the second sends a pulse of pain through him.</p>
+
+<p>Pain, but not shock. Some part of him knew. He didn't want it to be true, but… he knew what he did. He knew the results.</p>
+
+<p>He cries anyway, tears leaking into his mouth to mix with the taste of the soup.</p>
+
+<p>"No one blames you. Don't go blaming yourself for not being able to do more. You've lost enough from it, understand?"</p>
+
+<p>The pain dulls, little by little, and he wonders if it's her words or something else, some subtle mental suggestion. It's strange, having someone in his head but not being able to tell what they're doing. If he concentrates, he can feel the vaguest of extra-sensory presence, distinct but adjacent to the general, mundane feeling of there-are-others-in-the-room.</p>
+
+<p>"There were losses, but fewer than there would have been without your help," Agatha continues. "I don't know who else you knew at the labs, but outside them, your other friends are safe." She raises her head to look at the others. "Did anyone contact them?"</p>
+
+<p>"I sent a message out to everyone on the recovery team and visitation list," Marin says. "Though some of them might not see it yet, if they're watching Blue's match."</p>
+
+<p>"Ah, is that today?"</p>
+
+<p>"They were talking about it when scheduling vigils."</p>
+
+<p>Blue's match? Red wipes his face, then writes, <em>Badge?</em></p>
+
+<p>Agatha looks at the paper, then nods. "Number eight. I doubt Gio will make it easy for him, but—"</p>
+
+<p>Red is already writing, feeling a sense of mild panic as he scribbles C<em>an we put it on?</em></p>
+
+<p>Agatha chuckles as she reads. "Fine with me if it is for them." She turns to Marin, who leans forward to read the note, then brings it to Dr. Zhang.</p>
+
+<p>He raises a brow, then turns to the Elite. "It won't interrupt with your diagnosis?"</p>
+
+<p>"Shouldn't think so. Might even help, right now I'm hardly getting the full breadth of his thoughts and feelings."</p>
+
+<p>"Alright with me, then."</p>
+
+<p>Marin nods and turns the monitor on, and Agatha untangles herself from Red so they can sit and watch more comfortably together. Red takes his soup bowl with both hands and sips from it, eyes on the screen.</p>
+
+<p>A month asleep. He missed so much… he doesn't want to miss this too.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>"Three. Two. One. Go."</p>
+
+<p>Giovanni's hippowdon and garchomp appear in a synchronized flash. Both are massive; the hippowdon's shell is broad enough that Blue wouldn't be able to spread his limbs across its entire back, and even with the garchomp's legs wide apart, its head still becomes level with the balcony Giovanni is on when it rears up to sniff the air. Sand starts to stream out of the holes in the hippowdon's shell, quickly obscuring it from view.</p>
+
+<p>On Blue's side there appears his two newest pokemon: incineroar and rillaboom.</p>
+
+<p>It was a hard choice, buying and swapping to new pokemon between his matches. He packed as much training with them in as he could. Possibly too much; he wished daily that he had Red around to accelerate his pokemon's growth through desperation, trying to make up for it with intensity. All the while, Koichi's comments about how people would turn on Blue if they knew he was utilizing his methods floated at the back of Blue's mind, causing him to only engage in the most dangerous training with the people he trusted most, traveling to different pokemon centers every day so as not to raise any flags about how hurt they would get. He knew he could always swap in pokemon from his battle with Arnaud if these two weren't ready by the day of the challenge.</p>
+
+<p>But they were. Both were already strong when he bought them, and eventually became even stronger than his new breloom, corviknight and weavile. Their type advantages against Giovanni aren't as good as those three, particularly Incineroar… but they have something the others don't.</p>
+
+<p>Synergy.</p>
+
+<p>As soon as Rillaboom appears, the gorilla shakes its leafy mane, sending glowing seeds all around it. Incineroar, meanwhile, lives up to its name, battle cry echoing through the arena. The garchomp roars back from within the rapidly expanding cloud of sand, but Blue's pokemon still rush forward at his commands, and his battle calm finally descends.</p>
+
+<p>Giovanni's own commands are like firecrackers, one or two syllable words that cut through the sand-whipped air, while Blue's are split between the clicker in his hand and his shouted, "Oaf!"</p>
+
+<p>Incineroar drops into a crouch, then springs across the arena in a single leap for a grazing strike that still manages to interrupt whatever the garchomp was about to do. Its attention shifts to retaliate, only for the incineroar to leap back to safety.</p>
+
+<p>Meanwhile Rillaboom charges through the sandstorm, massive wooden drum glowing green as it's raised above its head. The hippowdon rises to meet it, but the gorilla's leap easily doubles its height, allowing it to land a crushing blow that sends its opponent sliding backward across the arena floor. The hippowdon roars in pain even as it slams its feet on the ground to send a shockwave out.</p>
+
+<p>Blue feels the tremor through his boots on the trainer's platform, despite the carefully engineered arena border meant to keep attacks confined. Both his pokemon are caught in the attack, but the arena floor has erupted in patches of vibrant green grass as Rillaboom's seeds took root and spread, disrupting the Ground attack's power.</p>
+
+<p>Blue's imagination flashes through what will happen next in seconds; the garchomp is powerful enough that it might take out his incineroar even with its attacks dampened by distractions and the grass, and would strike from within the small sandstorm, making it hard to anticipate. The hippowdon would get swapped out for something that could beat his rillaboom, which means—</p>
+
+<p>His hands are moving even as he thinks, as are Giovanni's. Light flashes as pokemon swap on each side, the hippowdon replaced with a camerupt that incineroar launches forward to kick-flip off of, bouncing back toward Blue so he can replace it with Maturin, while Rillaboom gets swapped out for Dragonite. A second quick movement replaces Rillaboom's clicker with a different one that his dragonite was trained to respond to.</p>
+
+<p>If he kept Rillaboom out he'd need to take the camerupt down as soon as possible, but it's less of a threat right now than the garchomp is. A quick "Bai!" sends Ice Beams lancing from Maturin's cannons toward the sandstorm, while at the same time he uses his clicker to send Dragonite blurring forward with a flap of its wings, the displaced air blowing his hair and clothes into a frenzy.</p>
+
+<p>Dragonite flies through the miniature sandstorm hard enough to blast a hole through it, nearly colliding with the podium Giovanni stands on before veering back toward Blue… but the garchomp wasn't visible at all, and Blastoise's attack merely turns a portion of the sand into powdered snow, dropping enough of it to reveal that the garchomp is gone. He has a moment to think it got withdrawn, distracted by the lack of a replacement—surely it's been too long?—before he realizes what must have happened… just in time for the ground below Maturin to explode upward.</p>
+
+<p>Not from the garchomp, however. The sandstorm has continued to blow outward, obscuring most of the battlefield, which made it hard to see the glowing path heading from the camerupt toward Maturin. His blastoise roars in pain as hot mud covers her, and Blue knows that the garchomp is arriving next to hit it from below again.</p>
+
+<p>"Ap!" he shouts, and Maturin ducks into her shell just before the garchomp bursts out of the ground beneath it. A rapid series of clicks makes Dragonite leap forward, claws surrounded by an icy halo that spreads onto the earth dragon with each blow… until the camerupt blasts rocks at Dragonite, knocking it away from its ally.</p>
+
+<p>"Wam!" Blue shouts as he clicks another command out, and Maturin pops out of her shell to send a wave of muddy water out toward both her opponents… only for the camerupt to be replaced by a gastrodon at the last second, whose body simply drains the water around it away… though not before the wave hits the garchomp, who gets hampered by the sticky mud covering it. Blue predicted Giovanni would bring a gastrodon to counter his blastoise, not to mention—</p>
+
+<p>"Go, Incineroar!"</p>
+
+<p>It's risky to bring the Fire/Dark type back out with a Water/Ground on the field, but he saw the Ice Beam coming, and his tiger merely shakes the cold off, roaring a new challenge to its enemies before another command sends it racing toward the garchomp—</p>
+
+<p>—who disappears in a flash of light to be replaced by the hippowdon. Its tough hide easily takes Incineroar's attack and Blue sends Rillaboom back out in Maturin's place.</p>
+
+<p>Back to how they started, but with a gastrodon out instead of a garchomp. The grassy field is starting to fade, and Rillaboom hasn't grown enough new seeds to reset it yet… nor has the hippowdon generated enough sand to reinforce the sandstorm, which has spread wide enough to become diffuse, just a mild irritant that's easily countered by the healing energy his rillaboom's grass provides.</p>
+
+<p>"Oaf!" Blue shouts as he swaps Dragonite's clicker back out for Rilaboom's, and squeezes out a quick message to Rillaboom. Giovanni will have to predict which of his pokemon Blue plans to distract with a Fake Out, and which will be hit by Rillaboom…</p>
+
+<p>Instead both enemies are swapped out. Incineroar's Fake Out does nearly nothing to the garchomp, and the camerupt easily tanks Rillaboom's attack. Blue hurries to swap them both out again, hesitating for just a moment—</p>
+
+<p><em>—Garchomp will hit Incineroar, should replace with Maturin if it's a Dragon attack but Dragonite if it's a Ground attack—</em></p>
+
+<p><em>—Camerupt will hit Rillaboom, should replace with Dragonite in case it's a Fire or Ground attack but Maturin if it's a Rock attack—</em></p>
+
+<p>—as indecision feels like it's tearing his thoughts in two, and at the last possible moment only swaps Incineroar out for Maturin while clicking for Rillaboom to attack the camerupt.</p>
+
+<p>The garchomp dashes forward with a roar, purple energy pouring off its body as it slams into Maturin, claws rending bloody furrows down his blastoise's belly. The amount of damage is shocking, and he almost misses the way his Rillaboom nails the camerupt with a Stomping Tantrum that nearly knocks it out.</p>
+
+<p>Instead it keeps its feet, swaying, and hits Rillaboom point-blank with a Fire Blast.</p>
+
+<p>Blue's battle calm cracks as the telltale humanoid shape of the top tier Fire attack engulfs his pokemon. His body leans forward to make sure he's in return range as he thrusts Rillaboom's ball forward, the ape's whole body set ablaze, and nearly drops Maturin's ball in his rush to send Dragonite back out.</p>
+
+<p>The garchomp isn't letting up its attacks, and Blue belatedly realizes it wasn't Dragon Claw that Giovanni commanded it to attack with, but Outrage. It won't stop on its own until it exhausts itself, and won't take any further commands.</p>
+
+<p>Desperation rises up as more of Maturin's blood splatters the arena floor, and Blue almost yells <em>Bai </em>to get her to Ice Beam the garchomp—</p>
+
+<p>—but he needs to take that camerupt down, and none of his other pokemon can do it as well—</p>
+
+<p>—but Giovanni will just swap it for his gastrodon, which will then Ice Beam Blue's dragonite—</p>
+
+<p>—can't bring Rillaboom back out, it might already be <em>dead—</em></p>
+
+<p>—<em>Something at least as powerful.</em></p>
+
+<p>Arnaud's voice, flitting across Blue's mind. His hesitation costs him another precious second as the garchomp strikes again. Maturin's agonized roar echoes through the arena… but she doesn't fall. She's been through worse, in their recent training to make her and his new pokemon as powerful as possible.</p>
+
+<p>Power.</p>
+
+<p>That's what this is about. That's what <em>all </em>of this is about, and always has been.</p>
+
+<p>He's still treating it like a regular match, trying to keep his pokemon alive, trying not to overcommit on attacks and lose face by killing any of Giovanni's pokemon.</p>
+
+<p>But none of this matters if he can't risk his pokemon to win.</p>
+
+<p>"Bi!" he shouts, and instead of attacking Maturin withdraws into her shell like before, enduring more and more attacks as Blue's clicker sends Dragonite not toward the garchomp, but at the camerupt, who gets swapped for a gastrodon—</p>
+
+<p>—which immediately gets rent by glowing claws as Blue's pokemon also enters Outrage.</p>
+
+<p>The Gastrodon is built to last, and gets an Ice Beam off at close range. But Blue's dragonite doesn't stop, and even when Giovanni commands it to start healing itself, the rampaging dragon just barely manages to outdamage the repeated Recovers.</p>
+
+<p>Blue swaps which balls are on his belt, heart pounding as he breathes deep to recover his calm. There's something nerve-wracking about being so near such powerful pokemon going all-out, but now that he's committed to this course, the path to victory seems clearer, and his battle calm fully returns.</p>
+
+<p>The arena is filled with the sound of both dragons tearing into their opponents, and while the garchomp started first, that's no guarantee it'll tire itself sooner. Blue's gaze keeps hopping between the two dragons, looking for the first sign of exhaustion. He sees the gastrodon getting beaten further and further down into a bloody mess, and part of him expects a withdrawal at any moment… but if Giovanni swaps his pokemon before Dragonite finishes, he'll just put another pokemon in harm's way. The cold but smart play is to sacrifice his pokemon to take down Blue's largest threat.</p>
+
+<p>Which is what Blue is doing as well. Maturin is practically vibrating in pain as the garchomp's claws rip and tear at her shell, prying scales off and occasionally scoring deep cuts beneath, and within the battle calm he feels a tightness in his chest as he watches his starter endure blows that would kill a lesser pokemon.</p>
+
+<p>He ignores the murmurs of the crowd, barely audible over the sounds of battle. He ignores his fear, and his pain, focusing instead on the pride he feels in his starter. Pride, and the sense of victory, closer and closer, if only his pokemon can hold out…</p>
+
+<p>It's Dragonite that tires first, purple flames fading as it reels back in exhausted confusion. Blue feels the tightness spread to his throat at the sight of the gastrodon, which is almost certainly dead. Giovanni calmly withdraws it without a word, and summons the hippowdon to take its place.</p>
+
+<p><em>Now.</em></p>
+
+<p>The garchomp's energy is just starting to fade around it when Blue shouts "Bi!" again, and his vibrating blastoise finishes its Bide, unleashing a pulse of energy strong enough to send the garchomp flying back to strike a boulder hard enough to crack it. He withdraws Dragonite at the same time, swapping Incineroar back in, and his pokemon's battle cry echoes for the third time as it locks onto its opponents. The hippowdon's body jerks at the predatory cry, and the rocks it heaves at Blue's pokemon go wide.</p>
+
+<p>Maturin is shaky as she rises to her feet, blood dripping down all four legs, but Blue has one more job for her as he clicks a command for Incineroar while Giovanni swaps his downed garchomp for the camerupt. "Pah!"</p>
+
+<p>Incineroar leaps forward to distract the hippowdon again as the Hydro Pump takes the camerupt down, black smoke rising from its hump as high-pressure water tears into its body. A second "Pah!" misses as Maturin collapses onto her side, the water scoring a deep mark along the ground before it peters out, and Blue quickly withdraws her as he watches Incineroar leap forward in a burst of flame to body-slam the weakened hippowdon, reeling backward afterward and getting caught in the Earth Power that erupts beneath it.</p>
+
+<p>One last swap to bring his dragonite back out, one last set of clicks, and his pokemon blurs forward in a wash of purple flames to once again tear its foe to shreds—</p>
+
+<p>—only for it to be withdrawn by Giovanni, and not replaced.</p>
+
+<p>Blue quickly withdraws Dragonite too, heart leaping into his throat as the battle calm fades, and he looks up at Giovanni to confirm…</p>
+
+<p>The Viridian Leader is smiling.</p>
+
+<p>"Well done, Young Oak."</p>
+
+<p>The words seem shockingly loud in the ringing quiet that followed the end of the battle. Blue can hear his own harsh breaths, and makes an effort to get himself under control, aware of the eyes of the region on him.</p>
+
+<p>"Your gastrodon?"</p>
+
+<p>Giovanni takes a pokedex from his pocket, and unclips a ball from his belt to check. Blue does the same with Rillaboom's ball.</p>
+
+<p>Dead.</p>
+
+<p>He mechanically checks the rest of his pokemon, hands shaking briefly when he gets to Maturin last.</p>
+
+<p>Alive.</p>
+
+<p>Alive.</p>
+
+<p>Alive.</p>
+
+<p>He briefly closes his eyes, muscles in his shoulders and neck easing. When he looks back up, Giovanni is calmly waiting. "Unfortunately, the gastrodon perished. Your rillaboom and blastoise?"</p>
+
+<p>"Maturin is okay." Hopefully. "I'm sorry for the loss of your pokemon."</p>
+
+<p>"And I yours. But as trainers, we understand the necessity of sacrifice."</p>
+
+<p>Blue knows Leaf would disagree with that, and feels a pang in his chest as he wonders what she'll say to him. "Even more so, for champions?"</p>
+
+<p>"Precisely. Sacrifice without power is meaningless. If you would ask the region to spend its sweat and tears and even blood for some cause, you must ensure that you and they are strong enough that it is worth it."</p>
+
+<p>Blue slowly nods. "I appreciate the lesson, harsh as it was. I know I need to be stronger, to fight harder, to do what must be done."</p>
+
+<p>"I hope so, Young Oak, for all our sakes." Giovanni reaches into his jacket pocket and takes out a small box, opening the lid to show the gleaming Earth Badge to the cameras, its viridian shades filling half the screens. "Come, and take your prize. The final key to Victory Road is yours."</p>
+
+<p>Noise, an assault of applause and cheers from every corner. Blue feels it wash through him as his victory finally hits, deep in his chest.</p>
+
+<p>As he descends from his platform he feels himself shaking slightly, and swallows the lump in his throat, doing his best to hold his head high as he walks across the battle-scarred arena, shoes caked with Maturin's blood by the time he meets Giovanni in the middle. The leader hands him the box, then takes his wrist and raises it high, causing the crowd to roar its approval anew.</p>
+
+<p>It's done. The eighth badge is his.</p>
+
+<p>He sees his friends in the crowd, sees Gramps and Daisy, knows even more are watching through the cameras. He only wishes Red were one of them.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>"Well, that wasn't quite as satisfying as I expected," Agatha says. "Still, a double battle is novel enough to have made it exciting."</p>
+
+<p>Red nods, feeling slightly numb. The battle was more intense than any he's watched, causing his muscles to tense until they shake and his stomach to flipflop with every major blow… though maybe that's his guts wrestling with the soup.</p>
+
+<p>His body has mostly recovered thanks to a diluted stream of specialized potion being sent through his veins to rejuvenate his muscles. The doctor tried to be respectful of his viewing experience, but occasionally had to ask Red to hold still for a moment rather than trying to crane around for a better look as he administered various treatments. His muscles still feel weak, and Dr. Zhang said they could only slow muscle atrophy so much; a rigorous physical workout regimen would be instituted as soon as Agatha gives the all-clear for his mental health.</p>
+
+<p>Red is almost afraid to ask her how things look. Watching the match delayed grappling with reality for a bit, but he feels it sink in again that he's been out cold for over a month. He knows he has time before Blue gets through Victory Road and faces the Elite Four, but part of him already feels anxious that he won't be well quickly enough to fight beside Blue when the time comes for his friend to take on the Stormbringers.</p>
+
+<p>He steels himself and turns to Agatha, then draws a ? on the notepad. She looks at it and sighs before meeting his gaze.</p>
+
+<p>"I believe your inner self is keeping things together, more or less. It seems you had some help from the Dreamer… quite a bit of it, in fact, aside from what Jason, Sabrina, Zhang, and I provided. I'm glad for it, but it complicates things. A lot's happened since you've been out, Red, and Looker isn't going to like knowing that the Dreamer's been in your head for spirits know how many days."</p>
+
+<p>Red frowns at her, not understanding. Did the Dreamer take some action against Interpol?</p>
+
+<p>He can ask for details later. Instead he writes, <em>But I seem okay?</em></p>
+
+<p>"More or less. Your partitions are more smoke than substance right now, but they're holding, and your inner self is likely going to keep you from using your powers anytime soon, as a precaution. I don't disagree, but… there are a few things that worry me. Changes in the channels of your mind…" She trails off, then turns to Dr. Zhang. "You noticed?"</p>
+
+<p>"I've been avoiding even basic scans until you okayed it."</p>
+
+<p>"Good man, but go ahead now, please."</p>
+
+<p>Red watches anxiously as the psychic doctor's face goes calm, eyes sliding closed… and then a frown twitches across his features.</p>
+
+<p>"Yes, that. Mmhm. That as well."</p>
+
+<p>Red's heart starts to hammer and he quickly writes <em>What?</em></p>
+
+<p>"I'm not sure," Dr. Zhang says, eyes open to read what he wrote. "Some parts of your brain activity are working oddly."</p>
+
+<p>"Scars of the madness that infected Rowan, no doubt. I believe it was fully exorcised, but as for the aftereffects… I think we already have a pretty big clue to one of them." Agatha turns to Red, pity in her gaze. "Try to speak again."</p>
+
+<p>Red looks between them, the sense of panic growing. He takes a deep breath, then tries to say, "Test."</p>
+
+<p>What comes out instead is a <em>croak </em>as something in his head goes <em>sideways, </em>a shudder passing down the nerves along one side of his neck. Agatha grabs him as he tilts, strong arms easing him back onto the pillow.</p>
+
+<p>"Easy," she murmurs as the disorientation fades, and he finds himself weeping in alarm and fear. Her hand strokes his hair. "You've only just returned. Don't despair yet."</p>
+
+<p>Red tries to listen to her, to accept what she's saying. But in his mind there's an echo of sobbing laughter, and the gossamer-thin walls in his mind shudder in their wake.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/140/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/142/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -598,6 +964,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

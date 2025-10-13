@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 50: Comfort Zone Expansion - Pokemon: The Origin of Species</title>
+    <title>112: Hunted - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,810 +329,495 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 50: Comfort Zone Expansion</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/111/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/113/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            Leaf feels like a stranger as she enters the Vermilion Gym. Going to Pewter or Cerulean to watch Blue's challenge matches was one thing, but it feels different entering one to participate in anything. She suddenly feels expected to know certain things or behave a certain way.<br>
-<br>
-Red seems similarly uncomfortable at first, but warms up to the classes much faster. It isn't until the personal fitness training class that she starts to have fun, running with Raff through an obstacle course like it's just another day at the park, but with more interesting games to play. The newly evolved ivysaur has seemingly boundless energy, and has taken to his nickname without confusion. She had to explain it to Blue: Red understood right away, of course. She looks forward to when the pink bud on his back blooms in full and he comes into his name, but is happy to enjoy this intermediate form for as long as it lasts.<br>
-<br>
-By the time they have their class on coordination and working with others, Leaf can see why Blue recommended she and Red attend. Neither of them get Objections in their first team building exercises, but by the end of it she <em>does </em>want to look into different gym cultures and policies to find out what the effects on the members and badge holders are, how the Leaders come to their philosophies, everything.<br>
-<br>
-"I'm thinking of asking Blue if I can write the article on gyms after all," she admits to Red between classes.<br>
-<br>
-"Stay strong. Think of the pokemon that still need you to write about their well-being."<br>
-<br>
-She gives him the side eye. "Are <em>you </em>going to stop eating them if I write about it?"<br>
-<br>
-He grins. "I might, if you write a sufficiently persuasive argument."<br>
-<br>
-Leaf tamps down her frustration at his flippancy. She knows he's just trying to motivate her, and appreciates his support despite him not actually agreeing with her, but if she can't even get her friends to take her ideas seriously, it's hard to summon the motivation to get others to.<br>
-<br>
-Still, maybe if she can demonstrate objective value from the perspective, like not scaring off abra, it'll help. "I've been meaning to ask, the whole sensing what your pokemon feel… has it changed how you view them at all?"<br>
-<br>
-Red shrugs. "A little? I mean, it makes it easy to remember that they're living creatures that feel pleasure and pain, but at the same time their experiences <em>aren't </em>as complex as ours. And my original point still stands: however tragic their deaths are, the ripple effects are still smaller."<br>
-<br>
-Leaf considers asking him to find some family of pokemon in the wild and see how they feel if one of their family members are taken away… but then considers whether that would change <em>her</em> mind, if it turns out the pokemon barely notice, or are sad for a while then get over it. More realistically, what if it differs by species? Would that mean it's okay to eat magikarp but not pidgey? Or pidgey but not miltank?<br>
-<br>
-"A half measure is still better than nothing," she finally says.<br>
-<br>
-"That's something I wanted to explore eventually too," Red says as they approach the next class. "Mostly to see if there's some correlation between pokemon who are easier to tame or grow attached to their trainer."<br>
-<br>
-They reach the group of trainers just as their instructor finishes setting up a poster board, his movements slow and lazy. Falling into line with the other students doesn't feel strange any more either, and she knows that the clothes they provided is part of that, a way to make her feel intrinsic equality with her classmates, despite never stepping foot in a gym class before while others have multiple badges.<br>
-<br>
-Their teacher is a tall, thin man with long curly dark hair and eyes that look baggy from lack of sleep. The impression is reinforced by the bored monotone in which he says, "Good afternoon everyone. Welcome to Tier Threat Assessment. My name is Leo Danton, and I work as the primary coordinator between Vermilion Gym and CoRRNet."<br>
-<br>
-He vaguely gestures to the billboard to his side, which depicts a map of some generic cityscape and the outlying suburbs, then the countryside around that. "Who here can draw a circle around a Tier 1 threat?"<br>
-<br>
-Hands go up, and an older trainer walks over the marker dangling from the side of the paper to draw a circle around the city.<br>
-<br>
-"Good. Where else could you draw one?"<br>
-<br>
-The trainer pauses a moment, then carefully draws a circle between the suburbs to the west of the city and the edge of the map, where the road presumably leads to another town or city.<br>
-<br>
-"And another?"<br>
-<br>
-This time he draws one around the eastern suburbs.<br>
-<br>
-"That's enough. What made you choose those locations?"<br>
-<br>
-"They're somewhat constrained," the trainer replies. "A Tier 1 threat is supposed to be localized, so… it puts an area at risk, but just that area."<br>
-<br>
-"And so you had to draw the boundaries somewhere, and conceptual boundaries like 'city' and 'wilderness between towns' made sense," Trainer Danton says, somehow making it a question despite the lack of inflection.<br>
-<br>
-"Ah, yeah. Basically."<br>
-<br>
-Their instructor nods and holds a hand out for the marker back, and the student returns to the group as Danton taps the poster board sheet with it. "Do pokemon know how to read maps?"<br>
-<br>
-There's silence for a moment, then everyone shakes their heads or says no.<br>
-<br>
-"So what stops a Tier 1 threat from being, say, here," he circles an area that captures part of the city and its nearby suburbs with his finger. "Or here?" He circles an area at the edge of the city that captures part of the suburb and part of the forests to the south of the city.<br>
-<br>
-The class is silent for a moment, until Red raises his hand. "Habitat might? If the pokemon are rampaging in the forest, they might not leave the forest… or if they're city dwelling pokemon, like the grimer and muk that overflowed Celadon's sewers, they would be mostly concentrated in the city."<br>
-<br>
-Danton scratches the back of his neck, eyes up. "Not a bad answer. But while it's true that even stampeding tauros will mostly stick to open fields rather than running through a nearby forest or into a city, towns can still be vulnerable, and other pokemon are less restricted. So what's a Tier 2 threat? Anyone want to draw it?"<br>
-<br>
-Leaf raises a cautious hand, picturing a circle with some arrows drawn away from it, but the instructor calls on someone else, who instead draws a growing outward spiral from the northern wilderness into the areas around it and the suburbs to the south, then even wider until the spiral goes to the edges of the pages and into the city itself. "It threatens all the nearby areas," the trainer explains. "Either because it's highly mobile, or because it's a spreading threat that is likely to kick off other pokemon rampages or panics or migrations."<br>
-<br>
-"A textbook answer," Trainer Danton says, and then seems to catch the wary look on the student's face and says, "But correct." He holds a hand out for the marker, and waits for the student to return to the class before looking them over. "Boundaries don't exist in the real world. They're all made up by us, concepts that only have meaning because we assign them. A lake can appear to be a boundary to a land dwelling pokemon, but some can swim. A mountain can slow them down, but others can dig through it. And then of course there are flying pokemon, who go where they will, or ghost pokemon, who, if their behavior isn't as random as it appears, at least follow rules too obscure for us to easily predict."<br>
-<br>
-The class is quiet, and their instructor scratches at his neck a moment. "With that in mind, most people will call Tier 1 threats those that are confined to a certain location, even if the boundaries are fuzzy. Tier 2 threats, on the other hand, will spread from one location to another if left unchecked. Is that clear?" The class nods. "It shouldn't be, unless you've all been working in this longer than I have. You, what's the maximum flight distance of a pidgeotto without rest?" he asks an older trainer to the right of Leaf.<br>
-<br>
-"Ah. Um." The trainer's surprise fades as their brow furrows. "Well, a flock can travel from one end of the region to the other in a day, and… Kanto is, ah, 200 kilometers across? So, at least that." The trainer appears about to say something further, but then stays silent, gaze down.<br>
-<br>
-The instructor waits a moment for him to continue, then says, "Good." The trainer looks up with a surprised smile, and Danton nods. "About the level of answer I expected."<br>
-<br>
-The trainer's smile slips, but Danton is already pacing in front of the class, deadpan voice once again speaking with some force despite the monotone. "Estimates like that happen all the time in the field, even among professionals. Not everyone's a Professor, and even they probably can't remember all the relevant facts for any pokemon in any situation in the thirty seconds to a minute that trainers usually have to assess an incident and report its threat level. Tier 3 are fairly obvious, they're events that are not just large and dangerous, but inherently mobile. Something that will spread destruction on a massive scale if not stopped or slowed down in some way." He draws a line sideways near one edge of the map, then parallels it on the other edge, and begins to shade in the space between them before drawing a line in a particular direction. "Most of you are thinking of the Stormbringers, and that's not an accident. The system was designed with them at the unambiguous top." He snorts. "Naively, as it turned out. But that kind of threat is big and flashy and simple to diagnose. Sometimes an incident that looks like a Tier 1 ends up being a Tier 2, while other times a Tier 1 threat is misidentified as a Tier 2. Who can tell me why that's a problem?"<br>
-<br>
-The class is quiet. Leaf considers how people might bring the wrong pokemon to the situation, but Red raises his hand before she does. "Because the threat assessment helps make sure we don't overcommit on Tier 1 events, or not commit enough on Tier 2."<br>
-<br>
-"Another textbook answer. But right. Rangers keep track of these things, to determine if events were accurately called or not. Anyone wanna guess how often they're mislabeled?" Red's hand is the only one to go up. After a moment the instructor says, "Anyone besides the Ranger's kid?" Some people chuckle. "Nothing personal, Verres, but I want a guess, not someone who might have been told or looked it up."<br>
-<br>
-Red lowers his hand, and Leaf is glad to see he's smiling slightly. "Why don't we all guess, then? Write it down first? People are more likely to internalize being wrong if they make a concrete commitment first."<br>
-<br>
-Their instructor scratches his neck a moment, then shrugs. "Makes sense. Alright everyone, take out your phones or whatever you have on you to write out a pair of numbers. First, some basics. Let's say there are 100 incidents reported as Tier 1 or 2 in a year in Kanto. How many of that 100 would you each say is Tier 1 or Tier 2?"<br>
-<br>
-The class is quiet for a moment, probably trying to remember, as Leaf is, the last yearly breakdown of pokemon incidents she'd read. Was it something like twice as many Tier 1? That feels right.<br>
-<br>
-Another trainer raises their hand first. "Maybe 70 Tier 1 and 30 Tier 2?"<br>
-<br>
-"Close." He turns to the poster board and begins writing. "Last year we had 44 events that were later estimated as Tier 1, and 25 that were Tier 2, so scaling that up to a hypothetical 100 events brings us to about—"<br>
-<br>
-<em>64 to 36, </em>Leaf finishes in her head before the instructor writes it, already considering the next step. Of those 64 Tier 1, how many were reported as Tier 2? And of those 36 Tier 2, how many were reported as Tier 1? It's a two pronged problem, since the end result would depend on the balance of the errors. If people were really good at estimating Tier 1 but bad at recognizing Tier 2, they might report something like 45 and 55, but if they're bad at both, they might end up reporting 64 and 36, but <em>all of the Tier 2 are reported as Tier 1. </em>Or the opposite occurs.<br>
-<br>
-Sure enough, Trainer Danton then says, "Okay, so write down how many of each do you believe were reported. You have a minute."<br>
-<br>
-Leaf thinks over the relevant factors. Red has talked about optimism bias enough, and she's noticed it enough in her own estimations, that Leaf is inclined to list Tier 2 threats as underreported, and puts 70 and 30. Then she considers that once someone is <em>in </em>a scary situation, they might be more likely to panic, so Tier 2s might be overreported instead, and switches things back to 60 and 40.<br>
-<br>
-Then she considers events she witnessed recently, and wonders who ended up reporting them first. Trainers? Experienced ones, in the Mt. Moon case, but maybe not in Viridian. Or were the Rangers there able to get the word out first? It would take a rather wide set of knowledge to accurately determine the risks involved in so many different scenarios. If newer trainers do some of the reporting, that might skew the numbers in both directions… but the question remains, which is skewed more? If anything, Tier 2 threats probably need more information to accurately diagnose...<br>
-<br>
-She realizes that she should be thinking of these as percentages instead. If considering how accurate people are at estimating Tier 1 events specifically, there is some portion of false positive Tier 1s reported that are actually Tier 2, and false negative Tier 2s reported that are actually Tier 1…<br>
-<br>
-She's still working a few minutes later when the instructor speaks up. "Okay, whatever you guys have now is good enough. Anyone confident in their answer?"<br>
-<br>
-Most stay silent. Red looks like he wants to say something more and more as the seconds tick by, and as soon as Leaf finishes rechecking her math, she raises her hand.<br>
-<br>
-"I think something like 45% of reported Tier 2 events are actually Tier 1s, and 25% of reported Tier 1 are actually Tier 2," Leaf says after being called on. "Meaning we end up with 51 reported Tier 1 and 49 reported Tier 2, while in actuality there are 64 Tier 1 and only 36 Tier 2."<br>
-<br>
-There's another moment of silence as everyone absorbs this, and Leaf feels her cheeks flushing as she realizes she may have taken the question more seriously than she was supposed to.<br>
-<br>
-But the instructor just cocks his head, brow slightly raised. "Pretty close, among the general population. You came about it the right way, but Rangers are more accurate on average, though still likely to overreport Tier 2 relative to Tier 1. That's how we end up with 33% of reported Tier 2 that are actually Tier 1, and 21% of reported Tier 1 that are actually Tier 2." He turns looks over the rest of the class. "Anyone find that surprising? Had much more reported as Tier 1?" Most of the class raises their hands. "Who had more Tier 2?" Trainer Danton watches hands fall and rise.<br>
-<br>
-He scratches his neck. "Both Rangers and trainers on average tend to overestimate how much danger they're facing, but it's worth keeping in mind different reasons for the error. When a trainer thinks a Tier 1 is a Tier 2, it's likely because they're scared. When they don't realize that the Tier 1 they reported is actually a Tier 2, it's likely because of simple ignorance of the pokemon or area and how badly things can spiral out of control, how far the damage can spread. Rangers probably have a different motivation, like them being the ones on the front lines, when deciding how many reinforcements to call in. Regardless of which direction you were off by, remember not to make the same mistakes when you're the one making the call or hearing others do so." Red's hand has been inching up, then going back down, for the last minute or so, as different questions are asked. Leaf suppresses a smile as her friend tries to estimate when a natural break in the lesson will occur for him to ask his question. The instructor may be taking pity on him when he finally says, "Yes, Verres?"<br>
-<br>
-"I wanted to ask, is there an official rubric to decide what level of threat an incident is? I've never seen one, but if Rangers can make ultimate determinations after the fact…"<br>
-<br>
-"You'd think that, wouldn't you?" The instructor sighs. "It's been discussed before, but none have had enough agreement to be endorsed officially, and the Powers That Be seem to think an inaccurate one would do more harm than letting trainers make their own decisions on the spot, with all the context and data available to them. The determinations the Rangers make are done by committee, and by necessity would likely include information those on the ground who first call them in aren't always privy to."<br>
-<br>
-Red is frowning. "But there has to be some basic guidelines, at least?"<br>
-<br>
-"If there wasn't these classes would be a lot shorter. First let's test how well you all do without them. Split into groups, and I'll give you some scenarios."<br>
-<br>
-Red and Leaf immediately step closer together, and let the inertia of the others forming groups draw them into one of them. Once there are five groups with roughly even numbers, and everyone has introduced themselves, Trainer Danton takes a timer out, looks back and forth between them, then clicks it on.<br>
-<br>
-"An earthquake dislodges the pokemon from Diglett Cave. They burrow under the ground in every direction, coming up at random places to create potholes in Vermilion's outer suburban roads, shredding electrical lines and dislodging plumbing. They even cause small quakes that erode at housing foundations. Is this a Tier 1 event, or Tier 2?"<br>
-<br>
-Leaf turns to her group. Their member with the most Objections is a young woman named Bretta with curly brown hair and glasses, and she looks thoughtful for a moment, then starts listing things rapidly.<br>
-<br>
-"They're moving in every direction, so may not be contained. Their quakes may set other pokemon off, causing additional rampages. I'm going with Tier 2. Objections?"<br>
-<br>
-Red raises his hand. "Diglett rarely stray from their territory for long, even if threatened. The key to a Tier 2 should be whether trainer intervention is necessary to prevent a spread, not the size of the initial spread itself."<br>
-<br>
-"What about the other pokemon being displaced?" another trainer says.<br>
-<br>
-"That's an if, not a guarantee," Leaf replies. "I don't know the pokemon in this area that well, but are there any others that are likely to cause a chain reaction?"<br>
-<br>
-"The forests around the city are full of pokemon that might rampage," Bretta says again.<br>
-<br>
-"We should default to Tier 1 if we're not sure," Red says. "They're almost twice as common, so unless we have <em>strong </em>evidence that it's a Tier 2, it's safer to guess 1."<br>
-<br>
-"We don't know if the instructor is following that probability with his examples though," Leaf points out. "He might give us an equal amount of each, or split them the other way around."<br>
-<br>
-"Ten seconds left," another trainer points out, watching her phone.<br>
-<br>
-"Right, executive decision, Tier 2," the group leader says. "Last chance for Objections." She eyes the two trainers with a couple tokens.<br>
-<br>
-"I still say Tier 1," Red says, frowning slightly. "For the rec-"<br>
-<br>
-"Time." Trainer Danton lowers his stop watch and says, "Group leaders who voted Tier 2, raise your hands." Three of the five groups do. "Congratulations, you just over committed and left the area's trainers unprepared for the next nearby disaster. Anyone wanna offer your rationale?" He listens as they offer their reasons, points out how they're not applicable, then restarts the timer. "Next, a storm surge hits the docks, flooding the closest districts and filling them with tentacool, chinchou, shellder, and others. Figure out a response in 30 seconds."<br>
-<br>
-This one is a bit easier to label a Tier 1, since eventually the storm would die down and the waters recede, putting no other areas of the city or beyond it in danger. Someone raises the possibility that there's something non-obvious they're missing, but time is called before they can discuss it and they end up going with Tier 1, which is correct.<br>
-<br>
-"Next, a particularly long spring leads to local combee hives aggressively expanding. 2 minutes to decide."<br>
-<br>
-This one seems more obviously a Tier 2 to Leaf, but after a brief discussion, Bretta suggests Tier 1. "It's not like they'll go into nearby cities or mountains, if there aren't enough flowers there."<br>
-<br>
-"They might <em>try to </em>though," Leaf objects. "And they could upset the local populations there and cause a chain reaction that might spread further."<br>
-<br>
-This starts an argument about the likelihood of that, which Leaf only half listens to. Her argument was actually born from a different realization, that the harm caused to the other pokemon would be massive even if no other humans are affected. She knows that's not the point of the Tier system, though, so she kept it to herself. Still, even if this is determined to be a Tier 1 attack, she's pretty sure she would label it Tier 2 if she saw it in the wild, and she's not sure if that should bother her or not. She knows she shouldn't intentionally use the wrong criterion, but she can't help but care about what she cares about.<br>
-<br>
-Red raises a hand eventually, causing people to quiet and look at him.<br>
-<br>
-"We have forty seconds," he says. "Whether it's a long term problem is less important than whether they need to be stopped before they spread into other areas in the first place. Leaf is right, the risk of a chain reaction is too big. I vote Tier 2."<br>
-<br>
-"Come on, <em>combee </em>causing a Tier 2?" Bretta says. "The Viridian Fire wasn't even labeled that."<br>
-<br>
-"Well it should have been," Red says. "I think whoever made that initial call got it wrong, they thought it was just a fire from some riled up pikachu. The extent of the rampage was the real threat."<br>
-<br>
-"And the other pokemon that started panicking too, or took advantage of the chaos," Leaf adds, thinking of the shiftry that attacked Blue. "Viridian was lucky, because it had two gyms on either side of it. If things weren't addressed as well, the carnage could easily have continued to spread."<br>
-<br>
-"Fifteen seconds left," someone notes. "I'm with them, Tier 2."<br>
-<br>
-The others around the circle agree, and the group leader frowns. "Anyone got an Objection to gamble on it?"<br>
-<br>
-No one speaks up, and Leaf feels frustrated for the first time at not having one. "I don't need you to give me one, but if 2 is wrong, I'll admit it was my idea publicly," Leaf says.<br>
-<br>
-"Time," the instructor calls just then. "Who got Tier 2, raise your hands." Leaf looks at Bretta, who keeps her hand down, looking vindicated until the instructor then says, "Good job. The rest of you just doubled the casualties by not committing enough."<br>
-<br>
-"Hang on," Bretta says. "Why is this a Tier 2 but the diglett one wasn't? They could have riled up other pokemon and spread the rampage further too."<br>
-<br>
-"Their disturbance would have been confined to the ground, and very few pokemon would be driven to rampage from that," Danton says. "Observations of diglett movements in the past have shown minimal effect on displacement of other species." He turns to the group at large, scratching his neck. "Don't feel bad if you get these wrong. That's what the class is for." His tone is still so bland that it doesn't come off as particularly reassuring, but he puts his timer away and flips to a new page on the board. "The basics to keep in mind in any incident are the following…"<br>
-<br>
-Leaf starts writing as he lists them out:<br>
-<br>
-<em>1. What pokemon are involved?</em><br>
-<br>
-<em>2. How far can they travel?</em><br>
-<br>
-<em>3. What pokemon are in their travel zone?</em><br>
-<br>
-<em>4. How likely are they to fight vs flight?</em><br>
-<br>
-<em>5. How far can THEY travel?</em><br>
-<br>
-<em>6. And so on…</em><br>
-<br>
-Leaf blinks as she finishes writing the last point, ellipses and all. As far as basic guidelines go, this isn't much, but she understands the underlying idea: every situation will be different, so much so that accurately calling every event would require an encyclopedic knowledge of local pokemon and terrain. She hopes she never has to be the sole person making that call in Kanto, but resolves to spend half an hour every night studying the habitats around them in case she is.<br>
-<br>
-"There are more specific general guidelines that each region's Ranger Corp puts out. I suggest you all study them, but they're still no replacement for familiarizing yourself with your surroundings. Yes, Verres?"<br>
-<br>
-"Is the data of past incidents publicly available?" Red says. "I mean, after it's been analyzed by the Rangers?"<br>
-<br>
-"It is, and it can be a useful read too. A bit dry for most people. But remember that the analysis in them is reached after the facts are known. Unless you happen to be involved in the exact same kind of incident as one described there, it can be misleading to think it'll prepare you for making those decisions yourself. Speaking of which…"<br>
-<br>
-He turns to Bretta, voice and face as bland as ever when he says, "Those tokens you have, they don't mean anything. When you leave this gym, people won't remember how many you had. They'll remember whether you accepted good ideas or held out for Objections. Just letting you know."<br>
-<br>
-He turns back to the class at large. "So the next step is to learn the most common types of pokemon attacks in a region, and how terrain can affect their chance of spreading…"<br>
-<br>
-As Trainer Danton starts to list them, Leaf can't help but notice Bretta out of the corner of her eye, face flushed and hands clenched as her jaw works. She can't tell whether the older girl is holding in tears or anger, but eventually her hand jerks up and takes an Objection off her jacket before handing it to Leaf, not looking at her.<br>
-<br>
-"I don't…" Leaf whispers, then shakes her head. "Keep it."<br>
-<br>
-"Just take it," Bretta hisses back.<br>
-<br>
-"I'm not going to be here a lot, I don't need—"<br>
-<br>
-"I'll take it," Red whispers from her other side.<br>
-<br>
-Bretta hesitates, and Leaf reaches out and takes the token before handing it to Red without comment. Bretta's jaw stiffens, but she keeps her gaze on their instructor, and Leaf does the same, distracted as she tries to think of whether she should say something to the girl after class.<br>
-<br>
-As soon as it ends, however, Bretta walks away, and Red is talking at her about statistics.<br>
-<br>
-"What?" she asks after a moment as they walk toward the cafeteria. "Sorry, I was thinking about something else. Start over?"<br>
-<br>
-"I think I finally get Bayesian probabilities," Red says, voice excited. "Giovanni brings it up every so often—stop making that face, Leaf, regardless of what you think of him the blog is a <em>good information source—</em>and I only ever sort of got it, it was like holding onto water, I'd feel like I understood it one day but the next week I'd try applying it to something and forget the steps or misclassify the variables, but with determining the Tier of an incident it's really obvious that we should be basing our judgement off of prior probabilities and adjusting them based on the specific instance's evidence…"<br>
-<br>
-It takes Leaf a moment to catch his train of thought, but as soon as she does her mind starts connecting what he's saying with what she was doing in her calculations. "You're talking about what you said earlier, bringing up how often Tier 1 or 2 is in general and weighing that in your decision of whether to judge a specific incident as Tier 1 or 2. So instead of saying 'I'm 90% confident this is a Tier 2 incident,' we'd first remember that only 36% of incidents in Kanto are Tier 2 and adjust downward in confidence."<br>
-<br>
-"Right! That's why I wanted to know if Rangers have the figures by specific pokemon, because that would provide even more accurate prior probabilities to judge by. If you know that, of all incidents primarily involving beedrill<em>, </em>8 out of 10 in the past have been Tier 2, then your prior should be 80% that one you encounter is Tier 2, and <em>then </em>you can adjust for whatever other factors you see that may make it a Tier 1 instead, like the swarm is between the coast and a mountain range."<br>
-<br>
-"Sure, or Tyranitar only having two Tier 1 incidents out of seventeen attacks in the past decade." She remembers that number surprising her, as the hulking rock monsters tend to be slow and solitary creatures, however powerful. "That makes it fairly easy to default to Tier 2 unless there's a really good reason to think it's a Tier 1."<br>
-<br>
-"But the more important point isn't about people deciding if an incident is Tier 1 or 2, it's with the <em>Rangers </em>trying to decide whether to respond <em>as if </em>it's a Tier 1 or Tier 2 when one gets called in, based on how often there are false Tier 1 or 2 called in!"<br>
-<br>
-"But that's obvious, isn't it?"<br>
-<br>
-Red gives her an odd look as they grab a pair of pre-loaded food trays. "Who taught you math?"<br>
-<br>
-"My mom." Leaf takes the container of cold cuts off hers and swaps it with an extra salad bowl from a different one, figuring some meat lover would be happy to take that one. "Why?"<br>
-<br>
-"I think you don't understand how much trouble most people have with it," he says as they find a table. "Because that's <em>not </em>obvious, I didn't think to do it until after I realized how useful the prior would be in the first place."<br>
-<br>
-"But the Rangers are a professional organization, Red, there's no way they don't take that into account."<br>
-<br>
-"I hope you're right, but I doubt it. As far as I know, Rangers don't undergo any math classes during their training. Look, let's say a non-Ranger reports a Tyranitar rampage as a Tier 1." They sit down, and Red takes out his notebook. He tears a pair of sheets out and hands one to her with a pencil. "You're the ranger in charge of deciding whether to treat it as a Tier 1, or send a full Tier 2 response. Try writing out your process for figuring out the chance it's <em>actually </em>a Tier 1, I want to see if I can do it too."<br>
-<br>
-Leaf does so, eating one handed as she writes with the other. According to what Trainer Danton said…<br>
-<br>
-<em>P(T1): The probability of a Tier 1 Event overall is 64%.</em><br>
-<br>
-And if 21% of reported Tier 1 events are actually Tier 2, then...<br>
-<br>
-<em>P(T1 | R1): 79% of Tier 1 reports are actual Tier 1 events.</em><br>
-<br>
-While he already gave her the odds of a false Tier 2 report:<br>
-<br>
-<em>P(T1 | R2): 33% of Tier 2 reports are also actually Tier 1 events.</em><br>
-<br>
-So, first she wants to find the probability of a Tier 1 Report in the first place. She writes out:<br>
-<br>
-<em>P(T1) = P(T1 | R1) * P(R1) + P(T1 | R2) * (1 - P(R1))</em><br>
-<br>
-And takes her phone out to use its calculator as she starts plugging in numbers.<br>
-<br>
-<em>.64 = .79 * P(R1) + .33 * (1 - P(R1))</em><br>
-<br>
-<em>.64 = .79 P(R1) + .33 - .33 P(R1)</em><br>
-<br>
-<em>.31 = .79 P(R1) - .33 P(R1)</em><br>
-<br>
-<em>.31 = .46 P(R1)</em><br>
-<br>
-<em>P(R1) = .31 / .46 = .6739</em><br>
-<br>
-So 67% of incidents are reported as Tier 1. Combining that with the probability of Tier 1 events, she can find the probability of a report being T1 whether the incident is T1 or T2.<br>
-<br>
-<em>P(R1 | T1) = P(T1 | R1) * P(R1) / P(T1) = 0.79 * 0.6739 / 0.64 = 0.8319</em><br>
-<br>
-<em>P(R1 | T2) = P(T2 | R1) * P(R1) / P(T2) = 0.21 * 0.6739 / 0.36 = 0.3931</em><br>
-<br>
-Leaf feels tension in her shoulders and straightens so she's not hunched over, hearing her mom's lecturing voice in her head. She pauses to take a bite of an apple and glance at Red, wondering how far along he is. His brow is knitted with concentration, so she forgoes asking him and just goes to answering the final question:<br>
-<br>
-<em>Given that:</em><br>
-<br>
-<em>The probability of a Tyranitar Tier 1 Event, P(Tyr1), is 2/17</em><br>
-<br>
-<em>The probability of a Tyranitar Tier 2 Event, P(Tyr2), is 15/17</em><br>
-<br>
-<em>The probability of a Tier 1 Event being reported as Tier 1, P(R1 | T1), is 83%</em><br>
-<br>
-<em>The probability of a Tier 2 Event being reported as Tier 1, P(R1 | T2), is 39%</em><br>
-<br>
-<em>What is the chance a reported Tier 1 is actually a Tier 1, P(T1 | R1)?</em><br>
-<br>
-<em>P(T1 | R1) = P(R1 | T1) * P(Tyr1) / (P(R1 | T1) * P(Tyr1) + P(R1 | T2) * P(Tyr2))</em><br>
-<br>
-<em>P(T1 | R1) = 0.83 * (2/17) / (0.83 * (2/17) + 0.39 * (15/17))</em><br>
-<br>
-<em>P(T1 | R1) = .0996 / (.0996 + .3441) = .221</em><br>
-<br>
-For the final probability Leaf finishes, checks it over again, then puts the pencil down so she can focus on her food. "Okay, I'm done. What'd you get?"<br>
-<br>
-After a minute, Red stops writing and looks up. "It's 29% right? Rounding up."<br>
-<br>
-Leaf quickly checks her numbers again. "No, I got about 22%."<br>
-<br>
-Red buries his face in the crook of his arm on the table. "I had it for a minute there, I swear."<br>
-<br>
-Leaf covers her grin with her hand. "Hang on, let's see what you did…" She takes his sheet and checks his final calculation just to make sure it's not something simple, but sees a completely different setup:<br>
-<br>
-<em>2/17 Tyranitar are T1 = ~12%. If we have 100 Events with Tyranitar as main threat that means:</em><br>
-<br>
-<em>12 are Tier 1</em><br>
-<br>
-<em>88 are Tier 2</em><br>
-<br>
-<em>For every 100 Events reported as Tier 1</em><br>
-<br>
-<em>79 are actually Tier 1</em><br>
-<br>
-<em>21 are actually Tier 2</em><br>
-<br>
-<em>For every 100 Events reported as Tier 2</em><br>
-<br>
-<em>67 are actually Tier 2</em><br>
-<br>
-<em>33 are actually Tier 1</em><br>
-<br>
-<em>Group A: 8.52 Tyranitar are Tier 1 and Reported Tier 1</em><br>
-<br>
-<em>Group B: 3.48 Tyranitar are Tier 1 but Reported as Tier 2</em><br>
-<br>
-<em>Group C: 66.88 Tyranitar are Tier 2 and Reported as Tier 2</em><br>
-<br>
-<em>Group D: 21.12 Tyranitar are Tier 2 but reported as Tier 1.</em><br>
-<br>
-<em>Group A / (Group A+ Group D) = .2874</em><br>
-<br>
-"Huh." Leaf blinks. "I see what you were going for, but your probabilities are wrong."<br>
-<br>
-"What do you mean? Did I miscalculate them?"<br>
-<br>
-"No, I mean you confused what the actual probabilities Trainer Danton gave us were. You just took the probability of a Tier 1 report being a Tier 1 event and treated it as the same thing as a Tier 1 event being reported as Tier 1. They're not, that just tells you how many True Positive results there are. There are also False Positives and False Negatives for Tier 1 and Tier 2 events that change things."<br>
-<br>
-Red sighs. "I knew that, I just forgot to apply it. I may have mentioned math isn't my strong suit." He rallies after a moment. "But I'm going to get better at it. No more using that as an excuse. Today is already a day of expanding our comfort zones little by little, right?"<br>
-<br>
-Leaf grins. "Right."<br>
-<br>
-"So what did you do instead?"<br>
-<br>
-"I had to find the actual probability of Tier 1 reports first. Look, here..."<br>
-<br>
-She shows him on her paper where she uses the formula <em>P(T1) = P(T1 | R1) * P(R1) + P(T1 | R2) * (1 - P(R1)) </em>to find P(R1).<br>
-<br>
-"Once you have that, you can find what you <em>really </em>need to try what you were doing, the real rate of a given Tier 1 Event getting Tier 1 Report, or Tier 2, or the reverse." She starts rewriting the given information, and underlines the key differences in what she found first:<br>
-<br>
-<em>The probability of a Tyranitar Tier 1 Event, P(Tyr1), is 2/17</em><br>
-<br>
-<em>The probability of a Tyraniter Tier 2 Event, P(Tyr2), is 15/17</em><br>
-<br>
-<em>The probability of a <span style="text-decoration: underline;">Tier 1 Event being reported as Tier 1</span>, P(R1 | T1), is 83%</em><br>
-<br>
-<em>The probability of a <span style="text-decoration: underline;">Tier 2 Event being reported as Tier 1</span>, P(R1 | T2), is 39%</em><br>
-<br>
-"See how that's different than "79% of Tier 1 reports are Tier 1 events?" she asks.<br>
-<br>
-"I think so, yeah. <em>Now </em>I split them up into groups, right?"<br>
-<br>
-"Right, if that helps you more than using the formula. Let's also expand the number of events and be more precise..."<br>
-<br>
-<em>If there are 1000 Tyranitar events:</em><br>
-<br>
-<em>118 are Tier 1</em><br>
-<br>
-<em>882 are Tier 2</em><br>
-<br>
-<em>83% of the Tier 1 events will be reported as Tier 1, so:</em><br>
-<br>
-<em>Group A: 97.94 Tyranitar are Tier 1 and Reported Tier 1</em><br>
-<br>
-<em>Group B: 20.06 Tyranitar are Tier 1 but Reported as Tier 2</em><br>
-<br>
-<em>39% of Tier 2 events will be reported as Tier 1, so 61% will be:</em><br>
-<br>
-<em>Group C: 538.02 Tyranitar are Tier 2 and Reported as Tier 2</em><br>
-<br>
-<em>Group D: 343.98 Tyranitar are Tier 2 but reported as Tier 1.</em><br>
-<br>
-After checking to make sure Group A and B add up to the 118 Tier 1 Tyranitar Events, and C and D add up to the 882 Tier 2 Events, she then finishes with:<br>
-<br>
-<em>Group A / (Group A+ Group D) = .2216</em><br>
-<br>
-"Okay. I think I got it." Red examines the numbers quietly for a moment. "Well, 22% isn't that much higher than 12%. So it would still make sense to respond to a Tyranitar event as a Tier 2, even if it's a little more likely to be a Tier 1 after someone reports it as one."<br>
-<br>
-"How many reports do Rangers usually get before they mount a response?" Leaf asks. "If the next few reports are also Tier 1, that would quickly bring the odds of it being at Tier 1 high enough that they should respond as if they're accurate."<br>
-<br>
-Red shrugs. "They start mobilizing as soon as they get the report, but they continue to monitor the situation as that happens and adjust what they send as they coordinate with other Ranger outposts and nearby gyms. But they usually only get a handful of reports before everyone in the area knows about it and stops sending in new ones."<br>
-<br>
-"Huh. So they may not actually get a chance to update far enough for some really rare instances, if they were to second-guess the really rare events." Something about that bothers Leaf, there <em>should </em>be a better solution...<br>
-<br>
-"Let me try one with a different pokemon now," Red says, grabbing a fresh sheet.<br>
-<br>
-"Alright." She hands him the pencil and watches him follow the steps she did. She's in the middle of pointing out a difference when someone plops down on the bench to her left.<br>
-<br>
-"Heyoo. This kid owe you money?"<br>
-<br>
-Leaf looks up with a grin. "Aiko! What's—oh." She looks around with wide eyes as almost a dozen other trainers sit around them, Blue taking a seat next to Red.<br>
-<br>
-"So?" Blue asks, as he digs into his food, mouth full. "H'wsha firsh deh?"<br>
-<br>
-A teenager on Blue's other side holds a napkin up to catch some of the food before it can spray across to Leaf and Aiko. "Swallow first, you small-town bumpkin. We're civilized folk here."<br>
-<br>
-"Hi!" a girl to Leaf's right says. "I'm Elaine. It's great to meet you, I'm from Pewter, your article on the museum was awesome, are you writing another one?"<br>
-<br>
-Leaf blinks. "Thanks! And hi, nice to meet you too, um, yeah I'm writing another, but not on Pewter—"<br>
-<br>
-"Oh I figured, what's it on?"<br>
-<br>
-Blue finally swallows. "Hang on, I asked first."<br>
-<br>
-"Technically," the boy to his right mutters.<br>
-<br>
-"Hush, Glen. Spill, newbies. First day, how was it? Great, right?"<br>
-<br>
-"Pretty great, yeah," Leaf says, gaze lingering on Glen, who Red had said Blue was thinking of inviting with them on their journey. <em>He's kinda cute… </em>"We were actually just talking about the latest class we took—"<br>
-<br>
-"Red!" Blue exclaims, staring at his friend's chest. "You got an Objection! Congratu-mph!"<br>
-<br>
-Red's hand shoves blindly up and covers Blue's mouth. "Leaf gave it to me," Red says, gaze still on his equations. "Now hush a minute, I need to get this right."<br>
-<br>
-"What's with the math?" Aiko whispers to Leaf.<br>
-<br>
-"Bayes' Theorem," Leaf says, still looking around at all the trainers, most of whom are watching them with interest.<br>
-<br>
-"From Giovanni's blog?" an older boy on Red's other side asks. "Why are you—"<br>
-<br>
-"Because literal lives may be at stake someday if I misjudge the severity of a Tier 1 or Tier 2 incident," Red says as he finishes writing, then turns the paper toward Leaf and removes his other hand from Blue's mouth.<br>
-<br>
-Leaf studies the sheet. "You tried to shortcut the calculation of Group D, didn't you?"<br>
-<br>
-"Uh. Yeah. How did you know?"<br>
-<br>
-"Your C and D add up to 100 instead of the frequency of Tier 2 events."<br>
-<br>
-Red curses and takes the sheet back to erase it while Blue shakes his head. "Literal lives at stake, and you shortcut." Red tries to cover Blue's mouth again, but he fends him off and turns to Leaf as their arms shove against each other. "Oh, I should introduce everyone… this is Glen, that's Chron," the boy to Red's other side raises his hand. "Elaine introduced herself, and over there is Taro and his sister Chie..."<br>
-<br>
-Most of them are eating and talking among themselves now, stopping as their names are mentioned to look up and smile at her. She tries to keep up with all the new names, ten in total, as her head spins from everyone talking over and under each other. Clearly this is what Red meant by the group Blue and Aiko had started hanging out with, but she didn't realize it was this big.<br>
-<br>
-"It's nice to meet all of you," she manages to say before Elaine starts asking questions about what she's writing again, which Aiko interrupts by asking if she found a blog for her abra article, letting Leaf answer both at once.<br>
-<br>
-"What about you, what have you been up to?" Leaf asks Aiko before she can get asked another series of questions. "Other than making the gym uniform look good, somehow."<br>
-<br>
-"Oh hush, you flatterer," she says while taking Leaf's untouched carrots and replacing them with her own shredded radish, which Leaf happily starts munching on. "I've been great, actually! My sandshrew evolved today, and I can say for sure as of this morning that we're going ahead with the petting zoo/therapy idea! My dad and I finalized the business details with Mrs. Ino, we should start with a couple trial clients tomorrow!"<br>
-<br>
-"That's fantastic! And congrats on the sandslash." Leaf wants to ask how her dad is doing, but isn't sure how much private information Aiko has already shared with the others.<br>
-<br>
-Red looked up from his paper upon hearing about the ranch, smiling wide. "We'll be heading out on the cruise soon, but do you think we can go visit?"<br>
-<br>
-Aiko beams at him. "You guys are always welcome." She turns to the others. "The rest of you too, as long as you tell your friends and family."<br>
-<br>
-"If I'm going to be a walking billboard," Glen says, "I demand payment in the form of petting cute pokemon."<br>
-<br>
-"Oh man, there are <em>so </em>many cute pokemon there," Leaf says, grinning at him. "You should totally come with us."<br>
-<br>
-"And the billboard idea's not bad," Aiko says, examining him while tapping her chin.<br>
-<br>
-"You've done it now," Elaine says. "She's got That Look. We'll all be fitted with wearable boards by the end of the week."<br>
-<br>
-Blue snorts. "Not me. I can do some sign twirling though, if you want."<br>
-<br>
-"The wearable one would let you advertise while battling, though," Leaf points out.<br>
-<br>
-"No advertising during official League matches," Elaine says. "You're from Unova, right?"<br>
-<br>
-Leaf blinks. "Yeah. I don't watch the matches but I know trainers there wear company shirts and hats and bags all the time during recorded matches."<br>
-<br>
-"Well not here," Blue says. "Because Kantonians aren't sell-outs, right everyone?"<br>
-<br>
-"Right!" the group shouts as one.<br>
-<br>
-"I'm from Connacht," Glen says. "I'm happy to sell out."<br>
-<br>
-"I'll pay you five bucks to wear a shirt that says Connacht Sucks!" one of the other trainers from farther down the tables says. Leaf has already forgotten their name.<br>
-<br>
-"Make it fifty!"<br>
-<br>
-"Ten!"<br>
-<br>
-"Fifty-five!"<br>
-<br>
-"What?! Who taught you how to haggle?"<br>
-<br>
-"My grandmother, and now it's sixty for insulting her by implication!"<br>
-<br>
-"Alright, time out!" Blue says, hands cutting the air to both sides. "This slight clearly has only one solution: duel at sundown."<br>
-<br>
-"Don't let him boss you around like that," Red says. "I like where the haggling's going."<br>
-<br>
-"I'm curious if he'd actually take fifty now," Chron says. "Also, you put the wrong denominator." He points, and Red looks back down with a frown.<br>
-<br>
-"The ship of fifty has sailed," Glen declares, arms crossed.<br>
-<br>
-"I'll give you forty," Aiko says, sounding completely serious. "To wear it around the city for two days."<br>
-<br>
-Glen hesitates.<br>
-<br>
-"The ship of forty, apparently, is less decisive," Blue says.<br>
-<br>
-"And <em>I </em>didn't insult your grandmother's haggling skills," Aiko reminds him.<br>
-<br>
-Leaf's phone chimes, distracting her from the back and forth, and she lets the conversation flow around her as she takes it out to check if it's anything important, enjoying the banter. She's not used to big crowds of people, and would probably find it tiring if she had to deal with it all day, but she has to admit she can see the appeal.<br>
-<br>
-Her slight smile fades as she sees who sent the email, and she quickly opens it, mind jumping between scenarios that would warrant him contacting her again, few of them good...<br>
-<br>
-<em>Hey Leaf. Your prediction came true: Zoey Palmer has been poking around. Reached out to me just today, asking a lot of the same questions you did in your last visit. I was honest, but didn't mention anything beyond what she asked about, but she seemed suspicious of what Giovanni's men are doing here. I'll let you know if she reaches out again, but I'd be surprised if she doesn't. Hope you're close to cracking this thing.</em><br>
-<br>
-<em>Stay safe,</em><br>
-<br>
-<em>Ryback</em><br>
-<br>
-"Leaf? Everything okay?"<br>
-<br>
-"Yeah. Sorry, I've got to run." Leaf sees the looks of curiosity and concern, and forces a smile.<br>
-<br>
-"You're not going to join us for Advanced Formations?" Aiko asks. "It's one of the funnest classes!"<br>
-<br>
-"Maybe another time. It was nice meeting all of you," she says to the rest of them, then looks at Red and silently apologizes for leaving him alone. Their joint venture wasn't as bad as they feared, however, and she thinks he'll be fine. "Can I rely on you to make sure he learns that?" she asks Chron with a smile.<br>
-<br>
-"Yes ma'am." He salutes her, and it takes her a moment to realize he took her request seriously. <em>What has Blue been doing to them? Or is it from my own fame?</em><br>
-<br>
-"Thanks. Call you later," Leaf says to Aiko, squeezing her shoulder in a quick hug, then heads out of the cafeteria.<br>
-<br>
-She quickly goes to the Gym's locker room to retrieve her things, then returns to the Trainer House, thoughts already on Ryback's message and its implications as she bikes through the city. If Palmer is on the right track now, Leaf's window of opportunity is shrinking. She needs to step up her game, which means finally pinning down her next step in the investigation of Yuuta's death.<br>
-<br>
-The Trainer House's work room is quiet but for the clack of keys. It's a bit crowded considering the time, but the noise from the others doesn't bother her. While Leaf has her own computer now, she's found it easier to concentrate on work related things when she's in a work related environment, and so her strategy for avoiding getting sucked into arguments online lately has been to put up as many barriers as possible for it. As long as she's doing research on a public computer, and not logged into her own accounts, she doesn't have to see all the notifications and messages that are no doubt piling up.<br>
-<br>
-She thought of asking Professor Oak if he's learned anything a few times over the past week, then realized if there's something he'd wanted her to know he would have told her already. The next obvious choice was to ask Laura for help, but Leaf still isn't sure that talking with another reporter wouldn't violate the "agreement" she made with Giovanni, deceptive though he probably was when she made it.<br>
-<br>
-So she started trying to answer the central question herself, the question Leader Giovanni implied was at the center of the mystery: who benefits from chaos in the dig site?<br>
-<br>
-According to the Viridian Gym Leader, whatever had happened to Yuuta was an intentional act of sabotage for the dig or those connected to it. The strange thing is that the same could be said of Yuuta's theft, so even if the person or people who killed him were not connected to him at all, there were still two attacks on the dig regardless of whether they were by the same people. She can untangle rivaling motivations later.<br>
-<br>
-So the question she'd been investigating since leaving Cerulean was simple: <em>Who benefits monetarily if the Mt. Moon dig falls apart?</em><br>
-<br>
-Thankfully her investigation there did most of the legwork in answering that, and as it turned out once she put the data together, quite a lot of people would. The mountain, being a highly valuable pokemon habitat, had a lot of rules and regulations imposed on it that made it hard for most to do business there. This venture only worked because all three cities worked together to facilitate it, but that meant even more red tape, which made the costs go higher.<br>
-<br>
-If it ends up working out, it will prove that projects like this are financially viable while still abiding by the uniquely high standards. Which means, Leaf both surmised and read others assert, those standards would likely be spread to any future digs that open on the mountain… or similar places. Which puts the organizations currently there who have already proven themselves capable in a much better position to take advantage of those later agreements.<br>
-<br>
-Which means in a sense that any organization that tried to outbid the current ones working there, or couldn't afford to, and even the private security company that competed with the "organizing gym" (the article didn't specify which, but Ryback confirmed that it was Viridian's), might all benefit if it falls apart. There are also fossil suppliers that would see their prices undercut if such a major new source of fossils became available to certain groups but not others… but such zero-sum thinking would implicate far too many organizations, and besides, Leaf doesn't think a rivalry between <em>paleontologists </em>would get so cutthroat as to warrant murder.<br>
-<br>
-Well, most of the time. Maybe. It might if the monetary sums are large enough.<br>
-<br>
-In any case the web of suspects is still too large, so she moved on to the next layer:<br>
-<br>
-<em>Who benefits politically if the Mt. Moon dig falls apart?</em><br>
-<br>
-Environmental groups who were against the dig. Politicians who want to embarrass their city's Leaders… something she wouldn't have considered before her journey, but which seems at least plausible now. Would someone like Mayor Kitto stoop to murder just to make Brock look bad? Probably not, but there's no way Leaf has the whole picture. The only way she would get to the bottom of this is by assuming that whoever killed Yuuta had motivations that make sense. If that's not the case then she'll have wasted a lot of time, but she has to narrow the possibility space <em>somehow.</em><br>
-<br>
-Once she starts investigating them she can start striking out the ones that are unsupported or too improbable, but until now she's still been in the mode of generating hypotheses rather than trying to prove or disprove any of them yet.<br>
-<br>
-Her last additions were adding Mayor Kitto to the list, as well as Tonio and Mangal, the mayors of Cerulean and Viridian, and it struck her that if it was someone Misty interacts with they would have to be very stupid or careful to plot against her. Unless of course they're Dark…<br>
-<br>
-<em>This is where prejudice comes from, you know. </em>Still, Leaf checks to see if any of the mayors are Dark, which is surprisingly easy to find out. Apparently any time a politician runs for office there are tons of people wondering what psychics think of them, which leads to a lot of activity on forums where psychics claim this or that mental state that the politician had while they were giving speeches meant whatever the psychic then extrapolated it to mean. Since an actual mental connection needed to be formed to pick up thoughts, however, only those unwilling to give up anonymity would admit to such a breach in privacy laws, which means their assertions of what politicians said were always in doubt.<br>
-<br>
-Leaf loses an hour to that fascinating rabbit hole before she stumbles on the answer to her question as a matter of course: some group fighting for equal rights insisting that Dark people shouldn't be discriminated against quickly led her to the revelation that apparently Kanto doesn't have anyone in public office that's Dark, since, as Leaf's own suspicions supported, the capability of hiding something made them inherently suspicious in an arena where one could at least usually rely on psychics weeding out the most blatantly dishonest or emotionally unstable.<br>
-<br>
-That just makes Leaf wonder whether someone good enough at concealing their inner mental states, or who didn't feel any sort of guilt for lying, might not slip through. But that's a question for another day, and right now she has her answer: Mayor Tonio probably isn't in on the attack, and neither is Mangal, if Giovanni uses psychics to monitor the people he talks to regularly, which Leaf has no reason to think he doesn't, stupid sneaky snake that he is…<br>
-<br>
-<em>Anyway. </em>That leaves just Kitto, who she puts on one side of the suspect list. She starts to fill it out with everyone else who has a political reason to want the dig site to fail, and then starts filling out the financial side of the list until she can plot them in a venn diagram.<br>
-<br>
-When she finishes, she has a list of nine names or organizations in the middle, with both political and financial motives. The real culprit may be in the purely financial or political motivation side, or even someone she didn't even think of with personal or complex motivations, but with what she knows now, these seem best to investigate first.<br>
-<br>
-And as for who she's investigating, well, every staff member at the dig shouldn't take <em>too </em>long…<br>
-<br>
-She's still engrossed in that when her phone chimes with a message from Red. It isn't until she sees the time that she realizes her stomach is sending unhappy signals to her and has been for a while. Rather than meet up with the others, however, and as tempting as it is, she sends an apology and heads downstairs to grab food from the cafeteria so she can keep working until bed.<br>
-<br>
-She moves through the Trainer House without seeing it, in a state of flow that makes her steps feel light. The temptation to check the forums and emails pops up occasionally, but is quickly carried away by her drive to look into the next staff member, and the next, and the next, into the late hours of the night.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-Days pass, and Leaf barely leaves the Trainer House other than to give her pokemon some exercise. She returns to the Gym a couple times for classes that Aiko, Blue, or Red insist she joins them for, and it's always hard to leave once she's there, but before long the investigation calls her back. <em>It'll be worth it, </em>she tells herself as she turns down another dinner invitation with a pang. <em>Getting to the bottom of this will be worth it...</em><br>
-<br>
-It goes slowly but steadily, and little by little she puts together a shortlist of dig employees that have worked for or with some of the primary suspects, including big names like the Cinnabar Archeology Institute, the Silph Company, and Rand Tanaka, an excavation magnate who recently got into politics and became the mayor of Celadon City: apparently he'd tried to get his city in on the action at Mt. Moon, but was unable to.<br>
-<br>
-Normally this many potential leads would excite Leaf, and there is some of that, but as the days pass that excitement is tempered by a growing suspicion. Throughout her investigation, what she's found are not just people who have reason to sabotage the dig, but also some who have reason to strike at Giovanni as well. Throwing his political weight behind a decision that limits Silph expansion in Viridian, speaking out against Tanaka's campaign… What was it he said, while trying to convince her not to publish? <em>I've learned to recognize the actions of an enemy, and I've made plenty of enemies. </em>Something like that.<br>
-<br>
-Not all the companies and people on the list have obvious enmity with Giovanni, but he's been a powerful figure in Kanto for so long that it seems he's interacted enough with almost all of them at some point that searching for his name and theirs brings <em>something </em>up.<br>
-<br>
-At the time Leaf just believed that Giovanni was saying what he could to convince her not to publish. Calculated, sure, but only for that obvious goal. Since her investigation is guided almost entirely by the information he revealed to her, however, she's started reconsidering what his goal in that conversation was. If he wanted to throw her off track, he could have lied to her. Maybe he did, though if so there's enough truth laced into what he said that she can't easily ignore it.<br>
-<br>
-Instead, it seems more and more like what he said was exactly what she would need to hear that, not only would she not publish the story, but if she <em>continued researching it anyway, </em>she would know where to look...<br>
-<br>
-Until Leaf had to finally wonder if the Gym Leader intentionally told her everything he did, not just to keep her quiet about what little she knew, but also to increase her chances of finding more. After all, he professed to be searching for the culprit himself. Would he not also benefit if she found them?<br>
-<br>
-The strangest feeling began to grip her as she worked day to day, like she was being watched. Leaf resisted the urge to look around often, calling herself silly. But she couldn't ignore the source of the feeling: the eerie idea that she's just a puppet whose strings are being pulled.<br>
-<br>
-<em>Does it matter? Won't you want to find out even if Giovanni set you up to? In a sense he might be doing you a favor at the same time, making use of you in a way. He did talk with you as if forming a business agreement: in fact he even offered to repay you for services rendered!</em><br>
-<br>
-Leaf scowls at that particular inner voice, distrusting its appeal. One thing's for certain: her excuse to not tell Laura about what she's getting into doesn't feel justified anymore. Even without going into specifics, she needs the advice; she feels like a tympole swimming in the shadow of something large and hungry, and while she's not scared, exactly, she wants to know for sure if she's imagining it or onto something.<br>
-<br>
-After finishing the list, she closes down her work at the public computer room and moves to a more private work room where she takes her laptop out and, after weeks of wanting to, calls Red's mom to tell her everything. It feels good to have an excuse anyway, since aside from what she's been working on, she hasn't had the chance to talk to her much since they arrived in Vermilion, and she's curious to know what Mrs. Verres has been up to.<br>
-<br>
-"Hi there, Leaf!"<br>
-<br>
-"Hey Laura! How's it going?"<br>
-<br>
-"Wonderful, dear! Everything's great. Just great. What have you kids been up to?""<br>
-<br>
-Well, Laura certainly seems more cheerful than usual. Maybe it's from not having spoken in a while, but it makes Leaf loath to bring up something more serious, so she happily launches into a summary of her past couple weeks, including her visits to the gym and how surprisingly enjoyable she found it. This leads into Laura explaining that <em>she </em>recently started going to the Celadon Gym to learn how to train her new tangela, which led to them comparing notes about the differences between the gym cultures. Leaf is a bit surprised to hear that Laura is suddenly interested in training pokemon, but she supposes that the grimer attack may have made her feel unsafe living without any.<br>
-<br>
-Eventually the conversation topics start to wind down, and Leaf runs out of excuses not to bring up her main reason for calling. "By the way, I have something I've been wanting to talk to you about."<br>
-<br>
-Laura chuckles. "I figured as much, with how busy you all must be from the abra sale. What's up?"<br>
-<br>
-"It's actually not related to that. There's something I never told you…"<br>
-<br>
-Leaf haltingly explains her investigation at Mt. Moon, the visit with Giovanni, her agreement with him, the research she's done since then, and what made her finally decide to break it, listing the names of her primary suspects and the workers at the dig that they're connected to.<br>
-<br>
-"I just feel like I'm suddenly really vulnerable, like it's not my investigation at all any more. I don't know if I'm being paranoid or not, but I just had to check and see what you think. Even if he prodded me into continuing the investigation, should I?" Leaf waits a moment, hand nervously moving her computer mouse to open and delete various emails, barely seeing them. "Mrs. Verres? You there?"<br>
-<br>
-"Yes. Leaf, can I call you back?"<br>
-<br>
-Leaf's hand stops moving. Laura's voice was… completely different. Flat, almost angry. "What's wrong?"<br>
-<br>
-"Nothing. Something just came up. I'm sorry, I'll call you later."<br>
-<br>
-"Is—" Leaf stops as the call disconnects, then stares at her phone. She knows Laura's anger probably wasn't directed at her… maybe Giovanni, for tricking Leaf? Unless she's being honest and something came up, maybe she got an email or something just hit the news…<br>
-<br>
-Leaf opens some Celadon city news sites and scrolls for anything that might have happened within the past few minutes, then the past hour, then anything from earlier in the day.<br>
-<br>
-There's nothing. Maybe it was something even earlier that Laura's been looking into that she got an update on. Leaf keeps scrolling, barely paying attention at this point as she passes by stories on politicians speaking for or against new housing policies, progress on repairing the city's sewage system, some weirdo in a mask who escaped police by jumping between rooftops, a notice about construction being done to Cycling Road…<br>
-<br>
-When half an hour passes and Laura still doesn't call back, Leaf texts Red.<br>
-<br>
-<em>Hey, is everything okay with your mom?</em><br>
-<br>
-<em><strong>What do you mean? I think so? Why what happened?!</strong></em><br>
-<br>
-Woops. Leaf quickly types, <em>Nothing, sorry! I just called her and she acted really cheerful, then suddenly became super serious and said she'd call me back. That was half an hour ago.</em><br>
-<br>
-<em><strong>Don't scare me like that. Maybe something came up for work.</strong></em><br>
-<br>
-<em>Yeah. Sorry for bothering you.</em><br>
-<br>
-Leaf puts her phone down and stares at the wall, mind wandering, but her phone chimes again after a moment.<br>
-<br>
-<em><strong>What was she cheerful about?</strong></em><br>
-<br>
-<em>I didn't ask. I guess she was just having a good day. That's why the shift took me by surprise.</em><br>
-<br>
-<em><strong>Why did you say she "acted" cheerful then?</strong></em><br>
-<br>
-Leaf is taken aback a moment, and checks to see that yeah, she did write that. <em>I didn't mean anything by it. Just the word choice that came out while typing.</em><br>
-<br>
-<em><strong>You sure? She might have been in the middle of something, and pretended everything was fine so you wouldn't feel like you were imposing.</strong></em><br>
-<br>
-It would be quite a coincidence if she just happened to get interrupted when Leaf brought something so important up. <em>It's possible I guess.</em><br>
-<br>
-"<em><strong>It's possible" is a polite way to say you don't think so :P I can check in with her if you're worried.</strong></em><br>
-<br>
-<em>No no, that's okay! I just wanted to make sure I didn't interrupt something important that you might know about.</em><br>
-<br>
-<em><strong>Ah. We haven't really talked much since I got to the city. Quick call after the arrival interview, and that was about it. Sorry.</strong></em><br>
-<br>
-Leaf remembers her conversation with Red after the surprise visit on the road from Cerulean, and reminds herself to check in with him later about whether he and his mom are doing okay. The thought makes her think of her own mom, and she decides to write to her while she waits for Laura to call back.<br>
-<br>
-<em>No prob. Thanks anyway! How're you doing with Bayes?</em><br>
-<br>
-<em><strong>I think I'm close to mastering his secrets.<br>
-</strong></em><br>
-<br>
-<em>Really?!</em><br>
-<br>
-<em><strong>I think I'm close to comprehending one of his secrets. Possibly. Gotta get to a training session though, let's go over it later?</strong></em><em><br>
-</em><br>
-<br>
-<em>Sure! TTYL!</em><br>
-<br>
-She puts the phone away and starts emails to her mom and grandpa. She writes to her grandpa fairly often, so his goes by quickly as she mentions funny things that happened recently or new tricks she taught her pokemon, but she never had that kind of relationship with her mom, so writing to her is slower. Eventually Red's idea for her to return home briefly and register a teleportation spot there comes to mind, and she gratefully decides to end the email by bringing that up as a possibility she's considering.<br>
-<br>
-After both emails are written and sent and she <em>still </em>hasn't heard from Laura, Leaf decides to just switch to one of her other projects. She still needs to finish the piece on what she did while catching abra, so she gets to work on that.<br>
-<br>
-It's engrossing enough putting herself back in the moment that she actually forgets she's waiting for Laura's call by the time the phone rings, and Leaf feels a jolt of shock when she sees that it's already past seven. Then a wave of disappointment hits her when she sees an unknown number. She leans back in her chair as she answers it, despondent.<br>
-<br>
-"Hello?"<br>
-<br>
-"It's me, Leaf."<br>
-<br>
-"Laura!" Leaf bolts upright. "Is everything okay?"<br>
-<br>
-"Everything's fine. Sorry I took so long."<br>
-<br>
-Leaf frowns. Despite her words, Laura's voice is as serious as Leaf has ever heard her. "What happened?" <em>What happened to your phone?</em><br>
-<br>
-"Listen… Leaf, do you trust me?"<br>
-<br>
-"Of course I do."<br>
-<br>
-"Then please, please don't react the way I'm afraid you will to what I'm about to say. Please, trust that I have good reasons for it."<br>
-<br>
-Leaf's heart pounds in her chest as she tries to imagine what's coming and fails. "Okay. I'll try."<br>
-<br>
-"You need to stop researching the murder of the Renegade."<br>
-<br>
-Leaf stares at the wall, face blank.<br>
-<br>
-After a moment of thought, she continues to stare at the wall.<br>
-<br>
-In that moment, a dozen ideas surface and then peter out, replaced by new ones.<br>
-<br>
-<em>I found something important</em><br>
-<br>
-<em>Dangerous</em><br>
-<br>
-<em>No she knew</em><br>
-<br>
-<em>Did she find it first?</em><br>
-<br>
-<em>Did I miss it?</em><br>
-<br>
-<em>Did she find it out today, after hanging up?</em><br>
-<br>
-<em>What was it?</em><br>
-<br>
-Leaf's blood runs cold as a new line of thought intertwines and brings up new possibilities.<br>
-<br>
-<em>Did Giovanni get to her first?</em><br>
-<br>
-<em>Threaten her?</em><br>
-<br>
-<em>Is she working with him?</em><br>
-<br>
-<em>"Leaf, do you trust me?"</em><br>
-<br>
-"Leaf?"<br>
-<br>
-The girl blinks. Takes a breath. "I'm here. What's wrong, Mrs. Verres? Why do I need to stop?"<br>
-<br>
-"I can't tell you. I'm sorry, but you should know why I can't."<br>
-<br>
-Leaf closes her eyes and rests her forehead on one hand. Somehow, some way, she has to find the time in her schedule to train against psychic intrusion. It won't help if she doesn't know it's coming, but it's better than nothing. Right now what she can't stop thinking of is all the opportunities she gave up at the gym, to spend time with the others, to work on this story... just to be told, again, to walk away from it. "Laura... the past few days... I just spent most of my week on this, and more time before that, I… can't just give up on this, Laura, not without knowing why. I can't."<br>
-<br>
-"I understand, honey. Believe me, I do. I just can't tell you <em>yet. </em>I need you to promise to stop looking into it for… I was going to say two months, but realistically it may take longer."<br>
-<br>
-Anger starts to make Leaf's head pound, anger at being given such an unarguable ultimatum after being asked if she trusted her. "You're treating me like a child again. Don't say you're not, I know you are, it's something dangerous and you said you <em>wouldn't-</em>"<br>
-<br>
-"<em>Leaf. </em>Please, <em>listen</em> to me." With an internal wrench, Leaf realizes that Laura sounds on the verge of tears. <em>That's not fair, that's what mom used to do, you can't use that against me too… </em>"Don't tell Red this, I'm only telling you because I understand how you feel, because you deserve to know… I'll tell him on my own, I promise, I was just waiting until I could… could give reassurances…"<br>
-<br>
-"Reassurances about what? What happened?"<br>
-<br>
-"Remember what I told you? About getting involved in political things?"<br>
-<br>
-"I do. I also remember what you said after: that I was already risking my life every day."<br>
-<br>
-"I was stupid to say that. No, more naive than anything. I've had my eyes opened rather rudely to just how much, recently. The tangela I got, that I started training with…"<br>
-<br>
-Leaf frowns at the topic shift, still impatient to hear what had happened, then puts it together, eyes widening. "Oh, Swords of Justice," she whispers. "Someone <em>attacked </em>you? Who? When?"<br>
-<br>
-There's silence on the other end, enough of it that Leaf's imagination supplies some truly frightening scenarios of Laura being mugged, or worse… Her skin runs cold as she physically flashes back to the seconds of terror and minutes of numb shock that came from her encounter with Yuuta, but then Laura says "Not exactly," almost begrudgingly, and Leaf has a moment of sweet, sweeping relief, followed by gratitude that Mrs. Verres didn't lie, as tempting as it must have been. "But I got the tangela because I was informed, under no uncertain terms, that I needed to be prepared to defend myself. And I thought I listened, but I was wrong. I got hit in a direction I wasn't really expecting, and <em>I should have been. </em>Do you understand? I've been in this industry for years, but I still had to take a hit, had to get hurt, for that training and experience to kick in. You have neither of those things. <em>Yes, </em>you're going out there and risking your life in your journey, but you've <em>trained </em>for that. You haven't prepared for this, not really. <em>Please </em>tell me you understand that, it's not about your <em>age</em>, Leaf, it's about what you're <em>prepared for</em>. Small flare ups like Pewter were a good way to get experience, but not this, you walking into it thinking you're ready would be like me deciding to go to… to Victory Road, for me to go through the caves at the Plateau after having my one pokemon for all of a week!"<br>
-<br>
-Leaf's eyes are closed, forehead against one palm. "Give me a minute, please. I need to think about this."<br>
-<br>
-"Of course, Hon. Take your time." Laura sounds nervous and distraught, but Leaf can't think about that right now, she can't let her mom's… she can't let <em>Laura's </em>emotional state influence her decisions...<br>
-<br>
-"I'll call you back, I just need some time… is this number…?"<br>
-<br>
-"No, not mine. It's a friend's I know is secure. I'll be here for a little while though."<br>
-<br>
-Leaf wants to know more about the friend with the secure line and the need for it at all, but she just says "Okay," and hangs up. Then she packs her things up, goes to her dorm room, and lies on the bed, eyes closed to examine her motivation as best she can.<br>
-<br>
-It doesn't take long to realize that her thoughts are circling without use. She needs to talk to someone about this, but realizes she can't. Her mom and grandpa and Professor Oak would agree with Laura, and she promised not to tell Red, and Aiko… after what she told Aiko, how could she possibly say that she's considering letting this go because it's too dangerous?<br>
-<br>
-"<em>It's not about your </em>age, <em>Leaf, it's about what you're </em>prepared for!"<br>
-<br>
-And a part of her understands that, understands it very well, because isn't that why she called Laura in the first place? Why have a mentor if she won't listen to her at the time when she really, truly needs guidance, and her mentor is so clearly adamant?<br>
-<br>
-<em>Because it would hurt, to give this up. Again. To let this go, again, to let Zoey win... </em><em>I found something, who </em>was<em> it, which of the people at the dig killed him...? </em><em>I have to know!</em><br>
-<br>
-Leaf's eyes burn, but she takes deep breaths until it fades. <em>I'm stuck in a role, </em>she realizes. <em>This is what Laura was afraid of. I'm in the role of the hotheaded child who thinks she knows better.</em><br>
-<br>
-Knows better than Mrs. Verres? Who's spent years in the field, been through so much more? What are the odds, of that? What's the prior, that a 12 year old who just started in a vocation would have better instincts, better insights? What are the sheer, absurd odds against it?<br>
-<br>
-Leaf calls Laura back, fingers moving slowly. "I won't pursue it," she says, words dropping from her lips like lead.<br>
-<br>
-"Thank you, Leaf." The relief in Mrs. Verres's voice is palpable, and actually makes Leaf feel a little better.<br>
-<br>
-There's no one else in the dorm at the moment, but Leaf keeps her voice low anyway. "But you have to promise me that you'll tell me what you discovered. You said two months, and I won't hold you to that exactly, but I can't promise I won't get impatient eventually."<br>
-<br>
-"I understand. I can also promise that when all of this comes to light, you're going to get the whole story, and credit for helping expose it. And it wasn't something small, Leaf, I had a lot of information with little to connect it, but what you told me… you have to keep building your name, in the meantime, get some protection through recognition, build contacts, get more experienced. That way when the fallout comes, you're ready to handle it."<br>
-<br>
-"Mrs. Verres," Leaf says, trying and failing to keep her voice calm. "You're <em>not helping</em> me beat my curiosity down to a manageable level."<br>
-<br>
-"Oh! Sorry! Okay, I'll stop talking now. Thank you again, Leaf. Really."<br>
-<br>
-Leaf grunts something that may conceivably be taken as a goodbye and then flops onto her bed face down with a sigh. She stays there for a few minutes and tries to convince herself she's done the right thing.<br>
-<br>
-Only a few minutes, however. She has to get to work, after all, so she's ready for whatever's coming.
-        </div>
+            <h1 class="chapter-title">112: Hunted</h1>
 
-        <div class="chapter-nav">
-            <a href="../111/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../113/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>The third time Blue thinks of the perfect attack to use, then has to revise to something far less effective due to environmental constraints, a calm and distant part of him swears that he's going to make teams of pokemon built entirely for fighting indoors and keep half of his belt full of them at all times.</p>
+
+<p>"TB! Hyp!"</p>
+
+<p>"Ah! Ca! Bab!"</p>
+
+<p>The renegade's pokemon are outnumbered and at a type disadvantage, but they're also smaller and more nimble than his: Rive's Hammer Arm is easily dodged by the magneton, and while Soul gets a Crunch off on the hypno, it manages to stay conscious long enough to put the scarred arcanine to sleep.</p>
+
+<p>Thankfully Rive blocked the thunderbolt from hitting Maturin, whose bubblebeam disorients the magneton and keeps it from getting its next attack off before Blue can yell "Sab!" The Body Slam connects and sends it reeling, and Blue has another moment to spare a mental grouse for the fact that his most effective tactic at the moment is to tell a Ground pokemon to use a <em>Normal </em>attack against a <em>goddamn Electric/Steel type</em> before that Electric/Steel type sends a Mirror Shot out to burrow three holes in his pokemon's rocky hide.</p>
+
+<p>Blue swaps the Awakening he pulled out of his bag to his other hand to spray it on Soul while he withdraws Rive—<em>if that was a Flash Cannon he would be dead, he's okay unless it hit a critical organ—</em>then leaps behind one of the generators to avoid the next thunderbolt, which he only assumed would go for him instead of Maturin because he was closer. "Bab!" he yells again, and "Ca!" for good measure in case Soul has woken up to finish off the hypno. He might be dead right now if he wasn't immune to psychic attacks, and has a brief moment to be glad that he didn't stay Miracle Eyed through all this.</p>
+
+<p>"Go, Gon!" His breloom appears beside him, then dashes toward the fight once he says "Pam!" He's spent a lot of time tweaking the simulations to reinforce targeting priorities of certain moves against certain pokemon, so he's fairly sure that Mach-Punch will get aimed at the magneton, but he knows he'll have to risk a look at the battle soon to get a renewed sense of what's happening…</p>
+
+<p>Or the sound of another pokemon being sent out could force him to do it now.</p>
+
+<p>Blue does his best to peek around the corner without exposing much of himself, and feels his heart sink at the sight of the magmar.</p>
+
+<p>Three different commands burst out of his throat in a rush, "GonbackMaturinbabSoulsae!" but the renegade just has to give one, and does so while running: "Overheat."</p>
+
+<p>The magmar's body begins to glow, turning Maturin's Bubble Beam to hissing steam as soon as it hits. Soul slams into the renegade pokemon a moment later, but the magmar just keeps glowing brighter—</p>
+
+<p>—Blue sends Maturin into her shell with a "Wa!" as he stretches Gon's greatball out in one hand as far as it will go—</p>
+
+<p>—until a torrent of flame bursts out of the magmar in every direction.</p>
+
+<p>Blue toggles the return beam at the last possible moment, but his breloom is still too far when the fire washes over it, and he snatches his arm back to avoid the searing heat that radiates out.</p>
+
+<p>The air goes from air conditioned cold to sweltering in a flash, but Blue barely feels it, anger burning white-hot in his core as flashbacks of catching Gon in Viridian Forest and training with him throughout his journey run through his mind. The shroomish was with him nearly as long as his starter, through every gym badge he's earned, he's always prepared to lose his pokemon defending people from wild pokemon but he just lost Gon to this <em>nobody, </em>this <em>cowardly murderer</em>—</p>
+
+<p>"I'm going to <em>fucking kill you!</em>" Blue yells over the roar of the flames, and knows that the sound swallowed his oath. He seethes fruitlessly as he cowers, sweat beading his face as he waits for the heat to fade…</p>
+
+<p>…and when it finally does, quickly pulls out a burn heal and sprays it all over his prickling face and hands. The very air itself smells burnt to a kind of weird, empty scent-that's-not-a-scent, but beneath that there's a whiff of something else that makes his stomach turn. He knows what he'll see before he even looks, but he has to confirm…</p>
+
+<p>The magmar is on all fours, trembling with exertion, its colors dull. "Ca," Blue reflexively says, and Soul stumbles to his feet, smoke rising from his fur, and pounces to sinks his fangs into the back of the pokemon's neck. Maturin is okay, coming out of her shell and sniffing cautiously at the air. While Gon…</p>
+
+<p>Gon is just a smoldering pile of brown fungal flesh. The magneton is a melted triple smear of strange mechanical innards, and the hypno is barely identifiable, making Blue wonder why the renegade didn't withdraw his pokemon before realizing the underlying mistaken assumption that led to losing his own.</p>
+
+<p>The renegade he fought upstairs ran for it as soon as it seemed like he might lose, and made sure to take his pokemon with him on the way out. This one is willing to sacrifice all his pokemon, maybe even himself.</p>
+
+<p>It <em>looked like</em> he ran and used the magmar to cover his escape. But what if—</p>
+
+<p>Blue whips his head around, hands dropping to his pokebelt… but nothing attacks him. Was he wrong? Did the Renegade actually run?</p>
+
+<p>Well, he'll just have to find the bastard, wherever he's hiding. The room seems about as big as the large, open office he fought in upstairs, but much more cluttered, a virtual maze of equipment that is mostly large enough for a man to hide behind. But there's just one entrance, if he goes there and waits, he'll catch the renegade eventually if he hasn't already left, and if he <em>has </em>left he can't have gone far—</p>
+
+<p>In the corner of his eye Blue sees Maturin suddenly pop back into her shell, and reflexively crouches as he quickly scans the area again, pulse racing. He waits for his battle calm, but…</p>
+
+<p>Nothing. There's nothing around them, and so he continues just being on edge. What was she reacting to…?</p>
+
+<p>And then he remembers Red's signal.</p>
+
+<p><em>Shit. </em>Something's about to happen, and Blue isn't in place to take advantage of it or help in any way… he hasn't even accomplished what he came here for, and the clock is ticking.</p>
+
+<p>He takes one last look around, then rushes to the generators, setting aside the need for revenge. <em>Later </em>he promises his anger, but the burning beast just paces more restlessly, knowing full well that if he doesn't catch the fucker now, he probably never will.</p>
+
+<p><em>Focus</em>.</p>
+
+<p>The metal is hot to the touch, but not damaged in any obvious way. It makes sense that they'd ensure it can't overheat if something goes wrong, but Rive should be able to break it down… assuming his rhydon is still alive.</p>
+
+<p>"Soul, Maturin, guard." There are corpses taking up too much space now, so he backs up a little to summon his injured pokemon, two hyper potions at the ready. The rocky rhino's hide has three holes in it, but the dark blood welling out of them makes it hard to see how deep they go. Blue quickly empties his potions into his pokemon, then grabs its lower jaw and pries it open to drop a revive down its throat for good measure.</p>
+
+<p>He keeps his head on a swivel throughout, though his pokemon aren't reacting to anything nearby. Rive's blood has formed two small puddles around him, but hope stirs in Blue's chest as he notices that they don't seem to be growing.</p>
+
+<p>The rhydon shifts, then opens its eyes as it takes a deeper breath in. "Good job, buddy. You did great." Blue strokes Rive's snout a couple times, careful of the spiral horn as his pokemon continues to shift, then steps back as his pokemon pushes himself to his feet. "Now, I need you to wreck some shit."</p>
+
+<p>Lizzy explained how building generators like this have pokeballs with electrodes in them, ready to release automatically if any fluctuation in the power goes below a certain point. He debates taking the time to remove the electrode greatballs from the generators, but he wouldn't be able to command them, and they're the least expensive part of what he's about to wreck, so he just points to the container that houses them and says, "Rive, Ah."</p>
+
+<p>Rive moves gingerly to brace on his feet, and Blue almost tells him to stop so he can check for deeper injuries before his pokemon surges forward and slams his forearm down onto the generator.</p>
+
+<p>"Ah," he says again, and the next Hammer Arm dents the container enough to expose the inside. He's pretty sure that's enough to keep the generator from functioning, so he moves on to the next one, heart still racing as he looks around, expecting another attack just when he drops his guard.</p>
+
+<p>It doesn't come until the second generator is destroyed and he's led his pokemon to the third. A series of flashes have Blue throwing his back against one of the damaged generator for cover as Soul growls and Maturin's ears flare out.</p>
+
+<p>Two commands get stuck competing in Blue's throat. Should he tell Rive to destroy the third generator, or be prepared for battle? There would still be another one after, and even if he destroys all four none of this will matter if he can't get to the second set of backup generators…</p>
+
+<p>When he hears the thick <em>hisss, </em>it's immediately obvious what's coming next, and at last the battle calm descends as one hand flies to his mask straps to ensure they're tight while the other points to the generator again. "Rive, Ah!"</p>
+
+<p><em>THUD</em></p>
+
+<p>"Ah!"</p>
+
+<p><em>THUD</em></p>
+
+<p>"Ah!"</p>
+
+<p><em>CRACK</em></p>
+
+<p>The smog is visible now, which means he only has a few moments… "Ah!"</p>
+
+<p>There's rending sound of metal tearing, and then Blue rushes to the last generator, points, and yells "Ah!" again.</p>
+
+<p>Rive hesitates.</p>
+
+<p>"Ah!'</p>
+
+<p>Another hesitation, and Blue grits his teeth as Rive cocks his head from side to side. Blue can barely make out the generator himself, and rhydon have worse eyesight than humans.</p>
+
+<p>Soul coughs, and Blue rushes over to spray an Antidote onto both him and Maturin to buy some time, then rushes back to Rive, unclips his pidgeot's ball and braces his arm to aim it back the way he came. "Go, Zephyr!" There's no guarantee that the smog will have somewhere permanent to go, but he just needs a few seconds.</p>
+
+<p>His pokemon appears, but it's a tight fit. "Gust!" Blue commands, and as soon as the pidgeot starts flapping, screeching in pain as it's launched up and smacks its head against the ceiling, Blue points to the generator again as the smog thins for a moment. "Rive, Ah!'</p>
+
+<p><em>THUD</em></p>
+
+<p>"Ah!"</p>
+
+<p><em>CRACK</em></p>
+
+<p>Zephyr has stopped flapping, instead hopping awkwardly on one foot in a daze as he continually tries to keep his balance. Blue returns him to his ball before he hurts himself or anyone else, which is why he spots the muk that's silently oozing its way toward his pokemon from behind, invisible to Soul's nose in the smog.</p>
+
+<p>"Soul, alert, Mat—"</p>
+
+<p>"Sludge Wave!"</p>
+
+<p>His pokemon haven't managed to fully turn before the renegade's command rings out, and Blue sees Soul's silhouette get buried in a wave of gunk as the arcanine roars in pain.</p>
+
+<p>He has to stop himself from rushing over, instead yelling "Chaf!" for Soul, "Bab!" for Maturin, and then, hoping Rive can still see enough: "AH!"</p>
+
+<p><em>CRUNCH</em></p>
+
+<p>It'll have to do.</p>
+
+<p>Three pokemon being poisoned at once is too much to manage, so he withdraws Rive rather than risk having him attack blind, then stops himself from rushing to where his other two pokemon are for a second time. Even against a wild pokemon that would be risky, in a situation like this it's suicidal. The renegade took time to plan this out, if he just blindly reacts (literally) he'll just get himself killed… plus, he's pretty sure there were <em>three </em>flashes earlier, which means there's still a third pokemon lying in wait, maybe creeping up on him right now…</p>
+
+<p>The calm helps him think even through the sounds of a battle he can't see, but no path to victory appears in his mind. <em>Options. </em>He has tools on his belt for disabling the renegade, but he has to get closer than this to use them…</p>
+
+<p>…which may be the last thing the renegade expects him to do.</p>
+
+<p>If it means letting his pokemon fend for themselves, it's also the last thing he <em>wants</em> to do. But his opponent already took the strategy he thought of earlier, and with a better twist; he can't just wait around or else his pokemon are going to succumb to poison. And still, it would be dangerous to assume the renegade <em>will </em>just wait, instead of having a next step that he's carrying out even now…</p>
+
+<p><em>Next step. </em>That's the key, always. Anticipating what the opponent would do with what resources he has.</p>
+
+<p>Blue closes his eyes, which are mostly just showing various shades of light at this point, and breathes deep of the filtered air. What are his opponent's goals and resources?</p>
+
+<p><em>He's here to protect the building's power sources. So his goals will be to kill me or my pokemon or to stop me from destroying the generators…</em></p>
+
+<p>…<em>which I just destroyed.</em></p>
+
+<p><em>What's he going to do when he realizes that?</em></p>
+
+<p>He feels his battle calm slipping as he tries to think of what in the room might shield him from a Self Destruct explosion from a weezing, then realizes nothing can. He has to get out of this room, maybe get Rive to break through a wall, even if he can't see…</p>
+
+<p>No, that wouldn't put him in a better position. He has to take the renegade out. And that's <em>probably </em>not just a desire for revenge talking, though if he loses Soul or Maturin too…</p>
+
+<p>Blue crouch-runs to the edge of the room, hands held out to push himself off things he runs into until he finds the wall. It feels a little like being back in Viridian, where the smoke was so thick he could barely see his hand in front of him, and the memory of the shiftry ambush makes him extra cautious as he moves toward the entrance.</p>
+
+<p>The sounds of his pokemon battling continue all the while, and hopes they mask any noise he makes to whatever third pokemon the renegade surely has out, waiting for him to approach…</p>
+
+<p>Blue slows, heart pounding as he imagines the possibilities and realizes he needs another edge. Something to take his opponent off guard…</p>
+
+<p>He takes his shoes off, then brushes his fingers over Ion's ball. The smog is too thick for it to detect any empty space to summon into, even if there is some. So he walks a blind circle, arms out, then unclips Ion's ball, hefts it for a moment as he aims… then triggers the manual release.</p>
+
+<p>As soon as his pokemon is out, Blue rushes for the opposite side of the room and yells "Fa!" along the way.</p>
+
+<p>The flash of light isn't particularly bright through the haze, but he hopes it's enough to draw attention, while the memory of where his voice was draws them to a second false-location. Meanwhile…</p>
+
+<p>He finds the wall again and sprints with one hand on it and the other ahead of him. His socks make each step practically soundless, and while part of him worries about stepping on something sharp (like a trap set by the renegade, if he has a pokemon to litter spikes at the entrance with), the main thing he's thinking is that his ability to kick just got a lot less damaging.</p>
+
+<p>He's about to find out if his lessons at the dojo paid off. It wasn't all parkour and trampolines and trainer battles, after all.</p>
+
+<p>There are more flashes of light in the smog now, or rather one long illumination that he hopes isn't Soul burning the last of his life away, and then his outstretched palm hits a body. He immediately grips and tugs as he ducks and steps past and to the side, one leg out to trip the renegade in the direction he just came.</p>
+
+<p>He catches the man totally off guard, sending him down in a sprawl that nearly knocks Blue down with him, and his other hand grabs the man's mask to tug up. The renegade grips his arm and pulls down to stop him, kicking against the floor to try to regain his feet, and Blue's other hand brings the stun gun from his belt and presses it against the man's stomach.</p>
+
+<p><em>I really hope this doesn't shock me too </em>is his last thought before he pulls the trigger. The renegade begins to convulse, nearly yanking Blue's arm out of his socket, but he doesn't feel anything else, and after counting out ten seconds he releases the trigger.</p>
+
+<p>The man's grip goes slack, and Blue yanks his mask off, then stumbles to his feet and throws it randomly deeper into the room. A second later he's taking the cuffs from his belt and yanking the renegade's arms behind his back to cuff them together.</p>
+
+<p>Finally he unclasps the man's belt, which he takes with him as he finds the door, opens it, then closes it behind him, leaning against the cool metal and panting to catch his breath.</p>
+
+<p>He feels like shit, but damn is it good to be alive.</p>
+
+<p>The inner counter in his head hits sixty seconds, and now he has a choice to make. If he keeps the door closed, the renegade will die from the poison… but so will his pokemon, who are likely all injured by now. Much as he wants the renegade dead, and much as this would be a <em>justified </em>way to get there, he can't lose Soul and Ion here too, and Maturin…</p>
+
+<p>Blue takes one last deep breath, then summons Rive. "Guard," he says, then opens the door and yells, "Soul, back! Maturin, back! Ion, back!"</p>
+
+<p>And waits, as the smog spreads outward into the rest of the hall, to see if his pokemon are well enough to comply and follow the sound of his voice. He doesn't hear any more sounds of battle, and after counting thirty seconds repeats, "Soul, back! Maturin, back! Ion, ba—"</p>
+
+<p>Ion is the first to arrive, limping and covered in acid burns. Blue gives him a few quick sprays of potion and antidote, then says, "Guard," and calls out again: "Soul, back! Maturin, back!" He hopes whatever Ion was fighting isn't still conscious, let alone the muk… but they're not wild pokemon, they won't just attack randomly without the renegade's commands, right? Unless the bastard was crazy enough to order that sort of thing…</p>
+
+<p>He can hear the renegade start coughing, and the smog is thin enough now that he can make out his form on the ground. Blue steps forward and finds the stun gun handle, then presses the trigger again, this time until it auto-stops, which he counts at thirty seconds. He clicks the trigger again a few times, but it probably has some recharge period or safety feature, so he drops it and says, "Ion, come."</p>
+
+<p>Blue leads quickly through the thinning smog until they find the site of the battle. Soul is lying on his side beside a scorched and smoldering muk, and beside them looms a shape that Blue almost orders Ion to attack…</p>
+
+<p>Until he makes out the two cannons poking up from the round shell, and realizes Maturin has finally evolved.</p>
+
+<p>Blue's hands don't shake as they move to return his pokemon, but he does run back to the entrance once they're back on his belt. The air is mostly clear now, at the cost of the air quality on the rest of the floor, and he hopes whoever else might be here has access to first aid kits.</p>
+
+<p>Still, he doesn't pause to find his shoes. There's still the second power room, and unless Red has pulled off another miracle, they're almost out of time.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Red only has a few moments to decide whether to try to keep picking the searching renegades off, or teleport back to the safety of the security room before the situation changes again: almost all at once, the renegade pokemon vanish from Kadabra's psychic senses.</p>
+
+<p><em>Did I win?</em> The hopeful thought is mixed with confusion, but it doesn't seem impossible that they'd decide to suddenly retreat in the face of the unknown. He should check with the president and see if those renegades with him are gone too…</p>
+
+<p>He hears a crash somewhere on his floor.</p>
+
+<p>Red pulls his mind away from Kadabra's and settles into his own body again—</p>
+
+<p>—and half-collapses against the office desk he was leaning on as the room wobbles around him.</p>
+
+<p>It takes a moment to realize it's not literally spinning, then another to recognize the vague ache in his head. <em>Overdid it. </em>It's been months since he taxed himself beyond his psychic limits, he practically forgot that he <em>could</em>. His thoughts feel sluggish, so it takes him what feels like a minute (but is hopefully just a few seconds) to realize that what's disorienting him is the <em>lack</em> of extrasensory perceptions. His own body feels strange to him.</p>
+
+<p>Not a great sign. But he hears another crash, and so pushes the concern aside, almost reflexively using amnesia before catching himself and realizing that might actually be a bad idea.</p>
+
+<p>Still, it might not be safe to stay here. The crashing sound is repeating, and seems to be getting closer. Is there a battle happening? And now there's the unmistakable tone of a command, and—</p>
+
+<p><em>BANG</em></p>
+
+<p>Out the door and to his left. He braces himself as best he can, then sends out a psydar pulse, then another, then another. It's less disorienting than he expected, if anything it makes him feel better, and he has to remind himself of his exhaustion to keep from the sweet surrender of immersing himself back into mergers.</p>
+
+<p>He breathes in deep, grounding himself in the feel of the air in his nose and lungs. He also sends part of his attention down into his feet, to the press of the floor against him, and tightens his hands against the edge of the desks, feeling it bite into his skin as he sends another few pulses out, trying to make sense of the brief glimpses into the constellation of minds around him.</p>
+
+<p>There's an obvious cluster of sharper "excitation" down the hall compared to elsewhere. It's hard to tell what emotions are dominant there but fear feels closest to correct… but he doesn't sense any pokemon…</p>
+
+<p>Another <em>BANG,</em> closer this time, makes him realize he has to risk it. Red takes one more deep breath, then merges with one of the buzzing/fearful minds on his floor…</p>
+
+<p><em>fear[pokemon(RENEGADE)]pleasenodon'thurt[stay]smallquiethide[body]legsache[RENEGADES(how?!)]pleasesomeonecomesoon</em></p>
+
+<p>He pulls back into himself and lets his breath out as pieces of the sensorium settle into a snapshot of what the woman was seeing/hearing…</p>
+
+<p>…and abruptly merges with Kadabra to jump to another office as he finishes processing it.</p>
+
+<p>There's a renegade with a pokemon going from room to room, smashing through doors, clearly looking for something. The woman didn't get a good look at the pokemon, didn't recognize what she did see, so he has no idea what it was…</p>
+
+<p>…but it was clearly a dark pokemon, if he can't sense it. Which doesn't seem coincidental.</p>
+
+<p><em>CRASH</em></p>
+
+<p>Red twitches, then sends his psydar out to scan the new floor he's on (fifth? sixth?). Once again some minds are more scared than others, and again a quick and disorienting merger with one of them gives him a composite impression of a [<em>RENEGADE] </em>pokemon… no, he knows this one, it's a scrafty.</p>
+
+<p>He wishes he could delve into the person's memories, but the woman he merged with isn't actively thinking about the past—not important, he can extrapolate. The renegades have <em>all</em> switched to dark pokemon, which means some order went out to coordinate them in a way that feels not just deliberate, but prepared.</p>
+
+<p>How did they arrive at this hypothesis so quickly? There should have been other explanations they assumed before jumping to this one, right?</p>
+
+<p>A shiver of disquiet goes through him, and his heart rate redoubles as he realizes there could be a dark renegade with a dark pokemon outside his door <em>right now</em>. He wonders fleetingly if this is how abra feel all the time, then decides their strategy is a good one, and prepares to teleport to another office…</p>
+
+<p>…to his room…</p>
+
+<p><em>danger(?!)</em></p>
+
+<p>Red's breath stutters, and he frowns as he tries to concentrate. Yes, there's danger here, that's why he has to go home, where it's safe…</p>
+
+<p><em>danger!</em></p>
+
+<p>room</p>
+
+<p>silph</p>
+
+<p>room</p>
+
+<p>SILPH DANGER</p>
+
+<p>It's like bouncing off an invisible wall in his mind, and Red reels for a moment until…</p>
+
+<p>…the partitions fall, and he's back as his full self.</p>
+
+<p>His full self is whimpering.</p>
+
+<p>"Oh shit. Oh shit, oh shit oh shitohshit—"</p>
+
+<p>He can't teleport. He's not sure why actually, are his partitions leaking, or has Kadabra just been exposed to his fear too much to trust the—FOCUS, he has to get out of here, he'll figure out why it's not working later—no, it IS important now, he has to know if Silph's office still counts as safe enough to retreat to, or the security room…</p>
+
+<p>Red feels his mind tipping in multiple directions at once, and one of them is the alarmed (and alarming) thought that he might have broken his partitions somehow…</p>
+
+<p><em>Red you moron, your partitions </em>don't work <em>if you're psychically exhausted!</em></p>
+
+<p>The inner voice sounds remarkably like Blue's, despite the fact that he's never really talked about psychic stuff much with Blue. Inner Blue is right, though, and in any other circumstance it would be funny that he forgot about this (and a bit nice, a sign that he's come so far and it's been so long since his early days of dealing with depression every night after training, forgetting about that would normally feel like a victory)—</p>
+
+<p><em>CRASH</em></p>
+
+<p>Okay that was definitely closer, he needs to <em>focus</em>, and also panic a little, because without his partitions he can't teleport, and also lots of memories of the past ten minutes(?)twenty(?) are crowding at the same time, and also he can't shield his secret memories from anyone who might merge with him, but then again he's kind of revealing most of those right now anyway so he should probably be panicking more about the lack of teleporting.</p>
+
+<p>Well, he should still be able to teleport outside normally, right? But that means running away, and if he does that Blue will get mad at him… well, not necessarily, not if Blue's dead, like Aiko and his dad…</p>
+
+<p>Tears prickle at Red's eyes, and it's a reminder from months ago to center and ground himself. <em>Focus. Breathe. </em>It's hard to think clearly, and his emotions are now wildly swinging between sadness and panic, but if the renegade going door to door is about to find him, that means he's about to be in a pokemon battle.</p>
+
+<p>And now, thanks to Blue, he has an app for that.</p>
+
+<p>It takes more time and effort than it should, but once he has each mental anchor in place the next gets easier.</p>
+
+<p><em>I have a goal.</em></p>
+
+<p>—a sense of something bright/shining/pulling/crystalline—</p>
+
+<p><em>I have options.</em></p>
+
+<p>—an endlessly outward branching—</p>
+
+<p><em>The enemy has a goal.</em></p>
+
+<p>—darkness/emptiness/contempt—</p>
+
+<p><em>Predict their options.</em></p>
+
+<p>—hemming of branches, cutting and winnowing down until—</p>
+
+<p><em>Find the path.</em></p>
+
+<p>—a bright line among the branches, a series of steps up toward the light—</p>
+
+<p><em>Know victory.</em></p>
+
+<p>The sense of anticipated completion/satisfaction/glory is fleeting, an echo, but its promise is enough to send calm through Red's system. He still feels urgency, still feels a tremor of leashed energy in his limbs calling him to fight or flight, but there's a clarity to the next steps, a sense of <em>flow </em>between what's happening now and what will happen, and that flow becomes a current that pulls his limbs into movement as soon as he thinks of what he should do, what the right next move is…</p>
+
+<p>—<em>holy shit Blue you battle like this all the time?—</em></p>
+
+<p>But no, Blue's version of this must be faster, or more efficient. Maybe it's the mental overexertion, or the leaking partitions, or maybe it's just because he's new to this way of thinking, but it feels like he's taking too long to reach each decision.</p>
+
+<p>Still, it's useful for not getting stuck on thoughts like that. What he needs to focus on now is the scrafty that's about to smash open the door at any moment, and how Kadabra won't be able to hit him, nor <em>sakki </em>affect him, without Miracle Eye, which means Kadabra needs something to buy time.</p>
+
+<p>So Red will buy him time. Simple, right?</p>
+
+<p>His unclips Forretress's ball and almost summons the Bug/Steel pokemon, but stops himself. The sound would alert the Renegade, who might call for backup. He needs to surprise him.</p>
+
+<p>Also, Forretress would block the doorway, which would get him stuck here, so the Renegade could just bring out a ranged attacker… if he has one that's dark…</p>
+
+<p><em>Magneton could Light Screen-electric attacks risky to use-fire pokemon?-kingler could block, but not much reach —</em></p>
+
+<p>Possibilities spin out before him, but in this state of mind there's a clarity to them, they don't overwhelm him, they're just a series of ideas/obstacles/problems that he checks solutions against. Snorlax and Nidoqueen were far too big for the offices, so other than Kadabra, he decided to focus largely on Bug pokemon that could beat Dark types, which meant bringing Aiko's venomoth Winter, Ariados, and Forretress, as well as Magneton and Nidorino for wider coverage. His additional resources include his stun gun, flash bomb, <em>sakki…</em></p>
+
+<p>—<em>could flash bomb a ranged pokemon, buy time for Kingler to block until Miracle Eye, then use </em>sakki…</p>
+
+<p>…wait…. Can he project <em>sakki </em>while in this state?</p>
+
+<p>The question feels like it tugs all the possibility strands into a loop. Every strategy he has relies on the ability to defeat a renegade with <em>sakki </em>by turning their pokemon against them, that's the Path to Victory every tactic aims for, his only other options like the stun gun are temporary. If he can't reach it without giving up this mental clarity…</p>
+
+<p>The calm starts to fade as unease spreads through his stomach, thoughts still looping on the uncertainty until he hears footsteps approach the door. Red is still holding one arm outstretched, Forretress's ball aimed forward, and it snaps up as he reflexively summons his pokemon just after the door is smashed open, while the other hand fires his stun gun at the renegade—</p>
+
+<p>—who dodges to the side immediately upon seeing Red, but that buys time for Red to duck away from his own returning shot.</p>
+
+<p><em>No fair! </em>The fired darts embed in the desk, and Red scrambles away from the crackling wires that connect to them even as he feels the battle calm resettle, focus narrowing to the immediate next steps. The bulky pokemon will buy him some time, and the scary open loop in his victory path is unimportant if he just defeats his opponent's dark pokemon he can use <em>sakki </em>on their non-dark ones, it won't matter if he loses this clarity then.</p>
+
+<p>"I found him, fifth floor!" the renegade yells just as Red's "Bug Bite" sends his Bug/Steel pokemon rolling forward. It opens its metallic shell just enough to clamp hungry fangs on its stout Dark/Fighting opponent, while Red mentally commands Kadabra to use Miracle Eye—</p>
+
+<p>"Fire Punch!"</p>
+
+<p><em>Shit.</em></p>
+
+<p>The scrafty rears back a fist that was TM modified to leak combustible fluid, and when it strikes Forretress it sends the otherwise steadfast pokemon rolling away, twitching in pain.</p>
+
+<p>Red swaps Forretress out for Nidorino, but a "Zen Headbutt!" makes it clear that his responding "Double Kick" won't even the playing field. Meanwhile the renegade is unclipping something from his belt, but it doesn't look like a pokeball—</p>
+
+<p>Red dodges behind the desk just as the <em>second </em>stun gun whips up and fires, and dips back into Kadabra's mind just enough to tell that his pokemon can now see the Scrafty. He has to either use Psychic on it now and take it down, or…</p>
+
+<p>He closes his eyes, merges with the scrafty, and projects the pure freedom-from-constraints that makes up <em>sakki </em>toward it, along with his focus on the renegade as <em>dangerous enemy…</em></p>
+
+<p>And then the renegade is screaming in pain as his own pokemon launches at him and shatters his pelvis with a headbutt.</p>
+
+<p>Red withdraws his mind rather than stick around for the killing blow, breaths stuttering as the calm finishes leaving him entirely. "Psych-psychic," he stammers, and the sounds of the scrafty pummeling the renegade abruptly stop.</p>
+
+<p>Sweat breaks out all over Red's body as he realizes how close he just came to dying, how much danger he's <em>still </em>in, he has to get back to the security room, he has to get out of here… but he's so <em>tired</em>…</p>
+
+<p><em>Nidorino…!</em></p>
+
+<p>He forces himself to get up and look at his pokemon, who's lying on his side without moving. Red quickly crawls over and sprays a potion onto him, hand shaking, then realizes he doesn't have time to wait and withdraws him. More renegades are coming, he has to <em>move…</em></p>
+
+<p>But he feels the decision paralysis setting in again. Should he try to teleport back to the others, in case it's "safe" enough? If that fails, would he have time to get there on his own? The renegade said this is the fifth floor, which means he just has to go down one set of stairs to reach the security room. Most of the renegades guarding the stairs and elevators are dead or crippled, so if he moves quickly…</p>
+
+<p>No, if there's even one person on the fifth or third floor that responded to the warning, Red will either have to fight them in the stairway or on the way there. He has to try teleporting.</p>
+
+<p>Wait, first he should withdraw Kadabra, go to another room, buy himself a bit more time in case a searching renegade sees the body outside…</p>
+
+<p>…unless taking the time to do that is what makes him lose his window of opportunity—</p>
+
+<p><em>Battle calm, now.</em></p>
+
+<p>He breathes in deep, head throbbing as he finds the anchors. <em>Goal. Options. Predict enemies. Path to victory.</em></p>
+
+<p>Okay. Better. He can recognize now that he's not going to get any new information, and while there's a sinking feeling in his stomach that he's missing something, that there are options he's not thinking of, clever paths to victory he's not seeing… it doesn't matter, time is the main limiter, so it's probably better to just roll the dice with the odds he has rather than wait any longer and have them get any slimmer.</p>
+
+<p>He forces himself to his feet, walks to Kadabra to put a hand on his pokemon's shoulder, then closes his eyes and starts focusing on the security room, anchoring the experience of being there in his memory and projecting that to Kadabra…</p>
+
+<p>Rapid footsteps in the hall <em>goddammit I was so close—!</em></p>
+
+<p>"Peter's down!" someone yells, and Red's hands fly to return Kadabra and unclip a flashbang from his belt even as he thinks <em>what kind of a renegade is named "Peter?"</em></p>
+
+<p>A moment later the newcomer runs over to the body in the hall and crouches to check Peter's pulse, then turns to look inside the room and spots Red just as he throws his flashbang at the renegade's face.</p>
+
+<p>He has two seconds to turn and cover his eyes with the arm holding Kadabra's ball, while his now-free hand unclips Ariados and aims it behind him, using his armpit as a brace and waiting until the <em><strong>BANG </strong></em>to trigger the manual release. "Fell Stinger!" he yells through ringing ears.</p>
+
+<p>If the renegade gives a command to his own pokemon Red doesn't hear it as he crouches and crab-walks behind the desk. <em>Reclip Ariados ball, spray potion in ears, brace arm to resummon Kadabra—</em></p>
+
+<p>When he peeks over the desk he sees Ariados fighting a mightyena with fire dripping from its fangs as it lunges forward and bites off one of his pokemon's legs. It takes another jab doing it, but it's not a lethal wound, and the next bite takes off his Ariados's head.</p>
+
+<p>Losing the spinarak he caught in Viridian at the start of his journey will probably hurt more, at some point. For now Red is too focused on making sure Kadabra's Miracle Eye is working so he can turn the mightyena against its master—</p>
+
+<p>—who withdraws it and swaps for a cacturne.</p>
+
+<p><em>Oh come on </em>Red yells in frustration… except he doesn't, he didn't drop the battle calm yet, so he just feels it in some part of him as the rest stays focused on the next step: sending Winter out and trying to predict what TM might give the cacturne coverage against a venomoth. He doesn't <em>think </em>cacturne can learn any fire or psychic moves, and either way he should be able to take it out quickly with a Signal Beam which he does—</p>
+
+<p>—just as the renegade also summons a golbat, which starts tearing into Winter before Red can switch mental modes and turn it back against its trainer.</p>
+
+<p>Red tries to return the disemboweled venomoth to its ball, arm shaking, but the cacturne is just barely still alive, and hits it with a Dark Pulse first. Red doesn't have time to check if Winter survived, too busy getting Kadabra to use Miracle Eye on the Cacturne so he can finish it off, then kill the golbat that's feasting on the renegade.</p>
+
+<p>His memory feels like it's dropping seconds between events, things are happening too fast for him to track, and on top of everything the mixed smell of various kinds of blood makes Red's stomach churn. He stays alert for another few moments, body buzzing with adrenaline even while his thoughts feel scattered and slow, but even without the battle calm he knows what his next step has to be.</p>
+
+<p>If he's right, this won't take partitions, all he has to do is focus on the fact that it is, in fact, <em>safe </em>at the security room, which isn't hard because it <em>is </em>safe, it's in fact the <em>safest </em>he can be while still in this building—</p>
+
+<p>—he could be leaving though, he could go to the top floor and teleport out—</p>
+
+<p>—he can teleport out from the security room too if he needs to, but there are <em>allies </em>there that will keep them <em>safe, </em>now let's <em>go—</em></p>
+
+<p>That last burst of projection makes the world twist, and Red is abruptly aware that the smells are different. He opens his eyes to see the others have their pokemon out, no doubt ready for to spring into action at his signal.</p>
+
+<p>They don't look particularly happy to see him, though maybe that's more about how he looks. "Shit, kid, you alright?" Valentin asks.</p>
+
+<p>"Fine," Red says, nearly lightheaded with relief as his whole body seems to unclench. It worked. He's safe.</p>
+
+<p>"Did something happen?" Sicong asks. "Is the president—"</p>
+
+<p>Like last time, Burrel holds a hand up to quiet the others before simply saying, "Report."</p>
+
+<p>Red just wants to curl up on the floor and rest for a bit, but he's <em>not </em>safe yet, not really, no one here is. "The beedrill nest is officially kicked, Sir." Not what he intended to say, it's a line from a movie that he barely remembers, but he feels like he's thinking through molasses and it's just what came out, so he decides to just roll with it rather than clarify. He spots a cup on the desk and steps over to take a long swallow of whatever is in it… ah right, coffee, that's what he was smelling, that makes sense. "Sorry," he says to Valentin, guessing it was his, but a moment later the CHRO is handing him a fresh cup. "Thanks. What did I roll with?"</p>
+
+<p>"What?"</p>
+
+<p>"Sorry." He takes another deep swallow of his new cup, not even minding that it's too hot, and way too bitter. Caffeine might help him think more clearly, and sugar, maybe that would help too…</p>
+
+<p>"Verres?"</p>
+
+<p>"Right, yeah." <em>Focus. Breathe. </em>Keep things simple. "Um. I can't teleport anymore. Inside the building, I mean." That's not relevant. "I'm lucky this worked, I'm just… I mean what I'm trying to say is I think I've reached my limits, psychically." Not untrue, and also less complicated than the full explanation. He's probably leaking all over Lin, but if so the other psychic is being polite about it. So long as he doesn't think about secrets, like… He quickly drinks more too-hot-too-bitter coffee. "But I think I got… maybe ten of them?"</p>
+
+<p>"Ten," Jensen repeats, voice flat. "Arceus wept. And there's still more?"</p>
+
+<p>"Uh, maybe? Sorry, I kind of lost count. Probably still the ones in the storage room, at least. I can't tell because they all switched to dark pokemon." All at once. Red feels another twist of disquiet, but he'll think about it later, if there is a later. "Also two found me, and I'm down to just two healthy pokemon."</p>
+
+<p>"You beat two renegades in a pokemon battle?" Stocky asks, and she sounds more incredulous than impressed.</p>
+
+<p>"I cheated. But… I think that's all I can do on my own. Sorry." Is he apologizing too much? He drinks more coffee, wishing his stomach would stop churning. He should check if Winter survived, and Nidorino…</p>
+
+<p>"You've done more than we could have hoped," Burrell says. "It's now or never, but we've got a new target."</p>
+
+<p>"What do you mean?"</p>
+
+<p>"Someone deactivated one of the building's backup power rooms," Valentin says. "I doubt it was the renegades. If you guys take out the second one, I can take us off the grid and they won't be able to turn on a light, let alone get anything out of storage."</p>
+
+<p>"We were just debating whether to send everyone, or split up to rescue the hostages," Sicong says.</p>
+
+<p>Even with his fuzzy/scattered thoughts it's not hard to guess who was on what side of that debate. He drains his cup and puts it down. "What should I do?"</p>
+
+<p>"Nap," the CHRO says.</p>
+
+<p>"She's right, Verres, you look on the edge and sound over it," Stocky says.</p>
+
+<p>"My friend, Blue, he's probably the one that took the power station out. I have to make sure he's okay."</p>
+
+<p>Burrell studies him a moment, then nods. "Won't say no to the extra help. What pokemon do you have left?"</p>
+
+<p>"Kadabra and… magneton, my others might… hang on." He takes his pokedex out and checks, heart sinking as Winter's ball registers no life signs. <em>Sorry, Aiko. </em>His nidorino is dead too. He leaves both balls on the desk, then checks Forretress and feels some tension ease. "Forretress, with some healing."</p>
+
+<p>Sicong unclips a ball from his belt and says "Catch" as he tosses it to Red.</p>
+
+<p>Red's hand moves automatically to reclip Forretress and track the ball, which lands solidly in his palm. It's a diveball, and he looks curiously at the head of security, who has his pokedex out.</p>
+
+<p>"Your reflexes seem fine. Keep out your dex, I'm transferring that lapras to you. Just stay behind us and use Icy Wind on anyone that tries to take us by surprise. Understand? If you see an opportunity to use your powers on the renegades, do it, but other than that just play it safe."</p>
+
+<p>"Yes, Sir." Red's gaze lingers on the ball as he takes his pokedex out and waits for Sicong to transfer ownership. Lapras are <em>rare, </em>and pretty powerful. "Will it, uh, fit? In the halls?"</p>
+
+<p>"It's young, meant for personal ferry." Sicong's smile is wry. "I brought it specifically for indoor battles, in case… well, this."</p>
+
+<p>"Get your last preparations in order," Burrell is telling the others. "The renegades said that if we bust that door they'll kill the hostages, so we'd better hope they were bluffing, or that they're too distracted by what's been happening to follow through, because one way or another, we're ending this now." The police commissioner glances at Red. "Anything else you want to tell us about your powers, Verres?"</p>
+
+<p>"Uh, I think you have the gist. But I might not be able to use them any more." Especially since they might endanger the hostages, which is the last thing he wants them to be thinking he might do.</p>
+
+<p>Still, he recognizes the calculating speculation in the two hunters' gazes, and tries his best to ignore them. The pokedex chimes as it finishes registering the lapras, and Red clips the ball to his belt as it starts the basic training sims. He still feels like he's thinking through quicksand, but he needs to see this through before he can rest.</p>
+
+<p>And then he's probably going to have to have a very long talk with the police.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/111/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/113/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -1128,6 +834,6 @@ Only a few minutes, however. She has to get to work, after all, so she's ready f
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

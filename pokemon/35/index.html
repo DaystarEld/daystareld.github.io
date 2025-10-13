@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 29: On the Road Again - Pokemon: The Origin of Species</title>
+    <title>Chapter 35: Deception - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,514 +329,673 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 29: On the Road Again</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/34/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/36/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            Red's breath catches in his throat. "I… that's very kind of you, Professor, but… no. I can't."<br>
-<br>
-"Are you sure Red? No one would think anything of it."<br>
-<br>
-Red's stomach feels like a coiling ekans. He wants to say yes so badly… he deserves it, after all his hard work. Blue got his badge, Leaf her article… didn't he work as hard?<br>
-<br>
-He deserves it...<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-Leaving Pewter behind feels both nostalgic and exciting. So much happened in the first week of their journey that the month of "rest" feels like it was over in a blink, and as Red, Leaf and Blue watch the buildings begin to grow more spaced out and the countryside reclaim the horizon, they're each lost in their own thoughts.<br>
-<br>
-Red is the first to break the silence upon seeing Leaf check her phone for the dozenth time. "Expecting a call?"<br>
-<br>
-Leaf jumps a bit and tucks her phone away. "No."<br>
-<br>
-Red and Blue exchange a glance. "Well?" Blue asks. "How's it doing?"<br>
-<br>
-Leaf blushes. "It's hard to tell. I can't see the traffic it's getting, but there are no comments yet."<br>
-<br>
-Red smiles. "It's also only on one site. Why not post it elsewhere too?"<br>
-<br>
-"Part of the deal. La-your mom, she pointed me at some editors who might be interested in it. A couple liked it enough to publish, but the only one that offered to pay anything wanted exclusive publishing rights for six months."<br>
-<br>
-"Six months!" Blue exclaims. "How much did they pay you?"<br>
-<br>
-"Three hundred. It's not much, I kn—"<br>
-<br>
-"Three hundred!" Red grins. "That's not bad at all!"<br>
-<br>
-"Comes from writing things people actually want to read," Blue says. "And by people I mean non-nerds."<br>
-<br>
-"Hush," Leaf tells Blue. "I don't think I'd recommend it as a way to get cash. I spent weeks researching and writing and editing it. If I was after money I could have made more babysitting."<br>
-<br>
-"Still, it must be gratifying to have someone willing to pay you for it."<br>
-<br>
-"I guess. I'd rather have chosen the other publisher if it meant I'd actually get some responses."<br>
-<br>
-"It was published what, a few hours ago?" Blue asks. "Relax. Give people time to slack off at work or get some lunch."<br>
-<br>
-"I know, I know. What about you, Red? Paper all done?"<br>
-<br>
-Red hesitates. "Yep. Did the last of the edits last night."<br>
-<br>
-"Can we read it?" Leaf asks.<br>
-<br>
-"Uh. Sure." Red takes his phone out and forwards it to them.<br>
-<br>
-Leaf's gaze skims the screen, but Blue begins to read aloud. "'Psychic phenomena are one of the greatest mysteries in our world.' Wow, tell us more about how important your research is. 'We have such little understanding of the origins and mechanics of psychic powers that to most it is still believed to be mystical, a force that defies understanding.' I think people know what mystical means, Red."<br>
-<br>
-Red opens his mouth to respond, but Leaf picks up the reading before he can. "'But just as electromagnetism and radiation were once inscrutable and invisible to us, our tools have evolved to measure them, and new research has developed to study their causes and effects. At the Pallet Labs in Kanto, a new tool has been developed that may begin to demystify psychic powers.<br>
-<br>
-"'Professor Oak's latest pokedex includes an upgraded scan of a pokeball's contents. Its catalogue of the various substances that make up a pokemon, atom by atom, allows for easy study of a pokemon's molecular proportions, and lets laymen compare their pokemon to regional or international averages at a glance. As this new tool develops and becomes more accurate, we may now be capable of beginning to discern what physical properties grant psychics their powers.<br>
-<br>
-"'Our initial observations after analyzing the data of an unusually mentally powerful spinarak was that this unclassified section exceeds the norm…'" She trails off and begins scrolling down. "Where do you… oh I see. 'While the presence of subject 32 indicates that powerful mental attacks are possible with a low Other makeup, the trend of the other subjects makes it a clear exception, and does not discount a potential causal link-'"<br>
-<br>
-"Blah blah," Blue mutters, scrolling farther down, "'Sample size,' blah blah, 'future research could further explore…' That's it? So maybe there's a link and maybe there isn't?"<br>
-<br>
-"The experiment supported the hypothesis," Red says, ears burning. "But it wasn't as strong as it could have been. My r-squared was .0988, which means I just squeaked by with a p-value of .048."<br>
-<br>
-Red sees Blue's patented blank stare, and smiles. "There was a correlation of about 10%, meaning if you give me a bunch of numbers for the Other of scanned Spinarak and I had to guess what the intensity of their Night Shade are, I could probably be right more often than a random guess by about 10% if I match a higher Other with a higher Intensity and low Other with low Intensity. But 10% isn't particularly good, and with a sample size of only 40, the chance that the correlation I found was luck rather than a pattern is very close to 5%, which is the somewhat arbitrary, but traditional, cutoff for when the results of experiments are deemed significant."<br>
-<br>
-"So the point was just to say it's possible?"<br>
-<br>
-"The point was to explore the idea and hopefully encourage others to research it too." Apprehension begins to fill him as he predicts where the conversation will go. What will they think of him, when they find out?<br>
-<br>
-"That's really what you wanted from all that work?"<br>
-<br>
-"Well, no," Red admits. "What I wanted was a direct and unarguably causal relationship that would get my paper published by all the top journals, and the data isn't clear enough for that. But that was an unrealistic best-case scenario, and even if the relationship was 1:1, there would still need to be follow up experiments to confirm it, not just with a wider pool of spinarak but other psychics too."<br>
-<br>
-"Hmm…" Leaf finishes scrolling to the bottom of the paper as she reads aloud. "'Possible confounding variables include unconscious selective bias by trainers to keep stronger pokemon, or regional conformity that excludes low Other and high Intensity spinarak that may be present in other habitats…' So will you be doing that now, then?"<br>
-<br>
-"If my paper gets enough attention to get more funding? I'd be happy to," Red says. "I don't think the research community will be overly excited though."<br>
-<br>
-"What does gramps think? Can't he get you the funding?"<br>
-<br>
-Red tugs his cap down and takes a deep breath. Here it comes. "Yeah, he offered as much."<br>
-<br>
-"Well, there you go then. Congrats."<br>
-<br>
-"I said no."<br>
-<br>
-There's a moment of silence but for the tread of their feet on the road. Then Leaf simply nods, and Blue smirks and slaps him on the shoulder. "Damn right. You'll get it on your own, and it'll be for something even better."<br>
-<br>
-Red didn't realize how tense he was until it eases away. "You guys don't think it was a mistake?" He chides himself for his doubt, for forgetting who he's travelling with. If anyone in the world would understand...<br>
-<br>
-"Absolutely not," Leaf says as she takes her phone out and checks her article page again. "To shine under the shadow of greatness, you've got to blind the world with yours."<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-The sun rises to crest the sky as the day passes, Mount Moon growing slowly to encompass more of the eastern horizon. Its distant peak is jagged, part of the mountain broken in where the meteor, then thought to be a chunk of the moon, struck it thousands of years ago. They pass a small logging town at the edge of some woods and stop to rest while they eat. Blue summons Zephyr and throws berries hard in different directions for him to snatch out of the air, while Leaf lets Bulbasaur and Scamp out to play together. Red spends some time filing Charmander's claws while his pokemon wriggles and squirms at the sensation.<br>
-<br>
-"So we going over the mountain, or through it?" Blue asks.<br>
-<br>
-"Remind me what we'd find either way?" Leaf asks.<br>
-<br>
-"Well, if we go through..." Blue begins to tick them off with his fingers. "Zubat, geodude, sandshrew, zubat, paras, the rare clefairy, zubat, lower down there's chingling, absol, bronzor, zubat, makuhita, and if you're super lucky, zubat." Blue puts his hands down, then tosses another berry up. "An absol would be particularly cool, but I'd rather not spend a week in there hunting for one."<br>
-<br>
-"Charmander!" Red snaps in his most authoritative voice when the lizard makes to get up again. "Down!" His pokemon complies. "Good boy. Stay." Red takes a moment to make sure charmander sits still as he finishes filing the edge of his leftmost foreclaw. "Good boy! Good stay!" Red feeds him some pokepuff, then moves on to the next claw. "Around and on the mountain there's nidoran, ekans, jigglypuff, mankey, the occasionally rare whismur or shinx… personally that's my vote. It takes longer, but I'm not in any rush."<br>
-<br>
-"Same," Blue says, causing Red and Leaf to exchange a glance. Blue spots it and frowns. "What?"<br>
-<br>
-"Aren't you in a hurry to get the next badge?"<br>
-<br>
-Blue scratches the back of his neck. "Sure. But not at the cost of time to train my pokemon or catch new ones."<br>
-<br>
-Red grins. "Figured that out, did you?"<br>
-<br>
-Blue chucks a berry at him, and Red ducks just as Zephyr swoops down to grab it, the wind of his passage knocking Red's hat off.<br>
-<br>
-"Well there's an excavation site that Dr. Brenner told me about," Leaf says as Red leans to the side, reaching for it. "I thought it might be fun to drop by and see it."<br>
-<br>
-"Excavating what?" Red asks as he jams his hat down snug.<br>
-<br>
-"Fossils. Weirdly enough, they're finding the remains of a lot of aquatic creatures."<br>
-<br>
-"In the mountain or on the mountain?"<br>
-<br>
-"Both. But a lot of areas are damaged or close to cave-ins, so they might have fallen from above."<br>
-<br>
-"Huh." Red looks at the mountain and surrounding foothills. "So this place was all underwater once?"<br>
-<br>
-"Either that or someone who lived on the mountain liked to eat seafood," Blue says.<br>
-<br>
-Leaf frowns at him, clearly unable to tell if he's joking. Red saves her the trouble by moving the conversation along. "I'm happy to check them out. She mark your map?"<br>
-<br>
-"Yep." Leaf takes it out and sends it to them as Scamp tries to avoid Bulbasaur's vines, which keep reaching out to tangle with his tail.<br>
-<br>
-Red checks his phone when it pings and taps the coordinates for the main excavation site. It's on the southern half of the mountain's rim, and not too high up. "Yeah, that's not far out of the way. What do you think Blue?"<br>
-<br>
-"Sure. It's better than spending time in the mountain. I only have about a dozen repel, and I don't want to use it all just to avoid getting covered in batshit."<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-The next few days of travel pass quickly. The road roughens and begins to branch out in multiple directions as they approach the foothills of the smaller mountains around Moon, and the grass grows tall around them.<br>
-<br>
-Everyone was happy enough the first night to break out the camping gear and sleep beneath the stars again, but by the fourth they begin to miss the comforts of the city. Red decides to ask if the next Outpost they come across has room for them, and the others agree.<br>
-<br>
-The inside looks like many outposts Red has visited: a metal and stone building with clean white tiles and fluorescent lights. And like the other outposts, what was originally designed for function and professionalism has been peripherally overcome with the personal touches of its members over the years. Pictures dot the walls and hallways, a number of the sturdy wooden chairs have been replaced by comfortable cushy ones, and a running tally of the residents' capture stats are on a whiteboard above the belt rack.<br>
-<br>
-There are six rangers at the outpost, and five are in the middle of their meal when the three of them arrive. They introduce themselves and join the rangers at the long table in their mess hall. The rangers eat quickly and efficiently, but the youngest sticks around after the others finish and asks about their journey as the three travelers finish their meal. When Red asks about the safety of the road ahead, Ranger Matthew pulls out his tablet and shows them the map of the area.<br>
-<br>
-"We've had incidents in these areas over the past week. Mostly small threats, unusual pokemon for the route that catch trainers unprepared. Something's got them riled up, and we're still figuring out what it is. Pokemon from the mountain are showing up farther afield too."<br>
-<br>
-"What do the closer Outposts say?" Leaf asks as she puts her fruit down and updates her map with the pokemon sightings.<br>
-<br>
-"Worse the closer they get. We've increased patrols to try and reduce response times for travelers, but there are a lot of homes and towns that dot the foothills. and we're kept pretty busy helping them."<br>
-<br>
-"Are you guys considering shutting down the route?"<br>
-<br>
-Matthew shakes his head. "Not yet. No one's died, and we still don't know what the source of the threat is. There's talk about sending out a general warning though."<br>
-<br>
-Red sighs as he spreads more peanut butter on his granola. The Rangers are taking proactive steps, but not enough. "Do you predict that at the current rate of incidents, someone will die soon?"<br>
-<br>
-"Yeah, it's just a matter of time if you ask me."<br>
-<br>
-"So why not just skip the waiting and send out the alert, at least?"<br>
-<br>
-"Regional policy," Matthew says. "Guidelines are set in place to ensure a proportional response."<br>
-<br>
-Red frowns. He never spoke much with his dad about the policies and administrative decisions the Rangers operate under unless they were related to survival. "Seems unnecessarily risky."<br>
-<br>
-"Makes sense to me." Blue cracks a walnut and tips his head back as he tosses it and catches it between his teeth. "If we start shutting down routes every time someone gets killed, it would paralyze the region."<br>
-<br>
-"Alerts and shutdowns are two different things."<br>
-<br>
-"We need to be proportional with alerts too," Matthew says. "If we send them out too often, they become routine and lose their impact."<br>
-<br>
-"Is that actually true?" Red asks. "Or are we just assuming it is? I get the principle, studies show that emergency broadcasts can garner less attention if they happen too often. But reminding people of routine tasks for safety has also been shown to make people more aware and cautious. Which rule applies here?"<br>
-<br>
-The ranger spreads his hands. "Beats me. Those decisions are made above my paygrade."<br>
-<br>
-"Besides, what makes you think there's an answer at all?" Blue asks.<br>
-<br>
-Red stares at him. "That's quite possibly the stupidest thing you've said this month."<br>
-<br>
-Blue rolls his eyes. "You're acting like there has to be some 'rule' to the way people act that you can predict. People aren't that simple. They're too different from one another, too contradictory even with themselves. Warnings about some dangerous things may not apply to warnings about others."<br>
-<br>
-"Maybe not," Leaf says. "But either way, there's an answer to the question of 'do frequent alerts desensitize people,' even if we can't predict the answer from other similar questions."<br>
-<br>
-"And even if it does," Red says, "The new question becomes 'what is the frequency of alerts that minimizes casualties?'"<br>
-<br>
-Blue holds his hands up in surrender. "My point is that can change from region to region, city to city, generation to generation, hell, maybe even be seasonal. Some things might be just too complicated to understand as a general rule."<br>
-<br>
-Red shakes his head. "It's too easy to think that way about anything we don't understand. I'd rather treat questions as solvable first."<br>
-<br>
-Blue gives him a strange look at that, but before Red can ask what it's about Ranger Matthew chuckles. "You kids are more interesting than the usual trainers that come through here. They mostly just want war stories."<br>
-<br>
-Leaf grins. "Is that why you stayed with us?"<br>
-<br>
-"Guilty. I miss running around out there, going from place to place. It's nice to be able to kick back between all the excitement, but I'm hoping to get assigned somewhere new soon. All this mountain air's hell on my sinuses."<br>
-<br>
-"Where are you from, Matt?" Red asks.<br>
-<br>
-"Fuchsia. Got a couple badges, then lost my next few challenges. Decided competitive battling wasn't for me and applied for the Rangers. Been here for about a year. It's weird, seeing things from this end."<br>
-<br>
-"What, you mean being the one that goes out and helps people?"<br>
-<br>
-"Yeah, after all the times I was out there and the Rangers saved my butt." He grins. "I try to project the stoic professionalism thing, inspire confidence, but I don't think I'm good at it."<br>
-<br>
-"Well, if you come to our rescue, we'll pretend you are," Leaf says.<br>
-<br>
-Matthew chuckles. "You three don't seem like you need much rescuing, and I'm glad of it. With so few Outposts around and so much land to cover, a lot of the lower level tickets end up being solved by other trainers before we can get there. Takes a load off, I can tell you. Lets us focus on the bigger things. Speaking of which." The ranger gets up. "I'd better get back to work before the sergeant pokes his head in. You all have a good night."<br>
-<br>
-They say goodnight and finish eating just as another pair of trainers arrive. One of them recognizes Blue from his battle with Brock, and he stays behind to talk to them as Red and Leaf head for the guest quarters.<br>
-<br>
-"There have to be some studies done, or comparative cases," Leaf says as they head for the cots in the back. "I'll check Unova's policies and see if there are any statistics available on casualty rates and frequencies."<br>
-<br>
-"I'm curious to know how the decisions are made at all," Red says. "There's gotta be some spectrum between potential risk and the first casualties where it's considered."<br>
-<br>
-"You look into that then, and we'll compare notes. Nighty!"<br>
-<br>
-"Night." Red enters the men's quarters and prepares for bed, then decides to call his mom while he still has the room to himself. She knows they left Pewter, so it's back to the nightly check in. He finds it less onerous than he used to, though that might change after a couple weeks on the road.<br>
-<br>
-"Hi Sweetie! How was your day?"<br>
-<br>
-"Hey, Mom. Uneventful. We're at an Outpost for tonight."<br>
-<br>
-"Glad to hear it. How are Leaf and Blue?"<br>
-<br>
-"They're okay." Red sticks the phone to his shoulder and begins polishing his pokeballs. He really needs to pick up a headset. "Leaf got another few comments on her article, was pretty excited about that. I think she was expecting more by now though."<br>
-<br>
-"I know, poor girl. I told her not to get her hopes up, but she did a good job for her first piece. It'll be something to build on."<br>
-<br>
-Red guesses Professor Oak mentioned him turning down his offer. "I guess I should feel the same about my paper?"<br>
-<br>
-"Of course. You knew from the beginning it would be a long road."<br>
-<br>
-He did, but hearing her say it still makes him feel better. "How's Celadon?"<br>
-<br>
-"Busy as ever. I've been out and about so much that the apartment is still bare while I figure out where to open each container ball. What's on your mind?"<br>
-<br>
-Red thinks of his house in Pallet sitting empty and feels a pang. He knows his mom is looking for renters and can't decide if strangers living there would be worse. He has a sudden urge to tell her how being in the Outpost makes him miss Dad, then decides against it. No need to bring her mood down or make her worry about him. "Any luck on the clefairy market?"<br>
-<br>
-"Oh, thanks for reminding me. There's one for about nine hundred, freshly caught and with no training at all. Good enough?"<br>
-<br>
-Red thinks it over. He was on the lookout for anything under a thousand, since the average price for untrained clefairy hovers around twelve hundred on most days. It's a rare pokemon that's a favorite for pageants and makes for great gifts, but lacks the competitive scene's value to skyrocket its price.<br>
-<br>
-"Yeah, that sounds good. Keep an eye on it for me?"<br>
-<br>
-"Will do."<br>
-<br>
-"Thanks, Mom. I'll talk to you tomorrow."<br>
-<br>
-"You're welcome hon. Goodnight."<br>
-<br>
-"Night."<br>
-<br>
-Red closes the call and hangs his belt on the cot's corner pole, then tops it with his hat. He lies down with his hands behind his head and stares at the ceiling, taking a quick rest before he heads for the shower. He has about two hundred dollars on him, having withdrawn the max amount every week and spent as little as possible while in Pewter. Nine hundred bucks is just over a third of his funds, but if he's right about the clefairy's imminent increase in value he should be able to make it back.<br>
-<br>
-That's assuming he sells it of course, which he told his mom he'd only do if he caught another one. Red doesn't think that's likely if they're going over the mountain rather than through it. But even if he doesn't, the clefairy's value would still be an asset he could liquefy in an emergency… his mom would understand.<br>
-<br>
-There's so much he could do with the extra money. Better equipment. Funding his own research. Hell, he could start some psychic lessons in Cerulean. He still remembers the feeling of Narud peering around in his head, however briefly. That sensation of having a separate self within himself. What would it be like, to harness that power?<br>
-<br>
-More than once, Red has thought that the most obscure secrets of the universe would be revealed through the study or use of psychic abilities. There are plenty of mysteries he could tackle in the world of pokemon biology: the secret to the intense compression of liquids Water types are capable of, or how Ice pokemon can freeze an environment with beams of light, or the ever fascinating sudden and rapid metamorphoses known colloquially as "evolution." All those questions fascinate him… but none really address the core question in his mind, the origin of pokemon life and species. He doesn't know how his research would be improved with a personal understanding of psychic phenomenon…<br>
-<br>
-But he'll continue studying psychic abilities if the opportunity presents itself, whether or not his paper gets published. If he ever wants to understand his own powers, it's as good a place to start as any.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-They leave the Outpost the next morning after a leisurely breakfast with the rangers, who seem more relaxed during the day. Or maybe they're just less tired. Red gets to know a few more of them, and feels another pang of homesickness for his dad's friends and coworkers around Pallet. Ranger Matthew tosses each of them a Ranger issue meal bar for the road as they leave, and Red pockets his with a nostalgic feeling.<br>
-<br>
-Mindful of the warning about increased incidents, Leaf and Blue send Crimson and Zephyr wheeling above, and Red sends Rattata out to scout the trail alongside Scamp. They rotate through their other pokemon as they travel, giving each time to walk beside them.<br>
-<br>
-Eventually Red lets Pichu out, but the electric mouse immediately scampers up to perch on his shoulder. Its small claws hold tight to Red's collar as Pichu watches the two rattata dart behind and between and ahead of the three trainers, their whiskers quivering as they sniff for food or danger.<br>
-<br>
-"Go ahead," Red says as Pichu pokes his head forward and sniffs at Leaf. "That's the lady that caught you. She saved your life. Do you remember her?"<br>
-<br>
-Leaf smiles as the pichu's nose twitches, its overlarge ears swiveling from side to side above it, and picks a berry from her satchel to offer. Pichu shies away and scrambles to the other side of Red. "Aww," Leaf says with a grin. "Is this his first time around others?"<br>
-<br>
-"Yeah. I spent about an hour a day letting him get used to me, but he's still really timid." Timid is putting it mildly. When Red first brought him out at the training rooms, Pichu sent sparks wildly around until he was empty; not in any organized attack, but simply out of panic.<br>
-<br>
-"I remember him being much more spirited in the forest. Guess he was desperate."<br>
-<br>
-Zephyr flies down to land on Blue's shoulder, who winces a bit. "You're getting too big for that, bud," Blue says as he pats the pidgey's wing. Now that he's up close, Red notices Zephyr's almost twice as large as Crimson. Different pokemon can mature faster or slower than each other, but intense training and battling always speeds the process up.<br>
-<br>
-"He looks close to evolving." Red says, and at Leaf's curious look adds, "His crest is starting to drape back."<br>
-<br>
-"I was hoping it would happen in Pewter, but I didn't spend as much time with him as the others," Blue says. "Most of the gym members weren't really interested in a flying type."<br>
-<br>
-"So did you really learn a lot there, or were you just being polite?" Leaf asks.<br>
-<br>
-"I don't know if 'learn' is the right word. Shut up Red, I heard that snicker. I picked up some good advice, and the trainers there were good practice partners, but the real value came from the consistency. It's different, having a schedule for training, being expected to stick to it. I think that's half the value being in a gym gives, and if I can stick to it elsewhere, I won't need to spend a month in each city preparing for the badge."<br>
-<br>
-"I thought you'd like it there," Red says. "Leaf and I are always such wet blankets about battling, it must have been nice to be around others who were into it."<br>
-<br>
-Blue scratches at the back of his neck. "Sure, it was alright. But at the end of the month I was bored out of my mind at still being there, while the rest of them were happy to stay and soak up as much as they could. Mostly from trainers like me."<br>
-<br>
-"Big words from someone that took a whole two tries to get his badge," Leaf teases.<br>
-<br>
-Red grins. "Can you imagine how big his ego would be if he got it on the first?"<br>
-<br>
-"Hey, I'm serious!" Blue says as they laugh. "You know how long some of them have been there? Months, without challenging Brock once. They don't get it, think they can become great by just climbing ranks, learn everything inside and out before they take a chance. Most didn't come to the forest that night, even though their Leader sent out the call. A few are the real deal, but the rest… they're a bunch of wimps!"<br>
-<br>
-Red holds his hands up. "Sorry, Blue, didn't mean anything by it. Two tries is damn impressive any way you cut it."<br>
-<br>
-"What would you do different, if you were Brock?" Leaf asks.<br>
-<br>
-Blue's jaw sets. "Brock… he's a good Leader, and he talks the talk about being hard on trainers. Even does a decent job of walking it. But even he babies them too much. For the members, I'd send them out on missions with the Rangers at least once a week. They need to cut their teeth on some real situations more often, have some natural pressures to get creative. For the challengers, three months, max, before they have to try for the badge or leave. If they want to come back after hitting up some other gyms, fine, but this hand holding shit has got to end. It'll hurt the city's combat readiness, sure, but if every gym starts doing it at once each one will still be more or less up to strength if they need defending."<br>
-<br>
-"Sounds like you put some thought into this," Leaf says. "Are there any Leaders you think have it right?"<br>
-<br>
-"Hard to tell without seeing their gyms myself, but Surge, maybe? Koga and Sabrina too, in their own way."<br>
-<br>
-"Blaine?" Red asks.<br>
-<br>
-"Too weird."<br>
-<br>
-"Giovanni, then."<br>
-<br>
-"Probably the closest. But none of them have it all right." Blue turns to Leaf. "What are Unova's leaders like?"<br>
-<br>
-As they start to discuss that, Red smiles as he remembers his talks with Blue on this over the years. Blue used to go on rants about the Gym Leaders all the time, but this was calmer, more focused. It's clear his friend has learned more than he realizes from the Gym.<br>
-<br>
-Or maybe it's everything else. Having his own pokemon to train, the forest fire, the journey in general. Blue's growing up, getting more mature. Red wonders if he has too, and pulls out his notebook to start listing things he wants to change about himself:<br>
-<br>
-<em>1. Be less afraid of tamed pokemon. Test: Next time you have the chance to interact with a dangerous one, don't hesitate without reason.</em><br>
-<br>
-<em>2. Pay more attention to friends. Test: Correctly guess when Blue or Leaf are lying or feeling vulnerable without them saying so.</em><br>
-<br>
-<em>3. Be a better scientist. Test: Form a more falsifiable hypothesis for your next research project.</em><br>
-<br>
-Red has trouble thinking of any others. He's just about to ask Blue and Leaf for feedback on what he needs to improve when his phone chirps a shrill alarm.<br>
-<br>
-The group's pokemon all react to the sudden noise, and Blue and Leaf blink at him. "Is that—"<br>
-<br>
-"Someone just sent out a CoRRNet ticket near us," Red says as he pulls it out. "I changed my alert settings when we left the Outpost this morning." Tapping the alert brings up his map, which expands from their location to the site of the ticket writer. "About two kilometers northeast of here, where the road branches off a bit… 'Assistance required to investigate unknown hazard.'"<br>
-<br>
-Blue frowns. "That's it?"<br>
-<br>
-Red nods. "The closest Ranger outpost is twenty minutes away. Think we should go?"<br>
-<br>
-Leaf has already changed course and begins walking faster. "It's on the way. Let's see if we can help."<br>
-<br>
-Red and Blue match her pace, then begin to speed up. Soon the three are jogging as their pokemon run faster too, and Red feels Pichu's claws grab tight to his shirt and collar as his backpack bounces.<br>
-<br>
-"What do you guys think it is?" Leaf asks.<br>
-<br>
-"Around here, maybe a spearow attack." Blue tracks Zephyr with his pokeball as he loops around and withdraws him.<br>
-<br>
-Red shakes his head. "It said unknown hazard, if a pokemon was sighted they would have listed it." The possibilities run through Red's mind, focusing on the wording in particular: "unknown hazard." Hazard implies something in the environment. Maybe a toxin? He unhooks his facemask from the back of his pack and pulls it on, and the other two do the same, breaths fogging the glass as they run.<br>
-<br>
-Eventually the tall grass in the distance shows a gap, and the other branch of the road becomes visible. Once they reach it they turn right and continue eastward, and soon they can see two trainers in the distance.<br>
-<br>
-It's a pair of older girls, who turn around as the group approaches. "Hey, hold on! Withdraw your rattata!"<br>
-<br>
-They call their pokemon back before they can run by the two trainers, then return them and introduce themselves. "We're here to help. What's going on?"<br>
-<br>
-"Glad to hear it. This is Naoko, I'm Dania." The trainers look to be in their mid teens, both with a full belt of pokemon. "Take a look." They step apart and point farther up the road.<br>
-<br>
-In the distance a ponyta lies on the road, apparently unconscious. Heart still pounding from the run, Red feels his pulse spike even faster at what's beyond it.<br>
-<br>
-Pokemon litter the road and the grass to its sides, mostly bird pokemon. There's no blood or signs of a battle, and Red feels goosebumps rush up his arms, thoughts racing.<br>
-<br>
-"How long has this been going on?" Blue asks.<br>
-<br>
-"Ten minutes? We sent the alert right after. Jonetsu was trailblazing, then he just fell over." Naoko's hands grip her elbows, radiating barely controlled panic. "He's out of withdraw range… I don't know what to do."<br>
-<br>
-"We don't dare go any closer," Dania says. "We saw nothing, heard nothing."<br>
-<br>
-"I don't blame you," Red says. There's something distinctly unsettling about all the unconscious, possibly dead, pokemon littering the road.<br>
-<br>
-"Could be some kind of spores," Leaf says, and licks her finger to check the air. "We're not downwind."<br>
-<br>
-"Have you tried going around?" Red asks.<br>
-<br>
-"No. There are no pokemon on the ground around here, but we don't know how far the effect extends, and it might be a matter of time before a pidgey flies over to the north of us and hits the ground."<br>
-<br>
-"If there's some ghost or psychic pokemon ahead, I might be able to check it out," Blue says, causing everyone to look at him in surprise.<br>
-<br>
-"Woah, hold on," Red says. "It's very noble of you, but let's not assume it's a mental attack just yet. If they're asleep it might be some sound."<br>
-<br>
-"Why can't we hear it then?" Dania says. "Wait, we're out of range, right. But by a few meters?"<br>
-<br>
-"It must end somewhere," Leaf reasons. "What pokemon around here can put others to sleep?"<br>
-<br>
-"Jigglypuff," the others respond immediately, and Naoko continues with, "But they mostly stay closer to Mount Moon. I guess we might be close enough to find a stray one…"<br>
-<br>
-"Pokemon from the mountain have been spotted wandering farther lately," Red says, recalling what Matthew said. "A jigglypuff's range is what, 70 decibels? 80? A wigglytuff has more. And sound travels in an open space by the inverse square law." Red takes his notebook back out and writes the equation. "Double the distance means a fourth of the intensity, which is about 6 decibels. The ponyta is about thirty meters away, so if the sound went below 0 decibels in that distance, its source should be about… 150 meters away? No that's not right..."<br>
-<br>
-"Um," Naoko says, and Red looks up in distraction. "I don't know if this matters to what you're doing, but ponyta hearing is much better than ours is."<br>
-<br>
-Red stares at her, then flips his notebook closed. "Right. Of course it is. Well, nothing for it then. We've got our hypothesis, time to test it. What pokemon do we have with the best hearing? I think mine is Rattata." Technically Pichu might have better hearing, but Red would rather not risk him unless he has to.<br>
-<br>
-"Same," Leaf says, and grins at Blue. "Could use a zubat about now, huh?"<br>
-<br>
-He makes a face. "I think Zephyr's my best at hearing, though I don't know if pidgey are better than rattata?"<br>
-<br>
-"I have a noctowl," Dania says, and unclips a pokeball. "Go, Tarkus!"<br>
-<br>
-The noctowl bursts into existence in the air, and Red has a moment of wistful envy before the bird staggers and plummets to the grass.<br>
-<br>
-"Tarkus!" Dania rushes over to it and skids to the ground, checking its breast and beak. "He's okay… you were right, just sleeping!"<br>
-<br>
-"That means Jonetsu is too!" Daoko runs forward before Red can stop her, and returns her ponyta to its ball. Red waits for her to keel over, but however far the jigglypuff or wigglytuff is, apparently they're not close enough yet.<br>
-<br>
-"Okay, so do either of you have a rattata?" Red asks.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-<em>Clear.</em><br>
-<br>
-<em>Clear.</em><br>
-<br>
-Red types his own <em>Clear</em> out on his phone as Rattata continues to sniff at the grass in front of him. He walks farther to the north, counting ten paces before taking three eastward. Another series of buzzes makes him look down, and now one of them says <em>stopped.</em> Scamp apparently fell asleep, and Red watches as a marker appears on his map. It's the ninth incident, and now they have a very clear idea of the sound's circumference.<br>
-<br>
-Red was worried that the jigglypuff or wigglytuff was moving as it sang, but it seems to be staying still enough for them to map its general location. They could triangulate its distance and direction from the second time their rattata fell asleep, but Leaf pointed out that there might be more than one of them, and so they continued to spread slowly outward just incase.<br>
-<br>
-Naoko has a rattata too, which left Blue and Dania back where they started in case of trouble or if any rangers show up. Red's phone buzzes with an all clear from Leaf to indicate that she's carried her rattata out of the danger zone and woke it back up, then another message from Blue arrives.<br>
-<br>
-<em>Okay, so we good? Looks like there's just the one so let's go grab it.</em><br>
-<br>
-Red hesitates, then types "Okay" on his phone. He digs his earplugs out of his bag and returns Rattata to her ball. The group agreed to a finders-keepers policy for any sleeping pokemon that they stumble across, and Red's eager to see what he can find.<br>
-<br>
-<em>Ready… </em>Dania sends.<br>
-<br>
-<em>Setgo</em> Blue replies, and Red grins and sticks the earplugs in. They muffle the ambient sounds around him, and Red begins walking toward the center of the sound circle. He can see Naoko to his right, and farther along the distant figures of Blue and Dania as they jog off the path. There's a flash farther out, and Red knows Leaf must have caught something.<br>
-<br>
-He casts his eyes around, searching for the brown of a pidgey or spearow among all the grass. There's one farther ahead, but Naoko is already running for it, and Red sees another depression in the tall grass to his left.<br>
-<br>
-His heart races as he jogs toward it. <em>Nidoran or mankey, nidoran or mankey, nidoran or mankey… yes!</em><br>
-<br>
-Red holds his ball at the sleeping male nidoran, counting the seconds until he knows it's done locking, then tosses the ball and lets out a muffled woop as it disappears into it. He quickly grabs it and attaches it to his belt without registering it, taking out another ball and jogging forward through the tall grass.<br>
-<br>
-It feels exposed running through the thick greenery without a pokemon, but anything that's out here has likely been put to sleep by the 'puff or 'tuff. Though something about that thought bothers him… Red slows down as he considers the nagging sensation, then sees Blue jogging into the grass ahead of Dania and picks up his speed, knowing that his friend is going for the main prize. Dania sticks to the road and catches what looks like a pidgey, and a minute later Red sees the tan hide of a sandshrew up ahead.<br>
-<br>
-He breaks into a run, breath loud in his muffled ears as his feet fly over the grass. He looks to his right and sees Naoko gaining on him with a wild grin, then zags in front of her to block her sight as he gets close enough to point his pokeball.<br>
-<br>
-<em>One, two-</em><br>
-<br>
-Naoko slides in from the side, one hand up to block his pokeball's connection as her own lens aims straight at it. Red curses and dashes away, not wanting to get caught up in a contest for one when there are others around.<br>
-<br>
-Blue is in the distance, with Leaf hot on his heels. Red checks his map and sees that they're halfway to the center. He could give chase, but there's a ton of unexplored area to the other side that might have pokemon in it.<br>
-<br>
-Red changes course and waves at Dania as he jogs past her. He strains his eyes to pick out some distortion in the landscape and spies another flash of brown.<br>
-<br>
-<em>Well, it's a Flying type,</em> he thinks as he happily catches the spearow, then takes off for another shape.<br>
-<br>
-It takes a second to identify the ekans, and about half a second more to recognize that it's <em>moving oh shit—</em><br>
-<br>
-Red leaps to the side as it uncoils at him, simultaneously reaching for Charmander's ball and calling himself an idiot twice over. Instead he pivots on his heel and <em>runs </em>for the center, chasing the distant figures of Blue and Leaf as he reclips Charmander's ball and tucks the empty one away. <em>Of course </em>it makes sense that if pokemon with better hearing fall asleep farther away, pokemon with worse hearing won't until they're much closer.<br>
-<br>
-Red chances a glance back to confirm that, yep, the ekans is chasing him like a ripple of purple water through the grass, and terror sends fresh adrenaline through his pumping legs.<br>
-<br>
-When last they clocked their run speeds, Blue beat Red by just over a second in a hundred meter dash. Turns out that being chased by a poisonous snake makes you run faster than any rivalry can, because he's soon within throwing distance of Blue. When his friend next turns around to check how close Leaf is, he spots Red and grins wide, slowing a bit to turn and run backward as he flips him the double pidgey.<br>
-<br>
-Red's mouth moves soundlessly—<em>Run you idiot!</em>—as he waves his arms frantically forward with what must be a sufficiently terrified expression, because Blue's eyes widen and he immediately turns around and puts on a burst of speed. Leaf, who had been gaining on him, turns and sees Red too, then looks behind him and sees the ekans.<br>
-<br>
-She immediately reaches for her bag, hands scrambling at the straps and reaching in, heedless of the objects that fall out. Red wishes he knew what she was looking for in case it was jettisoned, and jumps over the various bottles and containers rather than risk tripping on them. Just as he's about to catch up to Leaf, she reaches into her bag and pulls out a collapsible net.<br>
-<br>
-Red grabs it from her and extends its handle, then plants a foot, pivots, and swings the net just above the grass. The ekans leaps at him just as the net begins to lift... and bounces against the rim and to the side.<br>
-<br>
-It lands in the grass sideways and rights itself with a twist. Red uses the end of the net to pin it in place as Leaf approaches with a pokeball, knuckles gripping the handle painfully tight as the snake writhes and tries to slip away. A moment later Leaf's pokeball snags it and sucks it in.<br>
-<br>
-Red falls back onto the grass and pants for breath, a dull roar in his ears. He can just see Leaf in his periphery lying beside him, and he holds up a fist. She stares at it for a moment, then grins and bumps it with hers, shaking her head.<br>
-<br>
-Some time later the stitch in his side fades he sits up just in time to see a pidgey fly up from the grass in the distance. There's motion to his left, and another one takes off far away, flying a bit unsteadily at first before it flaps its wings and lifts in a clean arc.<br>
-<br>
-Red blinks, then cautiously unplugs an ear little by little. When he hears nothing and doesn't begin to feel sleepy, he pulls the other out and looks around.<br>
-<br>
-Blue is walking back toward them, sweaty and triumphant as he spins a pokeball on his finger. "Hey losers. What was all that about?"<br>
-<br>
-"Ekans," Red says between heavy breaths. "Low hearing. Wasn't asleep."<br>
-<br>
-"Wow. Sucks to suck. Glad you didn't get bit though. That your net, Leaf?"<br>
-<br>
-She nods as she pulls the second plug from her ear. "I used it to catch my ledyba."<br>
-<br>
-"Why did you pull the net out, anyway?" Red asks. "I was running it toward the jigglypuff so it would fall asleep."<br>
-<br>
-"Well I didn't know if you were going to make it that far. I figured it would be good to have on hand in case we needed it, but then you grabbed it and decided to make a stand. I just thought you were out of breath."<br>
-<br>
-"Well the main thing is, no one important died," Blue says. "I'm assuming, anyway. You guys see the other two? We should probably warn them that the pokemon are waking back up."<br>
-<br>
-Leaf and Red get up and head back toward the road, picking up Leaf's fallen items as they go. "So how did you guys do?" Leaf asks.<br>
-<br>
-"Nidoran and spearow," Red says.<br>
-<br>
-"No shit?" Blue asks. "I just got a rattata and this wigglytuff."<br>
-<br>
-"Woah!" Red says as Leaf makes a sound of envy. "So it was a fully grown 'tuff?"<br>
-<br>
-"Yep! Sitting on a rock and just singing its heart out. Sucker never saw me coming. Should fetch a good price on the market."<br>
-<br>
-"Hey Blue," Leaf says in a sweet voice. "You wouldn't happen to want to maybe <em>trade </em>it, would you?"<br>
-<br>
-"For what, an ekans? Nah, I'm good, thanks."<br>
-<br>
-Leaf nods. "Yeah, an ekans wouldn't really help you out in Cerulean. I heard that Water types don't fare too well against Electric, though…"<br>
-<br>
-Red and Blue stare. "No way…"<br>
-<br>
-She unclips a ball from the back of her belt and polishes it with an admiring look. "You know what, I think I'll keep it. I always wanted a luxray…"<br>
-<br>
-Red listens to them barter as they meet up with Dania and Naoko and find the road again together. As they continue their walk to Mount Moon, Red takes his phone out and finds their open ticket, and with Dania's permission marks it solved. He wonders if Ranger Matt will see it and note the name on it. <em>No worries guys, </em>Red thinks as he tucks his phone away with a smile. <em>We got this one.</em>
-        </div>
+            <h1 class="chapter-title">Chapter 35: Deception</h1>
 
-        <div class="chapter-nav">
-            <a href="../34/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../36/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>Leaf wakes up the next morning with a sick feeling in her gut. She went to sleep late last night, engrossed by every new comment that showed up on a half dozen different news and community sites.</p>
+
+<p>People condemned the vandals, or supported them, or made unrelated arguments and accusations, seeming to fit the events into whatever narrative they happened to believe. It was dizzying trying to keep up with it, especially with only token comments from anyone official, who would probably wait until morning before making a more complete statement. Just like Leaf knew she should. Eventually she forced herself to turn off her phone and tossed and turned for an hour before drifting off to troubled sleep.</p>
+
+<p>But things don't seem any clearer this morning when she grabs her phone and immediately begins browsing the sites again, still rubbing the gum from her eyes. She absorbs all the comments that people left overnight, and it gets harder not to respond, especially when they bring her up directly, misrepresent her arguments, or outright put words in her mouth. She knows that running around trying to put fires out might just feed them, especially when groggy and stressed.</p>
+
+<p>She checks the time to see if it's too early to message Laura, and frowns to see that it's only 6:18 AM. She shouldn't, especially since she already knows what Red's mom would say: keep your head down, let it blow itself out, make a statement when things are calmer. Her heart aches when she sees the pictures, reposted again and again, of the glass doors and windows of the museum smashed in, spray painted symbols of Pewter's predominant religion on the wall beside it. She thinks of all the people who worked there who she met, who took time out of their day to speak with her, like Dr. Brenner, and regrets bringing such trouble into their lives.</p>
+
+<p><em>I'm not responsible for this. The people who did it are, and maybe the ones who egged them on.</em></p>
+
+<p>Easy to say. Hard to fully accept.</p>
+
+<p>She finally forces herself to close her phone again, and gets out of bed to shower and prepare for the day. She starts thinking of things to say, statements to make. An apology first, for clearly angering so many people. A plea for peaceful discourse. Would that make her sound too weak? Should she care? She wonders how Mayor Kitto feels about her now. Probably wishes she'd never come to Pewter.</p>
+
+<p>She leaves the public bathrooms wanting to just crawl back into bed and draw the covers over her head. But when she gets back to her room and, against her better judgement, checks her phone again, she sees something that makes her smile.</p>
+
+<p>It's an organized message, from over a dozen Pewter churches. They openly condemn the vandalism, and its perpetrators, and plead that the city discuss its differences without anger. A small group of volunteers have already helped clean the graffiti, and the overall tone of the conversations does seem to have shifted slightly since the message went out.</p>
+
+<p>Leaf feels a hundred pounds lighter as she closes her browser and messages Red and Blue, then puts her phone away and gathers her things. Maybe it's not quite as bad as she thought.</p>
+
+<p>She meets the boys downstairs for breakfast, then they pay at the front and head to the nearby pokecenter. The sun is still rising, and Cerulean West is rising with it. People in work clothes, often with a cup of coffee in one hand, busily move from place to place before the crowds start congesting the roads. Blue's on his phone as he walks behind Red and Leaf, who talk about the trip to Cerulean North. It isn't until they reach the center that Blue stops dead and stares at her. "What the hell happened to your following, Leaf?"</p>
+
+<p>"Oh. Uh. Something happened in Pewter." She flushes. She hadn't sent Blue the news article last night, thinking he wouldn't be as interested.</p>
+
+<p>"The museum was vandalized," Red explains, then looks at her. "I didn't want to bring it up, figured you might be upset about it."</p>
+
+<p>"I am. Just trying to see how things turn out."</p>
+
+<p>"See how things turn out?!" Blue points his screen at her. "Your following doubled overnight! <em>Doubled! </em>How are you not riding this wave? You should be typing until your fingers are sore!"</p>
+
+<p>"Whoa, no," Red says. "Bad idea. You might cause more drama, it'll look like you're making it about you."</p>
+
+<p>"She can't just say nothing, it'll look callous-"</p>
+
+<p>"Guys," Leaf interrupts. "I was planning on asking Laura, when we're getting our pokemon. Think she's awake now, Red?"</p>
+
+<p>"Yeah, she's an early riser. We'll let you get your pokemon first so you can call her after."</p>
+
+<p>"Thanks." They walk in and go to the line reception hall, a sizeable line already formed as the pokemon trainers prepared for their day. "Or I guess I can do it now. Save my spot?"</p>
+
+<p>They agree, and Leaf wanders over to an empty table to make the call. She breathes deep to settle her nerves as the phone rings, and mostly succeeds by the time Laura picks up. "Good morning, Leaf. Is everything okay?"</p>
+
+<p>"Morning Laura! Yep, everything's fine. Sorry for the early call."</p>
+
+<p>"Not a problem, just making some tea. What's on your mind?"</p>
+
+<p>"Well…" Leaf gives Laura what was intended to be a quick summary, but she keeps thinking of new comments she read or thoughts she had to add to it, until she finally trails off with, "And now I'm thinking it might be best to answer after all, since there was such support-"</p>
+
+<p>"No," Laura says. "It's great that there's been positivity too, but you should still keep out of it. This may be one of the hardest things you learn to do Leaf, so listen carefully. When you're just a private citizen, you can make all the posts in forums you want. You can have dozens of conversations a day about everything you think of or are interested in. But once you step into the limelight, once you're in any way a public figure, your whole perspective has to change. And from what I'm seeing right now with your following, you're definitely a public figure. A minor one, mostly just in one city, but still."</p>
+
+<p>Leaf listens and tries to really absorb her words. "Okay, yeah. I knew that, I guess I just had to hear you say it too. So not even an apology, right?"</p>
+
+<p>"No, not even that. You did nothing wrong. You just wrote an article, and nothing in it was inaccurate or misrepresented anyone. No offense Leaf, but it shouldn't even have grown as big as it did. It likely wouldn't have without the mayor shining a spotlight on it."</p>
+
+<p>"I know. I bet he's wishing he didn't, now."</p>
+
+<p>Laura makes a sound that Leaf can't quite interpret. "Regardless, the best thing you can do right now, with things as they are, is ignore it… and get to work on your next article."</p>
+
+<p>Leaf blinks. "What? <em>Oh.</em> Not on the museum, on something else, right? Keep the momentum going."</p>
+
+<p>"Exactly. If you're going to be a journalist, even part time, you have to always be moving on to the next thing. Your job isn't to pick a hill and fight on it until the bitter end. If you ever want to go into politics, that's the time to make ideological stands. As a journalist, your job is to investigate and report."</p>
+
+<p>Leaf is silent for a moment. Does she want to be a journalist, really? She set out to just write something that might make a difference about something she cared about. That's basically what journalists do, but... after all that happened, is it something she's willing to keep going through over and over? Or is it just going to be like her other interests, a short lived passion that drives her to try something new, learn new skills, then get bored and move on?  She thinks about the book she was planning on writing about local myths in Kanto, and how she has little interest in that anymore.</p>
+
+<p>On the other hand, Leaf's mind is already racing through ideas for what she could write another article about. It's an exciting feeling, and she enjoys the idea that she might have made a difference, even if it had some negative consequences. If this is going to be another short lived passion, she'll at least ride it until it peters out, not bow out early because a few windows got broken. "Okay, so I'll start looking for a new thing to write about. What if someone asks me about it, though? No comment?"</p>
+
+<p>"If you're ever in front of a camera or in an interview with someone, you can comment on it. But you have to be <em>careful.</em> Again, public figure versus private are two very different things. Now that you have a following, you can't just think about what you say… you also have to think about what people will hear."</p>
+
+<p>"Like that preacher."</p>
+
+<p>Laura's tone darkens. "Exactly like him. Thankfully he's getting some backlash over it, from the other priests even. We'll see what he does in response. But regardless, stay out of it. I'm saying that in my official capacity as your mentor."</p>
+
+<p>Leaf smiles. "Don't worry, I'm convinced."</p>
+
+<p>"Good. I've got some friends in Cerulean, maybe someone has extra leads they don't have time to investigate. One of them might be a good start for a story, if you don't find something else that interests you."</p>
+
+<p>"That would be great. Thanks, Laura."</p>
+
+<p>"Of course, hon. Give Red and Blue my love, and enjoy Cerulean!"</p>
+
+<p>"I will. Bye!"</p>
+
+<p>Leaf closes the call and flips the phone around and around in her hands for a moment, thinking. She feels better about things now, like she doesn't have to hurry up and respond to the situation. She can just take her time and-</p>
+
+<p>The phone rings and vibrates in her hand, startling her into almost tossing it up. She looks around to make sure no one saw, then checks the caller ID. Hm. Unrecognized.</p>
+
+<p>"Hello?"</p>
+
+<p>"Hello, Leaf, how are you?"</p>
+
+<p>Leaf blinks. "Mayor Kitto, hi. I'm… fine, thanks, and yourself?"</p>
+
+<p>"Good, thanks for asking." The mayor sounds busy, and Leaf imagines him at his desk of paperwork, talking with her via headset while he types with one hand and flips through a folder with the other. "Listen, I know you're probably busy with your travels. I just wanted to let you know there's been an incident-"</p>
+
+<p>"Oh gods, another one?" Leaf's stomach is cold.</p>
+
+<p>"What? Oh, you know about the museum then? Sorry, that's what I meant."</p>
+
+<p>"Oh! Yeah, I saw the report last night."</p>
+
+<p>He chuckles. "Still keeping an eye on our fair city? I'm happy to hear it. Well, that makes this conversation much shorter. I was wondering when you plan to respond? I have a press release in a couple hours, and was hoping to-"</p>
+
+<p>"Respond? To who?"</p>
+
+<p>"To… the situation. In general. You were going to make a statement of some kind, right?"</p>
+
+<p>Leaf is suddenly very, very glad she called Laura when she did. If she'd had this conversation first, she'd feel compelled to assure the mayor that she would, despite having no idea what to say. "Are you sure that's a good idea? Wouldn't I just make things worse somehow?"</p>
+
+<p>"Oh, I don't think there's going to be anything more from this, some folks just got carried away. There's been a great coming together this morning, and I'm sure you could help with that."</p>
+
+<p>Leaf frowns. She is glad for the show of solidarity, and if she makes a clear statement of appreciation for that, it could push back a bit against the idea that she's trying to stir up the city, which is something she saw a number of times from her detractors . Maybe he's right… "I'll have to think about it."</p>
+
+<p>"Is something wrong?"</p>
+
+<p>"Wrong? No, everything's fine. Why?"</p>
+
+<p>Mayor Kitto doesn't sound busy any more, voice thoughtful. "I'm sorry, I guess I just assumed this would be something you're interested in. Was I wrong to involve you in all this, Leaf? I hope I didn't misread your intentions."</p>
+
+<p>Leaf rubs her brow with one hand. She wishes she had a moment to think, things feel like they're speeding up again. "No, I'm g-glad that you mentioned my article." She almost said <em>grateful, </em>which she was, but… it suddenly didn't feel prudent to say. "I just want to make sure I'm not doing more harm than good."</p>
+
+<p>Kitto is quiet for a moment, then says, "I understand. You're a smart woman. Trust your instincts, and I'm sure you'll do the right thing. Thanks for your time, Leaf."</p>
+
+<p>"And you, Mayor." She ends the call with relief, and begins to spin her phone around and around in her hands again. After a moment she puts it on the table and stares at it distrustfully from there.</p>
+
+<p>Damn it all. She was ready to move on after talking with Laura, but now she's not quite as sure of herself. She rests her elbows on the table and puts her face between her hands, gaze distant. If she distrusts the mayor's motives, she shouldn't do something he wants her to without knowing them. She knows that Laura, at least, has her best interests at heart. So why is she still torn on this?</p>
+
+<p><em>Because it's hard to leave it behind,</em> she realizes. That's what Laura meant. The limelight could be an addictive thing, especially for someone that will rely on attention for their work.</p>
+
+<p>She wouldn't be doing it for attention, though, if she does it at all. She'd be doing it to help…</p>
+
+<p>Leaf abruptly stands up and pockets her phone. She needs to focus on something else. The sooner she finds a new topic to catch her interest, the sooner she can put the temptation to stay involved in Pewter behind her.</p>
+
+<p>As she heads back toward the guys, she wonders what engaging stories Cerulean City might be hiding.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Cerulean North is much wider than West, stretching all along the coast of the bay. Blue watches it approach from his seat on the roof of the bus, breathing in deep as he catches a glimpse of the coast through the high rises. He imagines he can smell salt on the air, and knows it's just his imagination. He just misses the beach in Pallet.</p>
+
+<p>Red and Leaf are standing with their hands on the railing, watching the city slowly grow around them as the bus weaves its way toward the heart of Cerulean North, where Blue will find its Gym.</p>
+
+<p>Blue's fingers trace the lids of his pokeballs for Kemuri, Gon, Maturin and Ion. A shiftry, a shroomish, a squirtle and a shinx… to beat one of the most powerful Water Type trainers in the world, and a powerful psychic at that. Blue doesn't think he's ready yet: his loss in Pewter still weighs heavily on his mind. But the only way to regain his momentum is to take Misty out in their first fight, to defeat her utterly if he can, with pokemon to spare.</p>
+
+<p>He doesn't know if that'll be possible with his current lineup. Gym Leaders select the strength of their pokemon and the complexity of their strategy based on the number of badges their challengers have, but the jump in difficulty between getting one's first and second badges is much higher than any other. Ideally that wouldn't be the case, but Leaders would always pull the most punches against someone untested, and showing that you're capable of beating one of them is enough for the rest to scale back the majority of their safety precautions.</p>
+
+<p>Blue is going to need stronger pokemon before he faces Misty. No, not new ones that would take awhile to train and become familiar with... he'll need <em>his </em>pokemon to be stronger.</p>
+
+<p>He'll need some of them to evolve.</p>
+
+<p>"Not interested in seeing the view, Blue?" His attention snaps up to see Leaf smiling at him from the balcony.</p>
+
+<p>"Been here a couple times before with gramps and Daisy." And apparently once with his parents when he was very young, though he doesn't remember it as well as Daisy does.</p>
+
+<p>Red drops back into the chair beside him, arms over his head to grip the back of it as he stares up at a highrise they pass. "Did you ever meet Misty?"</p>
+
+<p>"Sort of. We had dinner with her once just after she became Leader. I was pretty young though, don't think I spoke much."</p>
+
+<p>"Do you know what her virtue is?" Leaf asks.</p>
+
+<p>"No, like most Leaders, she doesn't talk about it. But speculation online is that she favors adaptability. Being able to change to sudden circumstances. That or clever use of the environment."</p>
+
+<p>Red frowns. "Is this an actual thing? You'd think it would be pretty easy to find out about."</p>
+
+<p>Blue shrugs a shoulder. "To be honest it's more of a tradition than a rule. Some Leaders probably don't care as much about it. And it can only give you a path to take for victory. It's not the only one."</p>
+
+<p>"Brock trained you in Bide because you demonstrated his, right? Might be worth figuring out, in case she gives you something too."</p>
+
+<p>"I'll see what I can learn from her gym members." The bus enters the city's main street, stopping to let some people leave and others board. Blue sits up in his seat, watching for the road that will lead to the gym. "The battles themselves might give me some idea."</p>
+
+<p>A couple stops later, Red and Leaf get off when the bus reaches Cerulean North's Trainer House. They wish Blue good luck, and agree to meet him for dinner. Blue nods along to whatever suggestions they make, forgetting them a moment later when the bus pulls away. As the gym approaches, all Blue can think about are the upcoming battles.</p>
+
+<p>Pokemon evolve over time as they grow older, but their growth is accelerated when they're in combat. If he wants to evolve his pokemon, putting them into combat is the best way to do it, but in the wild there's always the risk of danger. A gym is the best place to get lots of fighting experience safely.</p>
+
+<p>The problem is, that would require Blue switching his pokemon constantly, regardless of efficiency. Not only will it make combat harder, but it would make him appear less skilled than he is, which might make it harder for him to climb the ranks quickly and challenge Misty.</p>
+
+<p>The buildings abruptly fall away to either side as the bus turns a corner, and the coast of Cerulean Bay fills the horizon. Blue stands, hands gripping the seat in front of him, as the gym comes into sight. Unlike Pewter, with its solid walls of imposing grey, Cerulean Gym looks like one giant stadium from the front, round and expanding outward with each floor, metal and glass gleaming in the sunlight.</p>
+
+<p>The sight makes Blue's heart feel like it's expanding in his chest, and he smiles as the gym grows to fill his vision. It's only been a couple weeks since he beat Brock, but an eventful couple weeks, and he feels like it was forever ago. Finally, he's back where he belongs.</p>
+
+<p>The bus pulls up to the front of the parking lot, and Blue slings his bag over his shoulder and goes down the stairs with the other trainers and tourists. The reception hall is large and ostentatious, with signs pointing to different stadiums and training rooms. At the center is a large aquarium filled with water pokemon, and Blue can't help but wonder how safe it is, which is of course the point. There are few better ways to showcase how well the gym can train their pokemon than to put a bunch of them on display in a public area and trust that all will be well.</p>
+
+<p>Blue steps up to the aquarium, where an eight or nine year old kid has their face pressed up to the glass. A school of goldeen part around a seadra going in the opposite direction, while on the other side a tentacruel floats serenely by, any pokemon around it giving a wide berth to its many trailing limbs. Defensive pokemon like tentacruel would be the main struggle for him, its Poison typing able to counter Gon's Grass. If Blue's forced to use Ion too soon, the shinx wouldn't be able to take a less defensive pokemon by surprise for a quick knockout.</p>
+
+<p>"Hey!" Blue turns in surprise to find the kid staring at him. "You're Blue Oak!"</p>
+
+<p>Blue blinks. He hadn't expected his first fan encounter to be with someone so young. Was he following trainers at that age? He grins. Of course he was. "Yeah, that's me."</p>
+
+<p>"Wooow, I saw your fight with Brock online! That last attack was so cool, I was scared your squirtle got crushed! Did you know it would be okay the whole time? When did you get to Cerulean? Are you here to challenge Misty?"</p>
+
+<p>Blue finds himself striking a pose without meaning to, shoulders straight and chin up, legs slightly apart. "I'm here to <em>beat </em>Misty. Can I count on your support?"</p>
+
+<p>"Yeah, for sure! Oh man, when are you going to challenge her? I want to be there!"</p>
+
+<p>Blue fights the sudden urge to say something stupid, like <em>Tomorrow. </em>"Well, we'll see how long it takes me to get through her gym members. Are you going to be in town long?"</p>
+
+<p>"Oh, yeah, I live in Cerulean East. I come here all the time."</p>
+
+<p>Blue looks around. "You're not here on a field trip, are you? Why aren't you at school?"</p>
+
+<p>The kid suddenly hesitates. "I'm here with my... mom. She's... in the bathroom."</p>
+
+<p>"Mmhm." Should he reprimand him? He's got to set a good example if kids this young are already following him, but hell, who didn't skip classes now and then? "Don't worry, I used to do the same all the time." Blue winks at the sudden look of relief on the kid's face. "I'll be sure to post the date of my challenge, so if you keep following me you'll definitely see it."</p>
+
+<p>"Alright! I hope you get to her soon!"</p>
+
+<p>"Me too, kid. What's your name?"</p>
+
+<p>"Dennis!"</p>
+
+<p>"Alright, Dennis. I'm going to start my battles soon. Why don't you head back to school and pretend you got out of bed late? That way you're less likely to get in trouble before my match."</p>
+
+<p>"Yeah, alright! Good luck Blue!"</p>
+
+<p>Blue gives a two finger salute, then heads toward the registration desk feeling lighter than air.</p>
+
+<p>What was it Lance once said? "The path to strength is a path of hardship. To fear failure is to fear becoming strong." So what if it's a greater risk? He's got a bag full of medicine to keep his pokemon fighting, and all day to beat Misty's subordinates. If he can't win with a handicap, he can't prepare for the true challenges ahead.</p>
+
+<p>He knows it's stupid to feel any more confident just because he met some starstruck fan, but by the time he reaches the counter and slaps his trainer ID down on it, he's still grinning.</p>
+
+<p>Half an hour later, he's standing in the first stadium, a basic training room with small arena floating in a pool of water that fills its floor, one pokeball spinning in each hand as he waits for the other door to open.</p>
+
+<p>He already let Maturin test the depth of the brackish water and soak up as much as she could. He used the Pewter gym's water rooms to train her in aquatic combat as much as he could, but its facilities were much more limited than Cerulean's. He plans on putting them to good use while he's here.</p>
+
+<p>The other door opens, and a trainer walks in. Blue stops spinning the balls and stares. "Amy!"</p>
+
+<p>The older teen winks. "Heya Blue. How's it going?"</p>
+
+<p>"I… what are you doing here?"</p>
+
+<p>"Ouch, right in the ego." She's grinning as she mounts her platform and stands opposite him. "I've been here for almost a week now. Does that mean you're not following me?" Amy starts taking out some aquatic training equipment and placing them beside the standard ones hanging on the edge of the railing.</p>
+
+<p>"I am, yeah, I just… I've been busy." And he'd been following her brother Donovan much more closely, only checking in on her a couple times since they left Viridian.</p>
+
+<p>"I know, it was all over the news, same day I beat Misty. Do we need to start coordinating our plans, or can you just agree to not hog all the press with heroics next time I win a badge?"</p>
+
+<p>Blue grins. "We can try, but it wasn't really something I planned. No promises."</p>
+
+<p>"Figures. So, let's do this thing, yeah? I'm sure you're in a rush to make your mark here too."</p>
+
+<p>Blue clips and unclips balls around his belt, shoulders tensing. "Ready when you are. What are the rules?"</p>
+
+<p>"Beat me. Go, poliwhirl!" The blue amphibian materializes on the stadium, skin glistening. Its clear stomach shows the swirling pattern of its internal organs before it falls onto all fours, black eyes blinking around. "This is my only decent water pokemon so far," she explains. "I decided to join the Gym to improve my training of him and my others."</p>
+
+<p>Blue hesitates, hands hovering over each ball. "So I just have to beat this one?" From what he saw of Amy, she's a crafty battler. He doesn't want to underestimate her just because she's using a single pokemon.</p>
+
+<p>"Yep."</p>
+
+<p>"And I can use as many pokemon as I want?"</p>
+
+<p>"Standard six. Now quit stalling and summon."</p>
+
+<p>He smiles. "Right." That decides it. He reclips Gon's ball and unclips Zephyr's. "Go, Zephyr!"</p>
+
+<p>His pidgey comes out standing on the platform, and as Blue catches its ball he sees the look of confusion on Amy's face. "A flying type? Really?"</p>
+
+<p>"Really." He takes his whistle out and blows on it, causing his pokemon to take off and begin circling the arena, feeling his attention narrowing to the battlefield. The next time he breathes out, he feels his body calming, heartbeat slow and steady, every nerve ready to react.</p>
+
+<p>Amy frowns, then shrugs and snaps her fingers. Her poliwhirl immediately dives into the water around them, disappearing from sight as Amy expands a metal stick and puts one end in the water, fingers poised over the buttons on the handle. "Good luck hitting him from up there. Ready, set, go!" She presses a button.</p>
+
+<p>Blue whistles the command to dodge, and Zephyr flips into a sideways roll as the poliwhirl bobs up and spits a stream of water at him. Before Blue can make another command the pokemon is gone, and Zephyr continues to circle the arena. Amy keeps clicking buttons, and soon the poliwhirl appears again at the other end of the arena. Zephyr dodges another Water Gun, diving to return the attack only to find the spot of water empty and placid.</p>
+
+<p>Blue whistles again to warn his pokemon away, causing him to climb altitude just as the poliwhirl appears again and shoots. The next few seconds are a rapid series of attacks and dodges, Zephyr skimming the water with his talons just as the poliwhirl ducks under again, only to come up a few meters away to fire back at the spot Zephyr was a moment before.</p>
+
+<p>Blue keeps blowing on the whistle, <em>dodge, attack, climb, left, attack, dodge, circle, </em>trying to catch the poliwhirl with a lucky strike. Amy is focused on the match, but she doesn't have to do as much, and he can tell from her occasional looks at him that she's wondering what he's doing. Her pokemon isn't going to run out of water any time soon, and it's faster than pidgey is.</p>
+
+<p>Once Zephyr starts to tire, the shots of water begin to get closer and closer, until one clips his wing and knocks him out of the air. Zephyr recovers quickly, but Blue catches his pokemon with a return beam and quickly sends out Joey. His rattata seems confused, never having been in a stadium or training room before, but as soon as the poliwhirl leaps up from the water for its next attack, Joey dodges to the side without Blue even needing to prompt him.</p>
+
+<p>"What are you doing, Blue?" Amy suddenly asks, drawing his attention to her. One hand is on her hip as she stares at him, brow furrowed. "I know you have two Grass pokemon."</p>
+
+<p>"You think I'm going to tell you my strategy just like that?" He grins.</p>
+
+<p>She narrows her eyes. "So you do have a strategy? Because from here it looks like you're not taking me seriously."</p>
+
+<p>"Nope, totally part of my plan. Promise."</p>
+
+<p>"I'll hold you to that. It better be good." She returns to commanding her poliwhirl, a slight frown still on her face.</p>
+
+<p>Blue has less of a chance to counter her attacks from on land, but a rattata's reaction speed is better than pidgey's, and he manages to cleanly dodge each of the poliwhirl's attacks, which continue to be simple Water Guns. This goes on for a solid two minutes before Amy speaks again.</p>
+
+<p>"If you think you're going to lure me onto land, we'll be here all day. I thought you'd be in a rush to reach Misty, after how quickly you Challenged Brock."</p>
+
+<p>"Maybe I learned some humility from losing to him," he says, which makes her snort and command another Water Gun.</p>
+
+<p>Blue is happy to keep dodging as long as he can, but as another minute drags by, he fights the urge to grow complacent. A drop of sweat rolls down his neck as he keeps his eyes on the battlefield, preserving his voice by only giving a few oral commands when needed. There's no safe spot on the arena to hide, and since Amy's pokemon can go to either side of the arena in moments, the closer his rattata is to the middle the more time it has to dodge attacks where even a fraction of a second makes a difference.</p>
+
+<p>When Joey's next dodge brings him closer to the side the poliwhirl is however, Amy presses something different, and her poliwhirl rises out of the water in a small wave. <em>No time to dodge. </em>"Quick Attack!"</p>
+
+<p>His pokemon lashes out and strikes the poliwhirl just before the water crashes down around him, but Amy's pokemon is too distracted by the strike to follow up properly. As soon as Joey rolls to a stop and shakes himself off, Blue orders another Quick Attack just as Amy sends her poliwhirl back into the water. It turns and shoots a water Gun that Joey just barely has time to dodge.</p>
+
+<p>"Close," Blue says once Joey is back in the center, ready and waiting. His heart pounds in his throat as he watches his pokemon for any sign of injury.</p>
+
+<p>"Yep. Think your rattata is smart enough to stay away from the edge now?"</p>
+
+<p>"Guess we'll see."</p>
+
+<p>Amy grins and sends another volley of attacks at Joey, who does indeed keep more to the middle with his leaps. Blue keeps an eye on the water just in case there's any obvious amounts of blood from the wound he inflicted, but the wound must have been a shallow one. He wouldn't win this on a light tap.</p>
+
+<p>Surely her pokemon is getting tired by now? He can't tell if it's attacking any slower, but Joey is finally starting to feel the past few minutes of constant movement. Blue watches the shots of water hit closer and closer, and debates trying an attack before Joey gets too slow…</p>
+
+<p>No. Now is the time for patience, not decisive action. He'll stick to his plan.</p>
+
+<p>It happens a few Water Guns later: the poliwhirl bobs up and spurts a jet that nails Joey square in the face. The rattata's light body goes tumbling back, and Blue withdraws him immediately. <em>Good job.</em> He reclips the ball, and chooses another.</p>
+
+<p>"If you send out another pokemon that's just going to dodge over and over, I'm going to just leave and declare you the loser," Amy says, voice flat.</p>
+
+<p>Blue grins. "No you won't. You already said all I have to do is beat your poliwhirl. You didn't give a time limit, and you're not going to go back on that now." He hopes. "Go, Zubat!"</p>
+
+<p>"<em>This is ridiculous!" </em>Amy glares at him as his pokemon materializes and begins fluttering around the room. "What can you possibly mean to do with that?"</p>
+
+<p>"That's for me to know, and you to find out."</p>
+
+<p>She scoffs. "Fine, have it your way." And with that the fight is on again, the poliwhirl bobbing out of the water to spit a stream at his zubat.</p>
+
+<p>Thankfully it's as hard to hit as Zephyr was, and has its own projectile of sorts. "Zubat, Supersonic!"</p>
+
+<p>His pokemon hovers in place and sends a tight beam of sound, inaudible to Blue or Amy, at the poliwhirl just as it ducks beneath the water. Blue can't tell if it was affected or not, the move is unreliable even in the best of circumstances, but now at least he has a chance to fight back.</p>
+
+<p>As the battle continues, Amy becomes visibly more cautious. Her gaze never leaves his pokemon as she presses buttons again and again, directing her poliwhirl around the arena to shoot and duck and circle around again. Blue tries to time the gap between each shot, but she keeps things unpredictable, sometimes coming up just a few seconds later on the same side of the arena, another time staying under for almost a minute before appearing at the corner nearest Blue.</p>
+
+<p>Time is on her side, and she knows it. Her pokemon is in its element, barely using any energy to swim from place to place, more or less at its leisure. Meanwhile, his zubat is fluttering madly about, no stalactites or other objects on the ceilings or walls to rest on, even if that wouldn't make it a sitting target. Blue begins to wonder if Amy's also spacing out some of the attacks to let any confusion that might linger from a Supersonic fade. If he's being optimistic, he can interpret her occasional button pushes that don't result in anything as her pokemon being too disoriented to follow orders, but she's also probably just moving it from place to place, or even trying to mislead Blue. He wouldn't be surprised if some of the buttons on the handle didn't do anything.</p>
+
+<p>Some would call that paranoid. If there's one thing Blue has learned from watching a thousand competitive trainers battle, it's never to underestimate the depths they'll go to hide their methods and mislead opponents.</p>
+
+<p>He'd like to think he learned the lesson well.</p>
+
+<p>"Zubat, Supersonic!"</p>
+
+<p>Zubat sends another beam of sound down, but instead of dodging away as Blue expected, Amy's poliwhirl just shoots another Water Gun, then another and another. His zubat is hit by the second and fourth, and Blue quickly withdraws it before looking at Amy's poliwhirl.</p>
+
+<p>This time its confusion is clear, the pokemon swimming left and right, then turning over to kick its webbed feet into the air for an ineffective dive. Amy keeps pressing the same button over and over, waiting for her pokemon to snap out of it.</p>
+
+<p>This is his chance. But is it time yet? He could send Kemuri out now, get a quick Razor Leaf in…</p>
+
+<p>"Go, Ekans!"</p>
+
+<p>His pokemon appears on the stadium and uncoils. Its tongue flicks out as it gets its bearings, then turns to the poliwhirl still floating in the water. "Acid!"</p>
+
+<p>Amy presses a button, and her pokemon ducks beneath the water. "Seriously?" She asks, hand on a hip. "You're using your fourth slot for an ekans?"</p>
+
+<p>Blue shrugs. It won't leave room for Maturin, Gon and Kemuri, but if Blue's right, he won't need both of his Grass types. "I'm the one that should be indignant," he says. "You were faking that confusion, weren't you?"</p>
+
+<p>"I don't know what you mean," she asks, pressing a button, and Blue quickly yells for his pokemon to dodge as the poliwhirl attacks again.</p>
+
+<p>Blue smiles. She's attacking so soon again to prove that she didn't get lucky with her poliwhirl diving at just the right moment. He'll likely never know whether her poliwhirl was ever really confused or not, but it wouldn't have changed his plans if he did.</p>
+
+<p>The battle continues more evenly matched than ever, with Amy's poliwhirl having to dodge the sprays of acid his ekans shot out of its mouth every time it was attacked. His pokemon isn't as good at dodging as the others, but he's able to do some damage before he takes a couple hits and Blue withdraws him. Amy's poliwhirl has visible burns on its skin from small splashes of acid.</p>
+
+<p>"Two left," Amy says. "It's now or never."</p>
+
+<p>Blue nods. It's time. "Go, Kemuri!"</p>
+
+<p>Amy presses a button as soon as Blue's pokemon appears, and when the poliwhirl bobs to the surface, it grips the sides of the arena and stares at the plant pokemon in unwavering concentration.</p>
+
+<p>"Kemuri, dod-"</p>
+
+<p>A beam of white light flash-freezes the ground as it traces a path upward toward Kemuri. Blue's pokemon reacts too slowly to completely avoid it, and ice covers one of its leafy arms.</p>
+
+<p><em>Ha. </em>Blue knew she had an ice move just waiting for him to bring out a Grass Type. Now he knows better than to use Gon for his sixth pokemon. The shroomish wouldn't have stood a chance, with his stubby legs.</p>
+
+<p>As it stands, even Kemuri wouldn't be able to keep up… but Amy's poliwhirl is hurt, and must be at least a bit tired by now.</p>
+
+<p>The poliwhirl dives out of sight, then reappears on the other end of the arena, preparing to shoot another beam. This time Kemuri dodges it, and the match becomes a game of whack-a-diglett as Blue's shiftry leaps from place to place, avoiding Ice Beams and swiping at the poliwhirl with his unfrozen arm. His Leaf Tornado would be practically worthless while it thawed, and Blue is tempted to focus on dodging until it does. But if he gets taken out without doing any damage, Blue would be in a tight spot. He needs to either finish things now, or weaken the poliwhirl enough for Maturin to finish it off.</p>
+
+<p>For now though they appear to be at a stalemate. Each time the poliwhirl tries to fire off another beam, Kemuri reaches it before it can and swipes, forcing it to dive back under. Poliwhirl aren't naturally capable of ice attacks, which means Amy used a TM to teach it… and while it's useful to have the wider coverage, especially against Grass types, it would never be as efficient or effective with the attack as an Ice pokemon.</p>
+
+<p>Blue's pulse jumps as the poliwhirl suddenly shoots out a Bubblebeam on its next surface. A rapid <em>popopopopop</em> fills the stadium as the stream of exploding bubbles strikes Kemuri and slows it down. "Kemuri, d-"</p>
+
+<p>"Poliwhirl, Ice-"</p>
+
+<p>"-odge!"</p>
+
+<p>"-Beam!"</p>
+
+<p>His pokemon abandons its forward momentum and throws itself to the side as the poliwhirl stops its attack and concentrates on another beam of freezing white light. It catches his pokemon in the side, and Blue knows it's now or never. "Razor Leaf!"</p>
+
+<p>Shivering and half covered in frost, Blue's pokemon spreads the leaves of one hand and <em>swings</em> it, sending the sharp tips of each flying out like spinning shuriken. Amy's poliwhirl is just ending its attack when they strike it, and the pokemon immediately ducks under the water, which darkens with its blood.</p>
+
+<p>Blue quickly withdraws his pokemon and waits while Amy taps a button on her controller, pokeball in her other hand. They wait in tense silence for a few moments, and then her poliwhirl jumps out of the water and lands on the stadium, glistening skin retaining most of the water so that barely any drips onto the floor.</p>
+
+<p>Amy hops onto the stadium floor and inspects her pokemon's wounds. Blue can see the bleeding gashes along its arm and to the side of one bulbous eye. They appear to be superficial wounds, not enough to take it down if this was a real fight in the wild, but…</p>
+
+<p>Amy turns to him. "What have you got left?"</p>
+
+<p>"I was going to use my squirtle," he says, and wonders if he should mention his shinx. It would make quick work of her pokemon, maybe would have even beat it while it was fresh, but he'd rather not reveal it until he faces Misty, just in case…</p>
+
+<p>Amy deliberates a moment, then nods. "Okay, you win. But I want to know why it took you so long to bring your shiftry out," she says as she takes out a potion and sprays her poliwhirl's injuries. She murmurs something to it as she feeds it a poffin, then withdraws her pokemon and leans against the wall of her platform, arms crossed. "Spill."</p>
+
+<p>Blue feels himself relax as soon as she admits defeat, and leans against his platform railing as his battle calm slowly leaks away, replaced with a giddy relief. "I was partly trying to draw out the match," he admits. "It was a great chance to give my pokemon some combat experience." Part of him is a little disappointed he didn't get a chance to send Maturin out. "But there was more to it than that. I watched your fight with Misty, and I knew I had to test for a range of attacks. I didn't want you surprising me with a reverse coverage move the way you did her."</p>
+
+<p>The corner of her mouth twitches upward. "I thought you said you weren't following me?"</p>
+
+<p>He grins. "Those were your words, I just said I've been busy. But not too busy to watch Misty's most recent battles, considering my plans to challenge her and all. I didn't know you stayed after, that was an actual surprise, but I was happy to let you assume it also meant I didn't see your battle."</p>
+
+<p>"Hmph. Well, as irritating as it was, you definitely earned the victory." She cocks her head a bit, considering him. "You've got what it takes to go far, Blue. I look forward to seeing your Challenge."</p>
+
+<p>Her calculating look strongly reminds him of his sister. The two of them would probably get along, now that he thinks of it. Daisy tends to treat him like a kid more often than not, but once he shows his competence in an area, she respects him as an equal, more or less. It's something he appreciates. "Thanks. For the match, too."</p>
+
+<p>"No problem. You going to hit the pokemon center?"</p>
+
+<p>"No, I'll be ready for the next battle in a minute."</p>
+
+<p>She raises a brow, but doesn't comment. "Alright, I'll go let them know. Good luck."</p>
+
+<p>Blue sits down and opens his bag, taking potion and ether bottles out so he can start healing his pokemon up for their next opponent.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Red sits cross-legged on his bed at the Trainer House, eyes closed and earphones on. The soothing sound of the ocean rushing against the shore fills his ears, and he can almost feel the hot sand and sunlight, almost smell the salt as he imagines himself on the beach…</p>
+
+<p>Wait, no, he's supposed to be focusing on his breathing. He banishes all thoughts of the beach and just focuses on drawing air in slowly through his nose… but now memories of going to the beach crowd in, playing in the sand with the Oaks or walking between his mom and dad along the beach, his small hands in theirs… His mom's face, so happy, and his dad, looking at him with love-</p>
+
+<p>Red's eyes snap open. He sighs, and he reaches out to stop the sound loop playing on his phone before searching for a new one. Again.</p>
+
+<p>It's been two hours since he checked into the Trainer House with Leaf and came up to claim a bed. She said she was going to buy a laptop, then go around town talking to the locals. Red was curious what she was up to, but just agreed to talk to her later. He was eager to try meditating again, this time without distractions. Unfortunately, after doing some basic practice with an audio guide's voice, he was failing at doing it on his own, which the websites for practicing sensitives insisted was necessary.</p>
+
+<p>He already went through various online suggestions: acoustic music, which he found too distracting, the sound of rain and far-off thunder, which made him sleepy, and the crackle of a fireplace, which brought back more memories of camping with his dad.</p>
+
+<p>Meditation never worked for Red before. He couldn't stop the racing thoughts that ran through his head long enough to relax or clear his mind… despite his therapist telling Red he wasn't actually supposed to clear his mind, that that was impossible. How did she put it?</p>
+
+<p>"<em>Imagine a river," his therapist said, sitting in lotus position across from him. "It is your mind. In it, your consciousness, the thing that you call Red," she extended a finger and touches it between Red's eyes, "is the fish that swims surrounded by its water, your thoughts. You swim sometimes left or right, up or down… but you follow the river's flow, barely aware of it. Only when you try and resist the current and swim upstream are you fully conscious of the effect the river has on your behavior."</em></p>
+
+<p>"<em>So, meditation is going to help me control the current?"</em></p>
+
+<p>"<em>No, that is impossible. The river is you, but its current is shaped by things that are not you. The riverbank, the rocks in the earth, the rains. You cannot control the world around you. You can only react. While our eyes are closed, and we focus on our breathing, you will think random thoughts. You will hear things that draw your attention. A door closing in another office, or a phone ringing. They will distract you, return you to the river's flow. Your job is to stay above the current. To sit on a rock in its waters, letting them flow around you, through you, wet without being submerged. When a thought flows by, pick it up, examine it… then let it go. Return to your breathing, your awareness of your body, and you will be at peace, no matter how the river rages."</em></p>
+
+<p>Red drums his fingers on his knee, then decides to give it a shot. He queues up a looping river soundtrack, and soon his ears are filled with the babbling of a brook, and the soft sigh of the wind through leaves above. When no memories immediately intrude, Red closes his eyes and tries to focus on his breathing again.</p>
+
+<p><em>Breathe in… </em>He draws the cool air into his lungs, slowly, counting to three.</p>
+
+<p><em>Breathe out… </em>He feels it exit his nose in a steady trickle, over the course of another three seconds.</p>
+
+<p>Breathe in…</p>
+
+<p>Breathe out…</p>
+
+<p>Breathe in…</p>
+
+<p>Breathe out…</p>
+
+<p><em>This is dumb.</em></p>
+
+<p>The thought comes unbidden, despite his desire to focus on the meditation. Red finds it frustrating that even without intrusive memories, his mind is still offering up distractions.</p>
+
+<p>Breathe in…</p>
+
+<p><em>I should be working on getting published.</em></p>
+
+<p>Breathe out…</p>
+
+<p><em>Or just training with one of my po-no, focus!</em></p>
+
+<p>Breathe in…</p>
+
+<p>Breathe out…</p>
+
+<p>Breathe in…</p>
+
+<p>Breathe out…</p>
+
+<p>Red is suddenly aware that his left foot is a bit uncomfortable, tucked under his right knee the way it is. He adjusts it slightly, then tries to go back to the breathing. <em>Focus on the feeling of air moving through your nose and lungs. Nothing else. Just feel that.</em></p>
+
+<p>Breathe in…</p>
+
+<p>Breathe out…</p>
+
+<p>Breathe in…</p>
+
+<p>Breathe out…</p>
+
+<p>The sound of the river is calming. He can almost picture himself there, and decides to do exactly that. First just the river, its banks green and surrounded by forest. Then he places a big, mostly flat rock in the middle of the river, just large enough for a boy to sit on it. He watches the water split around it, lapping occasionally at the edges. Finally he places himself on the boulder, sitting as he imagines he looks now.</p>
+
+<p>Breathe in…</p>
+
+<p>Breathe out…</p>
+
+<p>Breathe in…</p>
+
+<p>Breathe out…</p>
+
+<p>Without audio or visual distraction, he's able to focus entirely on his thoughts and sensations. The feeling of his shirt on his skin, the pressure on his lower legs, the soft pillow against his back. His mind keeps wandering to Blue and Leaf and his mom and Professor Oak and Daisy and his dad, but in a way that gets more and more diffuse, easy for him to ignore and refocus on his breathing.</p>
+
+<p>Breathe in…</p>
+
+<p>Breathe out…</p>
+
+<p>Breathe in…</p>
+
+<p>Breathe out…</p>
+
+<p>Eventually he feels like he's as focused as he's going to get, and starts ramping up his awareness. First he focuses on the crown of his head, and, imagining a ring of light, slowly traces it down to his neck, heightening his awareness of each part it passes. When it reaches his mouth he feels his tongue stuck to the roof of it, and relaxes his jaw to let it fall. It feels strange though, and after a moment he realizes he stopped moving the ring down, too distracted by the odd sensation of forcing his tongue to find a comfortable position so he can't constantly feel it.</p>
+
+<p>He sighs and opens his eyes again. There are a couple others in the room with him, one lying on their bed and reading, the other talking on their phone. Red considers taking an earplug out to hear what they're saying, then banishes the impulse as sheer nosiness born from akrasia.</p>
+
+<p>He forces himself to close his eyes and try again, picturing the river, the rock, himself, returning to his slow, steady breaths. This time when the ring reaches his mouth, he just lets it fall open a little, leaving his tongue in a comfortable and unobtrusive position.</p>
+
+<p>Unfortunately now he keeps thinking of how he looks to anyone passing by, who would probably think he fell asleep. He almost closes his mouth, then decides against it. What should he care what strangers think?</p>
+
+<p>...But now he's busy thinking that just thinking about how he shouldn't be distracted by what other people are thinking is distracting hi-</p>
+
+<p><em>Breathing, focus on the breathing.</em> In… out… in… out…</p>
+
+<p>He finally moves the ring of light farther down, past his chin and neck, over his chest. He becomes aware of his heart beating, and even more aware of the expansion of his lungs, before his stomach starts to distract him. It's been a few hours since breakfast, and he's getting a bit hungry…</p>
+
+<p>Red tries to move past the sensation, but now his mind keeps wondering what he'll have for lunch, and whether he should ask Leaf to join him, and if he should try again when he's full. After five minutes he decides to start all over, returning to his breathing, then imagining the river, then starting the ring of light at his head and moving it down his ne-</p>
+
+<p><em>Bing!</em></p>
+
+<p>Red's eyes snap open as the river sound is interrupted by the received message alert. He sighs and checks it, surprised for a moment to see that over an hour has passed since he began meditating.</p>
+
+<p>His irritation vanishes when he realizes the email is from a publishing journal interested in his study.</p>
+
+<p><em>Trainer Red,</em></p>
+
+<p><em>We found your paper on the research boards looking for peer review and publication. We find your hypothesis and results fascinating, and would like to volunteer our services. If you find this agreeable, please contact us at your earliest convenience.</em></p>
+
+<p><em>Yours Truly,</em></p>
+
+<p><em>Advanced Research Publications</em></p>
+
+<p>Red grins as he starts composing a response. He cautions himself not to be too optimistic, but still, it's hard to be less excited at the prospect that today he might get his Researcher's license. Well, not <em>today, </em>but from a chain of events that start today.</p>
+
+<p>Once he sends his response, Red grabs a snack bar from his bag and starts munching on it as he paces, thoughts of lunch with Leaf forgotten. He notices the odd looks from the others in the room and goes out into the hallway to pace instead, checking his phone every so often even though he knows it will alert him when one arrives.</p>
+
+<p>He's looking at his screen when it does, and his grin slowly fades as he reads it. He stares for a moment, thumbs hesitating over the response keyboard. He starts typing a few times, only to delete what he wrote a few words in, until he finally just calls the number in the email signature.</p>
+
+<p>"Hello, Advanced Research Publications, how may I direct your call?"</p>
+
+<p>"Hi. Uh. I got an email about interest in publishing my paper, and had a few quest-"</p>
+
+<p>"Please hold."</p>
+
+<p>Red listens to the waiting music with a slight frown, and continues pacing the hall. After a moment he realizes he's still holding his snack bar and tucks it in his pocket. Of course it was all too good to be true. But still, he has to know for sure…</p>
+
+<p>"Hello, this is Donald, how can I help you?"</p>
+
+<p>"Hi. I'm Red Verres, I received an email about publishing my paper… I had some questions, if you wouldn't mind?"</p>
+
+<p>"Okay Red, give me one moment…" Red hears typing, and stops pacing so he can lean against the wall as he waits. "Yeees, I see. Well, what did you want to know, Red?"</p>
+
+<p>"The email, it asked for… money. A lot. I just wanted to clarify, is this a submission fee, or a publication fee?" <em>Please say publication...</em></p>
+
+<p>"Submission, but I can assure you that we only send such offers to those we have great confidence in reaching our standards."</p>
+
+<p>"Are the offers made post peer review?" What an odd order of operation...</p>
+
+<p>"No, technically that will still need to be done. But if you're worried, we offer a very dynamic review process. And if the submission fee is a bit too high, we offer reductions if you have volunteer reviewers that will work with us."</p>
+
+<p>Red blinks. "I'm sorry, I don't know if I heard that right. Did you just say volunteer reviewers? I pick them? To review my own paper?"</p>
+
+<p>"Absolutely. We at ARP believe in an open access scientific community."</p>
+
+<p>"So I can just have my two friends submit their reviews?"</p>
+
+<p>"As long as they have a Researcher's license, we welcome their expertise."</p>
+
+<p>"Oh, well, that makes everything better." Red clenches his teeth and takes a calming breath. It does help, but not by much. He holds out hope that maybe this isn't as bad as he thought. "So is this submission fee in lieu of a publishing fee?"</p>
+
+<p>"There is a minor publishing fee too, as we're not subscription based. Our papers are offered free for all on our website, to ensure that your research has the highest chance of being read and cited."</p>
+
+<p>Red relaxes a little. That's a bit more reasonable, then… and he does want people to read it, after all. "Well, how much is the publishing fee?"</p>
+
+<p>"Eight hundred. But you can pay it in installments, and if you agree to review papers for our journal, we can reduce it for each paper you review, down to three hundred."</p>
+
+<p>Red's hand rises to cover his eyes. "Because once I get published, I'll have my Researcher license, and can review others to get their papers published too."</p>
+
+<p>"Exactly! If you'd like to submit your paper with reviewers, I can go ahead and email you the proper forms. If you have trouble finding reviewers, we can put you in contact with some who-"</p>
+
+<p>"Yeah, sure, just email me whatever. Thanks." Red hangs up and sighs. <em>Thanks for not getting my hopes up, Past Red.</em></p>
+
+<p><em>Anytime, Future Red.</em></p>
+
+<p>Red feels like complaining to someone, and squashes the impulse to call his mom or Professor Oak. Leaf might be more acceptable, but he doesn't want to distract her from her work. Instead he simply goes back to his room and finishes his snack bar as he lies on his bed and renews his search for journals to submit to. Journals that aren't pyramid schemes churning out unvetted papers.</p>
+
+<p>After Red submits to a few more places, he considers trying meditation again, and instead decides to scroll through recent research discoveries. There are some neat findings on different metal compositions in "Steel" Type pokemon that keep him engrossed for an hour, which leads him to some of the latest papers on interregional pokemon diversity. Red thinks back to his conversation with Professor Oak about there being no psychic rattata, and his recent readings about sensitives versus psychics.</p>
+
+<p>Of course, it's possible for there to be rather large differences in pokemon from different regions. Over millennia, natural selection is a powerful force for change. There may be no rattata that are Psychic Types, but in the Alolan islands there are Dark ones. Not just that, their raichu are Psychic, their exeggutor aren't, their meowth are Dark, and their marowak have powers normally associated with Ghost Type pokemon. The regional differences there prove that whatever trait causes pokemon to become a type like Psychic or Dark can be introduced into a genetic pool, or manifest after enough mutation.</p>
+
+<p>Red thinks of pokemon like noctowl and spinarak, who have some limited psychic powers, but aren't considered Psychic Types. Maybe someday, somewhere in the world they'll have developed what rudimentary powers they have, and be considered full Psychic Types.</p>
+
+<p>If so, Red hopes whoever discovers them has the sense to call them something new. He wonders if researchers like Darwin debated what to call them when they discovered such variations in their travels. Red's not sure why the alternate evolutions from Alola are still called "raichu," "exeggutor," "marowak" and "meowth," rather than given their own names like others, such as gallade and froslass.</p>
+
+<p>Semantic confusion aside, discovering his own variation would make for an amazing discovery. Journals would pay <em>him</em> to publish that paper.</p>
+
+<p>Red takes out his notebook and makes a reminder to read more into pokemon breeding. If he can identify the strongest psychics in spinarak populations, maybe he can breed the first ever Bug/Psychic spinarak.</p>
+
+<p>He could start reading about it now, but he has enough on his plate. With reluctance, he puts such thoughts aside and gets back to work on his abra plan. He starts drafting proposals to put on the city's message boards to attract other trainers.</p>
+
+<p>What really irks him is that he's going to have to share the method with others. It would get out eventually, he knew, and it should, if it would lead to more people being able to catch and study abra. But it would have been nice to get some exclusive benefit out of the idea first, instead of sharing it with a dozen others, aside from Leaf and Blue.</p>
+
+<p>But then, is that really necessary? Surely they don't need a dozen. Red abandons his current draft and decides to work out exactly how many people it would take to safely enact.</p>
+
+<p>He quickly realizes that while stronger trainers would require less of them, they would still need a lot of them in any case just to cover the full area necessary. What he needs is to find a place that doesn't need so much caution, so that more trainers aren't necessary. Or even a place near a Ranger Outpost around Cerulean Bay, where the abra are found...</p>
+
+<p>Something tugs at Red's memory. Blue. Something Blue said, recently. About abra? No, about the area. Land around Cerulean Bay is incredibly expensive to own, and a lot of it to the west is untamed, while the north…</p>
+
+<p>The north.</p>
+
+<p>Red sits up and calls Professor Oak.</p>
+
+<p>"Hello Red! I was just going to have lunch, do you mind if I call you back?"</p>
+
+<p>"No problem Professor, but I just have a quick question."</p>
+
+<p>"Yes?"</p>
+
+<p>"I need to talk to Bill."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>"Thank you!" Leaf waves at the taxi as it makes a u-turn, driving off back down the singular road that goes all along Cerulean Bay. Beside her, Red looks around at the verdant fields on one side of them and the shocking blue of the water on the other. He can just make out the mountains from here, those around Moon to the west and the smaller range to the north.</p>
+
+<p>"This place is so pretty," Leaf says as the wind whips her hair back. She raises a hand to shove her hat down more securely, and slowly turns to take it all in. "I'm surprised more people don't live here."</p>
+
+<p>"I guess that's one of the perks to being able to afford all this land." Red steps off the road and onto the small path through the long grass. In the distance, he can just make out a building that looks far too wide to be a single person's house. "Lack of neighbors, if you don't want them."</p>
+
+<p>"Makes you wonder why he invited you." Leaf sprays herself with some repellant, then offers it to Red, who does the same. "I mean I'm happy to come along, but couldn't you guys just talk on the phone?"</p>
+
+<p>"Once he knew what I wanted, he insisted." Red shrugs. "I'm just happy to get to meet him."</p>
+
+<p>They make their way toward the house, which slowly resolves itself into several distinct shapes. Technically the house can be referred to as a cottage, relatively small and quaint looking, but it's connected to so many wider, more modern buildings around it that the whole thing can easily be referred to as complex. Red spots a proximity sensor stuck in the ground to their left as they get within a kilometer of it, and wonders what Bill does if there's a real threat in the area. From what he understands, the tech-genius has never distinguished himself as a particularly powerful trainer.</p>
+
+<p>They just reach the clearing around the buildings when Leaf suddenly grabs Red's arm and pulls him to a stop. "Red, <em>look!</em>"</p>
+
+<p>Red follows her finger, and feels his heart jump into his throat. In the distance, right near the front door of one of the side buildings, there's the unmistakable pink and fluffy form of a clefairy. The squat bipedal pokemon is just standing there, and Red quickly grabs a pokeball out of his pocket.</p>
+
+<p>"Should we summon something?" he whispers.</p>
+
+<p>"Might scare it off," she says, holding her own pair of pokeballs now. "You go left."</p>
+
+<p>He nods, and the two split off to either side, moving slowly and quietly. Red can hear his heartbeat as he takes step after careful step forward, the wind threatening to blow his cap off as he stays carefully upwind of the pokemon.</p>
+
+<p><em>Won't matter, their hearing is much stronger than their smell, maybe Leaf should summon her Wigglytuff after all…</em></p>
+
+<p>But the clefairy continues to just stand there as they approach, and Red gets close enough to see it's looking right at him. He freezes, waiting for Leaf to approach it from the other side, when suddenly-</p>
+
+<p>"About time. What took you guys so long?"</p>
+
+<p>Red stares.</p>
+
+<p>Leaf stares.</p>
+
+<p>The wind blows Red's hat off, and he doesn't move.</p>
+
+<p>The clefairy is still looking directly at him, voice surprisingly loud considering the distance between them, and all too human.</p>
+
+<p>"Come on in, I need your help with something." It turns and starts walking toward the front door.</p>
+
+<p>Red stares after it, then turns slowly to Leaf, whose face is as blankly shocked as he imagines his is. It feels like his brain is broken. His mouth moves silently for a moment, then can only emit a flat, calm, "What."</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/34/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/36/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -832,6 +1012,6 @@ Red listens to them barter as they meet up with Dania and Naoko and find the roa
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

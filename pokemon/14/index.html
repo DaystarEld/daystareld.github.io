@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reviews - Pokemon: The Origin of Species</title>
+    <title>Chapter 14: Desensitization - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,46 +329,510 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Reviews</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/13/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/15/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <strong>Board Games</strong><br>
-<ul><br>
- 	<li><a href="https://daystareld.com/eclipse-review/">Eclipse</a></li><br>
- 	<li><a href="https://daystareld.com/eclipse-review-2/">Eclipse: Rise of the Ancients</a></li><br>
- 	<li><a href="https://daystareld.com/game-of-thrones-game-review/">Game of Thrones</a></li><br>
- 	<li><a href="https://daystareld.com/review-dance-with-dragons-expansion/">Game of Thrones: Dance with Dragons</a></li><br>
- 	<li><a href="https://daystareld.com/review-cultists-of-cthulhu/">Cultists of Cthulhu</a></li><br>
-</ul><br>
-<strong>Novels</strong><br>
-<ul><br>
- 	<li><a href="https://daystareld.com/review-100-years/">One Hundred Years of Solitude</a></li><br>
- 	<li><a href="https://daystareld.com/stormlight-archives/">Stormlight Archives</a></li><br>
-</ul><br>
-<strong>Movies</strong><br>
-<ul><br>
- 	<li><a href="https://daystareld.com/review-under-the-skin/">Under the Skin</a></li><br>
- 	<li><a href="https://daystareld.com/the-last-jedi-review/">The Last Jedi</a></li><br>
-</ul><br>
-<strong>Dr. Who</strong><br>
-<ul><br>
- 	<li>07x09 - The Cold War</li><br>
- 	<li>07x10 - Hide</li><br>
- 	<li>07x11 - Journey to the Center of the TARDIS</li><br>
- 	<li>07x12 - The Crimson Horror</li><br>
- 	<li>07x13 - Nightmare in Silver</li><br>
- 	<li>07x14 - The Name of the Doctor</li><br>
-</ul>
-        </div>
+            <h1 class="chapter-title">Chapter 14: Desensitization</h1>
 
-        <div class="chapter-nav">
-            <a href="../13/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../15/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>"So, what if we cut off Blue's finger?" Leaf asks as they walk.</p>
+
+<p>Blue glances at her, then steps to the side of the road so Red is between them. "I'd tell Squirtle to bite off two of yours, is what."</p>
+
+<p>Leaf grins. "She'd have to get through Bulbasaur first. My point is, would a psychic be able to lift it immediately after?"</p>
+
+<p>Red scratches his hair, considering Leaf's question. The morning dawned with clear blue skies above, and after a communal breakfast, they said goodbye to Allie, Matthew and the twins and resumed their journey north. Once they were on their way, Red filled the others in on the details of his spinarak capture, and his conversation with Professor Oak.</p>
+
+<p>"It's a good idea-"</p>
+
+<p>Blue steps farther from him too.</p>
+
+<p>"-but hard to test, obviously. From what I read, cut hair and nail clippings lose whatever protection they have as soon as the dark type moves away, since the 'dead zone' they passively emit doesn't extend past their skin. And psychics have reported that the dead zone fades shortly after death, though that's medical death, not brain death. So I'm not sure how long a severed body part would retain it." Red puts on a speculative look and peers intently at Blue's hands, stroking his chin.</p>
+
+<p>"Hey!" Blue says as Leaf laughs, and slows his pace so that he's behind both of them. "Keep your beady eyes to yourself and find a pokemon to chop up for your experiments."</p>
+
+<p>Leaf's laughter cuts off, and she frowns over her shoulder as Red mutters "beady eyes?" to himself. "That's disgusting! You'd have to do it while it's still alive to test it."</p>
+
+<p>"You just suggested chopping off my finger!"</p>
+
+<p>"It was a hypothetical! Some pokemon are actually butchered alive."</p>
+
+<p>Red blinks. "Are they? Which?"</p>
+
+<p>Leaf grimaces. "Shellfish meat has a bad taste if it's killed before it's cooked, so they often boil or chop up living ones."</p>
+
+<p>"At least they're killing them for food," Blue says.</p>
+
+<p>"Is that supposed to make it better?"</p>
+
+<p>"Uh… doesn't it?"</p>
+
+<p>They start to argue over the ethics of eating pokemon, but Red is too distracted by her example to get involved. He pulls his pokedex out to see if there are any dark-type crustaceans.</p>
+
+<p>"If you care about what happens to your pokemon you must recognize they're capable of feeling, so why is it alright to kill them for food when we don't have to?"</p>
+
+<p>"I care about my pokemon because they're <em>mine</em>, pokemon get hurt and killed in the wild all the time."</p>
+
+<p>"So that's an excuse to hurt more of them?"</p>
+
+<p>"It's a fact of nature. Even plants can feel, if feeling is all you care about, well, something's gonna die no matter what you eat-"</p>
+
+<p>"Found one," Red says to cut off their argument before it escalates further. "Crawdaunt, Water/Dark. A group of psychics went to different restaurants preparing them and reported that after they were, er, chopped up, their parts kept their own dead zones for a short time after being separated, but before the crawdaunt died."</p>
+
+<p>Leaf looks faintly nauseous. "Well, that's that, then. If the deadzone is tied to the body parts, then it can't be something in the mind."</p>
+
+<p>Red shakes his head. "Not necessarily. We don't actually know the mechanics of how it works. What if the source is the mind, and the field it subconsciously covers the body with just takes a while to fade?"</p>
+
+<p>They continue to discuss it for the rest of the morning, all the while keeping their eyes peeled for cocoons, webs, or nesting pokemon as they travel. Despite the lower chances of running into pokemon together, no one suggests splitting up again.</p>
+
+<p>Short of blind luck however, Red despairs at finding a hoothoot or noctowl before they leave the forest, let alone some of the rarer pokemon like pikachu or budew. They've been walking at about 3 kilometers an hour, and would likely leave the forest by tomorrow afternoon. Thinking of the bird that flew overhead last night, he's more frustrated than ever that he's the only one among them without a flier. He'd rather not settle for a pidgey or spearow, neither of which are capable of mental attacks.</p>
+
+<p>In the meantime they bring their own pokemon out and train with them as they travel. Leaf sends her rattata from one bush to another on her side to hone its precision in following directions. She eventually nicknames him "Scamp" after he tries to grab a bit of pokepuff from Blue's shroomish. The fungal pokemon waddles along beside them on its stubby feet, dutifully sending clouds of different spores and powders over bushes Blue wants to check for hidden wilds.</p>
+
+<p>Red decided to summon Charmander for some physical training. The fire lizards' strongest muscles are in their hind legs, vital to help them leap out of harm's way while young and launch themselves into the air when they grow wings.</p>
+
+<p>Once Charmander manages to grab the bit of pokepuff Red holds near his chest, he lifts the next bit to eye level.</p>
+
+<p>"Jump!"</p>
+
+<p>Charmander leaps, biting at the air before he falls back to the grass.</p>
+
+<p>Blue smirks. "Speaking of losing fingers…"</p>
+
+<p>"Come on, Charmander, you can do it. Jump!"</p>
+
+<p>Charmander crouches, then leaps again, snagging the pokepuff.</p>
+
+<p>"Good job Charmander!" Red tears off another piece and lifts it above his head. "Again, jump!" His pokemon tries, again and again, but can't go higher than Red's head. He growls and leaps again, snapping at the air before falling to the grass, breathing hard.</p>
+
+<p>"Go on boy, you're getting higher. Jump!"</p>
+
+<p>Charmander looks at the pokepuff, then him. He makes a gurgling sound, and suddenly starts climbing Red's leg.</p>
+
+<p>"Hey!" Red stops walking, stretching his arm higher as his other hand reaches for his pokemon. "That's cheating!"</p>
+
+<p>Charmander pays him no mind, crawling around his side to avoid his hand, tail kept carefully apart as he makes his way up Red's shirt, then leaps off and grabs the pokepuff. Upon landing, the fire lizard happily curls up on the grass and munches on his prize. Red sighs.</p>
+
+<p>"So are you going to punish that?" Blue says. "Since he was supposed to jump?"</p>
+
+<p>"I wouldn't," Leaf says as she tosses a berry to Scamp. "Might discourage creative problem solving."</p>
+
+<p>Red nods. "Guess he's had enough jumping for now." He rubs the soft hide on Charmander's head, then returns him to his pokeball as the others walk ahead.</p>
+
+<p>Red summons his spinarak for the first time since he caught it. As soon as it's out, he avoids looking directly at the face-like pattern on its back. He feels his thoughts shying away from the memory for fear of feeling its echo again, but the problem with trying not to think of something-</p>
+
+<p><em>dark</em></p>
+
+<p><em>alone</em></p>
+
+<p>Red focuses his gaze on one of its legs, quickly bending down to check if its wounds from before healed properly. He can't quite bring himself to touch the arachnoid, and simply pulls some jerky out, shredding it into small bits for it to eat.</p>
+
+<p>Something simple to start… "Spinarak, string shot!" he says, pointing at the branch of a nearby tree. The bug turns to see what he's pointing at, then shoots its webbing up, attaching a line to the branch. "Climb!" It scuttles up the string until it can hang from the branch. "Return." It drops and scurries back over to him. "Good job."</p>
+
+<p>Red drops the meat strips, and suppresses a sudden shudder as its mandibles clack audibly. He's glad bug pokemon don't react as positively to physical affection, because he can't bring himself to treat it as warmly as his rattata or charmander. And that's even putting aside the-</p>
+
+<p><em>cold</em></p>
+
+<p><em>hurts</em></p>
+
+<p>Red shakes himself, breath catching in his throat. This is going to be harder than he thought.</p>
+
+<p>Bug pokemon always creeped him out. Just the thought of his spinarak crawling up his body or resting on his arm makes him break out in goosebumps.</p>
+
+<p><em>I need to desensitize</em> <em>myself</em>, Red realizes. <em>Pokemon professors need to be capable of studying all kinds of pokemon. Professor Oak doesn't get squeamish when handling venonat, or paras.</em></p>
+
+<p>Unfortunately, Red never mastered that particular brain hack. He knows the theory though: small exposures in safe and calming circumstances until he no longer feels an aversion to that, then moving on to more extreme circumstances.</p>
+
+<p>Red sighs and tells his spinarak to follow him as he catches up with the others, then begins training it in basic webbing commands: string shot, trip lines, web traps, slowly working his way up to the more complex traps and obstacles. The other two watch his new pokemon curiously for a bit, but if they notice the way Red avoids looking directly at or touching it, they don't comment.</p>
+
+<p>The hours pass, and the sun rises to its zenith. Eventually the trio finds a clearing to stop in for lunch. There's a small boulder resting beside a nearby tree, and Blue points at it as the other two feed their pokemon, then withdraw them.</p>
+
+<p>"Shroomish, Leech Seed!"</p>
+
+<p>His pokemon's soft body contracts, then pulses, the dimples in its fungal dome sending out half a dozen seeds over the rock. A gel around the seeds causes them to stick, and soon they split open. Thin roots snake out to find the minuscule pits and wedges in the stone, and within few seconds a dozen small cracks are heard. Leaf steps closer and kneels to watch, keeping her hands away from the glistening roots as they slowly press into the boulder.</p>
+
+<p>But soon the vines stop growing, and the seeds fall off one by one, the ends of their roots wilting. Blue frowns and sends his pokemon to eat them. "That wasn't particularly impressive. In the vids I've seen, leech seed can eventually bring down even an onyx."</p>
+
+<p>"Well, there's a difference between 'living' stone and 'dead' stone. This," Leaf says as she knocks a fist on the boulder, "Is just rock. It's virtually devoid of nutrients for the roots to absorb, and is much harder for the digestive enzymes of the leech seed's roots to break down. But living stone is basically like really hard chitin. It's still organic."</p>
+
+<p>"Damn. I wanted to get a sense for how well it would work on Leader Brock's pokemon. " Blue pulls out some berries for his shroomish once the pokemon finishes eating the barely grown plants.</p>
+
+<p>"The leader of your Rock Gym is named 'Brock'?"</p>
+
+<p>"His name's Takeshi actually, but he goes by Brock." Red says. "Don't any of your Leaders use nicknames?"</p>
+
+<p>She smiles. "Yeah, our Flying Gym leader's is Skyla. So what kind of Leader is Brock?"</p>
+
+<p>"Very involved locally," Blue says. "The city loves him, which means anyone who wants to be mayor there has to hold his favor."</p>
+
+<p>"So much for the separation of powers."</p>
+
+<p>Red shrugs. "The people have spoken. Thankfully he seems smart and competent, so things in Pewter have been going pretty well. They have a lot of civic pride."</p>
+
+<p>Blue withdraws his shroomish, and the three remove their facemasks and take out food for lunch. Leaf has some bread, cheese, and tomato slices, and Red realizes that he hasn't seen her eat any meat. Granted, most of their trail food consists of fruit, rice balls and granola. Rather than put her on the spot about it, he tests his hypothesis by offering her some jerky, which she politely turns down. After hearing her objections to the way pokemon are treated, he wonders if she avoids eating any pokemon at all, even the plants and water types.</p>
+
+<p>After they eat, Leaf steps away for a bit to call her mother while Red quickly confirms that Zapdos's storm is still safely north of Pewter. Blue begins setting up some virtual training for his new pokemon, and Red checks his mail.</p>
+
+<p>He looks at the message from Leader Giovanni again before going to his new messages. It's still hard to believe that such a huge figure had actually taken the time to respond to a random message by a fan. Red doesn't consider himself easily star-struck after growing up knowing the world famous Professor Oak, but Giovanni's accomplishments are just as impressive in their own way. More than that, he has a unique way of rationally looking at the world, and Red always learns something new by reading his blog posts.</p>
+
+<p>Red goes to his new messages and sees one from Professor Oak:</p>
+
+<p><em>Hello Red,</em></p>
+
+<p><em>I sent an email to Elite Agatha last night, and she responded to me this morning. Psychic attacks are generally felt as mental, while ghostly attacks are experienced as emotional. This seems like an antiquated conception of the division between the mind and emotions, which is why we call both mental attacks, but she insists the difference is noticeable to those sensitive to such things, however fine the line is to others.</em></p>
+
+<p><em>I'll ask some others just to verify, but this is Agatha's area of expertise, and if we take what she says as a working hypothesis for now, the description you gave of the attack makes it seem more emotional than mental. Hard to be sure though. I would make finding out your top priority.</em></p>
+
+<p><em>Safe travels,</em></p>
+
+<p><em>Sam</em></p>
+
+<p>Red puts his phone away. "Hey Blue, wanna do me a favor?"</p>
+
+<p>"What's up?" Blue taps at the pokedex screen, gaze intent.</p>
+
+<p>"Would you mind letting my spinarak use its mental attack on you?"</p>
+
+<p>Blue's fingers pause, and he lowers his pokedex a bit to look at Red. "Say that again?"</p>
+
+<p>"I'm still not sure if it was a psychic attack or a ghost one, and since you're dark…"</p>
+
+<p>"No." Blue turns back to his pokedex.</p>
+
+<p>"I don't mean right now, but after I train it a bit-"</p>
+
+<p>"Sorry. I'll pass on testing out its poison too, or Charmander's fire."</p>
+
+<p>Red laughs. "Come on, seriously. It won't affect you at all if it's psychic, and you'll barely feel it if not."</p>
+
+<p>"No shit? I didn't realize." Blue raises the pokedex a bit higher, leaning back against his bag so his face is hidden behind it.</p>
+
+<p>Red's smile fades, brow furrowed. "Why not?"</p>
+
+<p>"I just don't feel like it."</p>
+
+<p>"That's not a reason."</p>
+
+<p>"Sure it is. Not my concern if you won't take it."</p>
+
+<p>A hot flush spreads through Red's chest. "What's your problem?"</p>
+
+<p>"An annoying bidoof who can't take no for an answer."</p>
+
+<p>And ignites. "I guess it was too much to expect a rational justification from you."</p>
+
+<p>"Guess so."</p>
+
+<p>Leaf rejoins them, looking a bit apprehensive. "What's up?"</p>
+
+<p>"Nothing. Blue's just being a self-centered jackass."</p>
+
+<p>Blue lowers his pokedex and sits up with a scowl. "You asked me for a favor, but <em>I'm</em> the self-centered one?!"</p>
+
+<p>"You refused without even explaining why!"</p>
+
+<p>"Sorry <em>professor</em>, better get used to the fact that you don't always get to know everything!"</p>
+
+<p>Leaf steps forward, palms out to both of them and looking a bit shocked. "Woah, guys, calm down…"</p>
+
+<p>Red can't remember standing, but Blue is too, and he cranes his neck to look at him around Leaf. "If you're not going to supply a reason for your actions," Red says as blood pounds in his ears, "Then you can't complain if I come up with my own."</p>
+
+<p>"I can if you're calling me selfish for not obeying your every command!"</p>
+
+<p>"'Every command?' Excuse me for assuming you'd want to help me get my researcher license!"</p>
+
+<p>"Well excuse me if I don't like being experimented on just because I'm dark!"</p>
+
+<p>Red's anger hits a wall. "What? That's not-"</p>
+
+<p>"Yes, it is! I'm just a test subject to you now, aren't I?"</p>
+
+<p>"Come on, you know me better than that! Besides, you said you were over it!"</p>
+
+<p>"I <em>lied</em>, you idiot!"</p>
+
+<p>The two of them are breathing hard as that last shout fades away, and as Red tries to think of something to say, Blue makes a sound of disgust and grabs his water bottle before striding away,</p>
+
+<p>"Wait, Blue-"</p>
+
+<p>"I'm gonna take a leak, Red. Mind if I have some privacy?"</p>
+
+<p>Red stops following, cheeks hot as he glances at Leaf. She's looking after Blue with a mix of puzzlement and sadness though, and when she turns to Red there's a fierce light in her eyes.</p>
+
+<p>"You. Explain."</p>
+
+<p>"It was… I just asked him if… ah, hell." Red sighs and sits back down, wanting to simultaneously punch Blue and apologize to him. "I asked if he'd mind me testing my spinarak's mental attack on him. When I told Blue I knew he was dark last night, he said it doesn't bother him any more."</p>
+
+<p>"Did you consider whether he was putting on a brave face?"</p>
+
+<p>Red rubs his face. "Not at all. He's right, I <em>am</em> an idiot."</p>
+
+<p>Leaf lowers herself to a crouch, leaning back against a tree. "I don't think taking your friend at his word makes you an idiot. It was a mistake. If you did consider it but ignored it, that might be a different story."</p>
+
+<p>"You don't know Blue the way I do. In retrospect it's obvious that it would bother him more than he let on, like the fact that he didn't tell me himself after all these years."</p>
+
+<p>Leaf has a brow raised. "Is it really that big a deal, here? There's some prejudice in Unova, but..."</p>
+
+<p>"When my mom was our age, it was illegal for them to hold public office," Red says. "People said someone with a dark mind could hide any corruption from psychics. Like mind reading's reliable enough to detect that anyway, right? It was stupid superstition at the heart of it. Dark pokemon have pretty much always been seen as evil in Kanto, and a lot of villains in our movies and shows are dark. Things are a bit better now, but you'll still meet some that make a big deal of it."</p>
+
+<p>"Wow. That kind of explains why he kept it secret though, doesn't it?"</p>
+
+<p>Red shakes his head, anger returning. "Even from me? Talk about lack of trust!"</p>
+
+<p>Leaf frowns. "Red… don't take this the wrong way, but how many other friends do you have, besides Blue?"</p>
+
+<p>"What's that got to do with anything?"</p>
+
+<p>"Can I make a prediction? Or speculation, rather?"</p>
+
+<p>Her phrasing helps Red take a step outside himself. "Uh… yeah. Go ahead."</p>
+
+<p>She picks up a dead leaf and begins to slowly shred it with her fingers, gaze down. "I know I just met you and Blue, so let me know how far off I am. You made a few friends when you were younger, but none of them really kept up with you in school as well as Blue did. After he lost his parents and you lost your dad, it became more than just a rivalry. Blue didn't focus as much on academics, but he's still smart, and you both had the same drive. Took your goals seriously. Other kids became hard to relate to, and eventually you started to spend most of your time with him or older researchers and lab assistants. But they weren't really your equals, while Blue was."</p>
+
+<p>Red is watching her with a mix of embarrassment and admiration. "Okay, you're not far off at all. In fact your model is surprisingly good considering what info you have. What made all that so obvious?"</p>
+
+<p>She smiles. "Not just you. I think that summary fits him too. I've never heard either of you refer to others your age when you talk. Your past agreements or arguments all seem to be with each other. Other than family members, it's like there's no one else for either of you. You guys aren't just friends."</p>
+
+<p>Red feels a bit uncomfortable as she talks, then distinctly nervous by the end. "Woah, woah, you're not saying… it's not like we're…"</p>
+
+<p>Leaf looks puzzled for a second, then laughs. "No, I don't mean it like that! I'm just saying, if you were just close friends, he probably would have told you. But beyond that, you guys act like brothers, and brothers sometimes have a sense of rivalry. My guess is, he didn't avoid telling you out of lack of trust, but because he was embarrassed at being seen as lesser."</p>
+
+<p>Red thinks back to how he felt after his spinarak blasted him, careful not to think of the blast itself. He hadn't wanted to tell Leaf and Blue because he hadn't wanted to admit his weakness. It was only the necessity that made him do so. He wonders how many other important sides of themselves people hide from each other, even those they care about, out of embarrassment. It's easy to say "He should just trust me" when it's not you that feels ashamed.</p>
+
+<p>"Yeah. I get it." Red sighs. "So you think I should apologize?"</p>
+
+<p>"Damn right you should."</p>
+
+<p>Red gets to his feet as Blue walks back into the clearing. "Hey man, I'm really s-"</p>
+
+<p>"Forget it." Blue waves a hand. "Let's just drop it, alright? We should keep moving anyway."</p>
+
+<p>"Uh... sure. You got it." <em>Shit.</em> Despite all that, he still hoped to perform the spinarak test. Now he can't think of a tactful way to bring it up. Red's movements are aggressive as he packs his bag, but he keeps his irritation off his face as they start walking again.</p>
+
+<p>It's so frustrating to have the answer to a question so close, and be unable to test it. The itch to know is still there, and it gets worse the longer he tries to think of alternate ways to determine the attack type, all of which are significantly less precise. Worst case, he could just wait to find another normal or dark type to test it on, but a pokemon wouldn't be able to communicate what it had felt. He finds himself getting angry at Blue again for refusing. Maybe he could arrange to accidentally-</p>
+
+<p>Red slams the door on that train of thought, a sick feeling in his gut. Even knowing Blue would be immune or resistant to its effects, it's a horrible thing to think of doing to his friend.</p>
+
+<p><em>To anyone!</em> he screams at himself. <em>That's Mad Scientist thinking! That's the kind of thing that gets people branded as Renegades!</em></p>
+
+<p>Red forces himself to take out his notebook and start writing about something, anything else, as they walk. His hands are shaking a bit. <em>I'd never do something like that,</em> he assures himself. <em>L</em><em>east of all to a friend. Never.</em><em>
+</em></p>
+
+<hr noshade="noshade" size="1" />
+
+<p>The kilometers pass steadily underfoot as afternoon gives way to evening, and each of them gets some training in with the rest of their pokemon. Blue and Leaf train with their starters and pidgey, but neither takes out their beedrill, wanting to do some extensive virtual training with them first. Having fewer pokemon than the others, Red brings Charmander back out after finishing with his rattata's training, and lets the two of them get used to concurrent orders as they walk. After a couple hours, his rattata has gone through three pokepuffs and Charmander two, but they've mostly stopped reacting to his words unless they're prefaced properly. Red is impressed by how much smarter his well-bred Charmander is compared to the wild rattata.</p>
+
+<p>Eventually the sun begins to set, and they find another Ranger Outpost to camp by. They stop at the outpost itself, a small collection of buildings where they can pick up some free traveling rations and food for their pokemon, courtesy of their Trainer IDs.</p>
+
+<p>There's no spare room for uninjured travelers in the buildings themselves, so the three set up camp within the wards again, using a trio of handlamps to light the perimeter before laying out their bedrolls in a loose triangle. Red calls his mom briefly to assure her he's still alright, then checks CoRRNet with some trepidation for any news in the area he might have missed. All seems quiet in the forest, however. They're about twelve kilometers from its northern edge, and fifteen from Pewter. Zapdos seems to have swung to the west, and Pewter is no longer in a state of high alert.</p>
+
+<p>"I'll take last watch," Blue says as he finishes eating, then slips into his bedroll and turns to his side before waiting for a response.</p>
+
+<p>"Okay," Leaf says. "Night."</p>
+
+<p>"Night," Red echoes. Despite saying they'd put the fight behind them, Blue was distant all afternoon. Red isn't sure how long he'll stay upset, but he's willing to wait at least a day before poking at it. Normally after a big fight they would keep their distance and cool off for a bit, but that's not really an option here.</p>
+
+<p>He turns to Leaf. "You tired?"</p>
+
+<p>She shakes her head. "I'll probably stay up for a bit. First one to fall asleep gets second watch?"</p>
+
+<p>"Deal."</p>
+
+<p>They lie down and open their pokedexes. Red looks up efficient ways to set up webbing with spinarak, wondering how to make use of it tonight. He could put a bit of pokepuff in it to draw prey. It would probably work on caterpie and other bugs, but a hoothoot would free itself within seconds without spinarak hanging around nearby to distract or attack it after it's caught.</p>
+
+<p>He closes his pokedex and starts sketching out different web patterns that might better secure a bird pokemon. He could have two sets of vertical lines to the sides of the main web to snare its wings, but what about the talons?</p>
+
+<p>It's hard to use a bug pokemon's skills to try and stop a flying type. They got lucky before with Bulbasaur and the pidgey, and Bulbasaur was badly hurt all the same. Red frowns, thinking of psychic and ghost and dark interactions again, and begins writing them all out, then categorizing all the pokemon types.</p>
+
+<p><em>Substance:</em></p>
+
+<p><em>Normal, Fire, Water, Plant, Electric, Poison, Rock, Metal, Bug, Ghost</em></p>
+
+<p><em>Descriptive:</em></p>
+
+<p><em>Flying, Fighting, Ground, Dragon, Psychic, Ice</em></p>
+
+<p>"Whatcha writing?" Leaf asks, voice low.</p>
+
+<p>Red cranes his neck to look at Leaf and sees her lying with her hands behind her head, staring up at the dark. He turns back to his notebook and reads the lists out loud.</p>
+
+<p>"Huh. That's an interesting way to divide them."</p>
+
+<p>"Remember our conversation a couple days ago? When we just set out?"</p>
+
+<p>"Yeah. You think of the types as emergent properties rather than fundamental aspects."</p>
+
+<p>"For some, yeah. But I'm not sure if I'm right in all of them."</p>
+
+<p>"Ground being descriptive does seem odd. But why wasn't Dark listed?"</p>
+
+<p>Red sighs. "Because I have no idea where to put it."</p>
+
+<p>He hears her shift and sees her lying on her side to face him, so he turns to do the same. "From what we learned today, it seems like a fundamental aspect of their biology."</p>
+
+<p>"Possibly."</p>
+
+<p>"Probably."</p>
+
+<p>He shrugs a shoulder. "Maybe probably. The way their immunity works is moderate evidence for it. But there's other evidence against. Before, I would have said Dark Type was descriptive for the same reason Psychic is. That there's nothing inherent to the biology that interacts uniquely with certain elements or substances, the way water conducts electricity or metal is harder than rock. Is every cell in a psychic type psychic? Probably not: all the phenomena we observe with psychics relate to their mental powers' strengths and shortcomings, not their biology. So I thought Dark types were similar, because other than their unique resistance and immunity to ghost and psychic phenomena, they don't really have any unique interactions."</p>
+
+<p>"But that's not actually true," Leaf says. "You have Fighting down as Descriptive-I understand why, I remember your point from earlier-but even if it's just a label put on anything that is really muscular and agile, fighting pokemon tend to have a clear advantage against Dark pokemon, even the physically tough ones."</p>
+
+<p>"But is that because of something unique to the Dark typing, or just an interaction of the individual species? There aren't really many physically strong Dark pokemon. Some are very fast, and some are bulky, but by and large, they're not <em>strong</em>. So what if it's just the result of that?"</p>
+
+<p>"But then other strong physical types, like Rock-"</p>
+
+<p>"Think outside the bounds of the typing system for a moment: is there <em>any reason</em> that a Fighting pokemon's punch should be so much harder for an umbreon or mightyena to recover from than, say, a heavy rock thrown at them, or a body slam?"</p>
+
+<p>Leaf takes a few moments to think about it, eyes staring down. Red waits patiently for her to finish setting aside the assumptions their cultures surround pokemon types with.</p>
+
+<p>Eventually she looks up and says, "No. But from all we can observe, that's just the way it is."</p>
+
+<p>Red slumps back, arm covering his eyes. "I know," he moans quietly. "It doesn't make sense!"</p>
+
+<p>Leaf laughs, hand over her mouth. "If the evidence doesn't match your beliefs…"</p>
+
+<p>"Right, right." Red sighs. "Just because something doesn't make sense to me doesn't mean the world's wrong. It just means my model of the world is off somewhere."</p>
+
+<p>"Why do you care about this so much anyway? It seems like the kind of thing a competitive trainer would obsess over."</p>
+
+<p>Red feels himself get defensive, then realizes she's asking out of genuine curiosity. After only having Blue to discuss things like this with for so long, he's not really used to that. "Because it confuses me, and things that confuse me are the best warning flags I have to unknown unknowns."</p>
+
+<p>Leaf smiles. "Unknown unowns? You think there are more than twenty-six?"</p>
+
+<p>Red grimaces, lips twitching up. "That was a terrible pun."</p>
+
+<p>"Inown."</p>
+
+<p>Red groans and mimes throwing his pencil at her. She ducks her head, then comes up grinning. "So you mean it's the way you realize there's something you don't know that you don't know?"</p>
+
+<p>"Right. When we feel confusion, it's the result of some new data that's at odds with our model of how reality is. So either our model is flawed for not being able to account for the new stimulus, or the stimulus is false."</p>
+
+<p>"Like if Blue wakes up tomorrow and starts reading science journals?"</p>
+
+<p>It's Red's turn to cover his laugh, and he turns to glance at his friend's still form. Blue's breaths are steady and even. "I'm still holding out hope he will eventually, but if it was something sudden, then yeah."</p>
+
+<p>"And since your model of Blue includes a disinterest in science articles, then maybe that part of the model is wrong."</p>
+
+<p>Red nods. "Just the first few times though, after which my model of him will have updated, and it won't be confusing anymore. Alternatively-"</p>
+
+<p>"Alternatively, your model of the article might be what was wrong. Your confusion would be from 'why is Blue reading something he normally finds boring?' but maybe it's about something relevant to competitive battles."</p>
+
+<p>"Have we been reading the same blogs?"</p>
+
+<p>"Not in this case, but it makes sense. Except, what do you mean by the stimulus being false? Like if it's just an illusion of Blue, or a hallucination?"</p>
+
+<p>Red smiles. "That's a possibility, though a very low one. More likely is that he's just pretending to read an article to irritate me."</p>
+
+<p>She raises a brow. "Does he do that?"</p>
+
+<p>"Not really. Though when we were younger he once started carrying around a notebook and randomly scribbling in it every time I did or said something."</p>
+
+<p>Leaf buries her laugh in her arms. "It's not funny," Red says, indignation fighting his own smile. She nods without looking up, and his smile wins out. "Okay, it's a little funny. Anyway, that's why I'm so interested in pokemon types. They're a major clue to the way the world really works, and the more they don't make sense, the more I wonder whether what we know is really accurate."</p>
+
+<p>Leaf is still smiling when she raises her head, but her tone is serious. "Have you considered whether we just can't understand it? If it's just something unknowable?"</p>
+
+<p>Red shrugs. "Sure, but what's the use of that kind of thinking? Just throw our hands up and stop trying to figure things out? There may be limits to what our flawed and feeble minds can do, but until there's a sign we've reached it, I don't see the point in being pessimistic."</p>
+
+<p>"Just checking to make sure. It's at least worth recognizing when you might be on a dead end path."</p>
+
+<p>"Yeah. What about you? Doesn't the weirdness of typing interest you at all?"</p>
+
+<p>Leaf turns to lie on her back again. "Sure. But then, everything interests me. That's kind of my problem."</p>
+
+<p>"What do you mean?"</p>
+
+<p>"I was raised by two generations of professors. Mom just got her title and lab last year, but she's always been a researcher. Grandpa specialized in pokemon population distributions when I was a kid, so we traveled all over Unova when I was growing up."</p>
+
+<p>Red refrains at the last second from exclaiming over how cool that must have been. Her mood is too melancholy, so instead he just says, "What was that like? I've lived in Pallet my whole life."</p>
+
+<p>"It was fun, for the most part. I made a lot of different friends… but I had a hard time relating to them, and always had to move again soon. I had a lot of cool experiences and opportunities, but never stuck around in one place long enough to really feel like I belonged, or focus seriously on a single project. I'm interested in a lot of different fields of study, but not really an expert in any of them. I'm good at living outdoors. I'm an okay fisher, back when I fished. I'm good with pokemon, I'm good with numbers. I liked gardening, but wasn't so good at that. I'm okay at programming, I actually enjoyed it a lot, but I only had a few tutors spread out over the years and there was never much time to really learn it formally or practice much."</p>
+
+<p>Leaf goes quiet after that, and Red keeps the silence, waiting. Eventually she says, "I want to find something I'm really <em>great</em> at. I want to be an activist, maybe go into politics, but I'm too young to be taken seriously in most fields other than as a trainer. And I felt like my worldview was too tied to Unova's culture. I wanted a wider perspective, to see how other regions think about pokemon and human interactions. I had the idea for a book on the legends of different cultures because I like writing, and Grandpa's research on Unova's legends always fascinated me. The way people describe the old stories of Zekrom and Reshiram's battles as a clash between Truth and Idealism, or how they ascribe meaning and purpose to the Forces of Nature when they go around causing disasters."</p>
+
+<p>Red smiles a bit. "Well, you came to the right place if you're looking for parallels to that."</p>
+
+<p>"Yeah. Comparing the different views on your Storm Trio and our Weather Trio should be interesting. Speaking of which, are you and Blue really planning on heading into the storm if Zapdos comes?"</p>
+
+<p>"Yeah," Red says after a moment. He doesn't bring up his contingency plans in case Blue might not be fully asleep or wakes up at any moment. It occurs to him that he could send her an email, give her an idea of his plans and enlist her help. "But like we said, we're not going to just rush at Zapdos and try to take it down. We just want to help others, for now."</p>
+
+<p>"Still, you'll need well trained pokemon just to handle any wild pokemon rampaging due to Pressure. Do you think three pokemon are enough?"</p>
+
+<p>"No, I don't. We're not likely to find new pokemon training ours while we travel though."</p>
+
+<p>"So what's your plan?"</p>
+
+<p>"What makes you think I have one?"</p>
+
+<p>Leaf smiles. "Unless your notebook is full of nothing but doodles, you'd better have <em>something</em>."</p>
+
+<p>Red smiles back and pushes himself to his elbows. "You know, I actually do. And you might be able to help with it…"</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Red wakes to the feel of a hand shaking his shoulder. There's a second of disorientation, then he scrambles off his belly and looks up at Leaf, who's smiling. "Getsumthin?" he mutters, rubbing at his eyes. "Caterpie again?"</p>
+
+<p>"Nope. Say hello to your first flier."</p>
+
+<p>Red blinks at her, then pushes himself to his feet and turns to the branches above, where Leaf is shining one of the lamp lights. The second web he instructed his spinarak to weave is still up there, and the pokepuff he'd climbed up and put there is gone. In its place...</p>
+
+<p>Red grins. A hoothoot hangs tangled in the web, sleeping. Its feathers are covered in the sleep spores Leaf's bulbasaur had coated the web with.</p>
+
+<p>"Awesome," Red says, mind coming fully awake as he gets out his pokeball. "When-"</p>
+
+<p>"Just now. I heard its wings, then it struggled a bit in the web. I think its beak was full of the pokepuff, because it didn't make much noise. We should set up another one, maybe we'll get another!"</p>
+
+<p>"Yeah, let me just-"</p>
+
+<p>"What's going on? We under attack?"</p>
+
+<p>Red and Leaf turn guiltily to Blue, who's staring blearily up at them. They forgot to keep their voices down.</p>
+
+<p>"Sorry Blue, everything's fine. We caught a hoothoot."</p>
+
+<p>Red turns back and aims his pokeball, but the web is too far up. He set the first one lower so they could see it in the light, but a caterpie crawled into it before he even fell asleep. Leaf insisted he take it after giving up his chance at the beedrill, so he caught his second bug pokemon. The second web was put higher, and between the long branches of two trees in hopes of being more accessible to a flier rather than a crawler.</p>
+
+<p>Red puts his pokeball away and begins climbing, and Leaf shines the light on the tree to help him see.</p>
+
+<p>"Oh, nice," Blue says, getting to his feet and rubbing his face. "Hang up another and catch me one, would you?"</p>
+
+<p>"Sure," Red grunts, limbs burning as he pulls himself up to the branch parallel with the web.</p>
+
+<p>"We actually hung another two," Leaf says, pointing. "Nothing in them yet though."</p>
+
+<p>He straddles it and drags himself carefully closer, then takes out his pokeball and aims it. After a moment it pings, and he lobs it onto the sleeping pokemon. The ball absorbs it in a flash of light and falls to the grass below. "That's five. Told you I'd catch up to…" Red trails off as a second flash registers to his side. He turns, thinking one of them had caught another that appeared just then, but they're both looking up at him.</p>
+
+<p>"What is it Red?"</p>
+
+<p>"Thought I saw something. You guys didn't-"</p>
+
+<p>The night briefly lights up again, and suddenly Red has trouble breathing. His heart races in his throat as he automatically starts to count, feeling his body tremble.</p>
+
+<p><em>0… 1... 2... 3...</em></p>
+
+<p>"What was that?" Blue turns to face the direction of the flash. To the west.</p>
+
+<p><em>4… 5... 6... 7...</em></p>
+
+<p>"Red! What's wrong?" Leaf asks.</p>
+
+<p><em>8... 9... 10... 11...</em></p>
+
+<p>Red stares out into the darkness of the trees, and sees another bolt of electricity light the distant forest.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/13/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/15/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -364,6 +849,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

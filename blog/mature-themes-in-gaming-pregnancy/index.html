@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advice Level: Beginner to Advanced Gamer
+So your story is moving along fairly smoothly: characters are developing, plot is advancing, relationships are forming… when suddenly, BABIES!  Or more specifi...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Mature Themes in Gaming: Pregnancy">
+    <meta property="og:description" content="Advice Level: Beginner to Advanced Gamer
+So your story is moving along fairly smoothly: characters are developing, plot is advancing, relationships are forming… when suddenly, BABIES!  Or more specifi...">
+    <meta property="og:type" content="article">
+    <title>Mature Themes in Gaming: Pregnancy - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Mature Themes in Gaming: Pregnancy</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        April 25, 2016
+                    </span>
+                    <span>📁 Storytelling Advice</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><p style="text-align: left;" align="center"><em>Advice Level: Beginner to Advanced Gamer</em></p>
+<p style="text-align: left;" align="center">So your story is moving along fairly smoothly: characters are developing, plot is advancing, relationships are forming… when suddenly, BABIES!  Or more specifically, suddenly, one of the characters turns up pregnant.  Cue collective groans.</p>
+First off, this is the kind of decision that should almost never be made by the GM alone. If a player is having wanton sex without mind to consequences, a GM might be tempted to inflict pregnancy on them or their partners to make their life a bit more complicated.  However, pregnancy and abortion are incredibly sensitive topics to suddenly inject into a social group, and it can cause unpredictable drama.  If the GM feels the need to drop an <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/AnAesop">Aesop</a> on The Dangers of Unsafe Promiscuity, it’s generally safer to have the character be affected by social stigmas (or even contract an STD) instead.</p>
+
+<p>That said, if GM or players really want to include pregnancy in their game, it can be a challenge to ensure it’s an engaging part of the story, rather than one that turns people off of it.  Here are some dangers to keep in mind when navigating the minefield that pregnancy represents in tabletop games.<span id="more-3394"></span></p>
+
+<p><span style="text-decoration: underline;"><b>Pregnancy as Plot Device</b></span></p>
+
+<p>There are a number of circumstances where a pregnancy is central to the plot of the story.  For example, if the baby is the Magical Messiah that is prophesied to end the Thousand Years of Darkness (or conversely, if it’s the Anti-Christ who must be magically aborted before it brings about Armageddon), then it serves as the McGuffin for the characters to rally around or focus on.</p>
+
+<p>Unfortunately, if one of the PCs themselves are the pregnant ones, this could unbalance the importance of the character in relation to the others.  If it’s a small group or everyone involved in the game already agrees on it, there’s usually no issue.  If it’s sprung on some of them however, it can be a bit unfair to many players that one of them is suddenly at center stage in the narrative.
+<div id="attachment_3400" class="wp-caption alignleft"></p>
+
+<p><a class="fancybox" href="http://www.dmfiat.com/wp-content/uploads/2013/03/padbirth-fuckyeahpadmeamidala.png" rel="gallery-0"><img class="size-medium wp-image-3400" src="http://www.dmfiat.com/wp-content/uploads/2013/03/padbirth-fuckyeahpadmeamidala-300x127.png" alt="padbirth-fuckyeahpadmeamidala" width="300" height="127" /></a>
+<p class="wp-caption-text">“I want my character arc to be just like Padme’s.”
+Said no one ever.</p></p>
+
+<p></div>
+On top of that, the pregnant character themselves may not be particularly overjoyed either.  Traditionally in media, especially stories that involve a lot of action, women have been relegated to support or side roles far too often.  When they <i>did</i> enter the limelight, it was often in one of the narrow roles defined by their gender rather than their individual identity.  To put it plainly,  men in fiction are rarely important because of what they are, rather than what they do. Men are important because they're strong or smart. Women on the other hand were often only important because the main character found them attractive, or they were helpless and needed saving.  Women were much more often captured rather than killed, or raped rather than tortured, and so on. And a lot of modern media is still working to undo those rigid stereotypes.</p>
+
+<p>Even if the player previously agreed on their character becoming pregnant to serve the plot, they may eventually find it frustrating when they find themselves put in the box of “damsel in distress” by default.  While it’s possible for a pregnant woman character to exhibit badassery by tapping into Mama Bear impulses, generally speaking they will be expected to stay out of harm’s way, as their life will be valued above others’, or artificially protected by <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/PlotArmor" target="_blank">Plot Armor</a>.</p>
+
+<p>And again, this might be something the character is perfectly fine with… but it shouldn’t be something that’s dropped on them unexpectedly. There is a depressing trend in gamer groups with only one female character or player where the “knocked up” plot hook keeps getting dropped on them.  It might not seem like that big a deal at first, but being pigeonholed into a role gets old fairly quick for anyone.</p>
+
+<p><span style="text-decoration: underline;"><b>Pregnancy as Plot Derailment</b></span></p>
+
+<p>Conversely, if the pregnancy is NOT central to the plot, it often instead has the effect of a small moon entering a planet’s orbit, exerting forces that destabilize its trajectory.</p>
+
+<p>Amidst all the major and minor story arcs, suddenly one or more of the characters are concerned with something that’s of little interest or importance to anyone but them.  Not that there’s anything wrong with that, sub-plots often only involve a couple characters. But having children often changes people, or at the very least shifts their priorities. In a small gamer group this might not be that big a deal, but in a large one it can alienate the characters involved in the pregnancy from the others who are dealing with their own, more “public” subplots.</p>
+
+<p>And then there are the effects of the pregnancy itself.  If enough time passes in-game, there will start to be some inescapable symptoms (fatigue, nausea) that put the character at distinct disadvantages, unless you just pretend those don’t exist.  Once the pregnancy begins to show, any sort of straining physical activity becomes difficult, and the character’s athletic skills become effectively crippled.  Many systems have built-in modifiers to reflect this, like taking negatives to rolls involving dexterity or stamina, and even ways to figure out whether the baby is harmed by events.  After all, should a pregnant woman really be dungeon-crawling for treasure, or chasing down suspects for a shoot-out?  And if they can’t, what can their character do during the months of inactivity that still lets them feel productive and engaged in the story?  How will the party fare without them?</p>
+
+<p><span style="text-decoration: underline;"><b>Consequences</b></span></p>
+
+<p>If you’ve read all that and are still determined to include pregnancy in your game, the most important thing to keep in mind is devising the right consequences for any outcome to make the pregnancy a compelling part of the story.</p>
+
+<p>What if the character decides to have an abortion?  Will there be a negative backlash from the father?  Their society?  What if they miscarry during some particularly intense physical interaction?  Will they feel guilt and loss? How will it affect their future trysts?</p>
+
+<p>What if they carry the child to term?  Will they raise it themselves? Do they have the funds and time for that?  Will they continue the adventure in the meantime, risking their lives and potentially orphaning their child?  Will they give the child up for adoption?  What emotional consequences will they feel?</p>
+
+<p>To spice things up, try to think of the most interesting ways to introduce conflict that helps characters <i>struggle</i> for their child’s well-being.  This helps the parents (and their players) actually care about the “make-believe child.”  For example, if the child is carried to term through strange circumstances or magical settings, how might it affect their well being?  Do the parents need to find some ritual or potion to ensure their child’s health? Consider demonic/spiritual influences or magical “radiation” that might affect the child’s destiny.</p>
+
+<p>If the mother or father are relatively famous or powerful figures in the world, how worried are they that their enemies will discover and try to strike at them through their child?  Do they try to keep it a secret?  What happens if the child is kidnapped?  This is something the rest of the group might even rally around and assist in.</p>
+
+<p>Again, caution is urged to have a care for player sensibilities: fantasy or supernatural influences aside, pregnancy and its assorted complications and consequences are all very real and traumatic events that can occur to people without even their friends necessarily knowing about it.  With tact and care, it can be a compelling part of a story or character arc, but without it you might find certain players suddenly less interested in returning for subsequent games.</p>
+            </div>
+
+            <div class="article-footer">
+                
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

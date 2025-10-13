@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advice Level: Beginner to Moderate Writers, Beginner to Advanced Gamers
+
+Tension between characters is something most groups have to deal with at one point or another.  Some would prefer that everyone...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Creating Tension Between Your Characters">
+    <meta property="og:description" content="Advice Level: Beginner to Moderate Writers, Beginner to Advanced Gamers
+
+Tension between characters is something most groups have to deal with at one point or another.  Some would prefer that everyone...">
+    <meta property="og:type" content="article">
+    <title>Creating Tension Between Your Characters - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Creating Tension Between Your Characters</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        April 26, 2016
+                    </span>
+                    <span>📁 Storytelling Advice</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><em>Advice Level: Beginner to Moderate Writers, Beginner to Advanced Gamers</em></p>
+
+<p><a class="fancybox" href="http://www.dmfiat.com/wp-content/uploads/2013/03/rope-tension.jpg" rel="gallery-0"><img class="aligncenter size-full wp-image-3563" src="http://www.dmfiat.com/wp-content/uploads/2013/03/rope-tension.jpg" alt="rope-tension" width="275" height="182" /></a>Tension between characters is something most groups have to deal with at one point or another.  Some would prefer that everyone work as an always-friendly and solid team, while others get a thrill from the danger of potential PvP.  However, the attitude of the participating players plays a huge role in influencing how such tension plays out, and few people enjoy the drama that can spill over into Out of Character interactions.</p>
+
+<p><span style="text-decoration: underline;"><b>Creating Character Tension: Power Corrupts</b></span></p>
+
+<p>Or at the very least, it changes people.  It’s wisdom passed down through the ages, verified by modern experiments and countless anecdotes, that most people’s personality, their values, their behavior changes when their wealth, freedom, or influence are increased… and what those things boil down to is “power.”</p>
+
+<p>Maybe a character was a small time politician that suddenly emerged at the top of whatever crisis they were engaged in, to right social wrongs.  Maybe they’re a mage whose reach for power is swiftly exceeding their grasp, but their thirst for knowledge is unquenchable.  Maybe they’re a soldier that finds themselves suddenly high in the chain of command, and must do what it takes to see their people to victory.  Or a drug runner that finds themselves kingpin, and realizes how big the world really is, and how large a slice of the pie could be theirs.  Or a simple teenager that wakes up one morning with superpowers, and must decide whether to use them for the good of all, or just themselves.</p>
+
+<p>The forms power can take are limitless, but the symptoms speak to common desires in all of us. Pride, that we earned our advantages and are entitled to them.  Charity, that we can use our advantages for the good of others.  Greed, that we can have our every wish.  Justice, that we can do what’s right.  Wrath, that we can get back at those who wronged us.</p>
+
+<p>The impulses and desires that come up with the acquisition of power is what makes characters human (or, if they’re not human, relatable). As such, GMs or writers looking to highlight conflict between characters should keep in mind what might happen when a character acquires more power.  Mixing and matching vices and virtues can provide for very compelling character arcs, not the least of which will come from the consequences exercising their new influence and control.</p>
+
+<p>In addition, "power" is always relative, and often only matters when you can get more of it, or keep it.</p>
+
+<p>What will a character do to assure their power is secure? What will they do to assure their power is sufficient?  What <i>won’t</i> they do?  These are the questions that should be explored when power is gained, because these are the questions that show the change in a person, and not always for the better.  Not only that, it can also change <em>other</em> characters by association, whether by greed, or envy, or disgust.  An unbalance of power can bring even minor differences between characters into sharp relief.  Simply put, these are the things that can cause tension between the characters.</p>
+
+<p>Can characters trust their ally to still consider their best interests with a clear perspective when his vision is clouded by power?  Can’t he see what he’s turning into? Sharpen your knives, loyal companions, and hope you never need use them on one you once called friend…</p>
+
+<p>Can the newly powerful trust her allies to understand how much responsibility is on her shoulders?  Can’t they see what needs to be done? Watch your friends, Queen Regent, and take steps to assure they know what’s at stake…</p>
+
+<p><span style="text-decoration: underline;"><b>Creating Character Tension: Opposing Values</b></span></p>
+
+<p>What’s the right balance between Freedom and Safety?  Do the sufficiently important ends always justify the means, or are some things unacceptable regardless of circumstance?  When should the good of the few be sacrificed for the good of the many?  What is the value of Truth, when a lie may leave one happier, or lead to peace?</p>
+
+<p>These are just some of the values that can divide characters on what the “right path” in any given situation is, and the GM should be aware of these differences to engineer situations that create tension.</p>
+
+<p>That politician that rose to prominence? They can’t just slack off and do what they want: they need to keep their position now, and that means doing favors and undermining opponents… in other words, it means playing dirty. It means political wheeling and dealing, sacrificing ideals for results, all for the sake of the children.  Who among their advisers and friends will tell them that they’ve gone too far, lost sight of their goal, or are potentially doing more harm than good? And what would they do to stop them, if they needed stopping?</p>
+
+<p>The mage is learning with every spell they cast, but that rush of insight only leads to ever more questions and possibilities that need exploring.  But are they digging into questions better left unanswered?  Is the cost of their curiosity worth their esoteric knowledge?  Who will be their rock, remind them that they’re losing grasp of what really matters in life, of the people that care about them?</p>
+
+<p>That soldier-turned-general’s power comes with a purpose: to lead their brothers and sisters to victory, and that means doing whatever it takes to to win.  Which of their followers will stand up to them when they’re ordered to do something that goes against their conscience?  Who among their friends will argue that they’re becoming no better than the enemy they fight?</p>
+
+<p>These are all potential sources of conflict between characters, and should be encouraged among the players who find moral or ethical differences dividing them.  A writer can plan out such differences, and a GM can always introduce these questions by NPCs if needed, which may spark other players’ own introspection and expression of doubt.</p>
+
+<p><span style="text-decoration: underline;"><b>Creating Character Tension: Uneven Information</b></span></p>
+
+<p>As I previously explored <a title="Creating Meaningful Choices as a GM" href="https://daystareld.com/creating-choices-as-a-gm/">in another article</a>, the choices that players make are largely based on the information they’re given by the GM or narrative, and creating meaningful choices for characters to decide on requires providing enough information for them to understand some of the potential consequences of those choices.</p>
+
+<p>However, to promote conflict between players and wedge a divide in a party, supplying some characters with more or different information than others can be a great way to have them at odds.</p>
+
+<p>Perhaps a character in the party is given information that they have reasons to purposefully keep from the others.  What if knowing would put the others at greater risk?  What if they want the others to have plausible deniability, if things go wrong?  What if knowing would have them turn on each other?  It could be a delicate balancing act for a character to keep such secrets from their friends and allies, especially if others begin to suspect they know more than they let on.</p>
+
+<p>Or maybe some of the characters just have secrets, things that they keep hidden for fear of being rejected or turned against.   Maybe another character in the party knows their secret and agreed to hold it for now, but thinks it should be revealed sooner rather than later.  Romance is one of the most common among these things, if infidelity is involved.</p>
+
+<p>In another type of scenario, characters may have to choose sides in a conflict, with some not having the full story.  Maybe no one does, but someone <i>thinks</i> they do, and acts against the interests of the group with the belief that they’re doing the right thing, and the others will understand (if not thank them) later.</p>
+
+<p>A particularly fun one for games is when everyone knows a character is hiding something from them.  If you as a GM can get one of your characters to face down the rest of their hostile glares and say “Look, you just have to trust me!” then give yourself a pat on the back.</p>
+
+<p>Sometimes however, the fallout between characters can spill over onto the players, or other things can cause tension or conflict between them. This post applied to both writers of stories and the GM of RPGs, but <a href="https://daystareld.com/diffusing-tension/">the next</a> will give advice to GMs that might have to deal with players that take things too personally, and how to deal with diffusing drama and tension between players.</p>
+            </div>
+
+            <div class="article-footer">
+                
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

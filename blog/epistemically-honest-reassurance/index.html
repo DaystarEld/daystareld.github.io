@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="There&#x27;s a problem I&#x27;ve been seeing a lot since I started doing couple&#x27;s counseling with rationalists: we are, on the whole, uncomfortable with lying, particularly to people we care about, even if it&#x27;s...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Epistemically Honest Reassurance">
+    <meta property="og:description" content="There&#x27;s a problem I&#x27;ve been seeing a lot since I started doing couple&#x27;s counseling with rationalists: we are, on the whole, uncomfortable with lying, particularly to people we care about, even if it&#x27;s...">
+    <meta property="og:type" content="article">
+    <title>Epistemically Honest Reassurance - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Epistemically Honest Reassurance</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        February 22, 2022
+                    </span>
+                    <span>📁 Relationship Advice</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><span style="font-weight: 400;">There's a problem I've been seeing a lot since I started doing couple's counseling with rationalists: we are, on the whole, uncomfortable with lying, particularly to people we care about, even if it's for a good cause. Being put in a position where someone asks you to lie to them can feel like a gear grinding in the head, or a disembodying from your true self, or a sense of suddenly walking on eggshells.</span></p>
+
+<p><span style="font-weight: 400;">Not just rationalists feel this way, of course, but the following exchange is nearly ubiquitous in normal romantic culture:</span>
+<blockquote><span style="font-weight: 400;">"Do you think [bad thing will happen]?"</span></p>
+
+<p><span style="font-weight: 400;">"Of course not, everything will be fine."</span></blockquote>
+<span style="font-weight: 400;">On an intellectual level, the person asking often knows that their partner can't </span><i><span style="font-weight: 400;">actually</span></i><span style="font-weight: 400;"> promise this. But for many people, particularly in times of crisis, words to the effect of "Everything will be fine" are comforting, and all they're really asking for in that moment is emotional reassurance. There’s nothing wrong with that, any more than there is a desire for aspirin when you have a headache.</span></p>
+
+<p><span style="font-weight: 400;">Meanwhile, this is what might happen for rationalists:</span>
+<blockquote><span style="font-weight: 400;">"I'm scared of [bad thing happening]."</span></p>
+
+<p><span style="font-weight: 400;">"Well, there's a chance that it does, of course, but on net it doesn't seem likely."</span></blockquote>
+<span style="font-weight: 400;">or, if it </span><i><span style="font-weight: 400;">does </span></i><span style="font-weight: 400;">seem likely:</span>
+<blockquote><span style="font-weight: 400;">"Well... [brain lock]... Uh… [something meant to be reassuring but undermined by tone and affect].”</span></blockquote>
+<span style="font-weight: 400;">And sometimes the issue isn't even about probabilities at all:</span>
+<blockquote><span style="font-weight: 400;">"Have I gained weight/does this make me look fat?"</span></p>
+
+<p><span style="font-weight: 400;">“Are we going to be together forever?”</span></p>
+
+<p><span style="font-weight: 400;">"Do you think they're more attractive than I am?"</span></p>
+
+<p><span style="font-weight: 400;">"Does it bother you when I get really sad for no reason?"</span></blockquote>
+<span style="font-weight: 400;">Again, it's taken as the default in general romantic culture that what matters in responses are that they are </span><i><span style="font-weight: 400;">reassuring</span></i><span style="font-weight: 400;">, not that they're true. Most people in normal culture would react with indignant outrage on their friend's behalf if told that a spouse gave an honest answer to any of the above that reaffirmed the insecurity.</span></p>
+
+<p><span style="font-weight: 400;">And again, even for other rationalists, the person asking may </span><i><span style="font-weight: 400;">know </span></i><span style="font-weight: 400;">that they're putting their partner in a double bind, but the thing they want is not actually a "comforting lie." Many people, particularly rationalists, really appreciate a partner who will be scrupulously honest with them.</span></p>
+
+<p><span style="font-weight: 400;">But what still matters more than the object-level question is answering the implicit query:</span>
+<blockquote><span style="font-weight: 400;">"[I'm feeling insecure; do I have reason to be?]"</span></blockquote>
+<span style="font-weight: 400;">Which is why it might help to see the desire for verbal reassurance as similar to the desire for a hug; it's about the sensation and the signal, and those can be provided without saying anything that feels false.</span>
+<h2><b>How Do?</b></h2>
+<span style="font-weight: 400;">First, its important to reiterate that this is meant to be a way to reassure someone who is having a bad time, not a method of “fixing” underlying insecurities. Everyone needs a hug now and then, and sometimes all you can do for a cold is pop some aspirin. If there seems like a deeper issue at play then resolving that requires more in-depth discussion than this article is going to cover.</span></p>
+
+<p><span style="font-weight: 400;">Second, I am </span><i><span style="font-weight: 400;">not </span></i><span style="font-weight: 400;">suggesting platitudes. If you can’t think of something both honest and reassuring to say, that’s a separate problem; if your partner wants reassurance that you love them or are committed to the relationship, and you can’t give that, </span><i><span style="font-weight: 400;">don’t make it seem otherwise.</span></i></p>
+
+<p><span style="font-weight: 400;">Third, remember to be ready to reverse all advice. Some people </span><i><span style="font-weight: 400;">do</span></i><span style="font-weight: 400;"> actually want to be told “Yes, that makes you look fat.” But hopefully you will learn this through the relationship itself, and often even in those cases people don’t </span><i><span style="font-weight: 400;">just </span></i><span style="font-weight: 400;">want radical honesty, but also reassurance and understanding; this article is trying to help those who have already tried addressing the object-level and found their partner wasn't reassured, without ignoring the possibility that they did in fact want object-level reassurance about improbability <em>and </em>wanted more emotional reassurance.</span></p>
+
+<p><span style="font-weight: 400;">Speaking of which… a related problem is the one where people are unsure if their partner wants to “vent” or “problem solve,” and </span><a href="https://millievfence.tumblr.com/post/671888744481193984/millievfence-the-lafayettebaguette"><span style="font-weight: 400;">this post</span></a><span style="font-weight: 400;"> has advice on that which is very relevant here too.</span>
+<blockquote><span style="font-weight: 400;">…my answer is almost always “I want to understand my problem better, feel understood, and be reassured that the people important to me agree that this is a real problem, or at least that they support me in general. If understanding itself doesn’t solve the problem I will want to problem solve after I understand it”.</span></blockquote>
+<span style="font-weight: 400;">Similarly, people expressing insecurity through unanswerable questions often want to feel understood, and reassured, and maybe then also problem solve. That might look something like:</span>
+<blockquote><span style="font-weight: 400;">Am I getting fat?</span></p>
+
+<p><span style="font-weight: 400;">What's making you think that?</span></p>
+
+<p><span style="font-weight: 400;">I no longer fit into these pants.</span></p>
+
+<p><span style="font-weight: 400;">I'm sorry, I know you like those pants. I think you look great, but maybe we can find another pair you might like as much?</span></blockquote>
+<span style="font-weight: 400;">But that’s a nuanced and context dependent maneuver, not a one-size-fits-all password. The point of this post is to highlight to those who ask questions like this why their partner might have trouble answering them, and help those who are asked these questions understand what’s really being asked for is not always an answer to what’s being asked.</span></p>
+
+<p><span style="font-weight: 400;">The root generator you want to tap into here is the one that creates </span><i><span style="font-weight: 400;">your own optimism. </span></i><span style="font-weight: 400;">What do you feel good/safe/confident about that you can share with your partner? What truth about yourself or your relationship do you want them to take comfort from?</span>
+<blockquote><span style="font-weight: 400;">“Do you think I’m going to get long COVID?”</span></p>
+
+<p><span style="font-weight: 400;">"Either way, I'm here for you. We'll get through it together."</span></p>
+
+<p><span style="font-weight: 400;">“Are you attracted to them?”</span></p>
+
+<p><span style="font-weight: 400;">"Not the way I am you. You're the only one I want to be with."</span></p>
+
+<p><span style="font-weight: 400;">“Do you think we’re going to make it through this?”</span></p>
+
+<p><span style="font-weight: 400;">"I don't know what the future holds, but I’m with you because I believe in us."</span></p>
+
+<p><span style="font-weight: 400;">“I hate how depressed I get all the time. I feel like I’m never going to be ‘normal.’”</span></p>
+
+<p><span style="font-weight: 400;">"I know that must be frustrating, but I want you to know that I love you, and feel so lucky to be with you."</span></blockquote>
+<span style="font-weight: 400;">And so on. For that last one, conversely, a bold prediction like “Don’t worry, I’m sure you will someday” could be counterproductive even in normal romantic culture. Some might want that object-level reassurance, but for others it would be missing the point;  the actual thing they want is, again, to know that your love and support isn’t dependent on that happening.</span></p>
+
+<p><span style="font-weight: 400;">Remember, try to find words that are true for you and feel right for your partner, and </span><a href="https://www.benkuhn.net/listen/"><span style="font-weight: 400;">stay curious</span></a><span style="font-weight: 400;"> about what your partner is actually seeking in those situations; it may change over time, or be different in one context vs another. Then, once the moment is past, talk to them about it! Ask them what they felt when they asked something, what they meant by it, how your response was, what they would like to hear more of or less of.</span></p>
+
+<p><span style="font-weight: 400;">There are also of course physical things you can and should do as well; touch is important for comfort and reassurance, as are gifts and acts of service. If you own a scale and your partner asks "Have I gained weight," there are some pretty good ways to show that you find your partner attractive, and that question is a decent signal that you should do them more often.</span></p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">advice</span><span class="tag">psychology</span><span class="tag">romance</span><span class="tag">therapy</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

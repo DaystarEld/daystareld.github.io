@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cultists of Cthulhu is a Survival Horror board game that combines exploration, social deception, risk analysis, and tabletop skill checks. The game it’s most similar to is Betrayal at House on the H...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Review: Cultists of Cthulhu">
+    <meta property="og:description" content="Cultists of Cthulhu is a Survival Horror board game that combines exploration, social deception, risk analysis, and tabletop skill checks. The game it’s most similar to is Betrayal at House on the H...">
+    <meta property="og:type" content="article">
+    <title>Review: Cultists of Cthulhu - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Review: Cultists of Cthulhu</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        March 18, 2017
+                    </span>
+                    <span>📁 Game Reviews</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><a href="http://amzn.to/2mDTj60"><img class="aligncenter size-medium wp-image-932" src="https://daystareld.com/wp-content/uploads/2017/03/Cultists-300x169.png" alt="" width="300" height="169" /></a></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">Cultists of Cthulhu is a Survival Horror board game that combines exploration, social deception, risk analysis, and tabletop skill checks. The game it’s most similar to is <a href="http://amzn.to/2nDAJwz">Betrayal at House on the Hill</a>, in that it’s a co-op game with a hidden traitor, but it has a few twists that help it stand out as highly enjoyable in its own ways.</span></span></span></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: inherit;"><span style="font-size: medium;"><u><b><strong>Gameplay Overview</strong></b></u></span></span></span></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">When you start the game, first all the players take the map squares and start forming the Miskatonic University campus and various buildings. Then, players take the roles of students or staff at the university, which have a variety of different stats and backgrounds. Then, each player is randomly given a role card, with either Academic or Cultist on it (only 1 Cultist is shuffled into the roles).</span></span></span></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">The Academics’ goals vary by the scenario chosen, but overall are working together to defeat whatever evil plagues the university. The Cultist, however, is there from the beginning to muck things up for the Academics, and if possible, kill them. </span></span></span></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">Play consists of turns where each player interacts with the academy in some way through event cards, requiring them to pass skill checks of varying difficulty. The game uses a unique dice system, and comes with 15 six sided dice of 3 colors: Green, Red, and Blue, each having 3 symbols on them.</span></span></span></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">Green dice have 3 Success sides, 2 Weird sides, and 1 Fail side.</span></span></span></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">Blue dice have 2 Success, 2 Weird, and 2 Fail.</span></span></span></p>
+
+<p>Red dice have 1 Success, 2 Weird, and 3 Fail.</p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">Every skill check or attack uses 5 dice. Character sheets will show 2 dice symbols for each skill in the color of the dice you use, while skill checks come in colors to indicate the rest of the dice. So if your character is great at Finesse, with two Green dice symbols on it, and gets a Blue Finesse skill check, you’d use 2 Green Dice and 3 Blue dice. If you’re decent at Reason, with a Blue and Green dice symbol, but get a Red Reason skill check, you’d roll 1 Green, 1 Blue, and 3 Red.</span></span></span></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">The scenario cards will tell you what the outcomes are. Usually the success is positive, and the failure is negative, but the Weird symbols have varying effects that can be good, bad, or mixed depending on what’s going on in the game. Now, normally dice rolling is one of my least favorite parts of games due to the random element it puts in, but this one does something clever with it.</span></span></span></p>
+
+<p>After you roll your dice, you can choose any symbol you’ve rolled and reroll all dice of that kind. So let’s say you roll your dice and get 2 Success, 1 Weird, and 2 Fail. The card requires you to get 3 Success to get the positive effect, 2 Weird for the Weird effect, and 2 Fail is enough to get the negative effect. So a smart choice might be to reroll the 2 Fail dice. Hopefully, you’d get the 1 extra success you need and avoid the 2 Fail effect… but if the Weird effect is actually something you really don’t want to have happen right now,  it might not be worth the risk, and you might choose to just reroll the Weird, accept the two Fail, and hope that one dice will get you the third Success.</p>
+
+<p>Mechanics like this help add a lot of nuance to otherwise rote gameplay, and is one of the strongest parts of the game. There are some genuinely hard choices it forces you to make, while also helping mitigate the downsides of a luck-based mechanic. I've had some great arguments erupt at the table as people try to decide which dice to reroll, and it's all made more tense by the knowledge that one of the players is actually a cultist in disguise!</p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">Once the player has finished their event card for their turn, they get 2 actions from a list of Move, Use Item, Use Room, or Attack. Some rooms have special effects if you use them, such as giving you an item or buffing one of your stats with a Green die. Another action that can be taken is Scenario Action.</span></span></span></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">Scenario actions are described on one of the 5 Scenario cards that you choose at the beginning of the game. Each one explains which Old God from HP Lovecraft’s mythos is invading the university, which monsters spawn, and what the goals of the players. Most scenarios require you to do specific skill checks in specific rooms, and reward you with artifacts or clues needed to defeat the various evils.</span></span></span></p>
+
+<p>Once all the players have gone, the first player draws two cards from the Star Chart deck. They then look at these two cards (without revealing them to anyone) and choose one to resolve. Most of the cards have negative effects on them, so the player will try to choose the lesser of two evils… unless they’re the cultist, in which case they can pretend that they’re choosing the lesser one while royally screwing everyone over. Sometimes the card will have a beneficial effect on it, but increase the Star Chart by a large amount. After resolving the card (which can have a one time effect, a one turn effect, or a persistent effect) the player hands the First Player Token to their left and a new round begins.</p>
+
+<p>The Star Chart has numbers on it going from 1-30, and along with going up from Star cards, various effects from Event cards and items can also cause it to increase. The higher it goes, the more there’s a risk of the Cultist being able to reveal themselves and summon various monsters. This acts like the reveal in Betrayal at House on the Hill, and is a turning point in the game where the players are now actively working against the traitor in their midst, while the individual cultist gains a huge boost in power that makes him a deadly threat to the other players.</p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">A final note of interest is in the Madness and Wounds systems. Wounds are received as mystery tokens that have various effects on them. Some are straight damage, and if you accumulate too many of these, you die, while others are persistent negative effects on your various stats. And some wound tokens give you Madness.</span></span></span></p>
+
+<p>Madness is tracked in three stages. On each Academic card, a list of effects relating to some mental disorder is there. The first is aesthetic, so if your character is in Stage 1 Madness, there’s no mechanical effect. But if their Stage 1 is something like “You start to feel clausterphobic,” in Stage 2, you might be forced to move toward an exit on your next turn, and if you reach Stage 3 you could be barred from entering any space with other players on it.</p>
+
+<p>These provide interesting twists to gameplay, especially since the role cards that describe Madness effects are hidden from other players. So the disguised Cultist can take an action, like stabbing themselves or stealing from another player, and blame their Madness for “forcing” them to do it.</p>
+
+<p>The game ends when either all the Academics are dead, or they have completed the Scenario Goals, such as closing the alien portal or stopping a summoning ritual. If the Cultist is killed, they can still continue to control the various monsters in the game, which until they are revealed, act in a more automated and less strategic fashion.</p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: inherit;"><span style="font-size: medium;"><u><b><strong>Verdict</strong></b></u> (Scale is not</span></span></span></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: inherit;"><span style="font-size: medium;"><b><strong>Complexity</strong></b></span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">: 1-2-3</span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">-<span style="text-decoration: underline;"><strong>4</strong></span>-</span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">5</span></span></span>
+<span style="color: #2b2b2b;"><span style="font-family: inherit;"><span style="font-size: medium;">Quality over quantity in mechanics</span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">.</span></span></span></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: inherit;"><span style="font-size: medium;"><b><strong>Time Investment: </strong></b></span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">1-2-3</span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">-<strong><span style="text-decoration: underline;">4</span></strong></span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">-5</span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">
+Not </span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">a </span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">quick </span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">game</span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">, but </span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">it </span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">doesn’t drag on.</span></span></span></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: inherit;"><span style="font-size: medium;"><b><strong>Replay Value: </strong></b></span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">1-2-3-</span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;"><u><b>4</b></u></span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">-</span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">5
+</span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">Lot</span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">s of variability in play</span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">throughs</span></span></span><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">.</span></span></span></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">Cultists of Cthulhu is ultimately a well designed game with solid themes and entertaining mechanics. The art is great, and everyone I’ve played it with enjoyed it quite a bit. Game sessions took 2-3 hours, but it wasn’t hard to explain, especially to players who are used to other board games or tabletop RPGs.</span></span></span></p>
+
+<p><span style="color: #2b2b2b;"><span style="font-family: Lato, sans-serif;"><span style="font-size: medium;">The game is 1-6 players, and includes special rules for playing by yourself or with one other person. This is fairly rare in board games, and I give serious props to the designer for including a solo/duo mode. The rulebook does a good job of teaching the game, though there are some rules that are a bit unclear. I’ve asked the designer to clarify some edge cases, which are included below.</span></span></span></p>
+
+<p>If you and your friends enjoy <a href="http://amzn.to/2nDAJwz">Betrayal at House on the Hill</a>, HP Lovecraft's <a href="http://amzn.to/2n1uc0s">Cthulhu Mythos</a>, or are just looking for something new to try, I think you’d enjoy this pleasant romp of suspicion, madness, strategy and monsters. <a href="http://amzn.to/2mVhRt4">Enjoy!</a></p>
+
+<p><i><b>Rules Clarifications:</b></i></p>
+
+<p><b>Q:</b> Do monsters take damage as pure numbers, or like everyone else, they get wound tokens that can be either wounds or debuffs?</p>
+
+<p><b>A: </b>Pure numbers, even if a player was turned into a monster.</p>
+
+<p><b>Q: </b>Are players expected to learn what each Academic's madness possibilities are before the game starts?</p>
+
+<p><b>A: </b>It is a good idea to look over the madnesses before playing. You shouldn't know which ones you're playing with that game though.</p>
+
+<p><b>Q: </b>Star Spawn card showed 5 Green dice for combat, so we just kept using 5 green for it regardless of what the Combat card shows, right? And monsters can activate the Weird effect?</p>
+
+<p><b>A: </b>This is true for the Star Spawn because of its 5 green dice, but for any monster that does not have 5 dice there, it takes additional dice of the color shown on the combat card until it reaches 5, regardless of the symbol.</p>
+
+<p><b>Q: </b>How do the Weird effects on Combat cards interact with monsters?</p>
+
+<p><b>A: </b>Monsters can trigger the Weird effects, but some can only affect players, not monsters.</p>
+
+<p><b>Q: </b>When madness goes to 1 and they take more madness damage, do they take "wound tokens," or just straight damage?</p>
+
+<p><b>A: </b>Wound tokens.</p>
+
+<p><b>Q: </b>The rules says each scenario action can only be done successfully once, is that per player, per game, or per turn?</p>
+
+<p><b>A: </b>Per game.</p>
+
+<p><b>Q:</b> How is "nearest wall" determined, exactly? What if there’s more than one?</p>
+
+<p><b>A: </b>A wall is a side of an indoor tile that doesn't have a door or exit on it (and is adjacent to another tile). Distance is the same as moving to that tile. If there's a tie, the player decides which.</p>
+
+<p><b>Q: </b>If a card says someone gets this event by starting on the same tile (Chemical Stench) does that person get two events on their turn, effectively? Or does it replace the Event they would normally get?</p>
+
+<p><b>A:</b> They get two events.</p>
+
+<p><b>Q: </b>Who rolls first in combat?</p>
+
+<p><b>A: </b>The defender.</p>
+
+<p><b>Q: </b>Three Night Gaunts just spawned at the same time: do we roll Power once for each and give them a different effect, or one for all of them and apply the same effect to each?</p>
+
+<p><b>A: </b>One for all, but if it seems more fun and you can keep track of their different effects, feel free to do one per Night Gaunt.</p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">Board Game Review</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

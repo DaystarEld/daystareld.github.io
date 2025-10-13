@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I was commissioned to write a short story set in the universe of a new superhero comic series called Incident Report. The basic premise is pretty straightforward: a substantial minority of people sta...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Hearts and Minds">
+    <meta property="og:description" content="I was commissioned to write a short story set in the universe of a new superhero comic series called Incident Report. The basic premise is pretty straightforward: a substantial minority of people sta...">
+    <meta property="og:type" content="article">
+    <title>Hearts and Minds - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Hearts and Minds</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        June 03, 2020
+                    </span>
+                    <span>📁 Short Stories</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><em>I was commissioned to write a short story set in the universe of a new superhero comic series called Incident Report. The basic premise is pretty straightforward: a substantial minority of people started developing powers in the not too distant past, and in the modern day the government tries to keep track of everyone who develops powers, called Chimerans.  </em></p>
+
+<p><em>My story is unconnected from the main plot of the comics, and is just a "what if" scenario I thought would be neat. Hope you enjoy it!</em></p>
+
+<hr class="wp-block-separator"/>
+
+<p>Vanessa’s stomach growls as she walks through the clinic toward her team’s office. It’s long past lunch time, but the day’s been packed, and she didn’t want to eat out while the food she brought sat in the fridge. As long as there isn’t another call in the next ten minutes, she can heat it up…</p>
+
+<p>But when she opens the door and her eyes go to the corkboard beside it, she curses at the single white sheet pinned there.</p>
+
+<p>Sharice clucks her tongue. “Language, hon.”</p>
+
+<p>“Why didn’t you tell me there was another call waiting?”</p>
+
+<p>“Because it just came in, obviously. Your timing is perfect though. This one sounds serious.”</p>
+
+<p>Vanessa takes the call sheet off the wall with a sigh, scanning for the relevant info from long habit. Kaylee Thomas, 13 years old, cuts along inner arms (horizontal, thankfully), no known history of hospitalization… Ah, there it is: after a couple weeks of absences she was brought to school by a truant officer, and once there she “Refused to leave car until school let out,” saying she would kill herself if forced to go in.</p>
+
+<p>Vanessa frowns at the clock above the door. It’s late for a school call. “She’s still in the cop car, or in the school now?”</p>
+
+<p>“School.” Vanessa’s coworker laces her hands over a seven-months-pregnant stomach as she leans back in her chair. “Police escorted her in once all the kids were gone, and administration called for an assessment.”</p>
+
+<p>“Any plan or intent?” Most schools just ask how someone would kill themselves if they were going to, and take whatever answer given as proof that they need to be hospitalized. Almost anyone could give an answer to that question, but a real suicidal plan, the kind required for an involuntary hospitalization, involves a specific method and time frame.</p>
+
+<p>“Yeah, actually. Said she’d run into traffic as soon as school ended.”</p>
+
+<p>Okay, that might qualify. Still, something’s weird with this. “She stayed in the car the entire day?”</p>
+
+<p>“Apparently he only got her around lunch time: caught her napping at home. No one seems to know why she suddenly stopped going to school, she won’t talk to anyone there, and the school’s afraid to send her home without knowing if she’ll act on her threat.”</p>
+
+<p>“Huh. What did the parents say?”</p>
+
+<p>“No one’s spoken to them yet. School said they’ve only got the mom on file, and reached out without getting an answer.”</p>
+
+<p>Vanessa raises a brow. “Do you believe them?”</p>
+
+<p>Sharice’s answer is a simple eyeroll. “Though if they <em>are </em>lying, I wouldn’t blame them in a case like this.”</p>
+
+<p>Vanessa sighs and nods. There’s a whole list of reasons why schools might lie about getting parental permission for an assessment (or at least not try too hard to get it), some bad, others understandable. Such as when they suspect abuse at home. “Alright. I’ll head back out now, then.”</p>
+
+<p>“Have you even had lunch yet?”</p>
+
+<p>Vanessa smiles. “Better question is, have I had breakfast?”</p>
+
+<p>“Damn girl, go get some food first! David will be done with his call soon, I can send him instead. The kid’s been sitting for hours already, she’s not going anywhere.”</p>
+
+<p>She hesitates, tempted. She is hungry. But the idea of leaving Kaylee waiting even an extra fifteen minutes in a room, probably scared and uncertain about what’s coming next… Vanessa wouldn’t be able to enjoy whatever she eats.</p>
+
+<p>Besides... David’s a good clinician, but she’s got a secret weapon that he doesn’t. And this may be a case where she needs to use it. “I’ll be okay. Not feeling faint just yet.”</p>
+
+<p>Sharice shakes her head and reaches into her drawer, then tosses a granola bar at Vanessa. She catches it on her clipfolder with a smile. “Thanks Shar, I’ll grab you a frosty on the way back.”</p>
+
+<p>“Chocolate would be lovely. I’ll call the school to let them know you’re on your way; they sounded antsy on the phone.”</p>
+
+<hr class="wp-block-separator"/>
+
+<p>Dismissal is over by the time Vanessa arrives, thankfully, so she doesn’t have to muscle her car through a line of parents and buses or worry about what will happen if the assessment runs long and the child misses their bus. She parks in one of the empty staff spots (she’s not sure if she’s allowed to, but no one’s called her on it yet at other schools) and heads for the front office.</p>
+
+<p>It’s only a minute before she’s being led to the guidance offices. The school counselor, Mrs. Williams, repeats most of what Vanessa already knows as she leads her to where the girl is being kept, giving the overall impression of an overworked waitress handing off a particularly large stack of plates. “Still no word from any of the emergency contact numbers,” she says as their heels clack against the polished floors. “But we’ll keep trying. Do you want to talk to them if we get one on the line?”</p>
+
+<p>“Not if the assessment is still going on, but maybe after. How does she normally get home?”</p>
+
+<p>“Bus.”</p>
+
+<p>“So if I clear her to go home, what will you do?”</p>
+
+<p>The question seems to throw Mrs. Williams off balance, as if she hadn’t even considered that as a possibility. “I suppose we’d let her go… But we need to speak with her mother about a number of things, regardless.”</p>
+
+<p>They reach the meeting room where Kaylee is being kept, and Vanessa feels a prickle of unease as she sees a School Resource Officer leaning against the wall near the door. If the girl can’t be de-escalated and needs to be hospitalized, it would be good to have the officer nearby, and some cops are a pleasure to work with. But she’s also had experiences where the police have hospitalized the kid even after her assessment has cleared them, and that always makes her feel like she participated in a betrayal of sorts.</p>
+
+<p>“You’ll be doing the assessment?” he asks as she approaches, voice low.</p>
+
+<p>“Yeah,” she says, matching him. “Have you already?”</p>
+
+<p>“Just tried a threat report, but she wasn’t talking. Up to you to see if she does. If you can get her to do a safety plan or something, great, otherwise I’ll be taking her.”</p>
+
+<p>Vanessa nods, glad he’s at least being upfront about it. For her assessments, not answering questions isn’t on its own enough to hospitalize someone, but she knows police follow their own rules. At least the hospital will do its own assessment once Kaylee gets there, if that happens. “I appreciate the assistance. Would you mind standing a bit farther from the door though, to ensure privacy?”</p>
+
+<p>He nods and makes his way farther down the hall before leaning against the opposite wall instead. “Thank you,” she says to both the officer and Mrs. Williams. Vanessa enters the room and gets her first look at her client.</p>
+
+<p>Small for her age, with wavy brown hair and dark shadows under her eyes. She’s wearing jeans and a soft navy hoodie with sleeves long enough to hide most of her hands in, just the fingers poking out. The room itself is a standard school meeting area, with an oval central table of some fake wood, random bookshelves and storage containers lining the walls, and a dark, bland carpet that contributes at least a third of what she has come to think of as the “standard school smell," along with markers and whatever cleaning supplies are used on the tile halls daily.</p>
+
+<p>“Hello,” Vanessa says as she sits at the opposite end from Kaylee, putting her clipfolder aside and smiling. “I’m Vanessa. Did they tell you I was coming and why, or do you have no idea who I am?”</p>
+
+<p>Kaylee glances at her, then shakes her head, gaze back down at the table.</p>
+
+<p>“I’m from HealthNet’s mobile crisis team. We go out to schools and homes and basically anywhere else in the county if someone’s worried they or someone else might hurt themselves or someone else. The officer said you expressed some suicidal thoughts, so I’m just here to make sure you’re safe. You’re not in any trouble or anything.”</p>
+
+<p>The girl looks at her again, then away, and Vanessa feels her worry grow. If she doesn’t speak at all, the officer would take her for sure. “Have you ever been in therapy before?” A head shake. That’s a start. “Well let’s go over confidentiality, then. Whatever we talk about in here, no one else is going to know about it. It’s completely private, with two exceptions. One, if someone’s life is in immediate danger, I have to report it. And two, if there’s been any kind of child abuse, whether physical, sexual, or emotional, I have to report that too, unless it’s already been reported. Okay?” A nod, and Vanessa starts to feel a bit better. “Great. So with that in mind—”</p>
+
+<p>“M’I going to the hospital?” the girl asks, voice barely audible.</p>
+
+<p>Vanessa keeps her gaze steady on the girl’s, until she looks up to meet it. “Do you want to go?” If she does, she’ll likely go, but Vanessa hopes she can at least try to de-escalate so that it’s not necessary.</p>
+
+<p>The girl seems surprised to be asked, for a moment, then shakes her head.</p>
+
+<p>“Then don’t worry about that for now. It’s a possibility, but it’s not my goal. It all depends on what happens here. On what you need.” If the girl can just convince her that she doesn’t want to kill herself, Vanessa is happy to transition to writing a safety plan and connect her to services before telling the officer outside that all’s well.</p>
+
+<p>Kaylee is quiet a moment, then says. “Don’t want to actually kill myself.”</p>
+
+<p>Vanessa nods, feeling a trickle of relief. She can’t count how many times she’s had this conversation with clients that say alarming things when they’re upset, and are calmer by the time she arrives. But still… the cuts on the wrist are concerning. “Why did you say it, then?”</p>
+
+<p>“Was just… upset.”</p>
+
+<p>“That’s understandable. A lot of people say things they don’t mean when they’re upset.” She leans back in her chair, getting a little more comfortable now that the session is likely to start in earnest. “Can I ask what upset you?” Bullies, maybe... Or something at home… hopefully not anything worse...</p>
+
+<p>“Bullies.”</p>
+
+<p>“Ah.” Vanessa nods. “What were they bullying you about?”</p>
+
+<p>Kaylee’s eyes glance between hers, and her brow furrows before her gaze drops to the table. Vanessa waits patiently. Silence is important, for therapy. The option to really think about their answers, or how they feel about something, is almost non-existent in most people’s day to day lives, especially in conversations where they would naturally worry about the other person growing impatient.</p>
+
+<p>“Everything we say in here is private?” Kaylee finally asks.</p>
+
+<p>“With those two exceptions,” Vanessa confirms, preparing herself for anything the girl might say so that she doesn’t react with surprise. It helps that she genuinely doesn’t find most things shocking; particularly after working in the field for awhile, but desensitization to the weirdness of humanity was always a trait that seemed tied to her interest in psychology. “Nothing leaves this room.”</p>
+
+<p>“I… kissed a girl. And someone saw. And they called me names.” Kaylee shrugs. “It just bothered me, that’s all. But I wouldn’t actually kill myself. I’m fine, now.”</p>
+
+<p>“Ah. I’m sorry, that was very cruel of them.” And saddening. It always surprises her when she hears or sees about stuff like this; for the most part, the new generation is even more accepting than hers was at their age. But obviously they’re a long way from perfect. “I’m glad to hear you’re not planning to actually kill yourself, but I’m curious to know if you really think ‘fine’ is the best way to describe what you’ve been going through. They said there were cuts, too. Can I see?”</p>
+
+<p>Kaylee hesitates, then rolls up her sleeves. Vanessa doesn’t wince, but internally there’s a pang of pity. Both arms look like they’ve been used as sharpening boards, lines covering the girl’s dark skin from elbow to wrist. Thankfully most don’t look particularly deep, though the newer ones are still red and inflamed. “So you’ve been feeling bad for a while, looks like,” Vanessa says as she leans back and Kaylee hides her arms again. “This time you might have just said that because you were upset, but what about next time? I’m worried that it might get worse, if the person who saw you says it again, or someone else does. Do you think they’ll have told others?”</p>
+
+<p>“No.” The girl seems adamant, shaking her head. “They won’t. I know them.”</p>
+
+<p>“I see.” She considers gently challenging this idea, then decides to table her skepticism for now. “So you’ve never actually tried to kill yourself?”</p>
+
+<p>“No.”</p>
+
+<p>“Have you made any suicidal gestures?” Self-harm is close enough, but Vanessa wants to make sure she hasn’t held a knife over her heart, or wrapped a noose around her neck. After a moment Kaylee shakes her head. “Do you know what that means?”</p>
+
+<p>“Like holding a knife to my chest?”</p>
+
+<p>A note of disquiet goes through Vanessa. Kaylee is a lot more confident now than when she first walked in, which isn’t too unusual, but while she’s saying all the right things, there’s something about her responses that feel canned. “Alright. So why don’t we do a safety plan, just in case something similar happens in the future?” She takes a blank form out of her clipfolder and slides it across the table. “And so we can find you some better coping skills.”</p>
+
+<p>Kaylee looks uncertain for a moment, then nods, and Vanessa is about to start guiding her through it when the girl starts filling it out on her own, pen quickly scribbling a few words in each box that Vanessa can just barely read. </p>
+
+<p><em>Presenting Problem: feeling sad </em></p>
+
+<p><em>Triggers: bullying </em></p>
+
+<p><em>Social Support and Coping Skills: friends, music</em></p>
+
+<p>“Have you filled one of these out before?” Vanessa asks as her unease grows. </p>
+
+<p>The girl slows down, glancing up at her. “Why?”</p>
+
+<p>“I’m just used to some discussion first.” </p>
+
+<p>“Yeah, I have. Is that bad?”</p>
+
+<p>“Maybe. Depends what it was about.” If it was the same situation, then clearly it didn’t help much, and they really should go into more depth with this one…</p>
+
+<p>“Not the same thing.” Kaylee is quiet a moment, staring at her, and Vanessa waits again, focusing again on how important patience is.</p>
+
+<p>As she watches the girl eventually return to the paper, brow furrowed, the therapist reluctantly comes to a decision. The biggest risk in a job like this, the part that can often keep clinicians up at night, is whether they made the right call to not hospitalize someone who might actually kill themselves. She knows there are many who would call what she’s about to do unethical, but she assuages her conscience as best she can by following a strict code: she only uses it when she thinks the client is trying to trick her out of going to the hospital, while actually intending to kill themselves.</p>
+
+<p>So Vanessa takes a deep breath, then slowly lets it out and focuses on Kaylee, invests all of her attention on every part of the person sitting across from her, until she feels her moment to moment internal experiences being swiftly replaced with–</p>
+
+<p><em>sadnessdeterminationdeceptiondespair</em></p>
+
+<p>–Vanessa sucks in a much sharper breath as the intense emotions pour through her, watching as Kaylee freezes in place, then looks up to meet her gaze–</p>
+
+<p><em>warinesscuriositySHOCK</em></p>
+
+<p>–heart hammering as the girl’s eyes widen to a comical size, and–</p>
+
+<p><em>ALARMPANIC</em></p>
+
+<p>–Kaylee’s breathing quickens as she suddenly shoves away from the table until her back is against the wall, and Vanessa finally breaks her concentration as she stares at the wall just above the girl’s forehead, feeling her own confused swirl of emotions replace those of her client’s.</p>
+
+<p>“How did you-” </p>
+
+<p>“Did you just-”</p>
+
+<p>They both pause and stare (mostly) at each other a moment longer, while Vanessa’s thoughts rapidly replay the session so far. Kaylee knew exactly what to say, at each moment, to diffuse Vanessa’s worry… until that became suspicious, and then she stopped…</p>
+
+<p><em>Stopped what, exactly?</em></p>
+
+<p>Kaylee’s face abruptly shifts to chagrin and fear before she looks down at the floor, face carefully blank.</p>
+
+<p><em>...stopped reading my thoughts?</em></p>
+
+<p>The girl twitches, and Vanessa doesn’t need her powers to sense the teenager’s fear.</p>
+
+<p>As the reality settles in that she’s in the room with a telepath, Vanessa’s pulse quickens as she starts worrying about what embarrassing thoughts she might have that she doesn’t want the girl to read. Of course, that makes her start thinking of them, and as the urge to flee the room rises, she instead closes her eyes and takes a deep breath, then lets it out, grounding herself in the sensations of her breaths, steering her attention away from anything dangerous that might float to the surface of her thoughts.</p>
+
+<p><em>In… </em>cool air rushing through the nostrils, expanding her lungs until her chest feels tight, then... <em>out… </em>A warmer rush as her body relaxes, followed by another breath in, and another out, until little by little she feels more in control. She doesn’t know how deep the telepathy goes, but as long as she tries not to think of any pink elephants, hopefully they would be okay.</p>
+
+<p>“So this is a bit of a pickle,” Vanessa says after another few moments of tense silence. “One I hope we’ll both be able to look back at and laugh about, someday.”</p>
+
+<p>“Are you… are you going to…?”</p>
+
+<p>Vanessa doesn’t even have to consider it. “Remember what I said? Only two things require me to break confidentiality, and despite the government’s preference to have all chimerans registered, this isn’t one of them. And to be honest…” <em>You’re not the only one with secrets.</em></p>
+
+<p>Kaylee blinks at her. “You haven’t told anyone?”</p>
+
+<p>“No. I’m happy to talk about this, but would you like to return to your seat first?”</p>
+
+<p>There’s another moment of silence, then Kaylee finally moves back to her chair and cautiously sits down.</p>
+
+<p>Vanessa has a dozen questions she wants to ask, but first she needs to confirm whether anyone else knows her client’s secret. As soon as she settles on the thought, Kaylee flinches and looks down at the table, and Vanessa picks up on her shame, which starts to grow as soon as Vanessa recognizes it.</p>
+
+<p>“Hey, it’s alright. No judgment here, I just wanted to make sure.” She tries to imagine it, being able to read the thoughts of all her classmates and friends and family, and fails. Particularly if… <em>Oh. Shit. </em>“You can’t turn it off, can you?”</p>
+
+<p>“No,” the girl whispers, and suddenly lets her head fall forward so it can rest against the table, eyes closing against tears before she buries her face in her arms.</p>
+
+<p>Vanessa stands and goes to the door, opening it a crack. “Would you mind getting us some tissues and water, please?”</p>
+
+<p>The SRO looks at her in surprise, and Vanessa can feel his uncertainty, along with some indignation. She thinks he’s about to call for someone else to do it.</p>
+
+<p>“We’re fine for now,” she adds, and puts on a smile. “I think we’re past the worst of it.”</p>
+
+<p>He nods and goes. Vanessa closes the door and leans against the wall as she watches the girl, the desire to put a comforting hand on her shoulder warring with her inclination to keep a professional distance in case that’s what Kaylee needs right now. Vanessa knows that at least nine times out of ten it’s appropriate, but it always feels so cold, particularly right now…</p>
+
+<p>...and Kaylee can probably “hear” everything she just thought anyway. Maybe that helps. She hopes it does.</p>
+
+<p>The girl looks up at Vanessa with wet eyes, suddenly. “It does. A little.”</p>
+
+<p><em>This is so weird. </em>She smiles, though, thinking that she’s not in much of a position to talk. There’s a knock on the door, and she opens it and thanks the officer before she sits back down and offers the water bottle and tissue box to Kaylee, who uses some to wipe her face. <em>So… how does yours work?</em></p>
+
+<p>“It’s like a voice in my head. Like your thoughts are just part of mine.”</p>
+
+<p>“Is it uncomfortable?” she asks, wondering if she should stick to speaking out loud, but Kaylee is shaking her head.</p>
+
+<p>“It’s not as bad when it’s just a few people.”</p>
+
+<p>“A few? Oh. It works through walls, then...” Kaylee nods, looking miserable, and Vanessa feels her heart sink. “...and you’ve been stuck in school day after day. I’m so sorry. How long has this been going on?”</p>
+
+<p>“Started a few weeks ago,” Kaylee murmurs, gaze on the table. “It was faint at first. I thought… thought I was going crazy...” Her voice fades, and another tear trickles down her cheek before she wipes it away. Vanessa is about to suggest that she drink some water when the girl opens it on her own and takes a swallow.</p>
+
+<p>“What’s the range on it? Would it help if I asked the officer outside to stand farther away?” </p>
+
+<p>She shakes her head. “He would be… quieter. But I can hear up to the parking lot.”</p>
+
+<p>Vanessa grimaces. That’s a lot of voices to hear at once, while school is in session. “Is that when all this started?” She gestures at her own arms.</p>
+
+<p>“Mostly.”</p>
+
+<p>Vanessa waits, radiating simple curiosity, and eventually Kaylee sighs. “Tried it when the depression was bad, before, but it didn’t help much.” She shrugs a shoulder. “Now it distracts me.”</p>
+
+<p>“I’ll bet it does.” Vanessa steeples her hands together and rests her chin on them, trying to organize her racing thoughts. Best to get back to the assessment itself, first. “So. We’ve got a problem, because at this point I’d take a pinky-swear over that safety plan.”</p>
+
+<p>“Can just pretend you don’t know anything,” Kaylee mutters. </p>
+
+<p>“I can’t, actually. Ethical and professional obligation.”</p>
+
+<p>A hint of fire enters Kaylee’s gaze as she gives the therapist a skeptical look. “Those include using powers to read people’s thoughts?”</p>
+
+<p>“Emotions, not thoughts,” Vanessa corrects, a tad defensively. And pointlessly, since Kaylee obviously knows that already. “I would apologize, but since you were lying about not wanting to kill yourself, I don’t feel too guilty about it.” This isn’t strictly true, she feels fairly guilty every time no matter what she finds, she’s just ignoring the guilt because it doesn’t change her choice of what seems like a pretty clear lesser of two evils.</p>
+
+<p>“That’s bullshit,” Kaylee mutters, and it takes a moment for Vanessa to remember that she’s probably responding to her thoughts, not her words. “Not your business if I want to die.”</p>
+
+<p>“I mean, it sort of is, but I get why you feel that way.” Vanessa shrugs, uncomfortable with having to justify herself. Not a good sign, that. “Sorry. My only defense is that I only use it to make sure kids don’t kill themselves.” At least she can say that honestly, and to someone who can actually tell she’s being honest… “Oh, and that one time at the grocery store, when that creepy guy was following me to my car.”</p>
+
+<p>Kaylee slumps back in her seat, gazing at the wall. “Whatever. Used to grownups telling kids what’s good for them. Taking locks off doors, looking through phones, reading journals...”</p>
+
+<p>The bitterness in her voice is real enough that Vanessa knows she’s not talking hypothetically. She doesn’t even disagree with that bitterness, really. “Believe it or not… and I know you will... I do sympathize. You still live in an era where kids are a second class citizen. If it makes you feel better, when you’re 18 far fewer people will try to stop you from killing yourself if you still want to. In the meantime, what do you say we start the assessment over?”</p>
+
+<p>Kaylee looks up at her in surprise, and Vanessa holds a palm out. “I’m not promising I won’t send you to the hospital after all. But I do really want to know if it’s possible to ensure you’re safe without it. A lot of the kids I see want to kill themselves when we start talking, but sometimes we can change that.”</p>
+
+<p>“How?”</p>
+
+<p>“Well, let’s do the safety plan for real and see what we come up with.” She takes a new one out and starts writing. “Presenting problem is suicidal thoughts, depression, and self-harm. Right?” Kaylee gives a reluctant nod. “Triggers?”</p>
+
+<p>Again that fiery look. “What do you think?”</p>
+
+<p>“Right, sorry.” Vanessa will take irritation and sarcasm over hopelessness any day. She purses her lips in thought as she taps the paper with her pen. “The thing is, your mom will get a copy of this, and the school might too if it asks her for one. We don’t want to put anything on this that you don’t want others to know about, and I don’t want to diagnose you with something false…”</p>
+
+<p>Kaylee looks nervous as she watches her, until Vanessa thinks of a solution. “I’m just going to put ‘racing thoughts,’ and you’ll know what that means, right?” Kaylee nods, relief obvious. “Alright, anything else?”</p>
+
+<p>“...My mom.”</p>
+
+<p>The pen pauses above the sheet. It’s a bold move, coming right after she was told her mother would see it. “Anything specific?”</p>
+
+<p>“Can’t talk to her about anything. She thinks I’m making the depression up, that I’m lazy and selfish. Wonders what she did to deserve me.”</p>
+
+<p>The girl’s blunt tone makes Vanessa’s heart hurt. “Does she say all that, or just think it? I’ve known parents to say it, but just want to make sure.”</p>
+
+<p>“She thinks it.”</p>
+
+<p>“Okay.” Vanessa considers this a moment, searching for some hope to offer the girl. “And to be clear, you don’t sense emotions, right? Only thoughts?”</p>
+
+<p>“Yeah.”</p>
+
+<p>Vanessa fiddles with the pen cap, then says, “I don’t know your mom, but this job gives a pretty large, if skewed, sample of parents in general. So I don’t want you to dismiss what I’m about to say as me just not understanding. I’ve met some really shitty parents. Yours might be one of them. I’ve also met a lot of kids who think their parents don’t care about them, because they don’t let them have their way all the time. Not saying that’s you, hell, because of your power you’re one of the few that might actually know for sure. I just want to make sure you don’t assume that thoughts and feelings are the same thing. Just because she thinks those things… well, they probably still make her a bad parent. But that doesn’t mean she doesn’t care about you, in her own way.” Of course, if she only thinks those things, or worse, then she probably doesn’t… and from the skepticism she can sense from Kaylee, the girl isn’t buying it. “In any case, I want to make sure she doesn’t get more mad at you from this, if possible, so I’m thinking that ‘arguing with mom’ might work better. Is that okay?”</p>
+
+<p>Kaylee shrugs, gaze on the table. “Sure.” </p>
+
+<p>“Am I losing you again?”</p>
+
+<p>The girl looks up at her. “No.” </p>
+
+<p>“You’ll tell me if I am?”</p>
+
+<p>“Go ahead and check.”</p>
+
+<p>Vanessa blinks at her bitter tone, and Kaylee’s expression softens a bit as she looks away again. “Sorry. I mean it, check. It’s easier than explaining.”</p>
+
+<p>“Alright.” Vanessa focuses on the girl enough to bring deeper emotions bubbling back up to engulf her own. <em>Weariness. Hopelessness. </em>“Uh. That’s… not reassuring.”</p>
+
+<p>“Oh.” Kaylee shifts in her seat, clearly disturbed. “It really is just feelings.”</p>
+
+<p>“Yes.” Vanessa raises a brow. “You didn’t pick that up before, from my thoughts?”</p>
+
+<p>“It’s not always… thoughts are weird, and I don’t always get everything that I ‘hear.’ I only get the words, if that, but not...”</p>
+
+<p>“Concepts?” Vanessa offers. “You can ‘hear’ what I think, in the moment, but you don’t know what I know.”</p>
+
+<p>Kaylee considers this, then nods, and Vanessa is still processing this fascinating insight when she says, “Anyway, I thought you’d be able to tell that I don’t want to kill myself anymore. Right now, I mean. Probably will again after you leave, but…” She shrugs, looking away.</p>
+
+<p>“I also sensed hopelessness?” Vanessa tentatively asks.</p>
+
+<p>“That was... mostly about my mom.”</p>
+
+<p>“I see.” Vanessa considers digging into that, then decides not to. She looks back at the safety plan to refocus herself. “What about other sources of social support?”</p>
+
+<p>“Don’t want to tell anyone.”</p>
+
+<p>“I don’t necessarily mean you have to, just wondering in general who helps you through difficult times. Though now that you’ve brought it up, I’m curious to know why you don’t want to tell anyone.”</p>
+
+<p>“I can’t,” the girl says, voice gaining a hint of panic. “If the government finds out, they’ll… they’ll want to use me, turn me into a spy, or worse! Have you ever heard of someone that can do this?”</p>
+
+<p>Vanessa holds a hand up again to calm her, and to remind her to keep her voice down. “I get it. You know I guessed as much, just wanted to make sure I’m not assuming anything.” A therapist has to remain curious; the moment they start assuming they know what their client thinks and feels, the moment they start to overstep and miss what really matters to them; her other guesses included not wanting people to be afraid of her finding out their secrets or hearing their embarrassing thoughts. Vanessa is actually a little surprised that the girl is more worried about the government’s potential response than her social life. It shows a certain maturity. Or paranoia.</p>
+
+<p><em>Not that I’m one to talk.</em></p>
+
+<p>Kaylee looked like she was about to say something, but that thought makes her stop and close her mouth, frowning slightly, and Vanessa gives her a wry smile. “You’re right, I haven’t heard of someone with my own power before, let alone a real telepath. I don’t know if it’s because you’re the first, or just that the rest have been tucked away somewhere quiet. Neither possibility is reassuring for either of us. But what I care more about right now is that there’s a chance you could control it. You don’t want to give up on your life before you’ve really tried, do you?”</p>
+
+<p>“How? How would I do that?”</p>
+
+<p>“I’m not sure,” Vanessa admits. “There must have at least a couple Chimerans in your grade. Maybe they would be able to help?”</p>
+
+<p>She snorts. “One can play with water a bit, the other always knows where north is no matter how many times he spins around. Don’t think so.”</p>
+
+<p>“What about just social support?” She taps the corresponding box on the safety plan. “Friends, other family, teachers? People you can talk to just about how you’re feeling, if not why? People who give you a shoulder to lean on, or a hug at the right time?”</p>
+
+<p>“Can’t talk to friends,” she mutters. “Not fair to them, and there’s nothing they can do. My only other family is my aunt, and she might tell my mom. Grandparents are in Jamaica, they can’t do anything.”</p>
+
+<p>“I see.” Vanessa fiddles with her pen again. “I do want to note that you shouldn’t underestimate how much it might help to have people who are aware of at least part of what you’re going through, and are supportive. I get not wanting to burden your friends or family, but just like I’m sure you would want to be there for them, if they were going through something like this, keep in mind that they probably feel the same way.” Kaylee shrugs, and after a moment Vanessa tries a different dimension. “What about anyone at school?”</p>
+
+<p>Kaylee shakes her head. “They won’t care. No one here really does.”</p>
+
+<p>“What makes you think–” she stops as she remembers again who she’s talking to. “Can I ask… what does ‘not caring’ sound like, to you?”</p>
+
+<p>Kaylee closes her eyes. “They don’t think about what I’m going through, when we talk. They think about how to get me to do what they want, or how I’m taking them away from their work, or how I’m just doing things for attention.”</p>
+
+<p>Vanessa swallows, then murmurs, "I’m sorry. Does that include the lady who walked me here, Mrs. Williams? She seemed concerned about you.”</p>
+
+<p>Kaylee shrugs. “A little. But she was also thinking of when she could go home.” And then before Vanessa can tell her that’s just how people think, it doesn’t mean they don’t care, Kaylee’s face crumples with some intense emotion. Vanessa focuses again, and a storm of pain and despair moves through her, taking her breath like a punch to the gut.</p>
+
+<p>She quickly shuts her power down again to keep from being overwhelmed as Kaylee’s tears return, making slow tracks down her cheeks. “I don’t know what to do,” the girl whispers, making no move to wipe the tears away or hide them this time.</p>
+
+<p>Vanessa tries to think of something to say, anything at all, other than just another apology. Years of education and professional experience, thousands of hours in front of hundreds of clients, and nothing else comes to mind. Sometimes, when the situation is bad enough, there’s just nothing else to say. Even offering to lie to others about what Kaylee is going through would lead to more complications, and there’s no lie that Vanessa can think of that would keep Kaylee both out of school or the hospital, which is just as full of people for her thoughts to be crowded by.</p>
+
+<p>“I wish I had some advice to give you,” Vanessa finally says, partially desperate to say something, to fill the silence that’s usually her ally in getting people to think deeply. “It’s not usually our thing, advice. A lot of people think that’s what therapy is for, but… it’s more about finding the right tools, together, the ones that fit best for you, so you can do more of the things you want, or less the things you don’t, or better understand yourself, or better understand others… and chimerism adds a whole new dimension to our work, because it’s so different for everyone, and everyone’s experience of it is so unique.”</p>
+
+<p>Kaylee is silent for a moment, and Vanessa tries to think of another question to ask until the girl surprises her by asking her own. “What was it like for you?”</p>
+
+<p>Vanessa’s smile is small, and bitter. “That’s… part of what I meant about wishing I could give you advice. I may be the only chimeran who can’t actually remember exactly when she got her powers. It was just a few years ago, and I was already working in therapy. Very late bloomer. I didn’t realize it was happening at the time, just thought I was getting really good at empathizing with people… until one day I nearly burst into tears after walking into a room with a grieving client, before he even said anything.”</p>
+
+<p>Kaylee is watching her with an intense curiosity, and Vanessa realizes it’s the first time the girl has ever spoken with another Chimeran who knows what she is. It could help just knowing what others have been through, however different the experience. “I thought it was just hormones, at first, until I realized it wasn’t going away. Every week, every session, each of my clients’ moods were as obvious to me as my own. A therapist should practically never say ‘I know how you feel’ to a client, but I was quickly becoming something of an exception to that.”</p>
+
+<p>“Why didn’t you tell anyone?”</p>
+
+<p>Vanessa shrugs, and this time she’s the one that drops her gaze. This… is probably not going to make Kaylee want to share her own secret. But she’s never lied to a client, and she’s not about to start with a mindreader. “I love my work. I love learning about people, and talking with them about what they’re going through, and helping them find the right mental and emotional tools… and I was afraid. <em>Am </em>afraid. That if I get found out, I won’t be able to do all that anymore. I know chimeran discrimination is supposed to be illegal, but even if my boss and coworkers are okay with it, people might not want a therapist who can actually know what they’re feeling. Especially for their kids. Some would, but maybe not the ones I’d want to work with, and in any case it would just be another distraction from the work itself.”</p>
+
+<p>Kaylee is still watching her with the same intense curiosity. “Is it just... clients?”</p>
+
+<p>“At first, yeah. Then I tested it with others, practiced with friends first, then strangers. Cashiers, people at restaurants, moviegoers... Eventually realized there’s a sort of mindset I have to be in, a level of focus that, when I direct it at someone, I start to feel what they feel.”</p>
+
+<p>“Can you teach it to me?” Kaylee’s expression and tone are nearly burning with hope, suddenly, and Vanessa hesitates, trying to find a way around snuffing it out while staying honest. </p>
+
+<p>That thought alone is enough to make the girl flinch back, the sudden passion in her eyes fading as soon as it appeared.</p>
+
+<p>“I don’t think it would work,” Vanessa quickly says, then tries to explain. “It’s not that I don’t want to, it’s just… our powers are very different, even if they seem similar. The fact that yours is always on makes me realize how lucky I am. If I couldn’t turn mine off I probably would have wanted to kill myself too.” She sighs. “I’m happy to try teaching you some meditation techniques that might help distract you from all the crowding thoughts, but right now I need to make a decision about where you go next, home or the hospital, and since we can’t know how well it would work surrounded by people… you see? Even if I give the all clear and you don’t go to the hospital, you’ll still be expected to come to school tomorrow.”</p>
+
+<p>Kaylee absorbs all this quietly, maybe checking Vanessa’s thoughts for sincerity, then looks up at her with solemn eyes. “What would you do, if you were me?”</p>
+
+<p>“I try not to ever answer that question,” Vanessa says. “But I think you’re smart enough to come to the same answer I would. Who, among everyone in the world, is the most likely to understand what you’re going through?”</p>
+
+<p>Her reluctance is clear from the way she drops her gaze. “Other chimerans,” Kaylee admits. </p>
+
+<p>“And how could you get the most access to a wider variety of them, or experts on them?”</p>
+
+<p>“...by reporting myself,” she says, voice quiet.</p>
+
+<p>Vanessa spreads open palms to the sides. “I understand your fear. You know I do. But remember that there are schools specifically for young chimerans. Even if they don’t have one for kids with powers like yours… at least they’ll be smaller. Or they could arrange for you to be homeschooled, until you learn to control it.”</p>
+
+<p>“But then my mom...”</p>
+
+<p>“I know. And if your mom is as bad as she seems… the government may step in there, too. But would that be so bad?”</p>
+
+<p>“It might be, if they lock me up in a box to study.”</p>
+
+<p>Vanessa tries to find something reassuring to say in the face of the fear that’s rolling off the young girl in waves. But nothing comes to mind, and still nothing, and it doesn’t help that she knows Kaylee can tell she’s just sitting here with dwindling hope.</p>
+
+<p>She can finish the safety plan. Teach her some coping skills, find out what circumstances make things worse, make her promise to call her for help if things get bad. But the real dilemma is that only the ICA can keep her safe, both from her powers and from others… and how can Vanessa suggest her contacting them when she, over twice Kaylee’s age, won’t even do it herself?</p>
+
+<p>Her own fear suddenly shames her, as does her inability to defend her actions earlier. A therapist is supposed to be as separate from the system they interact with as possible… but if she’s not a therapist, then she doesn’t have the same burden of objectivity. She could do it. Report herself, and then...</p>
+
+<p>Vanessa feels herself shy away from that conclusion, and the thought comes a heartbeat later:</p>
+
+<p><em>Am I really going to risk throwing my career away for a girl I just met?</em></p>
+
+<p>And seeing Kaylee’s eyes widen makes the decision that much easier, her hurt and hopeless expression not quite masked quick enough... then replaced by confusion as she senses Vanessa’s next thoughts a moment before she speaks them out loud.</p>
+
+<p>“I’ll do my best to make sure that doesn’t happen.” Vanessa’s fear is still there, and her uncertainty, and her worry. But she knows she’s making the right decision. “I’ll pretend I can’t control mine either. Whatever happens to you… we’ll face it together.”</p>
+
+<p>Kaylee’s tears return, and then she’s out of her chair and moving around the table until she’s clinging to Vanessa, who holds her tight. “Sometimes you have to trust people,” she whispers as the girl’s hot tears soak her shirt. “To be more than their worst thoughts.”</p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">fiction</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

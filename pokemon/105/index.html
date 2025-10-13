@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red's Goal Factoring Sheet - Pokemon: The Origin of Species</title>
+    <title>105: Meta-Honesty - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,22 +329,567 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Red's Goal Factoring Sheet</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/104/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/106/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            Here's the sheet from Red's notebook where he tries Goal Factoring in chapter 45. This isn't the best or cleanest representation of what Goal Factoring looks like, but I figured a visual would be useful to anyone interested in trying it themselves!<br>
-<br>
-http://imgur.com/Ovk6OdG
-        </div>
+            <h1 class="chapter-title">105: Meta-Honesty</h1>
 
-        <div class="chapter-nav">
-            <a href="../104/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../106/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>"Stop!"</p>
+
+<p>Blue stops, brow raised, as Red sighs and starts rubbing his face, muttering that it's too early for this. "Uh, okay, I wasn't expecting that part to be what you had a reaction to…" They're in a training room beside the one where Satori is currently merging with his abra, where he led Red after Red arrived and Satori explained her discovery. All Blue said once he closed the door behind them was <em>I need to tell you something…</em></p>
+
+<p>"It's a secret, isn't it?" Red asks, voice resigned. "Not like a personal secret, the kind that might get me or others in trouble if I spread it around?"</p>
+
+<p>Blue stares. "...yeah, how did you—" <em>Did Red already figure out how to see into dark minds himself? </em>No, that's ridiculous, no way he would keep that to himself…</p>
+
+<p>"It's been that kind of week. Month." Red frowns. "Season."</p>
+
+<p>"Wait, what other secrets do you—"</p>
+
+<p>"Hush! Before we talk about this we need to work out meta-honesty rules."</p>
+
+<p>"Seriously? I just drop the biggest psychic discovery of our lifetime on your lap, and you want to—why are you giggling?"</p>
+
+<p>It takes a moment for Red to stop, still grinning as he shakes his head. "Ask me again later. You're right, part of me really wants to ask Satori a million questions and get to testing dark aura stuff out, but… if that's not considered a secret but whatever you were about to tell me is, then it's <em>really </em>important we talk about how to talk about it."</p>
+
+<p>Blue doesn't expect the dark aura stuff to be kept secret <em>forever </em>exactly, but that doesn't mean he wouldn't like it kept under wraps for a bit. The same goes for Koichi's theory, if it turns out to be true. Blue sighs and leans against the Fuchsia training room wall, settling in for a lecture. "Alright, go ahead. What's meta-honesty?"</p>
+
+<p>"Hang on, we should get Leaf here too, we were talking about this just a few days ago…" Red takes out his phone and starts typing.</p>
+
+<p>"Wait! Uh, I'm not sure…" Blue can't imagine Leaf being okay with the idea of making pokemon fear for their lives, even artificially, and suddenly feels unsure about whether he should tell Red after all. If he's not willing to keep it from Leaf, then… "Okay I think I get why talking about how to talk about secret stuff is important."</p>
+
+<p>"If you don't want Leaf to know I <em>probably </em>won't tell her, but…" Red puts his phone away. "Yeah, that's part of what we should go over. I've been reading about this online and it turns out there's a whole lot of disagreement about what makes for a good policy on what amount of honesty is the right amount."</p>
+
+<p>"Doesn't that just depend on how many secrets someone has, and why they keep them?" Blue shrugs. "It's that thing you said once about trust, right? You either trust someone to not lie, or you trust them to have a good reason to lie, or you don't trust them at all."</p>
+
+<p>"But what if two people disagree about what a good reason to lie is? They might think they trust each other in the deep way, but then find out that the other person lied about something they wouldn't have thought. The best outcome is they understand why there was that confusion and don't hate each other, but they might still think they're on the same page but not be. If I think we'd both share any info about each other that someone tells us, and you <em>don't </em>think that, I would take you not telling me stuff meant no one said anything to you, while you would think people might be telling me stuff that I'm just not telling you."</p>
+
+<p>"Sure, so we talk about it… okay it would be hard to talk about <em>every </em>situation…"</p>
+
+<p>"Or what if there are competing vows of secrecy? If my mom tells me something about you, and she doesn't know I tell you everything anyone says about you—"</p>
+
+<p>"That's something you'd say before she tells you though, right? If she doesn't say it's supposed to be a secret first, that's on her."</p>
+
+<p>"But she can't tell me what the secret is about first without revealing information that I might share if I say no! She might ask 'Can I tell you a secret you won't share?' But then what, I'm supposed to say 'Yes, but only if it doesn't put someone's life in danger, or if it's not about Blue, or if it's not something I think the scientific community should know, or if it doesn't interfere with this secret project I have…' You see?"</p>
+
+<p>Blue does, and it's getting harder to ignore the obvious implications. "How many secrets have you been keeping, exactly?" Red just looks at him until Blue holds his hands up in surrender. "Fine, don't tell me, but if Leaf has a bunch too I'm going to end up feeling left out."</p>
+
+<p>Red rolls his eyes and starts pacing. "We can also think of it in terms of tiers. Like, there are some people who you'd have <em>no </em>secrets from, usually someone's spouse, so it's expected that if someone tells one something the other will hear about it. The next tier is close friends, where you'd expect someone to tell them something that they'd want to know. But then there's also tiers for who secrets get told to. If you know me as someone who always holds on to secrets no matter what, then you might tell me a secret that someone else told you, breaking their trust, because you trust it won't go further. So a meta-honesty strategy might be to say 'I don't tell your secrets to anyone of a lower tier than you,' and then you have to explain what sorts of people or specific people that excludes—"</p>
+
+<p>"Which itself might give stuff away, yeah, got it. But really, the thing I'm telling you isn't even a secret, it's just… it might be sens… if it's even tr… <em>stop that.</em>" Red stops singing and uncovers his ears, and Blue sighs and rubs his eyes. "Okay, I give up, just tell me what to do."</p>
+
+<p>"What?" Red seems genuinely horrified. "Blue, it <em>doesn't work like that, </em>I can't just—"</p>
+
+<p>"You can if I trust you, right? Like the real trust."</p>
+
+<p>The look on Red's face makes Blue waver, for a moment, wondering how bad a secret Red can possibly be keeping… if he knows a renegade or…</p>
+
+<p>And then he remembers, and mentally kicks himself..</p>
+
+<p>They never really talked about Aiko again, or that whole situation. Not that they've been <em>avoiding </em>it or anything, it just hasn't come up… they haven't battled in the same incident since Lavender, and Red did great there, and he's been active in helping at incidents…</p>
+
+<p>But no, bravery was never the problem. He knows what Red would say: it's about calculating risk, and if Blue's being honest he has wondered, now and then, how Red decided on which incidents to go to, and who he was fighting alongside at them, and what lengths he'd go to to save them if they were in trouble.</p>
+
+<p>Okay, so maybe he doesn't trust Red completely. Blue shifts his weight, then sighs. "Look, that's a different thing."</p>
+
+<p>"What is?" Red asks, voice cautious.</p>
+
+<p>"The thing about… the burning building. It's not about who you are, it's… I mean it is about who you are, but not like…" Blue trails off, realizing as he says it that he might actually be wrong.</p>
+
+<p>What if it is the same thing? What if Red kept or spilled a secret that was the equivalent of not running into a burning building to save a friend?</p>
+
+<p>Blue tries to imagine what that would be, and immediately comes up with the reverse of the secret he was about to share. If Red discovered something about Dark types that would hurt Blue, but felt compelled to share it anyway… no, that's not quite right. If Red knew a secret that had a <em>small chance </em>of saving someone but would, say, ruin his scientific career if it was wrong… no, that's not fair, it's just hard to imagine a secret that would put his life at risk.</p>
+
+<p>Red is just watching him, expression hard to read. Anxious? Wary? Blue sighs and runs a hand through his hair. They should probably have talked about this again at some point, but it just seemed… easier, not to. "I can't imagine you doing something with secrets that would break that trust, is what I'm trying to say."</p>
+
+<p>Red is quiet for a moment, then sighs. "But there <em>are </em>things I could do that you can't imagine, that would break the trust. Which means it's not the second layer, it's not trust in <em>me, </em>it's trust in your models of me."</p>
+
+<p>"Well shit, Red, no one's perfect," Blue says, starting to get annoyed. Here he is trying to tell Red how much he… no, wait, he gets it. "I mean, I'm not either, so okay, say you're hiding a secret that I can't even imagine you hiding and it totally changes who I think you are. I'd still know you were doing what you thought was best, even if I disagreed."</p>
+
+<p>That seems to surprise Red, for a moment. "So… you wouldn't regret it? Trusting me?"</p>
+
+<p>"That… come on, how am I supposed to know that? If you fuse all the Stormbringers into some crazy three headed mega-Legendary that destroys all of Indigo, yeah, I'll <em>probably</em> regret trusting you <em>a little bit!</em>"</p>
+
+<p>Red stares at him a moment, then cracks a smile. Soon it's a grin, and Blue finds himself grinning back as Red begins to giggle. "That's stupid. How would that even work, fusing pokemon together?"</p>
+
+<p>"<em>I </em>don't know, I'm just saying—"</p>
+
+<p>"Would it have six wings?"</p>
+
+<p>"Of course it would have six wings, and three tails—"</p>
+
+<p>"No, one tail, but it's like, all their tails blended together—"</p>
+
+<p>"And six legs—"</p>
+
+<p>"What? No, that's dumb—"</p>
+
+<p>"Oh sure, <em>that's </em>dumb. It's my idea you know—"</p>
+
+<p>"Yeah well I'm the scientist, and it's my hypothetical mad-scientist creation. What would it even need six legs for?"</p>
+
+<p>"For its long body!"</p>
+
+<p>"Long body!" Red laughs. "Like a caterpie!"</p>
+
+<p>"Not like a <em>caterpie </em>you idiot, like a bird body, just long! Where else would the six wings go?"</p>
+
+<p>"I don't know, the same joint?"</p>
+
+<p>"So says the scientist. You <em>are</em> picturing each head on its own neck though, right?"</p>
+
+<p>"Of course, like a dodrio."</p>
+
+<p>"Alright, at least we're on the same page there."</p>
+
+<p>Silence descends, broken by the occasional chuckle, and eventually Blue shakes his head and sighs. "What were we arguing about again?"</p>
+
+<p>"Were we arguing?" Red shrugs, smile fading. "I'm glad, for what you said. I just… I don't know. I guess I'm afraid you'll…"</p>
+
+<p>"Yeah," Blue says, voice soft, and clears his throat. "I get it. I just don't know if, like, I should apologize, or—"</p>
+
+<p>"No, it's okay. It would be unfair of me to ask for that level of trust. We were always on different pages, I think, we just never had reason to know it." Red grimaces. "Actually, that's not… totally true."</p>
+
+<p>"What do you mean?"</p>
+
+<p>"When we started our journey, I was thinking we weren't ready for a Stormbringer attack. I… haven't thought of this in a long time, but I'm embarrassed to admit that I thought about ways to keep us from one before we were ready."</p>
+
+<p>Blue stares at Red, anger and indignation rising up… then fading as he lets his breath out. "Yeah, well. That was shitty of you, not telling me how you really felt. But I'd be a hypocrite if I thought less of you for feeling that way at all, given that I—" The words get stuck in his throat, and he clears it. "After Vermilion, I changed my mind about going to every Stormbringer battle. It wasn't what I thought it would be like, and we…"</p>
+
+<p><em>We might have died.</em></p>
+
+<p>Even after they lost Aiko, he feels rejection of that in his core. It's possible, sure, but he doesn't really believe it. Not if they stuck together…</p>
+
+<p>Meanwhile Red is looking surprised, and relieved. "We would have been even less prepared."</p>
+
+<p>"Right. So we might not have been on the same page then, but we could be, someday, right?"</p>
+
+<p>He's not sure what he's asking, really. He's not sure what he'd do if Red says no. But he still feels conflicted and confused about how much he trusts Red, and how much he should. On the one hand he needs Red to be okay with hearing about Koichi's theory if he's going to get his help.</p>
+
+<p>Not a great reason to share such a dangerous secret, really. And maybe he doesn't <em>need </em>Red's help, but it would take longer without it, and meanwhile he's losing the soul of the gym, splitting it in two factions instead of making it a unified, stronger whole.</p>
+
+<p>"We could be, yeah," Red says, and his voice is soft too before he seems to shake himself. "And this is a good first step, I think. Talking about what honesty means for us."</p>
+
+<p>"Right. So, okay." Blue sits on the ground, hands on his knees, and after a moment Red mirrors him, legs crossed. "How do we figure this out?"</p>
+
+<p>"Well… first off, as a baseline, I think this quote makes for a really good starting point, though the person who wrote it might be really horrified by what we're trying to do here… 'Don't lie when a normal highly honest person wouldn't, and furthermore, be honest when somebody asks you which hypothetical circumstances would cause you to lie or mislead—absolutely honest, if they ask under this code. However, questions about meta-honesty should be careful not to probe object-level information.'"</p>
+
+<p>"How the hell is anyone supposed to know what a 'normal highly honest person' would say? What if someone straight up asks if you know an embarrassing secret about your friend?"</p>
+
+<p>"Well, there's something called glomarization. 'I can neither confirm nor deny that.'"</p>
+
+<p>"I'm going to feel like an asshole if I go around saying that all the time."</p>
+
+<p>Red rolls his eyes. "You can also just say 'no comment.'"</p>
+
+<p>"And sound like a slimy politician?"</p>
+
+<p>"Add whatever charm you want to it, the point is that you can set a policy of what sorts of things you won't answer specifics to, and as long as you stick to it you won't leak info or lie."</p>
+
+<p>"Right, but I can't just start saying that if I have something to hide. Like if someone asks what I did last night, and I was in a secret meeting, if I say 'the usual' or 'nothing special' that implies I was training or hanging out with friends."</p>
+
+<p>"Yeah, that is a problem." Red shrugs. "You could say 'either I did the usual, or I don't want to tell you what I did.'' This time it's Blue's turn to stare at Red until he gives in. "Look, I'm not saying this is easy. But if you set an expectation—"</p>
+
+<p>"Red, if you just say that at the end of everything you've reinvented lying with extra steps. Of course people might not want to tell someone what they did! That's taken for granted in 'nothing much!'"</p>
+
+<p>"Privacy is different from… hm. I guess if it's ambiguous and they're just assuming… alright we'll come back to that one as a general principle, but between the two of us at least, we're on the same page about it, right? Our idea of two honest people talking will assume 'or I don't want to tell you' is attached to the end of statements, and won't get mad about jumping to conclusions?"</p>
+
+<p>"Sure, I guess. Social convenience can't answer everything though, right? What about white lies?"</p>
+
+<p>Red shrugs. "My model of a 'highly honest person' doesn't directly lie about something non-private for anything short of someone's life being at risk."</p>
+
+<p>"Yeah. Okay, so… we both agree that a highly honest person doesn't do white lies."</p>
+
+<p>"And that we know ourselves to want to be that honest, and know each other to be?"</p>
+
+<p>Blue thinks about it for a moment. "I can't actually remember the last time I said one."</p>
+
+<p>Red laughs. "Yeah, me neither."</p>
+
+<p>"I came close, with Glen. Not sure if it counts, when you're really not sure what you feel but want to support someone… anyway, he wouldn't have it."</p>
+
+<p>"I think if you're unsure, and you don't mention that you're unsure, it's still a white lie. I mean, no one can be <em>absolutely </em>sure, of course, but…" Red trails off, looking thoughtful. "I guess people can start including probability estimates—"</p>
+
+<p>"Absolutely not. No one's going to do that."</p>
+
+<p>"I—"</p>
+
+<p>"Try it, Red, you'll get sick of it in a week, and look like a total weirdo to everyone. <em>And </em>most people aren't going to take it well if they ask if you believe in them and you say 'I'm 87.34219—'"</p>
+
+<p>Red's glare is ruined by his twitching lips. "A number that high <em>should </em>be reassuring."</p>
+
+<p>"'—12173% sure that you will, in most cases and circumstances—'"</p>
+
+<p>"Okay, okay! So it's unrealistic to be precise about reassurance. But still, I don't think it's a white lie if you're <em>reasonably sure </em>and just say yes? Like if you'd bet 3:1 odds on it? Can we commit to that baseline?"</p>
+
+<p>"Sure, but we can't make a public commitment like that, right? Everyone's going to assume we're hiding things already." Blue studies his friend, wondering again what secrets he's been holding on to. Was he told something, or did he discover something new with his psychic research? It would be ironic if it turned out to be the same thing Koichi did. He's not sure Red would have the social awareness to keep that secret, though. He may have… no, he definitely would have told Leaf, who would have even more to say about not spreading the news.</p>
+
+<p>Red also could have told Sabrina, of course, and she would be perfectly positioned to explain it to him. Blue tries to replay his conversation with her about all this, but is distracted by Red's sigh.</p>
+
+<p>"I know. Someone online named Raymond even suggested a meta-honesty holiday where everyone posts their rules about metahonesty at the same time so there's no reason to think that posting your rules about it indicates you're hiding something. But for now at least, we can talk about ours."</p>
+
+<p>"We still haven't talked about keeping secrets."</p>
+
+<p>"In what sense?"</p>
+
+<p>"Does a highly honest person keep secrets for others if they know they'll have to lie about it if asked?"</p>
+
+<p>"Probably not. They'd probably let everyone know, or at least their close friends and family, that if a secret is shared with them they might glomarize but they won't directly lie. And if there are some exceptions to that, depending on the situation, they should say that too."</p>
+
+<p>Blue considers this. "Should we invite anyone else to this? There are things I'd keep from Glen and Elaine, even Gramps and Daisy, but not a lot."</p>
+
+<p>"Okay, see, that's good info. Uh, I'm not sure how to check this without getting object-level information…"</p>
+
+<p>"No, none of them know the secret, mostly because they're not dark or psychic. That's another reason I'm not sure Leaf should know."</p>
+
+<p>Red groans and slaps his forehead. "Blue! I <em>assumed</em> that was why you weren't sure she should come in the first place, now that I know that's an <em>extra </em>reason, I can pretty well guess what this is about!"</p>
+
+<p><em>Oops. </em>Still… "Doubt it, unless you already know somehow."</p>
+
+<p>"Well I won't try guesses out loud so I don't get any extra info. Also, I think I'm still going to invite Leaf. Even if she doesn't end up hearing the secret, it's the perfect time to coordinate the meta-honest conversation, and each of us already knows why we might have secrets of <em>some </em>kind that having this conversation won't trigger any extra suspicion."</p>
+
+<p>Blue considers this. "So, obviously you could be holding a secret about someone's research that you helped with, and you've already worked with a couple Leaders, one about Renegade stuff, so it makes sense that you might have learned some things you can't share while helping hunt for them in Celadon."</p>
+
+<p>"Right, and you might be keeping science related secrets for your grandfather, or secrets from the Leaders you've been talking in private with. Leaf might be keeping science related secrets for <em>her </em>family too, plus she's done some journalism, so if she says she can't reveal something people might just assume that it's from a source for a story."</p>
+
+<p>"Huh." Blue considers his journeymates and wonders if any of them could use him as an excuse. Probably not. "That sucks for normal people."</p>
+
+<p>"What, not having plausible deniability that people would take for granted?"</p>
+
+<p>"Yeah." Blue frowns. "I kind of want to bring the whole gang in, now. Seems important, in case…"</p>
+
+<p>"Yeah, I should probably pull Jason in too, and Satori…"</p>
+
+<p>Twenty minutes later they've sent out messages, dragged a protesting Satori away from the training hall, and holed themselves up in Blue's room, which has just enough space for everyone, but not really enough space for everyone and their pokemon. Which means there are a lot of them on people's laps or shoulders, which helps keep the chaos down a little, though Leaf's buneary keeps hopping away from her to play with Satori's torracat whenever Leaf lets her petting lapse.</p>
+
+<p>"Alright, everyone, settle down," Blue says. His two newest journeymates from Saffron, Jamil and Viraj, are the first to sit up and focus. It's been interesting watching the way his fame has affected new people who join his group; both are really eager to prove themselves, and he expects they'll settle down and relax by the time he finishes in Fuchsia and maybe picks up some new newbies. "We've got a scenario in a couple hours, and this might take a while."</p>
+
+<p>"Just to be clear," Red says once everyone's (mostly) paying more attention to him than their pokemon. "We're <em>not</em> here to exchange secrets. Everyone got that?"</p>
+
+<p>The group glances at each other, then nods.</p>
+
+<p>"We're just here to talk about how to be honest with each other, even if we sometimes have things we can't share. And, <em>if</em> we have secrets that we feel morally compelled to share, at some point, how do we do that ethically."</p>
+
+<p>"Which you may not!" Leaf adds. "Either have them or ever feel it's okay to share them. But just in case, this can be useful to do."</p>
+
+<p>Blue still sees some expressions that might be nervous, or skeptical. "If anyone wants to not be part of this, you don't have to. You won't lose points with me, and again, we're not sharing any juicy gossip or anything so you're not missing out."</p>
+
+<p>No one moves.</p>
+
+<p>"Right," Leaf adds. "This might just be boring for people who have no secrets, and irrelevant to people who have no intention of ever sharing them. So it makes sense for either sort of person to leave."</p>
+
+<p>The room is silent again, until one of Blue's newer journeymates raises a hand. "But… if we're not here, we won't get secrets shared with us, if someone decides to share them, right?" Jamil looks around. "Because we won't know the code, or whatever? Etiquette?"</p>
+
+<p>Red looks pained. "That's not…"</p>
+
+<p>"It's a fair question." Leaf shrugs. "I can only speak for myself, but if I ever have secrets that I don't want to lie about, or if I have to share information in a way that does its best not to violate trust put in me, it would be easier if I know someone's meta-honesty norms and they know mine."</p>
+
+<p>"Same," Glen says. "And it makes sense to me that someone would say that whether they have some major secret or not, since I feel the same way and don't."</p>
+
+<p>Lizzy frowns. "Well I also don't mph—!"</p>
+
+<p>"Please hush," Maria says, hand over her friend's mouth. "It will reduce plausible deniability for everyone else who does not also say it."</p>
+
+<p>The others start looking around too. Some look suspicious, others look confused, and others, like Maria, look distinctly nervous. Then again, it's Maria, so that doesn't really tell Blue much…</p>
+
+<p>But Jason is giving her concerned looks, and she's been spending a lot of time with the psychic… medium… whatever.</p>
+
+<p>Red sighs. "Trying to guess who here has a secret and who doesn't isn't really in the spirit of this. And yes, avoid saying anything that would pressure everyone else into saying the same thing to avoid suspicion. We're here to find ways to talk about this stuff without having to say things like that without lying."</p>
+
+<p>"Sorry," Glen says sheepishly.</p>
+
+<p>Blue pushes his own curiosity aside and nudges Red. "Just get started, huh?"</p>
+
+<p>"Right, so to recap what Leaf, Blue and I talked about already…"</p>
+
+<p>Blue listens as Red goes over everything again, including stuff from a conversation he had with Leaf (who reveals she's made a simple script for showing the higher number of multiple anonymously entered), the questions they asked each other and what they were unsure of. He's actually getting better at lecturing, Blue has to admit. Maybe it's because the topic is so juicy, or maybe it's all the teaching he's been doing in Saffron.</p>
+
+<p>In any case, the room is rapt, and once Red finishes and asks for questions so far, practically everyone raises their hand.</p>
+
+<p>"Society has some things we accept people keeping secrets about, right?" Elaine asks when pointed to. "Like, there's stuff we consider personal and private, that everyone has a right to."</p>
+
+<p>"Yeah, good point. There's also, like therapists and priests, who are expected to keep secrets for others even if it seems bad to do so, unless it crosses some specific lines…"</p>
+
+<p>"Private companies keep projects secret, governments keep security risks secret," Glen adds.</p>
+
+<p>"Family," Satori says, a cup of strong tea in her hands. "Spouses. Expecting one spouse to keep secrets from another would be difficult, unless they had already discussed this."</p>
+
+<p>Red nods. "There's a few things everyone just sort of accepts are okay secrets for people to keep, and part of what makes them okay is that people know, more or less, what sorts of secrets will be kept by whom." He shrugs. "It seems like that's outward facing, at least?"</p>
+
+<p>"But would it be okay if, say, a therapist said 'I can't tell you about that, therapy stuff,' if it's not?"</p>
+
+<p>"No," Red says, shaking his head. "Also depending on the question, saying that even if it <em>is </em>therapy stuff would probably be revealing information they shouldn't."</p>
+
+<p>"But then, going back to that thing you guys weren't sure about as a general principle… is it okay to not say why you can't tell someone something, and let them assume it's therapy stuff?"</p>
+
+<p>Red hesitates. "I… <em>think </em>so?"</p>
+
+<p>"The alternative would be bad," Leaf says. "If being maximally honest includes having to correct people's misconceptions, it would be easy for a bad actor to exploit that."</p>
+
+<p>"Right." Red looks around. "Jason, think you had your hand up next? Different question?"</p>
+
+<p>"The numbers," Jason asks, turning to Leaf. "If the consequences of not keeping things secret seems too high, why not check with the one who originally shared it first?"</p>
+
+<p>"It would be good to, for sure. But that might not be possible, if it's time sensitive." Leaf worries her lower lip. "Also, sometimes just telling someone if it's okay to share a secret with someone, in enough detail to check if they're okay with it, could break the trust of the one who told you the secret."</p>
+
+<p>There are some looks around the room that show clear skepticism, or maybe intrigue, but Jason just nods. The next few questions go over how people should evaluate their priorities, which is pretty personal and hard to make rules for, and how to balance different kinds of responsibilities to different people.</p>
+
+<p>"Sharing secrets can also be dangerous for the listener," Elaine says, and something about how forcefully neutral her tone is makes Blue suddenly wonder if <em>Elaine </em>of all people is holding some big one. Aiko used to tease her for how expressive her face is, how eager she is to talk about any ideas she has… "How do you warn someone just how bad the danger might be, without giving some stuff away?"</p>
+
+<p>"That's a good question," Red says, and then lapses into silence, glancing at Leaf, who's focused on her buneary, frowning thoughtfully. Blue has no idea what to say either, so he looks at the rest of the room, which is mostly silent.</p>
+
+<p>"Maybe we should have invited someone who keeps secrets for a living?" Lizzy asks, and looks at Red. "Your mom's probably kept a lot of secrets for her job, right?"</p>
+
+<p>"Yeah, but… well…"</p>
+
+<p>Leaf sighs. "It's fine, Red, let's just call her."</p>
+
+<p>Blue thought Red was just embarrassed to bring his mom into things, but it seems Leaf knows something he doesn't. Probably related to the secrets talk they already had… he wonders if they'll tell him what it was about, and if not, what made them able to talk to each other about it but not him.</p>
+
+<p>Red dials his mom, then puts his phone on speaker. "Good morning, Sweetie. To what do I owe the early pleasure?"</p>
+
+<p>"Hi Mom, you're on speaker phone with, uh, a lot of people. Are you free for a bit?"</p>
+
+<p>"Sure, I can chat. Who, exactly…?"</p>
+
+<p>"Blue—"</p>
+
+<p>"Hey, Aunty."</p>
+
+<p>"—Leaf—"</p>
+
+<p>"Hi, Laura!"</p>
+
+<p>"—guys, this'll take too long if you all… Glen, Elaine, Maria, Lizzy, Jason, Satori, and, uh, sorry—"</p>
+
+<p>"Jamil."</p>
+
+<p>"Viraj."</p>
+
+<p>"—Jamil and Viraj, new friends of Blue's, are all here too."</p>
+
+<p>The phone is silent for a moment before Aunt Laura speaks again, voice cautious. "Hello, everyone. What can I do for you all today?"</p>
+
+<p>"Okay, so… we've all just been talking about some stuff." Leaf covers her face, and Red nudges her with his elbow, which causes her to nudge him back until he holds his palms up in surrender. "Uh, meta-honesty stuff, basically, like, how to be honest without lying when there are some secrets you've got to keep, right?"</p>
+
+<p>"O…kay…"</p>
+
+<p>"And anyway a question came up, if you had to tell someone a secret, but the secret is dangerous for them to know, how do you make sure they know how dangerous it is before agreeing to hear it?"</p>
+
+<p>The whole room is silent, until Lizzy's flaafy lets out a <em>baa.</em></p>
+
+<p>"What was that?" Aunt Laura asks.</p>
+
+<p>"Uh, our pokemon are here too."</p>
+
+<p>"Oh. Red, are you… should we…"</p>
+
+<p>"No, I'm not in trouble. We could talk in private first, but honestly, this is just a question we were wondering and thought you'd know. No one is about to reveal any dangerous secrets." Leaf elbows him again, and he elbows her back. "I'll let you know first if I plan to."</p>
+
+<p>"...okay. So. No information given but the risk profile, right?"</p>
+
+<p>"Yeah."</p>
+
+<p>"Alright, so… infohazards come in a number of forms, but I want to dispel the myth that probably just popped up in your heads, which are sometimes called cognitohazards. As far as I know, there aren't any so bad that just learning them will cause the one who knows it permanent harm. Obviously I might say that even if not true to keep overly curious people, like my son, from going looking to test this."</p>
+
+<p>The room chuckles, and Red looks like he wants to object before he stops himself, looking torn.</p>
+
+<p>"But in this case I can say, under the umbrella of meta-honesty, that I don't know of any that act like that. I could be wrong, but the closest things to cognitohazards I've encountered are spoilers for movies and gross pictures." Glen snorts, and Blue can hear the slight smile in Aunt Laura's voice. "And minds can get used to even really gross things, over time. Still, it's true that some ideas can lead to people having a few sleepless nights, maybe some existential dread now and then. On top of that, some people might turn down a lucrative job or stop being friends with someone if they learn of secret immoral behavior. I think considering that 'harm' is debatable, they still have a choice in the matter and by that standard any unpleasant knowledge would be considered a cognitohazard, but it's still worth flagging as a concern.</p>
+
+<p>"Next are infohazards related to behavior, and those can be further split into active vs passive. Some information is dangerous to share because it would allow bad people to actively do bad things more easily. Think of some technique for training renegade pokemon more easily, or an easy to recreate combination of household chemicals that would make a clear, odorless, lethal gas.</p>
+
+<p>"A passive infohazard isn't risky because of what people might do with the information, but just from having it. This seems to be more the sort of thing you all are talking about, since the danger is to the person being told the secret."</p>
+
+<p>They hear the sound of water bubbling, and after a few moments it fades before liquid is poured. Blue feels a nudge as Eevee settles up against his leg, and pets her as he glances around to see everyone else staring as intently at the phone as he was. The pokemon are picking up on their trainers' moods, becoming more wary and protective.</p>
+
+<p>"So, that danger itself can come in two major forms, which I call social and targeted.</p>
+
+<p>"Social infohazards are secrets that, if people knew you had it, would cause problems for you. This usually arises from expectations that the information puts on you if you don't act. For example, if you're told that a friend is being cheated on, and you don't tell them, you might be judged for it if it's found out. This can also include more serious social issues, of course, like being told of renegade activity and not reporting it.</p>
+
+<p>"Targeted infohazards paint a target on your back. These are secrets that might bring harm if people even just believe you <em>might</em> know it, maybe because they notice your behavior changed, maybe because a psychic senses that the person who told you the secret did so. We have to be really careful of these when investigating organized crime, of course.</p>
+
+<p>"For both of these, the goal is to ensure the person learning the secret is aware of what they're risking. So you ask <em>them </em>that. You go over all the different risks associated with secrets to make sure they have an idea of what could happen, so they can decide what they're comfortable with."</p>
+
+<p>Red is frowning. "But…"</p>
+
+<p>"I know. That's where my own invention comes in; after you go over the different kinds of hazards, you make a new category. I call it a penalty infohazard. You ask them what the limit they're willing to pay you in damages is, if the secret were the kind that would cost you money if it got out. Not if they reveal it, just if it got out at all."</p>
+
+<p>Leaf laughs. "Oh, that's clever!"</p>
+
+<p>Lizzy nods. "If they say they're okay with cognitohazards and social infohazards but not targeted ones, and you don't tell them the secret, they know which it was. But with this extra category that's an automatic no for them…"</p>
+
+<p>"Right," Aunt Laura says. "They can't know if their number just wasn't high enough, regardless of what kind of secret it is. It's content-neutral, so it could invalidate their willingness for any of them."</p>
+
+<p>"For people who know the trick, though," Maria says. "Would this still work?"</p>
+
+<p>"It's not a trick, though I understand why you'd say so. There are in fact some secrets that would cause financial loss if they became public knowledge, like, say, a pokemon you have a lot of that's about to lower drastically in value. Everyone got that?"</p>
+
+<p>Red looks around to see everyone nodding. "We got it. This was great, thanks, Mom!"</p>
+
+<p>"Thanks, Laura!"</p>
+
+<p>"Thank you!"</p>
+
+<p>The rest of the room choruses their appreciation, and Red's mom is back to sounding a bit apprehensive. "You're very welcome, I think. Let's talk soon, alright Red?"</p>
+
+<p>"Sure thing. Have a good day!"</p>
+
+<p>"You too. Love you. Goodbye everyone."</p>
+
+<p>They say goodbye, and Red ends the call and sits back, looking deep in thought.</p>
+
+<p>"Well," Leaf says once people start shifting. "I think we've got a lot to chew on from all this, and most of you have to go soon, right? And I've got some morning chores to get to…"</p>
+
+<p>"Yeah," Blue stirs, then gets to his feet and stretches. "And I still haven't had breakfast. Let's meet at the dining hall, everyone."</p>
+
+<p>His journeymates start withdrawing their pokemon and say their goodbyes to Leaf and the psychics before heading out the door. "The plan is still on," he tells Satori. "I just need to talk to Red first. Why don't you go get some sleep until then?"</p>
+
+<p>The sleepy girl looks like she's about to argue, but only yawns instead before giving a resigned nod. She follows Jason and Maria out, leaving him with Red and Leaf.</p>
+
+<p>When he turns to them they're staring at each other, and he gets the feeling again of missing something. They've all had their own projects, their own social circles, their own schedules, but ever since the Hoenn incident he's gotten used to feeling like they'd be on the same page about important stuff again. He knows he's been particularly focused on his own stuff lately, but… if the two of them were not just holding their own secrets, but also sharing them while excluding him…</p>
+
+<p>Sure, he was about to tell Red a secret that would leave Leaf out. But only until they figured out if it worked.</p>
+
+<p>"Okay guys, what's been going on with you two?"</p>
+
+<p>"What? Nothing," Red says, too quickly. "What do you mean?"</p>
+
+<p>Leaf rolls her eyes, though she's smiling as she glances at Red's flustered expression. "There's some stuff Red <em>may </em>have discovered that <em>might </em>be relevant to something I've been working on."</p>
+
+<p>"If it's important enough that you had to design that number thing, I want in." If it's just about the tech Leaf's been working on to recreate <em>sakki </em>he doesn't think that would be necessary, and besides he already knows about it. The only other recent big thing that's been going on are those crazy psychic dreams, but he has no idea what that might have to do with Leaf.</p>
+
+<p>Red frowns. "That's not… we just had this whole talk—"</p>
+
+<p>"Yeah, yeah, I'm not saying I'll be pissed if I'm kept out of the loop." He'd be irritated, maybe a little hurt, if he's being honest. "I'm just flagging it, you know? If there's anything I can do to help…"</p>
+
+<p>"Of course," Leaf rubs her buneary's ears. "We just have to figure out if there <em>is </em>something first. I've sent a message to a certain someone who might shed some light on things, but they haven't responded yet."</p>
+
+<p>"And my own research has been inconclusive too," Red says, tone so careful that Blue can't help but force a gasp, which makes Red turn to him in panicked surprise.</p>
+
+<p>Blue's laugh sets Leaf to giggling, and Red's scowl quickly breaks into chuckles of his own, and Blue feels a little better. Maybe from the sign that they <em>haven't </em>shared secrets yet, are still figuring out if they even have one to share, or maybe just from the laughter.</p>
+
+<p>"Ah, fuck it." He'll take his chances, so long as they're willing to. "I have to go, but first… let's do the thing Aunt Laura mentioned. What sorts of secrets are you guys okay with hearing?"</p>
+
+<p>Leaf and Red exchange looks, then look away, expressions growing thoughtful on Red's part and cautious on Leaf's. He gets Eevee's ball and plays fetch with her for a bit while they think, thinking over his own. Being Dark means he doesn't have to worry about most of the things people hearing secrets do… though come to think of it, given what Satori told him this morning, that might not always be true.</p>
+
+<p>The thought is a strange one, and an exciting one, and a frightening one too. He's had years to get used to the idea that he'll never be able to teleport, never be fully trusted by some people. He's barely had one to start to appreciate the value he's gotten in return.</p>
+
+<p>But he's jumping to conclusions. For now, he should take for granted that secrets are safe with him. Which means…</p>
+
+<p>"I'm okay with cognitohazards," Red says. "I mean, I can just amnesia it if I need to, but even without that."</p>
+
+<p>"Big surprise there," Leaf says with a smile, then nods. "Me too. If something is true, I want to know it. I trust myself to deal with the implications of it, and living in blissful ignorance… I mean, if I'm in a really fragile place, emotionally, maybe I'd want to wait a bit. But outside of that, I'm game."</p>
+
+<p>"Same," Blue says. "Also fine with the rest of it."</p>
+
+<p>"Even target hazards?" Red asks, brow raised, at the same time that Leaf asks, "Even Social…?"</p>
+
+<p>Blue chuckles along with them, then shrugs. "Yeah, both. I get it, I'm careful with my image, but… I'd rather know what sorts of social blowups are potentially around me. As for becoming a target… I'm an Oak. I'd like to see who thinks they can get away with putting one on <em>my</em> back. If one of you is in trouble, I'd want to help."</p>
+
+<p>They're silent at that, for a moment, then Leaf sets her buneary down and stands to walk over for a hug. He returns it, only feeling a little embarrassed until Red joins them a moment later. He almost tells them not to make such a big deal out of it, but his friend's expression looks deeply moved, and Blue decides to just shut up and let them hug him for a bit.</p>
+
+<p>Blue's embarrassment is just starting to grow when Red and Leaf pull away, and he clears his throat. "Uh, money stuff… I guess I'd rather not pay more than ten thousand? Not without some details of how important the secret is, I guess, which maybe those 'how bad is this' numbers are helpful for too."</p>
+
+<p>"Five thousand for me," Red says. "And, uh… I'm fine with the other kinds of infohazards too."</p>
+
+<p>"Same," Leaf says. "Except, don't tell me active infohazards that might be dangerous in the wrong hands. I don't trust my mental defenses that well. And, oh, I think I'd be okay with paying more. Let's say ten thousand too."</p>
+
+<p>Blue frowns. "Hey, I didn't mean to—"</p>
+
+<p>"We did this wrong from the beginning," Red says. "We should have written our answers out, then shared them. But I don't regret it. Everything you said… these probably aren't my standards for everyone, but for you guys, yeah. I'd want to know if you were in trouble too."</p>
+
+<p>"Same," Leaf says.</p>
+
+<p>Blue can't help but grin at them. They're still connected. He shouldn't have doubted them.</p>
+
+<p>Though now he has a problem. His secret is one Leaf can't hear, but if he tells her that, she'll know what kind it is. The number thing doesn't work, he realizes, if they share them publicly like this and the person not okay with a certain kind of secret gives a higher number than the other.</p>
+
+<p>Red's right, they did it wrong. But he doesn't regret it either, and in this case it's an easy fix, thankfully. He'll point out the extra flaw to them later.</p>
+
+<p>"Right, I'm off to eat, then. Got a scenario after, so… let's talk more later?"</p>
+
+<p>"Sure."</p>
+
+<p>"You got it."</p>
+
+<p>They collect their pokemon and head out together. Once they've teleported away, Blue messages Red and tells him to come back in a few hours.</p>
+
+<p>They've got some training to do.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>It's surprisingly hard for Red to remember what fearing for his life is like.</p>
+
+<p>Not impossible, of course. A few situations stand out more than others, and with some concentration he can practically relive the moments of desperation. But the older the memories, the less sharp they are… with two exceptions. The night of the storm, with Pressure beating against his mind like a drum of fear, and the night of the incident, trapped in the casino rubble, desperation filling every moment.</p>
+
+<p>"The real trick is projecting those feelings onto an abra without them teleporting away," Red explains as he takes a break and Blue sprays some ether onto a berry and feeds it to Tops. "Being indoors helps ensure they <em>can't, </em>and the pokeball conditioning makes them somewhat less likely to want to… around a normal trainer, at least. Since he can't sense you, running away is still registering as the best option. Keeping him focused on fighting is difficult, he's already fighting an instinct that says the best thing to do when in danger is make use of the nearly foolproof defense mechanism he's had since birth."</p>
+
+<p>"I get it," Blue says. "If this is too hard on you—"</p>
+
+<p>"I can do it," Red insists, and takes a deep breath. They'd only been at it for an hour, and while they can test the theory with another pokemon, abra would show the clearest signs of unusually quick growth. "I just need to find the right balance."</p>
+
+<p>Hearing about Koichi's theory was fascinating, and horrifying. Red understands immediately why Blue didn't tell Leaf; as he'd guessed, it had to do with pokemon welfare, but on top of that, it's <em>definitely </em>a secret she would regret leaking if some psychic picked it up from her.</p>
+
+<p>The implications, if it <em>is </em>true… well, he'd think about those later, once they have some data.</p>
+
+<p>"Balance," Blue muses. "Maybe not, if you mean balanced fear. Try a memory of when you were sure death was close, but you fought anyway."</p>
+
+<p>Red considers this, then sorts through every brush with death in his memory again, from the pikachu swarm in Viridian, to lying injured in the Rocket Casino basement as the renegades approached, to the pack of growlithe that nearly burned him to a crisp during one of the recent attacks near Saffron.</p>
+
+<p>He sinks into those moments as best he can. Fear so strong he could taste it, metallic and suffocating. A trembling in his limbs, tightness in his chest, the urge to <em>move </em>fighting paralysis. He was able to make himself, time and again; he just needs to communicate <em>why </em>in a feeling that abra understands, particularly since fighting back for him involved doing things abra don't, and abra fighting involves doing things he doesn't.</p>
+
+<p>If only abra had <em>some </em>killer instinct, but the <em>sakki </em>would be worse than useless here, and Red can't exactly send his own, since…</p>
+
+<p>"You just realized something."</p>
+
+<p>"I, uh… may have, yeah. Do you… want to <em>kill </em>pokemon when you fight them? Or hurt them, even?"</p>
+
+<p>Blue furrows his brow, and after a moment shrugs. "Once in a while, after one of my pokemon gets hurt, or killed."</p>
+
+<p>And now Red remembers…</p>
+
+<p>…"<em>It has lightscreen!" Leaf yelled, and he knew her well enough to hear the way she was pushing past her heartbreak over the pokemon they'd just lost, past the Pressure making her feel guilty for fighting at all…</em></p>
+
+<p>…"<em>Be ready," Red said, voice rough as his blood sang with a rage more primal than anything he'd felt before as he/Charmeleon opened their mouths and breathed death at their enemy…</em></p>
+
+<p>…a time when he wanted his opponent not just disabled or captured, but dead. It wasn't his feeling, not really, but he felt it as much as he could through his bond with Charmeleon, and maybe that's enough.</p>
+
+<p>Can abra feel rage? He supposes there's one way to find out.</p>
+
+<p>But rage wouldn't be enough, according to this theory. What matters is the genuine fear for his life. Luckily, while being bonded with Charmeleon under the effects of <em>sakki </em>would normally wipe that away, the Pressure ensured he still felt it.</p>
+
+<p>The only problem is he never deliberately created a memory of that mental state, which means he can't perfectly reproduce and project it. He'd need to find another source of Pressure…</p>
+
+<p>He almost asks Blue if he can reach out to the rangers he helped catch the absol, see if they'd let them run an experiment with it, then realizes it wouldn't matter; he wouldn't feel the same way he did in Vermilion, Pressure feels different depending on context and what you're feeling in that moment. The best he can do is try to project from the memory.</p>
+
+<p>"I'm going again," Red says, and takes a deep breath before recalling that mental state as best he could… then merges with Tops and projects it onto the abra, who starts to tremble. Red's own body twitches in sympathy, voice strained as he says, "<em>Go."</em></p>
+
+<p>"Tops, Pa!"</p>
+
+<p>Red feels the attack get sent out in a burst of confusing sensations (as always, he can almost feel what a pokemon is doing when it uses kinesis… almost) coupled with fear… and something else, something that's not quite rage, but it's enough to keep the abra focused on its opponent.</p>
+
+<p>Red's Drowzee twitches from the attack, barely hurt… but, for the first time, hurt, while the abra was in a state of mortal fear.</p>
+
+<p>He lets the emotions go with a rush of breath, wiping sweat from his brow and smiling in triumph as he opens his eyes and sees Blue grinning just as wide as he slaps Red on the back. "I knew you could do it. Let's see how many blasts it can send out like this!"</p>
+
+<p>Red nods, and focuses on the abra again, doing his best to ignore the trembling in abra's limbs as he remerges their minds. If this actually works, he could train his pokemon faster without putting them in mortal danger.</p>
+
+<p>He can be ready, the next time a friend needs him to be stronger.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/104/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/106/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -340,6 +906,6 @@ http://imgur.com/Ovk6OdG
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

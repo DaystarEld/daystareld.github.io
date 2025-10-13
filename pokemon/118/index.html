@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arguing with Adults - Pokemon: The Origin of Species</title>
+    <title>118: Responsibility - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,68 +329,442 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Arguing with Adults</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/117/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/119/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <div class="_2cuy _3dgx _2vxa"><br>
-<br>
-<span style="font-weight: 400;">This is a quick summary and mash-up of the sorts of things I often tell kids about arguing with adults, particularly their parents and sometimes their teachers. </span><br>
-<br>
-<span style="font-weight: 400;">(0)</span><br>
-<br>
-<span style="font-weight: 400;">Quick disclaimer, a lot of what I’m talking about here is using generalized assumptions, like that your parents are mostly responsible adults, and love you, and have some sense of fairness, and are not suffering from mental illness, and are not in some altered state of mind due to drugs or alcohol. This may not be the case for all of you all the time, and I’m sorry about that. For those of you it does apply to, try not to lose sight of how lucky that makes you. It doesn’t always seem like much, but it at least might allow some of this advice to come in handy.</span><br>
-<br>
-<span style="font-weight: 400;">(1)</span><br>
-<br>
-<span style="font-weight: 400;">Before talking about how to win arguments, it’s vital to understand </span><b>power imbalances</b><span style="font-weight: 400;"> and </span><b>learning to lose</b><span style="font-weight: 400;">. When you learn self-defense, one of the first things they teach is learning when not to fight at all. If you take a martial arts course so you can go around beating people up, you’re going to get in trouble one way or another. Similarly, you have to be capable of recognizing arguments that are winnable and those that are not, so you can pick your battles. </span><br>
-<br>
-<span style="font-weight: 400;">Your parents have power in your house, and you don’t. Your teachers have power at school, and you don’t. That means sometimes you have to be ready to lose an argument, even if it means admitting to and apologizing for something that wasn’t entirely your fault, or being the bigger person and apologizing first even when it’s not fair. When you’re older and driving, and a cop pulls you over and tells you you were speeding when you know you didn’t speed, would you argue with them? What do you think would happen next? Arguing with adults as a child can be similar. This does not mean you should not have any pride, or just always admit to things you didn’t do to avoid arguments. It just means that sometimes the real time to fight is later.</span><br>
-<br>
-<span style="font-weight: 400;">If you forget that you’re arguing with someone who has more power than you, you’re more likely to say or do things that will get you in trouble. On the other hand, if you learn to pick your battles, you can earn trust by admitting defeat on things, which will be important in arguments that you can potentially win. Kids who always drag every argument out no matter how many times their parent says “no” quickly lose the impact of fighting hard for something when it really matters and might make a difference. </span><br>
-<br>
-<span style="font-weight: 400;">(2)</span><br>
-<br>
-<span style="font-weight: 400;">An extension of that is </span><b>situational awareness</b><span style="font-weight: 400;">, particularly of </span><b>status imbalances</b><span style="font-weight: 400;">. Parents and teachers don’t just have more power than you, they also demonstrate status differences that are socially reinforced between adults and children in general. If you’re not polite or don’t show respect, even if you have a good reason not to, adults will often get more upset with you than they would if another adult did the same thing.</span><br>
-<br>
-<span style="font-weight: 400;">This is especially true if other adults or children are present: if you are rude to your parents around their friends or while out in public, their embarrassment will often make them more angry with you, and they may feel like they have to be more strict or else be seen as “bad parents.” If you contradict or are rude to your teacher around other students, they may feel as though they have to respond with stronger punishment to show that they are in charge and that the other students have to respect them. Do not forget the social context you’re in when arguing with adults. Try and be polite and respectful, even if you are angry, or you will make arguments even harder to win.</span><br>
-<br>
-<span style="font-weight: 400;">(3) </span><br>
-<br>
-<span style="font-weight: 400;">With those two things in mind, the most important thing to remember when arguing with anyone is </span><b>different priorities and values</b><span style="font-weight: 400;">. It is almost impossible to win an argument with anyone if you do not understand their perspective, including what they want or care about, and why. When arguing with your parents, you have to recognize that they have different concerns and goals than you do. To use some simple examples and generalize a bit, they want you to be safe, your grades to be high, and your chores to be done, likely in that order. Most parents don’t care how well you do in your video games, or how much you want to spend the weekend with your friends. This is not the same thing as not wanting you to be happy: I didn’t list that above because happiness is hard to measure, while those other things are not. </span><br>
-<br>
-<span style="font-weight: 400;">The point is that their priorities are often skewed toward what they believe is best for you and the family in general, right or wrong, and yours are more often skewed toward what will make you happy. A more severe example is that, compared to how much your parents want to be able to afford the bills, they may care very little how much happier you will be if you get to eat out, or can have those shoes or clothes you want. To reduce conflict and improve your ability to reach compromises or win an argument, it helps a lot when you can demonstrate that you understand what they want and don’t shy away from it just because it is not what you want. Show that you actually can take their priorities seriously, and it can be a lot easier to build up the trust needed to convince them to give you leeway sometimes.</span><br>
-<br>
-<span style="font-weight: 400;">(4)</span><br>
-<br>
-<span style="font-weight: 400;">You will almost always be entering an argument with </span><b>reputation</b><span style="font-weight: 400;">. You are going to be judged by what you’ve done or failed to do in the past. More, you will often be judged by what they believe you’ve done or failed to do in the past, regardless of whether you argue that they’re wrong. And even more than that, you may be judged by what your siblings or classmates have done, mistrusted by association. It’s not unheard of to be judged by what complete strangers do that your parents heard about and are now worried you will do.</span><br>
-<br>
-<span style="font-weight: 400;">All of which sucks. But the one thing you have control over is your behavior, and how well you have earned trust on your own. I can’t promise that everyone will always care about this, but I have often seen how much arguing with bad reputation is like fighting on quicksand. Your behavior sets an expectation of you, and that expectation will either be in your favor or against you. Trust is important in arguments. If you make a habit of saying you’ll do something and then forget to do it, you lose the trust needed to negotiate in future arguments.</span><br>
-<br>
-<span style="font-weight: 400;">So when you’re trying to decide whether to do something or ignore something that will upset someone, particularly your parents, you have to weigh not just the short-term gain you get by doing it, but also the long-term difficulty it will cause you in future conversations and arguments when your parents or teachers are unable to trust you as much as you or they might want. </span><br>
-<br>
-<span style="font-weight: 400;">(5) </span><br>
-<br>
-<span style="font-weight: 400;">Building up all that trust is important, because it’s the cornerstone of any negotiation. This is the actual work of winning an argument with adults. It may not seem like negotiation is the right word for all kinds of arguments, and it may not be for every single one, but you might be surprised by how many arguments ultimately can be described as negotiations, or can be reframed as one to help reach a positive conclusion. </span><br>
-<br>
-<span style="font-weight: 400;">Kids often argue with their parents about what they’re allowed to do, or what they want, and if the parent is resistant, it’s usually because they are being asked to give something up or compromise something they want, even if it’s invisible or not a big deal to the kid. When you ask to stay up late, from their perspective you’re actually asking them to risk your health or ability to get up on time tomorrow morning, or to risk an argument and being late to school, or make them late to work. Even if it’s on a weekend, you’re asking them to let you change your sleep schedule, which may carry over to Monday morning. These are the things you are negotiating for.  </span><span style="font-weight: 400;">These considerations are what parents often think about all the time. </span><br>
-<br>
-<span style="font-weight: 400;">You have to have something else to offer in return, and I’m not talking about something like money. It might be extra chores that you offer to do, but you can instead also offer your well-being in other ways. If you’re doing well in school, you have more leeway to say something like “I really need some extra time to relax after this week.” What I’ve observed is that parents are easier to talk into the things their kids want when the kid has good grades, does their chores, and is well behaved in general. This probably seems obvious, but it’s worth reiterating that <em>these are things your parents</em> <em>want for and from you</em>, and so they are what you have to negotiate with. This also extends to more important arguments about, say, your future career, or your romantic lives, or your religious choices. These are areas where what you want to be happy and what your parents want for you are at odds because of different expectations about the world and different information. </span><br>
-<br>
-<span style="font-weight: 400;">Arguments like these, including those about some scientific fact or political belief, can also be framed as a negotiation of sorts: the thing you’re negotiating for is often respect. Parents want to make sure that you understand and respect their knowledge and experiences and perspective (whether it’s wrong or not), and offering them that respect as best you can, doing your best to make sure you show that you understand where they’re coming from, can often help a lot in such arguments, even if you still end up disagreeing forever. Which is okay too: it’s normal for parents and kids not to agree about everything. Something worth keeping in mind is that narcissistic or entitled parent may very often just end the conversation at "that's what I want/deserve" or "that's just the way it is," and may not respond well to even simple, unthreatening questions. </span><br>
-<br>
-<span style="font-weight: 400;">There are some arguments that you will never win with your parents, but also should never feel the need to lose, either.  In those cases where your mental health is at stake, where your parents are showing signs of being obstinate, entitled, abusive, or narcissistic, your job isn't to win the arguments, it's to survive long enough to gain your independence, and then, if you choose,  <a href="https://daystareld.com/creating-boundaries/">create boundaries</a> to ensure your emotional wellbeing.</span><br>
-<br>
-</div>
-        </div>
+            <h1 class="chapter-title">118: Responsibility</h1>
 
-        <div class="chapter-nav">
-            <a href="../117/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../119/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p><p style="text-align: center;">Chapter 118: Responsibility</p>
+When the invitation to meet at Cinnabar came, Leaf almost took a ferry from Pallet Town before deciding it's been too long since she had an adventure with her pokemon. Crimson and Wiseguy could use the stamina training, and she'd get to explore some of the less tamed parts of the region as they made rest stops on the tiny islands along the way.</p>
+
+<p>That, and it would mean a smaller chance of being attacked by ninja renegades. Or at least, a smaller chance of endangering others if she is.</p>
+
+<p>There are other benefits too, like time to herself to just let her mind wander and process stuff. Stuff like the existence of said ninja renegades and the implications on the history of the regions. Stuff like the Thank You card she got from Dr. Fuji before he apparently packed his things and just vanished. Stuff like the related stories she's been writing, from broad strokes to the way to frame certain scenes. There's no shortage of things to think about, and tempting as it is to call a friend or listen to a podcast to make the time pass more quickly, she's found the occasional long stretches of time with her thoughts to be surprisingly helpful.</p>
+
+<p>In retrospect it's a bit predictable that, even without being on a boat, the experience of spending hours surrounded by the ocean and stopping to explore small islands sends her thoughts in the direction of the cruise convention, and how much things have changed since then. How much <em>she</em> has changed, from worrying about conspiracies to being in one, and from dreaming of a world without trainer battles to… well, still dreaming of a world without them. But she had her first last week, after two months of desensitization therapy. It wasn't long, just a few exchanged status effects between her pokemon and the therapist's, but it still left her a little shaken up.</p>
+
+<p>Her therapist is a specialist for people who were in traumatic battles, recommended by one of the RAWP volunteers working with the kids at the ranch. Leaf told Dr. Yamada up-front that her "condition" wasn't like that, that she remembered feeling averse to trainer battles from a young age, without any traumatic experiences. He seemed to think desensitization was worth trying anyway, though he was interested first in exploring why she felt the need to at all, and checking if it <em>was </em>something she really wanted.</p>
+
+<p>That was a harder question to explore than she expected, given she'd already put in the effort of finding a therapist and going. She even agreed to some tests to see if she has latent, low level psychic powers that might be triggering strong empathy at the sight of pokemon getting hurt. No such luck.</p>
+
+<p>But her resolve from that day in Fuchsia Gym only grew stronger after the continued attacks by Rocket, as well as lots of soul searching conversations with Natural and, of all people, Mr. Sakai. After living with him for months, talking mostly about the proper care and treatment of pokemon and only rarely discussing things happening in the wider world, or related to Leaf's other projects, it's become easier to predict what he can and can't have deeper, more meaningful conversations over. It's hard to predict what will remind him of Aiko, sometimes, but in this case she knew it would, and mustered her courage to do it anyway.</p>
+
+<p>It seemed worthwhile, for its own sake, particularly since she knew Aiko's deathday was coming up. And it was hard. But it helped that she was often talking about herself, and her own struggles, which seemed to let Mr. Sakai have a… helpfulness channel to talk about Aiko through. She also learned a lot about him, his own journey as a young trainer, and how it fit in with his philosophy of providing better care for those whose violent use they relied on for safety.</p>
+
+<p>And he'd made her tear up near the end, when he looked her in the eyes, smiling that sad smile until he couldn't hold it anymore. <em>I'm not worried for you. You're… like her. You can't help but care. No shadow you walk through will cover… that light…</em></p>
+
+<p>Which brings her thoughts back to the whole "conspiracy" thing.</p>
+
+<p>A flock of wingull wheel up and toward her, and she sends Crimson into a dive, heart in her throat and wind whistling in her ears as jets of water disperse into harmless rain far short of their targets. Meanwhile she pulls one of the tabs on her saddle, triggering some aerosolized repellant to start streaming from its canister in a broad cloud behind them.</p>
+
+<p>Leaf's eyes stay all the while on the ocean as it leaps up to meet them, and she spots the gleam of twin red orbs bobbing to the surface just as she squeezes Crimson's sides and sends him gliding back up and away from the tentacruel's lobbed acid. Only then does she check behind to confirm that the wingull are leaving them be, and lets her breath out.</p>
+
+<p>She strokes Crimson's neck before checking her wrist compass and reorienting their flightpath slightly more southward. It takes another minute before her thoughts reorient to the path they were on too.</p>
+
+<p>She consoles herself, sometimes, by remembering that it's probably the least secretive one in history. So far no one has approached her for an interview, or even just a "quiet conversation," about whether her story (<em>either</em> story) is inspired by something true. But also, no ninja renegades have shown up to try and kill her, which is nice.</p>
+
+<p>Or at least, none that she knows of. Once she decided to start writing about the hidden underworld Leader Koga told her and Blue about, she finally spent some time returning to Unova to see her mom and grandpa… and to register a teleportation point at a random apartment in Anville Town, so she could port back to Unova each night to sleep. It's a bit jarring each time, going from night to day and back again, but some blackout curtains help ensure she can get a full night's rest, as does the peace of mind of knowing that she's got half a planet between her and the people whose secret crimes she's revealing, not to mention avoiding putting Mr. Sakai at further risk.</p>
+
+<p>Leaf feels like the stories she heard growing up mostly prepared her for how many strange places going on her journey could take her, but despite the rest of the crazy things that have happened over the past year, "worried about ninja renegades" definitely wasn't one of them.</p>
+
+<p>Red hasn't asked about her new story either, despite his… excitability… about the potential secret behind her last one. But then, he's been so busy lately that she'd be surprised if he had the chance to read any of it. She's already thought of what she'd say if he asks, not intending to hide anything but also not volunteering the information; if he reads her mind it would be obvious, of course, but she doesn't expect him to.</p>
+
+<p>Koga <em>does </em>predict someone will read her mind sooner or later, of course, and has already written to his old clan to explain how his daughter discovered their existence and began sharing information about them before he learned of it. He said his family, and clan, had contingencies for what to do if they were discovered, though he's unsure what they were, and how adaptable they would be to a world with Miracle Eye. He had considered going to visit, for the first time in decades, but apparently Janine convinced him it wasn't worth the risk.</p>
+
+<p>In any case, if she'd just told Red or Laura, and they tell Interpol or the police, there's no guarantee the person they talk to would know about any secret deals being made with criminal organizations, and they would have no control over when it was kicked up the chain to someone who did and might try to silence them. Koga's hope is to be able to observe how various people and organizations react to the information being shared so publicly, particularly now that it's beyond recall or anyone's ability to stop; she's published it not just on her blog, but also various sites for sharing both fiction and conspiracy theories.</p>
+
+<p>Which is probably why no one's really questioned her about it yet. Her readers tend to be Coordinators, or those into pokemon welfare, or just general fans of the "Pallet Three" despite her not being involved in their most recent major discoveries or incidents. Many were surprised but supportive, and eventually big fans, of her story about "Roshan," the psychic human/pokemon hybrid trapped in a lab. She even got some offers for traditional publishing. But she can tell from the feedback that the story about the hidden clans of renegade ninja confuses her followers; it's got nothing tying it to her focus on pokemon welfare, and some have speculated that she's just trying to stay topical.</p>
+
+<p>A year ago, that sort of talk would have bothered her. But then, a year ago, crossing this ocean made her feel like the world was open and full of endless possibilities. Now the endless expanse of blue above and below makes her feel small enough to get swallowed up by it all. Given everything going on, words by strangers don't hurt her the way they used to; what matters now is if they're going to put her or something she cares about at risk. To some degree that's always been true, but the scope changes everything. And if the world <em>does </em>keep going the way it does, and she is swallowed… with another passing year, there'd likely be few who remember her anyway.</p>
+
+<p>Or maybe she's just feeling maudlin over Aiko's deathday.</p>
+
+<p>The final island before Cinnabar appears in the distance, a spit of land barely big enough to fit the Ranger outpost and a landing zone beside it. She touches down and gives Crimson a handful of berries while stroking his beak, then summons Wiseguy so her noctowl can get some more rest from his previous flight too. One of the rangers steps out to check in with her, and does a visible double take when recognition hits. She just smiles and says she's fine, then summons a water trough for her pokemon and brings Joy and Raff out before heading down to sit on the beach.</p>
+
+<p>Raff stays where it's grassy, wandering over to sniff at some island flowers, while Joy joins her on the warm sand, burrowing half her body down into it with a contented warble. One of the things Leaf regrets is how silent the otherwise musical creatures have to be when tamed, and she sits behind her wigglytuff to give her a full-body hug as they stare out over the ocean together.</p>
+
+<p>The anniversary didn't require much planning. Growing up in Unova, she got used to the region-wide day of mourning each year for all who were lost. When she was young she thought it meant anyone who died of anything, but as she got older it became clear that while that's not explicitly denied anywhere, the real focus for most cities and towns are those lost in pokemon attacks, particularly big ones.</p>
+
+<p>But Kanto's cities do a sort of "rolling anniversary" of their last major tragedy. Leaf skipped the one in Viridian for the fire, but when Vermilion's came around, she went to meet up with Blue, Elaine, Glen, Lizzy, Maria, Bretta, Taro, Chie and even Slava and Sumi, who hadn't been in Vermilion that day but knew Aiko from the Diglett tunnels. They joined one of the city's solemn public ceremonies honoring everyone that died in Zapdos's attack, and in the various incidents throughout the year since. Aiko even got a brief mention, when Leader Surge spoke about the loss of his previous Second.</p>
+
+<p>Red sent a message ahead of time, apologizing for not being able to make it. <em>Too big a security risk,</em> according to Agent Looker. Blue didn't seem happy, but he didn't comment on it directly, and it wasn't exactly a happy occasion.</p>
+
+<p>Though once the speeches were done, and the hour of silence observed, many people in the city held quiet celebrations of life over death, such as recent births and bonds formed. Blue and Leaf led the group to one of the city's parks, its fields and tables covered with picnic blankets, and they toasted their survival, sharing stories about their near misses and remarking on all the unprecedented craziness of the year.</p>
+
+<p>And of course they talked about grief. Leaf never appreciated how many of them felt as close to Aiko as she from their time at the Vermilion Gym together, and listening to their stories made part of her regret, again, her avoidance of gyms. They also talked about other friends or journeymates that weren't lucky enough to make it through the year.</p>
+
+<p>When it was Leaf's turn, she talked about how her grief rarely feels "sharp" anymore. Aiko's room feels like her room, the memory of her voice faded and soft, her unfulfilled dreams as distant as the stars; sad to look upon and know she'll never live to see them, but in a more melancholy way than depressing.</p>
+
+<p>But right now, sitting in the middle of the ocean and thinking of the year between her last crossing, the jagged rocks emerge, revealed by the ebbing tide. And she doesn't need to talk to her therapist to know why.</p>
+
+<p>She feels like she's losing Red. No, more than that. It feels like she's already lost him.</p>
+
+<p>It's silly to put them in the same category. She's on her way to see Red right now, in one of the rare circumstances where he's got some free time from his training, and permission to be in a relatively public (though mostly unpredictable) place. She can still talk to him about her struggles, the way she wishes she could Aiko. She could hug him and listen to him talk about his goals and watch him whip out his notebook mid conversation to jot down something he wants to remember.</p>
+
+<p>But during his and Blue's birthday, he'd done none of that. They met at a randomly selected Ranger outpost, and when he arrived he was clearly happy to see them, but also distant and subdued. When she brought it up, he just gave her a small smile and said he was tired, and had a lot on his mind that was hard to talk about. When he talked about what he's been up to, none of his dreams or goals from before the Silph incident came up.</p>
+
+<p>She understood, of course. But it felt like a death, figuratively and more. It felt like a sign that, sooner or later, Red would lose the rest of himself, either becoming someone else or literally gone, killed fighting Rocket.</p>
+
+<p>And sure, that was true of Blue and Laura and her mother and grandpa and everyone else as well, but the attack on Vermilion and the Hoenn incident had accustomed her somewhat to sudden loss, like a lightning bolt from the blue. She doesn't know how to deal with this gnawing, piecemeal loss, happening in slow motion in front of her, yet completely beyond her power to stop.</p>
+
+<p>When she spoke with Laura about it, Red's mother began to cry, and then Leaf cried, and they held each other for a while, and it was better than hurting alone. But it was also frightening, to see Laura's tears, to know viscerally that she felt just as powerless.</p>
+
+<p>"<em>I think about telling him all the time, to let it go," Laura said as she wiped at her eyes. "To just… let others deal with Rocket. But he's his father's son, no matter how much he'll deny it. And the scariest thing is, I don't know what would happen to him if he </em>does <em>just walk away."</em></p>
+
+<p>Leaf doesn't either. And though she hasn't talked to Red about it yet, she knows it must be on his mind.</p>
+
+<p>At least last year, when Red and Blue weren't speaking, she had some hope that things might get better, sooner or later. That something might change for one or both of them, and things could go back to the way things were before. And really, she should be more optimistic today rather than less, considering what they're meeting up for. It feels like the old days, a peek of the old Red.</p>
+
+<p>But whether it's the contrast of how things have been lately, or the surroundings, or the timing, or hormones, or everything all at once, she can't help but feel, a year after the Zapdos attack, like she's back in mourning again.</p>
+
+<p>She wipes a tear away and gives Joy one more squeeze, then stands and withdraws everyone but Wiseguy, who she saddles up to finish her flight. Cinnabar is a vague shape in the distance before long, and by noon she can make out the colorful spread of the city as it sprawls between the volcano's base and the eastern shore of the island.</p>
+
+<p>Before she reaches it, however, she spots her destination. The Cinnabar Laboratory for the Study of Ancient Pokemon is smaller than Pallet Labs, though larger than most research centers she visited with her mother and grandfather, a compound rather than a single building. Each of the buildings, wide enough to form a triangle around a central field, is dedicated to either Fossilization, Paleontology or Restoration… though that one has expanded to a fourth, radically different building some distance away from the rest.</p>
+
+<p>From what she read upon first coming to Kanto, the Restoration branch has focused on using genetic engineering to try to recreate fossil pokemon more reliably than the occasional random spontaneous genesis. Since unown research got unrestricted, however, they started hiring new staff and constructing a new type of research environment.</p>
+
+<p>From above it looks like a shimmering globe of light ensconced in a crater too perfectly round to have naturally formed. As she descends for a landing, she can make out the criss-crossing metal that holds each rounded panel of glass in place… along with the swarm of black figures moving around inside.</p>
+
+<p>A shiver works its way up her spine despite the warmth of the day. She can't hear them, but just imagining what it would be like inside the dome with the sounds from that many unown sets her teeth on edge. But more than that, the sight of them makes her uneasy in ways she can't put into words. She normally thinks unown are kind of cute, but seeing them like this, moving in an endlessly shifting cloud, activates some sense of looking upon a truly alien being. Unfeeling, but thinking alien thoughts. Erratic, but enacting hidden purpose…</p>
+
+<p>It almost makes her reconsider her decision to come by, but she doesn't really know what to believe about the unown, and reminds herself (with a small smile) that fear of the unknown, though sensible, can be limiting. If they're heralds of some apocalyptic threat, then understanding them better does seem like a good idea. And if they <em>are</em> the source of pokemon genesis, then Leaf figures it's better for the professors and rangers to learn that sooner rather than later.</p>
+
+<p>Plus, it's hard to turn a friend down when they ask for your help.</p>
+
+<p>"Hello, Leaf! Welcome to Cinnabar!"</p>
+
+<p>"Hey, Artem, thanks!" It's been a while since she saw Red's old research partner, but after what they went through in Lavender together she feels some of her sadness lifting to see him walk toward her with a spring in his step, proud in his emblem embossed Cinnabar Lab coat.</p>
+
+<p>Leaf finishes unsaddling Wiseguy, then summons Crimson and the water trough again for them both, setting a reminder to herself to get it refilled before she leaves the island. "Am I terribly late?"</p>
+
+<p>"Nah, Blue already dropped his fossil off and went back to the gym for a quick battle or something, but Red just got here a few minutes ago. Hence the extra security." He nods over to the dome's entrance, where she sees a handful of figures in a mix of security and police uniforms.</p>
+
+<p>"How many are there usually?"</p>
+
+<p>"Well, before the Rocket attack in Azure Town, just a few at a time. It got doubled when they showed their interest in unown research, but Red's, uh, escort? Bodyguards? They still came to sweep the campus before he was cleared to land." He looks like he's about to say something else, brow furrowed, then shakes his head and sighs. "Strange times, huh?"</p>
+
+<p>"Yeah." Leaf finishes tucking her goggles and flight jacket into her travel container, then puts on her hat, an extra wide and floppy one that's perfect for the strong summer sun. "Strange times."</p>
+
+<p>Once she's withdrawn everything except her pokemon and the water trough, Artem leads her toward the dome, explaining how it was constructed in just a week. "I wasn't here for that, of course, but I had been hired on by the time they started bringing in the unown."</p>
+
+<p>They climb some stairs up to the lip of the crater, where a metal walkway starts. She looks down and sees the dome extends down a bit further than the ground level beyond the crater. "They're all wild, right? How did they catch them? Or, uh, 'confine' them."</p>
+
+<p>"Have you seen the tracking network What Comes Next formed? By July it was extensive enough that Cinnabar was able to camp out a number of nearby spawning sites and flight paths. Mounted trainers were able to herd them this way with non-deadly attacks, and there's a vestibule above that only opens one hatch at a time to get new ones in without letting any inside out. Like this one."</p>
+
+<p>He flashes his badge to the security guards, even though they surely just saw him leave to greet her, and Leaf shows them her own Trainer ID despite them surely knowing who she is, and a moment later they are indeed standing in a small room and waiting for the door behind them to finish sealing shut. It feels a little claustrophobic even after the door in front of them finally starts to open, though once she steps through and up some more stairs…</p>
+
+<p>The sound is in fact the first thing that catches her attention and holds it, like slipping into an aural bath. It's not as bad as she feared, however, and she wonders if they built the facility out of some sort of sound dampening materials, or if the distance between her and the cloud of unown is helping, given how quiet the unown are. The mix of chirping twitters and tinkling woops and popping static is chaotic, but it's less like standing in a chattering crowd and more like hearing the mixed murmurs of a full stadium. Still, she has to stifle an urge to raise her voice. "How many are there?" she asks as she watches them swirl and shift against the slice of silver-veined sky they're confined to.</p>
+
+<p>"Fifty-seven," he says with pride, then grimaces. "Still missing a few letters though. And we've got <em>eleven </em>F's, the lab is considering telling people to just ignore any new ones they spot, though the betting pool is having fun with it. Want to join in? I've got fifty bucks on W being the last one we get, though the odds won't be as generous at this point."</p>
+
+<p>"I'm good, thanks." She finally manages to bring her attention to the curving walkway they're on, tracing the full circumference of the dome, then the floor below them. Their level seems to be where most of the researchers and techs work, desks set up in observation cells and single-wall cubicles. The ground floor is segmented into transparent rooms, many of which have some form of miniature biome inside.</p>
+
+<p>She spots Red almost immediately, his red and black outfit making him stand out among the various researchers (another stab goes through her—they were always his colors, but without his blue jeans or some white to soften them, they make him look like someone he's not. Someone dangerous, in a way that feels unfair to him… and possibly other Hunters).</p>
+
+<p>Artem leads the way down to them, and when she gets closer she notices Red's backpack, which is different from the usual one he traveled with during his journey. For one thing it's much thinner and wider, various zippered compartments spread over its surface. For another there's an abra sitting in it.</p>
+
+<p>It takes a moment to confirm that the abra is in fact inside the bag, or at least, in a sort of sling that lets it rest against Red's back, tail swinging below. "Please tell me you named this one," she says once the door is open, and Red turns with a smile that eases something in her chest.</p>
+
+<p>"You're here!"</p>
+
+<p>"I'm here," she confirms, and returns his hug as Artem starts inspecting the various water tanks around them. She squeezes Red tight, as if to convince herself of his solidity. It keeps surprising her how tall he's getting; Blue is growing a little faster, but she can nearly rest her chin on his shoulder now.</p>
+
+<p>The abra sniffs at her hand where it rests on his bag, and she smiles and tentatively gives its snout a stroke. "So? Going to introduce me?"</p>
+
+<p>"Well." She can hear his sheepishness, and when the hug ends she can see it in his face. "I wanted to run them by you, first."</p>
+
+<p>She raises a brow. "Go on."</p>
+
+<p>"...Backra."</p>
+
+<p>Artem snorts, and Leaf grins. "And? Wait, let me guess. Abag?"</p>
+
+<p>Red grins back. "Puns aren't disrespectful, right?"</p>
+
+<p>"'Course not." She's feeling ten pounds lighter. Maybe she over updated on how he seemed during his birthday… he might have just been having a bad week…</p>
+
+<p>"Glad to hear it." Red looks over his shoulder, then reaches back to gently squeeze one of the abra's feet. "She's got a stressful enough job without adding mockery."</p>
+
+<p>"Oh." Her smile fades. "She's there so you can..."</p>
+
+<p>"Teleport at a moment's notice." Red doesn't meet her eyes, and she wonders what he's afraid of. That she'd judge him for being a coward? Or that she'd consider it a disrespectful way to treat his pokemon?</p>
+
+<p>"It's smart," is all she says, then looks around at the fossils. "So, which is yours?"</p>
+
+<p>"That one." He points to one of the helix fossils in a water tank filled with algae and rocks. "They said it's one of the most complete specimens they've seen."</p>
+
+<p>"And that's supposed to have helped?"</p>
+
+<p>"That's the hope," Artem says. "If the few wild ancient pokemon we've found are just the result of unown reviving fossils, there has to be something that makes it so rare given how many broken and scattered pieces of fossilized pokemon there are everywhere."</p>
+
+<p>Leaf looks at a terrarium that doesn't have water in it, where a few, less complete helix fossils lie on patches of grass, dirt, and stone. "Pewter Museum would need to rewrite a lot of exhibits if that's true."</p>
+
+<p>"Not necessarily," Red says. "It could be that a handful of ancient pokemon survived to the modern day, <em>and</em> that some have been revived by the unown."</p>
+
+<p>"Sure," Leaf says. "Though it's also possible that, if any pokemon <em>do</em> generate here, they won't be like any of the ones that survived to this day."</p>
+
+<p>"You're thinking of the marowak ghost in Lavender," Artem says, voice somber. "Believe me, we've considered it. Frankly I was surprised that the Leader and Mayor here were willing to take the risk of another major incident taking place on the island, but-"</p>
+
+<p>"The same thing that made the ditto easier to contain would make a new species easier to contain," Leaf guesses, then looks around. "In theory. I mean, these <em>are </em>aquatic and flying pokemon."</p>
+
+<p>"Proximity to the Gym and so many rangers would also bring a pretty rapid and overwhelming response," Artem says. "Still, it's obviously not without risks. But such is the life of a pokemon researcher, right?"</p>
+
+<p>"Right," Red says. Leaf's gaze darts to his face, but while he's lost some of his cheer, he doesn't look particularly sad. "Any word from Hoenn?"</p>
+
+<p>"From what I heard, Wally is interested in coming by to see what we've got going on, at least. But he's got plenty of options for excitement, if the rumors are true."</p>
+
+<p>"What happened now?" Leaf asks, stomach sinking.</p>
+
+<p>"Oh, nothing bad. What's the last you heard about Champion Steven?"</p>
+
+<p>"He stepped down, didn't he? Started devoting himself more to researching the whole 'Mega Evolution' thing." She keeps forgetting the scientific name, and she expects most people will given how quickly this one spread online.</p>
+
+<p>"Yeah, he's been traveling the world to find some other region with the special stones he has, or another power source beyond the orb that summoned Groudon. There's speculation that Wally might go join him, now that he got knocked out of their Victory Road and the Lati twins have been away for so long." His phone chirps, and he takes it out, then says, "Back in a bit. Blue might get here first, Leaf, so I'll say bye now, and thanks for bringing your fossil. Maybe chat later?"</p>
+
+<p>"Sounds good, later!" Once the door closes behind him, Leaf looks back at the fossils around them, then glances at Red. "So, how's everything?" The last time she'd asked, during a quiet moment at his and Blue's party, he'd said he wasn't sure he was in the right headspace to talk about it. "Or, I mean, how's anything." She knows he'll understand. <em>Anything you're okay to chat about.</em></p>
+
+<p>"Anything's okay," Red says after a moment. "Want to take a walk?"</p>
+
+<p>Right, everything here would be constantly monitored. "Sure. I think I need to drop my fossil off?"</p>
+
+<p>"Right, for yours I think we'd go over there…"</p>
+
+<p>They pass between the various mini-biomes, and Leaf can't help but think of how much of a long shot this is. After all her time speaking with residents of Pewter, she knows certain people would claim that it's absurd to think that a bit of dirt and some plants would fool whatever intelligence is behind pokemon genesis into thinking a fossil here is the same as one in the wild.</p>
+
+<p>But if the intelligence is unfriendly to humans, or just totally alien in morals or preferences, then it probably doesn't mind being "tricked," if it would even register that. She looks up at the cloud of unown and feels another shiver work its way through her as she imagines what kind of frenetic, kaleidoscope vision such an intelligence might have of them.</p>
+
+<p>"I remember you were trying to find a way to fly alongside wild unown for a while…"</p>
+
+<p>"Charizard might be able to do it now, but having all these here makes it less necessary."</p>
+
+<p>"So?" Leaf wants to murmur, but she knows it would be lost in the noise. "Have you merged with them at all?"</p>
+
+<p>"Yeah. It's weird… they're so simple that it's really hard to tell if they're any different from a captured unown. It's also really hard to track one mind at a time in that cloud, though, so I can't focus on just one enough to do a deep merge… whatever that would mean given how basic their 'minds' are."</p>
+
+<p>"Is that something you're working on?" she asks as they climb to the floor above.</p>
+
+<p>He's quiet for a moment. "Not at the moment. No time."</p>
+
+<p>Leaf doesn't say anything further as they make their way to a portion of the lab that analyzes non-bone fossils, then they make their way toward the exit. A couple hunters notice and start tailing them, then join them in the security chamber. It's an awkward wait, but Leaf gives them a smile, and one of them nods back.</p>
+
+<p>Once they're outside another two detach from the building to follow them, and after a moment Red says, "You guys mind if we get a bit of privacy?"</p>
+
+<p>"Of course. We'll set up a perimeter."</p>
+
+<p>"Thanks. We'll just be over by her pokemon," he says, gesturing to Crimson and Wiseguy. Once they get there, Red brings out Charizard.</p>
+
+<p>"Hey there, boy," she says, reaching out a cautious hand for him to sniff, then stroking up his snout as he closes his eyes, warm breath washing over her. "Getting bigger each time I see you."</p>
+
+<p>"He started eating a ton once he evolved. Do you mind if I…"</p>
+
+<p>"Go ahead." Red had sent her a picture of him grinning beside his starter after he evolved. The freshly evolved charizard was about as tall as his trainer, which made the dragon look more cute, even comedic, rather than fierce.</p>
+
+<p>That certainly changed by the time he showed up at Red's party, and even more so now. Charizard's snout and horns are leaner, sharper, his belly less round as his body stretched and grew muscle. Despite his acceptance of her strokes, when his eyes open again they have the intensity of a hungry predator, and there's some primal tension in her spine that only relaxes when his gaze shifts to Crimson and Wiseguy.</p>
+
+<p>Both go still with the start of fight-or-flight, until Red summons a long container box and lifts the lid to reveal a steel trough full of meat to divert his pokemon's attention. Leaf gives Charizard's snout one more stroke before going over to give her birds some soothing pets along their wings. They still shift and tense as Red gives the command, and his pokemon starts to blow a long gout of flame over the meat.</p>
+
+<p>She's grateful he'd put it downwind of them, and doesn't watch as Charizard starts to feast on the seared steaks. When Red approaches with some grooming tools for Crimson, she takes out her own set for Wiseguy.</p>
+
+<p>They work in relative silence for a moment, until he finally says, "Weird."</p>
+
+<p>"Weird?"</p>
+
+<p>"Anything. Everything."</p>
+
+<p>She nods. "Still?"</p>
+
+<p>"Still. It feels sometimes like... like I've been transported into someone else's life. It's weird enough that I spend most of my time thinking about ways to fight renegades, but... I'm not just doing it alone. I've got a <em>team</em> of hunters and interpol agents teaching and training me, and it's more than that too! Any pokemon I can think of, any pokemon they think might be of any help in even a weird edge case, and Looker puts in a request so someone at Interpol can scour the market for a strong one. If it's not there they look at the <em>expensive </em>markets for a pretrained one, and if they can't find a good one for me <em>there </em>they dig into Interpol's own collection to transfer ownership! I just turned thirteen, I was only on a proper journey for half a year, and yet I've got pokemon now that are <em>Elite level, </em>and I don't even have a badge!"</p>
+
+<p>Leaf listens in silence, beak-shaped comb moving in gentle probes through her noctowl's down. She's not introspecting on how she feels about what she's hearing, yet. She's just filing the words away, grateful to be hearing them at all.</p>
+
+<p>"It feels so long ago, but once in a while I remember how before the attack on Silph, I was wondering what would be the best use of all the money I made off the Miracle Eye market bump… I actually got some ideas from President Silph that I haven't had a chance to follow up on. But remember how long I agonized over which pokemon to buy, before getting Ivysaur and Wartortle? And now people are spending absurd amounts on top-of-the-line training equipment, supplements, TMs... I've got a <em>suit</em> Bill developed, I mean it wasn't for me, they've been making it for fighting the Stormbringers, but Interpol commissioned one to fit me, and now they're getting another because I'm outgrowing it, and I don't know how I got here, Leaf!"</p>
+
+<p>Leaf finishes the stroke she's on, then turns and hugs Red from behind. He's so tense he's practically vibrating with it, but after a few moments his arms settle over hers, and she feels his body still. "Blue must be incredibly jealous."</p>
+
+<p>That makes him laugh, though it's a brief, dry huff. "The helmet does make me look pretty cool."</p>
+
+<p>"More than your hat?"</p>
+
+<p>"Do you… like my hat?"</p>
+
+<p>"It's weird seeing you without it."</p>
+
+<p>"The colors don't match."</p>
+
+<p>"Yeah."</p>
+
+<p>Charizard has stopped eating, and for a while there's just the sound of the wind rustling the grass. Leaf almost pulls away, but then Red speaks again.</p>
+
+<p>"Last week, when I went to see Dr. Seward… I ran into Felix—"</p>
+
+<p>"Who?"</p>
+
+<p>"Oh, one of Pallet's pokedex engineers. He dropped hints about how they've nearly finished developing a new version, and... Leaf, I could barely keep myself from sobbing until I was in Dr. Seward's office."</p>
+
+<p>Leaf feels a hand clenching around her heart, and she squeezes him tighter. "Oh, Red..."</p>
+
+<p>"Dr. Seward said I should... well, she didn't put it like this, but her questions made it really clear she thinks… no, <em>my answers</em> made it clear <em>to me</em> how unhappy I've been."</p>
+
+<p>"So... are you going to…?"</p>
+
+<p>This time his laugh is hollow, like a sob wrung dry. "I can't."</p>
+
+<p>"You <em>can, </em>Red!" At this moment, she believes it. She <em>wants</em> to believe it, and figure out the complications later, rather than just accept that this is the way the world has to be. "Rocket isn't your responsibility alone!"</p>
+
+<p>"It's not just Rocket. Did I ever tell you about the psychic network I formed?"</p>
+
+<p>She hesitated, searching her memory. "Maybe... in passing, a few months ago? Something about how you started reaching out to psychics in the region, then around the world, right?"</p>
+
+<p>"Yeah. Started after I realized what I could do. Most of it didn't lead to much, a few acquaintances and penpals here and there. But they <em>knew</em> me, by the time the press meeting about <em>sakki</em> and everything hit. And I started getting... messages."</p>
+
+<p>Her hands grip his tight, feeling a ball of hot lead in her stomach. "What kind of—"</p>
+
+<p>"Not bad ones. Well, a couple, but most are just sharing what they've been going through. Suspicion, doubt, even from friends and family sometimes. Most thank me for the good I've been doing, even say how I must be getting it even worse than them. But I haven't, really. I mean yeah, I know there's talk online. But I'm lucky enough to have so many great friends, and I've got the highest levels of official support… while they're mostly dealing with the suspicion."</p>
+
+<p>The lead has cooled, turned heavier. "So you feel responsible for them."</p>
+
+<p>"Yeah. And apparently that's part of the problem."</p>
+
+<p>"What do you mean?"</p>
+
+<p>"Dr. Seward asked me what I thought burnout was. I said it's when people are overworked, and I admitted that I could use a break. But she said, no, overworking is just a warning sign. She said <em>real </em>burnout is from a… a 'prolonged imbalance between responsibility and power.'"</p>
+
+<p>"Meaning, what, if you just get powerful enough you'll be fine?" She doesn't try to hide her indignation. If Red's therapist is making him feel <em>more</em> guilty or driven—</p>
+
+<p>"No, no... I mean, maybe yeah, but not... I'm explaining this badly. Look, back when we were in Pewter, remember how long it took for me to get my grant?"</p>
+
+<p>"Yeah." She remembers him putting ice on his off-hand while eating, swapping between them every so often. She remembers how hopeless he started to sound, before he finally got it.</p>
+
+<p>"Looking back on it, I was reaching the end of something, there. Not a breaking point, exactly, not giving up on my dream... I wouldn't have given up on being a professor after my first real challenge. But it wasn't the hours I was putting in, it was the feeling of <em>futility</em>. Failing again and again, and no sign that what I was doing was making any difference. When I imagine what that might have been like if I felt <em>responsible</em> for getting a grant, like if someone's life was on the line... or if I imagine being told which grants I could and couldn't apply to, or if I couldn't alter each grant application to try to increase the odds, if I just had to fill in forms instead of being able to try my own things, mix things up..."</p>
+
+<p>"I think I get it," Leaf says, thinking of the feeling she had near the end of her involvement in the Safari Zone. "Feeling powerless can be soul crushing."</p>
+
+<p>"Yeah. She said that there are two major predictors of burnout, and the first is if someone works somewhere that makes them responsible for failures, without giving them authority or autonomy to do things their own way."</p>
+
+<p>"Ugh. Yeah. Bad enough to fail, but blamed for it when it's not your fault..." She closes her eyes as the rest of it clicks into place. "And if the responsibility isn't from someone else... if it's something <em>you</em> feel, so you blame yourself..."</p>
+
+<p>She feels him nod, his voice going quiet. "That's the second predictor. Jobs that attract people who... care a lot, about saving people, and have to see the results. People who take responsibility for every failure… blame themselves for not being perfect." He lets out a long, slow breath. "My dad talked about this, once, when a friend of his around Celadon quit the rangers during a particularly bad year. I asked him what happened, and... he looked so sad." There's a hitch in Red's voice, there and gone. "He said she just... cared too much to work less, until she couldn't do it anymore at all. And rangers have rules they have to follow, sometimes, things that they're ordered to do that they might disagree with. If they follow one and someone dies that think they could have saved, that's the worst of both worlds."</p>
+
+<p>Leaf's heart is pounding, and she wonders if he can feel it. "You've been winning so far, against Rocket. I mean, not just surviving, but mostly stopping them. What happens if you can't, next time? What if they finally do start killing people again?"</p>
+
+<p>Red sighs. "Yeah. I think Dr. Seward was... trying to bring that up, without saying it outright."</p>
+
+<p>"So what are you going to do?"</p>
+
+<p>"I don't know. I don't know how to square Heroic Responsibility with this. I want to talk to Blue about it, but I'm worried he'll think I'm… weak."</p>
+
+<p>"He won't, Red, you know he thinks the world of what you're doing…" She trails off, suddenly realizing why that would make Red even more worried. She feels ashamed of her own doubt, Blue deserves better, but… if he says something the wrong way, even without meaning to…</p>
+
+<p>She tries to think of someone else, someone who won't just tell Red to do what's best for him out of personal concern. She knows he needs more than just permission to rest or be more selfish, he needs <em>understanding, </em>some new knowledge or frame that would help him balance competing values.</p>
+
+<p>There's only one person that comes to mind, loathe as she is to say it.</p>
+
+<p>"What about… Giovanni?"</p>
+
+<p>Red snorts. "Yeah. Dr. Seward asked if there's someone I knew who's gone through something similar… if Agent Looker or Professor Oak seem like the kind of people who are living the right balance in ways I could learn from. But Giovanni is the person I thought of, too, and… yeah, I think I will."</p>
+
+<p>Leaf nods, then says, "I've been seeing a therapist too."</p>
+
+<p>She feels his surprise, a subtle twitch through his body, and then he's pulling away to turn and look at her. "When...?"</p>
+
+<p>So she tells him. About her realization, after the Silph attack. About how useless she would be against organized and prepared renegades.</p>
+
+<p>And about her new goal.</p>
+
+<p>"Leaf... you don't—"</p>
+
+<p>"Swords of Justice, Red, if you say I don't <em>have</em> to do this, or it's not my fight, I'll..."</p>
+
+<p>He holds up a conciliatory hand. "You're right. Sorry. I just..." He shakes his head, and gives that hollow laugh again. "I guess this is what it's like, from the outside."</p>
+
+<p>She almost apologizes, then gives a wry smile instead. "At least Blue will be happy."</p>
+
+<p>Red is silent for a beat, then shakes his head. "I'm not so sure."</p>
+
+<p>"No," she agrees after considering it further. "I guess not. Relieved, maybe, but not happy."</p>
+
+<p>The silence returns, and this time it's Red's turn to break it. "To be fair... most people don't do trainer battles to be prepared to fight renegades."</p>
+
+<p>Something in his tone makes her smile. "True."</p>
+
+<p>"So in a way... you could still feel morally superior. If you wanted to, I mean."</p>
+
+<p>"I could," she agrees, smile widening. "If I wanted to."</p>
+
+<p>"Verres," one of the hunters yells. "Incoming flier."</p>
+
+<p>Red's head snaps around, but then he relaxes. "It's fine, that's Blue!"</p>
+
+<p>Leaf barely had time to register her emotional reaction, but still feels a surge of relief as she watches Zephyr swoop down and land beside their pokemon. She goes to hug him as soon as he slides down, then watches him fist-bump Red.</p>
+
+<p>"Good to see you, man. Looking fierce as your boy over there."</p>
+
+<p>"Thanks," Red says, tone neutral, but then he smiles. "Saw a lot of chatter in What Comes Next about your island plans. You gonna join the gym here after all?"</p>
+
+<p>"Don't think I need to, Blaine doesn't care if I wear the uniform so long as I pull my weight... but yeah, I think it'll help, since I'm pulling more than that, these days."</p>
+
+<p>"As usual. Speaking of which, I should say bye to Artem and head back."</p>
+
+<p>"Right. Good seeing you."</p>
+
+<p>"You too."</p>
+
+<p>Leaf gives him a hug. "Message me, when you talk to him?"</p>
+
+<p>"I will." Red holds her a bit longer than she expected, but finally pulls back, then withdraws Charizard and his container before heading back toward the lab with one last wave.</p>
+
+<p>His guards follow him, and Blue tips them a salute before turning back to Leaf with a smile. "You ready to get flying?"</p>
+
+<p>"I think so, yeah. What's got you so excited?"</p>
+
+<p>"Scouts sent back a bunch of new spots that need a closer look. Going clockwise from here, there's a series of grottos along some cliffs that no one's searched yet, a small canyon full of trees, a volcanic cave, an abandoned mansion that was destroyed in the quakes, some reef—"</p>
+
+<p>"Wait, what was that last one?"</p>
+
+<p>"The mansion? It's on some cliff opposite the city, way up near the top of the volcano. No roads or anything near it. Ranger said it's registered to some rich foreigner who rarely comes to visit."</p>
+
+<p>Leaf's heart is pounding, and she tries to convince herself she's overreacting. In Dr. Fuji's story notes, the mansion built above the secret lab for its employees was on an island, yes, but it was an uninhabited island, a random tiny one like those she passed over on the way here. Surely no one would build a secret research lab on Cinnabar…</p>
+
+<p>"How deep is it?"</p>
+
+<p>"What do you mean?"</p>
+
+<p>"The mansion. How far into the basement did it go?"</p>
+
+<p>Blue frowns. "What basement?"</p>
+
+<p>Leaf starts to relax. "Sorry, I thought… you said it was destroyed in the quake, I thought it collapsed down into sublevels."</p>
+
+<p>"Nah, there's a huge sinkhole to the side. Half the mansion did collapse, but the rest is still standing."</p>
+
+<p>"Got it." In the notes for the ending of the story, which she hasn't written yet, the hybrid escapes because an earthquake collapses the mansion into the basement and kills most of the researchers and guards, letting them use their powers to escape the rubble.</p>
+
+<p>She almost lets it go, but she knows it's going to nag at her attention until she sees it for herself. "Can we check that one first?"</p>
+
+<p>"Why? It's the furthest away."</p>
+
+<p>"Mostly across the island, though, right? It can't be that much further."</p>
+
+<p>"Sure, maybe twenty minutes instead of ten to the grottos." Blue frowns at her. "Is it another…?"</p>
+
+<p>"No, it's not a secret. Or… maybe it is, but…" Laura said she'd put feelers out to see if Dr. Fuji pops up anywhere, but there was no sign of a struggle at his place, and if they made noise about his disappearance they might actually be tipping the wrong people off. "We should bring Red, if he can spare an hour. If I'm right about what it is, we're going to want to know that as soon as possible."</p>
+
+<p>She hopes she's not, for many reasons, not least of which is that she might have more than ninja renegades after her.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/117/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/119/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -386,6 +781,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

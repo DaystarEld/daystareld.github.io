@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stories - Pokemon: The Origin of Species</title>
+    <title>Chapter 15: False Dichotomies - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,26 +329,495 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Stories</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/14/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/16/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <a href="https://daystareld.com/pokemon/">Pokemon: The Origin of Species</a><br>
-<br>
-<a href="https://daystareld.com/stories/guardian/">Guardian</a><br>
-<br>
-<a href="https://daystareld.com/hpmor-remix">Remix of Harry Potter and the Methods of Rationality</a><br>
-<br>
-<a href="https://daystareld.com/stories/short-stories/">Short Stories</a>
-        </div>
+            <h1 class="chapter-title">Chapter 15: False Dichotomies</h1>
 
-        <div class="chapter-nav">
-            <a href="../14/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../16/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>"What do you see, Red?"</p>
+
+<p><em>13… 14… 15… 16…</em></p>
+
+<p>"Look!" Blue says, pointing Leaf at the light</p>
+
+<p><em>17… 18… 19… 20...</em></p>
+
+<p>Red feels his tension draining the longer he counts, and as another flash of electricity arcs, closer but <em>silent</em>, he sags in relief. "It's okay," he says, heart still hammering from the kick of adrenaline. "There's no thunder."</p>
+
+<p>"What?"</p>
+
+<p>"It's not lightning. Must just be some pikachu howling at the moon." Red begins to feel excited. Pikachu are hard to catch, but if there's one out there exhausting itself…</p>
+
+<p>"Pikachu? Those electric mice?" Leaf asks.</p>
+
+<p>The next flash is closer. Over Blue's description of the pokemon and its evolutionary line, Red can hear a rapid series of dangerous sounding crackles that echo through the air, along with a much louder <em>crack </em>of something else. Wood?</p>
+
+<p>Then he sees another flash to his right, with that crackling pop of electricity much closer. Red turns to it with a frown and sees yet another one, so close the light can be seen between the trees. "Hey guys-"</p>
+
+<p>A klaxon comes from all three of their phones, the harsh sound sending a flood of icewater through Red's veins. He opens his mouth to yell that they're here, <em>inside the wards</em>-</p>
+
+<p>-a light grows in the distance, the yellow shape at the center of it leaping from tree to tree, trailing electricity as it bounces past them to their right-</p>
+
+<p>-Leaf spins toward it with one hand at her pokebelt, her lamplight blocked by her body a bit and letting Red better see-</p>
+
+<p>-more lights in the distance, three, four, five of them, growing as they zip through the forest in every direction, some along the ground and others in the tree branches. The electric buzz is suddenly everywhere, arcs of white light crackling between the pokemon and racing down the trees in a series of pops and a shower of splinters. Leaf and Blue reach for their pokeballs, but there are <em>too many</em>-</p>
+
+<p><em>Rods!</em></p>
+
+<p>Red scrambles for the trunk so he can slide down and reach his bag-<em>Too slow, jump!-</em>He readies himself to push off, hesitates at the sight of the distant ground-</p>
+
+<p>-and suddenly the clearing is full of light as electric rodents zig and zag around them, there in a flash and then gone past. A stray bolt hits one of their lamps by the bedrolls, shattering the glass as the bulb blows, and then one of the bigger lights leaps toward Red's branch-</p>
+
+<p>"<em>Red, jump!"</em></p>
+
+<p>He shoves off unevenly-</p>
+
+<p><em>CRACK</em></p>
+
+<p>-into a moment of panicked free fall, twisting midair until he lands. Red's mind is full of a sudden, sharp agony, the feel of some crushing weight, and then sinks into darkness.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Blue knows he'll always remember three things about that night: the smell of burnt air, the look on Red's face just before he fell, and the period of sheer panic immediately afterward. The hateful feeling of helplessness.</p>
+
+<p>"<em>Red, jump!" </em>Blue yells, then throws an arm over his eyes as an electric bolt flashes down the tree. An instant later there's an explosive crack, and bits of bark pepper his arm and face in a stinging hail.</p>
+
+<p>There's a thud and a crash, and Blue lowers his arm, blinking against the after-image of the bolt. The raichu dashes away, leaving a scorched furrow down the tree where the bark had blasted outward from the flash-boiled sap. The thick branch Red had been sitting on is broken about halfway.</p>
+
+<p>Blue's heart nearly stops as he spots Red lying facedown under it, hat beside him.</p>
+
+<p><em>No, no nonono…</em></p>
+
+<p>"Shroomish, go!" he yells as he dashes forward, reclipping the pokeball and skidding to his knees to grab the branch. "Guard!" More lights are still racing through the forest as the snap and buzz of electricity fills the forest over the sound of their phone's alarms.</p>
+
+<p>Blue grunts, muscles burning as he slowly gets to his feet and lifts the branch. The acrid smell of ozone and burnt wood have replaced the forest smells that had been all around them just moments ago. A rapidly diminishing part of Blue is slightly in shock, wondering if he'd actually woken up at all, and this all a chaotic nightmare. The rest of him is busy struggling to get the branch off Red, dream or no dream. "Leaf!" He can just manage to lift it, but the smaller branches spoking off make it too hard to shift-</p>
+
+<p>-and then Leaf is there, tugging at the other side until they can throw it to the grass away from Red. Blue checks Red's pulse and lets his breath out in relief.</p>
+
+<p>A pikachu races by closer than the others, and his shroomish sends a cloud of spores at it, far too slowly. Leaf's Bulbasaur growls and holds his vines out at the ready while she kneels beside Red, a revive capsule already in her hand. "Turn him over, gently."</p>
+
+<p>He does so, carefully as he can. Red's body is limp in his steady hands, but halfway through the turn Red's eyes fly open as he screams in pain, back arching.</p>
+
+<p>Blue screams with him, a release of tension as much as fear as he puts him down on his back. "<em>Shit, </em>sorry! What-?!"</p>
+
+<p>"His arm," Leaf gasps, and Blue sucks in a sharp breath as he sees a dark bruise already covering an unnatural bulge in Red's left forearm.</p>
+
+<p>Red whimpers and rests his head on the grass. "Broken," he groans, and takes quick, shallow breaths that come out in pained noises.</p>
+
+<p>"Are you hurt anywhere else?" Leaf asks, swapping her revive capsule for a potion. She sprays it over the bruise to reduce some topical pain and swelling. "Did you get shocked?"</p>
+
+<p>"No," Red grits through clenched teeth as his right hand grips his other shoulder to keep it still. "Wasn't touching…" he pauses to take a shaking breath, "When it landed…"</p>
+
+<p>Blue moves the lantern down to check his pants for burns anyway. His heart is still racing, but relief makes him light headed. "Lucky asshole."</p>
+
+<p>"Yeah… gotta stop… climbing trees…" Red makes a sound that's half sob and half laugh. He closes his eyes tight as tears slide down from their corners. Blue almost looks away, then forces himself not to. If Red has to bear it, he can't turn away, even if it makes him feel wretched and embarrassed for his friend.</p>
+
+<p>And scared. Pikachu and raichu continue to run through the forest all around them. Most are distant, little more than flickers of light between the trees, but some pass close by, and the three of them are sitting targets like this. "We need to get you to the outpost."</p>
+
+<p>Leaf looks at him. "How? Carry him?"</p>
+
+<p>"If we need to..." Blue hesitates, then lets a frustrated breath out. "We'd be even worse off if attacked."</p>
+
+<p>"We've got some painkillers in the bags, but I don't think we should move his arm."</p>
+
+<p>"Painkillers would be good," Red wheezes, and begins taking quick, deep breaths.</p>
+
+<p>"Hey! No hyperventilating!" Blue is about to go for their bags again when another electric glow races through the forest toward them. A raichu leaps from branch to branch over the trees a stone's throw away, its electricity strong enough to streak down the trunks with an explosive <em>pop </em>that leaves the bark charred. For a moment it looks like it's heading straight for them, but then it's past them. As soon as it's gone, he dashes for their backpacks, grabs all three, and rushes back to the others. He pulls a local anesthetic and anti-inflammatory from his first aid kit, then hesitates as he looks at Red's arm. He remembers his training, mostly, but it's hard to make out the wound with all the discoloration.</p>
+
+<p>"Give me." Leaf takes the syringes and injects them carefully around Red's wound, hands as steady as his when he's handling pokeballs. "I helped mom take care of our pokemon."</p>
+
+<p>"I have too," he says. "Just not people."</p>
+
+<p>"Most of it's the same as normal types."</p>
+
+<p>Within seconds, the trembling tension in Red's body eases, and he lets a breath out in a long, shaky sigh. He opens his eyes and looks up at them. "Oooh wow. That's better. Thanks."</p>
+
+<p>"You're welcome. Just try to keep still."</p>
+
+<p>Blue picks up Red's hat and hands it to him. "Next time try to land on your feet."</p>
+
+<p>Red takes it and stuffs it in his pocket. "Nah, I'll just aim for you to break my fall."</p>
+
+<p>Another light zips by there and past them before he and Leaf can do more than turn toward it. Blue's heart pounds in his throat, and his hand goes to his pokebelt, fingers tracing the balls there without unclipping them. Squirtle, pidgey, caterpie and an untrained beedrill. More liabilities than help.</p>
+
+<p>Instead he pulls out his phone and quiets the still-ringing alarm, then tries to call the nearby outpost. The phone beeps against his ear, and he frowns at the screen. "Signal's going nuts." He settles on sending an alert for assistance with the details. "Alright, I sent out our position. Should get through if it calms down for a second."</p>
+
+<p>Leaf turns off her own phone's shrill alarm. "What's going on, anyway? Why didn't you guys mention these things?" She pulls out Red's phone and quiets his too, returning relative silence to the forest.</p>
+
+<p>"Hey, this isn't exactly a common occurrence," Blue says. "Pikachu are rare, and reclusive. Raichu even more so. The only thing that gets them riled up like this is a really bad thunderstorm, but Zapdos isn't anywhere near us, and the sky's clear-"</p>
+
+<p>"It flew west," Red says, right hand going up to wipe the tears and sweat from his face. "Must have gone south and set them off toward us, and each one riling up the others in a chain reaction." There's another crack of wood somewhere around them, and Red jerks in alarm, grimacing and putting his hand over his left shoulder.</p>
+
+<p>"So the Thunder God <em>is</em> behind this." The anger rises in him like a fiery tide, and in its wake comes relief. He welcomes the heat in his chest, the boiling of his blood, lets it sear away his weaknesses. Fear, helplessness, doubt, sadness, all are kindling for the righteous rage against the world that had taken his parents, taken so many, and now hurt his friend.</p>
+
+<p>Blue watches a couple pikachu approach in a nimbus of light, and has to refrain himself from ordering an attack on them when they get close, wanting to lash out, make them pay by proxy.</p>
+
+<p>He wrestles the impulse down. After his parents, anger had nearly suffocated him, tears scalding his face and throat burning with his screams. His therapist had helped him externalize it, and he still visualizes it as an arcanine, strong and dangerous as it prowls about in his chest and spreads its heat through him. <em>Later, </em>he promises. <em>On our terms.</em> It growls and paces a bit, then settles back down with a simmering tension.</p>
+
+<p>"Speaking of Zapdos," Red says behind him after the pikachu have passed. "If we're going to be here awhile, better get out the lightning rods and plant them." Red looks around. "You'll have to clear that branch away first."</p>
+
+<p>"Why? It gives us cover."</p>
+
+<p>"That's fine, but it has to be farther. Your shoes make you safe from ground current, but your pokemon aren't, and I'm lying down. We need the rods to be farther back than the branch."</p>
+
+<p>Leaf is already at the other side of it. "Bulbasaur, come!" Her pokemon joins her, and she points. "Wrap."</p>
+
+<p>The pokemon's vines grip it tight, and Blue joins Leaf in grabbing hold. "Okay, pull!"</p>
+
+<p>They dig their feet in and drag it, struggling not so much with the weight as the shape of it, its smaller branches digging into the ground. Blue stops pulling and begins kicking at them until they snap so Leaf and Bulbasaur are able to drag it more easily.</p>
+
+<p>"There you go… a bit more… Blue, there's one near the end getting caught on a root-"</p>
+
+<p>"-I see it, I see it. Watch for pikachu!" Blue grabs the branch with one hand and stomps on it, feeling sweat trickle down his neck.</p>
+
+<p>Soon they have the branch moving easily, Blue measures the distance to judge if it's far enough. Then they begin wrestling it between two trees to provide some cover and deter pokemon from coming in that direction. It's about halfway there when-</p>
+
+<p>"Incoming!"</p>
+
+<p>Two pikachu run by on one side, followed by one more on the other that gets too close. Blue leaps in front of Red as its cheeks light up, but Bulbasaur is there tackling it away.</p>
+
+<p>"No contact attacks!" Red yells, but it's a distant noise, the whole world focusing down on the pokemon in front of him.</p>
+
+<p>Here, there's no anger, no loss, not even fear. When he's battling, everything has a crystal clarity, just action and reaction. His hands already have pokeballs, expanding them with his thumbs. "Sleep powder!"</p>
+
+<p>His shroomish expels a cloud of blue dust at the rodent. It leaps aside, so fast it's just a yellow streak. Blue barely has time to sidestep to keep himself between it and Red when it sends a bolt out, hitting his shroomish and sending it tumbling backward with a cry of pain.</p>
+
+<p>Blue's left pokeball locks, and he throws just as the pikachu leaps away into the brush. It keeps running before he can toss the second. Blue lets out his breath and goes to his pokemon, pulling out a potion to spray the raw wound that runs down its domed body to one of its feet.</p>
+
+<p>Bulbasaur is twitching and shaking as Leaf hovers over it with a potion bottle, lips pressed tight. "I don't see an injury."</p>
+
+<p>"It got shocked from the contact." Blue tosses her a paralyze heal and watches her bulbasaur's body relax as the spray heals the nerve damage.</p>
+
+<p>"Thanks." Leaf picks up his pokeball and hands both back to him.</p>
+
+<p>There's a scampering sound overhead that makes them spin toward it, but there's no light, and Blue realizes it must be some other pokemon running from the electric rodents. Sure enough another pikachu darts into the clearing, sniffing at their bedrolls. Its cheeks are alight with electricity, and when it turns to their second lamp a small bolt flashes out and destroys it in a pop and a shower of glass.</p>
+
+<p>"Razor Leaf!"</p>
+
+<p>Bulbasaur leaps forward and shakes its bulb, dislodging two flat, sharp leaves into the air. Its vines snatch them and fling one after the other at the pikachu, who leaps away to leave the rigid leaves quivering in the ground. The electric glow of its cheeks intensify, but Blue's pokeball <em>pings</em> and he throws.</p>
+
+<p>The bolt of electricity snaps through the air and hits the ball before diverting down and to the side. The ball hits its target, but doesn't suck the pokemon in, simply rolling away half-open as a curl of smoke rises from inside.</p>
+
+<p>The pikachu flinched from the hit however, and runs off. Blue sighs. Tamed pikachu are uncommon for a number of reasons. Ultraballs are shockproof, but expensive. He considered buying some, but pikachu are normally so rare...</p>
+
+<p>They remain on alert for another few seconds, but none of the other pokemon are near them. Blue finishes dragging the branch in place while Leaf gets out Red's two lightning rods, then her own. Blue gets his out of his Container, and they start to extend and plant them.</p>
+
+<p>It's hard shoving them through the root-filled grass, but eventually all four rods are towering above them in a rough square. He takes a full can of repel and sprays it in a slow circle around the perimeter. A bit of tension eases from Blue's shoulders as he finishes and steps back into the middle of rods. "Alright. We should be good until the Rangers get here."</p>
+
+<p>Red looks around, then up at the tree branches. "That won't stop the determined or panicked ones. And the rods won't help against other pokemon."</p>
+
+<p>"We haven't seen anything else yet," Leaf says, watching a few pulses of light bounce through the forest in the distance. "They all must be holing up to stay safe... oh… oh no…"</p>
+
+<p>Blue follows her gaze. There's a sullen red light in the distance, and the fear returns like a fist around his heart.</p>
+
+<p>"What is it?" Red asks, craning his neck up to try and see.</p>
+
+<p>"Fire."</p>
+
+<p>Red makes a sound between a groan and a laugh as his head falls back. "Of course. Is it far?"</p>
+
+<p>"Can't tell," Blue says. "But I don't think the rangers are going to get us anytime soon. It's in their direction."</p>
+
+<p>"If that spreads to their outpost, there won't be anywhere to get us to."</p>
+
+<p>"Hell, that might <em>be </em>the outpost." Blue feels his nails dig into his palms as he stokes the anger back, driving away the despair and fear. Out there are others who might be fighting for their lives, people without lightning rods. People, <em>his people,</em> who need help... The stampede might end in a few minutes, or it might go on for hours, and he's <em>stuck</em> here…</p>
+
+<p>Leaf turns to Blue, face pale but set. "You should go see if you can help."</p>
+
+<p>He stares. "What? No way. I'm not leaving you guys."</p>
+
+<p>"She's right, Blue," Red says. "The Rangers' first priority will be the fire, and Squirtle might be able to make a difference."</p>
+
+<p>Another pikachu runs by them through the clearing, but by the time he and Leaf turn to it it's already leaped up a tree trunk and through the branches, leaving behind dark whorls in the bark where it touched it. Blue turns back to Red and pokes a finger at him. "We are <em>not </em>splitting up at a time like this. Staying together keeps each other safe. If we split up we'll only lower our chances."</p>
+
+<p>"That's a false dichotomy. Assuming there are only two options with two outcomes limits thinking."</p>
+
+<p>"If I wasn't here you two might have gotten killed before Leaf got the lightning rods up!"</p>
+
+<p>"But there <em>are</em> situations where splitting up can improve the odds for everyone!" Red grimaces and puts his head back down. "I'm a liability right now, you might survive better without me to worry about. And since you would be going for help, it improves my odds too."</p>
+
+<p>"Splitting up is how things go to hell half the time in Power Force!"</p>
+
+<p>"That's also how they save the day the other half!"</p>
+
+<p>Leaf steps forward and puts a hand on Blue's arm. It's only then that he realizes he's trembling. "We'll be okay Blue. The rods will protect us from the 'chu." She gives a brief smile that doesn't reach her eyes. "But they won't stop that fire if it gets here."</p>
+
+<p>Blue forces his hands open and takes a deep breath. He should go, he <em>knows </em>that, but there's a part of him convinced that if he leaves…</p>
+
+<p>In his mind's eye he sees Luke, lying dead on the grass. One of his people, and he hadn't been able to save him. If he's not here and something happens, if the beedrill swarm from earlier comes by, or another fire starts…</p>
+
+<p>"Aaargh!" He turns away and grabs his hair, eyes screwed shut. The sense of helplessness is choking, and he lets the arcanine rise up, fiery fur blazing hotter and hotter. When he's able to banish the image of coming back to find Leaf and Red's lifeless bodies, he takes a scalding breath and turns back to her. "Okay. I'll go. But if something happens to Red, I'm holding you responsible."</p>
+
+<p>Red blinks. "Hey-"</p>
+
+<p>Leaf's gaze is steady on his. "I won't leave him."</p>
+
+<p>He nods and withdraws his shroomish before putting his bag on, trying to ignore the feeling of dread in his gut. <em>I won't lose him too. Not like this.</em> "I'll be back with help as quick as I can." He turns his flashlight on and begins to jog through the forest toward the sullen light of the fire.</p>
+
+<p>He only takes a few steps when Red calls out. "Blue!"</p>
+
+<p>He turns and sees Red gesturing as he says something to Leaf, and she nods before pulling one of the lightning rods out of the ground. She cocks her arm back, and throws it at him like a javelin. Blue aims his light up to follow it and snatches it out of the air before it goes over his head.</p>
+
+<p>"Don't do anything stupid!" Red yells.</p>
+
+<p>Blue stares at the two of them for a second, safe in their island of light, burning the image into his mind. Then he holds the rod up in salute and heads toward the fire without looking back.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Leaf watches Blue's light fade between the trees with a painful hollowness in her chest. She can't shake the feeling that she just sent him off to his death.</p>
+
+<p>"I'm never going to forgive myself if something happens to him," Red says.</p>
+
+<p>She looks down at him and smiles. "We can argue over who deserves more guilt later if we need to. In the meantime..." She pulls one of the rods out of the earth and repositions it to form a triangle. "Tell me about pikachu and raichu. Their contact static and cheek pouches remind me of emolga from back home, but the coloring is off, and they don't fly." She'd always thought emolga cute when she was younger, but these are too dangerous to see that way at the moment.</p>
+
+<p>"No, thankfully these don't fly." Red looks like he wants to shift his position, but after a moment forces himself to still. "Pikachu are their second form, the first is pichu. They're very quick, intelligent, and vicious when threatened. They can detect electromagnetic fields, have few natural predators, and their strongest senses we share are sound followed by scent. They can fill those cheeks with positively charged ions. We're not really sure how, but they have the ability to negatively charge the surface of an object within their line of sight."</p>
+
+<p>"So electricity jumps to their target when the difference is enough."</p>
+
+<p>"Right, but the bolts still follow the path of least resistance, so they can be redirected along the way."</p>
+
+<p>Leaf nods. "Bulbasaur and Shroomish were able to chase them off without being hurt much."</p>
+
+<p>"Plants are more resistant than we are, but yeah, a few shocks from the pikachu won't kill you. Raichu on the other hand…" He looks up.</p>
+
+<p>She follows his gaze to the blasted, burnt wood and feels a chill. "I don't know if I agree with Blue's idea of 'lucky,' but you had a close call."</p>
+
+<p>Red grimaces. "We're <em>all</em> lucky it didn't rain recently."</p>
+
+<p>"Though that would have helped with fires." She turns back to the red glow in the distance. It doesn't look like it's grown brighter, but it's not dimmer either. "How's your arm?"</p>
+
+<p>"Not terrible. I can barely feel it past my shoulder, except for a vice-like pressure that's just this side of pain."</p>
+
+<p>"I'm sorry you got so hurt. If I'd gone up and caught it before waking you-"</p>
+
+<p>"Don't be ridiculous, it's my fault for staying on the branch so long."</p>
+
+<p>She smiles and sits beside him. That's one thing she likes about Red and Blue. Besides accepting her so quick, they both have a sense of responsibility that others her age lacked back home. "You're not exactly the best judge of what's ridiculous."</p>
+
+<p>Red looks up at her with that strange look of his, a mix of curiosity and calculation. Like he's testing different thoughts out in his head before giving them form and substance. He finally seems to decide on one, and smiles. "True. But don't expect me to go along with your brand of ridiculity."</p>
+
+<p>"That's not a word."</p>
+
+<p>He turns his nose up. "Maybe not in your barbarian lands."</p>
+
+<p>She almost misses the humor in his eyes. "I'm a wordsmith. If anyone here is going to judge the barbarism of words, it's me."</p>
+
+<p>"Well as a 'wordsmith,' you should be aware that ridiculousness is a ridiculous word, so forge a new one."</p>
+
+<p>"Fine, but whatever it is, it won't be 'ridiculity.'"</p>
+
+<p>The minutes pass as they discuss alternatives and watch the electric lights flit through the trees. Leaf is glad Red's in a good enough mood to joke despite everything. They have enough medication to keep the pain at bay for awhile, but she's worried over how long his arm might go untreated.</p>
+
+<p>Eventually the conversation slows, and she just watches the forest around her, so subtly different from those back home. The smells are similar though, despite the less pleasant additions, and she can almost close her eyes and pretend she's back in Unova…</p>
+
+<p>She snaps her eyes open and takes a breath, realizing she was nodding off. It was close to the end of her shift when she'd woken Red, and now that the adrenaline is worn off, she's tired.</p>
+
+<p>She stands and walks in circles to stay awake, wondering if she should get some hot coffee from her Container. She's just about decided on it when she sees two of the lights around them head their way, and runs over to that side to put herself between them and Red. "Heads up! Bulbasaur, guard!"</p>
+
+<p>Her pokemon leaps in front of her, vines extended as the lights bounce closer. It's a pair of raichu that look like they're fighting, but not like any pokemon she's ever seen. The two zig-zag near each other and occasionally collide, sending arcs of electricity outward into the trees on either side. The air suddenly smells like burning wood as the electricity sears through them, but thankfully none catch fire.</p>
+
+<p>Leaf is tempted to send some razor leaves out to scare them off, but doesn't want to risk drawing their attention. On top of that, she hates having to use potentially deadly attacks. But the dangers of contact attacks, and their speed at evading powders, leaves her with few options.</p>
+
+<p>Her muscles tense as one runs by close enough for the copper rod on that side to draw a bolt, but keep going without pause. Leaf lets her breath out, and then-</p>
+
+<p>"More on this side!"</p>
+
+<p>She spins and sees a group of lights heading toward them, the one in front bigger than the others. She's expecting another raichu, but it's a large pikachu followed by what look like smaller ones.</p>
+
+<p>"Pichu," Red says. "Babies. They won't come near us."</p>
+
+<p>And he's right: the pikachu in the lead climbs up a tree when it's a ways off, waits for its children to join it, then continues by, hopping from branch to branch.</p>
+
+<p>Leaf is just about to turn away and watch for other threats when one of the pichu stops in mid-air.</p>
+
+<p>It struggles and squeals in alarm, and a second after Leaf understands what she's seeing, electricity arcs along its fur and lights up the spinarak web it's caught in.</p>
+
+<p>"What's happening?" Red tries to turn his head enough to see.</p>
+
+<p>"We're in trouble," Leaf says as the pichu's family returns, bouncing around and squeaking back. She sees lights in the distance diverting, and turns in a slow circle. From every direction, pikachu and raichu are coming toward the sound of a young one in distress. "We're in a lot of trouble."</p>
+
+<p>Red sees them too, and his hand goes to his belt. He braces his arm against the ground and says "Charmander, go," wincing as the recoil jostles him. His fire lizard approaches him with a happy chirp, and Red rubs its smooth head briefly before saying "Guard." He looks up at her. "I guess it wouldn't do any good to tell you to leave and get help?"</p>
+
+<p>"You guess right," she says, pleased by how calm she sounds. It feels like her heart is going to bound right out of her chest, pulse jumping in her throat. "Anyway, I think it's too late now."</p>
+
+<p>She wonders how long it would take for her mom to find out if she dies, and wishes she could call her. Their communication has been chilly since Leaf decided to leave home. It led to by far the biggest fight between them: not even grandpa had been able to calm things down. Mom insisted that she could begin her journey in Unova and go elsewhere later, but Leaf put her foot down. Her whole life she traveled all over the region as "Professor Juniper's granddaughter." She didn't want to do it again as "Professor Juniper's daughter." She came to Kanto determined to find her own path and make her own name.</p>
+
+<p>Instead she's probably going to just die here in this forest, six days after arriving. Makes the whole fight seem kind of silly. <em>Oh well. I'll apologize if I survive.</em></p>
+
+<p>The first few pikachu begin to arrive, bolts of electricity going straight to the lightning rods. "We're okay as long as they don't rush us," Red says. "These rods can take multiple lightning bolts. Better keep Bulbasaur back from the ground current though."</p>
+
+<p>Leaf nods, not trusting her voice as she picks Bulbasaur up and brings him closer to Red. She clears her throat as she watches more pikachu begin to arrive, a few going to the webbing to help free the now sleeping pichu while the rest begin forming a circle around her and Red. "And if they do rush inside them?"</p>
+
+<p>"Well. If it's any consolation, you won't have to worry about Blue holding you responsible."</p>
+
+<p>"Strangely, that is kind of reassuring. Thanks." Arcs of electricity snap between the yellow and orange pokemon, some jostling each other, the others simply sitting and staring as the occasional spark flies out and chars some grass or bark. "You know, I was congratulating myself on not panicking a second ago," she whispers, not wanting to set the 'chu off. "But I think it was a bit premature."</p>
+
+<p>"Nope." Red's voice is breathy, and she sees his eyes dart this way and that as his hand brushes over his pokeballs. "Absolutely no panicking allowed. Panicking messes up plans."</p>
+
+<p>"Got it. No panicking. So what's the plan?"</p>
+
+<p>"Um. Still working on that part."</p>
+
+<p>Leaf swallows, mouth dry. "Right. Okay. A little panicking meanwhile, then."</p>
+
+<p>A pikachu fires a bolt into a rod again, and she jumps back with a small "yip," immediately hating herself for the sound. A second and third begin shooting out electricity too, and her embarrassment becomes less and less important as more of the pikachu begin inching forward.</p>
+
+<p>Red is muttering under his breath nonstop, and she whispers, "Are you praying or planning?" He glares at her. "I just want to know how screwed we are."</p>
+
+<p>Another tree branch snaps as a raichu's bolt rips down it, spilling the pokemon onto the grass nearby. The pikachu it lands near dash away, setting off another wave of loud crackles and pops from electric arcs that bounce back and forth between the rodents, occasionally going out into one of the rods.</p>
+
+<p>"Pessimism isn't helpful!" Red shout-whispers over the sounds, closing his eyes with a look of concentration. "It's hard to concentrate through all the noise!"</p>
+
+<p>"Less complaining, more genius ideas!" She tries to follow her own advice, cataloging what long range skills they have at their disposal. <em>Sleep powder, leech seed, razor leaf, gust, supersonic, silver wind</em>… Her only pokemon besides bulbasaur with non-contact attacks all fly, and she's not sure if they'll stay within the rods. "Come on, you know these pokemon better than I do! Think!"</p>
+
+<p>One of the raichu, bigger than average and with a notched ear, moves closer than any of the rest, and the random bolts from the other 'chu stop. Their pokemon growl as it edges close to a lightning rod, and it stops, cheeks glowing as its eyes fix on her Bulbasaur. Electricity bursts out of the raichu's cheeks and into the rod, the noise like a field of angry beedrill.</p>
+
+<p>"Red!"</p>
+
+<p>"These aren't my best thinking conditions!"</p>
+
+<p>"So do it louder and I'll help!"</p>
+
+<p>Red takes a deep breath and begins speaking, so fast she can barely make out the individual words.</p>
+
+<p>"Spin-and-bulb-webs-and-seed, too-many, rats-can't-fight-long-contact-shocks-maybe-distract, release-all-pokemon-run-light-off-"</p>
+
+<p>"Plans that <em>don't</em> sacrifice our pokemon!"</p>
+
+<p>"-<em>thisishardenoughwithoutfurtherconstraintsthankyou-</em>pidgey-blows-sleep, might-get-shocked-but-possible-plan-A, char-starts-fire-scares-them-away, <em>super-risky-</em>plan-C-maybe, spin-"</p>
+
+<p>"Wait wait, go back! Why not use Charmander's smokescreen?"</p>
+
+<p>"Risk of flashover, a spark might set the smoke on fire!"</p>
+
+<p>"It would do that?"</p>
+
+<p><em>"I don't know but now's not the time to test it!"</em></p>
+
+<p>The raichu stops sending out electricity, and the relative silence is a shock all its own. It pads up to the rod and sniffs at it, as if curious to know why it's not charred. It's just out of range of a pokeball, and she takes one out and steps a bit closer, raising the ball up. <em>Come on, come on… </em>She steps a bit closer…</p>
+
+<p><em>Ping!</em></p>
+
+<p>She throws, and the raichu leaps out of the way. The ball bounces along the grass and is immediately engulfed in electricity, sparks flying from it and lighting the grass on fire. The long, flat bolt shape at the end of the raichu's tail smacks down on the fire a few times, putting it out.</p>
+
+<p>"They're too fast to be caught like that," Red says. "Maybe they'll just keep shocking the rods and run out of juice. Or maybe if they come at us one at a time we can fight them off. Or if-"</p>
+
+<p>A pikachu dashes forward from the side and crosses between the lightning rods, and Red and Leaf speak simultaneously.</p>
+
+<p>"Razor Leaf!"</p>
+
+<p>"Ember!"</p>
+
+<p>A glob of fire and a pair of leaves fly out and drive pikachu back with a pained squeal, and a moment later the world explodes. Leaf shuts her eyes and covers her ears as light and sound bombard them, at least a dozen bolts of electricity driving into the lightning rods in a continuous stream. The buzz and crackle is deafening, and the air tastes metallic. When she closes her mouth she nearly gags from the smell of burning grass.</p>
+
+<p>When the electricity tapers off, she blinks against the after image and looks around to ensure Red and their pokemon are okay.</p>
+
+<p>The four of them are on a small island of green. All around it, burns scar the ground in crisscrossing tendrils as smoke rises from the blackened grass. Another bolt occasionally snaps out from the crowd of 'chu, but most are silent and watchful once again.</p>
+
+<p>Leaf suddenly sits beside Red, legs unable to support her. "We can't fight that," Leaf whispers. "And I don't think they'll stay out much longer. Think of something else."</p>
+
+<p>Red looks pale, chest rising and falling as his uninjured hand grips his hat tight enough to bend its bill. "Resources, we need more resources. What do we have? Clothes, food, maybe it'll distract them? Throw pokepuffs around? Phones have no signal, too much electricity everywhere-"</p>
+
+<p><em>Too panicked, we're not thinking clearly enough. </em>She tries to remember the meditation lessons she'd taken and takes a deep breath, sinking down, down into herself as best she can, drawing back in her mind so she has a bit of distance. "Too specific. Start broader. Priorities first."</p>
+
+<p>"Right. Priorities. There are threats. We need to survive the threats. We can't escape the threats, so we have to fight them."</p>
+
+<p>The pikachu that had tried to rush them is licking the bloody line the razorleaf had furrowed down its side, and soon sends a bolt of its own out. More of them join it in a growing roar of electricity, and a few others begin creeping forward. "Fighting them doesn't seem an option," Leaf says, tenuous hold on her calm weakening. "Unless they have massive weaknesses. Anything?"</p>
+
+<p>"We don't have any ground types. We can't outfight them, you're right, but what's left? If we can't run, and we can't fight, we're dead!"</p>
+
+<p>"Who was talking about false dichotomies before? Razor Leaf!" Bulbasaur cuts another pikachu as it tries to cross between the rods, and the electric storm intensifies, making her close her eyes and cover her ears briefly.</p>
+
+<p>When it fades a bit, Red yells, "What, what's left? At the broadest level, running, fighting, and talking are our options when faced with threats, and they're pokemon so we can't talk them down or bluff-" Red stops, and she turns to see him staring, eyes wide.</p>
+
+<p>"Whatever idea you had, just do it!"</p>
+
+<p>He's already taking his pokedex out, laying it on his stomach and tapping the screen with his hand, then raising it-</p>
+
+<p><em>"Grrroooaaaaaarrr!"</em></p>
+
+<p>The sound is almost drowned out by the electricity, but it somehow still cuts through it. The bolts slowly dwindle, until the 'chu are all staring quietly.</p>
+
+<p>Leaf hardly dares breathe, but she slowly takes her own pokedex out. "Name?" she whispers.</p>
+
+<p>"Onix," Red says, one finger tapping the side, then pushing with his thumb again.</p>
+
+<p><strong><em>"Grrroooaaaaaarrr!"</em></strong></p>
+
+<p>It's louder now, not just because of the lack of electricity. The sound is like a mountain with a throat, an avalanche's rage.</p>
+
+<p>Some of the pikachu jump, ears twitching as they look around, noses in the air. She finds the pokemon quickly in her own dex, and now she remembers it, the great rock snakes that she'd heard live under the mountains here. She raises her volume to a third its max, then slowly increases it with every repetition, switching off with Red, then overlapping them.</p>
+
+<p><em>"Grrroooaaaaaarrr!"</em></p>
+
+<p><strong><em>"Grrroooaaaaaarrr!"</em></strong></p>
+
+<p><em>"Grrroooaaaaaarrr!"</em></p>
+
+<p><strong><em>"Grrroooaaaaaarrr!"</em></strong></p>
+
+<p><strong><em>"Grrroooaaaaaarrr!"</em></strong></p>
+
+<p><strong><em>"GRRROOOAAAAAARRR!"</em></strong></p>
+
+<p>The pokemon start bolting, running in every direction one after the other, all away from the promise of doom in that roar. Charmander and Bulbasaur are both vibrating with suppressed fear or tension, but neither runs from the side of their trainers like the panicked 'chu. She can barely believe it's happening until they're all in flight, and she doesn't stop repeating the sound until their light completely fades.</p>
+
+<p>"It worked," Red says breathless and half laughing as he lowers his pokedex and closes his eyes. "Ha, I can't believe it worked, haha..."</p>
+
+<p>Leaf can't quite feel relieved yet, but she lowers her pokedex too. "Natural predator?"</p>
+
+<p>Red nods, still giggling with released nerves. "I heard about it once in a documentary... to keep zubat away... not all pokemon rely on sound as much, wasn't sure if it would work here." He covers his eyes with his hand, tension running out of him in a long breath. "You were right, my thinking was stuck in two modes. Thanks."</p>
+
+<p>"Don't mention it. I've never been so scared in my life." She feels a bit light headed, and rubs Bulbasaur's until his trembling slowly stops. She looks up at the web where the pichu had been caught, but its parent had apparently gotten it out and taken it away. "When I can walk again, I'm going to remove the third web before it happens again."</p>
+
+<p>Red chuckles. "They were a great idea, but I'd have only strung up one if I thought that might happen. Speaking of which, mind giving me my hoothoot? Or does Blue have it?"</p>
+
+<p>Leaf blinks at him, then grabs the lamp, shining it overhead to look around. "We never picked it up. I'm sorry, Red, it just completely slipped my mind."</p>
+
+<p>"What! You mean it's been out there this whole time?" He looks out at the dark forest.</p>
+
+<p>"It must be around here somewhere." She begins to walk in wider and wider circles. Her feet crunch over the burnt, dead grass until she's beyond even that, trying to remember where the ball fell and where it might have rolled to.</p>
+
+<p>Another pikachu appears to be headed toward them, and she's about to rush for Red when he raises his pokedex again. The roar reverberates through the forest, and the pikachu veers off in another direction. She continues searching, stumbling through the underbrush, much of which was scorched by the stampede of 'chu.</p>
+
+<p>She smells it before she finds it, burnt foul and visceral things that make her stomach clench. She slows to a stop. She doesn't want to keep looking. Doesn't want to see what she's smelling, see the result of her forgetfulness. It might just be some wild pokemon that had been caught in the open by them. She could just turn away and look in another direction... but she has to be sure.</p>
+
+<p>She holds her breath and forces herself to step further into the underbrush until the light falls on it.</p>
+
+<p>The pokeball lies open, sparks still occasionally spilling out. The hoothoot is beside it, half its feathers burnt off, and the limbs strangely skewed, some dark liquid coloring the grass beneath it. The ball was struck by enough electricity to force its emergency release, but it had messed with the transition back to matter, or corrupted the data template. What had emerged was dead upon reconstruction.</p>
+
+<p>Bile rises in Leaf's throat, and it's almost too much on top of all the terror and tension of the past hour. She stumbles away until she can't smell it anymore, then bends over, hands on her thighs as she wills the nausea away.</p>
+
+<p>"Leaf? You alright?"</p>
+
+<p>She takes a deep breath, then another. "Yeah!" Her voice sounds alright. She swallows a few times, then picks up the lantern and slowly makes her way back to him, working on her face until by the time she's back between the lightning rods her expression is confused and a bit worried.</p>
+
+<p>"I'm sorry Red. I can't find it. I'll come back and look when it's light."</p>
+
+<p>He frowns up at her, and for a second she thinks he'd call her on it, but he sighs. "Dammit. If someone else finds it..."</p>
+
+<p>"It's okay. You never registered it, so you're not responsible if someone misuses it." She puts the lantern down beside him and heads for the tree, moving mechanically to pick up one of the broken branches and climb up the tree with the third web. She swings the branch through the web and twirls until the whole thing is snarled, then makes her way back down and sits beside Red.</p>
+
+<p>"Yeah..." He looks so frustrated and worried that she faces away toward the sullen glow of the far off fire. Is it brighter? Dimmer? She still can't tell, and weariness suddenly drags at her limbs and thoughts as she watches another pikachu running in the distance.</p>
+
+<p>She's so tired. Morning is so far off, and she doesn't dare fall asleep. She's never wanted a night to end as badly as she does this one.</p>
+
+<p><em>Come back safe, Blue. Come back with help, and come back soon.</em></p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/14/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/16/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -344,6 +834,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

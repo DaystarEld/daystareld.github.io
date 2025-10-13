@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 16: Diversions - Pokemon: The Origin of Species</title>
+    <title>Chapter 22: The Decisive Path, Part I - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,381 +329,365 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 16: Diversions</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/21/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/23/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            Hundreds of hours in simulations prepared Blue for a lot of situations, but running through a forest at night was not one of them.<br>
-<br>
-Foliage rakes at his clothes and skin as he weaves around trees and tall bushes. It's hard to move fast and hold a flashlight straight, and he also struggles to keep the lightning rod from snagging every bush he passes. He contracted it to half its length, but it's still over half as long as he is tall.<br>
-<br>
-Worst of all, even with the flashlight to spot the obvious roots, every other step seems to almost land on one. Anyone else would have a twisted ankle in less than a minute.<br>
-<br>
-But Blue Oak, future Champion of Indigo, has the physical agility and reaction time of a born pokemon master, and pokemon masters do not trip and eat dirt on the way to a double rescue, even with no one around to see it.<br>
-<br>
-Instead he begins to run in an odd hopping motion, feet not swinging at all as he lands and pushes off with his whole foot. It's tiring and probably looks ridiculous, but it's faster than walking would be, and lets him avoid a faceplant.<br>
-<br>
-And after all, there's no one around to see it.<br>
-<br>
-Thankfully he also doesn't trip over a pokemon every five feet like in the sims. He sees a few pikachu and raichu in the distance as he travels, but none get close enough to be a threat. The frequency of wild pokemon encounters there were always annoying, but he supposes it's to make up for the other challenges trainers face, like hop-running through a dark forest until your lungs burn and your legs feel like lead so you can stop a fire and get help for your friends before they die a horrible death.<br>
-<br>
-Assuming there's help available, that is. The glow of the fire above the trees seems to have intensified, and soon he begins to smell smoke. He pauses and drops the lightning rod just long enough to tuck his phone between his knees and put his facemask on. Then he picks it back up and keeps going, flashlight aimed at the ground to find safe spots for his feet. In the distance he hears a voice, amplified by something as it shouts orders. He uses it as his directional reference, figuring whoever is doing the shouting is probably in charge of stopping the fire.<br>
-<br>
-Just as he's beginning to see a glow between the trees, too steady to be the fire, a pikachu zags through the forest to his right and heads straight toward him. Blue feels his adrenaline spike as he quickly jabs the rod into the ground as hard as he can and jumps back, unclipping Shroomish's ball before his feet hit the ground. A bolt of electricity strikes his rod, and he sidesteps to keep it between him and the pikachu as he throws, world narrowing down as calm settles over him.<br>
-<br>
-"Go, Shroomish."<br>
-<br>
-Even while moving and in the dark, he judges the angle right and feels the pokeball smack back into his palm as it returns. Blue feels a moment of fierce pride, which cuts off abruptly when his foot hits a root and topples him onto his back.<br>
-<br>
-"Leech seed!" Blue yells just before the fall knocks his wind out. He scrambles to get his soles under him and shines the light forward so he can see the fight.<br>
-<br>
-His pokemon is shooting seeds up in an arc to land around the pikachu like hail. They're faster than the powder, and Blue sees some manage to land on the rodent, sticking to its fur and spreading thin tendrils around it. The pikachu sends shocks at Shroomish again and again, but doesn't seem to realize why none of them are connecting.<br>
-<br>
-But the electricity is still traveling through the ground, causing his pokemon to jump and cry out in pain. "Sleep powder!" Shroomish sends out clouds of spores, and the pikachu begins to dodge, sending out erratic bolts here and there as its glowing cheeks leave streaks of light through the air.<br>
-<br>
-It's hard to keep the phone's flashlight on it, but even harder to get a lock with a pokeball. Blue watches for an opening, a slight stumble, a slow turn-<br>
-<br>
-The pikachu leaps forward and begins scratching at Shroomish, the two pokemon tumbling over the grass. It seems to have given up on its electricity, or maybe it ran out, but its claws and teeth are still dangerous enough to draw blood.<br>
-<br>
-"Absorb!" Blue yells as he steps around the pokemon to keep the lightning rod between him and the 'chu, just in case. Motes of green light appear on his pokemon's wounds as it absorbs the pikachu's skin and blood and uses its nutrients to regenerate itself. It's enough to help his pokemon heal some of the damage it's taking, but the pikachu has energy to spare, and doesn't even slow down as it leaps off and begins to jump in and out of range for hit and run attacks, quick as a blink even while blood seeps down its fur from the eroded flesh.<br>
-<br>
-"Headbutt!" Shroomish shoves forward with its feet to try and slam into the rodent, but it misses and tumbles over the grass, torn and bloody from the scratches. It gets back up and tries again and again, but it's just not fast enough to match the pikachu's speed.<br>
-<br>
-Thankfully it doesn't have to. Blue feels a distant, savage satisfaction as he sees the pikachu stumble for the first time, finally beginning to feel its losses. The leech seeds' vines are now firmly wrapped around it and embedded in its skin, growing fat off its blood. Most grass pokemon aren't unusually fast or lethal, but if you can stall your opponent long enough, they're champions at endurance matches.<br>
-<br>
-The pikachu starts to go wild as it feels its life being drained away by the plants, rolling along the ground and sending electricity through its own body as it tries to get the seeds off. Blue keeps trying to get a lock, but it's moving too erratically. "Sleep powder!"<br>
-<br>
-Shroomish sends out a cloud of spores, but the pikachu leaps away, tumbling into a roll. As soon as it's back on its feet, it suddenly dashes off into the dark forest.<br>
-<br>
-Blue stands frozen for a second, torn in two by conflicting desires. Then he curses, free hand moving in a flurry <em>minimize-pocket, unclip-return-reclip, yank </em>before he's off after it, trying not to stumble as he holds the light ahead to keep the pikachu in sight and the rod up by his shoulder, ready to jam it into the ground the second the pikachu turns toward him.<br>
-<br>
-Its energetic leaps are interrupted by constant tumbling along the grass, just hurt enough that he can keep up with it, but not enough to get close. Even worse, it keeps scrambling between and under dense bushes that he has to detour around. He loses sight of it a few times, only able to stay on its trail because of the occasional flashes of electricity.<br>
-<br>
-<em>This is stupid, </em>he thinks as he run-hops, but he doesn't stop. Even knowing he might run into another 'chu or some other pokemon at any moment, even knowing that he's running in the wrong direction from the fire, even knowing that he left the others to get them help quicker, not catch a pikachu, he can't just let it get away. This is his best chance to get an electric pokemon anytime soon, and a rare one at that.<br>
-<br>
-The pikachu finally starts to slow down enough for him to close the distance a bit, and then his foot comes down on the side of a root. He hits the ground face first, nose smacking into the plastic of his mask and sending a bolt of pain through his head. It takes him a couple seconds to push himself up and grab the lightning rod, then he's off again, nose stinging with every breath as he looks frantically around for the 'chu.<br>
-<br>
-Nothing. A bitter frustration wells up as he slows, chest heaving as he flashes the light around, then points it away over his shoulder. He's wasting time, he should be heading toward the fire… <em>Come on, a spark… just one spark…</em><br>
-<br>
-A flash to his left and he's off again, hoping it's not a different pikachu, hoping his nose isn't broken, and hoping above all that he's not endangering his friends with this mad chase.<br>
-<br>
-The spark goes off one more time as he runs forward, and then there's nothing but the light bobbing along the ground in front of him. His eyes flick from left to right in case it turned in a different direction, but there's nothing, and he starts to feel the despair again. It can't have gotten far, not moving as slow as it was…<br>
-<br>
-His side aches, his nose pulsing with every beat of his heart. He trips again, barely managing to keep his feet, and just as he's about to slow and turn the light away to look for more sparks, he sees something yellow in the distance, lying still.<br>
-<br>
-Blue rushes forward in a surge of triumph, jabbing the rod down and pulling out a ball. An eternity passes before he hears the ping, and then he throws, hits, bounces, captures.<br>
-<br>
-"<em>Yes!"</em> He pumps a fist in the air, then falls to his knees as he clutches a stitch in his side, breathing hard through his mouth and fogging his facemask. He lets himself drop onto his side and lie still until his pulse has slowed down a bit, pulling his mask off so it rests on his head to prod his nose gently. No blood, so it's probably fine. <em>All worth it.<br>
-</em><br>
-<br>
-As soon as the stitch fades, he gets to his feet and goes to the ball with a grin. With a pikachu on his team he's got a strong play against flying and water types, which will make Cerulean Gym significantly easier. He takes out his pokedex to register it, using the light of the screen to line up their lenses.<br>
-<br>
-Blue's grin slowly fades as his pokemon doesn't appear on the screen. Instead there's just text listing the mass and atomic makeup of the contents, along with other basic information. <em>No… it wasn't that long, just a few seconds…</em> He pulls the ball away, then realigns it. Again the pokedex treats it like a Container rather than a pokeball. The DNA of the leech plants and pikachu are listed, but there's no brain activity, which means…<br>
-<br>
-Blue's hand trembles, and the lens unaligns briefly, causing the text to wipe and reappear. Not a pokemon, as far as the 'dex is concerned. Just atoms of meat, and some plant. The seeds took too much blood, or maybe their vines entered its skull. A pokecenter could heal almost anything else, but not that. A damaged brain is unrecoverable. Dead.<br>
-<br>
-Blue screams, throwing the ball at a tree. It bounces off and rolls back, and he kicks it against a bush where it comes to rest. His heart is pounding again as scalding tears gather at the corners of his eyes, and he rubs them away with his palms, chest burning as his anger roars through him.<br>
-<br>
-"It's not my fault. You ran, you stupid rat, you had the leech seeds on you and you… you attacked me, I didn't… you made me waste <em>all this time!</em>"<br>
-<br>
-Blue clamps his lips shut as his yell rings through the forest. <em>I'm talking to a ball. A dead pokemon in a ball.</em> He focuses on breathing until the anger is back under control, then wipes at his face again and pulls his mask back down, tucking the pokedex away. He picks up the ball and braces his arm to release its contents, then unclips Shroomish's ball.<br>
-<br>
-"Go, Shroomish," he says, just loud enough to be heard as he tosses it forward, arm catching it reflexively.<br>
-<br>
-His pokemon is moderately hurt, but he doesn't want to waste potions that they might need later. Instead he kneels down and picks his shroomish up, placing it by the body without looking directly at it. Some of the leech seeds fell off in its mad dash, but there are a few left, swollen and cracked. Shroomish waddles closer and begins to pick the seeds off with its teeth, crunching the soft shells to get to juicy innards.<br>
-<br>
-Blue looks away, feeling his stomach churn. Within moments his pokemon's wounds begin to glow green, body using the nutrients to repair itself.<br>
-<br>
-There's a flash of light to his side, and Blue turns to see another pikachu running through the forest, cheeks glowing like angry eyes. He watches it run off, then withdraws his pokemon after it finishes and goes to picks up the lightning rod. He turns to the body of the pokemon that was almost his. His lips tremble briefly with something fighting to come out, and he's not sure if it's going to be more anger or some pointless apology-<br>
-<br>
-Another flash of electricity on his other side, closer. Blue takes a deep breath, then turns to the glow of the fire above the distant trees and jogs toward it, gaze ahead.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-As Blue approaches the light he saw earlier, too steady and white to be the fire, this time he sees the lanterns hung here and there from the trees. Around them is a thin haze of white smoke, and as Blue gets closer he begins to see it in the beam of his phone's light. Soon it's thick enough to see around him like fog, and by then there's enough light to put his phone away. Once it gets noticeably warmer, he finds the first trainers and pokemon working to contain the blaze beyond.<br>
-<br>
-Blue stands and watches for a moment, panting for breath and slipping the lightning rod snug between his bag and his back along his spine so he has both hands free. Ahead and to the right, a sandslash is digging along the side of a trench to widen it, tearing up the grass and bushes in its way. A sudden crack makes him turn toward a falling branch, and he sees a primeape jumping from tree to tree above with its trainer. Others on the ground quickly drag away any uprooted or broken plants to keep the firebreak clear of anything that might burn. Some of them, especially the rangers, have bright orange fire suits on, but everyone has some kind of breath mask.<br>
-<br>
-He's close enough for him to make out the words of the person with the megaphone he heard, their voice made strange and alien by a facemask and the amplification. "<em>Second squad, flare up to the east!"</em> they yell, loud enough to cut through the distant roar of the fire and various other shouts of trainers to each other and their pokemon. Blue follows its tone of command to a Ranger standing beside a fallen log with a megaphone in one hand a tablet in the other. When he gets closer, he sees she's an older woman, greying hair cut short beneath her Ranger cap.<br>
-<br>
-She glances at him as he approaches, then looks back to the screen. "Pokemon?"<br>
-<br>
-"Squirtle, pidgey, shroo-"<br>
-<br>
-"Phone." He offers it to her, and she opens the map and sets a marker on it before handing it back. "Head west, find Ranger Malcolm."<br>
-<br>
-"My friend has a broken arm, he needs hel-"<br>
-<br>
-"Is he alone?"<br>
-<br>
-Blue pauses, irritated. "No, there's someone with-"<br>
-<br>
-"Then they're as safe as they'll get until this fire is under control. Check if their distress call came through." She tilts the screen to him.<br>
-<br>
-Blue's anger almost erupts, but one look at the digital map makes him swallow it. The fire is a mass of thermal colors in the otherwise dark forest, with pinpricks of light showing people and pokemon. A river runs from northeast to southwest, creating a natural barrier for the fire on that side, while the Rangers and trainers spread out over a long, uneven half circle to contain it in the other directions.<br>
-<br>
-The CoRRNet outpost is gone, lost somewhere in the middle of that bloom of color.<br>
-<br>
-"Is this live?"<br>
-<br>
-"Mostly. The pikachu and raichu knocked out the local tower, and it's hard to get a steady signal."<br>
-<br>
-A graphic overlay shows different colored pings over various spots, and after a moment Blue finds their location, then traces his finger over the screen in the direction he came. "That one," he says, pointing to the distress signal that marks where they made camp. <em>So many…</em> His friends' red marker is just one among dozens blinking in and out of existence, crying for attention. He can see some pinpricks of light there though, so assuming it updated recently, at least he knows they're still okay.<br>
-<br>
-"We have their location then. They'll get help when we can spare it." A message pops up on the screen beside one of the lights to the east side of the fire, and she raises the megaphone. "<em>Squad five, raichu attack to the east!"</em> She lowers it and continues watching the screen. "Get moving trainer. Head back to your friends or go find Malcolm."<br>
-<br>
-Blue stares at her grim face for another moment, her attention wholly on the screen in front of her, and turns away with a sick feeling in his stomach as he begins to run toward Malcolm. The fire is so big... Red and Leaf would be okay.<br>
-<br>
-As he gets closer, the smoke in the air hangs thick. The diffuse illumination is tinged with yellow and red as the lamps grow less frequent and the fire's light grows closer. It makes visibility a bit difficult again, lack of light replaced with too much smoke and shadow.<br>
-<br>
-As he runs he catches glimpses of others around him, some widening the firebreak, others nursing burned pokemon. The earth trembles beneath his feet, and he sees a rhyhorn emerge from the smoke. A Ranger sits on its back, her hands tapping the ridges of its shoulders to direct it toward the fire. Two trainers walk out of the smoke to his right with their arms around a third's waist, the middle trainer's legs burned through his pants. Blue looks away quickly and checks his phone to adjust his course a bit farther from the fire, breath loud in the facemask as he pushes himself to move faster.<br>
-<br>
-When he hears a new amplified voice shouting "<em>Tree coming down!" </em>he turns toward it and jogs around a particularly dense clump of bushes in time to see a pinsir finish wrenching a tree out of the ground, its huge horns digging into the bark. Its trainer gives a whistle, and it releases the tree and steps back to let the whole thing fall.<br>
-<br>
-The crash is enormous, but as soon as the tree settles a handful of pokemon and their trainers set at it, hacking the branches off and carrying them away. The trees here are dense enough to stop the firebreak from continuing, but they've brought down about a dozen so far, and the pinsir is already moving on to another.<br>
-<br>
-Blue jogs over to the coordinating Ranger and waits until he finishes speaking with a pair of others. Blue realizes he can see the smoke in the air moving subtly. They're downwind, though thankfully it's not a strong breeze.<br>
-<br>
-The two trainers run off, and Blue steps up to the Ranger. "Ranger Malcolm?"<br>
-<br>
-"Yes. Haru send you?"<br>
-<br>
-"No, a woman, I didn't get her na-"<br>
-<br>
-"That's fine. What've you got?"<br>
-<br>
-"Squirtle, pidgey, shroomish, caterpie, beedrill."<br>
-<br>
-He frowns and looks at the tablet for a moment before shaking his head. "Squirtle might be useful, but it can't hold enough for what we need. Can your pidgey create a whirlwind?"<br>
-<br>
-"Not yet."<br>
-<br>
-"Have you got a firecoat?"<br>
-<br>
-"No."<br>
-<br>
-"Any ultraballs?"<br>
-<br>
-He resists the urge to say he has greatballs. "No."<br>
-<br>
-"Ever fight a fire before?"<br>
-<br>
-Blue just shakes his head, frowning.<br>
-<br>
-"Well, we could use more hands to keep the firebreak clear. Just head over to—"<br>
-<br>
-"Hang on, you want me to <em>carry branches</em>?"<br>
-<br>
-The Ranger's gaze flicks up from his tablet, eyes cool. "Is that a problem, trainer?"<br>
-<br>
-"I left my friends to stop the fire and get help to them quicker, not fetch and carry."<br>
-<br>
-"Why are you wasting my time then? By all means, stop the fire." He turns back to his tablet.<br>
-<br>
-Blue grits his teeth. "Look, I know my pokemon aren't the best for this, but I'm telling you, you'd be wasting me on pick up duty. I can give cover to others, stop 'chu—"<br>
-<br>
-"I'm not here to appease your ego, kid," the Ranger says without looking up. "I've got over sixty—" He stops as Blue feels the wind pick up and raises his megaphone. "<em>Southwest breeze,</em><em> fire line at five hundred meters and closing! Forward squads, fall back!"</em><br>
-<br>
-"I want to help," Blue insists after it's lowered.<br>
-<br>
-"It's not about what you want, it's about what we need. You don't have the skills or pokemon to do what's needed, which means you do what you can. If you don't like it, you can go play hero somewhere else." He turns as another Ranger approaches, and the two begin analyzing wind patterns.<br>
-<br>
-Blue stomps away, half intending to head back to Red and Leaf and half deciding to find another coordinating Ranger to offer his help to. He can't just run around helping at random. For one thing he might do more harm than good... and for another, he needs to be officially recognized to get any prestige from this.<br>
-<br>
-Most Champions are barely known before they reach the League, and are little more than figureheads once they gain the title. Instead of leading, of pushing society to the next step, the Championship title is treated like just another badge. A footnote in what they do after. Even those like gramps and Giovanni are known more for what they did after they relinquished their title.<br>
-<br>
-It's worse than pathetic. It's a damned <em>waste</em>.<br>
-<br>
-Gym Leaders can do more than just protect their lands and train others. They can change the face of <em>entire cities</em> with the power of their personality and vision of the future. When they're loved and trusted by their people, they deserve their title: not "Protector," or "Teacher." <em>Leader</em>.<br>
-<br>
-Blue isn't going to be a figurehead. He's going to lead Kanto and Johto into a new age. An age without fear. Without calamity. An age of action, rather than reaction.<br>
-<br>
-An age without the Storm Gods.<br>
-<br>
-And to bring the people with him, to make them <em>want </em>to go with him, he needs to be the kind of person they're willing to follow into a storm's very heart, so they can rip it out.<br>
-<br>
-All that starts here, helping however he can. Showing what he's capable of. Who's he to demand a more important task? He hasn't earned their trust yet.<br>
-<br>
-He can't even catch a pikachu without killing the damn thing.<br>
-<br>
-Blue takes a deep breath, then lets it out. When the anger is all but gone, he turns to walk back toward the Ranger. As he does, two women jog over to them through the smoke, one tall and willowy under her windbreaker, the other muscular and dressed in a judogi. The Ranger looks up as they approach. "River side?"<br>
-<br>
-"Secure," the taller one says, voice heavily muffled. She's wearing a mouth filter and goggles instead of a full face mask, making it hard to tell her age. "But we had some trouble with raichu that came by."<br>
-<br>
-"What happened to Pam and Derek? They were supposed to give you cover."<br>
-<br>
-"They never showed up."<br>
-<br>
-"What? I sent them to you 20 minutes ago." The ranger runs a hand through his hair. "Are you alright?"<br>
-<br>
-"Fine," the woman in the judogi says. "But my pokemon are hurt, and we're almost out of potions and balls. I don't know if I'll be able to fend off many more."<br>
-<br>
-"Hey," Blue says as he reaches them. "Here, take these." He pulls the lightning rod out from where it's wedged between his back and bag, then hands some of his potions and pokeballs over, including his three greatballs.<br>
-<br>
-They look at him in surprise, but the trainer takes it, relief plain as she extends the rod and practices sticking it in the ground. "These will help. Thanks kid."<br>
-<br>
-"I'm Blue. Blue Oak."<br>
-<br>
-Her eyes widen behind her mask. "Thanks, Oak. I'll get it back to you after."<br>
-<br>
-"Sure." He turns to the Ranger. "I'll help clear the firebreak. Tell me where you need me."<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-The first thing the fire teaches Blue is to fear the wind.<br>
-<br>
-He walks the firebreak with Luis and Sarah, a pair of trainer siblings in their late teens. The three work together to drag fallen branches and uprooted bushes out of the firebreak, sweaty, exhausting work made worse by the oppressive heat all around them. But the occasional brush of air against his skin brings danger rather than relief, causing them all to stop what they're doing to look around, waiting, listening for the sound or sight of the fire racing toward them, of a warning called. The last stiff breeze had come in an unexpected direction and sent the fire a hundred meters in seconds, trapping a trainer and almost killing him. It had taught them all to be wary.<br>
-<br>
-The trench is wide enough to stop the fire when it goes too far in any direction, but that means they end up walking a stone's throw away from the fire in some areas.<br>
-<br>
-Passing through those are the worst, the heat almost unbearable as they widen the firebreak at its far edge. Blue watches with a hand on squirtle's ball in case any embers are blown across. The smoke is so thick that it's like walking through a red cloud.<br>
-<br>
-"I don't think we can move this one!" Sarah half shouts over the roar of the fire, tugging at a branch that's twice as long as she is tall. "Any of you got a strong pokemon?"<br>
-<br>
-Blue shakes his head, wiping sweat from his neck. "Nothing that can cut it, either!"<br>
-<br>
-"I've got one that might!" Luis unclips his pokeball and braces his arm. "Go, Jaws!"<br>
-<br>
-A raticate flashes into existence, the muscular rodent immediately cowering from the light and heat. Luis kneels down and strokes it, murmuring something, then guiding it toward the middle of the tree branch. He stands it and points straight at the wood.<br>
-<br>
-"Cut!"<br>
-<br>
-The raticate begins to chomp at the bark, oversized teeth sinking into it with a <em>crunch</em> and jerking it off to spit to the side. It grips and chews and spits again and again while the trainers watch, and eventually it manages to bore through the branch and snap it in half with its final bite as it crawls through to the other side.<br>
-<br>
-"Good girl!" Luis feeds and withdraws it as Blue and Sarah grab a half and begin to drag it away. Once they have both pieces a good distance from the firebreak, they continue walking again, breathing hard and occasionally stopping to clear other things off.<br>
-<br>
-The break curves away from the fire for a bit, and they take a break to drink some water and rest in the lower heat. A dugtrio approaches and passes them from behind, its trainer following the three bobbing heads as they widen the firebreak by another few meters, barely visible claws sending grass flying as it burrows up and down. Blue and the others quickly scoop up the clumps of grass and toss them to the safe side of the break.<br>
-<br>
-"Where were you guys, when this all started?" Blue asks as they set off again.<br>
-<br>
-"To the west, across the river," Sarah says, loosening her dark hair from its messy ponytail and rebinding it tighter. "One second we were asleep, the next there were pikachu everywhere. One of them ran right over our friend, got caught in her sleeping bag." She grimaces and looks away.<br>
-<br>
-Blue looks at her, then Luis. "Is she…"<br>
-<br>
-"We fought them off and got her to the Outpost, but by then it was already ablaze. They stabilized her, but…" He shakes his head, eyes angry and desolate. "One of the Rangers strapped her to his pidgeot and took off for Pewter. They're worried there might be permanent nerve damage."<br>
-<br>
-Blue doesn't know what to say to that, so he says nothing, fighting the fear for Red and Leaf that rises up in him. Even if he gets help to them, he has no idea how bad Red's arm is. What if it doesn't heal right? A one armed trainer is at a serious disadvantage, and far more vulnerable in the wild. Would his journey be over already? Over before it really began?<br>
-<br>
-The thought makes him cold, even in the stifling heat around them. He always figured Red would end his journey as soon as he got his Researcher's license: he's a good trainer, but he's not, well, Blue. He's better suited in a lab or writing books. He'll probably even become a Professor some day. But experience in the field is essential to be a researcher, and if he gets crippled this young…<br>
-<br>
-Blue chases the fear away with anger. Red would be fine, and one day he'd pay the Storm God back for this... But his strongest rage seems so insignificant against the nearby blaze, a charmander throwing embers at the sun, and he can't shake the niggling fear for his friends.<br>
-<br>
-Blue feels the wind pick up again, and the three of them immediately tense, watching the fire and preparing to run.<br>
-<br>
-"Shit." Luis points. "It's headed toward the break, that way."<br>
-<br>
-He's right. Blue can feel the direction in the caresses of air, stoking the fire and blowing burning debris in that direction. They begin to run along the trench, listening to the fire crackle and roar as it spreads through the trees.<br>
-<br>
-Then the fire is visible again, a glowing light through the smoke. Blue begins to hear a faint popping sound, and looks around with a hand at his belt. It doesn't sound like the electricity from earlier… "What is that? It sounds like it's coming from the fire."<br>
-<br>
-"It's… nothing dangerous." Luis shakes his head. "We heard it earlier. Metapod hanging in the trees…"<br>
-<br>
-<em>Oh.</em> Blue's glad Leaf isn't around to hear it. She cares about pokemon so much that it surprises him how competent she is in a fight. Even coordinators like Daisy don't think of pokemon the way Leaf does. Unovans are strange.<br>
-<br>
-Blue pulls out his phone for any messages that might have gotten through to him from the others, but the screen's illumination makes it hard to make out details through the smoke. He puts his phone away and shoves his worries away again. "Another branch up ahead."<br>
-<br>
-The night drags on, an unending journey through smoke and heat. Another sandslash, or maybe it's the one from earlier, eventually comes by to widen the break another few meters. A few minutes later they find a tree that the sandslash dug around, and wait for a trainer with a pokemon that can knock it down to come by so they can help clear it. In the meantime, they drag a huge bush that was uprooted off the firebreak and onto the grass. Blue's muscles protest as his breath catches in his throat, and when Luis shouts that they're clear, lets it go with a gasp, arms burning.<br>
-<br>
-He leans his hands on his knees to catch his breath, closing his eyes against sudden dizziness. A hand touches his shoulder, and he looks up to see Sarah holding a water bottle.<br>
-<br>
-"Go," she says and points away from the fire. "Get away from the heat and rest a bit. We're waiting here anyway."<br>
-<br>
-He wants to argue that he's alright, but she and her brother haven't treated him as lesser just because he's younger, and he can tell she's not doing so now. Besides, the sight of her water bottle makes him realize how parched his throat his. "I've got my own. Thanks." Blue stumbles away until the heat is more bearable, near the outer edges of the lamp light. He puts his back to a tree and slides down to the grass, one hand digging his water bottle out of his bag.<br>
-<br>
-Blue lifts his mask and takes a long drink. After the first swallow his throat seems to open up, warm water pouring down it almost faster than he can swallow. When his lungs start to burn for air he stops and secures his mask again. He pours the rest of the water over his hair before resting his head against the trunk and closing his eyes. His interrupted sleep is starting to catch up to him after laboring in the heat, and he struggles not to doze off as he lets his muscles rest.<br>
-<br>
-He hears the crunch of footsteps approaching, and waits for Luis or Sarah to say something. Their steps are slow, almost awkward. When he hears them in front of him they still don't say anything, Blue opens his eyes. He sees nothing at first, nothing but the white and brown and green of smoke and trees, and then his heart stutters in his chest.<br>
-<br>
-A shiftry stands before him, over two meters tall hunched over, taller even than gramps. Its white mane of fur fades into the smoke perfectly, drawing his eyes to a bark covered humanoid body nearly as thick as the tree he's sitting against. The branches that make up its arms are extended outward, fanning the air around it as it hop-steps delicately from one T shaped foot to the next, leaves rustling.<br>
-<br>
-The leaves' razor sharp edges are stained red, blood smeared across their stems.<br>
-<br>
-Blue's hand inches toward his pokeball pocket, heart pounding as the pokemon takes another step closer to him. He doesn't know what sense it used to find him, but just as the smoke gives it incredible camouflage, it doesn't seem to be able to see well in it.<br>
-<br>
-<em>Shiftry, Dark/Grass. Known as the 'sinister pokemon,' they excel at picking enemies who are weakened or at a disadvantage. Low defenses, but agile and deadly, capable of brute force mental attacks...</em><br>
-<br>
-The shiftry balances from one foot to the next, legs moving with an awkward grace that reminds Blue suddenly of the way he'd run through the forest. As it hops a bit closer, the razor sharp edges of its leaves slice through the smoke, first one way and then the other in sweeping gestures that buffet him with gusts of air.<br>
-<br>
-Blue wonders if it's trying to fan away the smoke to see better. His fingers slide into the bag and search for the ridges of a greatball... and then his heart sinks as he remembers he gave his away.<br>
-<br>
-<em>This is what you get for trying to be helpful...</em><br>
-<br>
-He swallows the bubble of nervousness rising in his chest, then plucks a pokeball out and expands it with this thumb.  Most shiftry are just outside the edge of what a pokeball's mass limit can hold, but the fog makes it hard to tell just how big this one is. Either way, it would buy him time to get a pokemon out. Squirtle, shroomish or caterpie wouldn't stand a chance. Zephyr could distract it and do some damage, but not enough.<br>
-<br>
-That leaves one choice, risky as it is. Pokeballs can train even the most vicious pokemon to not see people as targets, but it's not always a sure thing, and that doesn't mean they'll follow orders well.<br>
-<br>
-Suddenly there's the sound of voices, and the shiftry goes still, turning toward them. Panic constricts Blue's chest, and he barely stops himself from calling out a warning. It might kill them in seconds if they walk near it unsuspecting, but it would kill him even quicker if it notices him. He turns the ball's lens to face it, other hand putting down the water bottle and going to his belt… the ball isn't pinging. <em>Smoke is causing too much interference. </em>He holds it up a bit, putting it closer…<br>
-<br>
-"Blue, you ready?"<br>
-<br>
-The shiftry turns its back on him and Blue shoves himself forward, holding the ball straight out toward it. It pings just as the shiftry leaps away, and the ball strikes it in the back and snatches it out of the air.<br>
-<br>
-Blue rolls away before it even hits the ground, drawing his beedrill's pokeball and getting to his feet to watch as the shiftry's rolls to a stop. He has a brief moment of hope, and then the ball shudders and wiggles. <em>Ah shit</em>—<em>!</em><br>
-<br>
-"Blue!" Luis and Sarah materialize in the smoke, pokeballs in hand.<br>
-<br>
-"Get back! Shiftry in the ball!"<br>
-<br>
-"What b—"<br>
-<br>
-The shiftry explodes back out of the ball in a flash of light and an unusually loud bang that hurts Blue's ears, the emergency rematerialization blowing the two halves of the pokeball apart. It stumbles on its awkwardly shaped feet, seeming disoriented from the sudden change.<br>
-<br>
-"Go, Beedrill!" Blue yells as he throws the ball high up. It opens with a flash, and as he catches the pokeball, his pokemon falls to the ground in a limp heap, wings moving slowly. Blue stares at it in horror. <em>I forgot, the sleep powder…</em><br>
-<br>
-"Go, Prince!" Luis shouts.<br>
-<br>
-"Go, Rafflesia!"<br>
-<br>
-The shiftry focuses on the nidorino and gloom that suddenly appear beside it, leaves fanning out as the trainers catch their balls and yell simultaneously "Poison Sting!" and "Acid!"<br>
-<br>
-Blue rushes to his beedrill as the fight begins. He opens the pouch in the side of his bag and pulls out bottles until he finds the awakening potion, shoving the rest back in and spraying the beedrill. Its delicate wings beat a bit faster, arms and legs twitching as it struggles toward consciousness. Blue can see some spores still covering it, and begins to carefully brush them away, not sure if an awakening potion would work while it's still covered in the stuff. How do insects breathe? Should he be focusing on the head? He's about to ask Red when he remembers he's not here, and his hands brush faster, ignoring the unnerving feel of the bug's chitinous body under his hands.<br>
-<br>
-The shiftry gives a grinding, cracking roar, like tree bark twisting against itself. Blue looks up and sees the shiftry swing at Luis's nidorino, leaves drawing bloody furrows along its hide. The shiftry isn't looking good, mane and skin covered in dark patches where the gloom's acid has burned it. Sarah's pokemon shoots stream after stream of the caustic liquid out, hissing and bubbling on the shiftry's skin.<br>
-<br>
-"Double Kick!" Luis yells. His nidorino leaps and spins in the air to slam both hindlegs into the shiftry's knee. It roars as the bark cracks and buckles, and its retaliatory swipe misses the nidorino as Luis's pokemon leaps away. Another spurt of acid hits the shiftry's leaves, almost dissolving one of them completely.<br>
-<br>
-From all appearances, they're winning. Strong as the shiftry is, the pokemon they chose are well suited to the fight, and they have it outnumbered.<br>
-<br>
-So why is Blue still so tense?<br>
-<br>
-<em>Because shiftry are called the "sinister pokemon" for a reason. They target the helpless, and don't fight fair.</em><br>
-<br>
-"Horn attack!"<br>
-<br>
-<em>Why isn't it using its a mental attacks?</em><br>
-<br>
-Blue's heart beats faster and faster as the shiftry spits seeds toward the gloom at an incredible speed, the hard shells striking it without much effect.<br>
-<br>
-"Poison powder!"<br>
-<br>
-Blue's hands are paused above his beedrill, heart racing to a painful pitch. They're missing something. What? <em>What?</em><br>
-<br>
-<em>Why is it staying to fight when it's so outnumbered?</em><br>
-<br>
-"Oh, hell," Blue whispers, and turns slowly around in a circle. He sees nothing but smoke and trees.<br>
-<br>
-Nothing but smoke and trees.<br>
-<br>
-The ball is already in his hand, already cocked back, already sailing out. "<em>Go, Zephyr!" </em>Blue yells, and as soon as he materializes, "<em>Gust!"</em><br>
-<br>
-His pokemon loops haphazardly midair so that he's behind Blue, then begins to flap faster and faster, thinning the smoke in front of them as he blows it away.<br>
-<br>
-The whiteness sticks in one spot ahead of him, and a second later his eyes adjust to see it for what it is: the mane of another shiftry. Another solidifies to Sarah's right, and a third closer to Luis, like optical illusions made real. <em>Three… four...</em> Blue spins around. Now that he's looking, he can see the shiftry that was creeping up on him through the smoke.<br>
-<br>
-<em>Six.</em><br>
-<br>
-Six shiftry against three of them, and his only pokemon that can stand against them is asleep. Luis and Sarah stare in shock as the trap is revealed, and then step back to back, hands going down to their belts.<br>
-<br>
-The revealed pokemon seem to realize their cover is gone, and then the forest rings with their grinding roars as they close in from all sides.
-        </div>
+            <h1 class="chapter-title">Chapter 22: The Decisive Path, Part I</h1>
 
-        <div class="chapter-nav">
-            <a href="../21/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../23/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>The Pewter Gym's exterior is the most imposing in all of Kanto, so large it can house half the city's population in an emergency, with grey stone walls thick enough to withstand a charging rhydon. The walls around the front gateway are carved to resemble an onix rearing above, and walking past its threshold feels like leaving the modernity of the city around it behind.</p>
+
+<p>Once inside, that idea is quickly dispelled. Despite the grey stone of the floor and walls, its doors slide open automatically, and its light installations are strong and unobtrusive, running in thin bars along the sides of the ceiling. Trainers and gym staff walk halls with the smooth gait of people with places to be and things to do, and after a moment Blue's pace matches theirs.</p>
+
+<p>As he passes the training rooms he can hear the muffled shouts of commands, and his fingers repeatedly brush the cool metal of his pokeballs as he resists the urge to unclip and play with them. Everyone he passes has a full belt of six, and the empty spots on his belt feel crippling. His shiftry is still recuperating at the pokemon center, and while it would be nice to have the fully evolved and powerful Grass type with him, it's not likely to be obedient anyway.</p>
+
+<p>Blue's fingers brush the pokeballs to the front of his belt. Doesn't matter. If he's half the trainer he thinks he is, his squirtle and shroomish will be all he needs.</p>
+
+<p>To be a Champion that leads the people beyond what they think is possible, he needs to be a trainer that proves the impossible can be done. The quicker he gets his first badge, and the more handicaps he has, the greater his fame will grow.</p>
+
+<p>He walks straight past the auditoriums, past the demonstration rooms, the simulation facilities, and straight to the administrative offices. It's early enough that there's almost no one here, and he goes straight to the receptionist at the desk and puts his trainer card on the table.</p>
+
+<p>"Blue Oak, here to challenge Leader Brock for a Pewter Badge."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>The stadium is small, about twice the size of a training room. A few steps beyond the entrance door the stone of the floor stops at the edge of the stadium's walls, which contain a brownish orange soil littered with rocks and boulders of various sizes. There's no scoreboard, no stands for a crowd, not even a podium for the trainers to stand on, just a square of slightly elevated land on each side. All in all, barely distinguishable from the kind of room a Trainer House might have.</p>
+
+<p>Even still, Blue can practically feel his blood sing as he steps onto the tiny platform raised just above the field. He tilts his head up, feeling the heat of the overhead lamps on his face. The touch of cool metal beneath his fingers is electric, and the edge of his lips twitch, threatening to split up into a grin at any moment.</p>
+
+<p>This. This is where he belongs.</p>
+
+<p>None of the boulders are tall enough to obstruct his sight across the stadium, and Blue takes note of which rocks might provide good cover or can be climbed for a high ground advantage. His pokemon aren't trained well enough for him to guide exactly where they go, but if they were… there's a great mini-plateau for shroomish to rain pollen and seeds down from, and squirtle could use the sloping rock to the side to keep away from enemies-</p>
+
+<p>The door across the room slides open and his opponent steps through. He's not much to look at: a young man in cargo pants and a tank top, hair buzz-cut short. He watches Blue with a neutral expression, tossing a pokeball between his hands as he steps onto the opposing platform.</p>
+
+<p>"Blue Oak?"</p>
+
+<p>"That's me." Blue's fingers itch to unclip one of his balls and copy the other trainer's motions with it, or show him up with a finger spin or knuckle roll, the way the old man had. He practiced it daily and almost has it down.</p>
+
+<p>"No badges, right?"</p>
+
+<p>"Yeah."</p>
+
+<p>The young man nods and rotates one hand to toss his ball out without warning. "Go, Geodude!" He catches the ball when it returns and begins tossing it back and forth again. "One pokemon, first knock out."</p>
+
+<p>Blue sends out his shroomish, the detached calm descending to stifle his annoyance and excitement. This is just a preliminary check to ensure he's not a total scrub. He plans on ending it as quickly and cleanly as possible. "Shroomish, Leech Seed."</p>
+
+<p>"Geodude, Rock Throw."</p>
+
+<p>Blue's pokemon contracts its body before launching a trio of seeds across the stadium. The geodude moves in slow, short jerks as its arms push it forward, and one of the sticky seeds lands directly on it and begins to spread its vines.</p>
+
+<p>It doesn't seem to even notice, simply approaching the nearest rock and lifting it over its head.</p>
+
+<p>"Shroomish, dodge!"</p>
+
+<p>The rock is flung in an arc, easy to avoid. It bounces along the dirt and hits the edge of the stadium with a thud. "Shroomish, Stun Spore!"</p>
+
+<p>"Geodude, return." The rock pokemon is struck by its trainer's red beam and withdrawn, leaving the leech seed and its barely grown roots to fall to the ground as the spores descend over them.</p>
+
+<p>Blue frowns at his opponent. "Your pokemon wasn't knocked out."</p>
+
+<p>The other trainer is already leaving, ball back at his hip. "The match was over. Your next opponent will be here soon."</p>
+
+<p>The sound of the closing door cuts off the response that rises to Blue's lips. He knows gym qualifier matches are meant as tests for competence rather than full battles of skill, but what's the point of sending someone out with a single pokemon?</p>
+
+<p>Blue calls out "Shroomish, here!" to bring his pokemon back into withdraw range, then returns it to its ball. He wonders how long it would take for someone else to come out, and hops down from his platform onto the stadium. The dirt of the ground is soft under his shoes, and he crouches down to feel it between his fingers. Soon his whole hand is underground, and his brow furrows as he begins to dig. How far down does the stadium floor go?</p>
+
+<p>Soon he's elbow deep in the dirt. He pulls his arm out and brushes it clean as best he can before shoving the displaced pile of it back in the hole and standing. Would it be cheating to plant some traps for the next trainer? Probably. In a League match he wouldn't be able to, and a wild encounter wouldn't give him the opportunity either.</p>
+
+<p>But even if he can't manipulate the environment to his aid, as long as he knows the lay of the land he'll have an edge against opponents, whether they're other trainers or wild pokemon.</p>
+
+<p>Blue begins walking the stadium, kicking into the dirt with the toes of his shoes. Some parts are firmer than others, and eventually he finds a spot that feels like solid stone just beneath the soil. A quick dig confirms it, and he begins to feel outward from the solid portion of the ground, noting that it goes up to the wall of the stadium. Walking around the occasional rock, he taps first in one direction, then the other, then continues on until he reaches a corner and starts a new side. After a minute of this he steps away, counting how many he takes before the ground grows softer again.</p>
+
+<p>About five and a half. Hm. Apparently the trench they dug to fill the stadium with dirt didn't start at its borders. What can he do with that?</p>
+
+<p>Not a whole lot. The dirt gives digging pokemon a great advantage, while the stone would prevent all but a few rock pokemon from going under. It would also stop plants from growing, and make it harder to hide environmental hazards.</p>
+
+<p>Blue continues testing the ground until the door opens again and another trainer comes through. The girl mounts the platform on her side and gives Blue a quizzical look. "What are you doing?"</p>
+
+<p>"Just stretching my legs." Blue returns to his own platform and takes out his shroomish's ball again. "Rules?"</p>
+
+<p>"One pokemon, first knockout." She sends out a nosepass, the peculiar looking rock pokemon gathering electric charge as it marches rigidly across the arena.</p>
+
+<p>Blue shrugs and sends shroomish out again. Electric shocks won't hurt him much, and he can use leech seed and absorb to wear her pokemon down in a couple of minutes.</p>
+
+<p>However, as soon as his shroomish has landed a leech seed and began absorbing the nosepass to regenerate the damage from its shocks, the trainer returns it again, barely twenty seconds into the match.</p>
+
+<p>"You win," she says, and walks out the way she came.</p>
+
+<p>Blue sighs. He expected to run through the trainers until he got as high as he could, but this is ridiculous.</p>
+
+<p>He hops back into the arena and sprays his shroomish with a bit of potion to help heal any residual damage, then resumes exploring the arena. Before long another trainer shows up, and after them another, and another, as he's tested against a variety of rock pokemon.</p>
+
+<p>Roggenrola, bonsly, larvitar… each is quickly withdrawn once it becomes clear that Shroomish's spores, seeds and absorption abilities nullify the defense of their tough hides. A trainer with a dwebble gives Shroomish his first challenge, the Rock/Bug pokemon eating the leech seeds and going into its shell to avoid the stun spores, all the while inching closer and closer while Blue tries to direct his pokemon's waddling retreat.</p>
+
+<p>Once his shroomish gets backed into a corner, Blue's calm gets tinged with worry, and he switches Shroomish for Squirtle. <em>If it likes to hide in its shell so much, I'll drown it in the damn thing.</em> As soon as the Water type comes out however, the opposing trainer withdraws his pokemon and declares Blue the victor.</p>
+
+<p>Blue rubs some sweat from the back of his neck. It's a bit frustrating to have the battle called so abruptly, almost like he's being cheated out of showing what he's capable of, but for once he's glad of it. He wants to preserve Squirtle's water as long as possible, and generally avoid his pokemon getting tired out. It's been almost two hours since his first battle, and the adrenaline of each fight is starting to tire him out once it wears off.</p>
+
+<p>He brings Shroomish back out to give it the once over. The mushroom pokemon's edges are drooping, its movements sluggish. Blue opens his bag and takes some food out for it, frowning slightly. Food and potions can only go so far: his shroomish has maybe another few minutes of fight time left before the exhaustion starts to really show.</p>
+
+<p>Its leech seed supply is running low too. He counted eighteen seeds used, out of the roughly thirty the average shroomish stores. He'll have to get a full count at some point...</p>
+
+<p>The next trainer comes out, and this one Blue recognizes: it's Jarod, the gym's Third in command. The trainer is in his late 20s, with spiky orange hair and a thin scar that stands out against his dark skin. It stretches from ear to ear across his cheeks and nose, splitting his face almost evenly across the middle.</p>
+
+<p>Blue stands, brow raised. "Already?"</p>
+
+<p>"Brock said to keep an eye out for you. It's clear that any more of the same would just be wasting time." Jarod unclips a greatball as he walks to his platform.</p>
+
+<p>Blue eyes the ball warily as he walks around to his. "Works for me. So what's the deal? Another quick test?"</p>
+
+<p>Jarod smiles, and casually tosses the ball forward. It spits out a graveler in a flash of light. "First knockout."</p>
+
+<p>Blue smiles back. Things are finally getting serious. "Leech Seed!"</p>
+
+<p>"Graveler, Rollout."</p>
+
+<p>A jolt goes up Blue's spine as the graveler pitches itself forward with its thick legs and arms, dodging the seeds that arc toward it and rolling toward his shroomish. "Shroomish <em>dodge!"</em> He yells, and his pokemon thrusts itself haphazardly to the side, luckily in the right direction to barely avoid the oncoming mass of living stone. The graveler rolls past and strikes a boulder close to the edge of the arena, ricocheting off and catching itself on its hands and feet before launching forward again.</p>
+
+<p>Blue doesn't give it another chance, pokeballs already in hand. "Shroomish, return!" <em>So that's the game, is it?</em> His shroomish can't dodge forever, and it would be hard for leech seeds or other status impairments to hit the graveler while it was moving like that. Even if one landed, it would take awhile to wear the large pokemon down. With that much weight and strength behind the enemy's roll, his squishy shroomish couldn't afford to risk a single hit.</p>
+
+<p>Which means he needs something tougher. "Go, Squirtle!" His pokemon appears on all fours, looking around curiously until it spots the graveler. "Bubble!" he shouts just as Jarod yells "Rollout!"</p>
+
+<p>The turtle sucks in a deep breath, then coughs out a stream of bubbles that float toward the onrushing graveler. "Withdraw!" Blue says, and his pokemon ducks into her shell. The graveler rolls straight into the bubbles just as they begin to lose their forward momentum and drift downward, and upon touching each a loud <em>bang </em>is heard, accompanied by a flash of light.</p>
+
+<p>The rock pokemon didn't achieve much speed yet when it hit the bubbles, and they knock it slightly to the side. Squirtle takes a glancing hit and bounces up against a rock before uncurling from her shell and returning to a ready position.</p>
+
+<p>The graveler also reorients itself, light discolorations on its rocky skin where mist from the bubbles hit. It growls in irritation more than pain, and prepares to launch forward again. Blue quickly yells "Water Gun," but Jarod says "Defense Curl" and his graveler huddles down on the ground, protecting its face so that only its back is hit. The pokemon's stone skin turns white and cracks in numerous places from the water, but when its trainer commands it to Rollout again it does so without apparent difficulty, and Blue counters with another Bubble and Withdraw.</p>
+
+<p>Squirtle bounces against two rocks this time before fetching up alongside the edge of the stadium. To his relief she still seems unharmed when she emerges from her shell, and he absently wipes some sweat above his eye as he watches the graveler careen around the other side of the stadium. With its water allergy (<em>shut up Red, no one cares if it's "not an 'actual' allergy") </em>a direct blast to the graveler's face would be a one-hit-knockout. Until he can get a clear shot, Bubble will at least slow it down with minimal water use… but he doesn't know how much longer squirtle can avoid a serious injury, and there's another way he can slow it down too.</p>
+
+<p>Graveler's not just a Rock type, but also Ground because of its reliance on being in its element… and Squirtle's water counters that too.</p>
+
+<p>Graveler comes at his pokemon again and again, and each time Blue's pokemon is knocked around, he keeps a careful eye on its surroundings. Finally the turtle lands in an area near the middle mostly devoid of rocks, and the Graveler prepares itself to rollout again.</p>
+
+<p>"Squirtle, Soak!"</p>
+
+<p>His pokemon hesitates a moment, not having a target in front of it, then belches a brief flood of water onto the ground, drenching the soil in a spreading circle. The graveler launches itself forward just as Jarod yells "Graveller, stop!"</p>
+
+<p>The boulder pokemon tries to halt itself, too late. Its momentum carries it forward another few revolutions, just enough to get it well and truly stuck in the patch of mud, its weight too much for its stubby arms and legs to pull itself out. Blue was prepared to command his squirtle to withdraw in case it made it through, but he'll never get a cleaner shot than now. "Squirtle, Water G-!"</p>
+
+<p>The graveler is caught in a beam of light and disappears back into its ball. Jarod bounces it in his palm with a thoughtful look on his face. "Took you longer than I expected to think of that."</p>
+
+<p>Blue scowls as he withdraws his squirtle. "I waited for a good position."</p>
+
+<p>"The starting position was perfect for it."</p>
+
+<p>He's right. Squirtle began the fight in a part of the arena similar to where it ended. "I was taken by surprise at first."</p>
+
+<p>"Right. Which is why I said you took longer than I expected."</p>
+
+<p>Blue feels heat brush through his chest, and takes a moment to keep his voice calm. "Well you were a bit slow on your reaction, for someone that saw it coming."</p>
+
+<p>"Not really. My pokemon began moving just as you did it, so my command wouldn't have stopped it in time anyway." Jarod's voice is mild, his gaze locked on Blue's from across the arena. "So you didn't time it that way on purpose? Lucky you."</p>
+
+<p>"Lucky?" Blue's laugh is sharp. "If that's what you want to call your screw up. If you didn't slow your pokemon down it might have made it through. The mud would have stuck to it, hurt it plenty, but you good as killed it."</p>
+
+<p>"That looked like your idea actually, if I hadn't returned it in time."</p>
+
+<p>"You said to first knock out! I didn't know you considered the fight over!"</p>
+
+<p>"It should have been obvious that the fight was over. But I guess I'm forgetting you're still a novice."</p>
+
+<p>"Oh that's crap! One more Water Gun wouldn't have killed your graveler, and the damn thing would have crushed my shroomish like a Bug type if it hadn't dodged in ti-<em>you think that's funny?"</em></p>
+
+<p>Jarod's laughter stops, but he's still grinning, face transformed from its earlier calm. Blue can feel his pulse in his temples, and takes long, deep breaths as his rage burns through him.</p>
+
+<p>"If you want to train under Brock," Jarod says conversationally, "You need to develop thicker skin."</p>
+
+<p>"And you need to learn how to accept a loss," Blue spits back. "How did someone like you make Third?" Even as he's saying it, the realization strikes that Jarod's been baiting him, and it only makes him madder.</p>
+
+<p>Jarod cocks his head, still smiling. "You think you're a better trainer than me?"</p>
+
+<p>"I <em>know</em> I am, or I wouldn't be here. Is this the part where you pull out your real pokemon and make it fight my squirtle?"</p>
+
+<p>"Would you accept such a challenge?" Jarod asks, sounding genuinely curious.</p>
+
+<p><em>You bet I would </em>almost makes it past his lips, but he bites them to stop it. The Third's personal pokemon would crush him. He knows that, and he can't put his pokemon in such a risk just for his pride. "Give me a month, and I'll take you up on that."</p>
+
+<p>"A month," Jarod says, voice flat. "That's not even enough time for your squirtle to evolve."</p>
+
+<p>Probably not, but it might be enough to train his shiftry… "Is that a no?"</p>
+
+<p>Jarod stares at him for a moment, and then cracks a smile. "Sure, why not. One pokemon, first knockout."</p>
+
+<p>Blue's grin is savage. "You're on."</p>
+
+<p>Jarod tips a salute and turns for the door.</p>
+
+<p>Blue lets out a breath and wonders how long he has until the next trainer comes out. He summons Squirtle and takes out his water bottle, letting her drink it all down as he sprays her with the rest of his potion. Her battle wasn't long, but it was hard on her, leaving visible scratches on her shell and her skin dry. He picks her up and takes her down to the mud she made, letting her play around in it for awhile to soak back up some of the water she lost. He grins as she burrows slightly underneath and pokes her head out to look up at him.</p>
+
+<p>For the first time since starting, he considers taking his pokemon to a center to heal up and rest. He could do it… it wouldn't cost him any progress from his earlier victories. But it would cost him time, since he can't be sure when the next trainers up in the ranks will be ready for him. It might not be until tomorrow. It might not be until even later.</p>
+
+<p>The quicker he gets his badge, the more his legend will grow. No way is he going to call it quits after his first actual match of any challenge.</p>
+
+<p>Blue summons Shroomish so both pokemon can catch a breather in meatspace. He sits down and rests his hand on his shroomish's dome as it dozes. Squirtle crawls over his legs and gets mud all over his pants, and he takes out some seaweed crisps to feed her.</p>
+
+<p>He wonders how Red and Leaf are doing. He pulls out his phone and sees a text from Red from about an hour ago. His fingers hover over the screen to respond, then withdraw as he puts the phone away. The mood is too relaxing to break with a chat right now. He closes his eyes and leans his head back as his squirtle curls up next to him.</p>
+
+<p>Sometime later, the door opens again. He gets to his feet and withdraws his pokemon, then sucks in a sharp breath.</p>
+
+<p>Sharzad, Second Leader of the Pewter Gym, is mounting her platform. She smiles down at him, one hand resting on a ball at her hip.</p>
+
+<p>"Expecting someone else?"</p>
+
+<p>"Sort of." He thought he'd passed some marker, gone on to the next level of Gym members. Instead he's facing the Second now? Does that mean… "If I beat you, is Brock next?"</p>
+
+<p>She grins. "Depends on how you beat me. This hasn't been a binary evaluation, even from the start."</p>
+
+<p>Blue nods slowly. He knows every gym operates a bit differently in how they organize their internal structure and deal with challenges. There's also talk that each Gym Leader looks for different qualities in trainers… things that they believe are most important to being a master.</p>
+
+<p>It's not hard to guess what Brock, master of Rock pokemon, might think is the best quality. Something that revolves around his favored type's strengths. You need to be patient when you run a defensive strategy.</p>
+
+<p>Is that why he's been rising up the ranks so quickly? Is he showing strong patience? It's not a quality he'd normally assign to himself, but maybe it's true for pokemon battles. He was using a slow and steady strategy after all. And they definitely have the room recorded: maybe he was being watched between matches, to see if he'd grow restless or not use his time well.</p>
+
+<p>Blue smiles as he mounts his platform. Patience. Yeah, he has that when he needs it. A true pokemon master and Champion needs every positive trait, and it's good to have acknowledgement of his potential so soon.</p>
+
+<p>"Ready?" Sharzad asks, shaking her long dark hair back and slipping a band around it.</p>
+
+<p>"Single knockout again?"</p>
+
+<p>"Nope. Full lineup."</p>
+
+<p>Blue's fingers tap Squirtle's ball at his hip. In this kind of battle, only having three pokemon is a huge handicap... but he only sees one at her hip. "Alright."</p>
+
+<p>She unclips her ball and tosses it. "Go, Tala!"</p>
+
+<p>A flash of light, and Blue's heart sinks as a lileep appears. One of the extremely rare ancient pokemon, the rocky-shelled plant is the perfect counter to his team. He knew Sharzad has one of the few in the region, but he didn't think she'd use it against him. As a Rock/Grass Type it has an equal defensive advantage against all three of his pokemon, while maintaining an offensive advantage against Squirtle and Zephyr. That leaves Shroomish, but the lileep would be immune to or counteract the mushroom's spores and seeds, and without those he has no edge. Meanwhile the lileep can produce acids and toxins that Shroomish can't risk being exposed to.</p>
+
+<p>He's so screwed.</p>
+
+<p>And yet instead of feeling angry or frustrated…. he feels the calm of the battle cloaking him again. This is just another step. Just another challenge on the way to Champion, and no one, <em>no one,</em> is as deserving of that title as he is.</p>
+
+<p>He can win this. Winning is what he <em>does</em>.</p>
+
+<p>Lileep's weakness is its immobility. Its suction cups can attach to almost any surface, but they're currently sticking it in place on the arena floor, where it's also spreading down roots to feed through. The rocks around it are a dangerous resource at its disposal, but they're still a resource. Blue can assault it like a fortress, attack it from below and above after starving it out.</p>
+
+<p>"Ready whenever you are!" Sharzad calls out gaily, and Blue's hand unclips and flings out a ball in one fluid motion.</p>
+
+<p>"Go, Shroomish!"</p>
+
+<p>His pokemon appears, and Pewter's Second doesn't waste a second. "Tala, Rock Slide!"</p>
+
+<p>Vines thick as Blue's leg punch into the dirt and begin to heave. The ground of the arena shifts as it rakes up and flings a dozen small boulders.</p>
+
+<p>"Shroomish, dodge!" They spray the field in an arc of noisy collisions, and his pokemon barely gets out of the way on time. "Shroomish, Leech Seed!"</p>
+
+<p>The seeds are shot out, and Sharzad's pokemon ignores them, acids on its flower petals quickly overcoming the seeds and killing them before they can grow. As predicted.</p>
+
+<p>Unlike the dwebble though, the lileep doesn't recognize the seeds that failed to wrap around it as food, and those that survive drop to the ground and begin to take root. The soil is too dry and lifeless for them to grow much, but some thin, pale vines creep out.</p>
+
+<p>"Rock Slide!"</p>
+
+<p>"Dodge! Leech Seed!"</p>
+
+<p>"Rock Slide!"</p>
+
+<p>"Leech Seed!"</p>
+
+<p>Patience. That's the key to fighting the strength of the earth itself. You've got to have patience. Thankfully, plants and water also have patience: patience enough for their roots to split stones, for their waves to wear them smooth over thousands of years.</p>
+
+<p>"Rock Slide!" Sharzad yells, and this time one of the rocks hit his shroomish and knocks it back.</p>
+
+<p>Blue watches, heart in his throat, as his pokemon slowly gets back to its feet. It seems to walk alright (though it's hard to tell with its waddling gait), and Blue and Sharzad exchange a look, then a nod. Injured, but still good to fight.</p>
+
+<p>Still, the idea that her pokemon is gathering more ammunition below the surface, and maybe even began before their match officially started, makes this plan much more risky. How far can it reach, exactly?</p>
+
+<p>Blue feels worry thread through his shoulders and brow in rigid lines as he considers the possibilities. If he can't cut it off... but the battle calm won't allow for second guessing his plan at this point. It's the only chance he has, the only path to victory. He has to see it through.</p>
+
+<p>"Shroomish, Leech Seed!"</p>
+
+<p>"Tala, Rock Slide!"</p>
+
+<p>This one hits again, and sooner than he'd like, he has to withdraw his pokemon. The dirt around the lileep is carpeted with growing, interwoven vines, but he could have gotten a few more seeds off before running out... "Go, Squirtle!"</p>
+
+<p>"Tala, Rock Slide!"</p>
+
+<p>"Squirtle, Withdraw!"</p>
+
+<p>His pokemon hides in her shell as the rocks hit, then emerges. There are new scrapes on her shell, but she seems unhurt. Blue grins. "Good girl!"</p>
+
+<p>Sharzad crosses her arms over her torso, eyebrows raised. "A Water type? I've been curious about your plan, and I can't wait to see where you're going with this. Tala, Rock Slide!"</p>
+
+<p>"Squirtle, Withdraw!" Fortunate for him, the ancient pokemon doesn't produce Leech Seeds, and the rest of its Grass attacks are close range. Unfortunate for him, Blue needs to get close to use Soak, his most effective way to spread water. He'll have to do what he can at a distance.</p>
+
+<p>"Squirtle, Water Gun!"</p>
+
+<p>The burst of water hits the lileep with no apparent effect, its rocky portions not affected the same way other Rock pokemon are. It might even be benefiting from the water, drinking it in, but that's fine: what he cares about is the water that hits the ground by it, quickly getting soaked up by the ever growing vines of Shroomish's leech seeds.</p>
+
+<p>"What's this? Trying to raise a dangerous garden around her?"</p>
+
+<p>Blue doesn't ask how she knows her pokemon's gender, focusing instead on Squirtle's timing to withdraw or try and dodge the next few oncoming attacks.</p>
+
+<p>Soon an almost solid green carpet is spread around the lileep, though none are touching it: every time its vines try to curl around the pokemon's trunk, it releases an acidic sheen to kill them off. Blue doesn't command Squirtle to keep attacking: it's time to focus on the defensive.</p>
+
+<p>Sweat plasters Blue's shirt to his skin, his eyes unblinking on the arena as he watches for every little twitch the enemy pokemon makes that might betray another attack. Sharzad has largely stopped commanding her pokemon, and it continues to occasionally fling or roll or tumble rocks at his squirtle. The arena is looking almost completely different now, with a wide spread of rocks in various sizes against the wall and in an arc from the lileep.</p>
+
+<p>And finally, it happens: a hesitation. A pause, as Blue's pokemon stands ready and defiant despite being hit twice more, and the plant pokemon stares back, vines still stretched below the much overturned and pilfered through soil.</p>
+
+<p>"Tala, Energy Ball!"</p>
+
+<p><em>Now.</em></p>
+
+<p>"Squirtle, return! Go, Zephyr!"</p>
+
+<p>His pidgey soars through the air with chirps of joy as lileep begins gathering motes of green light. The Energy Ball floats forward, a green mass of light that almost seems to swarm within itself. It peters out and dissolves into little bits the farther it goes, and eventually fades away long before it reaches his pidgey. When Zephyr spots the pokemon that's facing its trainer, it soars down to perch on his shoulder. Blue smiles and strokes its feathers. It was good to see him flying. After his battle with the shiftry, Blue worried that he never would again.</p>
+
+<p>Blue raises the whistle to his lips and points forward with his other hand. "Zephyr, Wing Attack!"</p>
+
+<p>His pokemon launches itself with a flap of wings that cools his skin. It soars at the enemy with a battle cry, buffeting and slashing at its exposed plant parts.</p>
+
+<p>"Tala, Smack Down!"</p>
+
+<p>Her pokemon tries, its vines writhing beneath the ground as best it can with all the leech seed clogging and guarding the easy paths down. Or maybe it's just simply out of rocks, as he hoped.</p>
+
+<p>"Tala, Acid!"</p>
+
+<p>One short blast on his whistle, and his pokemon dodges up.</p>
+
+<p>"Tala, Mega Drain!"</p>
+
+<p>Two short blasts to back off. Zephyr is able to harass and attack Sharzad's pokemon almost without fear, dodging or gaining altitude to avoid whatever attacks do come his way. Meanwhile the lileep is getting badly torn up, and all the leech vines spread around it are cutting off its ability to draw more nutrients from the ground to heal itself.</p>
+
+<p><em>It's done.</em> Victory is a heady rush, and Blue grins as Zephyr dives in and tears off another of the lileep's long pink tentacle-petals, leaving it with one left. A moment later Sharzad withdraws her pokemon with a crooked smile. "Good match."</p>
+
+<p>Blue withdraws his pidgey, then feels like collapsing back down from relief, unaware of how much tension he was holding in. Instead he takes a deep breath and smiles back. "You too. So, did I pass?"</p>
+
+<p>"Faced with a major type and experience disadvantage, you managed to restrict and starve out my pokemon's attacks before launching an effective counter strike. I'd say that's a yes."</p>
+
+<p>Blue grins and clips his ball. "Should I wait here for him?"</p>
+
+<p>She laughs. "What are you, nuts? You're not fighting Brock in a dingy place like this. Besides, the area's a mess." She's not wrong: the tossed rocks, the mud pile, the interwoven mat of leech seeds… "And you shouldn't be fighting him at all without resting up and doing some training, but if you insist, I'll show you the waiting room for the main stadium. In the meanwhile, it's time for you to get your pokemon healed. It's impressive that you did all this in one go, but I don't want you losing to Brock at anything but your best."</p>
+
+<p>The words <em>main stadium</em> are still ringing in his head, and he follows her out the door. "To be honest I kind of expected another test of some kind. Like, sitting there for an hour straight until he was available."</p>
+
+<p>Sharzad tosses her hair over a shoulder to give him an odd look. "Why would we do that?"</p>
+
+<p>"You know, to test my patience. I guess I demonstrated it enough though, huh?" She's staring blankly at him. "The trait Gym Leaders value? It's patience for Brock, isn't it? That's why you guys let me challenge you so quickly?"</p>
+
+<p>The gym's Second laughs, the sound bouncing off its stone corridors. "Oh, no, that's not Brock's virtue at all. We didn't even consider that when reviewing your matches."</p>
+
+<p>Blue feels heat rising in his cheeks. "But... then what-"</p>
+
+<p>"It's kind of the opposite, in fact. Patience on its own can be useful, but too much is a bad thing. As Rock trainers, we know that giving our opponents too much time will let them circumvent our defenses." She gives him a lopsided grin. "Someone with <em>patience </em>would probably have more pokemon before challenging a Gym Leader."</p>
+
+<p>Blue's flush spreads, and he fights down the urge to argue how patient he was being. She doesn't understand what he's trying to accomplish. Besides, whatever this other trait is he clearly has that. "So what <em>does</em> Brock value?"</p>
+
+<p>"Knowing when to strike decisively. Knowing when to take a risk, rather than waiting forever and playing it safe. If you're always waiting for the perfect moment... sometimes, that can cost you everything." Sharzad's gaze is distant, tone soft, and Blue gets the feeling she's thinking about something more personal than pokemon battles. "Sometimes the strongest play you can make is the one with the highest risk. And a true master knows when those situations are, and commits to them mind, body and soul."</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/21/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/23/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -699,6 +704,6 @@ The revealed pokemon seem to realize their cover is gone, and then the forest ri
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

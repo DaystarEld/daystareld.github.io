@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I often get asked what the most things valuable things people can do to improve their mental health are, and while it&#x27;s really hard to give a general answer to that sort of thing, what immediately alw...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Journaling 101">
+    <meta property="og:description" content="I often get asked what the most things valuable things people can do to improve their mental health are, and while it&#x27;s really hard to give a general answer to that sort of thing, what immediately alw...">
+    <meta property="og:type" content="article">
+    <title>Journaling 101 - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Journaling 101</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        June 08, 2022
+                    </span>
+                    <span>📁 Therapy</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p>I often get asked what the most things valuable things people can do to improve their mental health are, and while it's <em>really </em>hard to give a general answer to that sort of thing, what immediately always pops into my mind is journaling.</p>
+
+<p>Journaling is almost the physical exercise of the mental health world; something uncomplicated and risk free that most people would benefit from doing more of. The reason it's not is that <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1470658/#i1523-5998-8-2-106-b3">physical exercise</a> is<a href="https://pubmed.ncbi.nlm.nih.gov/15255923/"> also</a> the <a href="https://pubmed.ncbi.nlm.nih.gov/15518309/">physical exercise</a> of the <a href="https://pubmed.ncbi.nlm.nih.gov/15838583/">mental health world</a>.</p>
+
+<p>But there more similarities; even just a little bit tends to be significantly better than none, the kind you do doesn't truly matter that much, and people are more likely to do it if they don't have an expectation that there's one specific kind (that they don't like) that they're supposed to do.</p>
+
+<p>Personally, I hate running, but I love to swim. I get bored with stationary bikes or lifting weights unless I'm watching anime at the same time, but VR has been a fantastic way to get your heart pumping while having fun.</p>
+
+<p>Similarly, I want people to know what their options are, so that when people think "maybe I should try journaling," or are told to by their therapist,  they know there are a variety of different ways to do it, and know not give up just because the first they try doesn't feel good.</p>
+
+<p>So here's a handful of ways to journal that clients have found helpful:
+<ol>
+ 	<li>Recounting Your Day</li>
+</ol>
+This is the most basic and stereotypical form of journaling, where you just write out what happened that day that was noteworthy, and maybe some thoughts or questions or worries that came up. Nothing wrong with it, but many find it a difficult or boring.</p>
+
+<p>2. Stream of Consciousness</p>
+
+<p>Less structured than the previous form of journaling, this is literally just writing whatever comes to mind.  It doesn't matter if it feels "relevant" or "important" at all, it could be fiction, it could be pure sensory input, it could be anything. It's just about creating space to sit with your thoughts and let them flow. You might be surprised at what comes out.</p>
+
+<p>3. Scaling Your Day</p>
+
+<p>This is the minimal viable product for journaling. Scaling how your day felt, either -5 to 5, or 0 to 10, with the lowest being "genuinely wanted to die" and the highest being being "life felt perfect," can be useful even if you don't accompany the number with any words (although you always can, of course). It sets a baseline that can be useful when you want to check if thigs start to change in a positive or negative direction, and also can be valuable for noticing large spikes up or down compared to previous days, which are sometimes hard to notice in the moment. But again, the value of even this sort of journaling can come from simply taking the moment to reflect on your day.</p>
+
+<p>4. Gratitude Journaling</p>
+
+<p>This is another really popular and common form of journaling that often surprises people with how much value they get out of it. You can write about people in your life that you're grateful for, or things about yourself, or things in the world like puppies and books, or all of the above. You can do a simple 3 bullet list every morning, or write a paragraph about one thing every night. The idea is to generally spend more time thinking about positive things.</p>
+
+<p>5. Letter to Future You</p>
+
+<p>Many people have found that framing their writing as if to<em> </em>someone specific often unblocks the process for them, whether it's to explain some technical bit of knowledge or just to explore their own thoughts and feelings. Writing your journal as a series of letters for the next-day-you can be valuable in this way, but also helps frame the content in a useful way too; what do you want to yourself to remember tomorrow? Not in a "to do list" way, though obviously you can include that stuff if you want. This is more about what sorts of emotional states you want future you to retain, and it can lead to some interesting chains between the various yous throughout your week or month as the conversation baton is passed along one day to the next.</p>
+
+<p>There are plenty of other journaling methods, but this is the shortlist that I tend to recommend to clients, and usually they'll find at least one of them appealing and valuable. Basic habit setting advice applies; set an alarm, keep your journal by your bed (or just use a phone if that's easier), accountability apps, etc. If you have a romantic partner, maybe it's something you can do together.  If you're on twitter, try tweeting the things you're grateful for and see how it feels.</p>
+
+<p>Also, don't feel a need to actually write if you hate writing or typing; Even just talking out loud to yourself is better than nothing, and definitely adds an extra element to "letter to future you."</p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">advice</span><span class="tag">therapy</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

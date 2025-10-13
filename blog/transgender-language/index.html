@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Happy Transgender Visibility Day!
+
+I&#x27;m one of those people for whom &quot;they&quot; and &quot;them&quot; feel about as fitting as &quot;he&quot; and &quot;him,&quot; but I&#x27;ve been pretty lucky in a lot of ways and it doesn&#x27;t really both...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Transgender Visibility Day, and the Laziness of Language">
+    <meta property="og:description" content="Happy Transgender Visibility Day!
+
+I&#x27;m one of those people for whom &quot;they&quot; and &quot;them&quot; feel about as fitting as &quot;he&quot; and &quot;him,&quot; but I&#x27;ve been pretty lucky in a lot of ways and it doesn&#x27;t really both...">
+    <meta property="og:type" content="article">
+    <title>Transgender Visibility Day, and the Laziness of Language - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Transgender Visibility Day, and the Laziness of Language</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        March 31, 2023
+                    </span>
+                    <span>📁 Knowledge And Epistemology, Politics And Society</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xdj266r x126k92a">
+<div dir="auto"></p>
+
+<p>Happy Transgender Visibility Day!</p>
+
+<p>I'm one of those people for whom "they" and "them" feel about as fitting as "he" and "him," but I've been pretty lucky in a lot of ways and it doesn't really bother me other than in a few specific circumstances. Normally I don't even bring it up, but I've been considering doing it more often, even though I feel generally masculine, for the sake of normalizing something that really shouldn't be that big a deal, so that's part of what I wanted to do with this post.</p>
+
+<p>But the much bigger part of why this feels important isn't about me, but about the absolute weirdness that comes from society confusing its heuristics and semantic shorthands with deciding it's allowed to tell people what they "should be."
+<div dir="auto">Because that's what this debate always comes down to. The labels society developed are all terrible ways to actually map reality, and while many people, and some parts of Western Society, have begun evolving past a lot of the baggage those labels inherited... there's still a long way to go, and gender is just the latest frontier of this.</div>
+In the old days being a "man" or "woman" meant you <em>had</em> to have A, B and C traits, or like X, Y and Z things, and if you were different, that meant you were less of one, which was always framed in a bad way. More and more people are coming to accept that this is nonsense, but we get stuck on things like biology.</p>
+
+<p>It's not entirely our fault. The problem is we were given shitty words, a lazy language, and told that reality follows the words rather than that the words are a slapdash prototype effort to understand reality.</p>
+
+<p></div>
+<div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xtlvy1s x126k92a">
+<div dir="auto">We had to develop words like "stepmom" to differentiate "biological mom" and "non-biological mom," except <em>that</em> doesn't work all the time either, because stepmom implies that they married your dad, so what do you call the female that helped raise you that didn't marry your dad? We all just shrug and accept this gap in our map because no one bothered to create a differentiating word for "person who carried you in their womb whose genetics you share" and "person who is female who raised you." Too much of an edge-case, maybe, or the only people it affected were poor, or it wasn't something polite company would acknowledge because the "proper" thing to do would be to cement the relationship through marriage.</div>
+</div>
+<div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xtlvy1s x126k92a">
+<div dir="auto"></div>
+<div dir="auto">Bottom line is it's an error-prone language. All are, it's just a matter f degree. Sometimes it's made worse by laziness, or carried baggage and artifacts. Language imprecisely describes reality. And we should always keep that in mind, <em>always</em>, when we disagree with people about basically anything, but <em>particularly</em> when we disagree about each other.</div>
+</div>
+<div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xtlvy1s x126k92a">
+<div dir="auto"></div>
+<div dir="auto">Ethnicity is like this too. There are some useful medical facts that can be determined through heredity and genetic trends in populations, but for 99% of circumstances, the question of what "race" someone is ends up being entirely about social constructs. It's about how they're treated by others, it's about their experiences and lack of experiences, and people fall through the cracks of our shitty, lazy language all the time.</div>
+<div dir="auto"></div>
+<div dir="auto">23&Me says I'm 96.4% "Iranian, Caucasian & Mesopotamian":</div>
+<div dir="auto"></p>
+
+<img class="aligncenter size-full wp-image-3526" src="https://daystareld.com/wp-content/uploads/2023/03/23Me.png" alt="" width="862" height="1272" />
+
+<p>Does that make me "white" or "Middle Eastern" on the US Census? When people ask if I'm Middle Eastern, what question am I actually answering? (And no, just saying "I'm Persian" or "My parents are from Iran" does not tend to clarify things for them, because this is not something most who ask know themselves!) I've almost always passed as white (other than in airports, at least), so most of the time it seems weird to call myself Middle Eastern. My dad and brother are far more obviously from the Middle East, and my dad in particular has lived a very different life as a result of that. I get clocked as Jewish once in a while, but only once in a way that made my life feel endangered.</p>
+
+<p></div>
+<div dir="auto">The point is there's nothing at the heart of the generally asked question "what ethnicity" I am. Knowing my parents are Iranian  would tell you some things about the kinds of food I enjoy and am used to, but not exclusively. I was raised Jewish, and that would again indicate some things about food familiarity and what holidays I'm familiar with. But when it comes to who I am, as a person, the pattern of thoughts and behaviors that make up me, it's a nonsense question that, in a perfect world, I wouldn't even have to consider. This isn't true for everyone! But as with gender, when it comes to ethnicity, I'm lucky enough that on most days I don't have to even think about this unless I'm filling out a form of some kind.</div>
+</div>
+<div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xtlvy1s x126k92a">
+<div dir="auto"></div>
+<div dir="auto">Back to gender. Because we were raised in a culture too lazy and biased to come up with words for "XY chromosomes" that means something different from "male presenting" and another word for "identifies with this bundle of cultural-specific gender stereotypes" and so on, we waste hours and hours, millions of collective hours, we waste blood and sweat and tears, on stupid debates about whether people should be called "men" or "women," and the question of whether those should be the only two options takes the backseat, while the question of how much it actually matters compared to how we treat each other is talked around or ignored.</div>
+</div>
+<div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xtlvy1s x126k92a">
+<div dir="auto"></div>
+<div dir="auto">There are <em>some </em>non-stupid questions in that space. There are some non-stupid considerations that have to be navigated once in a while in society where something similar to the concept of "gender" or "sex" is important, particularly in medical contexts, dating contexts, physical competitions, etc.</div>
+<div dir="auto"></div>
+<div dir="auto">But these are 1 in 100, 1 in 1,000, probably really 1 in 1,000,000 what people actually care about when you examine society's insistence on being as lazy as we can collectively get away with being when thinking and talking about each other, and certainly don't have any relationship to the various hysterias that lawmakers tend to leverage when deciding which bouts of cultural fears or ignorance are most politically expedient to them.</div>
+</div>
+<div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xtlvy1s x126k92a">
+<div dir="auto"></div>
+<div dir="auto">In my ideal world we all have pills we can take to transform into any body shape we want anyway, or a menu in a simulation that lets us be anything we want, and anything that takes us even a tiny step in that direction is better than things that keep us stuck. Which means I'm always happy to call other people whatever personal-identity-labels they'd prefer to be called, even if I slip up sometimes due to pattern-matching visual gendertropes, or accessing cached memories of a person.</div>
+<div dir="auto"></div>
+<div dir="auto">As for myself, over the course of my life I've responded to "Damon," "נתן," "Max," and "Daystar," and I honestly don't really have a preference with what you call me; just how you treat me.</div>
+</div>
+</div></p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">culture</span><span class="tag">epistemology</span><span class="tag">politics</span><span class="tag">sociopolitics</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

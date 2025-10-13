@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advice level: Beginner to Moderate Writers, Moderate to Expert Gamers
+
+
+
+One of the most interesting parts about GMing is that, unlike when writing a story, your characters are truly independent agent...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Creating Meaningful Choices as a GM">
+    <meta property="og:description" content="Advice level: Beginner to Moderate Writers, Moderate to Expert Gamers
+
+
+
+One of the most interesting parts about GMing is that, unlike when writing a story, your characters are truly independent agent...">
+    <meta property="og:type" content="article">
+    <title>Creating Meaningful Choices as a GM - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Creating Meaningful Choices as a GM</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        April 25, 2016
+                    </span>
+                    <span>📁 Storytelling Advice</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><em>Advice level: Beginner to Moderate Writers, Moderate to Expert Gamers</em></p>
+
+<p><a class="fancybox" href="http://www.dmfiat.com/wp-content/uploads/2012/09/choice.jpg" rel="gallery-0"><img class="aligncenter size-medium wp-image-2044" src="http://www.dmfiat.com/wp-content/uploads/2012/09/choice-300x254.jpg" alt="" width="300" height="254" /></a></p>
+
+<p>One of the most interesting parts about GMing is that, unlike when writing a story, your characters are truly independent agents.  The unpredictability of the players makes writing a tabletop campaign require a certain flexibility that writing most novels does not.</p>
+
+<p>This is why, while important for any writer, it’s doubly vital for a GM to decide on the proper consequences for the character’s decisions.  If a character’s choices are to have any meaning at all, there must be real and lasting effects on them or the people and world around them, or else the players get a somewhat shallow story that runs on rails, where no one’s choices seem important in retrospect, and characters don’t get a chance to grow from past mistakes or triumphs.<span id="more-2016"></span></p>
+
+<p>But the consequences don’t just have to be tangible.  I don’t mean someone makes a mistake and loses an arm due to a failed dice roll.  To be truly meaningful, the consequences have to be at least somewhat predictable.</p>
+
+<p>In this article, we’ll be examining two  books series that take a very different approach to the issue of consequences for character’s actions: <em>The Sword of Truth, </em>by Terry Goodkind, and <em>The Dresden Files,</em> by Jim Butcher, and relating them to how to craft a more meaningful tabletop campaign.</p>
+
+<p><span style="text-decoration: underline;"><strong>One Problem, One Solution</strong></span></p>
+
+<p><em><img class="alignleft" src="http://vignette1.wikia.nocookie.net/sot/images/f/fe/Wizards_first_rule.jpg/revision/latest?cb=20070518050851" alt="" width="179" height="271" /></em>
+<p style="text-align: left;"><em>The Sword of Truth</em> is a High Fantasy series (though don’t tell Goodkind that) which, while the later books suffer from <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/Anvilicious">anvilicious </a>prose and heavy handed Marty Stu-ism, overall has an enjoyable story and a rich cast of characters set in a unique world.  The main character is Richard Cypher, who lives in a magic-free country divided by a powerful barrier from the rest of the world.</p>
+<p style="text-align: left;">The story of the first book starts when a mysterious woman, Kahlan Amnell, crosses that barrier and Richard assists her in finding an old wizard that possesses a magic weapon needed to save her country from the evil sorcerer Darken Rahl.  It has a very genre-comfortable beginning, but from there it expands from book to book to a tale of literally creation-altering stakes.</p>
+Each novel’s plot is fairly self-contained for the most part: the dilemma that is introduced at the beginning of the novel is largely solved by the end.  But each book chains directly into the next for the larger overarching epic, because the actions the main characters make unwittingly bring about the following book’s conflict.  A magic spell has unintended consequences, a war won leaves a power vacuum in the delicate balance of nations, etc.</p>
+
+<p>I call this type of storytelling “One Problem, One Solution” because the way the story is framed the “right choice” is always firmly established by the narrative itself, even if it has unintended consequences that later make it seem like the “wrong” choice.  This can be found in all kinds of storytelling mediums, and tabletop games are no exception.  Since one of our greatest influences are the fiction we read or watch, how often you’ll encounter this depends largely on the content you or your GM are exposed to.</p>
+
+<p><em>Example: The GM has explained to the players that a recent mysterious increase in the manticore population has led to the creatures spreading out beyond their usual territory, attacking caravans and ravaging farms.  The players are tasked by King Jarvan to solve this problem however they can.</em></p>
+
+<p><em>Over the course of their adventure, during which many a manticore meet an untimely end, the players begin to realize that the creatures are somehow multiplying far faster than even an army could hope to quell.  Deciding to take a different route, they investigate the source of the troubles.  A common thread in the gossip and speculation from travelers and taverns are tales of a powerful druid who turned bitter and reclusive, and eventually left for the manticore’s breeding grounds swearing that judgment would fall on civilization for its irreverent destruction of nature.</em></p>
+
+<p><em>They seek out the druid, going deeper and deeper into manticore territory.  The deeper they go, the more wild and pristine the nature around them is, until they find a cave flourishing with an abundance of life and a strange power emanating from within it.  They enter and confront the druid, who is beyond reason: he attacks them, and they kill him.  The power in the air fades, and now they’re sure things will return to normal.  They head home (after looting the cave of course) for their reward.</em></p>
+
+<p><em>It soon becomes clear that they were successful in their mission: manticore sightings plummet, and then dwindle to pre-crisis levels.  However, another problem quickly emerges: the wildlife in the area around the manticore territory has begun to whither and die, and soon acres of farmland are barren as the druid’s death seems to have removed some delicate balance the ecosystem relied on.  Soon food shortages grip the kingdom, and the commonwealth is poised to revolt, tipping the nation into a civil war… which leads to the plot of the next campaign.</em></p>
+
+<p>This is a perfectly serviceable skeleton for the plot for a game or novel.  It leaves plenty of room for imaginative variations, and as a bonus leads to a new conflict for a longer story to emerge from, where the players can see the characters’ choices and actions having a lasting and meaningful impact on the world.</p>
+
+<p>However, unless the GM goes to extraordinary lengths, upon retrospection it seems evident that any “choice” in the story was mostly artificial, or so constrained as to be ultimately meaningless.  What “real” choices did they make?  What deliberation was required?  All the major decisions were simply reactions to orders from the king, or life and death struggles.</p>
+
+<p>The source of the problem was information.  The characters (and by extension the players) had no way of knowing that the druid was also integral to the wilderness’ survival, or that his death would mean famine.  Without that information, a “real” choice, or an “informed” choice, couldn’t be made.  They were simply coloring in the numbers outlined by the storyteller.</p>
+
+<p><em>The Sword of Truth</em> largely feels the same way: exciting and interesting on the first read through, but in retrospect the characters never really face much decision making in what they do: the problems are all set up as world-ending (or thousands of years of  darkness through the triumph of evil), so not following through with the quest is unthinkable.  Furthermore the problems always have one specific, often magical, solution… the long term effects of which are not revealed until after it’s done.</p>
+
+<p>In this model of storytelling, there is little introspection or growth for the characters and players.  Not through any particular fault of theirs: they simply see nothing but the carved out road ahead, with one unalterable chain of major events leading from beginning to end.  To create much more dynamic and character building storyline, let’s examine <em>The Dresden Files,</em> which takes a very different approach.</p>
+
+<p><span style="text-decoration: underline;"><strong>Many Solutions, Many Problems</strong></span></p>
+
+<img class="alignleft" src="http://3.bp.blogspot.com/-hor4nxsYOQk/TgNiVVTsIKI/AAAAAAAAAtI/uhmv_97bs4o/s1600/Strom%252BFront.jpg" alt="http://3.bp.blogspot.com/-hor4nxsYOQk/TgNiVVTsIKI/AAAAAAAAAtI/uhmv_97bs4o/s1600/Strom%252BFront.jpg" width="197" height="349" />Jim Butcher is a master of the “Many Solutions, Many Problems” method of storytelling.  In <em>The Dresden Files,</em> his major Modern Fantasy series, the protagonist is Harry Dresden, a wizard that works as a private investigator in a Chicago where vampires, fae, angels and demons walk unseen among mortal-kind.  While every book is action packed and incredibly fast paced, the overarching story of the series starts fairly slow; introducing the supporting cast and easing the readers into the kind of world they live in.  In the first book, Harry works mostly alone to investigate dark magic used in a double murder, but in each progressive book we see him grow in ability, allies, and challenges.
+
+<p>Like in <em>The Sword of Truth,</em> the plots in<em> The Dresden </em><em>Files </em>are fairly self contained.  The central conflict of the novel is introduced in the beginning and is resolved by the end, and any additional or secondary storylines that are touched on merely add context and flavor to the events.  Also like Goodkind’s epic, Jim Butcher often makes the conflict of some books the direct result of the solutions the protagonists utilized in previous ones.</p>
+
+<p>What sets them apart, however, is that Harry Dresden, unlike Richard Cypher, is very rarely ignorant of the consequences of his actions.  He makes mistakes, but when he does they are acknowledged as <em>his </em>mistakes, not just the result of simple ignorance.  In the later books, he is often presented with a number of different possible solutions to choose from, each with their own challenges and benefits, and ultimately each with their own consequences.  And when he finally makes his choice, for any number of reasons, he then has to live through those consequences… as do the people around him, both for his choices and the ones they make themselves.</p>
+
+<p><em>Example: When the players learn about the vengeful druid, they<strong> also</strong> learn that before he went to the breeding grounds, he was responsible for keeping balance in the nearby ecosystem.  Deforestation and excessive hunting would have left the place a barren desert if he hadn’t used his magic to stretch the life from a wider area to cover the spots that were being strained.</em></p>
+
+<p><em>From this, the players can extrapolate that if something happens to the druid, there will be dire consequences.  Instead of going straight for the renegade, they decide to seek council from other druids.  They find an enclave in a nearby forest and ask if they will take over the duties of the other druid if they stop him.  “Why should we?” their leader replied.  “He did his best to mend your civilization’s mistakes, and yet your people abused his efforts and simply continue on as you have been, without a thought for the land or its flora and fauna.”</em></p>
+
+<p><em>The party’s Bard, most persuasive of the group, attempts to reason with them: innocent people are being killed by the wild beasts, and surely what he’s doing isn’t good for the ecosystem either.  “Well, no,” the head druid admits.  “But what assurance do we have that things would change if you do stop him?  Such magic doesn’t come without a price; to keep the soil near your cities healthy, we must take the vitality from forests farther away.  It cannot be sustained.  Tell your king that we will help keep his land fertile if he meets with us, and agrees to terms limiting the harvest of lumber, excessive hunting, and the redirection of water. Convince him to sign a proclamation, and we will assist you.”</em></p>
+
+<p><em>The party leaves the forest knowing the king would not be happy having demands made of him by a bunch of hermits. The warlock’s infernal companion chatters at her in a demonic tongue, and she nods thoughtfully.  “Xanatus has a point… there are ways of assuring the land’s fertility without the druid’s help.  The proper sacrificial rituals is all it would take… surely a few dozen prisoners per moon won’t be missed?”</em></p>
+
+<p><em>Human sacrifice is an ugly deed, abhorred by the common folk and most of their gods.  If King Jarvan decides on that path, it could turn the people against him.  Of course, if logging and hunting rights were restricted, the rich and powerful among the king’s court would likely turn against him. The players debate which approach they should pitch, or if they should simply present both and just let the king decide.</em></p>
+
+<p>Here we have a setup that is much different from the original.  Not only are the players informed of the consequences of their quest, but information is available for alternatives to just charging in and confronting the druid.  Of course the players may just do that anyway: that’s out of the GM’s control.  But what’s important to note is that even if the king’s decision is entirely out of their hands, they still must make the decision on what to tell him, thus making their choice the cause that can end up having long lasting effects on the kingdom.  Maybe they can help negotiate a peaceful deal between the king and druids.  Maybe one of the party members is so disgusted with the king accepting human sacrifice that he goes about town spreading the news, causing unrest.  There are many solutions, and each can result in many more problems.</p>
+
+<p>In<em> The Dresden Files</em>, Harry’s biggest challenges come not just from overcoming the obstacle, defeating the Big Bad, and saving the innocent, but also the hard decisions he must make in those struggles.  Will he team up with an enemy against a mutual threat, knowing victory will make that enemy harder to defeat in the future?  Will he accept assistance from the fae, knowing the Fair Folk offer nothing without a price?  And if he shuns all such seductive offers of power, will he still have the strength to succeed alone?  Will the friends and allies who go with him suffer for it?  Are his morals worth their lives?</p>
+
+<p>Character development comes from such decisions, and how players respond to the consequences of them.  In addition, the effects can always be determined by the storyteller.  If at the end of the day the GM is committed to a food shortage and revolt, there are always ways to bring it about regardless of which choice the players make: but with enough effort and ingenuity, it can still take their decision into account and be a real test of more than simply combat-smarts and dice rolls.</p>
+            </div>
+
+            <div class="article-footer">
+                
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

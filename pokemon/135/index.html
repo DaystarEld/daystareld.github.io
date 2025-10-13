@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orson Scott Card - Pokemon: The Origin of Species</title>
+    <title>Chapter 135: Shell Game II - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,299 +329,382 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Orson Scott Card</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/134/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/136/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <!-- wp:paragraph --><br>
-<p>Here are three sentences:</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Orson Scott Card is a hateful bigot."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Orson Scott Card has bigoted religious beliefs."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Orson Scott Card has aligned himself with bigots."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>To some people, they are all different ways of saying the same thing, or just plain indistinguishable, particularly with an eye to consequences. To others, there is an important distinction about each; not just what they say about the shape of the beliefs themselves, their bedrock, but about the man himself, his epistemology and his values.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>OSC is easily in the top 3 most influential writers in my life. Not just in regards to my love of reading or writing, in my <em>life.</em></p><br>
-<p>I first read Ender’s Game when I was 12 and cried at the end of the very first chapter. I cried again at the end of the second. This probably says more about me and my life than the book, but the series as a whole has been powerfully moving and inspiring and motivating for me. I identified with Ender, but after I read Speaker for the Dead, I wanted to <em>be </em>one, an essentially made up profession, embodied by his older self. I would often ask myself “What Would Andrew Do?” and would get back answers that made me a kinder and braver and better person.<br /><br />I first started looking into his beliefs about a decade ago, confused by the stilted and poorly written political commentary underlying <em>Empire. </em>I was shocked and heartbroken, and only read about a dozen articles and blog posts he’d written on various topics before I turned away from what seemed to be either the onset of dementia or a sad example of how people can calcify with old age.</p><br>
-<p>That may seem like a lot, but it’s not my usual deep dive into someone I really want to understand the perspective of with the goal of feeling I can reliably predict their stance on common topics. I gave up before then because, frankly, seeing a hero spout such toxic shit (not just about homosexuality) was painful.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>I did the deep dive much more recently after someone listed him as a respectable conservative thinker, and sadly, I can’t even give him that anymore. In the 90s and early 00s, maybe; he was a rare voice of not just sanity but compassionate, tolerant conservatism. Eventually, though, he seems to have been bitten by the same FOX-News-anti-Democrat-derangement that has affected so many in his generation, including my once-apolitical father.</p><br>
-<p>But still, it's worth explicitly checking: are any of those statements at the top true?</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>First, let’s define bigotry. For the purposes of this post, I’ll say “false beliefs about a specific demographic that knowingly disadvantage or cause harm to that demographic.”</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>To be clear, Card has said many times that he believes homosexuals deserve compassion and respect and safety. I have yet to hear him say anything clearly hateful toward gay individuals or people.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>But Card has also said that <a href="http://www.nauvoo.com/library/card-hypocrites.html">gay sex is sinful and that not just gay marriage but gay sex should remain illegal</a>, if for nothing else than to strike fear into the hearts of those who might practice it openly and thus “shake the confidence” of the community in its ability to police harmful behaviors.</p><br>
-<p>He has pushed the frame that homosexuality is more environmental than genetic, and linked its origins for many to “seduction,” molestation, and rape.</p><br>
-<p>He asserted that children need a mother and father rather than two of one, and has even said, as recently as 2008 after judges began ruling gay marriage bans unconstitutional, <em>“How long before married people answer the dictators thus: Regardless of law, marriage has only one definition, and any government that attempts to change it is my mortal enemy. I will act to destroy that government and bring it down, so it can be replaced with a government that will respect and support marriage, and help me raise my children in a society where they will expect to marry in their turn.”</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>(No, none of that is made better by context or his justifications. It’s fairly easy to read his own words if you want to find them, and to me the words are clear. If we start to argue that he was being hyperbolic or hypothetical, we’ve stopped arguing about what he actually said and started arguing about what we want him to have meant by his words, and I don’t think that’s a productive line of discussion for someone who is clearly intelligent and articulate, and an accomplished writer who should know better than to be careless with language so repeatedly and in such a consistent pattern.)<br /><br />((See also, Jordan Peterson.))</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>This presents a seemingly intractable contradiction. How can someone who writes such intelligent and compassionate characters feel so fanatically about something so actually-harmless?</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>I do not use that word, "fanatic," lightly. It is one thing to say that you disagree with gay marriage, it is another to publicly state your position in an attempt to influence policy, and then it is yet another entirely to go to the lengths Card has gone to crusade against it.</p><br>
-<p>Card is, from a policy perspective, an anti-gay fanatic, just shy of actually advocating for the violence he insinuated multiple times was justified to “protect families.”</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>I put that in quotes, by the way, not because I don’t believe that OSC honestly believes that. I know it’s a justification that makes sense in his head. But I don’t think it changes much; if you’ve spoken with bigots at all, they <em>always </em>have justifications for bigotry. It does not transmute “false beliefs about a specific demographic that knowingly disadvantage or cause harm to that demographic” into something else.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Regardless of what he purports to believe about the sinner, he has spent <em>more time and energy fighting this sin specifically</em> than any other I could find, save perhaps for Islamic terrorism after 9/11.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>That, to me, is indicative of something more than someone holding an honest religious belief and advocating for it. There are, after all, others sins. Card planted his flag on this one, drew a slew of both criticism and appeals to his better nature from friends and fans, and then kept doubling down, insisting all the while that he was being maligned and misunderstood.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Which, it's worth noting, to some degree he was! But I find it hard to respect people who only engage with the worst of their critics, and his attitude has repeatedly been one I would characterize as self-righteous bitterness, in much the same way a lot of modern “Intellectual Dark Web” members spend much of their time picking out the nuttiest leftists and painting them as representative, or otherwise arguing against strawmen.</p><br>
-<p>Once someone has fallen that spiral, their ability to pass any sort of ITT of their critics seems to get totally shot, and they spend more and more energy painting themselves as a victim in ways that seem totally divorced from reality. As an example, Card once said that “Faggot” and “Homophobe” are “exactly analogous,” and thus anyone who decries one and uses the other is a hypocrite. This by the way is from an article that’s probably Card’s <a href="http://www.nauvoo.com/library/card-hypocrites.html">most liberal explanation of his views</a>.</p><br>
-<p>(Again, context does not help; it is one thing to note that many people use "homophobe" to silence those who disagree with them, it is another thing entirely to elide the reality of how one word is used <em>explicitly</em> as a derogatory slur (outside of the gay people who have been working to reclaim it), while the other is an actually-useful-label-for-a-real-phenomenon. If we veto the word "faggot" we lose nothing, while if we veto the word "homophobe" a new word would quickly emerge for "person who virulantly hates or fears homosexuals.")</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>So: Why do all this? Why accept the role of “villain” to so many without apparently batting an eye? More to the point, why do it <em>specifically to fight </em><em>homosexuality?</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The easy answer is religion, of course. Card would be far from the first bright mind whose rationality seems bizarrely warped by his sincere and unshakable faith, and further, bent to its service. CS Lewis wasn’t just a fiction writer but a prolific Evangelical apologetic who was capable of accepting evolution as a scientific theory, and truly understood what that meant decades before the Catholic Church could manage to, but still drew a similar line at its implications for human origins.</p><br>
-<p>Card has expressed other bizarre beliefs that show a similar warping root, such as <a href="http://www.nauvoo.com/library/card-bookofmormon.html">his insistence that the Book of Mormon is vanishingly unlikely to be a work of fiction</a>, not by historic or archaeological evidence (fun fact: Card studied archaeology before he gave it up for being “hard work”), but by simple analysis of the text from the lens of one who also writes science fiction.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>It seems worth highlight that it was at this point that I realized Card is not what I could any longer consider a particularly rational person. Intelligent, certainly. Reasonable, often. And he does an amazing job of writing intelligent and rational character in stories.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>But the magnitude of the mistake that Card makes in deciding that Mormonism is likely true because he can’t imagine that someone could write the Book of Mormon, structurally and stylistically and in richness of content, as a hoax, is… well, it would take a whole extra essay on how big a crack that reveals about his epistemology.</p><br>
-<p>It's so irrational I would call it <em>hostile</em> to rationality. It’s turning 180 degrees away from not just evidence, but reason as basic as Occam’s Razor and as complex as Bayesian probability, to bend reality to what he wants to be true.<br /><br />He shows similar irrationality with things like <a href="http://www.ornery.org/essays/warwatch/2007-03-04-1.html">Anthropogenic Climate Change</a> as recently as 2007, demonstrating not just stark ignorance of the scientific mechanisms and decades of research, but that he takes his news about those he disagrees with by their political enemies: his points were not original, but canned and labeled by conservative pundits and anti-global warming “news” sites. He showed a way of thinking that makes it clear that his epistemology is not grounded in truth seeking, but political considerations. He does not see those sounding the alarm over ACC as honestly mistaken: he sees them as conniving and dishonestly motivated, and writes a narrative that appeases that outcome rather than one that fits the facts or context or history.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>So while religion is a tempting answer to Card’s efforts to bend reason over backwards to justify beliefs that primarily disadvantage homosexuals, there are plenty of Mormons and ex-Mormons who rejected such things, and it just doesn’t seem sufficient to answer the question of whether Card is a bigot, or just holds bigoted religious beliefs, or is just pinching his nose while standing aligned with bigots for the sake of strong personal conviction of what’s True and Right.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Still, if you <em>truly believe </em>that your faith is right and you want to act out its tenets, and that those others of your faith who disagree are just misled or hypocritical, then the Good and Brave thing to do is plant your feet and tell the world “<a href="https://external-preview.redd.it/sORWym5kfi2NIanLWbz_0nWtqPPZQTjbn3jCDm8rUIg.jpg?auto=webp&s=b807fcf22438b259c4a42760984b65948322516d">No, you move.</a>”</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Right?</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Weeell...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>There’s another issue that comes up if we decide to blame his religion. I’ve been saying bigotry all this time, both because “homophobic” has other connotations, and I don’t think this question can only be applied to homosexuality, sadly.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Mormonism is historically <a href="https://en.wikipedia.org/wiki/Black_people_and_Mormonism">an explicitly racist religion</a> which barred African Americans from full participation until 1978 (when Card was 27), which is about when God apparently realized that being tax-exempt might be more important than preventing interracial marriage or black priests.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>And I can’t for the life of me find where Card came out against that, or talked about the church’s racist views. If someone can find an article on it, please send it to me: it could be a crux for this next part.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Because remember, that’s his justification for being against homosexuality: you “can’t serve two masters.” If God says X, you don’t try to insist that it’s genetic or that the law of the land says it’s okay, you either accept God’s word or you don’t.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>So what were Card’s views on black Mormons? What are they now? Because gay marriage is legal now, but in a world where tax-exempt status for religions relied on willingness to perform gay marriages, I wonder if he would accept God’s about-face.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The world may never know. But I surely wonder, because Card’s views on Obama’s presidency reek of a similar and startling fervency to his crusade against gay marriage that makes me uneasy.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>I should note first that I find accusations that any criticism of Obama are racist to be tiring and dangerous. There’s a <em>lot </em>you could criticize Obama for: expansion of the spy state, excessive use of drone strikes, not protecting whistleblowers, failing in his promise of transparency, too many executive orders, unwillingness to compromise with Republicans (if you’re conservative), attempting to compromise too much (if you’re liberal), and so on.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>But I know racists who criticize Obama, and I know people-I-have-no-reason-to-believe-are-racist who criticize Obama, and there’s a pattern I’ve noticed in the former. While Card doesn’t quite fit that pattern, and breaks from it entirely in some places, his own path  seems to run parallel to it in other places.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>In 2012, Card made the rare step of admitting that a politician he disagreed with as fervently as possible, Obama, is a better person than the one whose policies he supported, Gingrich. That’s ridiculously uncommon. He also claimed in 2008 that he voted for Obama in the Primary, though ultimately he ended up supporting McCain because Obama was seen as soft on Islamic Extremism (a view Card continued to hold even after Bin Laden was killed) and his fear of “dictator-judges.” So, those are points in his favor, at least as late as 2008...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>...and then he wrote <a href="http://www.ornery.org/essays/warwatch/2013-05-09-1.html">Unlikely Events</a>, where, in regards to foreign policy, Obama is called “the dumbest president in history” not 5 years after Bush left office. You know, the guy who started the worst military blunder since the Vietnam war with no exit plan and caused massive instability in the region. No, it’s not better that Card named white guys who have never held office as runnerups; somehow it’s still America’s first black president who has that honor.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Do I think he would have said that if Obama wasn’t black?</p><br>
-<p>Probably.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Do I think he would say that “Obama is, by character and preference, a dictator” if Obama wasn’t black?</p><br>
-<p>Maybe?</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Do I think he would “imagine” (all in good fun, of course, haha, it’s just me Card the kooky science fiction writer imagining things that definitely won’t happen the way we science fiction writers do) Obama turning “young out-of-work urban men” into a national police force to maintain his dictatorship if Obama wasn’t black?</p><br>
-<p>Er...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Or that he would say "<em>Having been anointed from the start of his career because he was that magical combination -- a black man who talks like a white man (that's what they mean by calling him "articulate" and a "great speaker") -- he has never had to work for a living, and he has never had to struggle to accomplish goals. He despises ordinary people, is hostile to any religion that doesn't have Obama as its deity, and his contempt for the military is complete." </em>if not?</p><br>
-<p>...oof.</p><br>
-<p>I... really don’t think he would. Even taking out the part within the dashes, there's vitriol there that should make any sane person startle from their standard political priors and closely examine the person being talked about, and the evidence available for such accusations.</p><br>
-<p>To be fair, beliefs at that level of unhinged-from-reality usually are not <em>organic.</em> They usually result from a person or group wielding misinformation with an agenda. So maybe OSC is just really, really bad at filtering truth from lies and misinformation, like he apparently is with ACC?</p><br>
-<p>Maybe. If Obama were white, I do believe the general conservative criticism of Obama would be less unhinged, and so the pundits Card follows and their views of his policies and character would be less divorced from reality.</p><br>
-<p>But also, maybe, despite considering himself a Democrat at some point, it’s easier for him not to filter unflattering lies about Obama than Bush, for some mysterious reason.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>(Counter-evidence: Card has, thankfully, criticized Trump fairly often, calling him dictatorial as well. But he also voted for him, and as far as I know, he has not apologized for or amended his views of Obama in light of what the real deal looks like.)</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Part of me is asking myself right now, “Hey now, Democrat or not, Card very clearly holds a lot of conservative views. Isn’t extreme and undeserved hatred of Obama just part of standard conservative dogma?”</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>And another part of me responds, “Yes. And your point is?”<br /><br />My mom is a racist. I love her, but she is. She’s not often a <em>hateful</em> racist. She has minority friends. I’m pretty sure she voted for Obama, the first time at least.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>But she’s still a racist who is quicker to attribute negative features to someone’s race if they’re not white, and who holds all sorts of prejudices both big and small. It’s a sad cultural feature of many in her generation, and seems even more prevalent for those who are even older... like Card is.</p><br>
-<p>So, just on priors, what are the odds that Card avoided that particular cultural and generational feature? Would 50% be fair? Just from my observations of my parents’ generation, way too generous. 20% feels closer to right, and still may be generous.<br /><br />What I do notice is that his attitude toward Obama, which is wildly out of scope in its criticism compared to the reality of what Obama’s presidency entailed (like most conservatives), feels confusing in the same way as when my mom told me I couldn’t sleep over my black neighbor’s house when I was 8 because he “lives too far” felt confusing, given that “too far” in this case was a walk of less than a minute within the same gated community.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She was always friendly to him when he was around. I genuinely think she held no hate in her heart toward him. That didn’t change the fact that her perspective is prejudiced, the same way her blatant dispreference against non-white residents years later while on the HOA for the community was prejudiced.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>So. Do I really think the man who wrote <em>Alvin Maker</em> is a racist? The man who wrote <em>Magic Street</em>?</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>I'm not actually sure. By most definitions of that word, I don't think so. Again, he has not said anything explicitly racist, and has written against the evils of racism.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>But there are still those suspicious underlying failures in thinking, which can collectively be called prejudices, that I can’t ignore. He doesn’t do well based on priors, and together with the way he pattern matches onto people I know who have stronger-than-average prejudice, the underlying irrationality that Card has shown himself more than capable of can easily include racism.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Alright, let's look at these again.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><strong>Is Card a hateful bigot? </strong></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Insofar as that word denotes hatred or disgust, I don’t think so. Being so vociferously anti-gay marriage, like being disproportionately inclined to think the worst of Obama, is mild evidence for hatred or disgust, but not strong evidence.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><strong>Does Card hold bigoted religious beliefs?<br /></strong> <br />Undoubtedly. Justifications do not excuse bigotry; the fact that his honest faith tells him that homosexuality is a sin does not absolve him of responsibility for the actions of that belief. Someone who shoots an abortion doctor is still a murderer, no matter how good their intentions or true their belief. Just so, someone who argues for inequality on religious grounds is still espousing bigotry.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><strong>Does Card align himself with bigots?</strong></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>In many ways, yes. <a href="https://en.wikipedia.org/wiki/National_Organization_for_Marriage">He fought the same fight with the same goals.</a> He argued against hatred or violence, but he still worked to deprive gay men and women of equal rights, and stayed in and supported the Mormon church for years despite its racism.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>To someone who faces oppression, these questions are academic at best and disingenuous at worst. I understand that from the person getting punched in the face, the intentions of the puncher don’t matter. I don’t say “most Trump supporters are racist” because I don’t think it’s true, but I don’t always nitpick my more liberal friends who say it because I understand why “most Trump supporters don’t care sufficiently about racism to let it influence their vote” feels close enough.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>But I think it’s important to note that, while hatred is about values, prejudice is ultimately built on poor thinking. The latter can be solved more easily by education than the former.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Unless, of course, the value of Truth is too low on the hierarchy.</p><br>
-<p>And there’s a pretty good chance that Truth just doesn’t matter overly much to Card, hard as that is to believe given his general pro-science beliefs and advocacy. He has too many beliefs that come not just from the land of ignorance but of outright-falsehood.</p><br>
-<p>When that includes religion and poorly fact-checked conservative websites, neither of which are particularly known for their tolerance or promotion of real equality, again, it can be hard to feel the difference between "honestly mistaken" and "motivatedly mistaken."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Card is not, ultimately, a simple person who can easily be put into a box. I don’t think he’s an evil person. I think he’s genuinely disgusted by overt or even covert bigotry, and insofar as he was cheering on homophobes fighting gay marriage, he did it with a fervent wish that they would be more compassionate and kind. <a href="https://daystareld.com/on-the-same-side/">In my list of grand alliances, I think he ends up pretty high.</a></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>But at the end of the day, when I think of what’s more appropriate for a situation, conflict theory vs mistake theory, what I tend to think of is how tractable the disagreement is, and what the consequences of someone’s beliefs and actions are.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>And for conflict vs mistake theory, Card does not always <em>only</em> seem simply mistaken. He doesn’t act like he's first-and-foremost seeking Truth.</p><br>
-<p>He acts as though he is fighting a war.</p><br>
-<p>A war to preserve Mormonism, Americanism, Life, Liberty, etc… but sort of in that order? And yes you could say that he just has false beliefs that lead him to believe America will collapse if gay marriage is legal, so it's just Mistake Theory in disguise again, but at a certain point the Mistake feels too motivated to be put in the same category as "what tax policy is better for poor and rich people alike?"</p><br>
-<p>In cases like Card's, where each value seems colored by the one preceding it, it's not actually too hard to imagine him holding evidence in his hand that Mormonism was made up, or that ACC is true, or that Obama isn't in his heart-of-hearts a wannabe-tyrant, and... perhaps with a twinge in his conscience... just tossing it in the fire.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>And for consequences, at the end of the day, giving him as much respect-for-individual-agency as I want others to give me, Card has now spent <em>decades</em> seeing his words hurt people he insisted he held no animosity toward, for <em>no reason </em>and to <em>no gain </em>other than the strength of his conviction and faith… and he stayed the course until the bitter end, moderating his language only when his side lost, calling for tolerance by the people whose behaviors he warned were <em>dangerous</em> to life, liberty, and general goodness.</p><br>
-<p>He could have put in the hard effort of looking his belief in the eyes and judging, as a person who prioritized truth and reason, whether it was <em>justified enough to keep holding</em> given the obvious and blatant pain it caused. He could have “evolved” on homosexuality as many,  like Obama, ostensibly did. He chose not to.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>I... don’t think I can respect that.</p><br>
-<p>More importantly, I don't think it's what Andrew would have done.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>My feelings for Card used to be complicated. Now they’re just a little sad and a lot disappointed. Maybe someday before he dies he’ll recognize his mistakes and not go down in history with such a tarnished legacy. I hope so.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>But thankfully, art and man are separate. Thankfully, truth doesn’t belong in a person, and someone can stumble onto it even when a little lost. Card happens to love many of the same things I do, even if we strongly disagree on other things, and I'm grateful to him for putting those things in his art in a way that could inspire my younger self, and continue to guide who I am today.</p><br>
-<p>It's part of what Andrew taught me: to be able to look at the wisdom and beauty in a person, without flinching from the contradictions and irrationality, and perhaps even bigotry, that's also there.</p><br>
-<!-- /wp:paragraph -->
-        </div>
+            <h1 class="chapter-title">Chapter 135: Shell Game II</h1>
 
-        <div class="chapter-nav">
-            <a href="../134/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../136/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p><p style="text-align: center;">Chapter 135: Shell Game II</p>
+The headquarters is nearly empty, just a few agents left manning various posts. A few are still strapping on belts and rushing out to teleport by the time Red finds Looker, who's sitting beside an old fashioned radio with a headset on.</p>
+
+<p>He holds a finger up to Red as he enters as he finishes writing something on a pad of paper. "Uh huh. Red just walked in, I'm going. Stay on your toes." He flicks a switch on the machine, then turns to Red. "It's not Rocket. We got word from Bill, he's taken responsibility for bringing the net down. Says something was invading it."</p>
+
+<p>"He can do that?" Red asks as he mentally lurches, trying to shift frames and reprioritize. "He's allowed to do that?"</p>
+
+<p>"That's between him and your government, but since we're using your infrastructure it's going to be A Conversation. For now we're taking his warnings seriously and not forcing a direct satellite connection." He takes the headphones off. "Yet. Radio will do for coordinating with CoRRNet, but we'll need wider communication soon. Is Cinnabar stable?"</p>
+
+<p>It takes a moment for Red to rally his thoughts, which curve around the dull pain in his chest. "When I left, yeah. I don't think it's possible to be sure, too many new things are happening. I need to talk to Bill, was going to before you said he's the one that brought the net down."</p>
+
+<p>"Talk to Bill about what?"</p>
+
+<p>"Something happened at Cinnabar, new pokemon appeared that couldn't be captured. I need to check if Bill has any idea why, or can start making a ball that works on them." <em>And a body I need to drop off.</em></p>
+
+<p>Looker's frown softens, and it takes a second for Red to realize what he's seeing: fear.</p>
+
+<p>Not a lot, but a touch of it around Looker's eyes, the shape of his lip.</p>
+
+<p>And then Red blinks and it's past, the Special Administrator back to radiating grim determination. "Bill's busy preparing for a reboot, and that's got to be his priority until after he can make sure the pokedex network is safe to reconnect with. Maybe someone at the Silph labs can help instead, but I don't have—"</p>
+
+<p>"Wait, back up." The words "Pokedex Network" sent a cold spike through Red's gut. "What's wrong with the dexnet?"</p>
+
+<p>"He said that's where the invasion spread from. Once it reached Pallet he pulled the plug, or whatever it… what's the matter?"</p>
+
+<p>Red's shut his eyes against the recurring image of Artem's pokedex twisting in his hand to impale him. Coincidence? Maybe, but he can't stop imagining the same thing happening to Professor Oak or Dr. Madi or the others from the lab…</p>
+
+<p>"Red!"</p>
+
+<p>"I don't… a pokedex attacked someone at Cinnabar, turned into a monster. I have to—"</p>
+
+<p>"Fuck, okay, go, but just to look. Don't go in without… where are—"</p>
+
+<p>"I told them to meet me in Saffron in… 17 minutes."</p>
+
+<p>"Goddammit Red, you can't keep—"</p>
+
+<p>"Later, I need to make sure Pallet's okay!"</p>
+
+<p>"—doing that—" he hears Looker say just before his mind tilts in just the right way for Bagra to send him to the hill beside the Pallet Labs…</p>
+
+<p>…where he sees the perimeter of trainers in a loose half-circle around it, pokemon in front of them attacking the hard-to-look-at things coming out of the broken and warped front walls of the lab. Streams of fire, bolts of electricity, beams of frost, all converge to slow the advance of the twisted things that move in jerky, twitching motions.</p>
+
+<p>The momentary disorientation is enhanced by his feeling like he's back in Cinnabar again, combined with the shock of seeing the Pallet Labs, usually so bright and beautiful against the backdrop of the green hills and blue skies, made into a warzone. The glass walls and doorways in the front of the building look like they've all blown outward, as though something exploded within the lobby, and there's smoke rising from a hole in the roof somewhere just out of Red's sight.</p>
+
+<p>It hurts, seeing a place so familiar and important to him look so damaged. He wasn't prepared for it to hurt, it's just a building…</p>
+
+<p>…but it's a building that represents so much goodness in the world, to him. A building that brought him back to life after he lost his dad, along with the people in it. People who might be dead, now.</p>
+
+<p>Battle calm rushes through him in the space of a breath, diffusing the rising panic and grief, and he breaks into a run, hands tracing the balls at his belt. Charizard, nidoqueen, machamp, starmie, butterfree, snorlax. He would like to have swapped for more more powerful ranged attackers, but with the nets down he, and everyone else in the region, is stuck with what he has with him… which means bringing Charizard back out, despite his pokemon's fatigue.</p>
+
+<p>His sensorium doubles as he merges deeply enough with Charizard to taste the smoke in the air, along with the salt of the nearby sea. It takes a moment to reorient and focus on the various pokemon and people around them, labeling the enemies through direct mental suggestion… which takes longer than usual, as even Charizard has trouble making sense of them—they don't match visual patterns of any pokemon it knows, let alone prey or rivals, and their smell is completely off.</p>
+
+<p>Red's shoulders start to flex in tandem with Charizard's beating wings, and he braces his legs against the gusts of wind and resists the urge to leap as the great lizard does, roaring as it stokes its inner furnace, then releases it in a strafing pillar of flame.</p>
+
+<p>Red withdraws most of the way out of his charizard's mind once he's sure the impression of the next few targets is set, then reorients to the wider battle. There are about a half a dozen of the things spread out in front of the lab, each being contained by shifting clusters of trainers as new threats emerge, some of whom get one-shot by a single blow while others shrug off a handful of attacks from a variety of elements.</p>
+
+<p>"One's heading for the ranches!" someone shouts, and there's a flash to Red's right as a pokemon is summoned, its rider quickly mounting without a saddle and heading to the northeast. Red casts his thoughts out, heart pounding as he searches for a mind he recognizes…</p>
+
+<p><em>There.</em> Red starts running for Dr. Madi, who's part of a trio that take turns blasting what looks, from the corner of Red's eyes, like a pair of desk-shaped objects that have been welded together with a bunch of melted computers stacked on top of each other, with gaps between them. As he approaches he sees it start to glow, even in the bright morning light, and everyone starts shouting for their pokemon to dodge—</p>
+
+<p>—too late for a pinsir, whose horns and upper body get snapped off with a dull crack when the thing blurs forward and smashes its "arms" together. Red's horror at the abrupt kill lends speed to his arms as he summons Starmie and merges with it, preparing for when the thing starts to glow again… then directing a blast of telekinesis up from beneath the strange monster to hurl it into the air.</p>
+
+<p>When the glow reaches its blinding peak, the creature moves in a blink again, a bright streak that doesn't follow any sort of momentum starting or stopping laws Red's familiar with… doubly so because it's through the air instead of along the ground, the exact same motion it would have made to reach a defender's arcanine if it were still on the ground.</p>
+
+<p>It hangs for a moment above, just long enough for Red to think It can fly? and its trainer to yell another command that gets his arcanine out of the way before the strange pokemon abruptly comes crashing down. Red had hoped to at least stun it for a moment, but it starts moving in fits and jerks again as if it didn't even feel the impact.</p>
+
+<p>The pinsir has since been replaced by a scyther, which dashes in and begins to slice in a flurry. Red feels a distant part of him flinching from the ghosts of many childhood nightmares, and does his best to ignore it while directing Starmie to send more telekinetic blasts out, trying to keep it off-balance and apply more damage to the cuts. Dr. Madi orders his primeape to leap in and slam its fists down, which finally breaks the pokemon apart.</p>
+
+<p>The pieces of the creature tumble in various directions as whatever was keeping it moving and together abruptly seems to just… stop. Red and the others watch them for a moment as the fights around them continue, but it seems to be staying dead. Dr. Madi turns to Red just as he takes in a breath.</p>
+
+<p>"Red… thank you, but… what are you doi—"</p>
+
+<p>"No time, what happened here?"</p>
+
+<p>"—ng… they… computers around the lab, they just started transforming." Dr. Madi looks like he's still trying to come to terms with what's happening, eyes too wide and breaths audible even among the noises of the battle. "Half the morning shift was… we couldn't…"</p>
+
+<p>Grief spasms across his features, and Red almost reaches out to hug his old supervisor as fresh grief and horror rise up in a distant part of him, not quite forgotten by amnesia or made emotionless, but recontextualized by some partition his inner self no doubt has been preparing in conjunction with the battle calm. "You tried capturing them?"</p>
+
+<p>"I… yes, at first. It didn't work for long."</p>
+
+<p>Red was really hoping that was a unique thing at Cinnabar. "What can I do?"</p>
+
+<p>"Do…" Dr. Madi looks around, running a hand through his short hair. "More are still coming out, we need help. Couldn't call anyone, but if you can get the rangers, the Professor, anyone—"</p>
+
+<p>"Of course. Just hold on, okay?" He looks around, quickly counting heads again. Professor Oak makes sure that most of his staff can pass basic pokemon training and battle scenarios, but there are still barely a dozen people with pokemon out, and only a couple of them would be in the same class as Red's guards, let alone Agatha. If more of the stronger creatures (pokemon?) show up… if they can't contain them here…</p>
+
+<p>All of Pallet might be destroyed. Maybe worse.</p>
+
+<p>Red withdraws Starmie, then throws his thoughts as wide and far as he can, avoiding the inhuman minds around him as he summons the memory of helping hold a perimeter outside a town near Saffron while knowing that help was coming. He projects not just his battle calm, but a sense of determination, of hope in approaching relief, out to the various scientists and researchers…</p>
+
+<p>…dips into a strong memory of visiting a nearby ranger outpost with his dad—</p>
+
+<p>—teleports—</p>
+
+<p>—reorients—</p>
+
+<p>"Emergency!" He sends his mind out again, projecting the urgent energy dancing through his body as he runs to the front of the outpost and pounds on the door, then remembers they're not locked and throws it open. "Emergency!" he shouts into the hall. "Pallet Labs, Code White, don't try to catch them in pokeballs, this is Red Verres! I'm going back to help, but get there NOW as many as you can send!"</p>
+
+<p>And then he's closing his eyes as he hears the sounds of running steps, dipping into one of his happier memories at Blue's house, and a few moments later he's there, reorienting through the dull headache he's feeling as he looks around the living room, pulses his psydar, then runs up the stairs shouting, "Professor!"</p>
+
+<p>Samuel Oak steps out of the bathroom just as Red reaches the hall toward it, half-shaven and wearing only boxers and a bathrobe. "Red, what—"</p>
+
+<p>"Pallet Labs code white internet down needs help don't try catching them going back!"</p>
+
+<p>Once more his mental states shuffle, once more he reorients to the battlefield, which is much as he left it. A brief merger with Charizard confirms that his pokemon is starting to tire, and he urges him to come back so Red can apply some ether.</p>
+
+<p>As he does that, he tries to think of who else might be close enough to be worth getting. There are trainers in Pallet that would come to the lab's defense, especially given that the rest of the town might be in danger, but getting them here is the problem. He briefly considers using his loudspeaker and teleporting onto some apartment buildings to shout for help, then remembers that he's supposed to have gone back to report to Looker.</p>
+
+<p>He takes one more look at the battle to make sure no one is in immediate danger, then withdraws Charizard again before he teleports back to Interpol.</p>
+
+<p>Looker immediately takes his headphones off again. He waits patiently for Red's disorientation to fade, then asks, "How bad?"</p>
+
+<p>"Tier 2," Red says, thinking of what might happen to Pallet and the areas around it if containment at the lab fails. "At least. Easily 3, maybe more."</p>
+
+<p>Looker swears. "Relaying info through the Ranger outposts will take some time, but you need to get to Viridian Gym."</p>
+
+<p>Right, the gym… he's not used to Pallet relying on Viridian, since the powerful pokemon at the lab's ranches, local outposts, and the Professor are usually enough to handle any major issues that come up nearby…</p>
+
+<p>"I already let Professor Oak know," Red says as he checks the time in the corner of his vision. "He might be enough to turn things around, with the Rangers. I'll still hop over to Viridian, then I need to meet Jensen and the others, I told them—"</p>
+
+<p>"Red, the net is still down. I was trying to tell you earlier, they won't have their Saffron teleporters." Looker is rubbing his forehead. "They're stuck in Cinnabar unless they want to teleport back here, and we're not much closer to Saffron."</p>
+
+<p>Red stares at him in stunned silence for a moment, then takes his helmet off and runs a hand through his hair as his heart slowly sinks into his stomach. Even after realizing the implications of what Looker told him about the dexnet, he hadn't put those two bits of knowledge together, too distracted by what was happening at the labs… "I should… go back, let them know—"</p>
+
+<p>"Much as I'd like you to stay safe, the lab needs you. Before you go, dump your helmet's data here so I have some idea of what's going on. You were recording, right?"</p>
+
+<p>"Yeah." The helmet records a ton of data when prompted to, which he did just before he teleported to Cinnabar the first time. He knows Looker is asking for the data now not just so he has a sense of what's been happening, but also in case something happens to Red.</p>
+
+<p>It takes just a couple minutes to plug his helmet in and let it dump its contents, and he runs to the nearby bathroom while he has the spare moment. When he gets back Looker is frowning at his screen as he watches a recording of the strange pokemon being fought outside Kanto labs. Red is about to ask if he skipped past the variants from the Cinnabar Lab when Looker taps the monitor and asks, "What the hell is this supposed to be?"</p>
+
+<p>Red looks closer and frowns. He saw the vague shape from a distance, recognized the scene, and assumed it was showing the pokemon he fought with Starmie… but it looks wrong. Like there's just a splotch of glitching pixels where the enemy is supposed to be, with hints of wood and metal occasionally glimpsed through the static.</p>
+
+<p>"I… that's not how it looks in person. Or, I mean, it's not how it looks through the helmet…" Among its many other functions, the visor has a built-in Silph Scope effect, and Red wonders if they're all Ghost types, and not just the one Agatha was fighting… "It may have gotten damaged when I dropped it…? Skip back to Cinnabar for a moment… huh." The creatures there were doing the same thing in his helmet's camera. "Weird."</p>
+
+<p>Looker turns to him, and the look in his eyes makes Red forget the fascination of the screen for a moment. "When this is over, we need to have a talk about the chain of command here, and what it means to be working together."</p>
+
+<p>Red blinks, and stands a little straighter, surprised by the sudden conversational turn but unwilling to back down on his earlier decisions. "Yes, Sir. I'll—"</p>
+
+<p>"I'm not done. We need to have that talk, but right now I need you to listen and hear me. Whatever this is, what's happening, I don't think it's coincidence. Call me paranoid, sure, yeah. I am. It still stinks." He jabs a finger at Red. "And you're not taking it seriously. Look at you. You're about to go back into danger, alone. No backup, very little chance of getting any. You're about to face an unknown threat, without the ability to adapt by accessing your roster. You can still teleport freely, but suddenly your home town is at risk, and you're not about to abandon it even if the rest of the region wasn't at risk, are you?"</p>
+
+<p>Red thinks of his friends at the lab, his neighbors in Pallet Town, of Professor Oak with shaving cream over half his face. "No." He ran back into Cinnabar Lab earlier because Artem might have still been alive, because there's still some chance, however small, to save him… and, if the's being honest, because he still knew he could get away if he needed to.</p>
+
+<p>He reaches back to feel Bagra's foot, touches his mind to check reflexively how he's doing. Hungry? Tired? No. Not yet.</p>
+
+<p>Red tries to think through what Looker's saying, setting his skepticism aside as best he can and re-examine what he thinks he knows and why. If this is some high-level, complicated plot for him specifically… which he can't quite believe, but knows that stranger things have happened… what would he expect to see? What might happen next?</p>
+
+<p>"If… after I go back to the lab, if an anti-teleport field is suddenly there when I try to teleport away again… I'll summon Charizard and fly off."</p>
+
+<p>Looker's intense gaze stays on his. "Just like that?"</p>
+
+<p>"Yeah, I think so. It's… too much a coincidence, at that point. I would believe, really believe, that it's a trap set for me."</p>
+
+<p>"They'd know you have a charizard. They'll be ready."</p>
+
+<p>Red rubs his hair. "You think I shouldn't go back? I just go warn Giovanni and stay here?"</p>
+
+<p>"No. Like I said, Pallet needs you to communicate, if nothing else; there's a few spare radio in the container ball over there, and you need to bring one to them. You need to go to all the labs you can, share knowledge between them, drop off radios with each. But if Pallet isn't the trap, one of them is. I feel it." He presses a fist to his stomach. "You understand?"</p>
+
+<p>Red swallows, thinking of what he said to Looker before he left for Cinnabar, and what Looker said in return. Legibility, illegibility, trust. "Yeah. I get it."</p>
+
+<p>"Then go with eyes open, and come back to report in every ten minutes."</p>
+
+<p>Red nods, collects the containers and his helmet, then closes his eyes and tilts—</p>
+
+<p>—into Giovanni's office at Viridian Gym.</p>
+
+<p>He isn't there, but Red didn't really expect him to be. Some running and yelling through the hall quickly attracts enough attention, however, and after passing the warning on he teleports back to Pallet Labs…</p>
+
+<p>…where the battle is still ongoing, despite the presence of some rangers, Professor Oak, and a few more researchers than last time.</p>
+
+<p>Red reorients, projects his battle calm, and rushes toward another one of the massive, slow monsters that a handful of people are holding back, including the Professor. Red summons Charizard, Nidoqueen, and Butterfree; the first to get some rest, the second to attack, and the third in case these things are susceptible to spores and powders.</p>
+
+<p>As far as he can tell the answer is no, but each glob of acid Nidoqueen spits at the hulking bundle of… fused objects…? causes more and more of it to melt away every second, until it's reduced down to half the size it was when he arrived… which is when it abruptly splits into two, each part moving much faster and dodging every attack thrown at them.</p>
+
+<p>Red has Butterfree send a Bug Buzz down at the one closest to him, while a researcher (Mia, he remembers her from the lab's botanics department) tries to get her tangrowth to keep it still with a dozen vines wrapped around its various parts… only for it to suddenly leap into the sky, dragging the tangrowth up with it.</p>
+
+<p>They can fly! Red thinks, and only the battle calm keeps his shock from being too much to save his butterfree, who he returns to its ball just as the thing is about to crash into it. He resummons it a moment later and orders it to send another Bug Buzz at the thing, hoping to knock it down for his nidoqueen, but instead it turns at an abrupt angle and breaks into two again, one spitting a stream of water at Butterfree while the other plunges into the mass of vines around the tangrowth's body and out the other side.</p>
+
+<p>Mia cries out in anger or pain as she withdraws the tangrowth and summons a victreebell instead. Red uses Butterfree's compound vision to keep track of both split halves at once, and directs Charizard and Nidoqueen to attack with fire and acid.</p>
+
+<p>Charizard's attack is wide enough to hit, and his target crumbles into ash. Nidoqueen's attack misses, and her opponent starts to glow.</p>
+
+<p>Dodge! Red sends, nearly leaping himself with the impulse he's sending his pokemon to move, but she's too slow, as is his withdrawal; the hard-to-identify glob of stuff darts forward in a streak of light that abruptly stops on the other side of Nidoqueen, who stumbles, then collapses with a hole torn out of the tough hide at her chest and spine.</p>
+
+<p>Red withdraws her a half-second later, and feels a wash of angry vindication as Charizard's flames catch the thing that may have just killed his pokemon in a gush that shatters it into burning bits. Next steps, he thinks to prompt himself to start moving again rather than stop to check how his pokemon is. Mia is already running toward the others to help with their half, and Red follows after a quick look around to ensure no one else is in critical need.</p>
+
+<p>There are more of the things coming. One of them seems to have torn a chunk of metal out from between broken glass panels in the lab wall, and now walks with a sort-of-tail that thumps on the ground behind as it lurches and jerks toward them.</p>
+
+<p>Red wonders what the others are seeing without the Silph Scope tech, but not enough to take his helmet off. He rushes over to help the professor's group with their half as well.</p>
+
+<p>This one thankfully goes down quickly with their combined efforts, and they have a breather before more get close that aren't already engaged. "Go," Professor Oak tells the others as he sprays potion over his ninetails. "All except you, Red. What do you know about all this?"</p>
+
+<p>So Red explains, keeping it as brief as possible while he empties the rest of his ether bottle for Charizard. "I only came because the things at Cinnabar were unlike anything I'd seen before, and the web being shut down so completely felt too coincidental. It seemed worth checking if anything had… escaped, or spread, or something."</p>
+
+<p>"And it did. They did. And now they're… what, in the servers? Taking over every object they see, bit by bit?" Professor Oak is wearing a loose sweater with khakis, three-quarters of his face is still covered in morning scruff, and there are bits of shaving cream beneath his ears, but he looks more imposing than Red has ever seen him, practically radiating a tightly controlled fear, worry, grief, and most of all anger that lights his mind up like a beacon to Red's passive mental scans.</p>
+
+<p>"I guess so. We'd have to ask people who saw it starting to maybe know, but I saw someone… Artem… get killed by his pokedex as it turned into one of those things."</p>
+
+<p>Professor Oak's gaze softens at that, and he abruptly steps forward to pull Red into a hug. It's uncomfortable, and Red doesn't know how to make it stop without upsetting the professor, he wants to say he hadn't wanted a hug, he'd wanted…</p>
+
+<p>He's not sure what he wanted. And after another moment, the hug wrapped back around from bad to good, and he hugs the professor tightly back as dark, painful feelings stir in his chest and tears prickle behind his eyes.</p>
+
+<p>But only for a moment, and then he's pulling away. There's no time for grief, not yet. "Professor, I need to go, I want to stay and help but I need to make sure the other labs are safe."</p>
+
+<p>"I understand. Stay for just a little longer, first? I want your help to make sure, after."</p>
+
+<p>"After what?"</p>
+
+<p>"Buildings can be rebuilt, data can be regathered." The professor's emotions are all plain on his face, without any effort put into hiding or covering any of it up. "There's no way to know if they'll stop coming out of the lab, or what's happening in there, without going in. Instead, I'm going up on Goldie."</p>
+
+<p>It takes Red a couple seconds to put the meaning of the words together with his first sentence, and when he does it feels like a punch to the gut.</p>
+
+<p>He reaches out, trying to think of an objection, but the professor has already turned away to withdraw his pokemon and walk toward an open space. "Watch for any that get away!" he calls over his shoulder, and Red summons Starmie to extend his range while Professor Oak summons his strongest pokemon.</p>
+
+<p>The dragonite is twice as large as Red's charizard, sleek and glowing an orange-gold in the morning sun. She gives her trainer an affectionate nuzzle that nearly knocks him over as he quickly outfits her with a riding harness, then climbs onto her back.</p>
+
+<p>Then the wings spread thunderous wind around them, gusts making Red have to brace his legs to keep from being pushed back as Goldie roars and rises, accelerating far faster than it seems like such a large creature should. He quickly starts to saddle up Charizard as well while she darts in a circle above the battle, an erratic spark that seems to be playing in the bright blue sky, moving this way then that overhead…</p>
+
+<p>…before she starts to glow, like a reflection of the sun and then bright as a second one, until the light bursts down from it in a streak, down toward Pallet Labs, splitting into two, then four, then eight, each tipped with a sphere of energy that bursts in a crackling staccato of booms.</p>
+
+<p>Red watches numbly as the first wave of Draco Meteors demolish the lab's roof, hot wind blowing past him and making him unzip part of his jacket to not overheat. The helmet protects his eyes from visual glare or wind, and it's only the tears that blur his vision as the second scattering of meteors blows out the outer walls, then a third collapses the inner ones.</p>
+
+<p>Those not battling watch in solemn silence as the most eminent researcher in Kanto destroys his life's work. Most snap out of it quickly and finish rejuvenating their pokemon before joining one of the various fights, but Red can sense their grief, even from the rangers.</p>
+
+<p>He does his best not to get sucked in by them, nudging Charizard to take off in one direction while sending Starmie in the other, the two of them circling the melted metal and glass of the destroyed lab. Even after multiple lessons with Misty to get used to Starmie's unique sensorium, it's a challenge to keep from seeing everything it senses as strange and alien… but there are definitely a few spots of extra strangeness that he can identify through his own, smaller psychic range, and he zeroes in on them one at a time, breathing fire down—having Charizard breath fire down—to mark them for the others, then moving on to the next.</p>
+
+<p>Once he's sure they've all been tagged and are being battled, he nudges Charizard to the outer edge of the perimeter again and brings Starmie back to him, detaching his thoughts from theirs and just resting against his pokemon's warm neck for a while, breathing hard. He wants to take his helmet off, but it provides too many benefits, and he's not sure if fresh air will make his headache better or worse.</p>
+
+<p>Take this seriously. If someone wanted to ambush Red right now, they would sure have an easy time of it, and Red belatedly notices how much less effective the battle calm feels, and has felt lately.</p>
+
+<p>He checks Bagra's mental field for anything identified as threat, then withdraws again, realizing belatedly what a pointless idea that was. Everything feels like a threat to his abra, and what Red needs most right now isn't immediate physical safety but a lack of mental strain.</p>
+
+<p>Red unlatches himself from Charizard and takes one of the radios out of his container ball, then unsaddles his pokemon and withdraws him and Starmie. He waves to get someone's attention, points to the radio, then teleports back to Interpol.</p>
+
+<p>Once he's reoriented he feels vaguely like he did something wrong, leaving everyone like that. But once he started paying attention to how he felt, he realized how risky what he's been doing is.</p>
+
+<p>"Update?" Looker asks, voice gruff as he takes Red in. He's not sure how much of what he's feeling is coming through his body language, but he keeps his helmet on so as not to have to worry about his facial expression, which Looker shouldn't be able to make out at this distance.</p>
+
+<p>"The lab is gone. Destroyed by Professor Oak." Saying the words makes Red's throat feel blocked, a heavy weight settling around his heart. "I did what I could to make sure there aren't any survivors."</p>
+
+<p>"Good. No sign of a trap?"</p>
+
+<p>"Nothing obvious… except for, maybe, one thing that just occurred to me before I came here."</p>
+
+<p>Looker leans forward. "What happened?"</p>
+
+<p>"Nothing, yet. But I'm… feeling the strain. Of all this, but specifically from using my psychic abilities too much. The last time I felt this was—"</p>
+
+<p>"Silph."</p>
+
+<p>"Yeah. It… knocks my partitions out, makes it so I get emotionally overwhelmed and jumbled memories. I think, maybe… if this is a trap meant for me, it might be one meant to wear me down, make me overextend myself first."</p>
+
+<p>Looker nods, frown having shifted to a slightly-more-thoughtful frown. "It makes sense. Good catch."</p>
+
+<p>"It's just a thought."</p>
+
+<p>"It's more than that. You're thinking like your enemy might, at least a little. And that's not a bad thing when you have so many enemies." Looker lifts the wire, and Red reluctantly pulls his helmet off to plug it in again keeping his face in what he hopes is an attentive, not too strained expression.</p>
+
+<p>"You're thinking of going back out?" Looker asks, gaze on Red's face. "Even still?"</p>
+
+<p>The man might as well be psychic. "The labs still need me. But I won't be… sticking around. Helping. I'll drop the radios, share information, then go."</p>
+
+<p>Looker sighs and rubs his eyes. "There could be an ambush set up at any one of these."</p>
+
+<p>"My gut says that's not it."</p>
+
+<p>Looker lowers his hand, watching Red even more attentively now. "What does it say, then?"</p>
+
+<p>Red takes a moment to introspect again, and not just because he knows Looker is skeptical that Red isn't just finding an excuse. "My gut, or maybe unpartitioned Red, says that the plan is doing two things at once."</p>
+
+<p>"Good plans often do, so long as their steps stay simple and independent."</p>
+
+<p>Red frowns as he thinks back on what happened. Were there simple steps anywhere in all this mess?</p>
+
+<p>Maybe one obvious one. Maybe two.</p>
+
+<p>"First, sowing chaos? That feels weak, but…" Red shrugs. "I don't know what else the point of all this would be. The implications for unown research… it's too much to imagine right now, good or bad. But second, it's keeping me too busy and distracted to notice something else that's happening."</p>
+
+<p>"While also tiring you out."</p>
+
+<p>"Right. If a confrontation is planned, which… I'm not sure one needs to be, if there's something happening right now that we're not hearing about because the net is down and I'm too busy doing all this stuff to notice anyway."</p>
+
+<p>Looker rubs his chin, gaze distant. Red lets him think, just enjoying the peace, the silence, even as part of him is still on the battlefield, twitching at sudden thoughts and half-imagined sounds. After a moment Looker pushes a tray toward Red, one he didn't even notice has a mug of tea and some biscuits on it, and he gratefully starts to eat and drink, being careful not to scald his tongue.</p>
+
+<p>"The obvious places for a trap," Looker says after a minute of gentle blowing is enough for Red to sip. "Involve Pallet, your mother, your friends. Here too, but that would be too bold. If they're not planning to take you down, just distract you, my best guess is they'll be after Silph again. They have redundancies though, their security won't get caught with their belts off just because there's no net."</p>
+
+<p>Red frowns slightly as the words hook on something in the back of his mind. "Who might?"</p>
+
+<p>"I don't know. Not my specialty, and Tsunemori left to cover her own set of bases. You could check with her, but we're better off working backward from the goal."</p>
+
+<p>"We don't know their goal," Red says, feeling antsy again now that the biscuits are eaten and the tea is mostly drunk. He should be checking out the other labs, maybe going back to Cinnabar to reassure Jensen… maybe checking on his mom?</p>
+
+<p>A brush of cold fear, which he quickly dismisses. It wouldn't make sense to set a trap for him with her, he'd have no reason to go see her now unless he suspected a trap in the first place, which… is too circular, surely…</p>
+
+<p>"If it's Rocket, they could have half a dozen targets," Looker says. "And it's probably better that you don't go teleporting to each of them along with the labs that you still need to check. We could let the latter go, rely on Tsunemori and my people to ensure they're okay."</p>
+
+<p>Red slowly nods, though he doesn't like it. A dozen dice rolls, more or less, and he's sure at least one will have a catastrophic result. It's chilling to think one might already have, given what he's seen today. And it's not even noon yet. "If it's Rowan, the labs probably are the thing. He could be at any one of them, but probably not the ones in Kanto unless he really is looking to face me."</p>
+
+<p>"In which case you should, again, not be checking the labs."</p>
+
+<p>Red sighs and shifts in place, taking his helmet back but not putting it on yet. He thinks back to Looker's earlier words about how Silph wouldn't be caught out just because the net is down, and wonders again who might. "I should check on Sabrina."</p>
+
+<p>"Revenge for something?"</p>
+
+<p>"Nothing specific comes to mind, but the way he spoke about her…" Red frowns and closes his eyes. "I want to go to the labs, I feel like I <em>need </em>to, but..."</p>
+
+<p>"Got something?"</p>
+
+<p><em>Do we?</em> Red asks his unpartitioned self, but gets no response… other than a vague shrugging impulse, which he acts on. "I don't know. I keep thinking of what you said about Silph security, and what I did when I was there, to stay ahead of the renegades. It wore me out, but it worked. I'm worried about that turning against me, if I try it again. Or, not turning against me, but being turned against me? I don't know if I'm making sense."</p>
+
+<p>"You are to me."</p>
+
+<p>"Cold comfort."</p>
+
+<p>Looker raises a brow, but cracks a small smile. "Keep talking. What does your gut say?"</p>
+
+<p>Red almost tries Focusing, but a question comes to mind first. "Everyone else is protected, right? Everyone important I can think of, I mean, maybe not everyone, but who would attack Professor Oak or…"</p>
+
+<p>Red trails off as the feeling stirs in his chest, and as Looker asks, "Or?" Red is already putting his helmet on.</p>
+
+<p>"When did you last speak to Bill?"</p>
+
+<p>"I… haven't. I was relaying what I was told." Looker shakes his head. "It doesn't fit, his place is a fortress. He's got his own power, backup radio, security measures…"</p>
+
+<p>"He's alone, and he's not a trainer, and his lab has a ton of stuff in it." Red activates his helmet, checks with Bagra, then says, "I'm going."</p>
+
+<p>"<em>Wait</em>, Red!" Looker is flipping through a notebook, headphones half-on. "If it's a trap—"</p>
+
+<p>"I won't go straight in. I'll scout first. But I have to check."</p>
+
+<p>"The radio, just need to find his frequency—"</p>
+
+<p>"Is it an instant response?"</p>
+
+<p>"Not if he isn't near it."</p>
+
+<p>"Then it's slower than I'll be."</p>
+
+<p>And with that, he teleports to the front of Bill's home, the place where he and Leaf encountered a talking Clefairy that nearly gave him a heart attack…</p>
+
+<p>…arrives…</p>
+
+<p>…reorients…</p>
+
+<p>…pulses his psydar…</p>
+
+<p>…and immediately feels it. The offness. The second mind.</p>
+
+<p>Red rocks on his heels, heart in his throat and pounding hard. Would he be stepping into a trap, or interrupting the true objective? Is he in a good shape to face Rowan alone? Does he have time to tell Looker?</p>
+
+<p>What decides him are the two pulses of psydar that give him a sense of what's happening below:</p>
+
+<p>A chase, through the tunnels of the lab.</p>
+
+<p>Red rushes forward to join it.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/134/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/136/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -617,6 +721,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Most people think of sexual orientations as pretty straightforward: hetero/homo/bi/pan/asexuality may exist on more of a scale than as fixed points,  and many people, particularly older ones, are conf...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Romantic Orientation">
+    <meta property="og:description" content="Most people think of sexual orientations as pretty straightforward: hetero/homo/bi/pan/asexuality may exist on more of a scale than as fixed points,  and many people, particularly older ones, are conf...">
+    <meta property="og:type" content="article">
+    <title>Romantic Orientation - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Romantic Orientation</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        March 03, 2021
+                    </span>
+                    <span>📁 Relationship Advice</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p>Most people think of sexual orientations as pretty straightforward: hetero/homo/bi/pan/asexuality may exist on more of a scale than as fixed points,  and many people, particularly older ones, are confused about some of them, but at least conceptually it's understood what someone means when they say "sexual orientation."</p>
+
+<p><span style="font-weight: 400;">I think "romantic orientation" would be a beneficial frame to normalize as well. While non-monogamous people don’t face the same level of hardship as those of non-heterosexual orientation, there are many similarities. Like heterosexuality, monogamy is the “default” expectation of most people, and many friends or family, particularly religious ones, will judge someone who is open about having anything but an exclusive orientation. Many polyamorous people tend to hide their true selves to fit in with a society that would not legally recognize their relationships, and, particularly in more puritanical times, pretend to be monogomous, as would be expected of them. Aromantic people, like asexuals, struggle with flip sides of the same social expectation: that romance and sex should be intrinsically linked.</span></p>
+
+<p><span style="font-weight: 400;">And good luck finding media portrayals of things like polyamory, let alone positive ones; at best you’ll see swingers, open relationships, or harems, all of which are different romantic orientations, and all of which lead to blurred lines and misunderstandings about what people who are not monogamously oriented want. Even bringing up that you feel romantic love for more than one person could cause massive stress, anxiety, and jealousy in monogamous partners, and scare off any who don’t have the same orientation.</span></p>
+
+<p><span style="font-weight: 400;">To clarify here for those unaware, polyamory is specifically the feeling of romantic love for multiple people. There’s a wide range of how this manifests and how polyamorous relationships can work in practice, but it’s more than just having a consensual open relationship where either person can have sex with other people.</span></p>
+
+<p><span style="font-weight: 400;">But the point is that "open relationship” is also an orientation, as much as monogamy is, or polyamory. This is distinctly different from simply a life of perpetually dating multiple people: many couples specifically want a partner who they can live with, raise a family with, and build their life around, but also enjoy flirting, dating, and sleeping with others.</span></p>
+
+<p><span style="font-weight: 400;">I’ve spoken to many friends and clients who realized they were some form of non-monogamous fairly late in life, and always there’s a sort of shock in the self-awakening, followed (for those who were already in monogamous relationships) by fear and sadness about their partner or spouse’s reaction if they found out. Some of these relationships endured through omission, others adapted once the truth came out, and of course some broke apart as people realized their </span>relationship orientation <span style="font-weight: 400;">did not match.</span></p>
+
+<p><span style="font-weight: 400;">Another parallel to sexual orientation is that romantic orientation exists on a spectrum. There are some people who are “bi-romantic,” so to speak, who note different tradeoffs between a monogamous relationship and polyamorous one, but can be happy in either. These people might still not enjoy an open relationship, however... someone who would be happy in basically any romantic relationship </span><i><span style="font-weight: 400;">type, </span></i><span style="font-weight: 400;">though they may still prefer certain relationships based on the people involved, would be “panromantic"</span></p>
+
+<p><b>How does the orientation frame help?</b></p>
+
+<p><span style="font-weight: 400;">Knowing your orientation can be useful when you’re trying to figure out what makes you happy. People often experiment before they figure it out, and some people feel pressured into trying relationship types they don’t actually fit in… most commonly monogamous ones, of course, but sometimes open or polyamorous ones. And some people compromise as best they can; I know a couple where one person is monogamous and the other is open-but-with-primary. It’s genuinely difficult for the open person to reduce how much they have sex outside the relationship, but they make an effort to restrict it for their partner’s sake. The mono person tried dating others as well and ended up preferring exclusivity, but is okay with their partner having an occasional fling as long as they feel the commitment to their relationship is maintained.</span></p>
+
+<p>Still, the mono person finds it hard to talk to friends or family about their relationship, since they know it would invite a lot of dislike toward their partner or even judgement toward themself for “allowing” it; to many people, particularly of older generations, the very idea of consensual-non-monogamy is a myth, and those who engage in it can be seen as immoral on one end or being taken advantage of on the other. And so having to be deceptive to people they care about is an additional strain, as is having to be careful what they say in the workplace or on social media.</p>
+
+<p><span style="font-weight: 400;">Needless to say, both people are very emotionally mature, self-aware, and open to communicating honestly about how they feel and what they can do to help each other be more comfortable. If one of them took the approach of “why can’t you just stop going on dates with others” or “why don’t you just go on more dates yourself,” or even blamed themselves for not being able to change who they or their partner were, the relationship would never have survived as long as it has.</span></p>
+
+<p><span style="font-weight: 400;">Another two people I know have struggled to maintain monogamous relationships throughout their lives. What finally clicked for them, one through self-discovery and the other through extensive conversation and self-reflection, was a harem-style relationship, where they felt comfortable being in the role of, in one’s case, the head of the household, and in the other’s, part of a romantic group without the more high-maintenance demands of being anyone’s “primary.”</span></p>
+
+<p><span style="font-weight: 400;">A bisexual friend of mine realized they might not </span><i><span style="font-weight: 400;">ever </span></i><span style="font-weight: 400;">be happy in a monogamous relationship because it would mean cutting off a whole “part” of them and the sorts of experiences they  craved, but was afraid to talk to their partner about it because they know of that stereotype/worry that people have when dating someone bisexual. It wasn’t until they realized this went deeper than a simple desire to have sex with different people that they stopped trying to fit into a mold that didn’t fit <em>them</em>, and had a “second coming out,” but there are other bisexual people who stay happily married in monogamous relationships for life, because monogamy is their relationship orientation.</span></p>
+
+<p><span style="font-weight: 400;">Words have power. They are the main form our thoughts take, the primary way we make sense of our intuitions and feelings and desires and fears, and share them with each other. Of all the things I think should be treated and spoken about as orientations instead of preferences, this feels like the most important one.</span></p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">advice</span><span class="tag">psychology</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

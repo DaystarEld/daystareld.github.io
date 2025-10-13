@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Podcasts - Pokemon: The Origin of Species</title>
+    <title>Chapter 68: Internal Family Systems - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,22 +329,328 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Podcasts</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/67/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/69/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <a href="https://daystareld.com/podcast-2/rationally-writing/">Rationally Writing</a>, with <a href="http://alexanderwales.com/">Alexander Wales</a><br>
-<br>
-<a href="https://daystareld.com/podcast/great-therapists/">Any Thoughts On - Great Therapists vs Great Coaches</a>, as guest of <a href="https://www.teebarnett.com/">Tee Barnett</a>
-        </div>
+            <h1 class="chapter-title">Chapter 68: Internal Family Systems</h1>
 
-        <div class="chapter-nav">
-            <a href="../67/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../69/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>Pallet Town hasn't changed in four months. Or at least, not that Red can tell just by biking through it.</p>
+<p>Maybe some store has closed and been replaced, or some new homes have gone up. If so, they're not in his line of sight as he bikes down the main street. The illusion of its stability is only broken by his knowledge that his home is being inhabited by strangers and that Pallet Labs, gleaming in the distance above the town's skyline, lacks its professor.</p>
+<p>But the relative quiet is the same, and is particularly soothing after a month in Saffron City. As is the smell of the ocean on the wind, and the distant sound of wingull crying into the open blue skies.</p>
+<p>He reaches his destination and packs his bike and pads away, then goes inside, feeling like he's stepping back in time. It's only been four months since he was in Pallet Town, but he hasn't been to Dr. Seward's office in years. The waiting room hasn't changed since he was last here, though the office itself has. The carpet is the same dark green, but there's a new couch, and the paintings are different; more landscapes rather than abstract art.</p>
+<p>Dr. Seward herself is apparently unchanged, however, and her smile is warm as he sits down. "Hello, Red. Glad you could finally make it in person."</p>
+<p>"Me too." He sinks into the couch and is gratified by how comfortable it is. He's a little sweaty from the ride, or else he'd lie down.</p>
+<p>"You can lie down, if you want."</p>
+<p>Red immediately reinforces his shield, then blinks at her, and smiles. "You know, I've been living in a building full of psychics for a month now, and I've nearly forgotten how effective simple deduction can be."</p>
+<p>Her eyes glint merrily. "Well, I'm happy to remind you. Plus, you always did enjoy lying down. Despite the stereotype, you were my only client young enough to actually do it."</p>
+<p>Red grins, and decides to follow her suggestion. He lets his shoes dangle over the side of the couch and uses the pillows to give his head something to rest against.</p>
+<p>"Better?"</p>
+<p>"Yeah." He lets out a breath, feeling himself relax as he stares at the ceiling, her face still in his periphery. After a moment he thinks of the attention he's still keeping automatically to maintaining his shield. "Do you mind if I bring my mental shield down too?"</p>
+<p>"Why would I mind that?"</p>
+<p>"I sort of detect minds by reflex, now. It takes concentration not to."</p>
+<p>"Ah." His therapist considers that. "It's just the detection of a mind? Not a way to identify people or read thoughts?"</p>
+<p>Red hesitates, considering it. "Well, I can't identify people just by detecting their mind, no. But if I ever detect the same mind elsewhere, I might recognize the feel of it."</p>
+<p>"Might? How reliable is that?"</p>
+<p>"The more time I spend with them, the more reliable it is. Ummm…" He thinks back to past experiences. "A couple hours would help me identify someone with something like… 80% accuracy, if I focus on their mental signature?"</p>
+<p>"Hmmm." She taps her fingers on her desk. "You'll only be here for an hour, so I suppose that's alright. And thoughts?"</p>
+<p>"What? Oh, no. Surface impressions only."</p>
+<p>"Meaning?"</p>
+<p>Red shifts, considering an example. "Again, familiarity helps a lot, but eventually I'd be able to recognize if someone is happy or sad or angry with enough exposure. I'm not good enough to tell for total strangers right away."</p>
+<p>Dr. Seward nods. "Alright, I don't think that would violate any privacy. Go ahead."</p>
+<p>"Thanks." Red lets his shield relax, and is immediately aware of the minds around him. Dr. Seward's, two people in the room his feet are pointing at, a handful scattered below and above them, and a couple more moving outside around the building.</p>
+<p>"So, how has your visit been so far?"</p>
+<p>"Good. This is only my second stop, then I'm heading back."</p>
+<p>"Ah. The lab was the other, I take it? Good to see familiar faces?"</p>
+<p>"Yeah." He doesn't want to talk about how empty it seemed without the Professor, then remembers where he is and lets a breath out. "Missed one, though."</p>
+<p>She nods, and Red notices her mind shift in a way that he finds easy to interpret as concern. "How's Sam doing? Have you seen him recently?"</p>
+<p>"Not since last week. But Daisy says he's doing better. Walking again, with some help." Red's stomach twists briefly at the memory of the Professor lying in the hospital bed. He's still there at the doctor's orders instead of at home, because they knew if he was discharged he wouldn't rest.</p>
+<p>"Glad to hear it." Dr. Seward watches him a moment, and something in her bearing changes. "So. Our first session since the attack on Vermilion, and you wanted it to be in person. I can't really imagine what you went through, but I've been worried about you."</p>
+<p>Red nods, gaze down. "I appreciate it. I just… wasn't really up to talking about anything, yet."</p>
+<p>"I understand. I'm sure there are a dozen things we could spend the session talking about, and I don't blame you for needing time to process a lot of it on your own."</p>
+<p>Red thinks of that night. The fear from the Pressure and the fights, the grief and frustration over those they couldn't save, and of course the guilt about not being able to stop Aiko. And the days and nights leading up to it, on the cruise with Leaf. And the aftermath, with her and Blue. "A couple dozen, yeah," he says as he focuses on his breathing until the twisted knot of pain and anger and sadness and regret slowly fade.</p>
+<p>She nods. "How's the survivor's guilt?" She says it so matter of factly that he knows it must be the most common thing for people who've been through a Tier 3 incident.</p>
+<p>"Not as bad as it could be, all things considered."</p>
+<p>"Nightmares?"</p>
+<p>"Very few, actually."</p>
+<p>"Good. Are you missing Blue and Leaf?"</p>
+<p>Anger flashes through him, but also regret, and not just about Leaf. "Some. But there's nothing I can do about that." He'd shared basic details of the attack's aftermath over email, but it was sparse and didn't include his feelings for Leaf.</p>
+<p>"Nothing?"</p>
+<p>"We're all where we need to be, right now. Leaf's at the Sakai ranch, helping Aiko's dad and working on a project." <em>A project she won't talk about, for some reason, </em>and there's pain with that thought too.</p>
+<p>"And Blue?"</p>
+<p>They haven't spoken since after the funeral, and the only plus side to the "conversation" was Leaf has since stopped trying to get them to talk. At this point, the only thing he wants to hear from Blue is an apology. "Doing gym stuff."</p>
+<p>"I see." Her mental impression shifts again, though Red lacks the context to understand how. Her face just keeps radiating patient concern. "Not to press too much, but even if it seems like things can't get better, you might just be too close to the situation to see how. Or maybe just processing how you feel about it can help."</p>
+<p>Red sighs and closes his eyes. "Maybe. I get that there's probably something to unpack in all that, but like I said, we're all where we need to be right now. And honestly, there's something more important on my mind."</p>
+<p>"Ah. By all means, then, what can I help you with?"</p>
+<p>"My psychic apprenticeship. There are seven of us right now, and Leader Sabrina is a big believer in the idea that people learn best through teaching. So all her students spend most of our time giving lessons to each other or gym members."</p>
+<p>"Not exactly what you expected, I take it?"</p>
+<p>Red smiles. "I don't mind that part, actually. I like teaching. But because we're all at such different levels and have different specialties, and her time is so limited, she decides on individual lessons based on our progress to make sure she's not going to just be teaching something that someone else can."</p>
+<p>"Ah. I think I see. You haven't been getting many private lessons from her?"</p>
+<p>"Only one, so far," Red says, voice glum. "There's always at least another more advanced student around, which means the focus is rarely on what I'm interested in most. I'm learning a lot more control and finesse, and a few new techniques, but mostly I want help improving my connection with pokemon. I decided to practice fully inhabiting every psychic pokemon I can get my hands on to better understand the different psychic experiences, but I'm a long way from the seamless merge that Sabrina can do with her pokemon. I know it's only been a month, but I don't think it's going to change anytime soon at this rate."</p>
+<p>Dr. Seward leans back in her seat. "So you need to impress her. Not just once, I'm guessing, but enough to let her know it's worthwhile to teach you more individually, and more often."</p>
+<p>"Yeah, and the main thing that's holding me back so far is that I can only spend so much time practicing before the grief shows up. So that's what I want to focus on."</p>
+<p>His therapist stares at him a moment. "Can I ask, how that feels, internally?"</p>
+<p>"How what feels?"</p>
+<p>"That decision process, of wanting to deal with your grief because it's getting in the way of an ambition."</p>
+<p>Red shrugs. "It's… it just feels—"</p>
+<p>"Wait. Not off the cuff. Give it a minute. Really look."</p>
+<p>"Right." He breathes in and closes his eyes. At first it feels like nothing in particular, but when he imagines things from her perspective, and he recognizes her concern; it's a bit of a cold-blooded reason to want to get over grief.</p>
+<p>But isn't that right? To want to get over grief as quickly as you can? It's not like he's trying to get rid of memories of Aiko or his dad (he knows how to do that, now, though not with much skill yet), he just wants to get over the <em>pain </em>of it. "It just feels pragmatic. I know I don't have the willpower to just… open myself up to dealing with it for its own sake. The world won't stop for me. I learned that after Dad. So it's not an intrinsic motivation, but if I need to get it done anyway, an extrinsic motivation will have to do."</p>
+<p>Dr. Seward nods slowly. "Understandable. But I do remember you mentioning that you're worried about the way so many psychics seem to be socially hard to interact with. How worried are you that you might become more like that, now that you'll be entrenched in that life and culture?"</p>
+<p>Red had noticed it a few times since he moved to Saffron, but he hadn't thought of how it might affect him for a while. "Well, I guess I'm worried about it now. Is that something you can keep an eye out for?"</p>
+<p>"I'm happy to share observations if any come to mind, but we don't interact in a day to day setting. Do you think you can ask someone else you see more often?"</p>
+<p>"...You mean like the other psychics I'm trying not to become like?"</p>
+<p>"Hm. I didn't realize that would be everyone you interact with. Maybe Leaf?"</p>
+<p>Red shifts. <em>Hey Leaf, let me know if I'm acting too cold and aloof, but not because of all the awkwardness about Aiko dying or you siding with Blue. </em>"Sure."</p>
+<p>Her brow rises. "And will you?"</p>
+<p>Red sighs, smiling. "Yeah, I will. Promise."</p>
+<p>"Good. Alright, then. Why don't we start by clarifying how the grief has changed, since your friend died."</p>
+<p>Red shifts, smile fading. The pain of thinking about Aiko in the past tense is a muted thing, both for the month that passed and his partition, but it still makes it hard to think clearly for a moment. He remembers being here after his dad died and having to struggle to even speak through the weight in his chest, the grey curtain dividing him from the world. "I had a dream last week."</p>
+<p>"You don't normally mention dreams. I assume it's relevant?"</p>
+<p>"I think it might be, yeah..."</p>
+<hr noshade="noshade" size="1" />
+<p>"<em>Ten minutes."</em></p>
+<p><em>A long table in an empty white room, its wood top bare of covers or sheets, its chairs simple and abstract.</em></p>
+<p><em>To the left sat Red. His hair was wet, clothes dirty and torn. An extra pokebelt hung loose around his stomach, some balls missing from both. His gaze was long, though it ended at the tabletop just in front of him.</em></p>
+<p><em>Across from him sat Red, looking a few years older and wearing a white lab coat. He looked frustrated, and his leg bounced with nervous energy beneath the table as his arms stayed rigidly locked across his chest.</em></p>
+<p><em>Between them sat Red, looking more or less as his current self, attention on Past Red.</em></p>
+<p>"<em>Ten minutes?"</em></p>
+<p>"<em>That's about how long Aiko kept the Second waiting. About how long his people were in the hospital before we got there. If we were with them, would we have made the same decision 10 minutes earlier?"</em></p>
+<p>"<em>We can't know the answer to that," Future Red said. "And we shouldn't even be talking about this to avoid projection or anchoring bias."</em></p>
+<p><em>Red shook his head, trying to avoid a fight that he can sense coming. "No one's asking you to precommit to anything."</em></p>
+<p>"<em>You don't have to </em>ask <em>me to do it, but I'll still feel pressured to if we decide ahead of time that we should be more heroic because we're guilty about Aiko."</em></p>
+<p>"<em>Aren't we?" Past Red asked, looking up at the other two.</em></p>
+<p>"<em>I don't think so," Present Red said.</em></p>
+<p>"<em>I don't think so," Future Red said, more confidently. "But that might change, and if it does I'll worry about that. Until then, don't make decisions that might limit my ability to accurately assess a situation."</em></p>
+<p>"<em>You don't know that you're able to accurately assess a situation now," Past Red insisted. "As long as the partition is up, you're just a faulty model of our future self, and if you assume it's going to stay up then you're self-sabotaging."</em></p>
+<p><em>Future Red rolled his eyes. "All I care about is what's best for us long term. If you want to bring down the partition and drown us in misery, if you think that's what we need to do, then do it, and I'll change. But you might not like what I turn into."</em></p>
+<p>"<em>We all want what's best for you," Red said, holding a hand up toward both of them. "But I don't want to be drowned in misery, right now. Working with Sabrina is too rare an opportunity to risk to depression. What other suggestions do you have?"</em></p>
+<p><em>Past Red shrugged, looking too tired to put up much of a fight. "I can only tell you what has and hasn't worked. Keeping everything locked away wasn't our choice, but it seemed to work out okay… unless it didn't. If Blue is right, then we made the decision not to go in because we were scared of dying. Yes, it turned out we were right not to go in that time. But we're not architects, or firefighters. We didn't draw on any expertise when we made that decision, that it was too dangerous. Just an intuition, a gut feeling that said it was too dangerous, or it was just tired of rolling the dice after putting ourselves in danger too much already."</em></p>
+<p>"<em>This is backwards," Future Red said. "You're supposed to be the conservative one, the one that sticks to what works. Why are you second-guessing what kept us alive?"</em></p>
+<p><em>Past Red shook his head. "I'm the one that cares what lessons we learned. I'm the one that cares that what I went through wasn't for nothing, that the best comes from it, so that you each will know the same when it's your time to be me. </em>Would <em>we have gone in when it was less hopeless?"</em></p>
+<p>"<em>Yes," Present Red said, looking uncertain.</em></p>
+<p>"<em>Yes," Future Red said, and frowned. "I'm only saying that because it's what we hope is true, given that this worked out well for us. If it hadn't, I would be saying the opposite… if I was around to say anything at all."</em></p>
+<p>"<em>And if it didn't work out well in another way?" Past Red asked, looking between them. "What if Blue is right in another way? What if no one trusts us in any life or death situations any more?"</em></p>
+<p>"<em>Do we want them to?" Future Red asked, sounding genuinely curious. "Is that something we still want?" A pokebelt appeared around his waist, then disappeared, then reappeared.</em></p>
+<p><em>"The journey was fun." Past Red sighed. "But…"</em></p>
+<p><em>"We can help others in other ways," Red said. "At least…"</em></p>
+<p><em>"Until we have more to offer," Future Red finished, and the belt disappeared. "Something more unique. So stop fixating on what Blue said, and on what happened to Aiko."</em></p>
+<p>"<em>And what about Leaf?" Past Red asked. "Do we still care about what she thinks of us?"</em></p>
+<p>"<em>Yes," Red and Future Red said together.</em></p>
+<p>"<em>Then shouldn't we make sure what we did was right?"</em></p>
+<p><em>Future Red shakes his head. "Or we find a better way to convince her it was."</em></p>
+<p>"<em>Which we can't do," Red said, and closed his eyes. "Not as long as we're not sure ourselves."</em></p>
+<hr noshade="noshade" size="1" />
+<p>The office is silent a moment as Red finishes recounting the dream. He shifts on the couch, turning a little as to get a better look at Dr. Seward's reaction.</p>
+<p>"Yes, I can see why that might be a clue of sorts," she says at last, face thoughtful.</p>
+<p>"I paraphrased a lot of it," Red adds. "But it was very coherent, for a dream, and hasn't been fading like most."</p>
+<p>"Was it lucid?"</p>
+<p>"Partially? No control, just… awareness that I was seeing something unreal."</p>
+<p>"I see. Earlier you said the survivor's guilt wasn't as bad as it could be, but that sounds like some part of you internalized Blue blaming you."</p>
+<p>"It's less about guilt for surviving, more about… the decision process itself. But I don't feel that way now, it's only when the partition is down that Past Red is more in control."</p>
+<p>Dr. Seward blinks. "Was that a poetic use of language, or…"</p>
+<p>Red sighs. "Not really."</p>
+<p>"Then I think it's time you explain how your partition works, exactly."</p>
+<p>Red nods and shifts so he can take his notebook out, then begins reading from his notes. "Okay, so first basic assumption is that all thoughts and emotions are just certain neurons activating in certain orders, right? Different sequences and patterns of neurons correspond to certain memories or experiences, so you basically have a 'map' of neurons that have to do with a strong memory, and it lights up again each time you think of that memory, and another map for, like, the way you feel when you listen to a certain song." Red grows more animated as he talks, and shifts on the couch so his neck is more comfortable. "Basically the partition seems to keep certain maps or patterns from firing, but preserves them."</p>
+<p>Dr. Seward is frowning slightly. "Can this be mapped by fMRI or EEG?"</p>
+<p>Red smiles. There's more than one reason he likes Dr. Seward. "Yeah, that's something I checked just a couple days ago."</p>
+<p>Dr. Seward makes a humming noise, then simply says, "That's pretty wild."</p>
+<p>He grins. "I know, right? So to use a metaphor, picture your thoughts like a river."</p>
+<p>"This seems familiar," she says with a wry smile. "Sorry, I'll stop interrupting. River, done."</p>
+<p>"The main channel is most of what you think and feel day to day, right? It's what has the most current and carries you in it like a fish. There are streams that feed the river from 'outside,' so if you think of something new or are made aware of something it can shift the river's flow. A partition was like a dam, holding part of the river in check. When it leaked or burst from me using my powers, it altered the whole current."</p>
+<p>"I think I understand. But you're speaking in past tense?"</p>
+<p>"Well, yeah, that's how it used to be. Now it feels like there's a separate me behind that partition, and when it weakens enough, he takes over."</p>
+<p>If Dr. Seward is surprised, it doesn't show on her face or mental impression. He wonders if that's a trained therapist thing, or just part of the personality type that drew her to the profession. "So you're really being literal, when you describe it that way."</p>
+<p>Red shrugs. "Like 70%, rounding down to adjust for overconfidence? It really does feel like I become someone else, not just me-but-sad. I have thoughts I don't normally have, make decisions that I wouldn't normally make, think about the future totally differently…" Dr. Seward's lips purse a moment, and he remembers it as her way of hiding a smile, or trying to think of a way to phrase something. "Yes, I know that sounds like the sorts of things that applies to most people when they get sad, but trust me, it's different."</p>
+<p>"I have no reason to distrust you," she says. "But that doesn't mean I understand what you mean, when you say different. To an outside observer, how would they be able to tell it was different?"</p>
+<p>Red considers that a moment, then shrugs, embarrassed. "I guess I would be crying more."</p>
+<p>"Well, that sounds…" She stops herself. "I'm sorry, I was about to say that sounds like an improvement. But it probably doesn't feel like it, I bet?"</p>
+<p>Red shakes his head. "It's not what really bothers me, to be honest. The sadness I'm used to, but it's like there's a blizzard of emptiness and confusion around it, now."</p>
+<p>"Alright. So the depression has shifted from primarily sadness to anhedonia?"</p>
+<p>"Yeah. But it's not just that, either." Red struggles to put it into words, flipping through his notebook before he realizes another thing. "So before, I would also notice how I was feeling and wish the feelings would go away, right? Now…"</p>
+<p>"...you get some value from experiencing them?" Dr. Seward guesses, not sounding surprised.</p>
+<p>"No, I mean now when it happens I don't want it to stop, don't want the partition to come back up. Because it feels like being locked away again, or… worse."</p>
+<p>He was about to be more specific, but Dr. Seward looks concerned, which makes <em>Red</em> feel more concerned.</p>
+<p>Sometimes it doesn't feel like being locked away; sometimes it feels like dying. And sometimes the emotion that goes along with that is relief.</p>
+<p>It's such an alien feeling, for him. He's never wanted to die before, not even at his lowest point after his dad did. He's been trying not to freak out about this, but seeing his otherwise stoic therapist's worry says a lot about how weird it all might be.</p>
+<p>"So you're saying you feel like there really is another you, who would lose themself when you return."</p>
+<p>"Yeah."</p>
+<p>"Alright. Give me a moment to think."</p>
+<p>Red nods, trying to ignore his growing nervousness. It was hard to decide to share this with Dr. Seward. What if she judges that he's just "crazy," now? What if she's right?</p>
+<p>Eventually he can't help but reach out for a quick merge to check her mental state, but the emotion that comes over him isn't what he'd expect if she thought it was something serious. All he feels from her is curiosity, and concern.</p>
+<p>"My first reaction," she finally says, causing him to withdraw, "Is that I feel unsure of how to help address grief the way you experience it. It seems to have shifted from bereavement, however complex, to something similar to dissociative identity disorder. I've read up some on the phenomenon of partitions since we began again, and your explanation and analogy felt helpful, but if it's possible for things like this to happen, it's clear I don't really understand it at all."</p>
+<p>"Yeah, that doesn't change much from this side of things," Red says, forcing a wry smile. The fact that it's not called "multiple personality disorder" anymore doesn't make it feel much less like she is, in fact, suggesting that his brain might be broken.</p>
+<p>"I imagine you've already looked into it more than I have. Has there ever been an incident like this before, that you've found?"</p>
+<p>"Sort of? There's very little research on it, and what's there is confusing." Red sighs. "I also don't understand enough about how brains work to follow most of it myself." He hates taking what research says second hand from someone else, no matter how well regarded or credible. "But there are studies that showed that someone without the part of the brain that connects their left and right hemispheres—"</p>
+<p>"Corpus callosum."</p>
+<p>"Yeah, that, they end up acting like they have two distinct brains, only one of which can talk, and each of which control a different hand, to the point where their hands reach for different things at once."</p>
+<p>Dr. Seward's brow rises. "Really?"</p>
+<p>"Yeah, it gets weirder. If you show something to only their right hemisphere, and ask them what they saw, they'll say they didn't see anything… but their right hemisphere will still use its hand to follow directions it's shown."</p>
+<p>"Hmmm. I've never heard of this. You're usually fairly skeptical, so I'm assuming it was well supported?"</p>
+<p>Red smiles. "There's videos of it, and a number of experiments." He shrugs. "Maybe it's all nonsense, but… it seemed like it might be relevant."</p>
+<p>"Yes, I can see why. You haven't noticed yourself doing anything you don't understand, when the partition is down?"</p>
+<p>"Nope."</p>
+<p>"And no lost time, either?"</p>
+<p>There's a scary thought. "No, nothing like that. It doesn't feel like a break in consciousness, just a transition."</p>
+<p>"Alright. Normally I would say such things belong in fiction, but I feel a little out of my depth, and want to make sure we're being thorough." Her fingers drum on the desk a moment, then stop. "Then my main question, at this point, is whether it's possible a psychic therapist would better serve you, at this point?"</p>
+<p>Red blinks. A new therapist? "No, you already know me, my history. And I trust you."</p>
+<p>"Well, I'm glad to hear that, Red, but it's not just about rapport."</p>
+<p>"You're also way cheaper than a psychic therapist."</p>
+<p>Dr. Seward can't hide her smile this time. "A serious answer, please? Part of my job is to recognize when I'm out of my depth, and I don't know if I have the expertise to effectively help you."</p>
+<p>So Red spends a moment thinking it over, imagining going to another therapist who could work with him psychically, deal with his partition and the emotions behind it in some more direct way… what had Psychic Narud said? <em>Like doing heart surgery with my fingers. </em>Something like that, and none of the psychics Red has spoken to about it since have made it seem any easier.</p>
+<p>And… "I don't want to treat it as a psychic phenomenon, yet. I know it's probably being affected by my powers, but… I think it's still just grief and sadness, at the end of the day. And you've helped me a lot, so far, with that. If we hit a wall and stay there a few weeks, I'll consider seeing someone new, but for now I'd like to continue if you would."</p>
+<p>Dr. Seward considers this, then nods. "That's fair. And yes, I would. Alright then." She leans back in her seat, fingers steepling. "There's a type of therapy called Internal Family Systems. Have you heard of it?"</p>
+<p>"No, but the name is pretty evocative." Red shifts. "It's not going to be, like… talking to an imagined version of my dad, is it?"</p>
+<p>"No, not unless you'd find that helpful. It's just a frame to help understand our feelings, and better interface with them. Most people find it useful to break the psyche down into subparts, and traditionally this has been things like the 'id, ego, and superego,' or 'conscious and subconscious,' or just personifying our emotions. Whenever we experience internal conflict in a way that can be described in terms of external conflicts, that's where Internal Family Systems can be especially helpful. We would use conflict resolution techniques and apply them to the internal parts of ourselves."</p>
+<p>Red blinks. "Um. I might already do that?"</p>
+<p>She smiles. "Yes, which is why I mentioned this. Often times, the 'family' is literal… people identify parts of themselves that are like an internal child, playful but easily frightened, or a teenager, full of stubbornness but often resentful, or a father, protective but judgmental, or a mother, comforting but stressed. These are stereotypes, of course, just labels we put on our internal drives and aspects. But it doesn't have to be a family, some classic archetypes are Protector or Exile, while other people imagine friends of theirs or fictional characters. In your case it seems the ideas of a Past, Present and Future Red are already discrete and… lively."</p>
+<p>"Yeah, no kidding. So, what, you're going to teach me to be a therapist for my inner selves?"</p>
+<p>"That's one way to do it. But before we go looking for solutions, we need to better understand these parts of yourself. You described them physically, from your dream, but what about their attributes? What do you think they represent, if anything?"</p>
+<p>Red considers a minute. His Present self often feels like the Id, but then again it's also often the Superego… maybe it helps to think of which of them are the most like his inner child? Definitely not his Past self, currently. No, wait, maybe it is, a bit…</p>
+<p>No, he's thinking about this wrong. He can't just map them onto other ideas, he has to treat each as some emergent part of himself. What do they <em>want? </em>Or maybe to start off, what do they not want?</p>
+<p>"Present me is always pain avoidant," Red says, brow furrowed. "I mean all three are, but Present me is driven by avoiding unpleasant things. It's the main thing that the others try to negotiate me into. Past me is very… uncertain. He doesn't like feeling judged, but he's also self-critical. Future me is the most ambitious. He can be kind of demanding, and he hates reneging on agreements the most."</p>
+<p>"Alright. That's a good start, I think. So it's fair to say they have a lot to argue about?"</p>
+<p>"Yeah." Red frowns. "Actually… I'm not sure this works? Those other frames make sense to me, I can understand having different parts that make you up, like a part of you that wants to spend more time with friends and another that wants to do more research, but for Past, Present and Future me... all three of us shift over time. I <em>was </em>Past Red. At some point Future Red will <em>be </em>me. When I talk about my Future self having a different desire, I'm just talking about <em>me</em> at a future time, but that self won't necessarily have that same desire. How does it make sense to say they have fixed attributes that are distinct from each other? "</p>
+<p>"Maybe it doesn't." Dr. Seward shrugs. "The only reason to use this frame is if it's helpful. But now that you've recognized and said all that, do you feel like that internal conflict is resolved?"</p>
+<p>"...Not really, no."</p>
+<p>She spreads her hands, and Red nods, thinking about it for another minute.</p>
+<p>"Okay, so I'm thinking about what they want, now, and Past Red is the part of me that's focused on making sure I learn from my mistakes. That seems obvious enough. Future Red is the part of me that's unsure about the future, so he wants security. Plans that are set and detailed and followed. But I don't know what Present Red represents? It just feels like he desires… all the things I desire."</p>
+<p>"Perhaps Present Red is an arbiter then, serving a similar function to the classic frame of the Ego. It's for you, as the Present Red in any given moment, to ensure that you understand your past and are prepared for your future. You are the rope being tugged on from both ends. Does that feel like it fits?"</p>
+<p>Red feels it out, checking to see if anything seems wrong with that, then slowly nods. "Yeah. That description, of feeling tugged in two different directions, it actually resonated a lot."</p>
+<p>"Alright then. Past you wants you to learn from your mistakes, Future you wants you to plan well and follow through on commitments. It sounds like you're all on the same side."</p>
+<p>"You'd think that, yeah."</p>
+<p>"But you still feel conflicted?"</p>
+<p>"Right now? No, the partition is up."</p>
+<p>"Ah, yes. Would it be alright for you to bring it down and check?"</p>
+<p>Red hesitates, then nods and closes his eyes.</p>
+<p>It's not hard, these days. Instead of having to over-exert his mental abilities, he can now feel the partition itself as it suppresses parts of his mental state, keeps certain neurons from firing. One of Sabrina's students taught him how to notice the shape of it in his mind, the negative space where thoughts should go but don't.</p>
+<p>The fact that he knows what's missing is what makes it possible to find those faded paths, feel along the edges where they should be. If he wants to give himself amnesia, all he has to do is use his abilities to quarantine a particular memory, then quarantine the memory of doing so to ensure it can't be accidentally stumbled upon.</p>
+<p>It's a really fascinating set of abilities that he'd love to spend more time experimenting with and studying, but he can't safely do it himself yet, and he's still the lowest on the totem pole for determining what he should be taught next… which is why he's here, so why is he stalling?</p>
+<p>Because it's unpleasant. Because even if it's necessary and what's best for Future Red, it's still painful to go through it each time. But if he can't live with the consequences to himself of letting Aiko go into that building alone… then maybe Blue was right.</p>
+<p>Red lets out his breath, then brings the partition down…</p>
+<p>...and is transported into another world.</p>
+<p>"Red? Is everything alright?"</p>
+<p>"No." His voice sounds flat and dull to his own ears.</p>
+<p>"What's wr—... ah. Is this… Past Red?"</p>
+<p>Red opens his eyes and turns to her, and he can sense her flinch even as her face stays placid and calm. "There is no Past Red. I was just being stupid and melodramatic. This is me."</p>
+<p>"I see. So what would you describe as the difference between how you are now, and how you were just a minute ago?"</p>
+<p>Red closes his eyes again and lets out a heavy breath. "I don't know. Naivety?"</p>
+<p>"Hm. Well, I can tell you that from an outside perspective, it seemed like you grew more tense. Your breathing changed. Even lying down, the difference in energy level is notable; you're completely still now, instead of shifting your feet or fidgeting, And your expression is far less animated. So if I'm able to observe all those things, from the outside, I can't help but think that maybe there are corresponding changes with how you feel."</p>
+<p>Red almost shakes his head, but it's too much effort. He realizes that sort of demonstrates her point, but it doesn't really matter. "It's not me that's changed. It's reality."</p>
+<p>"...Could you clarify that?"</p>
+<p>Red sighs again. "Before I was focused on what I need to get over what happened. To move past it. I was living in a reality where it's that simple, to ignore how much I miss my dad and how guilty I feel about A…" His throat hitches, and he feels heat spread up his throat and behind his eyes.</p>
+<p>"I see. I'm sorry, if asking this of you was too much."</p>
+<p>"It's fine," Red whispers, and clears his throat. He keeps his eyes closed until he's sure he won't cry. "They're dead, it's the least I can do to acknowledge that, instead of ignoring it like a… a coward…" The word comes out twisted as his face contorts. The tears are closer to the surface now, and as a sob shakes him they spill down his cheeks.</p>
+<p>Red vaguely makes out the sound of Dr. Seward moving the tissue box closer to him, and reaches out blindly for it. There's a feeling of strong deja vu as he remembers the times he cried in this room over his dad, and as he wipes his face and tries to control his breathing he feels ashamed anew at his earlier selfishness. He hadn't been afraid to cry over Dad, when he was younger. Now it's just so <em>inconvenient</em>…</p>
+<p>"Can I ask how you feel about what we were talking about, before? If you feel up to it."</p>
+<p>Red clears his throat, then wipes at his eyes again. "Sorry, what was the question?"</p>
+<p>"Just… do you feel conflicted? How do you relate to your Past and Future selves, now?"</p>
+<p>"Conflicted. Yeah." Dr. Seward is quiet, and after a moment Red realizes she asked about more than that. "It's just hard to stop thinking about what happened. I know the smart thing to do is just accept that death is part of life, that it's a risk my dad accepted every day he was working, that Aiko knew she was risking it when she left with us. When she... went into the building." He swallows, takes a breath. "I know that. But… I can't."</p>
+<p>Dr. Seward stays quiet again after he stops talking, and Red considers brushing her mind to see what she's feeling before losing interest. "That all makes perfect sense, to me," she finally says. "Of course you're going to keep thinking about it. Of course you're going to have trouble accepting their loss. That's a natural part of the grieving process. No matter how inevitable or uncertain, no matter how little the risks were understood or how much, no matter how responsible people were or weren't, millions of people feel the same things you do right now, Red. As unique as everyone's grieving process is, at its core it's based on the same pain and guilt and fear. You shouldn't expect yourself to just… put it all aside and keep going, if you're having trouble doing so."</p>
+<p>"Blue can," Red whispers. "Leaf can. Even Mr. Sakai…" The tears burn again, and he covers his face as the memory sweeps through him.</p>
+<p>"You think Mr. Sakai was able to put it aside?"</p>
+<p>Red nods, feeling the hot tears soak through the tissues.</p>
+<p>"Can you… tell me what makes you think that? Take your time."</p>
+<p>Red focuses on his breaths until they stop hitching, and when he speaks, it's in a watery whisper. "I went to Saffron the day after Sabrina agreed to teach me. Leaf was stuck in the hospital, and the ranch was close, and he still didn't know… so I went to tell him." He swallows the lump in his throat and sighs. "It was the least I could do..."</p>
+<hr noshade="noshade" size="1" />
+<p><em>When Red saw Mr. Sakai, he was moving from pen to pen to feed each pokemon. The sun was hot as it began its downward swing toward the horizon, but at the sight of Aiko's father, Red felt like there was a chunk of ice in his stomach.</em></p>
+<p><em>He didn't want to do it. Selfishly, he wished Leaf would have told him not to come alone. To wait for her. But they both recognized that Mr. Sakai had gone long enough without knowing, and it wouldn't get any easier with time.</em></p>
+<p><em>Thankfully, he had his abilities to fall back on. With them he at least could deliver the news without breaking down in tears.</em></p>
+<p><em>Unfortunately that didn't help with the other side of things. Any other parent would have called one of them to check where Aiko was. Would have seen about the Stormbringer attack on the news. Would have known, upon seeing Red, unannounced and with a solemn expression, that something was wrong.</em></p>
+<p><em>Instead Mr. Sakai greeted him warmly, and told him how well the pokemon have been doing, lately, and how he thought the people coming to see them for therapy has been good for them, still moving from pen to pen to withdraw each pokemon and put their ball in the bag he carried with him.</em></p>
+<p>"<em>Mr. Sakai," Red tried, voice steady. "I need to talk to you about Aiko."</em></p>
+<p>"<em>Oh, Aiko's not here right now. She's usually back by night, if you want to stick around…"</em></p>
+<p><em>Red's throat felt locked, and despite the disconnect he felt from the grief, he had to force the words out, past some other emotion. "No, Mr. Sakai, she's not coming tonight. Could we… talk inside?"</em></p>
+<p>"<em>The pokemon need to be fed," he responded, still moving from pen to pen with a sack of feed in one hand and a scoop in the other. "Aiko's late sometimes, but she'll be back soon… she's a good girl, you know, always takes care of them…"</em></p>
+<p><em>Red followed him to the next pen, then the next, trying to talk past Mr. Sakai's circuitous pattern of speech and thinking, until he lost his patience and simply grabbed Mr. Sakai's arm before he could move on to the next pen.</em></p>
+<p><em>Aiko's father looked down at his hand, and Red removed it, feeling ashamed. But he kept his gaze on Mr. Sakai's face, and when his eyes met his, Red could see it. He didn't know what his own face looked like, but he knew what it felt like. His frustration had vanished, and all that he felt was… empty.</em></p>
+<p>"<em>No," Aiko's father said. Just that one word, but it was enough to batter at Red's control, enough to take the air from his lungs, so that the next part was even harder than he expected it would be.</em></p>
+<p>"<em>She's dead, Mr. Sakai," Red whispered, trying to use the opening as best he could, his carefully rehearsed lines forgotten. "Died in Zapdos's attack on the city. I'm so sorry."</em></p>
+<p><em>He stopped there, couldn't say anything more. He should have been talking about what a hero she was. He'd confirmed it with a tearful Elaine, both for that night and their journey underground. He'd wanted to be able to answer any questions Mr. Sakai might ask, to be able to provide some solace, and on top of that felt like a shield in his mind, one he could raise before him if Mr. Sakai grew angry, cursed him for taking her away in the first place.</em></p>
+<p><em>But as he watched Mr. Sakai's puzzled gaze fill at last with understanding, then despair, Red knew it was a paper shield, one that he would toss aside if needed. He wouldn't accept the blame from Blue, but if a grieving father needed someone to blame…</em></p>
+<p><em>The older man crumpled backwards to sit on the grass, head hanging as a moan of grief escaped him. Red felt his own rising despite his efforts, and almost cut off all emotion completely.</em></p>
+<p><em>Instead he sat beside Mr. Sakai as he rocked back and forth and sobbed into his hands. "No, Aiko, not my good girl, my sweet baby... I'm sorry, Ema, I've lost her... I'm so sorry…"</em></p>
+<p><em>Red wept beside him as quietly as he could as he felt his heart rend, unsure of whether he should reach out or not, if his comfort would be welcome. He felt some need to fill the silence, to explain what happened, apologize for not stopping her. But as his insecurity held him back, he realized it was what he needed, not what Mr. Sakai needed, and so he kept quiet.</em></p>
+<p><em>They were beside an oddish pen, and a small gathering of the oddish and bellsprout within it came up to the wires to stare at their caretaker as he cried before wandering away. Red missed Pikachu badly, and wished he had more pokemon useful for comforting others, like Joy.</em></p>
+<p><em>After over half an hour, Aiko's father's sobs began to trail off into sniffles, and the occasional groan. Red dried his face and braced himself, thinking the questions would come any moment.</em></p>
+<p><em>Instead Mr. Sakai turned to him and smiled. It was a weak smile, one ready to dissolve back into tears at any moment… but he reached out and took Red's hand, ignoring his shocked look.</em></p>
+<p>"<em>Thank you, Red." Mr. Sakai's voice was hoarse, but present. "Thank you for taking my daughter with you. She… wanted to be a trainer so much…" His face contorted, straightened. "Are Blue and Leaf… alright?"</em></p>
+<p>"<em>Y-yeah." Red felt something like horror at the idea of Mr. Sakai thanking him without knowing what happened… but he couldn't bring it up himself. "Yeah, they're okay. Leaf is in the hospital, and Blue is helping with the city. I'm sure they'll come soon."</em></p>
+<p>"<em>Good." He squeezed Red's hand, then slowly began to push himself to his feet. "You're all welcome… anytime…"</em></p>
+<p><em>Red stared at him, then rose shakily to his feet as well. "Are you…" He cut himself off. How many times was he asked that same absurd question, after Dad died?</em></p>
+<p>"<em>Would you please… tell her aunt? I don't know how long I'll be able to... " Mr. Sakai trailed off as he picked up the feed bag. "Excuse me, please. Some pokemon still haven't eaten."</em></p>
+<p><em>And with that he continued walking from pen to pen, feeding the pokemon as tears streamed down his face.</em></p>
+<hr noshade="noshade" size="1" />
+<p>Red wipes his face as he finishes his recount. Dr. Seward stood and walked to the water cooler, then returned with a paper cup for him.</p>
+<p>"Thanks," Red whispers, and drinks the soothing water down before setting the empty cup aside. "Do you mind if I bring Pikachu out?"</p>
+<p>"For comfort?"</p>
+<p>"Yeah. He won't shock anything, I promise."</p>
+<p>"Then by all means."</p>
+<p>Red sits up and unclips his pokemon's ball, then aims it at the empty space beside the couch, bracing his arm. The ball rejects the target area until he aims it at just the right spot and with a flash of light his pokemon is there.</p>
+<p>Pikachu looks around the unfamiliar room, back to Red and Dr. Seward until Red reaches out with his thoughts. His pokemon turns to him and leaps onto the couch, then his lap and curls up into a warm twist. Red feels his mood lift slightly as he runs his fingers through his pokemon's fur. He can feel the scar where the kingler severed his lower spine. It took a week for the pokemon center to heal him, and they said he was lucky to regain full functionality.</p>
+<p>"So," Dr. Seward says as she settles back in her seat. "That was quite an intense experience, so soon after losing your friend. And I don't mean to dismiss your observations. But from what you told me of Aiko's father, why are you using him as a normative model of mental health?"</p>
+<p>"I thought you might ask that." Red shrugs, feeling weary. "Not pretending I know what's in his heart… he cried again at the funeral. But Leaf says he's carrying on as though it never happened. Like she's just off on some trip. And whether that's 'normal' or not, he's still doing better than I am, without my partition. And like I said, Blue and Leaf seem to be fine too."</p>
+<p>His therapist is quiet a moment, then shrugs. "Maybe you're right. Maybe you really are the only one having trouble with her death. There are at least three good reasons I can think of why that's the case, and I'm sure you can come up with more. But before we do that, you should check to make sure your model of reality is actually true. You haven't seen Blue in weeks, and Leaf you see, what, twice a week when you go to help at the ranch for a few hours? People are capable of holding themselves together for far longer than that, Red. Don't be so sure that everything is fine with someone just because they can put up a front. Leaf may be in a lot more pain than you think."</p>
+<p>Red closes his eyes, fingers still in Pikachu's fur. "That… just makes me feel worse."</p>
+<p>"Why?"</p>
+<p>"Because she hasn't told me. Which means that she doesn't trust me anymore, or want to talk about Aiko because she blames me, or—"</p>
+<p>"What happened to not pretending you know what's in people's hearts?" Dr. Seward asks with a raised brow. "Or are you recounting mental impressions you've picked up from her?"</p>
+<p>"Sometimes, yeah."</p>
+<p>She blinks, then rallies. "But you haven't spoken to her about it."</p>
+<p>Red sighs. "No."</p>
+<p>"Then that's your homework assignment. You know that what people feel is often complex, and you're not in an unbiased frame of mind. You're grieving your lost friend. You miss your other two friends, both of whom you feel betrayed by on some level. And you're struggling with the guilt of the decision not to follow Aiko in, or not doing more to stop her."</p>
+<p>"It's not..." Red sighs. "Nevermind. Yeah, alright."</p>
+<p>Dr. Seward's brow furrows. "I'm sorry, maybe I misunderstood something. It's not…?"</p>
+<p>"It's fine. Guilt is close enough."</p>
+<p>She looks like she's about to argue, then just looks thoughtful a moment before saying, "Are you going to put your partition back up before you go?"</p>
+<p>Red's fingers slow. "You think I'll tell you if it's up?"</p>
+<p>"Oh, no. I was just curious."</p>
+<p>Red merges with her briefly, and doesn't sense any guilt or guile. "I wasn't planning on it, no. Putting it back up is a weakness, a way to hide from reality."</p>
+<p>"Perhaps. It also might be a natural defense mechanism, a coping skill that your powers developed for you. Do you want to die?"</p>
+<p>She asks the question so casually that Red answers before he can think about it. "No."</p>
+<p>She nods. "Just checking. What keeps you in this state, normally? You said earlier that you'd… not want the partition to go back up, once it's down."</p>
+<p>"The partition being up is still my natural state. I'll lose focus eventually and it'll come back, or it'll happen when I sleep next." Red sighs. "And then I'll go back to being oblivious to all this and just focused on the future, like a robot."</p>
+<p>"I see. And if I asked you to bring it back up before we end the session, and then you'd bring it back down before leaving, would that be okay?"</p>
+<p>Red strokes Pikachu, gaze down. He feels like this is a trick, like she's trying to talk to the more cheerful and focused version of him, instead of this sad and whiny one. Not that he blames her.</p>
+<p>And in truth, there's some part of him that feels the partition's minor but constant tug at his attention as a siren song. A call toward peace, where he doesn't have to think about such painful things. He resists because he knows it's a lie, because it's exchanging what he feels for who he is.</p>
+<p>But he doesn't want to subject Dr. Seward to something that makes her feel uncomfortable, or like he's wasting her time. "Yeah, I guess I could do that."</p>
+<p>"Would it help to make an agreement with your Future self?"</p>
+<p>"...I think it would. Thanks." He closes his eyes.</p>
+<p><em>Hey Future Red. I'm only putting the partition back up because she asked me to. You'd better bring it back down before we leave, or I'm going to consider that a defection and keep it in mind for the future.</em></p>
+<p><em>Ugh. Fine. But we've got shit to do today, so if you spend it all moping in bed then I'm going to keep that in mind the next time we're here.</em></p>
+<p><em>Whatever. </em>He hesitates a moment longer, then mentally relaxes his grip on the partition, feeling it slide back into place and rearrange his thoughts and emotions…</p>
+<p>...until he lets out a breath of relief and opens his eyes. "Ugh. Thank you." He scratches Pikachu between the ears, smiling as his pokemon yawns. "That was unpleasant."</p>
+<p>Dr. Seward is watching him closely. "Can you explain how all that felt, to you?"</p>
+<p>Red thinks about it a moment. "Kind of like someone took over my brain for a bit? Except it was a version of me where reality was way darker than it really is, lacking perspective on things or the ability to focus on the future."</p>
+<p>"Fascinating. It really was like talking to a different person, he seemed adamant that you were the fake version, and him the real one."</p>
+<p>Red nods. "It's been a philosophical question I've been grappling with on and off for the past few weeks. If I wasn't a psychic, then the partition wouldn't exist, and Past Red would definitely be the 'real' me, assuming nothing else about the powers influenced things. But <em>with </em>my powers, this is my default state, so I'm clearly the 'real' me that's not being inundated by negative emotions."</p>
+<p>"He was certainly more willful than I expected, given that, and your account of how he came off during the dream." She frowns. "It feels strange talking about him as if he's a different person, and also a bit rude. Particularly since he's… or you're… going to remember this once the partition is back down. I'm sorry, I'm going to try to keep that straight so as not to offend either of you, if that's possible." She rubs her forehead. "This has certainly been the strangest session I've had in quite a few years."</p>
+<p>Red smiles briefly. "No problem here, do what you've got to do." He considers telling her that Past Red was probing her mental state for her intentions, then decides against it. She's been on the level the whole time, and he doesn't want to make her start thinking in that way and bias things. Also he's done the same thing once or twice. "Oh, in case you're wondering, the thing that he almost said before was that it's not about the guilt itself. We don't want to be anchored by that feeling without first determining if we actually did the right thing or not. On that at least we agree."</p>
+<p>"And as for how to figure that out…?"</p>
+<p>"Yeah, we're still struggling with that."</p>
+<p>"I see." Dr. Seward takes a moment to collect her thoughts, then straightens in her seat. "Right. So I've got more research to do, apparently, but in the meantime, do try to talk to Leaf soon?"</p>
+<p>"Oh, don't worry, I understand that she probably doesn't actually blame me as much as he thinks she does."</p>
+<p>"Yes, but the fact that you don't believe it with the partition down is the problem."</p>
+<p>Red frowns, but nods. "Alright."</p>
+<p>"I understand that it will likely be an uncomfortable conversation, but I think it's necessary. Whether you have it with the partition up or down is up to you." She checks the time. "My next appointment should be outside. Same time next week?"</p>
+<p>Red nods and nudges Pikachu off his lap and onto his shoulder, then stands. "Thank you, Doctor. I feel a lot more optimistic about all this already."</p>
+<p>"I'm glad to hear that. Have a good week, Red. And don't forget to take the partition down before you go."</p>
+<p>She says the words lightly, but Red's hand was already reaching for the doorknob, and he stops. "Right…" He sighs and considers just pretending to do it and being mopey as he leaves, but not seriously. Breaking that commitment might have long reaching consequences that he doesn't really want to consider now.</p>
+<p>It takes just a moment for him to bring the partition back down, and then he's back in reality. "Bye," he mutters, and shuffles out of the office, the brightness of the day now dimmed through the shadow of death covering the world.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/67/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/69/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -340,6 +667,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

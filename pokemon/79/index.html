@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 37: Resolve - Pokemon: The Origin of Species</title>
+    <title>Chapter 79: Status Effects - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,698 +329,465 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 37: Resolve</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/78/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/80/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            Blue looks exhausted when Red and Leaf find him at the Trainer House in Cerulean North, but he still exudes a self-satisfied pride, even sprawled on a couch.<br>
-<br>
-"You did it, then?" Leaf asks as she and Red sit in the nearby chairs. "Finished the screening matches?"<br>
-<br>
-"Hit the top. Misty's Second wasn't in town, still gotta schedule a match with her, but then I can go for the badge. I think I'll be ready in a couple weeks."<br>
-<br>
-"Congrats!"<br>
-<br>
-"Tougher than Pewter, huh?" Red asks.<br>
-<br>
-"Yeah. A lot of that was just testing me to make sure I wasn't some scrub with a pidgey wasting everyone's time. These people went hard. Very first match was against Amy."<br>
-<br>
-Red smiles. "Our Amy? From Viridian? Cool, how's she doing?"<br>
-<br>
-"Good. She got her badge already, staying on at the Gym for a bit. Sends her regards." His eyelids are drooping down.<br>
-<br>
-"You should head to bed," Leaf says as Red checks the time. Only nine, but they're still on a traveling sleep cycle, getting up and bedding down with the sun. "We can talk tomorrow."<br>
-<br>
-"No, I want to hear what you guys did first. What did Bill want?"<br>
-<br>
-Red and Leaf exchange a look. "Uh. A soda, basically."<br>
-<br>
-Blue stares.<br>
-<br>
-"Also maybe something else," Leaf says. "He forgot. But he showed us around a couple of the labs and we talked about a bunch of stuff."<br>
-<br>
-"But he approved the plan," Red says. "Said we have a week to practice before we try for real. There's something else I want to talk to you guys about, though…" He leans toward Blue. "You know how your sister is competing in the Pokemon Coordinator Contest next week?"<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-<em>August 1st</em><br>
-<br>
-It takes most of the morning for Red to search the local advertisements and find a psychic who matches his budget. With the coming windfall, he can afford to spend some now if it'll give him a leg up. As he waits for a response, he tries meditating again. His ability to focus isn't much better than the first time, but he keeps practicing throughout the day, determined to make some measurable progress from one day to the next.<br>
-<br>
-He also looks over the map of Bill's property the inventor sent him. After calculating how far the sound of the wigglytuff's singing will travel, he scrolls through the map from one corner to the next, trying to find a location with the ideal conditions: the right amount of empty space surrounded by naturally obstructing hills or trees, but with more open space beyond that for the ring of sound. He wants to do it as close to the Ranger Outpost or Bill's house as he can, and quickly narrows his options down to three possibilities.<br>
-<br>
-He takes a quick break for lunch, where he meets Blue and Leaf at a nearby cafe to show them his notes and hear about their respective days training at the gym and reading the local news. They also check the clefairy markets together, carefully marking the ones they want to buy and timing who will buy which of them when, spacing out the purchases. Afterward it's right back to the Trainer House for more meditation practice. He picks his clefairy up from the transfer PC in the lobby, putting it immediately into storage. Much as he'd like to meet his new pokemon, he reminds himself not to get attached.<br>
-<br>
-That night he finds a private workroom in the Trainer House and stares at his phone, working up his courage. This will be painful, and manipulative. But he has to tell her sooner or later, and this is when he can make the most good come of it.<br>
-<br>
-Red takes his hat off and runs his hands through his hair, gripping it for a moment between his fingers. Then he drops his arms, picks up his phone, and dials his mom.<br>
-<br>
-The pleasantries go by quickly, and soon he finds himself stumbling over his words.<br>
-<br>
-"What is it, hon? Spit it out."<br>
-<br>
-Red takes a deep breath, and explains what he learned from Narud, including how the "psychic partition" that might be keeping him from fully getting over his dad's death.<br>
-<br>
-"Oh, Red… hon, I'm so sorry… I know you must be thrilled that you're a psychic. After you were so excited from learning grandma was one… I remember how disappointed you were. But…" He can hear the tearful breath she takes, and feels a stab of guilt. "This thing with your father…"<br>
-<br>
-"I know. It's… a lot to take in. I didn't want to believe it at first, but there's definitely <em>something </em>stopping my powers from manifesting, and the feeling of that Night Shade… I'm scared, mom. I don't want to face something like that again, or worse… have the partition break down like Narud said, and… relive losing dad again…" Red wipes a tear away, voice hoarse as pain and loneliness wells up inside him. In a way, it's a relief to know that he's not lying to her. He shoves the feelings down, waiting until he has control of himself again before he continues. "I really think I need to get a handle on this now."<br>
-<br>
-"Of course, sweetheart. Of course. What can I do?"<br>
-<br>
-"I need lessons. I need to start learning how to use my powers. It's expensive, though."<br>
-<br>
-"How much is each lesson? I can pay for them-"<br>
-<br>
-"No! Thank you, but… I just need access to my account."<br>
-<br>
-"Oh no, Red, not your savings. I'll be okay hon, I have some extra saved up. Let me help you with this. Just tell me how much you need and I'll send it to you."<br>
-<br>
-<em>Dammit. </em>If she pays for the lessons directly, he can't get the clefairy. He was hoping to get another two before the contest, but it would totally empty his account, and take a bit of borrowing from Blue or Leaf: he has almost exactly $1,800 to his name. Not enough for two clefairy <em>and</em> psychic lessons… It would be better to wait on the lessons until after he sells the clefairy. But he can't empty his account without showing a bill to his mom, and he did want to start the lessons as soon as possible.<br>
-<br>
-<em>Well, buying one extra clefairy is better than none. "</em>I'm still looking for the best deal, and some of them give bulk rates if I schedule more than one session at a time. Other lessons may be cheaper if I buy them on short notice, when they have a sudden opening from a cancellation. I did a lot of negotiating with psychics in Pewter for my paper, and I have to be careful to make every dollar count to get as many lessons as I can."<br>
-<br>
-"I still want to help, Red. I can't let you pay it all yourself, you might need that money for your travels!"<br>
-<br>
-Red sighs. "Okay, how about we go a half and half then? Let me use my savings while I'm in Cerulean, and I'll send you the bill afterward, so you can put half back in my account whenever you have a chance."<br>
-<br>
-"You're such a sweetheart. Alright, if that makes you happy. I love you, Red."<br>
-<br>
-Red runs his fingers through his hair as he rests his forehead on his palm, eyes closed. "Thanks, mom. I love you too."<br>
-<br>
-He spends the rest of the night reading local CoRRNet reports to brush up on wild pokemon in the area, and falls asleep with herd movement patterns floating behind closed eyelids.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-<em>August 2nd</em><br>
-<br>
-Psychic Ayane is dressed very casually compared to Narud or Ranna. Her purple hair is cut short around her ears, her navy top is a simple shirt that bares a bit of her midriff, and her matching navy pants end just below her knees. She looks ready to go for a jog or have a pokemon battle rather than sit cross-legged and meditate, and yet that's exactly what she does once Red signs the consent form.<br>
-<br>
-"Our first lesson will involve Reception," she says once they're both seated across from each other in lotus position. Red finds it less uncomfortable than he did the first time, and wriggles his toes as he lets the tenseness out of them, hands facing upward briefly before he flips them over to mirror Ayane's. "I don't know how your 'block' operates, but it shouldn't interfere at all with this aspect, if you were able to feel a psychic mind touch yours before."<br>
-<br>
-"I did, but it... wasn't a pleasant experience," Red says, taking measured breaths to prepare himself and slow his racing heart.<br>
-<br>
-"I'll attempt to be as gentle as possible," she assures him, and closes her eyes. He does the same. "Are you ready?"<br>
-<br>
-"Uh… give me a second." <em>Inhale… two… three… four… exhale… two… three… four… inhale… </em>"Ready…"<br>
-<br>
-"First, I want you to understand what I'm doing. My mind is aware of others who pass nearby me, but that awareness is not connection. It's the difference between seeing someone in your peripheral vision and locking eyes with them. By focusing on one of the minds I sense, I can project toward it. Beginning… now."<br>
-<br>
-Even braced for it, Red feels his skin break out in bumps as the "second mind" appears next to his own, almost entangled with it. He tries to focus on his breathing past the vertigo. After a few seconds pass, the sensation isn't any better, but it stops growing worse. He feels like he's balancing on a tightrope with one foot in the air.<br>
-<br>
-"Are you able to continue, Mr. Verres?"<br>
-<br>
-"Yes," Red says between breaths. He keeps his voice quiet, his eyes closed. Sweat lines his brow and drips down the back of his neck. Every thought he has feels like it echoes, rebounding off the second mind beside his own, transferred along gossamer strands that connect them. "Is this… normal…?"<br>
-<br>
-"No. Whoever told you about your partition was correct. Virtually all of your powers are being used to simply maintain it, and drawing them away to other tasks, even automatic ones like forming a connection, is taxing you beyond your endurance."<br>
-<br>
-"Should… we stop…?" Red asks, breath hitching between the words as a his stomach cramps. He expects a flashback to the spinarak's attack to come at any moment, but it seems like the aftereffect really has faded. Maybe he should start training it now and make sure.<br>
-<br>
-"Not unless you want to."<br>
-<br>
-"No."<br>
-<br>
-"Alright. I'm going to send across a feeling. I want you to tell me what it is."<br>
-<br>
-Red tries to prepare himself as he continues to focus on his breathing. He's proud of himself for not quitting despite the strain. This isn't so bad, actually, and now that he has the hang of it and knows what to expect, he's sure he can handle more. In fact, this whole 'partition' thing probably isn't a big deal either, with a few weeks of training he'll be able to get rid of it and-<br>
-<br>
-<em>Oh.</em><br>
-<br>
-"Optimism," Red says, breathing out, then in again. "Confidence?"<br>
-<br>
-"Hope," Ayane says. "Good. Next."<br>
-<br>
-Red breathes out, wondering if he'll notice his thoughts changing as they're not influenced anymore. He's vaguely worried about the notion that his emotions are being manipulated by an outside force: as if having biases isn't bad enough, his unrealistic expectations of fixing his mental block in just weeks seem silly in retrospect, Narud implied it would be much harder… wait, is she projecting the opposite of hope now? Despair? Or is he just returning to his baseline? It's so <em>frustrating </em>not knowing if his emotions are his own, if he could just <em>think </em>clearly for a moment he'd be able to-<br>
-<br>
-His breathing is too fast, he's not focusing on it anymore. He can't slow it down though, a hot flush going up his neck. "Frustration?"<br>
-<br>
-"Anger. Very good. Next." Her words are clipped, and he opens his eyes to see her expression is cold. As he watches her however, her face relaxes into a more calm expression. He closes his eyes again so he doesn't cheat by observing her.<br>
-<br>
-He'll have to write about all this, a journal, to keep the experience of cycling through emotions from outside influence fresh. It would be amazingly useful for awareness therapy and techniques, he's surprised more psychics don't go into therapy, though if they're a standard subsample of the population there's no reason to think any more of them would be interested or qualified for the job than non-psychics, proportionally. Still, it's got to be easier for them, right? He wonders if a psychic therapist would have helped him more when he was young. He liked his therapist, but he would have discovered he was a psychic much earlier if one had tried something like this with him…<br>
-<br>
-Breathing slowly in and out isn't so difficult now. His shirt is sticking to his back with sweat and his stomach is still fluttering with nerves, but Red barely notices as he thinks about various applications of psychic powers in exploring the mind. Eventually he remembers he's supposed to be trying to think of what emotion he is experiencing, but honestly he doesn't feel anything unusual. He wonders if this is a "control" test, if she's not projecting anything to see how he reacts. Should he peek? How long would she wait before he doesn't get it? Maybe he just has to admit it himself.<br>
-<br>
-"Don't feel anything," Red says between breaths. "Supposed to?"<br>
-<br>
-"Yes."<br>
-<br>
-Red frowns, trying to focus harder. What is it? What's he missing? He should list his emotions.<br>
-<br>
-<em>I'm uncomfortable, physically. I'm nervous and anxious, but that's the partition thing, I don't think it's changed. I'm a little frustrated, but not a lot, yet. Am I less frustrated than I would otherwise be? Is she projecting calm? Is calm even an emotion? It's just the absence of other emotions, isn't it? Can you project null-emotions?</em><br>
-<br>
-His thoughts run along those lines for another dozen breaths, and he finally shakes his head. "I give up."<br>
-<br>
-"Curiosity."<br>
-<br>
-Red opens his eyes to see her smiling slightly. "Curiosity is… an emotion? Nevermind… 'course it is. I feel silly… but in my… defense..." He takes a deep breath to get the next part out all at once. "I'm pretty naturally curious all the... time," he gasps, one trembling hand rising to wipe sweat from his forehead before he returns it to his knee.<br>
-<br>
-"I sensed that, yes. That's why I tried it. Remember, projections are stronger, more naturally communicated, if you build upon what is already there."<br>
-<br>
-"Noted." The feeling of balancing on a high wire becomes more pronounced as he feels his mind wobbling, trying to shy away from the second consciousness. It's so strange having the <em>feeling </em>of two minds without actually getting input from the second one at all… just echoes and undetectable projections. "So… next?"<br>
-<br>
-"Are you able to continue?" He gives a jerky nod. "Alright then."<br>
-<br>
-They run through another few emotions before Red feels his whole body start to shiver uncontrollably, at which point Ayane withdraws her mind and he sags, breathing hard. His muscles feel loose and watery, his mind like it's in a soft shelled egg.<br>
-<br>
-"Well done," his instructor says. "I didn't expect the lesson to be so taxing on you, but you were still able to recognize most of them. Improving awareness is the first step: when you're training your abra, being able to recognize when the emotions you feel are your own and when they're your pokemon's is vital."<br>
-<br>
-"Is the connection necessary?" Red asks as he slowly regains his composure. "If my partition is stopping me from passively sensing other minds around me, does that also stop me from receiving emotions from my pokemon?"<br>
-<br>
-"No. Your pokemon will attempt to merge its mind with you regardless. It's instinctual, a part of how they communicate and interact with others. Now at least you will know what to expect."<br>
-<br>
-Red grimaces and lifts one hand to his collar to peel his shirt away from his sweaty back. "If it feels like this, I'm not going to be able to train my abra at all. It was hard enough just sitting still. Are my powers like undeveloped muscles? Can I overcome this with practice?"<br>
-<br>
-Ayane's fingers drum on one knee. "Your 'psychic muscles' are not weak. They are constantly contracted, like a fist that has been closed around a ball for years. It has become stuck in position, any movement painful. In time it will become easier."<br>
-<br>
-"But too much relaxation and I'll drop the ball?"<br>
-<br>
-"Yes. You must learn to either juggle, or put the ball down." She purses her lips. "That analogy doesn't quite work anymore."<br>
-<br>
-Red smiles. "Yeah, it's coming apart a bit. I think I get it though. The ball is fragile. Dropping it is bad, putting it down is safer. Any idea how to do it?"<br>
-<br>
-"The simplest way is to learn how to manipulate your own memories, and simply clean out whatever is behind the partition. But that can take years to learn well. You can pay someone else to do it for you, if you trust them and are not averse to side effects. I would advise against this option unless your need is desperate. The safest route is to relax it little by little, adapt, repeat."<br>
-<br>
-"And how long would that...?"<br>
-<br>
-Ayane spreads her hands. "As long as it takes."<br>
-<br>
-Red nods wearily. "Well, better get started then." He straightens and puts his hands back on his knees, taking a deep breath. "Ready when you are."<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-<em>August 3rd</em><br>
-<br>
-"Time!"<br>
-<br>
-Blue presses the button on his aquascope, signalling Maturin to swim back to the surface. His squirtle rockets back up with a powerful kick of her legs and swish of her tail. Blue raises his eyes from the goggles in the scope, losing sight of her beneath the water just in time to see her round blue head breaking the surface of the pool. She opens her mouth wide, panting for breath.<br>
-<br>
-"One minute rest, then back down. Set your own mark."<br>
-<br>
-Blue sets the timer on the aquascope, then tosses his pokemon a berry, which she quickly snaps out of the air. As she rests, Blue looks around to see how the others are doing.<br>
-<br>
-The training room is filled with a series of isolated pools, each with a trainer standing beside them, aquascope in hand. Their pokemon bob at the surface of their pools, catching their breath from being submerged during their underwater exercises. Among the numerous classes designed for teaching them how to train their pokemon underwater, this one is particularly for amphibian pokemon, who also need practice staying under for extended periods of time.<br>
-<br>
-Blue was having trouble getting Maturin to stay underwater for long enough to be a reasonable threat to water-breathing pokemon. This class is supposed to help him ease the squirtle into staying down longer and longer, but he finds the pace frustrating. He used a simulation program to try and train Maturin to stay underwater longer, but it only helped a little.<br>
-<br>
-When the timer hits 0, Blue sends his pokemon back down along with the other trainers. He gives Maturin various commands to practice while she's submerged, and keeps his eye on the timer that's counting up now, waiting for the five minute mark. Squirtle can stay underwater for much longer if they don't move much, but to fight down there, she needs to be able to stay submerged for as long as possible.<br>
-<br>
-Blue presses his eyes to the scope to see Maturin swimming through the series of hoops spread out in the narrow, but deep, pool. He uses various buttons on the handle to send clicks through the water, directing his pokemon down one hoop, then up through another two.<br>
-<br>
-"Time!"<br>
-<br>
-Blue pulls his head up in irritation to check the timer. <em>Only five minutes.</em> He's sure Maturin can stay down longer.<br>
-<br>
-As the other pokemon begin appearing on the surface however, he can see the instructor looking at him, and presses the button to recall Maturin back up. His pokemon takes deep breaths and snatches more berries out of the air, then lies on its back and gurgles as it swims in lazy circles.<br>
-<br>
-"Another one minute break!" The instructor yells out to the room, then walks toward Blue. He's an older man, trimmed beard going grey.  Only one arm comes out of his shirt sleeves, the other sleeve folded and pinned around a stump. "Trainer Blue, was it?" he asks when he gets close enough, voice low so as not to carry to the closer trainers.<br>
-<br>
-"That's me."<br>
-<br>
-"You didn't bring your pokemon back up right away. First time here, right?"<br>
-<br>
-"Yeah. She seemed fine."<br>
-<br>
-"Seemed fine, sure. Pokemon worth a damn follow orders, even if it's painful or dangerous. What do you want, your squirtle to come up without you telling it to? Not going to get it to learn that way. Worse, it might stay down. Get itself hurt trying to please you."<br>
-<br>
-Blue frowns at Maturin, who ducks her head into the water and kicks her legs to do a quick dive before coming back up. "She's smart enough not to do that."<br>
-<br>
-"Hey, it's your pokemon. I guess you'd know." The instructor's voice doesn't change tone, and Blue fights down his defensiveness.<br>
-<br>
-"When do we do practice matches?" he asks.<br>
-<br>
-"Aquatic combat is lesson seven. In this gym we do things in the right order. Relax, you'll be there by the end of the week." He claps Blue on the shoulder and heads up the aisle to inspect and speak with the others.<br>
-<br>
-Blue looks at Maturin again to make sure she's okay, and snorts as she spits a harmless spray of mist up at him. He chucks her another berry and tries to fight down his impatience as the timer hits 0 and he tells her to go down again.<br>
-<br>
-He's committed to putting in the time at this gym and training his pokemon right: a first time win against Misty is the only way to make up for his loss against Brock. The new narrative he would shape about learning from his mistakes wouldn't work if he commits too early and loses against Misty again.<br>
-<br>
-But he can't afford to spend too much time taking the safe route that he loses momentum either.<br>
-<br>
-In Pewter he learned a bit from the lessons, but the most progress was made by finding good training partners. Blue examines his neighbors. One is a guy about his age, a serious look on his face as he trains a seel. The other is an older girl with a totodile that looks nearly as bored as he does. He waits till after the lesson is finished, then withdraws Maturin and approaches her.<br>
-<br>
-"Hey. I'm Blue."<br>
-<br>
-She turns to him in surprise. "Hi. Mary."<br>
-<br>
-"This is my first time at one of these. Do you know if the pace picks up eventually? I think my pokemon can handle more."<br>
-<br>
-"No, this is my first one too," she says as she withdraws her pokemon. "I know how you feel though, this is a lot more basic than I thought it would be."<br>
-<br>
-"I guess they have to make sure everyone has the fundamentals first," Blue says. "I like learning from battles, personally."<br>
-<br>
-She hesitates. "I've never done a water battle before. But I guess neither have you, if you're here?"<br>
-<br>
-"Yeah, we'll both be rookies, so it should be okay." He gives her a moment to think about it, but she still seems reluctant. Blue smiles. "Nah, you're right. Maybe later." He turns away, looking for someone else to approach.<br>
-<br>
-"Hey, wait." He looks to see her smiling back. "You're on."<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-<em>August 4th, Morning</em><br>
-<br>
-Leaf throws the ball at her pokemon as hard as she can. "Bulbasaur, catch!"<br>
-<br>
-Bulbasaur wraps a vine around the ball mid-air as it sails overhead, slinging it back and around to reduce its momentum without letting it go. Leaf opens her left palm wide, leather glove stretching the mesh between her fingers, and raises her bare right hand. She snaps her fingers, then points at her glove. "Throw!"<br>
-<br>
-Her pokemon whips the ball at her hard enough to make her palms sting through the protective leather, and she grins. "Good boy!" She laughs as her pokemon gambols around a bit, rear feet kicking at the air. She waits until he calms down, then throws the ball back with another "Catch!"<br>
-<br>
-The sky is bright and blue above the park, acres of grass and trees acting as an island of nature in the heart of the city. The past few days of reading made Leaf a bit stir-crazy, and she decided to take the day off to stretch her muscles and train her pokemon.<br>
-<br>
-Of course, the best training is more like playing.<br>
-<br>
-After another half hour of catch, she goes for a jog with Scamp running at her heels and Crimson looping around overhead as she tosses berries to each. Her phone occasionally buzzes, and she checks her messages to see if anyone important enough has messaged her.<br>
-<br>
-Her current problem is simple. She wants to write another article, something with enough depth and importance to shift attention away from the ongoing situation in Pewter. But she has no leads beyond what she can pick up from news stories that are already published. The obvious solution is to get some from the local reporters, but they'd expect something in return.<br>
-<br>
-Luckily, she happens to have something to trade. She just needs a good offer first.<br>
-<br>
-By noon she's hungry and exhausted. She brings all her pokemon out to rest for a bit, then heads back to the Trainer House. Her mind is on the shower waiting for her upstairs when a woman stands up from one of the couches in the entrance hall and approaches her.<br>
-<br>
-"Hello Miss Juniper. My name is Zoey P-"<br>
-<br>
-"Palmer, yeah, I know who you are," Leaf says, smiling. It seems today might be her lucky day. "I've been reading your articles since I got to town. It's good to meet you."<br>
-<br>
-The reporter raises an eyebrow. "I'm flattered. Assuming you liked them?"<br>
-<br>
-"Yeah, they were great." Leaf expected an email or phone call like all the other reporters used, but clearly Miss Palmer prefers the more personal touch. "Were you waiting for me?"<br>
-<br>
-"I was. Do you have a minute to talk? Maybe have coffee or lunch? My treat."<br>
-<br>
-"I'd love to. I'm sorry, I don't know how long you've been waiting, but could you give me another twenty minutes? I was just on my way up to shower and change my clothes."<br>
-<br>
-The reporter checks her phone, then says, "Of course. If you don't mind, I'll send you the address of a nearby cafe, and you can meet me there when you're ready."<br>
-<br>
-"Sure. See you there."<br>
-<br>
-Leaf gets the address and rushes through showering and drying off, sitting on her bed in her towel and looking through her notes. She's been hoping for something like this to happen all week, and wants to make sure she doesn't mess it up. She was planning on going over the maps Red sent her for the abra hunting, but she'd have to do it after the meeting.<br>
-<br>
-Ten minutes later she finds the reporter sitting outside the cafe. Leaf sits across from her, reminded of the immersive hologram at Bill's house. "Hi. Sorry for the wait."<br>
-<br>
-"No problem. I ordered us some tea."<br>
-<br>
-"Thank you." Leaf takes a sip from the mug in front of her, happy to discover that it's chilled. She takes a moment to study the older woman. Miss Palmer wears thin and stylish sunglasses, and is dressed in a grey blazer that makes her look very professional and casual at the same time as she leans back in her chair, tea cradled in both hands on her lap. Leaf tries to mimic her casual posture, and wonders if she's sitting too straight. She ends up staying mostly the way she is rather than fidget too much.<br>
-<br>
-"I'll let you find something to order, and then we can talk. I'm sure you're curious to know why I asked you here."<br>
-<br>
-"I think I have an idea, actually. And I'm ready to order whenever the waiter arrives." Leaf gives the menu a perfunctory look through, then puts it aside. She's glad she can get a good salad fairly easily in most places in the city, but today she's in the mood for something else. Especially since the reporter offered to pay.<br>
-<br>
-Miss Palmer smiles. "I see. Were you expecting me?"<br>
-<br>
-"Not you specifically, though I hoped for someone of your caliber. I have a friend, kind of a mentor, and your name was one of the names she suggested."<br>
-<br>
-"Why didn't you reach out to me directly, then?"<br>
-<br>
-"I figured it's better not to be the one to ask."<br>
-<br>
-"You figured right." She sips her tea, then returns it to her lap. "Well, this does put a different spin on things. When I realized that no one managed to get an interview out of you yet I figured you were just oblivious, but you were filtering, weren't you? And the Oak kid not giving interviews either, is that related?"<br>
-<br>
-"We have an agreement," Leaf says. "Besides, he's been busy."<br>
-<br>
-"Of course. Well, I guess I'll cut to the chase then. What are your conditions?"<br>
-<br>
-"I want leads."<br>
-<br>
-"Ah. That's not a small thing to ask of a reporter, as I'm sure you know."<br>
-<br>
-Leaf remains silent, tasting her drink, then adds some sugar and puts the rest away. The waiter arrives, and Leaf orders some avocado and cucumber rolls.<br>
-<br>
-After Miss Palmer orders and the waiter leaves, the reporter pours herself some more tea, taking her time. Leaf doesn't rush her, and finally, after putting the kettle back, she speaks. "First, tell me something. Are you here to stir up trouble in my city, too?"<br>
-<br>
-Leaf remembers what Laura said about getting a feel for a journalist by their work. What kind of person is Zoey Palmer? Leaf thinks back over what she read, the articles and interviews, the<em> passion</em> in some of Zoey's work that's not there for most of it<em>. It's like she</em><em> thinks the only story worth putting real effort into </em><em>is the kind that pisses someone in power off.</em><br>
-<br>
-"If trouble needs to be stirred," Leaf says at last.<br>
-<br>
-Miss Palmer smiles and takes her sunglasses off, folding them and placing them on the table so that her piercing blue eyes meet Leaf's. "Good answer."<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-<em>August 4th, Evening</em><br>
-<br>
-The House common room is packed on Saturday night, with trainers of all ages gathering around the wide TV screens as the Pokemon Coordinator Contest gets underway. Some of them cheer on their favorites, while others exchange bets or just watch and chat. The trio managed to arrive early, and claimed seats in the middle of a couch directly in front of a screen. As more and more people crowd in around them, Red and Blue keep the encroaching bodies on either side from further squishing them together as Leaf sits between them with a bowl of popcorn in her lap.<br>
-<br>
-Red enjoys the opportunity to relax with his friends, but even as he applauds and cheers for the various performances along with everyone else, a part of him is impatient to see how well their investment is going to pay off. He takes popcorn with his right hand as his left keeps his phone out, watching as the prices of various pokemon fluctuate after each performance. Most only get a mild bump: the highest so far was a 7% bump for ninetales after a trainer sent hers jumping through self-made spinning wheels of fire mid-air, and about a 10% jump for magneton, electabuzz, and raichu after a trainer used his to put on a laser-light show with eerily accurate electric bolts to pre-arranged equipment around the stage, accompanied by music and coordinated with a conductor's baton.<br>
-<br>
-By the time Daisy and Moonlight are next, the crowd is eager to see what could top that. Contest workers completely clear the stage to open up as much room as possible, then unpack some containers and assemble six large, colorful pinwheels in a circle around the middle.<br>
-<br>
-Red and Blue clap along with the audience as his sister takes the stage, and the conversations of the girls around them suddenly shift to Daisy's dress: a slim but complex, layered gown in various shades of pink that makes her look like a fairy princess. "Ooo, she looks <em>gorgeous!</em>" Leaf says, leaning forward. Red is similarly entranced. She's done something with her hair, looping it back behind her head in the outline of wings. Red feels a warm glow in his chest as the remaining spark of his crush briefly rekindles.<br>
-<br>
-The judges introduce her, then signal for her to begin. She releases Moonlight with a flourish, sending the ball straight up into the air so precisely that it smacks back into her open palm a moment later, arm staying straight up until her clefairy flutters to the stage from mid-air with its small wings.<br>
-<br>
-The crowd is absolutely silent as trainer and pokemon turn to face each other. The camera focuses on Daisy's face as she closes her eyes, tilts her head back, and begins to sing.<br>
-<br>
-There's no amplification in the exhibition center. Instead her microphone transmits directly to the earpieces of the thousands of viewers in the contest hall, and directly to the live feed. For Daisy and Moonlight, there's just the strength of her own voice, and shortly after, Moonlight's, her own microphone attached around her neck.<br>
-<br>
-Red tunes out the occasional murmurs of everyone around them as he lets himself get drawn into the trainer and pokemon's haunting song and perfectly choreographed (if silly looking) dance. It quickly becomes clear as she and Moonlight hop around in a circle that Daisy's dress, frilly though it is, has been tailored to avoid impeding her movement at all.<br>
-<br>
-"Met-ro-nome," Daisy says, and points, and a moment later a gust of wind from Moonlight sets one of the pinwheels spinning. As it does, gleaming sparkles of every color are flung out into the air, falling slowly in a rainbow haze.<br>
-<br>
-"Met-ro-nome," Daisy says again a few moments later, in the exact same pitch and tone, and a second pinwheel is blasted with wind.<br>
-<br>
-Red feels his excitement and awe growing as a third gust is sent out, then a fourth. If the metronome ability is dictated by the way the word is said, then Red expected a few mess ups along the way, like his mom reported from seeing Daisy practice. Six pinwheels, for six gusts of wind… but in a row? Yes, there's the fourth…. Then the fifth…<br>
-<br>
-Murmurs of surprise and disbelief are growing around the room as the trainers all watch Daisy instruct her pokemon to use the notoriously random and unpredictable Metronome ability with consistent, pre-planned results. Red grins wide as the sixth pinwheel is hit, sending its own shimmering lights into the air. The first pinwheel is still spinning, though it's slowing down, and there's a period of about ten seconds where the trainer and pokemon dance and sing in the middle of a dazzling cloud of multi-colored sparkles.<br>
-<br>
-As the pinwheels slow to a stop one by one, Daisy and Moonlight's song quiets before finally reaching an end, and there's a moment of silence and stillness as the last of the glimmering sparkles fade away.<br>
-<br>
-Then the Trainer House and contest hall explode in applause and cheers at the same time. Blue sticks two fingers in his mouth and whistles, and a buzz of conversation quickly breaks out as people discuss what they just saw. The panning cameras in the contest hall show faces that aren't just dazzled but shocked, and Red can hear the wonder in the voices around him.<br>
-<br>
-"-six times, can't believe-"<br>
-<br>
-"-trick maybe? New TM?"<br>
-<br>
-"-obviously chose a safe move to demonstrate, but what else can she-"<br>
-<br>
-"-can't wait to try it-"<br>
-<br>
-Red grins at his phone's screen as the prices of clefairy quickly jump beyond the small increase they got just from Daisy's reveal of what pokemon she was using. He tracks the cheapest offers and watches the prices going up as some of the lowest ones get quickly bought out and others are taken down and relisted. $983… $1,022… $1,127… $1,232...<br>
-<br>
-Leaf leans over to watch, still applauding. "How're we doi-woah."<br>
-<br>
-"Yeah," Red says as he puts his phone away and finally relaxes, a giddy feeling in his stomach as he grabs some popcorn. "That'll do."<br>
-<br>
-The last price he saw at the bottom of the listings was $1,312, and the highest were over $3,000. Blue bought four clefairy, Leaf three, and Red used his savings and borrowed whatever leftover cash the other two had to get himself two, giving him a total of three. Three clefairy that he could sell for at least $4,000.<br>
-<br>
-"That'll do just fine."<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-<em>August 5th</em><br>
-<br>
-"You've been practicing," Psychic Ayane says as soon as he opens the door to let her in.<br>
-<br>
-Red smiles, breath trembling slightly as he exhales. As far as greetings go, it's gratifying that she noticed right away. "Wasn't easy."<br>
-<br>
-"No, I don't imagine so." She follows him into the room and sits, folding her legs beneath her. Red does the same, carefully. His body isn't weaker when he's like this, but it's harder to control appropriately, as if the signals from his brain are being occasionally scrambled on the way. "I commend your progress, but is it wise to tire yourself just before our lesson?"<br>
-<br>
-Red shakes his head. "I didn't just start. I've been like this all morning." He breathes in deep as he settles into place.<br>
-<br>
-Her eyes widen. "Explain. And calm yourself before you do, please."<br>
-<br>
-Red grins and does so, breath coming out in a <em>whoosh</em> as his mind and body relax. "It was simple enough, once I put the hours in," he says.<br>
-<br>
-When her mind was entangling itself with his to project onto him, it weakened his partition automatically as it drew his psychic ability away. After their second session, when she taught him about how the <em>state </em>of one's mind could be influenced by the <em>perception</em> or <em>memory </em>it experienced, he saw the connection with his experience of his spinarak's attack, and how just thinking about the effects made a weaker form of them trigger.<br>
-<br>
-"You called it an 'impression,' but I felt like that wasn't giving it enough credit," Red says. "When we think of something sour, like biting into a lemon, our jaw doesn't ache because of a memory. We're actually re-experiencing it. There's a physical response from a physical change in our brains. So I figured that if thinking about the Night Shade was enough to mimic the feeling, it must also have mimicked the mental state of whatever it did to my psyche. Why not apply the same thing here and imagine entangling our minds, even while you were gone?"<br>
-<br>
-"That shouldn't work," Ayane says, brow furrowed. "It's not enough to simply imagine yourself doing something with your powers, or a psychic's life would be far easier."<br>
-<br>
-"Well, a couple things. First, maybe this was easier than other things would be because, like you said, I'm not actually using my powers, I'm just relaxing them. Second, I didn't just 'imagine' it. It took me the better part of the past two days, hours of concentrating, to really immerse myself in each individual feeling I had, all of which I could vividly remember."<br>
-<br>
-"I… see. I suppose it is not so unusual compared to the other feats I have seen those with the Gift accomplish. My surprise is mostly to see it from a novice who is new to even basic meditation."<br>
-<br>
-Red shrugs a shoulder. "I actually found it a lot easier than meditating, honestly, because I had a clear goal. I know theoretically what the end state of meditation is supposed to be like, but I can't just force myself to think that way because I haven't before. This, on the other hand, I have, so it wasn't hard to alter my perspective."<br>
-<br>
-"Is altering your mental state something you do often, in other contexts?"<br>
-<br>
-"I guess you could say that. Modelling different thoughts and feelings is an important part of being a rationalist." Red smiles. "And I've always had a good imagination."<br>
-<br>
-Ayane's lips quirk. "Perhaps it is a 'gift' of your own, then, that you bring separately into the wider expression of your Gift. In any case, it is good to see such progress. Have you noticed any improved stamina for maintaining the relaxation?"<br>
-<br>
-Red's smile fades. "Not really? It's hard to tell. I got used to maintaining it for longer, but the effects feel about the same, and I have to take breaks when it gets bad."<br>
-<br>
-"Ah. Is it possible then that rather than manually weakening your partition, you simply trained yourself to mimic the physical symptoms?"<br>
-<br>
-Ice floods Red's stomach. "I… didn't think of that. I don't <em>think </em>that's the case though, it really does feel like…" He realizes how silly he sounds. "Can you check?"<br>
-<br>
-"Certainly. Enter the state again, and I'll begin."<br>
-<br>
-Red nods and closes his eyes. He focuses on his breathing, then begins to shift his consciousness into what he's been calling "balancing on a tightwire." He goes down the mental checklist that he wrote out in his notebook after his first lesson and memorized after his second when Ayane told him about impressions and he decided to try inducing it himself.<br>
-<br>
-First the sensation of the second mind approaching his, taking up residence in his own, separate and alien. A thrill of nerves goes up his spine as he imagines it there, in his head, watching, waiting…<br>
-<br>
-Then the feeling of it echoing him, muted reflections of what he thinks and feels over threads like fiberglass wires…<br>
-<br>
-Red's breath stutters in his throat as he finally feels his mind <em>tilt</em> and his skin horripilate. He focuses on his breathing and waits until he feels stable, then says, "Ready."<br>
-<br>
-The pseudo-mind he imagined is almost immediately replaced by a real one, twisting in his thoughts as he lets out a shuddering breath. <em>So, I can still tell when a real psychic mind is connecting to mine. Good.</em><br>
-<br>
-"Is there any additional strain?"<br>
-<br>
-"No, it's fine," Red says between breaths as he opens his eyes. "Same as usual."<br>
-<br>
-"Excellent. And your thoughts do not seem as distracted or unstable."<br>
-<br>
-"Really?"<br>
-<br>
-"Haven't you noticed that your speech isn't as impaired?"<br>
-<br>
-He blinks. "I haven't really been talking while trying it before. Huh. I guess it really has been helping. This is great!"<br>
-<br>
-She nods. "It's quite encouraging. Now, let us continue our lesson… oh? You have something else in mind?"<br>
-<br>
-Red feels chagrin at the reminder that she can sense the surface of his thoughts. "If you don't mind… now that I know I've successfully mimicked a brain state, would you mind if I try some others to see if I can do the same for them?" He takes out his notepad and pencil. "I want to try and collect as many as I can to practice them between lessons."<br>
-<br>
-"Hmm. These 'brain states' are the result of your mind exercising its powers in a different way. I would have to draw them into another configuration for you to experience a new one."<br>
-<br>
-"Is that bad?"<br>
-<br>
-"There are very few positive ones I could invoke in you, and even fewer I could teach without you first mastering your own powers. Of those remaining, all are much more taxing, and would likely result in your partition breaking."<br>
-<br>
-"Well, why not just teach me enough reception to project your own mind in another state, so I can copy that?"<br>
-<br>
-Psychic Ayane's fingers tap her knees. "I believe there are one or two, yes. But improving your active reception enough to receive thoughts in more fidelity is an advanced technique, and might also require your powers to be taxed too heavily. Are you sure you wouldn't rather continue learning to strengthen your passive reception awareness first? It's a vital foundation for any psychic's ability to interact with their pokemon, or other psychics."<br>
-<br>
-Red hesitates, then nods. "Okay, I guess you'd know best. But maybe at the end of the lesson we could try one?"<br>
-<br>
-Ayane smiles. "As you wish. I believe I can think of one that might be interesting to you."<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-<em>August 6th</em><br>
-<br>
-"Go, Maturin!"<br>
-<br>
-Blue's squirtle materializes next to the pool and burbles in excitement upon seeing it.<br>
-<br>
-"Looks like we had the same thought," Mary asks with a smile from the other side of the training room. She takes out a dive ball and summons her totodile from it.<br>
-<br>
-Blue reclips his new dive ball to his belt. "Yeah. I was planning to upgrade her ball to one eventually anyway, and I'm coming into some money soon, so this was a good excuse to do it."<br>
-<br>
-"Did you just pick it up? I thought you'd be here earlier."<br>
-<br>
-"Sorry about that, I was running an errand for a friend." Red had him and Leaf doing drills in preparation for the abra catching. Three trainers running around Cerulean Park with earplugs in as they made hand signs at each other and their pokemon had certainly drawn a lot of stares. "Ready?"<br>
-<br>
-"Yep. Third hit again?"<br>
-<br>
-"What do you say we make it first blood?"<br>
-<br>
-She glances at him in surprise as she puts her bag on the ground and kicks off her sandals. "Trying a new attack?"<br>
-<br>
-"No, just want to get her used to more dangerous fights."<br>
-<br>
-"Sure, I guess."<br>
-<br>
-Blue smiles. The two of them have jumped leagues ahead of the other newbies at the Gym, even with some mistakes early on. He empties his pockets and shucks off his shirt and sandals too, then puts his goggles on and bites down on the mouthpiece of his oxygen tube. After giving her a thumbs up, he jumps into the water feet first.<br>
-<br>
-The water is cool without being cold. Blue breathes out through his nose, bubbles rising to the surface as he sinks lower. He looks up and sees Mary adjust her own oxygen mask, then dive in across from him and kick down to the floor. Once she's there, she flashes him a thumbs up.<br>
-<br>
-Blue returns it, then lifts the clicker from his necklace where it sits next to his flute. Their pokemon swim about on the surface until he brings Maturin down with a few quick clicks. Mary uses a copper tube that rattles when she shakes it. Over the past few days he's seen her become more and more adept with it, spinning it through her fingers like a baton to send particular commands.<br>
-<br>
-Once both pokemon are in battle positions in front of them, Blue presses a button on his mask and starts the timer for Maturin, then presses another one for his own. He flashes Mary another thumbs up, and when she returns it, the battle begins.<br>
-<br>
-Three quick clicks, and Maturin thrusts forward headfirst. Mary swipes her tube to the left, and her totodile dodges to the left as Maturin sails by. A quick forward shake of the tube and he goes after her, mouth wide.<br>
-<br>
-Blue nudges the button on his clicker to change its pitch and presses it down, prompting Maturin to duck into her shell. Blue swims forward and up to get a better look as the totodile tries to snap at Maturin's underbelly. With a click from Blue, Maturin swipes a leg out to nudge her out of harm's way.<br>
-<br>
-Blue's pulse is steady as he breathes in through his mask and out through his nose, watching, waiting. They're approaching a wall of the pool, and Blue knows he can't let it limit Maturin's mobility. He waits through another two bites, looking for the perfect opportunity…<br>
-<br>
-<em>There. </em>Maturin's head has rotated toward the totodile just as he goes in for another bite, and Blue clicks to direct her into a tackle.<br>
-<br>
-Mary is ready with a shake, and her totodile shoots straight up and over Maturin. His bite is a bit too slow to catch the squirtle's tail, but he immediately follows her, and Blue is forced into another Withdraw. At least he got away from the wall.<br>
-<br>
-The timers continue to count up past the two minute mark, an eventual cap on the duration of the match: if either pokemon has to go up for air, they lose… but ending it before it gets to that point is the safest way to ensure neither trainer feels pressured into keeping their pokemon down for too long.<br>
-<br>
-Blue continues to avoid and defend, playing to his pokemon's strength to counteract the more offensive totodile's. If he felt sure of his pokemon's lung capacity, he'd have the advantage… but he's not, and in their last match he was forced to send Maturin up before Mary sent her totodile.<br>
-<br>
-The next snap of the totodile's jaws almost catches Maturin's foot as it kicks out to spin her away from him, and Blue realizes he's still playing as if it's a contact match. He needs to risk a hit to get first blood, but he can't do it on Mary's terms.<br>
-<br>
-Blue's next clicks send Maturin into a dive, barely dodging the totodile as it snaps forward. Blue changes the pitch and clicks twice, and Maturin's mouth opens wide to expel a cloud of bubbles that slowly rise.<br>
-<br>
-Mary swipes her rod to the right. Her pokemon tries to abort his dive by swerving to the right as well, but two of the bubbles pop as they catch him on the foot and thigh. The force of them sends him tumbling off course in a spin, and Blue quickly clicks to send Maturin after him.<br>
-<br>
-The totodile twists around and snaps at Maturin, catching her on the shell over her foreleg, while Maturin bites his arm. The two get into a quick and vicious tussle that sends air bubbles up as Blue and Mary immediately signal their pokemon to disengage. Instead the two continue to struggle against each other, and a trickle of red begins to diffuse into the water around them. After they ignore a few more orders, Blue tells Maturin to Withdraw, and the squirtle immediately pops her head and limbs back into her shell. Mary's totodile disengages after that, and swims back to her, trailing blood from its arm. Mary quickly returns her pokemon to its ball, then heads for the surface.<br>
-<br>
-Blue examines Maturin to make sure she's not hurt, then lets his breath out all the way and starts swimming up, signalling Maturin to follow.<br>
-<br>
-After he pulls himself up the ladder, he takes out his mask and lifts his goggles, wiping his wet hair away from his eyes. "Good girl," he tells Maturin, and snaps for her to come out of the water. She leaps out onto all fours, and he feeds her a berry before withdrawing her. "He okay?" Blue asks as he turns to Mary, and his eyes widen as he sees her glaring at him.<br>
-<br>
-"What's wrong with your pokemon?" she asks, crouched beside her totodile as she sprays potion on his arm.<br>
-<br>
-"Hey, woah, what are you talking about? It wasn't her fault!"<br>
-<br>
-"His arm's broken! We said first blood!"<br>
-<br>
-"Yeah, and I told her to come back, same as you did with him. Their blood was up, it happens."<br>
-<br>
-"You had to get her to Withdraw before she would listen. He had no trouble pulling away once his arm wasn't trapped in her beak."<br>
-<br>
-Blue feels confusion turn to anger, almost baring his teeth as the heat sears through his chest, hands balling into fists. He almost hears an arcanine's growl, and for a moment thinks he might have actually made the sound.<br>
-<br>
-<em>Calm down. Don't make an enemy here. </em>Mary's been a good training partner up until now, and he doesn't want to spoil that. More, he doesn't want her to leave thinking he can't control his pokemon, maybe even telling others not to train with him. He takes a deep breath, and lets it out in a searing wave. "Look… I'm sorry. It's the first time something like that happened. Let's get him to a pokemon center, okay?"<br>
-<br>
-Mary looks away from him and finishes examining his wound. The mark of Maturin's beak on his arm is still visible, but it's mostly healed, and continues to fade as they watch. The totodile still holds its arm out awkwardly however, and Mary kisses its snout before standing and returning it to its ball. "You don't have to come," she says, voice curt as she gathers her things.<br>
-<br>
-<em>You agreed to first blood, you shouldn't have if you weren't ready for your pokemon to get hurt. </em>"I want to." <em>Waste of time… </em>He takes another deep breath. "Please."<br>
-<br>
-Mary glances at him as she slings her bag over her shoulder. "Fine," she mutters, and heads for the door, sandals squeaking on the wet tiles.<br>
-<br>
-Blue quickly grabs his things, breathing out again as the prowling arcanine in his chest lies back down. His lip twitches as he follows her out. <em>At least we won.</em><br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-<em>August 7th, Morning</em><br>
-<br>
-Leaf sits across from Zoey at another restaurant, inside at a booth this time, reading the article the reporter wrote about Leaf's account of the Renegade incident. Leaf's pulse speeds up as she reaches the narrow miss of the graveler's explosion, and feels again her dread and helplessness as she waited for help to arrive while the Renegade was asleep, constantly looking over her shoulder. The recount of the witnessing event brings back the sickness in her gut and claustrophobia, and she has to force her shoulders to relax as she finally passes the tablet back to the reporter.<br>
-<br>
-"It's good," Leaf says.<br>
-<br>
-"I know that." Zoey spreads butter on her toast. "Is it acceptable?"<br>
-<br>
-"Yes, I meant that in both senses," Leaf says.<br>
-<br>
-"Fantastic. Then on to my part of the bargain." Despite her general brusqueness, Zoey turned out to be a warm interviewer, guiding Leaf through the events at her own pace, asking for detail on points that she felt were too detached even when she ended up cutting down to the basics where Leaf meandered a bit. Leaf learned a lot from being on the other side of the notepad this time… though she did have her own out too, which the reporter had smiled at but not commented on.<br>
-<br>
-Leaf eats from her fruit bowl as she considers the questions on her mind. Their agreement had included more oversight from Leaf over the final article than Zoey had wanted, and in return she was allowed only two leads, and not even exclusive rights to them.<br>
-<br>
-It wasn't greed, Zoey insisted, that kept reporters and journalists from sharing details of stories they're working on. Or not entirely greed, anyway. There's obvious rivalry and desire to get rewarded and recognized for one's hard work, but there's also professional integrity: when she works on stories that matter, Zoey said, she wants them done <em>right, </em>not botched by someone looking to make a quick headline with some sparks rather than taking the time to ensure it starts a blaze.<br>
-<br>
-So if Leaf wants to get solid leads with lots of info on them, she'll have to prove that she's not going to just grab a scrap of info and run with it. And doing her own research in preparation for what sorts of questions she'd ask is part of that.<br>
-<br>
-"So there are four stories that I think are important and potentially worth digging into," Leaf says, taking a folder out of her bag and placing it on the table. "I have their notes in here. If we talk about a story and you mention something that's already in here, I'm not going to count it toward my two."<br>
-<br>
-Zoey bites into her toast, hard to read behind her sunglasses. She took them off during the interview, but apparently prefers them even while indoors. "Sounds like you're ready to fish for info at no cost."<br>
-<br>
-Leaf smiles. "I just want to make sure I get something I can use. You're welcome to check them over to make sure I'm not over reaching." Zoey offers her palm, and Leaf tips the folder back up. "<em>After </em>you've told me something about one of the stories."<br>
-<br>
-Zoey smiles back. "Deal. What's the first story you want to hear about?"<br>
-<br>
-Leaf considers her options a moment. "What's the deal with the Silph and Cerulean General merger that so many people are concerned about? From what I read it seems like there's some corruption going on behind the scenes, but I didn't dive into the legalese. I don't want to commit more time to it unless I know something important is going on."<br>
-<br>
-"That one's a bit dense, yes. Silph's market share is already growing dangerously close to monopoly status, and even if it brings lower prices in the short term, people are concerned at how easy they seem to find it to get laws changed to their benefit."<br>
-<br>
-"There's no actual proof of backroom dealing, though?"<br>
-<br>
-"Some hints, but not enough for anyone to take action."<br>
-<br>
-"What about the Harton scandal? The timing was convenient." Harton was a member of the regulatory board who had emails leaked showing him attending illegal pokemon fighting rings.<br>
-<br>
-Zoey lifts her cup of juice and takes a sip. "You put that together?"<br>
-<br>
-"It wasn't hard. I just made a list of all the people in positions of power and checked if anything happened to them or their families. I was thinking of blackmail being followed up on, but that one seemed more direct."<br>
-<br>
-Zoey nods. "Yes, it's suspicious. Harton won't talk though. If he was brought down for getting in their way, there must be something more they have on him that he's worried about."<br>
-<br>
-Leaf sighs. "That's about what I had on that. You can check if you want."<br>
-<br>
-Zoey flicks her hand to the side. "I gave you nothing even if you didn't have anything. Not a bad story to pursue, but I've got nothing on it, or I'd be doing it myself."<br>
-<br>
-"Well, I'll probably still do some digging just in case. Let's see, what else…" She taps her foot against her chair leg as she spears some honeydew on her fork and bites into it.<br>
-<br>
-"I was expecting something a bit more high profile, especially if you've been paying attention to my stories and recent activity. Like the Leader's disappearance on the day of your adventure."<br>
-<br>
-"What, the rumors of a dangerous pokemon sighting?" Leaf shakes her head. "I'm not really interested in that."<br>
-<br>
-"Misty and her Second go off the radar for hours just as a Tier 1 event takes place on Mt. Moon, and you're not interested?"<br>
-<br>
-"Not really, no. I don't know what they were doing, but I'm sure Misty had good reasons."<br>
-<br>
-"And good reasons not to tell the public?"<br>
-<br>
-Leaf frowns. "She's your Leader. If you don't trust her to have the best interest of your city at heart… I mean, who can you trust?"<br>
-<br>
-Zoey laughs, an oddly merry sound considering her normal tone. "Ah, youth. Here I had you pegged as a proper cynic. You've still got a ways to go it seems."<br>
-<br>
-"Hey, I'm not saying they're perfect or anything. But really, what are you expecting? Do you actually have any evidence that she was doing something shady? Because if so, then yeah, I'm interested."<br>
-<br>
-Zoey shakes her head, voice lowering slightly. "Nothing on that, yet. But our dear Leader isn't as guileless as you might think."<br>
-<br>
-Leaf leans forward, voice lowering slightly to match hers. "Okay, <em>that </em>sounds like a story. What do you mean?"<br>
-<br>
-Zoey spreads butter and jam on another piece of toast, taking her time. Leaf fights down her impatience, seeing the thoughtful expression on the woman's face. Rushing her wouldn't help anything.<br>
-<br>
-"I wasn't going to bring this up," Zoey says at last. "Not unless you asked about it specifically, though I admit I would be <em>very </em>shocked if you did. This is not only private knowledge, it's from a proper private source whose career is at risk if it gets out."<br>
-<br>
-Leaf takes out her notepad and flips it open. "You have my interest."<br>
-<br>
-"I don't know if I should bring you in on it. It's rather close to you."<br>
-<br>
-Leaf's pulse picks up. What could she possibly mean by that? "No need to draw it out, okay? I admit to intrigue. You've built suspense up properly. Now what is it?"<br>
-<br>
-Zoey is quiet again, chewing on her toast. Leaf feels her impatience growing again, and just as she feels like she won't be able to keep quiet a moment longer, Zoey says, "The Renegade's execution. Do you have the notice?"<br>
-<br>
-"No, my friend Red received it. He was one of the witnesses."<br>
-<br>
-"Check the time on the alert. Then find out what time the meeting that Misty attended on the mountain ended. You'll find your answer there."<br>
-<br>
-Leaf's heart is pounding. Is the reporter saying that the notice was sent early? Late? "Why not just tell me?"<br>
-<br>
-"Like I said, I got this information from a source who risked a lot to tell me. I can't jeopardize that."<br>
-<br>
-"But you're saying something was off about the execution. Okay. That's ominous and all, but I don't know if it's a story or not."<br>
-<br>
-"It's a story," Zoey says, tipping her head forward so she can peer over her sunglasses. "Trust me. A hell of a story. Now, what else do you want to ask about?"<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-<em>August 7th, Evening</em><br>
-<br>
-Red's sits in lotus position with his eyes closed on the floor of the workroom he used with Psychic Ayane, and goes down the mental list.<br>
-<br>
-<em>First identify the pain.</em><br>
-<br>
-He'd nicked his arm with a small cut, just small enough to sting without bleeding.<br>
-<br>
-<em>Then identify the "path" the pain is travelling.</em><br>
-<br>
-Ayane had described this as a glowing yellow light in her mind's conception of her body, but to Red it's more of a pulsing, jangling vibration of a long, imaginary nerve connecting the cut to his brain, even though he knows that isn't how nerves work.<br>
-<br>
-<em>Picture the path. Ease the discordance. Feel it fade.</em><br>
-<br>
-Red doesn't actually follow that step, though. Instead of feeling his pain fade, he remembers the sensation of feeling Ayane's pain fade, and what her mind was doing as she did. The way her mind seemed to split itself, the way her stream of thought, far too faint and swift for Red to pick up on, bent around a sudden dark spot in the sparking, twisting thundercloud of her mind.<br>
-<br>
-Red smiles at the memory, sweat dripping down his face. Being able to sense another mind is <em>so cool. </em>Even if it makes him nauseated. And feel a lurking emptiness in his mind that threatens to boil over at any moment. And even if he often feels like he's just imagining everything he perceives.<br>
-<br>
-"<em>Why does that matter?" Ayane said. "You think in metaphors all the time. Is it so strange your powers would manifest in them?"</em><br>
-<br>
-"<em>No," Red admitted. "But I was kind of hoping for a peek into some objective truth with them."</em><br>
-<br>
-<em>Ayane merely smiled and said, "Then perhaps it is seeing the two as incompatible which is at the heart of your difficulty.</em>"<br>
-<br>
-Which was a fancy way of saying not much at all, other than maybe <em>there is no objective reality, </em>and screw that mystic nonsense, thanks very much.<br>
-<br>
-But either way, when he felt her mind shift into its new arrangement, the pain from the pinching hairclip on her finger did indeed fade away to nothing.<br>
-<br>
-Red mimics that mental state now, mind teetering into what he dubbed "many mirrors and a dim room." That last part was the important one, and he feels it when he separates the part of himself feeling the pain from the rest of his mind, and <em>dims </em>it, until suddenly the stinging pain is gone.<br>
-<br>
-<em>Ha! </em>Red grins wide even as his mind slips past some tipping point and he snaps back to himself, the stinging back in his arm and an empty, cold void rising up in his mind.<br>
-<br>
-He leans forward and throws up into the bucket he placed in front of him.<br>
-<br>
-Head and heart pounding, he slumps onto his side, still smiling as he breathes deep and waits for his pulse to slow. He did it. He used his powers to change something in the world, even if it was just his perception of his own body. "Mind over matter" is more than just a motivational phrase to him, now.<br>
-<br>
-His elated giggles are interrupted by a knock on the door, followed by Blue and Leaf walking in. They both immediately rush over, making noises of alarm that makes his head hurt.<br>
-<br>
-"Shh, shh, it's okay, ow," Red says as Blue lifts him into a sitting position. "Oh, that does help, actually, thanks."<br>
-<br>
-"Red!" Leaf cries out. "You said you'd be careful!"<br>
-<br>
-"I was! I put the bucket here, didn't I?"<br>
-<br>
-Blue snorts and shakes his head. "Idiot. Is that why you had us meet you here, in case you made yourself too sick to move?" He puts the nearby lid on the bucket and nudges it to the corner of the room with his foot.<br>
-<br>
-"No, I just wanted to use whatever time I had before we met." Red reaches to the side and unscrews the top of a water bottle, drinking once to wash the taste out of his mouth and a second time for his thirst. He feels clammy with sweat, but more mentally stable, now.<br>
-<br>
-"Do you want to postpone this?" Leaf asks as she sits in one of the chairs.<br>
-<br>
-"No." Red struggles to his feet and sinks into another chair, while Blue finds his own between them and turns it backward, tilting it against the edge of the table. "We're ready." Red takes the sheets of paper out of his bag on the table and spreads them out in front of his friends. "We have our location, our pokemon picked out, and our backup on board. Tomorrow afternoon, Operation: Abra is a go."
-        </div>
+            <h1 class="chapter-title">Chapter 79: Status Effects</h1>
 
-        <div class="chapter-nav">
-            <a href="../78/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../80/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p><em>Hey everyone, welcome back. Hope you're all staying as safe as you can, and that the chapter helps pass some social-distancing time pleasantly. Until next month, take care of yourselves, and each other.</em></p>
+
+<hr class="wp-block-separator" />
+
+<p><em>Have you thought that it might not be obvious to him?</em></p>
+
+<p>Leaf's words come back to Blue time and again during the trip to Celadon City, despite all the distractions along the way. Bretta rejoins them at the station in Saffron, along with Slava and a recently discharged and physically rehabilitated Sumi, and the eight of them take the subway to the western edge of the city before taking out their bikes to travel the rest of the way; no part of Kanto's mainland has as many fire pokemon as the area around Celadon, and they all want at least one for their battles against Erika's gym.</p>
+
+<p>It's strange traveling with such a large group. Four didn't feel that much different than three, but with eight they can stagger their nightly watches so that everyone can alternate getting a full night's sleep, and it makes finding and capturing wild pokemon easier than ever. Their size also scares off every pokemon that sees or hears them coming, but Elaine guides them to areas that are less traveled, then works with Sumi to track down growlithe, vulpix, and houndour dens.</p>
+
+<p>Of course, they still proceed carefully and plan out their encounters. But the fact that they outnumber their targets in every battle makes things much easier than catching pokemon was with a party of three or four, as does the strength of the group's pokemon, and now, as night slowly falls and he holds his new arcanine's ball in the lamp light of their camp, he can't help but feel…</p>
+
+<p>"Disappointed?" Bretta asks as she eases down beside him. Glen is feeding his new vulpix, MG has her earphones in as she watches a video in her bedroll, Elaine is showing Slava and Sumi her favorite game, and Lizzy is talking quietly with her sister as she walks around the camp's perimeter.</p>
+
+<p>"A little," Blue admits. Bretta has changed since her badge matches, humbled in a way that he finds hard to know how to interact with compared to the girl who used to challenge him more than anyone else. But one thing that they all gained from Vermilion was a feeling of being safe with vulnerability around each other, and it was Leaf that helped him notice how little he's opened up to them about personal things. "Arcanine was kind of my 'spirit pokemon' for years. I've been imagining the kind of epic battle that I'd have when I finally caught one for so long…"</p>
+
+<p>"Only for it to turn out to be about twenty minutes of planning followed by a thirty-second battle that went without a hitch," Bretta finishes, smiling slightly.</p>
+
+<p>Blue sighs. "I gave exactly one command to Maturin. It was just… kind of anticlimactic, you know?"</p>
+
+<p>"Yeah, for sure." Bretta shrugs. "But I'm not complaining. I get why most trainers don't travel in groups this big, we barely got any real battle or capture experience today, and didn't encounter a single pokemon that we didn't track… and at the same time, it feels like what we needed, after everything. Sumi in particular needed something easy to get her confidence back."</p>
+
+<p>"Yeah." Blue watches the recently healed trainer smile at something Elaine says, their faces lit by her screen. It's the first time since she joined up with them that she seems to have relaxed, and he suspects that she didn't get much sleep the past two nights. "Makes sense. I'm happy no one got hurt, really, and if it hadn't gone so quick we might not have had time to find the vulpix and houndour packs too." He'd missed his chance at a vulpix yesterday, but got a houndour just before they broke for camp instead, which he's definitely satisfied with. He thought he'd be lucky if he got just one fire pokemon, and even if it's weaker than some of his other pokemon the houndour will still be a huge help against Erika's gym, and Sabrina's eventually. "I just feel like if all my captures are going to be like this from now on, why not just buy my pokemon? It would leave more pokemon for you guys to catch."</p>
+
+<p>It had been luck that he ended up with an arcanine; Glen, Slava and Bretta got growlithes during the main battle, while Lizzy got the first parent. Standard procedure dictated they wait to see if the other parent would appear, since capturing a whole family of any species that live in packs while leaving a dad or mom could trigger it to start rampaging in search of them. After rolling higher than the others Blue half expected the other arcanine not to show up, maybe already killed or captured by someone else, but less than an hour later it appeared with the thoroughly cooked remains of a persian hanging from its jaws. It barely had time to drop its meal before their combined attacks hit it, and seconds later it was caught.</p>
+
+<p>(Unsure what to do with the persian remains, a brief debate had broken out before those with weaker stomachs wandered off a distance while their new captures were summoned to eat as a family. Blue voted that they try to feed them all together as often as makes sense, moving forward; he thinks Leaf and Aiko would approve.)</p>
+
+<p>"True, it would have been cool to get an arcanine," Bretta says. "But I think it still matters, that most of your pokemon have you listed as their original trainer, especially if they're going to be part of your core team."</p>
+
+<p>"The alternative is I buy battle-bred pokemon for my team." Blue shrugs. "I don't <em>want </em>to, I'm sure there are enough people who think I'm just buying all my pokemon anyway, but..."</p>
+
+<p>"Well, not that you should care what others think, but I say save your money for the pokemon you probably won't be able to catch. Unless you plan to stay in Fuchsia for months?"</p>
+
+<p>Blue smiles and shakes his head. There are some trainers whose strategy revolves around capturing all the strongest pokemon they can before getting into any of the harder challenge matches, but even if he's mostly given up on having a record-making run on the League, he doesn't have time or money to waste hoping against hope for a chansey or scyther or kangaskhan or dratini.</p>
+
+<p>"Then, speaking for myself at least, I'm happy with what happened today. Besides, you'll be kicking yourself for wasting money if that whole pokemon cloning thing takes off anytime soon."</p>
+
+<p>He snorts. "That would make the divide between those who have money and those that don't even bigger. I wonder if they would get banned from League matches…"</p>
+
+<p>The conversation continues until the others start going to bed, and Blue offers to swap for tonight's first watch, knowing he'll be up late anyway. His thoughts eventually turn back to Red, and his conversation with Leaf. He checks Red's online profile, scrolling idly for any indication of how he's doing, but his updates are all impersonal things, shared articles and academic questions about psychic phenomena. Not a single casual slice of life post, not even a meme!</p>
+
+<p>Blue eventually closes the tab, feeling an odd mix of frustration and sadness. <em>He never did learn how to engage his following. </em>There were plenty of comments and discussion in his posts, but not nearly as much as he deserved, given his accomplishments.</p>
+
+<p>Celadon looms in the distance long before they reach it the next day, sprawling impressively around the buildings that reach to the sky in the afternoon light. He remembers being awed the first time he saw it; Pallet Town seemed so <em>small </em>by comparison, and he wished that they could live here instead, with its constant activity and wide range of pokemon training halls, coordinator contests, and of course the gym that was more like a giant indoor/outdoor garden.</p>
+
+<p>Now he finds himself focusing more on how to <em>navigate </em>all the hustle and bustle of a city that's twice the size of Viridian, Pewter, Cerulean, and Vermilion, with so many cars on the road that there's a separate bike lane that often has its own traffic stops and jams. By the time they make it to the gym's front office, it's late enough that they decide to just register for pre-Challenge matches and classes in the coming days. Afterward they head to the Celadon Department store and spend a couple hours restocking their supplies, eating at the food court, and buying some new training tools.</p>
+
+<p>As he looks for a saddle harness, excited about finally having a pokemon he can ride on, Blue spots the wall of various whistles and thinks back to when he was trying them out with Red and Leaf at the Viridian mall on the second day of their journey...</p>
+
+<p><em>Have you thought that it might not be obvious to him?</em></p>
+
+<p>He shakes the memory away, bothered by the idea that, even if he was largely right in what he thought, what he <em>said</em> was wrong, or he said it the wrong way. He knows why it keeps pricking at him; he's learned to recognize when his pride doesn't want to admit something.</p>
+
+<p>Instead he distracts himself by going to the floor where new products are being showcased, including tech from the Cruise Convention. The GameFreak exhibit is particularly interesting, and he's sufficiently absorbed by the virtual demonstrations until the rest of the group is ready to leave.</p>
+
+<p>They're large enough that when they reach the Trainer House, people stop and take notice as they line up to register for a room, and the attention only increases as they're recognized. He's come to expect that, by now, and so walked in with his back and shoulders already straight, face calm. Glen, Elaine, Bretta and Lizzy all also seem used to it by now, though Slava and Sumi are clearly taken aback by the attention, and MG never seems comfortable with public scrutiny unless she's battling.</p>
+
+<p>"See you guys in the morning," Blue says once he gets his room assignment, and heads off ahead of the others to put his pack away and shower. Afterward he lies in bed and just lets himself rest, thoughts shifting from how nice it feels to be in a bed (stiff and basic as it is) to the upcoming gym battles, to all the messages and mail he should be answering but hasn't been. Losing Leaf as a travel partner is rough, but losing her as a group PR manager is almost as bad. Somehow of all the people in his new, bigger party, no one's particularly skilled at managing things like that. But then, none of them were raised by Professors either, and the limelight is new to them.</p>
+
+<p>He spends half an hour doing the best he can, waiting to see if Glen or Slava were assigned to the same room as him. Eventually he gets bored and goes downstairs to train his new arcanine and houndour, letting them get used to his commands and testing their reaction time and attack pools.</p>
+
+<p>As he suspected, his houndour is fairly weak, unable to even do a Fire Fang yet, let alone a Flamethrower. It will need a lot of training to be effective against the kind of pokemon Erika would bring out for a 4th badge Challenge and Sabrina for a 5th.</p>
+
+<p>Arcanine on the other hand seems ready to go, particularly with the TMs he picked up to cover for his weaknesses. He didn't realize it during the battle, everything happened so fast, but his arcanine is actually rather scarred, not disfigured or crippled, but with jagged marks along its chest and face that make it clear it's survived some scraps.</p>
+
+<p>"Overall, you look intimidating as hell," he murmurs as he sits down beside his pokemon and pats the ground so that the arcanine sits beside him. He reaches up and runs his fingers through its warm, thick fur. "So what should I name you?"</p>
+
+<p>He never picked one out, despite everything. Had some ideas, but it felt wrong to settle on something before he even met his pokemon. He'll have to before his arcanine's debut with Erika, but that gives them time to get to know each other.</p>
+
+<p>"Something anger related would fit," he muses. "But maybe you're not an angry sort. Don't want to project that onto you."</p>
+
+<p>His new pokemon rolls a big gray eye toward him and huffs out a breath before looking away. Not rebellious, but not eager to please, either.</p>
+
+<p>"That's alright, big guy. You're not a puppy, and I won't treat you like one." Blue keeps his fingers moving to find a spot the big canine likes, letting his eyes drift closed as the smokey smell of its fur surrounds him. "But I <em>do </em>want to make sure you're happy, so let me know if this starts working for you."</p>
+
+<hr class="wp-block-separator" />
+
+<p>The Trainer House cafeteria is oddly silent as he walks in the next morning, still a bit groggy from his late night in the training room. Most people on their phones or tablets watching what looks like a news report. He didn't get an alert for any incidents, but still feels his pulse kick up as he gets his food and joins the three other early risers in the party, Elaine, MG and Slava, who are all watching it too.</p>
+
+<p>"What's going on?" he asks, leaning over to see Celadon's mayor addressing a crowd.</p>
+
+<p>Slava pulls an earplug out. "Police raided the Rocket Casino this morning."</p>
+
+<p>"Alright…" He blows on his porridge, glancing around to find most people still watching their screens. "So why is this a big deal?"</p>
+
+<p>"The warrant was for stolen property, but there's a rumor that it was actually a new kind of pokemon."</p>
+
+<p>"What?!"</p>
+
+<p>"Yeah. Police didn't find anything, and the mayor is saying... she's in communication with the owner of the casino and President Silph." Slava's brow shoots up. "Who was the one reporting stolen property, apparently? To try and get to the bottom of it." People start taking their headphones out or putting their phones down as the interview apparently ends.</p>
+
+<p>Blue quickly takes out his phone and checks his local news feed, then scans the story. The rumor apparently originated from something Rocket Casino announced this morning: a new promotional campaign aimed at trainers, with pokemon as the prizes. The list is full of common catches, but also… <em>abra… clefairy… pinsir… scyther… dratini…</em></p>
+
+<p>Abra have dropped in price until they're about as cheap as clefairy, and while both are still valuable pokemon, pinsir and scyther are protected species only found in Fuchsia's safari zone… and dratini which go for tens of thousands of dollars easy, if you're not picky about any of its attributes.</p>
+
+<p>But that's not what has his heart racing.</p>
+
+<p><em>Mystery Grand Prize! A brand new, never before seen pokemon, offered exclusively by the Rocket Casino!</em></p>
+
+<p>A new pokemon.</p>
+
+<p><em>Red must be flipping out…</em></p>
+
+<p>A confusing mix of emotions chase the thought again, and he grimaces as Leaf's words come back to him, quickly scrolling to the comments.</p>
+
+<p>Lots of skepticism, of course, and guesses as to what they might be offering that would technically count as a new species while not actually being one. There are also people who are mad at them for offering the supposed new species as a gambling award rather than selling it directly to researchers, but as someone points out, the promotional ad didn't specify battle trainers, and coordinators and researchers are likely to be attracted to the casino for it too.</p>
+
+<p>"It's got to be fake, right?" Slava asks. "Your grandpa would know if a new pokemon was caught, it would have to be recorded in the dex."</p>
+
+<p>"There's precedent," MG points out. "New evolutions that were never seen before. The pokemon's conditioning still carried through, so they were safe to live with, but the pokedex couldn't identify them until new code was written."</p>
+
+<p>"Right." Slava frowns. "Rocket Casino wouldn't have a revival lab though, so if it's real it must be a new evolution. It's just a casino though, where would they even get a newly evolved pokemon? Any trainer that discovered one would make more money selling it to some lab or corporation, wouldn't they?"</p>
+
+<p>"It could be something else entirely." MG shrugs, spinning her fork in her noodles. "I'm just saying it's not impossible. But a casino might actually pay the most for it, when you consider how many people will come to try and win it."</p>
+
+<p>"What are you thinking, Blue?" Elaine asks. "I know that look."</p>
+
+<p>He pushes away the urge to speculate about the "new pokemon." It could be immensely useful for battling just from the fact that it would be a mystery to everyone else, but he has more practical goals in sight. "I'm thinking that regardless of how true the Grand Prize turns out to be, this is a chance to get a scyther… or even a dratini."</p>
+
+<p>"It'll take a lot of luck to win anything good," Slava says, voice doubtful. "Or else they wouldn't bother, right?"</p>
+
+<p>"Most of the games are chance, yeah," Blue says, and grins. "But not all. There was one I remember where you hit a button to stop each slot in the machine… it really just came down to reflexes. Gramps only brought us there once, but I made out like a bandit, turning twenty bucks of tokens into nearly three hundred in just a couple hours. Traded them in for a new sim headset. If it's still there, it might be worth trying, depending on how the rules are set up."</p>
+
+<p>The rest of the group joins them one at a time as Blue looks into the contest rules as he eats. Apparently it's a lottery, with each token turned in adding to your chances of winning. He's in the middle of forwarding the site to Leaf and Gramps to ask what they think when he suddenly gets a message from…</p>
+
+<p>"Hm." Blue frowns at his screen, rereading the message twice. "So, I just got invited to meet with Leader Erika? Did anyone else?"</p>
+
+<p>"I'm going to go ahead and guess no," Glen says, not sounding surprised as he blows on his porridge. "You know her?"</p>
+
+<p>"We've met before. You know how she worked with Gramps on some Grass pokemon research during her journey? She's gone to the lab once in a while since then, helped with other discoveries. Even came to the house a few times when I was younger."</p>
+
+<p>"What's she like?" Sumi asks as she pours extra syrup over her pancakes. Noticing the alarmed look from Lizzy, she grins. "A few days out of the hospital hasn't been enough to make up for how much I've missed unhealthy food."</p>
+
+<p>"In interviews she always seems so... serene," MG says. "I can never decide if it's just a persona or not."</p>
+
+<p>"I always thought she just takes a big whiff of a bellossom before going on camera," Slava says, and the table chuckles. "I'm serious, she always has some flowery Grass pokemon nearby, I just assume she's constantly buzzed."</p>
+
+<p>"Well she didn't always have them out at the house," Blue says. "I think 'serene' is a good way to describe her, though. And her commitment to traditional culture isn't just a gimmick, that's just how she is. Or it was around us, at least."</p>
+
+<p>"Isn't the gym a bit cultish?" Lizzy asks, seeming a bit nervous. "I heard they have to sit around in circles where you can say whatever you want to each other and the other person has to accept it, and all the members get in relationships with each other all at the same time, and they worship nature—"</p>
+
+<p>"Those are just rumors," Bretta dismisses. "I have a friend who became a member, and she's mostly normal."</p>
+
+<p>"Mostly?"</p>
+
+<p>"Erika didn't say what she wants?" Elaine asks Blue.</p>
+
+<p>"Nah. Probably just wants to catch up in private; the last time I saw her was shortly after she became Leader here, and Gramps brought us on a family trip to congratulate her in person. I was like eight or something, so all of my conversations with her are pretty hazy."</p>
+
+<p>"I bet it's more than that," Bretta says as she absently slaps Glen's hand away from her strawberries. "The articles I read always make Erika seem like she plays a very passive leadership role outside of times of crisis. She might want to check and see if Blue plans to challenge her methods like he did Surge."</p>
+
+<p>"Ooo, good point." Elaine smiles at him. "Are you?"</p>
+
+<p>Everyone turns to look at him expectantly, and he blinks at them, mouth full. He takes a moment to chew and swallow, then wash it all down before he says, "Yes."</p>
+
+<p>The table erupts with laughter and cheers, and Slava leans forward with a grin. "Nice, I was hoping to get in on the scenario action. They looked fun."</p>
+
+<p>"Up until they were super stressful," Lizzy mutters, and glances at Bretta, whose expression is stoically placid.</p>
+
+<p>"It depends on how things look here," Blue says, trying to keep the conversation moving. "What I said to Surge during my challenge is how I honestly felt, and I think it's the natural consequence of what he was trying to teach. Maybe it would be good if every gym did the same thing eventually, but no others are prepared to actually start implementing it right now, and I think it might actually be better if they didn't."</p>
+
+<p>"So you're really planning to upend every gym?" Slava chuckles. "You're going to be the most controversial Champion ever."</p>
+
+<p><em>You have no idea, </em>Blue thinks. "It would be a big change in practice, but I think it's the natural evolution of what the gyms are supposed to be for now. As for <em>how </em>they get upended… I'm not sure yet. There are a lot of different ways it can go." He looks around at them. He's been thinking about this for months now, but he wants them to be excited about the idea, to feel involved in it. "What do you guys think?"</p>
+
+<p>Glen nods, face thoughtful. "Right now the idea is that every trainer making the circuit learns something different from each gym. Group battles would become Surge's <em>thing</em>, but there are probably other things the others could do."</p>
+
+<p>"Like Gym battles based on pokemon coordination?" Bretta muses. "No, that would blend the two too much… but maybe with a particular goal in mind, like capturing pokemon with fake balls."</p>
+
+<p>"Misty's gym already has a very different terrain, maybe they can lean into that more…"</p>
+
+<p>"Fighting on different terrain would be interesting." Sumi smiles. "I've always thought it was a bit silly, that each gym sticks to a specific type for the Challenge matches. They should focus on different battle strategies instead, like Brock doesn't just use Rock pokemon but tanks in general, and Erika focuses on status effects… well, I guess she does that anyway, but again being limited to just Grass pokemon holds it back.'</p>
+
+<p>"I don't know," Elaine says, face thoughtful. "I mean of course it's not the most realistic, but it gives trainers a clear-cut sense of how to prepare for each Gym, and a sense of continuity with others who went before and after them. It adds consistency."</p>
+
+<p>"It also gives people who have aspirations other than battling a reason to go to specific gyms," Lizzy points out. "I learned a lot about Electric pokemon at Vermilion, the navy sends a lot of its people to Cerulean to train their Water pokemon, Koga is a region-wide expert on training people for Poison containment and management… if Gyms stopped focusing on single types, we would need new institutions to pick up a lot of the slack, probably with less efficient results."</p>
+
+<p>"She didn't say Gyms can't still focus on specific types," Bretta says. "Just that the <em>Challenge </em>matches shouldn't. Maybe for the first badge or two, but after that, there should be a different focus, something more useful."</p>
+
+<p>Elaine nods. "If the first few badge matches were focused on Type, that would preserve most of the value I see in them…"</p>
+
+<p>The conversation continues from there until everyone finishes eating, and Blue makes his way ahead of the others to meet up with Erika before the first class they signed up for begins.</p>
+
+<p>The city is even busier in the morning, and biking seems like it will barely save more time than walking. He kind of wants to ride his arcanine, but on his way to meet a Gym Leader probably isn't the best time to try it for the first time, so he decides to just walk, which lets him compare the city's layout to his foggy memories of it. Before long he gets a message from Leaf about the Casino's rare pokemon lottery, which reminds him that he never finished sending his own text to her and Gramps about it.</p>
+
+<p><em><strong>Think imma go for it, </strong></em>he quickly sends as he walks. <em><strong>Can u run the numbers and tell me if its worthwhile?</strong></em></p>
+
+<p>Blue walks a block before he gets a response, and blinks at the size of it.</p>
+
+<p><em>Blue everyone and their mother is going to be "running the numbers," you won't be able to find a single forum post on it without a dozen models in the comments, famous statisticians will probably be in the news because they're offering a NEW POKEMON and I bet Celadon gets swamped with professional gamblers who were hired by labs and collectors who hire professionals themselves to help them run their own numbers and guess OTHER people's numbers because there's a NEW POKEMON being offered and you are CRAZY if you think you can win it.</em></p>
+
+<p><em>But good luck! :D</em></p>
+
+<p><em>Also check out this article on a new training method for faster response time from training.</em></p>
+
+<p>Blue smiles. <em><strong>Will do but later got a surprise meeting with erika</strong></em></p>
+
+<p><em>Woah, why?</em></p>
+
+<p><em><strong>Dunno</strong></em></p>
+
+<p><em>You said you've met her before haven't you?</em></p>
+
+<p><em><strong>Yeah couple years ago also visited the gym when she became Leader</strong></em></p>
+
+<p><em>Don't forget to compliment her on how much it's grown.</em></p>
+
+<p>Blue rolls his eyes. <em><strong>OK Leaf</strong></em></p>
+
+<p><em>Get it?</em></p>
+
+<p><em><strong>Yeah Leaf I got it</strong></em></p>
+
+<p><em>Because it's a garden</em>.</p>
+
+<p>Blue closes his phone, but he's smiling. Part of him was worried she'd bring up the Red thing again, ask him if he's reached out yet. And he will. Soon.</p>
+
+<p>What he thinks of then isn't Red and his annoyingly fussy habits, but Aiko having a lot of the same ones, including setting an alarm so as not to forget something as soon as she thinks that she should do something later. His smile falls away, and for a moment the city around him feels a little grayer, the bustle of its people a little overwhelming. But he takes his phone out, and sets an alarm for the evening to remind himself. Once he's done he takes a breath and keeps going, steps a little quicker.</p>
+
+<p>Erika's Gym is as unique as Surge's in its own way. Like its southern neighbor, most of Celadon Gym's classes and arenas are outdoors, but where Surge spread obstacle courses and track fields between his administrative buildings, Erika inherited a sprawling outdoor garden between the few administration buildings, complete with small ponds, gazebos, and vine-wrapped pergolas over both walkways and outdoor arenas for when it rains.</p>
+
+<p>Blue's not sure what would have happened to the gym if someone who didn't want to focus on Grass pokemon beat the last Leader (Bug pokemon would probably work too, thematically), maybe they would just use a different part of the city as the Gym and leave the current one as a satellite area, but Erika was the previous Leader's Third before she Challenged for Leadership and won, and kept most of the Gym's culture and staff in place when she took over.</p>
+
+<p>When he arrives at the front office, which is indoors but full of potted plants and a glass back wall that makes it seem like it blends effortlessly into the start of the garden behind it, a gym member approaches and asks him to follow her. The gym's uniform is as far from Surge's monotone khakis as they could be, each member wearing a kimono that ranges from brightly colored, floral patterned yellows and reds and violets, to solid colored navy and crimson and jade. He remembers reading about the ranks that the different hues and patterns denote at some point, but he's forgotten practically all of it, as it seemed silly. Now that he's been a gym member himself, he's more interested in the hierarchy Erika inherited and how she changed it, if she did at all.</p>
+
+<p>He walks through truly stunning gardens full of artfully grown trees and flowerbeds, stone paths and bridges over rivers, past fields where trainers practice and classes are in session. What impresses him most compared to the last time he was here is how it <em>does </em>continue to impress him. Everything from the floral patterns to the arrangement of the trees to the cobblestone pathways looks meticulously planned for maximum aesthetic value, whereas he remembers the place being a lot more… humble. There were flowerbeds, but they didn't line walkways as a guide, which he understands from the signs that show up at each intersection, pairing the flowers around it with the destination he would reach if he followed them. There was topiary, but it didn't include life-sized venusaur and exeggutor and a tropius that towers over the dining hall beside it. Compared to Surge's gym the overall effect should seem wastefully lavish, but somehow it all gives Blue the impression not just of beauty, but control. A will to bend nature to human whims and preferences.</p>
+
+<p>Maybe he's reading too much into it, and Erika just likes everything to look pretty. But if not, it's a perspective he can get behind, and it feels like a valuable bit of information on what kind of Leader she is. He'll find out if it's right soon enough.</p>
+
+<p>He's eventually led to a gazebo by a lake, where the Gym Leader waits for him alone. From a distance it looks like a simple wooden structure, but as he gets closer he sees that the timber has a dark finish and is elevated to make it stand out from the others they've passed, varied in appearance though those were. The ring of seats inside it are cushioned, and the table in the center has been carved into the likeness of a torterra, a real bonsai tree growing out of the top in stark contrast to the monitor and keyboard that was also worked into the shell, though somehow it doesn't look out of place.</p>
+
+<p>Erika, dressed in a kimono with a pale green top and red skirt, isn't using her computer at the moment, however; instead she has a bayleef on the seat beside her, and seems to be grooming or examining its neck buds as it eats from a dish on the table.</p>
+
+<p>"It's good to see you again, Mr. Oak," the Gym Leader says once he's closer, and inclines her head to the girl that brought him, who bows and leaves. Blue picks a seat near the entrance, which is as close to across from Erika as he can get. At 27 she's the youngest member in the Indigo League, and he remembers being star-struck by her the last time they met. There's a little of that younger Blue still in him, but with three badges in his vest he feels a lot more prepared to meet her gaze as an equal, to see her as a <em>person, </em>to consider how she acts out her superior role rather than as someone fundamentally above him. "I'm glad you finally made it back. You did promise you'd return to, ah, 'take the whole gym down in a day,' was it?"</p>
+
+<p>Blue grins, pleased she remembered his youthful boast even as it reminds him of what happened in Pewter. He guesses that's intentional, but her smile doesn't seem to be mocking. "I'm glad to finally be back." And then, because it's true, "The place has really grown."</p>
+
+<p>She nods her thanks. "As have you, in more ways than one. Tea?" She lifts a pot from its tray next to her keyboard, and when he nods pours him a cup.</p>
+
+<p>He reaches forward and takes it. "Thanks." He tries to smell what kind it is, but the bayleef's sharp, spicy scent makes it hard to smell anything else. He thinks of what Slava said and has to smother a grin.</p>
+
+<p>"How's your grandfather? I was glad to hear of his recovery, and sorry I couldn't see him."</p>
+
+<p>"He's doing alright, you know. So far so good."</p>
+
+<p>"I'm glad. And Daisy?"</p>
+
+<p>"Busier than ever. I don't know how she finds the time, between her clients and the classes she started teaching and all the extra stuff she's been up to." Like helping Red's mom with something that she wouldn't tell Blue about, no doubt expecting him to dig into it on his own in an attempt to get him to talk to Red. "How's <em>your</em> sister? The one that was training her smeargle to paint her?"</p>
+
+<p>Erika's polite smile widens. "You remember that?"</p>
+
+<p>"Sure," he says, and shrugs as he blows on his tea. "Won't pretend to remember a lot of your visit or what was talked about, but it was a funny story."</p>
+
+<p>"She has yet to succeed, but continues to enjoy the attempts."</p>
+
+<p>Blue nods and takes a sip, tasting a stronger version of the smell that surrounds him, and realization hits as Erika finishes gently scraping bits of dry leaf off her pokemon's buds and opens the top of the tea pot to add them to it. "Uh. Is this… safe?" He'd been about to ask a stupid question, and changed it at the last moment to one that he hopes doesn't make him seem too cowardly or ignorant.</p>
+
+<p>"Quite safe," she says, and takes a sip from her own cup before starting to gently unfurl a different bud on her pokemon's neck. It turns from its food for a moment to nuzzle her face, and she grins and pets its neck until it returns to its meal, letting her start harvesting again. "I've been cultivating Amber's family line since before I was a Leader, and it's a hobby that I rarely have time for anymore. Still, I'm hoping to bring the tea to market by the end of the year, assuming it breeds true for one more generation."</p>
+
+<p>Blue already feels more alert and focused, far more than he would have by just the scent of the bayleef, which at least he knows tend to have a caffeinating effect. He puts his cup down, looking into it as he gathers his thoughts.</p>
+
+<p>He expected small talk, but wonders when it will build up to something more, if it ever does. "This place really has changed from what I remember. I like it."</p>
+
+<p>"I'm glad, though I imagine you also have questions about it?"</p>
+
+<p>"Yeah, actually." Blue looks around. "The kimono colors and patterns, do they mean something? Rank, or duties, or…?"</p>
+
+<p>"They do, but more than that," Erika says with a smile. "It's not information we share with those outside the gym, however. That said, I'll confirm guesses you get right, so long as I don't think you're doing so at random."</p>
+
+<p>"Alright, sounds like a fun challenge." He's encouraged by the implication that he'll be able to talk to her again, if not like this then at least through private messages.</p>
+
+<p>"I have a question for you, now. What was the most important thing you learned at Vermilion Gym?"</p>
+
+<p>Blue raises a brow. "That's a tough one. I know I wasn't there long compared to most gym members, but it was pretty packed."</p>
+
+<p>"I won't hold you to an answer," she assures him. "But I'm guessing something came to mind, at the question?"</p>
+
+<p>"Yeah, sure." He shrugs. "What it means to lead others, I guess. It's not a single thing, but as a… package deal, that was pretty valuable."</p>
+
+<p>"And do you feel you've mastered it?"</p>
+
+<p>"Oh, no. I was talking to a friend recently about how much more I have to learn about it, actually."</p>
+
+<p>Erika seems pleased by that, but her next words make the atmosphere of the conversation suddenly feel much less relaxed. "And yet you still challenged the authority of the Leader there."</p>
+
+<p>Blue studies Erika's face, but she doesn't seem to be judging him. "I didn't really see it that way, at the time. But yeah I guess I did. Where it made sense to."</p>
+
+<p>The Gym Leader nods. "Wisdom is a hard trait to define in any one way, but knowing when to be humble before institutional knowledge and when to trust your own instincts and reasoning is a big part of it, in my view. What do you know, that you don't know?"</p>
+
+<p>Blue isn't sure if the question is rhetorical, but the feeling that this isn't just a casual chat is pretty solid now, and he's more eager than before not to waste the opportunity. "A lot, really. I have questions that seem like they don't have real answers, about… a few different things. If I had to pick one, it would be about the way I relate to the others in my group."</p>
+
+<p>"Understandable," she says as she tips another palm full of dry bits of leaf into a small bowl beside the pot. "Did you pick that in specific because you know what my specialty is, as a Leader?"</p>
+
+<p>Blue blinks. "No. Uh, I mean… I know what it is in relation to pokemon battles, obviously."</p>
+
+<p>She flashes him a grin. "What is it?"</p>
+
+<p>"Status effects. Goes hand in hand with focusing on Grass types, but I'm not sure what that has to do with… oh." He narrows his eyes at her. "Are you about to make a pun?"</p>
+
+<p>"I am," she says, sounding pleased. "And you have no room to complain, given your earlier compliment."</p>
+
+<p>"That was my friend Leaf's fault." Blue sighs. "I guess you can say she—"</p>
+
+<p>"Planted the seed?"</p>
+
+<p>Blue grins despite himself. "She'll be tickled by that. So, your specialty as a Leader is status, both in and out of the arena?"</p>
+
+<p>"It is, so far as I can judge such things at least. So let me quiz your understanding of status… why did I call you here?"</p>
+
+<p>Blue half expected this question, and has been considering this since he got the message. With her recent remarks, the answer is obvious. "It's a status move. You're inviting me directly to talk so we can form a relationship right away. You as the mentor, of course, and me as the up-and-coming star student."</p>
+
+<p>"And uniquely so," she says as she tips more dried leaf into the bowl, then takes a sip from her cup, studying him over the rim. "There's no public perception of you being particularly close to Brock or Misty in your time there, and as for Vermilion Gym, your position is widely perceived as being <em>against </em>Surge. The collaboration began with your challenge to him, and then he took that challenge and threw it back at you, and you rose to the occasion before moving on with a victory none who came before could claim."</p>
+
+<p>Blue slowly nods. He can see it the more she talks, a flower unfolding petal by petal. "Even if no one else knows what we talk about, and it only happens this once, you create some intrigue by just talking in private with me… but if we continue meeting, and that perception grows, then I'm an extra rose in your garden. Every time I get status, you'd get some too."</p>
+
+<p>"More than that; I <em>am</em> actually teaching you." She grins. "Perhaps someday you'll learn all I know and surpass me, which is a prestige all teachers aspire to. If not, then you will always know that you can turn to me to learn more, even if you someday become my peer or superior in other ways."</p>
+
+<p>"When," he corrects her, though he's grinning too. This is shaping up to be a fantastic conversation, though part of that might just be the effects of the tea.</p>
+
+<p>"When," she allows, and takes another sip of tea. "In any case, I believe you're the kind of person who will feel gratitude and show it, as long as the advice is genuinely useful. We may even develop a true friendship. I'm certainly motivated to see if it's possible."</p>
+
+<p>"Yeah, works for me." In a way, it's everything Blue wanted, no, <em>expected </em>to someday hear from a gym leader. An acknowledgement of not just his skill, but the usefulness of a positive relationship with him. It's the kind of relationship he always knew he'd need to accomplish his goals. But…</p>
+
+<p>"I have to ask," he says after a moment. "Why do it like this? We already had history, you could have just called me over to chat, arranged another meeting later, let things grow normally."</p>
+
+<p>"Well, for starters you already have plenty of relationships that grew organically. I want ours to be unique in some way, and this is a simple way to do so. It's a risk of course, but I judged you would be the kind of person who appreciates it. I don't believe I was wrong."</p>
+
+<p>Blue smiles. "Nope. And the second?"</p>
+
+<p>She shrugs a shoulder. "In such relationships, with such power dynamics involved, everyone is already aware of the most basic implications, at least… but they're rarely acknowledged. That the older person has more accrued power, that the younger person has more potential power. That the richer has more resources to draw on, while the poorer may at some point have need of them. That the Leader has responsibilities that take precedence over friendships, while the Professor's grandson will likely be loyal to his family. It's tiring, sometimes, having to guess as to what people are thinking, how much is influencing their decisions. When I can, it's something of a relief to foster relationships where status is acknowledged, and can be brought up and discussed without worry of offending someone."</p>
+
+<p>Above anything else she's said already, Blue feels the most flattered by that. Which may be its intention, of course, but… it's true. He <em>does </em>think it would be a relief, to have things like that acknowledged and obvious in the relationship. It always made him feel a little awkward sometimes, how much more money he had than Red, how much Red clearly idolized his grandfather… he doesn't <em>really </em>think it's the reason they were friends, their families practically raised them together and they became friends long before Red got so interested in pokemon research. But it was always in the back of his mind, and he would be surprised if it never occurred to Red, though not as much as others. Smart as he could be, he's always been a bit of an idiot about stuff like that.</p>
+
+<p>"Thanks for trusting me with this," Blue says. "It also lets me talk about what I'm here for."</p>
+
+<p>"Not just a badge," she guesses.</p>
+
+<p>"I won't be <em>upset </em>if I just get a badge. But yeah, I don't mind admitting that if I see something here that I think can be done better, it would be great to get more momentum in doing that kind of thing."</p>
+
+<p>Erika nods, and grins at him. "Then allow me to present my counter-offer. You battle me for your badge tonight. No qualifying matches. No tests. Just straight to the Challenge."</p>
+
+<p>Blue blinks at her, mouth opening to ask <em>what? </em>and then closing because he heard her perfectly well. Instead he thinks through the implications of the proposal, given what they talked about earlier.</p>
+
+<p>From a public perspective, it would be a huge deal for him. If he wins, it would be the fastest anyone has ever gotten a badge after arriving at a gym, faster even than he hoped to get his Pewter badge.</p>
+
+<p>But…</p>
+
+<p>It would just be too sad, to have walked in here and gotten to step ahead of everyone else. If it was still just him and Leaf and Red, he might have said yes, thinking the others would be just as happy moving on to the next city earlier than expected. And if he hadn't lost to Brock, he might have said yes despite having barely any time to train with his fire pokemon, overconfident in his own abilities.</p>
+
+<p>Instead he turns her question over and over in his thoughts as she continues to add bits of dry leaf to the tea pot, considering it from as many angles as he can, until he finally asks, "Why?" He's pretty sure of his answer, but he wants to know her reasoning first, just in case.</p>
+
+<p>"For one thing, it takes your momentum and makes it serve both of us," Erika says. "Let's be honest, there's no reason to make you do any preliminary matches. My Second and Third might give you some trouble, but I'm confident you would beat them both. Thus, we would save everyone some time, and you get a chance at your badge quickly, while I get recognized as someone who spotted a rising star and helped him shine. On top of that, with all due respect, I don't want you to wreck my garden."</p>
+
+<p>Blue blinks, thinking of some of the damage he and the group did to gym grounds and fields outside the city during their scenarios. "You mean that literally, or…?"</p>
+
+<p>"Both. I don't suspect you would like my Gym culture. Perhaps you'd have suggestions, and I'm happy to entertain them… in private. Well as Surge handled the situation, I have no intention of letting you posture on stage and call me out in public."</p>
+
+<p>"I wouldn't," Blue quickly says, and then realizes that it's just happened; she's exercising her status over him, and he feels a need to submit to it. After what she said he was expecting a more collaborative friendship, though she didn't say they were there yet... this is still a meeting between a student and teacher, at best. She's pressuring him to demonstrate that he knows it's her Gym, to acknowledge her superiority within her domain. Not subtly, but then, she doesn't need to be subtle about it right now, when they just talked about it so explicitly.</p>
+
+<p>That bothers him, because he can't allow himself to think that way, even for people he likes and respects. Even if she has everything figured out, he has to assume there's something she might be doing that can be improved, or else he's just another challenger or member, and not her future Champion. "I mean, I wouldn't do it without talking to you about it first. I'm not out to embarrass anyone, I tried to talk to Surge before our match but he was too busy. I just want to make Kanto as strong as I can."</p>
+
+<p>"I admire that. Truly. And I wish you well." Her gaze moves to his, and her smile barely softens the steel in her eyes. "But not here. This is my garden. I cultivated it to meet my values, to be the thing in the world I devote my life to protecting. Look around you. Do you think there's a single bush here that I haven't taken time to ensure the quality of?"</p>
+
+<p>That sounds like a huge waste of time to Blue, but he knows better than to say that; no one values honesty <em>that </em>much. Well, except maybe Gramps, but Erika's not him. "Well, with all due respect as well, Leader, I'll have to decline. It's a generous offer, but I came to your garden with others, and even if I get my badge I would stay for their sake."</p>
+
+<p>"And? Let's not pretend you're not their leader, regardless of whether some have more badges than you, or stronger pokemon. You getting your badge in such an unprecedented way would further cement that, and increase their prestige as well for being a part of your group."</p>
+
+<p>Blue looks at his tea, then takes another sip, feeling the spicy, autumn-breeze flavor fill his senses. "I was told once that my dream isn't the bright beacon I want it to be. That it sucks the oxygen out of the room, demoralizes others instead of keeping them striving to be their best. I worked hard to push the other way, in the past couple months, but this feels like it would be just turning things back around."</p>
+
+<p>"You are not the same person you were two months ago, nor was your legend. Perhaps your journey mates wouldn't mind as much as you think. It might even make them feel proud to be on the journey with you, train that much harder to keep up and feel worthy of it."</p>
+
+<p>He could see that. He could see Elaine's glee, hear Glen's congratulations, feel the quiet awe of Lizzy and Slava and the others…</p>
+
+<p>...but he could also imagine Glen's hidden disappointment. They were as close to partners as they could be in Vermilion, co-leaders designing the scenarios together. He's probably wondering if that's over, now that they're not doing it anymore. Elaine has grown so much more confident, gotten so much better at speaking her mind, but he thinks she still holds back sometimes when she disagrees with him, despite his efforts to make sure everyone feels like they have a voice. Slava and Sumi weren't in Vermilion with them for the storm or badge, they probably already feel like outsiders… it's bad enough to have two "groups" in the group, getting his badge ahead of the others would propel him into a third all by himself.</p>
+
+<p>"I've been reading this book Gramps gave me," he says as he turns his tea cup in his palms. "<em>Nobunaga's Ambition</em>. I'm not much of a reader, but it's Gramps, you know?"</p>
+
+<p>Erika grins. "I do. If Professor Oak tells you to read something, you read it."</p>
+
+<p>Blue nods, "Still, it's been slow going. It's an interesting enough book, all about how a warlord very nearly united the island—"</p>
+
+<p>"I know of Oda Nobunaga," Erika says, her smile a bit wry now. "Every Leader and Elite on the island has probably read that book at one point or another. Not that it's widely advertised, so you're not to blame for not knowing that, and I'm not surprised your grandfather didn't mention it when he gave it to you."</p>
+
+<p>"Ugh. Yeah, he probably didn't want it to… what's he always call it, 'anchor' me or whatever." He's still annoyed. He would definitely have made more time to read it if he knew that, and why hadn't Gramps given it to him <em>before </em>his journey, when he had more free time? Well, other than maybe because he didn't read anything that didn't have to do with pokemon battles back then… "Anyway, I'm not far in it, but there was a thing about how leaders always stand at the top alone, right? It's a bit different nowadays unless you're Champion, but you still have your domain, and the decisions about what to do in it are all on you, or else you're not really in charge. Even the League can't come down here and tell you what to do differently, not unless you're really screwing things up, and then they'd just Challenge you and crush you and run things themselves."</p>
+
+<p>Erika nods, watching him curiously as her bayleef butts its head against her hand for more pets. She gives them to it, expertly avoiding the sharp edges of the broad leaf growing from its forehead.</p>
+
+<p>"I don't want to be that kind of Champion, but also don't want to leave things the way they are. I can't, not if I want to do everything I need to do. But... I don't know how to get the right balance of power. If I accept your offer, I'm one step closer to the leader who leads alone. If I don't..."</p>
+
+<p>"I understand," Erika says, and takes on a lecturing tone. "That's the volatile nature of power, of status, and why some cultures had many names for the different types, names that have been mostly lost with the global adoption of Unown."</p>
+
+<p>"Names like?"</p>
+
+<p>"<em>Auctoritas</em>, the power you wield over someone when they respect you. A celebrity has this, but it should not be confused with mere social status; it can effect real change, if wielded properly. <em>Potestas</em>, the power that comes from a more official position, such as a judge has, irrespective of their popularity and enforced by the state. <em>Imperium</em>, the highest ability to command, those who have no equals within their domain, such as a Leader or Champion… which, as you noted, are hierarchical, but not quite overlapping. A Champion cannot dictate what a Leader does within their gym, though both of their authorities are not just <em>potestas</em>, but often blended with <em>auctoritas </em>as well, and so there is still some blurring in the balance of power."</p>
+
+<p>Blue feels like he should be taking notes, but instead he just drinks more tea and leans forward, fascinated. This is the kind of thing he was looking for, the kind of thing he tried explaining to Red once, but without the right words...</p>
+
+<p>"When your face is often broadcast in the news, your <em>auctoritas</em> grows significantly compared to those who are never in the public eye. Your advice becomes heeded because <em>obviously </em>you must be successful in some regard to have been given a microphone." She smirks slightly. "With that form of status, you can draw attention where you will, amplify your preference and leverage public support against an official to some degree. If they have <em>potestas</em> but lack <em>auctoritas, </em>they will likely retain their position up to a point, even as they lose influence... until they are effectively crippled, if the difference becomes drastic enough. After that point, they will often lose <em>potestas </em>as well."</p>
+
+<p>"Can't the same be said of <em>imperium</em>?" Blue asks, wondering if this is what she fears. If it's what <em>Surge </em>feared, in some way, when Blue openly challenged his Gym's methods.</p>
+
+<p>"Not often. <em>Auctoritas </em>is often a precursor to <em>potestas, </em>but not always, and rarely is it a factor for <em>imperium, </em>in our culture at least. But once you gain <em>imperium </em>you gain <em>auctoritas, </em>whether you want it or not. Some official positions generate status all on their own, just by holding them. To gain more <em>auctoritas </em>than someone with <em>imperium, </em>especially within their own domain, is exceedingly difficult. A Professor who tried to advise a Champion would likely be respectfully listened to, but if they challenged them, their words would have very little actual weight, unless they were once Champion themselves, and even then the lack of <em>imperium </em>would affect the interaction."</p>
+
+<p>Blue nods, thinking things over as the distant sounds of the gym drift to them on the breeze. In Vermilion Gym the noise of others battling and training was constant, but here all the greenery dampens it… and of course there aren't any drill instructors yelling. The muted noises of others in the distance just add to the peaceful atmosphere.</p>
+
+<p>"You're saying <em>auctoritas </em>is important, but only up to a point," he finally says. "That I need as much as I can get, but not to push it, not to spend it carelessly against someone who holds <em>imperium.</em>"</p>
+
+<p>"Such is my advice, as someone who holds <em>imperium </em>to someone who does not," Erika says, and smiles. "Self-serving as it is, I trust you see the wisdom in it."</p>
+
+<p>"I do," Blue says, and means it. "Thanks. But I'm still not going to take you up on your offer."</p>
+
+<p>Erika's brow rises, but she nods. "Even if I extend it to the rest of your group?"</p>
+
+<p>Shit, that's a tougher one, and he should have thought to ask for it himself. He hesitates, unsure if he can decide something like this for them...</p>
+
+<p>But no, he has to, since she wouldn't say yes to the others but not to him if he bows out… and he wouldn't do it himself even if they all wanted to. "Even then."</p>
+
+<p>"Interesting. Say more?"</p>
+
+<p>"It's not just about the <em>auctoritas. </em>I need to set an example by how I acquire it. I need others to want to follow in my footsteps, and not just people who are like me, with all the privileges I've had. Most trainers are not going to be able to walk into a gym and get invited to a quick Challenge match."</p>
+
+<p>"You're worried about the perception of nepotism."</p>
+
+<p>"More than that. Most people probably wouldn't think it's that direct, I mean obviously you know Gramps but most Leaders do. It's… if I earn more status that way, it just makes what I do seem that much more a result of my circumstances, even if it's built on my previous accomplishments. <em>Each </em>achievement needs to feel fair. I know I can't actually make that true, but I can at least turn down obviously unfair ones."</p>
+
+<p>Erika slowly nods, quietly working as she thinks. Finally, she tips another palm full of herbs into the bowl and smiles. "I agree. And I'm still not going to set up preliminary matches for you."</p>
+
+<p>Blue blinks. "But… if—"</p>
+
+<p>"Instead, you're going to study my gym. We'll continue to meet each day to discuss what you think of it. Perhaps you come up with some suggestions I find worth implementing, but regardless, we won't make a secret of what you're doing. It will cement you instead as… oh, let's say a student of gym culture, or even an Apprentice Gym Adviser."</p>
+
+<p>Blue laughs. "There's no such thing as Gym Advisers, are there? Except maybe League officials?"</p>
+
+<p>"No, not by that title at least. You'll be the first, which is why you'll be an apprentice." Her eyes gleam merrily. "Even if you're the foremost Gym Adviser in the world, you still have to start at the bottom. You may still do <em>some </em>preliminary matches if you want, but with this new lens over it. And best of all..."</p>
+
+<p>"Everyone in my group can get in on it," he says, grinning wide as he considers it, and laughs again, delighted by the idea. He could do this. In fact, he's <em>excited </em>to do it. And if they play it right, they'll arrive at the next gym with people already expecting them to put on the same hat, whether the Leader collaborates or not.</p>
+
+<p>"Well then, Leader Erika…" He holds up his cup, and she clinks hers against it. "Consider us hired."</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/78/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/80/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -1016,6 +804,6 @@ Blue snorts and shakes his head. "Idiot. Is that why you had us meet you here, i
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 27: Challenges - Pokemon: The Origin of Species</title>
+    <title>Chapter 33: Interlude V - Double Binds - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,580 +329,597 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 27: Challenges</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/32/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/34/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            "Daro, Bulldoze!"<br>
-<br>
-"Maturin, Withdraw!"<br>
-<br>
-Blue's squirtle ducks into her shell just as the graveler slams its main arms into the ground. A cone of upheaval spreads outward, buckling the earth of the arena around Maturin and hiding her in a cloud of dirt for a moment. Blue's platform trembles beneath him as the tail end of the quake dissipates against the edge of the arena, and by the time it fades he can see his pokemon again.<br>
-<br>
-"Daro, Slam!"<br>
-<br>
-"Maturin, Bubble!"<br>
-<br>
-Maturin emerges from her shell and spits a stream of bubbles at the advancing graveler. The bubbles pop in rapid flashes as their opponent lets out a deep roar, pushing through the attack with its short, powerful legs as its hide turns white and cracks.<br>
-<br>
-Blue watches his opponent, knowing that any second now he'll realize… there. The other trainer, Rem, grimaces and points his greatball forward. "Daro, return!" Blue lets out a breath as the pokemon dematerializes, glad he didn't have to order Maturin to stop. Another few seconds of that might have badly hurt the graveler, but if it got close enough to hit Maturin...<br>
-<br>
-"Dammit," Rem says. "Usually he can last longer than that."<br>
-<br>
-Blue doesn't respond other than to call his squirtle over and let her have a drink of water. After a month at the gym, he's still surprised at how many trainers that come to Pewter insist on practice matches against types their pokemon are weak against. Blue knows you can't always count on having a favorable matchup, and clearly Brock inspires them to master their type beyond average conventions…. it just seems like a really inefficient use of time.<br>
-<br>
-"Okay, your pick. "<br>
-<br>
-Blue checks the time. Jarod won't be free for about another five minutes. "You said you have a pidgey too, right?"<br>
-<br>
-"Yep. You want to try yours against it?"<br>
-<br>
-"No, my squirtle. Just come at her as normal." Blue checks Maturin over, then commands her forward. "Ready."<br>
-<br>
-"Go, Dream!"<br>
-<br>
-The pidgey bursts into existence mid-air and immediately swoops around their arena in a circle. Blue waits for it to lock onto Maturin, then says, "Water Gun!"<br>
-<br>
-One, two, three darts of water shoot up at the bird, who dodges them with a hard bank and dive. "Dream, Quick Attack!"<br>
-<br>
-"Withdraw!" Blue shouts, too late as the pidgey turns on its wingtip and bolts straight at Maturin and scores three bleeding lines across her head. Maturin lets out a cry of pain, then follows the order and ducks into her shell. <em>Good girl.</em><br>
-<br>
-When the pidgey comes around for another pass, its talons rake harmlessly against her shell. On the next pass, it manages to draw blood from her hind leg or tail: Blue can't quite see the wound. He waits until the pidgey banks around for another pass, then yells, "Maturin, roll right!"<br>
-<br>
-His squirtle's legs dart out on one side and flip her onto her back, then immediately retract as the other side does the same to flip her onto her belly again. Dream misses on its flyby, and Maturin keeps repeating the process, steadily flipping her way to the side.<br>
-<br>
-<em>Still too slow.</em> "Maturin, Withdrawup!"<br>
-<br>
-Maturin flips vertically this time, balancing on slightly protruding hind legs. "Dream, Peck!" The pidgey dives in and begins harassing her, nails scrambling for something soft to cut, and Blue sees his opportunity.<br>
-<br>
-"Maturin, Water Gun!"<br>
-<br>
-His squirtle's head pops up and then back down in the space of a heartbeat, and in that time hits the pidgey with a burst of water at point blank range. It tumbles backward, then catches itself in the air and flaps the water from its feathers as it hovers warily in place.<br>
-<br>
-Meanwhile Maturin's head is back in her shell, and she stands upright and ready for her next command.<br>
-<br>
-"Dream, Wing Attack!" The pidgey dives at Maturin and begins to buffet her with its wings, talons scrambling at her shell.<br>
-<br>
-It's a risk to pop her head up again now, and more of her is exposed in this position than the normal one. "Maturin, Withdraw!" She plops back down onto her belly, leaving only her smooth, hard back for the pidgey to batter. "Rapid Spin!"<br>
-<br>
-Her legs all kick out at once, turning her so fast that the pidgey startles backward, wary of another attack. "Water Gun!"<br>
-<br>
-"Quick attack!"<br>
-<br>
-Dream darts forward just as Maturin pokes her head out and spits a shot of water. The pidgey scratches her head again, blood sprinkling the arena floor, but instead of flying past, the bird falls out of the air and tumbles over the ground, chest dark with water. Blue can't tell how badly his pokemon is hurt, but when the pidgey doesn't get back up right away, he withdraws Maturin, and Rem runs forward to get his pokeball in range of Dream.<br>
-<br>
-"Whew. Must have been a hard hit. What do you say? Call that a draw?"<br>
-<br>
-Blue smirks, then forces it into a more friendly smile. "Sure." <em>As if.</em> "Good match."<br>
-<br>
-"You too. I never saw a squirtle do so much from in its shell."<br>
-<br>
-"I've been working on it for about a month now. Still needs some practice." Blue sees the training room door open, and Jarod stick his head in. He raises a hand to catch his attention. "Hey, I've gotta go."<br>
-<br>
-Rem turns, then nods. "Sure. Good luck on your next Challenge!"<br>
-<br>
-"Thanks." Blue jogs over to the door and joins Jarod in the hallway. "Yo. So what do you say?"<br>
-<br>
-"I say you're early. You've still got two days."<br>
-<br>
-Blue crosses his arms. "You're not wussing out on me, are you?"<br>
-<br>
-"Big talk from a badgeless. Maybe I'm concerned for your fragile ego."<br>
-<br>
-"You could have said no over text."<br>
-<br>
-"Nah, not as fun." Jarod rubs where the scar crosses his nose. "So what, you think you can beat me for real? Your squirtle still hasn't evolved."<br>
-<br>
-"Don't need her to."<br>
-<br>
-Jarod's eyes widen, then narrow as he runs his fingers over the balls on the front of his belt. "No wartortle, huh? And you haven't been using any new pokemon... What's your angle?"<br>
-<br>
-"You can find out during our battle, or at my Challenge with everyone else."<br>
-<br>
-"I saw the agenda. You're not scheduled for another four days. I bet you would have gone for a month on the dot, if there was an opening for it."<br>
-<br>
-Blue smiles. He probably would have, though he can admit to himself at least that he's glad for the extra two days. It's time to test his shiftry out in a real match so he still has time to work on flaws in technique. Jarod is the perfect test run for his shiftry: experienced enough and with strong enough pokemon that he can handle it.<br>
-<br>
-"So? Are you free or not?"<br>
-<br>
-Jarod stretches his arms out, then folds them behind his head. "Why not. It'll give you some practice grieving before you lose your second Challenge."<br>
-<br>
-"Alright, pick an arena room then."<br>
-<br>
-"What, here and now?"<br>
-<br>
-"Got something better to do?"<br>
-<br>
-"As a matter of fact, I do. But fuck it, this won't take long." Jarod leads the way to some unused training rooms, stopping at doors every few feet and looking inside a few before finding one that suits his liking. He opens it. "After you."<br>
-<br>
-It's a standard room, with the dirt and boulders that most of Pewter Gym's arenas share. Jarod probably picked this one because it's a bit smaller than most.<br>
-<br>
-Blue goes to his platform without waiting. "One pokemon each, first knockout."<br>
-<br>
-Jarod mounts his own platform. "You're not even going to use your whole lineup? You <em>better </em>have an angle, and it better be that you've gone and bought a perfectly trained dragonair just so you could beat Pewter." Jarod tsks. "Rich kids. Always gotta learn the hard way that buying a top tier pokemon doesn't make them a top tier trainer."<br>
-<br>
-Anger heats Blue's chest and cheeks, but after weeks of verbal sparring with Jarod, it takes barely a second to push it back down. He unclips his greatball and tosses it in his hand. "Ready?"<br>
-<br>
-Jarod raises a brow and unclips an ultraball from his waist. "Guess we get to see what's in there at last. Go, Rocksteady!"<br>
-<br>
-Jarod's ball flies through the air, and in a flash of light spits a Rhydon onto the arena floor.<br>
-<br>
-<em>Rock and Ground. Slow, but hits hard. Its Horn Drill can instantly kill most pokemon it can get into position. </em><em><strong>Very </strong></em><em>sturdy against physical attacks, but barely any protection from everything else.</em><br>
-<br>
-Too bad all of his shiftry's Grass attacks are physical. Its type advantage would help, but not by a lot. He'll have to rely on his speed.<br>
-<br>
-"I know you don't want me to hold anything back," Jarod says. "But I'm going to be as careful as I can not to kill your pokemon. Don't be scared."<br>
-<br>
-Blue cocks his arm and throws. "Go, Kemuri!"<br>
-<br>
-His shiftry appears facing the rhydon and immediately fans its leaves out to the sides, rocking back and forth on its odd feet. The surprise on Jarod's face is immensely satisfying. "You caught one of the shiftry in the forest?"<br>
-<br>
-"Kemuri, Leaf Blade!" There's a second of delay, and then he bounds forward and slashes at the rhydon.<br>
-<br>
-"Rocksteady, Take Down!"<br>
-<br>
-Rocksteady surges forward, and Kemuri ducks and rolls to the side. The rhydon roars as it stumbles past, and Blue sees three long lines on its side. White discoloration spreads from the etched rock, and the ragged edges of Kemuri's leaves drip sap onto the ground before they reknit themselves whole and sharp again.<br>
-<br>
-"Rocksteady, Drill Run!" Joren shouts, and his pokemon falls onto all fours and charges, horn rotating with a high pitched <em>rrrrrrr </em>of scraping stone. Kemuri dodges it again and tries to cut downward as the rhydon passes by, but Jarod shouts "Slam!" and it throws its body to the side, forcing Kemuri to leap away.<br>
-<br>
-Within his envelope of calm, Blue absently wipes a drop of sweat from his brow. That was too close. The Rhydon is incredibly quick for its species, and he knows Jarod must have trained its speed to make up for its major weakness. "Kemuri, Leaf Blade!"<br>
-<br>
-His pokemon narrows its leaves on either arm into outstretched, overlapping swords, then stabs them forward to score harsh lines along the side of the rhydon's face and under its eye, dancing a step forward and back to avoid being crushed by its lunges. "Megahorn!" Jarod shouts as Kemuri leans forward again, and Rocksteady throws its head up. Its whirring horn narrowly misses Kemuri's arm, but cuts the bundled leaves from his right "hand" in half as the shiftry jerks to the side. His coughing roar almost drowns out Jarod's command of "Take Down!"<br>
-<br>
-"Feint Attack!" Blue yells, and is relieved to see his shiftry stop its pained reaction immediately and throw itself to the side, slashing the rhydon's rocky hide as it lunges past. Sap drips steadily from his severed leaves, and Blue watches it carefully to see if the wound will close on its own. He shakes his watch loose and taps the screen to set a one minute timer. If it continues to bleed by the end of it, he'll withdraw. Either way, continuing to fight up close is a bad idea. He needs to get some distance and time for an Extrasensory attack. "Kemuri, back!"<br>
-<br>
-The rhydon is beginning to show its injuries, gait uneven and breathing labored from pain. Jarod watches Kemuri leap away, then says, "Rocksteady, Flamethrower."<br>
-<br>
-<em>Ah, shit- </em>"Kemuri, dodge!" Blue yells as Rocksteady stands back up on its hind legs, chin bowed and chest heaving. Kemuri leaps in a random direction just before Rocksteady raises its head and vomits out a stream of fire that splatters over the rocky arena in a wide arc. Kemuri leaps again and again without further prompting as the spray of fire follows him, and coughs in pain as some of the fire lands on his long white hair or wooden skin.<br>
-<br>
-Blue feels some of the heat against his face as he aims his greatball and tracks his pokemon's movements. The stream of fire is thin and paltry compared to an arcanine or magmar's flamethrower, but it's dangerous enough to take his pokemon down if he gets directly hit. <em>Three… four… five… six...</em><br>
-<br>
-The rhydon closes its mouth, fire dripping from its jaws and burning harmlessly against its skin. Flames continue to burn across a wide swathe of the arena, scorching the ground and rocks black until they die down a few seconds later. As soon as new fire stops being shot at it, Kemuri throws itself to the ground and begins to roll along the dirt, snuffing out the fire that had landed on it in various spots. "Kemuri, Extrasensory," Blue says once he can't see any more fire, but the shiftry continues to flail along the ground. "<em>Kemuri, stop!" </em>His pokemon goes still. Half of its shaggy white mane has been burnt, and smoke still rises from various parts of its body. The rhydon would need time to use that attack again, and they need to end this now. "Kemuri, Extrasensory," Blue says.<br>
-<br>
-Instead his shiftry dashes forward to attack with his leaves again, scoring more jagged lines along the grey ridges of the rhydon's hide. <em>No! </em>"Kemuri, back!"<br>
-<br>
-"Rocksteady, Hammer Arm!"<br>
-<br>
-"Kemuri, Feint Attack!"<br>
-<br>
-The rhydon's grey arm slams down on Kemuri's shoulder with a sharp <em>crack</em>, and the shiftry crumples to the ground. Blue withdraws him a heartbeat later, stomach rolling with a mix of frustration and anger at his pokemon for not listening to him… and shame for losing the match.<br>
-<br>
-"Rocksteady, return!" Jarod withdraws his rhydon, then clips it to his belt and walks over, casually stepping around the scorched parts of the arena. "Well? Is it okay?" he asks once he's closer.<br>
-<br>
-"It's fine. Just a broken arm and the burns, I think." Blue takes out his pokedex to check anyway. "Yeah. I'll get it over to the center to heal up." He puts his dex away and reclips the ball. "Thanks for the rematch." Blue steps down from his platform and begins to walk across the arena toward the exit.<br>
-<br>
-Jarod follows him. "No problem, beating you was more fun than I expected. I'm happy to do it again sometime."<br>
-<br>
-Blue glances at Jarod as they walk. If he didn't know better he'd say Jarod is being nice, in his own way. "Well, we're 1 to 1 now, so I'd say another rematch is in order."<br>
-<br>
-"Oh sure, count the preliminary match. Anytime, anywhere, Oak. You heal that sorry excuse for a plant pokemon up, make sure it actually listens to you, and after a dozen fights or so, you might actually beat me."<br>
-<br>
-Blue smirks, but it fades by the time they leave the training room. "I'm just glad to see he followed my other orders until then. I had some trouble getting him to listen at all until last week." Blue hates how he sounds like he's making excuses, but he finds that he wants Jarod to know how much effort has gone into his training.<br>
-<br>
-"Well, you've got four days to get it to follow orders better in the heat of things. Do that, and as far as trump cards go, you might stand a chance."<br>
-<br>
-"Especially since onix can't TM Flamethrower, or any other Fire attacks."<br>
-<br>
-Jarod grins. "Liked that, huh?"<br>
-<br>
-Blue shrugs. "It can help their coverage a bit, but hacking their biology to fit in some extra organs doesn't change that rhydon is a physical attacker. Most cases you're better off sticking to what they can learn naturally."<br>
-<br>
-"<em>Hai, sensei</em>." Jarod sketches an elaborate bow. "I'm always grateful of what pearls of wisdom you deign to drop for me."<br>
-<br>
-"May you profit from them all."<br>
-<br>
-Jarod's smile fades slightly as they reach a branch in the corridor, and Blue stops walking when Jarod does. "Well here's one for you. I know you help out at the center most afternoons, but come back tonight if your shiftry is ready by then."<br>
-<br>
-Blue raises a brow. "You offering a rematch, or personal training time?"<br>
-<br>
-"Both. And before you get flattered, this is a safety concern. You're going to be using a temperamental pokemon that's clearly not fully under your control yet in a Challenge match. I need to make sure you get a handle on its disobedience, because if you step out in that coliseum against Brock and your shiftry decides to stop listening to you at the wrong moment, someone could get hurt. That's not happening in my Gym. Understand?"<br>
-<br>
-Blue meets Jarod's gaze for a moment, pride fighting his sense, then nods. "I'll be here. Humiliating myself in the public eye is the last thing I want."<br>
-<br>
-"Good. Brock's a fair guy, but you've only ever seen his friendly side. Believe me, you don't want to come into his arena with an unruly pokemon. Put your pokemon or his at risk like that, and a public browbeating will be the least of your worries."<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-"Excuse me. Pardon me. So sorry…"<br>
-<br>
-Red and Leaf make their way to their seats through the throng of spectators. They thought they were getting here early, but apparently underestimated how many people would show up. When Red watched the vid of Blue's first Challenge, the stands were maybe a quarter full. Now it looks like they're well past half.<br>
-<br>
-"This is J-23," Leaf says as she passes an empty chair. "There, those two must be 27 and 28."<br>
-<br>
-Red follows her to them and sits with a sigh of relief. The noise and presence of the crowd sets his nerves on edge, and he finds himself tugging the bill of his hat down every few minutes. "What time is it supposed to start, do we know?"<br>
-<br>
-"Seven on the dot. Not sure how often they're on schedule, this is my first time at one of these."<br>
-<br>
-Red grins. "You too? I thought I was the only one."<br>
-<br>
-Leaf shrugs. "I get that it can be important. I just don't like seeing them get hurt."<br>
-<br>
-"Ah. Right. So, uh, how's the article going?"<br>
-<br>
-Leaf brightens. "I finished it last night."<br>
-<br>
-"That's great! When can I read it?"<br>
-<br>
-"Your mom was looking it over today for final edits. I should have them done by the end of the night."<br>
-<br>
-"I can look it over and give you some feedback by the end of the night too, if you want."<br>
-<br>
-She smiles. "Sure."<br>
-<br>
-"What?"<br>
-<br>
-"What, what?"<br>
-<br>
-"You seemed, I don't know, amused."<br>
-<br>
-"No, not at all, I just... I mean, do you think you'll have some suggestions that Laura wouldn't make?"<br>
-<br>
-Red considers this, and grudgingly nods after a moment. "Okay, fair point. Nevermind."<br>
-<br>
-"No, it's okay, I'm interested to know what you think."<br>
-<br>
-"You don't have to appease my ego, you're right. I'll just give you my thoughts as a reader."<br>
-<br>
-"Well, thanks. I'm open to any feedback."<br>
-<br>
-"No prob."<br>
-<br>
-"What about you, what's going on with the study? It's over, right?"<br>
-<br>
-"Yeah, we finished the last session yesterday."<br>
-<br>
-"So what have you got so far?"<br>
-<br>
-Red hesitates, then pulls out his pokedex and opens the draft of his paper. He goes to the graph and expands it. "Spot my headache."<br>
-<br>
-A simple scatterplot titled "Correlation between Intensity of Night Shade and the concentration of 'Other' pokedex composition metric in spinarak" is displayed. The Y axis is marked from 1 to 10, and the X axis goes from 5% to 25%, with the highest point of data at 23%, and the lowest at 6%. Forty dots fill the graph, clustered mostly between the 5 and 7 on the Y axis, and everywhere on the X.<br>
-<br>
-"Huh. This actually looks… well, mostly random, but it looks like there's some slight correlation."<br>
-<br>
-"Yeah. For the most part, it seems almost totally unrelated. But there's a bit of a blank spot." He points to the different areas on the graph. "You've got spinarak with low Other and low Intensity, spinarak with high Other and high Intensity, spinarak with high Other and low Intensity…" His finger moves to the top left. "But no pokemon that have lower than a 10% in their Other metric scored an intensity above 7…"<br>
-<br>
-"Except for this jerk." Leaf taps on the lone dot sitting separate from the rest, which shows an Other of 7% and an Intensity of 8. "Well, damn. I'm sorry, Red."<br>
-<br>
-"I asked the wrong question in my hypothesis," Red says. "Instead of predicting that there's a correlation between a high Other and intense Night Shade, I should have said that there wouldn't be any cases of an intense Night Shade with a low Other."<br>
-<br>
-"But that would mean your hypothesis is even more clearly wrong."<br>
-<br>
-"Yeah, well, maybe it should be more obvious. At this point I feel like I just wasted a lot of time and money."<br>
-<br>
-Leaf frowns and closes the pokedex. "Don't say that, there still might be useful information in there. That correlation might not be super strong, but it's not nothing. And that one spinarak, who knows, it might have been a mistake, some mix-up from the psychic-"<br>
-<br>
-"Challenger, Blue Oak, first badge."<br>
-<br>
-Red's head snaps up as the noise in the auditorium rises into cheers and applause, and he quickly tucks his pokedex away. "Later." Blue looks tiny as he makes his way across the floor toward the massive stadium, but his face is larger than life on the screens lining the top of the walls. It's a bit surreal seeing his friend at the center of so much attention, and Red feels compelled to clap harder, meaningless as it is.<br>
-<br>
-"Leader Brock, of Pewter City, 138th Indigo League Champion, Trainer of Aeosis, the Mountain's Might!"<br>
-<br>
-Once Brock reaches his podium among the roar of applause, the sound dies down almost instantly, just in time for his voice to replace the announcer's over the speakers. "Citizens of Pewter, gym members, guests from afar, welcome. A month ago a trainer came to this stadium to Challenge our gym, and left wiser than he entered. Today he has returned to demonstrate the fruits of that wisdom. Blue Oak, Pewter Gym honors your request. State the nature of your Challenge."<br>
-<br>
-"I challenge Pewter Gym for Mastery."<br>
-<br>
-"Pewter Gym accepts. Incapacitate or force me to withdraw my pokemon, and you will bear our badge. Prepare for battle!"<br>
-<br>
-Red watches the platforms detach from the stairs leading up to them and feels his pulse speed up. He can feel it in the audience, a silence taut as a stretched rubber band, an almost palpable sense of anticipation that he can't help but feel caught up in. Red is struck by the thought that maybe it's something more than his imagination: maybe it's his nascent psychic abilities. He's about to turn and ask Leaf if she feels it when the battle begins.<br>
-<br>
-"Go, Graveler!"<br>
-<br>
-"Go, Gon!"<br>
-<br>
-"Graveler, Rock Throw!"<br>
-<br>
-"Gon, Leech Seed!"<br>
-<br>
-The projectiles arc through the air toward their opponents, and Red grips the arms of his seat as the rocks crash down around Blue's shroomish. One of them sends it tumbling to the side, and Red lets out a breath as it gets back up and follows Blue's order to use Stun Spore.<br>
-<br>
-As the fight progresses, Red notices Leaf on the edge of her seat as well, though her tension spikes when either pokemon gets hit. She catches him looking at her and mutters through a wan smile, "It's easier when I'm in the battle myself. I have some control over things. Just watching is nerve wracking."<br>
-<br>
-Red's nerves are definitely on edge, but what he feels isn't anxiety: it's excitement, pure and simple. Was <em>this</em> what made Blue watch Challenge matches and League championships obsessively? Red watches the graveler throw itself forward into a Rollout and nearly shouts out loud as Gon doesn't get out of the way on time. Half of the audience does cry out, and Red's heart pounds in his ears as the graveler catches itself and launches back at the recovering shroomish.<br>
-<br>
-"Gon, Poison Powder!"<br>
-<br>
-"Graveler, Body Slam!"<br>
-<br>
-"Gon, back!"<br>
-<br>
-Gon's cloud of poison doesn't even slow the graveler down as it throws itself into it, but it doesn't see which direction the shroomish waddles away in. The graveler slams into the ground through the poison, knocking loose some of the leech seeds that have grown big and ripe, but Gon isn't around to eat them: by the time it picks itself back up to look around, Blue has withdrawn his pokemon and sends out Maturin.<br>
-<br>
-"Graveler, Stone Edge!"<br>
-<br>
-"Maturin, Withdraw!"<br>
-<br>
-Gravelers four arms smack into its body, and thin, jagged chunks of stone crack off. The graveler throws a chunk of itself at Maturin, and the rest of the shards follow through the air, peppering Maturin's shell with sharp jabs. Red wants to look the move up in his pokedex and see how it works, but he can't take his eyes off Maturin as she goes bouncing across the stadium. A moment after she stops, Blue orders her to fire a bubble, and Red sees on one of the screens that she emerges from her shell mostly unharmed but for a bleeding gouge in her leg.<br>
-<br>
-"Come on, come on," Red mutters as the graveler attempts to follow its target through her explosive popping bubbles. When it tries a Rock Throw Maturin ducks back into her shell, but it misses. "Go down!"<br>
-<br>
-Leaf gives him a look just as the graveler begins to cough, its whole body shaking. By now half of its body is covered in the leech seed's tendrils, and when it collapses to its knees, Brock's platform moves close enough for him to withdraw it.<br>
-<br>
-"Well done, Challenger. This graveler would have defeated your pokemon when you first arrived, but you've shown that the time spent in our Gym and our city has honed both you and them."<br>
-<br>
-"Thank you, Leader. I've learned a lot from your city and your students."<br>
-<br>
-Red leans toward Leaf and mutters, "A bit over-dramatic, huh?"<br>
-<br>
-She grins. "I wonder if they have a script."<br>
-<br>
-Someone makes a shushing sound behind them, and Red sits straight again. His pulse is still in his throat as he waits, and he can feel (or thinks he can anyway) the whole stadium's anticipation building higher and higher.<br>
-<br>
-"Our Gym is one where we teach and are taught, and you have by all accounts been a valuable partner to many. I hope we have in turn prepared you for your final test."<br>
-<br>
-"You have. Maturin, return! Go, Kemuri!"<br>
-<br>
-The stadium erupts in surprised chatter, and Red grins. Blue knows how it plays to the audience to show off such a strong pokemon. He hasn't been a part of the training sessions for about a week, and he's eager as anyone to see what Blue and his shiftry are capable of.<br>
-<br>
-"He caught one?" Leaf gasps.<br>
-<br>
-"Yeah, and he's had a hell of a time trying to train it."<br>
-<br>
-"Brock doesn't seem happy."<br>
-<br>
-Red looks around for a monitor trained on the Gym Leader. Brock's lips are moving subtly, and Red remembers what Blue said about the private channel. "Wonder what they're talking about." He looks at Blue to try and read his lips, but Blue's voice suddenly fills the stadium.<br>
-<br>
-"I caught Kemuri in Viridian. I and two trainers were attacked by a pack of six shiftry as we tried to fight the fire. We lost a number of our pokemon fending them off. We nearly lost our lives. Kemuri was the sole survivor, badly injured in our fight, and so full of malice that he struggled to kill me even as he lay dying. But I refused to accept such a loss. I acted decisively, and caught it despite not having a greatball available. Your gym helped me train it, and today I command it. Kemuri and I are prepared for your test of Mastery."<br>
-<br>
-Leaf grins. "Now <em>that's </em>over-dramatic."<br>
-<br>
-"Do people do these speeches often? If so I've got to watch more just for them."<br>
-<br>
-"Shhh!"<br>
-<br>
-Red turns to see a spectator sternly hold a finger over his lips. Red rolls his eyes and faces front again. "<em>Everyone's </em>talking around us," he mutters.<br>
-<br>
-"You and your pokemon have journeyed far together. Now show us the strength of your bond. Go, Onix!"<br>
-<br>
-The audience roars in approval, and Red wonders if there was some ambiguity on whether Brock would use an onix again. Blue beat the geodude, so maybe that's why it was replaced. Of course, this could be a stronger and better trained onix than the one he fought before anyway.<br>
-<br>
-He wants to ask Leaf if it seems any bigger than the one from Blue's first fight, but then the battle begins, and he's once again swept away in its ebb and flow.<br>
-<br>
-"Kemuri, Leaf Blade!" Blue says, and Brock immediately taps some command on the railing near its second microphone.<br>
-<br>
-Blue's shiftry hops forward from one foot to the other as the onix heaves rocks through the air with its tail. Kemuri dodges and closes the distance between them and cuts the onix's grey hide with his leaves. White blemishes begin to spread from a number of cuts crossing the many boulder segments of its body.<br>
-<br>
-Brock taps out another command, and Blue yells "Dodge!" just as the onix swings its body around. Its tail clips Kemuri's side and knocks him away. Kemuri lands with some grace, though a closeup screen shows that it's favoring one of its legs. Red knows by now that shiftry tend to fake injuries to catch their opponent off guard, and hopes that's the case here: if Kemuri's mobility gets restricted, he would be in trouble. "Kemuri, Leaf Tornado!" Blue commands.<br>
-<br>
-The shiftry begins fanning its leaves, around and around each other in a complex pattern. Brock taps out a command, and his onix circles a rock and flings it at Kemuri, causing Red to nearly rise from his seat. <em>Shit-shit-shi-whew.</em> It crashes to the ground on Kemuri's side, and soon his arms are a blur as bits of green particles flow in a mini cyclone toward the onix, far tighter and more directed than stray bits of leaf normally might.<br>
-<br>
-Brock taps the railing again, and his onix jukes to the side. The "wind" is wide enough to blow some of the green particles onto it, but most pass harmlessly by, and Brock taps out another command that sends his onix barreling straight at Kemuri with a roar.<br>
-<br>
-"Leaf Blade!"<br>
-<br>
-"Bide!"<br>
-<br>
-The onix immediately halts its charge and coils itself into a tight spiral, leaving Kemuri nothing to attack but solid sides. Kemuri goes at it with gusto, but Blue quickly commands the shiftry to back off. Red remembers Blue's worries about not knowing when Brock might start a Bide, and wonders why it's a move Brock has to command verbally. Is it a handicap he offers to Challengers?<br>
-<br>
-Either way, Blue has a way to beat it. Red watches Kemuri move farther and farther away, still favoring one of its legs. The onix is still coiled up, waiting. "Kemuri, Extrasensory!"<br>
-<br>
-The shiftry goes still, then spreads its leaves wide to the sides as its eyes begin to glow. The whole stadium seems to be holding its breath as they watch Brock's onix for a reaction. It begins to twitch, then growl and shift in place, but before it gets any worse Brock taps something out on the railing, and its whole body <em>twists</em> as it dives into the ground, tunneling beneath the stadium.<br>
-<br>
-Red has a moment to wonder if that would work when Kemuri blinks, glow fading from its eyes.<br>
-<br>
-"Well, that's okay. He just has to hold still like last... time..." Leaf says, trailing off as Brock scales the fence around his platform and leaps down onto the arena floor.<br>
-<br>
-<em>Thud.</em><br>
-<br>
-A single stomp of Brock's heavy boot.<br>
-<br>
-<em>Thud thud. Thud... Thud-thud.</em><br>
-<br>
-Distant rumbling from beneath the ground of the arena. The audience's murmurs grow as Brock continues to kick at the ground in brief, deliberate patterns.<br>
-<br>
-"I don't think Brock is interested in repeating challenges," Red whispers, rising tension making his gut twist and sour. "It's... gotta be some kind of standard directive, he can't see where his onix is going..."<br>
-<br>
-<em>Thud. Thud thud… thud.</em><br>
-<br>
-Leaf's fingers squeeze her knees, eyes wide. "He knows the stadium's dimensions! If he has a command that sends the onix to a starting location, then guides it from there by fixed intervals..."<br>
-<br>
-<em>Thud, thud, thud… thud-thud-thud!</em><br>
-<br>
-"Dodge!" Blue yells just as the onix erupts from the ground beneath Kemuri. The shiftry goes flying, then smacks gracelessly against a rock. It falls to the ground and lies still.<br>
-<br>
-"Oh," Leaf says softly. "Shit…"<br>
-<br>
-"It might be a trick," Red whispers, cold inside. <em>Get up...</em><br>
-<br>
-The stadium watches in dead silence, broken only by the whirring of Blue's platform. "Return," he says, the word seeming to echo.<br>
-<br>
-"Bravely fought, Challenger. Your shiftry is strong, and well trained for what time you've had it. Another month, and it might-"<br>
-<br>
-"I'm not done yet. There's someone here who wants a rematch. Go, Maturin!"<br>
-<br>
-Blue's squirtle appears on the arena floor and, upon catching sight of the onix, immediately falls onto all fours, eyes narrow and foam dripping from its jaws.<br>
-<br>
-Brock is quiet, and Red watches his lips in case he says something in private. "Think he's worried about Maturin's safety?"<br>
-<br>
-Leaf shakes her head. "His onix."<br>
-<br>
-Red looks at her, then the monitors. She's right: the onix's skin is more white than grey, and its cuts are dark with sap or blood. Red knows that the rocksnakes don't need much oxygen, but this one's breathing is vaguely audible from all the way up here.<br>
-<br>
-After a moment Brock merely says. "A good trainer knows our pokemon's pride is as important as our own. Show us what your squirtle can do."<br>
-<br>
-"Maturin, Water Gun!"<br>
-<br>
-"Onix, Dig!"<br>
-<br>
-It dives beneath the ground, its tail hit by the quick, sharp stream of water. Brock begins stomping immediately, and Blue yells, "Maturin, back!"<br>
-<br>
-<em>What's he doing?!</em> But no, he's not safe standing still either. Luckily Brock's commands take priority for the onix, or maybe it's too far to attack right away, and Maturin safely moves closer to Blue, standing just in front of his platform by the edge of the arena.<br>
-<br>
-Brock stops stomping. Red can hear his own breathing, and doesn't dare to blink as he looks back and forth between Blue, Brock, and the unmoving arena.<br>
-<br>
-Brock's smile is slow, but wide. He nods at Blue, and Blue gives a two fingered salute.<br>
-<br>
-"Some kind of safe spot in the arena?" Leaf whispers as the audience erupts in murmurs.<br>
-<br>
-"Gotta be, maybe because of the trainer platform's foundation..."<br>
-<br>
-<em>Thud, thud thud thud, thud.</em><br>
-<br>
-Brock finishes stomping the ground, then climbs out of the arena and up to his platform again as his onix returns to the surface with a grinding roar.<br>
-<br>
-"Maturin, Water Gun!"<br>
-<br>
-"Onix, Wrap!"<br>
-<br>
-Maturin dashes forward to get into range and the onix rushes to meet it, zigzagging between the boulders to avoid the shots of water in a scene that looks too familiar. Brock is going for the quick victory from last time. Red grips his armrests as the onix begins to circle Maturin.<br>
-<br>
-"Withdrawup!"<br>
-<br>
-Maturin pops into her shell rightside up just as the onix constricts its body around her. "Maturin, Soak!"<br>
-<br>
-The water pours over the onix's coiled body, directly into one of Kemuri's cuts.<br>
-<br>
-The onix roars and thrashes along the ground. Leaf covers her face and Red rises out of his chair with half the audience, adrenaline pumping through his blood and nothing to do with it but watch as the onix writhes along the ground. If Maturin didn't duck her head in immediately, it would be pulverized.<br>
-<br>
-The audience cries out as the coils finally loosen enough to fling Maturin away. A heartbeat later, Brock withdraws his onix, and Blue grabs Maturin as soon as she bounces into range.<br>
-<br>
-In the ringing silence, both trainers take a moment to line their balls up with their pokedex. Brock looks up first, and all the cameras shift to Blue.<br>
-<br>
-"Is she okay?" Leaf whispers, shockingly loud in the silence. "I can't look."<br>
-<br>
-Blue's face relaxes into a smile, and two fingers rise in a V. The dam of silence breaks, and the stadium fills with applause.<br>
-<br>
-"He did it!" Red pumps his fist as Leaf sags in relief. "Way to go, Blue!"<br>
-<br>
-Brock jumps down from his platform again and begins to walk toward Blue, who climbs down to meet him halfway. The applause slowly fade as they meet in the middle of the stadium. "Congratulations, Challenger. Pewter Gym hereby recognizes you, Blue Oak, with the Boulder Badge." Brock takes a small box from his pocket and opens it. Upon its black velvet interior, the dark silver octagon of the badge gleams on every screen. "The world is harsh, but deep within each of us lies the strength of stone, the bones of the earth itself. Today you have shown that strength. May the lessons and wisdom of our gym go with you, and keep you and your pokemon safe."<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-Leaf and Red walk the corridors of Pewter Gym, following the directory signs from one hallway to the next. She feels exhausted. Somehow Red, who spent the night jumping up and down from his chair and screaming like a madman, is still bright eyed and bushy tailed, and has barely stopped talking about the match since they left the stadium. It would be cute instead of wearying if not for her emotional drain.<br>
-<br>
-"And that last command, Blue must have known it was coming up, it was just the timing that was off, or maybe his shiftry's reaction time-"<br>
-<br>
-"Yes, I saw it," she says. "I was there. It was thrilling."<br>
-<br>
-Red's grin fades slightly. "Sorry, just a bit whelmed. Maybe even overwhelmed. It was… more intense than I expected."<br>
-<br>
-"I could tell. You sound like Blue."<br>
-<br>
-"I'll have to remember this next time he's going on about some match. Having some stake, caring about the outcome and participants, I sort of get his passion for it."<br>
-<br>
-Leaf groans. "Not you too."<br>
-<br>
-"Don't worry, I'm not lining up for a Challenge. Even if I wanted to, I'm not an idiot. My pokemon are a fire type, a normal type, two bug types, and an electric type. I'd get crushed. Literally."<br>
-<br>
-"Good, because I don't think I could attend another one of those for at least a few weeks."<br>
-<br>
-They reach the right door and knock before entering. It's a comfortable looking room, with a table full of food to one side and a number of big, plush couches in the middle. Blue is sitting on one, looking as drained as Leaf feels. He has the small box with the Boulder Badge in one hand, and closes it as they enter, getting to his feet and tucking it away in his pocket. His grin chases the fatigue from his face, and he steps forward to meet her hug.<br>
-<br>
-"Congratulations, Blue!"<br>
-<br>
-"Way to go, man." Red bumps his fist. "That was really awesome."<br>
-<br>
-"Yeah? You guys enjoyed it?"<br>
-<br>
-"Red's been going on about it since we left the match," Leaf says, avoiding her own response. No need to rain on their parade. "Your pokemon are okay, though?"<br>
-<br>
-"They have a small facility here, I got them checked out after the match. Kemuri and Gon will be healed up in no time, Maturin just needed some potion and rest. She was snug in her shell before the onix started thrashing."<br>
-<br>
-The knot of worry in Leaf's chest relaxes, and she takes what feels like the first full breath since the match started. "And Brock's onix, it's okay too?"<br>
-<br>
-"I don't know, haven't seen him since the stadium. He should be on his way now though."<br>
-<br>
-Red and Blue begin talking about the finer details of the match, and Leaf wanders over to the refreshment table to grab a soda and nibble at the vegetable tray. She feels herself growing more calm little by little as time passes, eventually sitting on the couch with a small plate of food. She wonders if she'll ever get used to watching pokemon fight. Everyone in that auditorium seemed to be enjoying themselves. Even when they were worried that one of the pokemon had gotten hurt (or rather, more hurt than "expected"), it didn't seem to <em>really </em>bother them. They left the match talking and laughing. Even Red.<br>
-<br>
-Maybe there's just something wrong with her.<br>
-<br>
-She picks at her food until there's a knock at the door, and the Gym Leader walks in a moment later. "Hello everyone. Sit, sit. I just came by to congratulate you again, Mr. Oak."<br>
-<br>
-"Thank you, Leader."<br>
-<br>
-"Your shiftry took me by surprise tonight. It must have given you trouble, or I imagine you would have used it in our first match. Unless that was just a story, and you acquired it recently?"<br>
-<br>
-"No, it was all true."<br>
-<br>
-"Remarkable. Who helped you train it?"<br>
-<br>
-"Red did, and Jarod."<br>
-<br>
-"And your squirtle?"<br>
-<br>
-"Being able to withdraw is one of Maturin's greatest strengths, but after our last match, I couldn't allow it to become such a liability again. Even with Kemuri, I wanted to make sure Maturin would be more prepared. So I trained her for a few maneuvers while in her shell. " Blue smiles. "Kemuri weakened your onix enough that Maturin didn't even need a direct hit. Once you went for the Wrap again, I knew I had you."<br>
-<br>
-"And yet it was a great risk. If your squirtle wasn't fully withdrawn, or my onix had a more violent reaction…"<br>
-<br>
-Blue shrugs. "It was a calculated risk. Even adolescent onix are massive and powerful creatures, and expecting to take one down without some fallout is unrealistic. Of all my pokemon, Maturin is most capable of staying safe."<br>
-<br>
-"And onix's dig attack? How did you know that part of the arena floor was safe from tunneling?"<br>
-<br>
-"I didn't. From some exploration, I knew that the smaller arenas have more solid ground just around the inside corners. I just figured my best bet was to act as though it was true for the big one as well, since if I was wrong I probably wouldn't win anyway."<br>
-<br>
-Brock nods. "You've acted decisively, from training to combat, and beat me honestly. It was an honor to battle you."<br>
-<br>
-"The honor is mine, Leader." Blue bows. "Thank you for all the help your gym has been."<br>
-<br>
-"I heard you've been as much a teacher to others here. Truth be told, I hoped you would stay another month, perhaps even Challenge for membership."<br>
-<br>
-Blue looks genuinely surprised for a moment. "I'm honored. Really. But we'll be moving on soon. I have a long way to go."<br>
-<br>
-"You're welcome back any time." They clasp hands, and Brock turns to her and Red. "And you two? You were in the Viridian Fire too, weren't you? My city thanks you for your help."<br>
-<br>
-"No need to thank us. We got kind of caught up in it," Red says.<br>
-<br>
-Leaf nods. "Blue was the hero. Red and I didn't get the chance to help anyone."<br>
-<br>
-"I don't know about all that," Red says. "You definitely saved me."<br>
-<br>
-"I'd say we're both even on that score."<br>
-<br>
-Brock smiles. "You were the injured one, right? And you were the one looking after him. I remember. Your friend was quite worried about you two."<br>
-<br>
-Blue's cheeks redden, and Leaf grins. "He's a sweetheart," she says, and to her delight he flushes further.<br>
-<br>
-"Should I expect your Challenges someday?"<br>
-<br>
-"Not likely," Red says. "But I'd love to pick your brain about Rock pokemon someday, especially some of their abilities."<br>
-<br>
-Brock smiles. "A researcher, then? I should have known as much, travelling with an Oak. I don't normally have time to spare, but I might be able to answer an email occasionally, if they're not too long or frequent."<br>
-<br>
-"Really? Thanks!"<br>
-<br>
-"And you? Are you a researcher too?"<br>
-<br>
-If she's ever going to get the Gym Leader's perspective on the museum, now's her best chance. "Not quite. I'm dabbling in some journalism at the moment, and was wondering if you'd be interested in a quick interview?"<br>
-<br>
-"Interesting. What about?"<br>
-<br>
-"The Pewter Museum. I tried to schedule an interview through your gym, but they said…" She trails off at the slight frown on Brock's face.<br>
-<br>
-"I'm sorry, I don't really have the time for such things. My concerns are Pewter's Gym and its people's safety. I'm sure there are others more qualified to answer questions on the museum." Brock stands up, and the three trainers do too. "Congratulations again, Mr. Oak. If you have time before you leave, come by my office, and I'll teach you the basics of the Bide technique."<br>
-<br>
-"I will, thank you." Blue bows again, and Red and Leaf follow suit. Brock returns it, then leaves.<br>
-<br>
-Blue and Red return to chatting about the match as they go to the food table. Leaf stays behind and munches on a carrot. Even knowing it was a long shot, Leaf feels slightly hurt. The Gym Leader didn't even offer her the occasional email question like Red.<br>
-<br>
-Well, she tried. If he got upset with what she writes, he had his chance to weigh in. It's probably delusional to think he'd care what her little article says, but if he does decide to speak out after it's published, well, at least it'll have accomplished something.
-        </div>
+            <h1 class="chapter-title">Chapter 33: Interlude V - Double Binds</h1>
 
-        <div class="chapter-nav">
-            <a href="../32/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../34/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p><em>The coliseum was colder than she imagined, colder than she thought she could endure. Hail pelted her thick coat and bounced off hastily donned goggles. Harsh winds tore words from lips made numb by their assault. The metal of her pokeballs bit at her fingers with icy teeth. And all the while, she grinned until her cheeks felt frozen in their new position.</em></p>
+
+<p><em>She had thought she was ready. She had thought she was prepared for any obstacle, any twist.</em></p>
+
+<p><em>She never imagined that Elite Lorelei would schedule their Challenge match during a blizzard, on top of an </em>indoor glacier.</p>
+
+<p><em>Misty had never felt so alive.</em></p>
+
+<p>"<em>Remember, you may forfeit at any time," Lorelei said in her ear before the battle began. "I will not call the match if one of your pokemon is killed."</em></p>
+
+<p><em>Misty responded by sending her poliwrath out to pummel the Elite's opening cloyster. Its shell was hard as steel, but just as vulnerable to her pokemon's precise, powerful strikes. Her poliwrath shrugged off its returned attacks and eventually took it down, which began a flurry of swaps and trades. A jynx took down her poliwrath with a mental blast, then got felled itself by Misty's jellicent. Lorelei sent out a weavile, but Misty was ready with the withdraw this time. Wishing she still had her poliwrath, Misty sent her blastoise out to tank the sweeper. Her pokemon was able to hold its own for a while, unable to land a solid blow but protected by its thick shell, but the hailstorm was slowly wearing it down, and Misty finally ordered a Body Slam to try and catch the weavile by surprise.</em></p>
+
+<p><em>Her pokemon fell onto all fours and thrust itself forward like a battering ram, but slipped on the ice of the glacier and veered a bit to the side. The weavile nimbly flipped itself out of the way, then dashed in for another attack</em><em>—</em></p>
+
+<p><em>—</em><em>until her blastoise spun on its belly and aimed a cannon right at it for a full on Hydro Pump.</em></p>
+
+<p><em>Lorelei didn't miss a beat, and sent a lapras out that took her blastoise down with a thunderbolt. Misty quickly sent out her starter and lifelong friend, Celest. She grinned as her starmie easily outsped the lapras and hit it with psychic blasts until it was withdrawn, Recovering to heal from the returned electric attacks.</em></p>
+
+<p><em>Her first Challenge against the Elite Four, and she was already ahead of the game, with four pokemon against Lorelei's remaining three. Lorelei may have been a master of Ice pokemon, but Misty had always favored Water types herself, and was more than prepared for the environment and matchup.</em></p>
+
+<p><em>A shard of hail slid down her neck, making her shudder and chilling her overconfidence. She mentally directed Celest into the water around them, then linked their minds. Years of training with her starmie allowed her to seamlessly interpret the pokemon's bizarre senses and alien thoughts. If Lorelei sent out a non-aquatic pokemon, Celest could do hit and runs attacks from the safety of the water, and if the Elite sent out an aquatic pokemon she wouldn't be able to follow the battle or command her pokemon as well as Misty. With a mental nudge, Celest began rotating around the glacier at high speed as the two surveyed their surroundings through the starmie's psychic field and waited for Lorelei's next move.</em></p>
+
+<p><em>Lorelei lifted an aquascope from behind her platform walls and walked to the edge of the ice before sending her dewgong into it. She sent the long metal pole of the scope into the water and began fiddling with the controls, moving the camera at its bottom to follow the action as she began sending commands to her pokemon through high frequency clicks.</em></p>
+
+<p>So much for that idea<em>, Misty thought as she hastily ordered her pokemon to construct a Light Screen. Dewgong's Water and Ice attacks would be ineffective against Celest, whose ability to naturally cure status effects would help in the outside chance that she was frozen, but the dewgong's Signal Beam would be especially effective against the psychic starfish.</em></p>
+
+<p><em>Instead the dewgong thrust itself at Celest horn first. Misty gasped and doubled over in pain as they were hit by three hundred pounds of blubber sheathed muscle. She quickly commanded Celest to construct a kinetic Barrier around itself as she slowly straightened. Her starmie wouldn't be able to take another hit like that: she hadn't expected Lorelei to train her dewgong as a physical attacker, and now the tempo of the battle was on the Elite's side.</em></p>
+
+<p><em>The dewgong hammered Celest again, but its attack was dampened by the Barrier, and Celest just barely clung onto consciousness. Misty ordered Celest to Recover, and her torn flesh began to close and heal, just a hair faster than Lorelei could undo with the next attack. She kept up the assault regardless, and Misty kept Celest in recovery mode, bearing the shared pain through gritted teeth. Once Celest was fully healed she would be strong enough to take a couple hits in a row as she struck back</em><em>—</em></p>
+
+<p><em>Misty felt Celest's Light Screen fading and saw the trap a second before it was sprung. A second was enough time to react, enough time to command Celest at the speed-of-thought to stop healing and refresh the Light Screen. But with either action equally likely to end in ruin, indecision decided for her.</em></p>
+
+<p><em>The Light Screen faded just as Celest finished fully recovering, and in that instant a new pitch of clicks spread through the water. The dewgong blasted Celest with a beam of discordant sound, causing Misty to clutch at her head as the psychic connection broke. She blinked spots out of her eyes as she tried to fight down her panic. Celest was down there, alone and injured… she reached out with her mind to try and re-establish a connection, but sensed nothing but pain and confusion from her starmie.</em></p>
+
+<p><em>Misty still had three other pokemon. She could accept the loss of Celest and still use her next three to try for a victory. But that would mean letting her starter stay down there and get pummeled into unconsciousness, or worse</em><em>—</em></p>
+
+<p>"<em>I forfeit!" she yelled, and within seconds the machines generating the hailstorm shut down as the audience filled the stadium with noise. Misty rushed to the edge of the glacier, stripping off anything water sensitive and taking out her headset before diving into the icy water. She kicked down until she spotted Celest and unclipped its diveball to return it.</em></p>
+
+<p><em>As she kicked back to the surface and climbed onto the glacier, she knew her attempts at becoming Champion were done. Years spent preparing and she had choked in the very first match against the League, had thrown the battle rather than risk harm to her pokemon. Someone so soft could never be Champion. Her hand caressed Celest's cold ball as she walked to the bridge leading off the glacier, chin held high for the cameras as her spirit withered within her.</em></p>
+
+<p><em>Lorelei found her</em><em> sitting alone outside the Indigo Plateau compound. Misty didn't know how, didn't question it. She simply continued staring up at the stars as the Elite sat on the bench beside her. They shared a silent handful of minutes before the older woman spoke.</em></p>
+
+<p>"<em>You did a noble thing in there. I hope you're not still beating yourself up over it."</em></p>
+
+<p><em>Misty didn't respond, not trusting her voice. Pity was something she wasn't sure she could take right now, though she wasn't sensing any from the surface of Lorelei's thoughts. The woman's mind was tranquil as a falling snowflake.</em></p>
+
+<p><em>"I've been following your trainer profile for a while, you know."</em></p>
+
+<p><em>That got her attention. "I never saw</em><em>—</em><em>" Misty stopped herself. Of course Champions and The Four would use fake accounts to follow random trainers. She found herself blushing at the thought of an Elite spending time personally watching her journey, and cursed her weakness for the dozenth time.</em></p>
+
+<p><em>Lorelei smiled, far warmer than any she showed in the arena. "You have a good heart. A good head, too. That defense of Cerulean Bay? Masterful."</em></p>
+
+<p>"<em>That was... a group effort."</em></p>
+
+<p>"<em>As far as the media portrayed it, yes, but those with the proper channels can learn more personal stories. From my understanding, everyone on the north coast of the city owes their life to you."</em></p>
+
+<p><em>Misty's face was red as her hair now, and she knew it was ruining her attempt to glare at Lorelei. "Do you give this pep talk to all the failed challengers?"</em></p>
+
+<p>"<em>Just the ones I think have potential."</em></p>
+
+<p>"<em>Potential for what?" She can't quite bring herself to ask: Champion?</em></p>
+
+<p>"<em>To make a difference."</em></p>
+
+<p><em>Misty frowned. "I appreciate the vote of confidence, but I wasn't about to throw myself off a cliff or become a hermit or anything."</em></p>
+
+<p><em>Lorelei shook her head. "Not good enough. By this time next year, if you're not someone's Second or a Director for CoRRNet, I'll be very disappointed."</em></p>
+
+<p><em>Misty was ready to get pissed again, but the words stuck in her throat. Gym Second? It's not that she never considered it, but she's not Leader material. She has no deep ties to any communities, never joined a Gym… hell, she spent half of her journey travelling alone because she preferred it to being around others. "Where would I…?"</em></p>
+
+<p><em>The Elite stretched and got to her feet. "That's up to you, dear. I just wanted to make sure you don't waste a single day stuck on this. You had to come here. And you had to lose. To learn something about yourself, down to your core. And to find something new to strive for. That was part of your journey, not the end of it."</em></p>
+
+<p><em>Misty hesitated a moment, then nodded. "Yeah, I get that. I… thank you, Elite."</em></p>
+
+<p>"<em>Call me Lorelei."</em></p>
+
+<hr noshade="noshade" size="1" />
+
+<p>The crowd erupts in cheers as Misty's wartortle is knocked out. "Nice job," she says into her mic with a grin, then switches its output to the stadium speakers as she withdraws her pokemon. "Well done, Challenger. I only have three pokemon left, which means we're entering our Lightning Round. What do you say to picking up the pace a bit?"</p>
+
+<p>The young woman on the opposite end of the arena leans against the railing of her platform. "I remain ready to beat you at twice the speed, Leader, or even thrice it if you'd like."</p>
+
+<p>The audience gives a collective "oooh" as Misty laughs. She likes this Challenger. In the past week of battling Misty's Gym members, Amy has shown herself to be a competent trainer with a good sense of humor and showmanship. She would fit right in at Cerulean, if she decides to stay.</p>
+
+<p>But that doesn't mean Misty's going to make getting her badge easy for the girl. "Thrice the speed it is! Referees, prepare the buzzers! If either of us spends more than half a second without a pokemon out, the match will be forfeit. Ready? Set! Go, Nomo!"</p>
+
+<p>Her quagsire appears on a sand island between their two raised platforms. Water divides them from the stands, beyond which are the open ocean to the north and Cerulean City to the south. Her gym was built just off the beach of Cerulean Bay, with various stadiums constructed at natural points along the coast. Their audience sits in raised bleachers of easily transported plastic and aluminum, and the arena has no roof, opening their battle to the sky.</p>
+
+<p>Amy withdraws her raichu as Nomo sends a Mud Slap at it, and replaces it with an ivysaur who sends Razor Leaves back at the tentacruel Misty replaces her quagsire with. The Gym Leader's hands never stop moving, withdraw and summon and switch and withdraw and summon and switch, as she and her challenger shout commands.</p>
+
+<p>"Osu, Ice Beam!"</p>
+
+<p>"Modius, Psyshock!"</p>
+
+<p>"Ruby, Night Slash!"</p>
+
+<p>"Pepen, Sludge Bomb!"</p>
+
+<p>"Nomo, Mud Slap!"</p>
+
+<p>"Tetra, Razor Leaf!"</p>
+
+<p>"Osu, Ice Beam!"</p>
+
+<p>Tentacruel against hypno against crawdaunt against skuntank against quagsire against ivysaur until Misty's back to her tentacruel, who narrowly misses the Challenger's ivysaur with her beam as Amy replaces it with her hypno again. Their pokemon are slowly worn down from the constant attacking and switching into hits that were aimed at others.</p>
+
+<p>Misty already took down Amy's butterfree and tangela, but crawdaunt, tentacruel and quagsire are Misty's last three pokemon, while Amy still has the raichu she used to knock out Misty's wartortle. If Misty loses her quagsire Nomo, she'll have no check against the Electric Type. But being Water/Ground means Amy's ivysaur would massacre it if she keeps it in play. Misty needs to take out the ivysaur to have a chance.</p>
+
+<p>"Pepen, Sludge Bomb!"</p>
+
+<p>"Nomo, Mud Slap!"</p>
+
+<p>Tentacruel into ivysaur, crawdaunt into hypno, quagsire into skuntank, ivysaur, tentacruel, hypno, crawdaunt, skuntank, quagsire, ivysaur, tentacruel, hypno, crawdaunt, skuntank, quagsire… throw, catch, swap, throw, catch, swap, never more than half a second between one getting withdrawn and the next coming out, setting the pattern, establishing expectation, then-</p>
+
+<p>"Pepen, Sludge Bomb!"</p>
+
+<p>Misty swaps Nomo in to tank the poisonous sludge again, but when Amy moves to withdraw her pokemon in anticipation of the next attack, Misty waits for the ball to leave her hand and immediately withdraws her quagsire and sends her tentacruel out instead.</p>
+
+<p>Amy has less than half a second to decide to either summon her ivysaur into the trap or refuse to voice the command and forfeit. In truth no time to make a new decision at all, only to continue hers or let indecision decide.</p>
+
+<p>"Go, Tetra!"</p>
+
+<p>The ivysaur materializes, and its ball rockets back toward its owner. As Misty speaks her next command, half the eyes in the stadium follow it. One of the camera crew (probably Kara, whose reaction speed is superb) actually tracks it on a big monitor as everyone waits to see if Amy can return her pokemon fast enough.</p>
+
+<p>"Osu, Ice Beam!"</p>
+
+<p>"Tetra, return!"</p>
+
+<p>The stadium erupts as the wavering white-blue light hits the ivysaur and immediately covers its skin and plants in frost before its pokeball's red beam connects to withdraw it. The rapid battle resumes with barely a missed beat, but now Misty's just waiting for the ivysaur to come back out, weakened and ready to be picked off.</p>
+
+<p>"Go, Modius, Psyshock!"</p>
+
+<p>"Ruby, Night Slash!"</p>
+
+<p>"Pepen, Sludge Bomb!"</p>
+
+<p>"Nomo, Mud Slap!"</p>
+
+<p>The ivysaur returns and is hit by the earthy projectile, but this time it's too hurt to shrug it off and stumbles, patches of frost making its movements stiff.</p>
+
+<p>"Tetra, Mega Drain!"</p>
+
+<p><em>Oh no you don't. "</em>Go, Osu!"</p>
+
+<p>Her tentacruel materializes just as in time for the ivysaur to begin sapping its life… and instead the plant pokemon staggers away, veins filled with a poison even its own can't combat.</p>
+
+<p>"Tetra, return!"</p>
+
+<p>Three to three now, but the battle is decided. Misty plays conservatively, scoring free hits every time Amy is forced to swap in her raichu by using Nomo to negate its attacks. Little by little Misty's pokemon catch up in the war of attrition... until Amy takes her own gamble.</p>
+
+<p>"Luxi, Slam!"</p>
+
+<p>The raichu dashes forward and throws its weight into Nomo, who's already nearing the end of his endurance.</p>
+
+<p>"Nomo, Mud Slap!"</p>
+
+<p>"Luxi, Quick Attack!"</p>
+
+<p>The pokemon duke it out for a few tense seconds, and then Nomo falls and doesn't get back up.</p>
+
+<p>"Nomo, return! Go, Osu!"</p>
+
+<p>"Luxi, Thunderbolt!</p>
+
+<p>"Osu, Acid!"</p>
+
+<p>Electricity crackles, sending her tentacruel's many limbs flailing until it lies still, but the raichu squeals in pain as it rolls in the dirt. Amy quickly withdraws it, and sends her skuntank out against Misty's newly summoned crawdaunt.</p>
+
+<p>"Poison Jab!"</p>
+
+<p>"Crab Hammer!"</p>
+
+<p>"Sludge Bomb!"</p>
+
+<p>"Bubblebeam!"</p>
+
+<p>Down goes the skuntank, and now the stadium is deathly quiet as Amy sends her Psychic pokemon out against Misty's Water/Dark.</p>
+
+<p>"Ruby, Night Slash!" Her pokemon rushes forward to deliver the final blow, safe in its immunity and trusting its thick shell to take any physical attacks the hypno tries-</p>
+
+<p>"Modius, Focus Blast!"</p>
+
+<p>The stadium explodes with noise and Misty stares in shock as the psychic pokemon drops its pendulum, cups its palms toward the onrushing crawdaunt… and with a sudden tensing of its body, causes her pokemon to collapse.</p>
+
+<p>Trained psychic though she is, Misty couldn't make out the attack. She knows others who claim the move looks like a blinding sphere of blue light, a bullet of <em>ki </em>that blows its opponent's "energy" all out of balance, but to her it was just a gesture.</p>
+
+<p>Regardless, the results are clear, and Misty quickly withdraws her pokemon. "Congratulations, Challenger!" she says, voice drowning out the crowd over the speakers. "An absolutely masterful surprise attack, kept hidden until the perfect moment! Cerulean Gym hereby recognizes you, Amy Brennan, with the Cascade Badge, for demonstrating adaptability and quick thinking to surprising circumstances. Your journey will place you in many environments, present you with many choices. May what you've learned at our gym and our city keep you safe from life's unexpected tides."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Misty hops off Nessa as the lapras brings her to the shore at the bottom of the cliffs, then pats her pokemon's long blue neck and withdraws her. She's on one of the few patches of sand sloping up to form a beach, and waves crash against the rocks to either side as she walks up the dunes and makes her way to the southern side of the cliffs above her.</p>
+
+<p>After meeting with Amy for some private congratulations and a membership offer to her gym, Misty got a message from her Second asking her to come to the cliffs northwest of Cerulean City. Ariya reported that she found a new cave that wasn't on any maps, and Misty asked her Second to wait so she could take a quick rest and join her in investigating.</p>
+
+<p>The climb from the beach to the cliffs is rough, but the view from the top is worth it. Mount Moon rises up to the west and Cerulean City stretches out to the southeast. She can just see Nugget Bridge to the east, but the curving path around the cliff quickly obscures it. The wind carries the salt of the ocean up to her as it crashes against the cliffs below.</p>
+
+<p>The walk is a bit longer than Ariya suggested, but the refreshing breeze and gorgeous scenery holds Misty over until the path takes a sharp curve around the cliff face and trails down to a small plateau. Ariya is there with her feraligatr Renekton out, both facing a massive, uneven hole in the rocks.</p>
+
+<p>Misty's Gym doesn't have a formal dress code, but if anyone could convince her to institute one, it would be her Second. Today Ariya is dressed in black fishnet leggings, a side slit mini-skirt, and a tank top that bares her midriff. It's not the immodesty that bothers Misty, who regularly wears swimsuits to challenge matches and some public appearances, but the lack of protective clothing in the field, and the influence it might have on the younger, more impressionable trainers more interested in looking cool than protecting themselves. At least Ariya's boots are always serviceable.</p>
+
+<p>"Big," Misty says upon reaching them.</p>
+
+<p>"Told you. I'm thinking a rhydon, tried to bust through and caused the rest to collapse. Problem is, no rubble."</p>
+
+<p>Misty walks over to the cliff and looks down. "Rocks must have been blown clear, fell into the sea. No blast marks either?"</p>
+
+<p>"Nope. This is how I found it."</p>
+
+<p>"Have Dorin check for any reports of people hearing explosions anyway."</p>
+
+<p>Ariya nods and sends a quick text before tucking her phone back away. "Would have to be in the past few days. The last satellite mapped this area a week ago. No hole."</p>
+
+<p>"Convenient. Ready?"</p>
+
+<p>"After you, fearless Leader."</p>
+
+<p>Misty sprays herself with a can of repel, then summons Celest and mentally orders the starmie to lift itself into the air as they enter the cavern. With another mental command the red jewel at her center blazes bright and gives Misty and Ariya their first look inside.</p>
+
+<p>The hole was punched through the wall of a wide cavern stretching off to their right and left. The ground slopes down straight ahead into water, with stalactites and stalagmites giving it the appearance of a hungry mouth.</p>
+
+<p>"Cheerful," Ariya says. "I'll take the left path."</p>
+
+<p>"No, we're sticking together. This is a solutional cave." Misty walks over to the wall and runs her fingers over it. "Limestone. Acids in the water dissolve it and cause it to drip over time, which forms the stalas."</p>
+
+<p>"Right, I knew that."</p>
+
+<p>Misty smiles. "Point is, it's not some new tunnel dug by pokemon. It took centuries to form. I think we're in a natural habitat."</p>
+
+<p>"Ahh, shit. Think there are other exits?"</p>
+
+<p>"If there were before I think we would have found out by now. Better check though. Right first."</p>
+
+<p>They make their way through the cave slowly, stepping around the rough protrusions in the ground as their pokemon take up the front and rear. Renekton is surprisingly light-footed, scales making the lightest of rasps against the ground as he steps with a lazy reptilian grace. Misty keeps an empty pokeball in one hand. She splits her attention between her footing and using Celest's massively stronger psychic senses to look out for threats. Pokemon flicker by in her peripheral awareness, most underneath them in the water, some others above them through the ceiling, where more tunnels apparently extend upward.</p>
+
+<p>The tunnel twists and turns and splits multiple times, giving them glimpses of wider caverns full of water and small islands of rock, boulder filled trenches, and whole chambers filled with veins of gleaming ore. Misty keeps them moving, turning aside from any sense of pokemon in the distance and taking only the right sides at forks.</p>
+
+<p>Before long however they sense pokemon directly ahead, and without another path to turn to. A nest of golbat and zubat roost above. Most are asleep, but some are merely dozing, curious about the sounds the Leader and her Second make, loud as shouts to their sensitive ears. The repel confuses their sense of smell, but there's no disguising the warm blood beneath their skin. Though Celest has no way to interpret the sensory input she's receiving, Misty can almost feel the saliva pool in the golbat's elastic mouths, and it takes a moment for her to realize she can hear it falling in a steady patter up ahead.</p>
+
+<p>She holds a hand up to pause Ariya, heart pounding. If it wasn't for Renekton's looming, dangerous presence, the roost might have attacked by now. Misty and Celest make their way back, past Ariya and Renekton, and begin leading them back to the entrance. After five minutes Ariya whispers, "What was it?"</p>
+
+<p>"Golbat, a lot of them. This place is definitely a habitat, and not a new one."</p>
+
+<p>They take the path back to the entrance, then try the left hand path for another half hour. When the ground splits, half sloping up and the other sloping down into a pool of water, they stop and follow the twists and turns of the cavern back toward the entrance. As they do Celest picks up a mass of minds from aquatic pokemon below them, goldeen or magikarp. The school of fish is a wash of brief, indistinct thoughts, pinpricks of light that swim in shifting clouds… and then suddenly break apart in panic as something massive charges through the water, full of hunger and rage.</p>
+
+<p>"Hey, you okay? Misty?"</p>
+
+<p>Ariya's hand is on Misty's shoulder, and she realizes she and Celest have frozen. "Yeah. There's a gyarados right under us."</p>
+
+<p>Her Second's eyes are wide in the crimson light. "Let's get the hell out of here."</p>
+
+<p>They move quickly after that, trusting the safety of the backtracked path and Celest's sensory field to alert them of danger. An odd triplet of minds suddenly approaches from one of the side tunnels, and Misty picks up the pace, moving them past its tunnel just as it enters theirs and begins to follow them.</p>
+
+<p>"Magneton behind us," Misty says.</p>
+
+<p>"Are you shitting me? Here?" Ariya snaps her fingers in a quick pattern, and Renekton sidles up closer to them. "Should we take it down?"</p>
+
+<p>"Not worth the risk of attracting others. We're almost out." Misty can feel her pokemon tiring from keeping itself levitated for so long, and is happy to see the gleam of sunlight in the distance.</p>
+
+<p>Until the sunlight gets obscured by a humanoid figure emitting a powerful psychic field.</p>
+
+<p>"Focus or split?" Ariya mutters.</p>
+
+<p>"Split," Misty says, and immediately orders Celest to construct a Light Screen as the alakazam's mental field meets theirs. It uses brief, sharp jabs of psychic power to probe for weaknesses, and Misty keeps Celest on the defensive as Ariya turns to face the oncoming magneton, prompting Renekton to do the same.</p>
+
+<p>It enters Celest's ruby light before its prongs begin to glow with electric charge, Ariya snaps three fingers. Renekton roars as his muscles flex and swell. <em>Superpower. </em>An ability that would allow Renekton to deliver a devastating physical blow, which would hopefully take the magneton down in one hit since it would leave Renekton weaker afterward.</p>
+
+<p>A bolt of electricity fills the cavern with light and the smell of ozone. Renekton roars in pain this time, but when Misty blinks the after-image out of her eyes she sees him still standing, partially protected by Celest's Light Screen. Renekton charges forward on all fours to attack the magneton, and Misty turns her attention to the alakazam.</p>
+
+<p>She doesn't waste time trying to beat the devastatingly powerful psychic at its own game, and commands Celest to attack with a Bubblebeam. The tight stream of water jets out at the alakazam, only to crash against its own defenses.</p>
+
+<p>The alakazam has the measure of Celest now, and presses the attack. Celest can hold her own defensively, but alakazam are weak to physical attacks, and that's not starmie's forte. Misty considers summoning a second pokemon, but her concentration is already nearing its limit. Another bolt of electricity lights the cavern behind her, but she doesn't turn, trusting Celest's Light Screen to help keep Renekton safe as crashing fills the cavern and the feraligatr roars again.</p>
+
+<p><em>We need to end this now, before more pokemon show up. </em>What she needs is a more powerful water attack. Starmie don't hold much inside themselves, but there's another source nearby.</p>
+
+<p>"Ariya?"</p>
+
+<p>"This fucker is quick, still haven't hit it!"</p>
+
+<p>"Screen is fading, do I need to refresh it or can you hold out for a second?"</p>
+
+<p>"I'll bait another one, then you can let it go." There's some snapping, and then, "Now!"</p>
+
+<p>Another flash of electricity, and Misty lets the screen fade as she fully merges her mind with Celest's. She can't quite make her pokemon understand her, can't quite imbue it with her intelligence or interpret its instinctual use of its abilities… but she's spent years guiding Celest and understanding how to influence the starmie's natural inclinations.</p>
+
+<p>"Going dark!"</p>
+
+<p>Celest zips around the corner and into the pool of water, taking the light with her. The starmie begins to spin and suck in as much water as she can. As she bloats in size, she lifts herself and the water around her, launching out of the pool to crash over the alakazam in a crushing wave.</p>
+
+<p>Misty rushes forward and locks a greatball onto the dazed psychic. It recovers enough to send a telekinetic blast at the exhausted Celest, pinning her to a stalactite before Misty throws her ball and captures it.</p>
+
+<p>The pain in Misty's chest brings her to her knees, and she forces herself to concentrate as the crimson light around them begins to blink with Celest's fading life. Her pokemon is in pain and exhausted, and Misty can't mentally get her to free and heal herself. The ceiling isn't high though, and Misty summons her blastoise and orders him to stay still on all fours.</p>
+
+<p>Misty quickly climbs onto his back and uncouples their minds before yanking her pokemon off the impaling stalactite, anticipating another blast of electricity and rushing to get the Light Screen back up before it comes. Instead she hears a <em>thud </em>and a <em>crack </em>as she unclips a Full Restore from her belt and sprays it over her pokemon.</p>
+
+<p>Renekton roars in victory over his fallen foe, and Misty smiles as Celest's gem regains its full, bright glow. She strokes its spongy limbs and sends it mental thoughts of comfort and pride.</p>
+
+<p>There's a flash as Ariya captures the magneton, and Misty slides off her blastoise's shell to withdraw him before collecting the alakazam's ball. She goes to see if there's anything she can do to help with Renekton, but Ariya is already spraying him with medicine.</p>
+
+<p>"Nicely done, both of you."</p>
+
+<p>"Nothing to it. This big lug could use a few more shocks, maybe they'll speed him up." She rubs Renekton's toothy snout, and the feraligatr growls in pleasure.</p>
+
+<p>They leave the cave, relaxing once they're back outside. Misty withdraws Celest and waits for her nerves to calm as she thinks, eyes closed and face turned toward the sun. "This place is going to need a quarantine," she says.</p>
+
+<p>"Yeah, no shit. Those pokemon were tough as any wilds I've seen."</p>
+
+<p>Fully wild habitats are rare in regions these days. Even the Safari goes through occasional cullings. "And it's been here beside the city all this time. We're lucky there hasn't been an outbreak sooner."</p>
+
+<p>"How long do you think it would take to clean it out a bit?"</p>
+
+<p>"Months. Or we could just try to close it up again, but in the meantime no one goes in, no matter how many badges they have."</p>
+
+<p>"You want the Rangers on it, or our people?"</p>
+
+<p>Misty hesitates. "If there are other entrances, we'll need the Rangers."</p>
+
+<p>"With pokemon that powerful in there? You said it yourself, if there were, I think we'd have found out about it by now. And hey, think of how much stronger we'll get with access to monsters like those. I never knew I wanted a magneton, but I'm sure I'll find some uses for it."</p>
+
+<p>Ariya's right, but Misty doesn't want to make the decision for selfish reasons. Then again, if the Rangers show up then word's going to get out. People will try to get in, make their own entrance if need be. Better to keep it quiet for now...</p>
+
+<p>"Set up a rotation, only people you know can handle it." Misty's phone chirps at her, no doubt updating with messages she was sent while in the cavern sans signal.</p>
+
+<p>"Yes'm. Shouldn't be a lack of interest, once they know what they have the chance to catch. What should we do if someone else comes by?"</p>
+
+<p>Misty takes her phone out to check her messages. "Unless an Elite or Champion shows up, just let them know it's off limits, League business." She blinks at the screen, then curses.</p>
+
+<p>Ariya raises her brow. "What's up?"</p>
+
+<p>Misty summons her abra and mentally registers their location, then focuses her mind on her gym's rooftop. "I've got to get back to Cerulean. Something happened on Mt. Moon."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Misty enters the press room at a brisk pace, back and gaze straight. There aren't many reporters in attendance, but she still sees a face she hoped not to. Zoey is a good journalist, or at least that's what people tell her, but as Gym Leader Misty just finds the woman a pain in the ass. Her only consolation is that Mayor Tonio would be at the mic a lot longer than her, whenever he arrives.</p>
+
+<p>The cameras are already filming when she mounts the steps to the podium. As she waits for the room to quiet down, she pulls a notecard from her sleeve and places it by the microphone, where the raised edges hide it from view. She can feel the general wash of emotions from everyone, a faint breeze of anticipation and anxiety against her mind. There's also a sense of hunger that she's come to recognize, mostly from journalists and Challengers: ambition.</p>
+
+<p>"Hello, and thank you for coming," she says when the room is silent. "An hour ago I learned that a Tier 1 Emergency was taking place on Mt. Moon. A paras colony began a mass migration that spilled out onto the mountain when pokemon within it broke through the surface as they fled. Unfortunately, the location they emerged was a paleontological dig site on the southern mountain face, which had 37 staff members and 16 security on site at the time of the incident.</p>
+
+<p>"Thanks to the efforts of the scientists and security team, and the immediate response of nearby trainers and Rangers, the threat was contained, pushed back, and eradicated before it could spread and necessitate a full scale response like that of the Viridian Forest fire. It was a monumental feat of bravery and skill, and all of Cerulean thanks them."</p>
+
+<p>She can see the reporters readying to ask questions, and heads them off. "Unfortunately, there were a number of casualties. It is with great sorrow that I report the loss of Kazuo Soto, Fareed Newell, Irina Fujita, Dawson Haulover, Agustin Santiago, Mary Ashcroft, and Cerulean's own Tetsu Akita. Today we honor their memories, and their sacrifice, without which many more lives would surely have been lost.</p>
+
+<p>"There is one more piece of news. Rangers and on site security have confirmed a Renegade branding in the aftermath. The geologist apparently took advantage of the crisis to try and steal the dig's fossils, nearly killing two of the site's defenders in the process."</p>
+
+<p>Cold silence dominates the room as everyone tries to process such an evil act. Misty allows it to linger, her own revulsion lending new steel to her voice and gaze.</p>
+
+<p>"I want to assure everyone in this city that I will be leaving for Mt. Moon shortly so that I can learn of his crimes, ensure they were appropriately Witnessed, and then oversee his execution personally."</p>
+
+<p>The crowd is quiet for a moment longer, and when it's clear that she wouldn't say anything more, begin shouting questions. Misty glances at the door, which she's hoping the mayor will walk through at any moment. Damn the man, he had more time to prepare than she did.</p>
+
+<p>"One question at a time, please. I'll be leaving for the mountain soon, but will answer as many as I can. Yes, Mia?" she asks, picking a reporter at random.</p>
+
+<p>"When will the name of the Renegade be made public?"</p>
+
+<p>"The Rangers will release it when they see fit, as usual. They haven't even told me. Jordan?"</p>
+
+<p>"Will you be calling for an evacuation of the mountain?"</p>
+
+<p>"Right now the Rangers have already placed Mt. Moon on high alert, and every trainer, merchant and Center staff should be aware of the event. The Rangers have increased their patrols of the mountain to search for any hints of an ongoing threat, but so far have reported none. Tyrisha?"</p>
+
+<p>"Are you mobilizing the gym, Leader?"</p>
+
+<p>"Every member is on standby in case the Rangers call for help. Alan?"</p>
+
+<p>"What aid are we sending to the dig site?"</p>
+
+<p>"That's a question for Mayor Tonio, who should be here soon." <em>I'm going to strangle him. </em>She's running out of opportunities not to call on Zoey, who sits patiently with her hand raised. <em>Better get it over with. </em>Zoey's known to ask tough questions, and if Misty ends up having to call on her and does so last it would signal reluctance. "Yes, Zoey?"</p>
+
+<p>"Thank you, Leader. The initial alert went out almost three hours ago, now. Why did it take so long for our city to respond?"</p>
+
+<p><em>Dammit. </em>She doesn't want to so much as hint at the existence of the cavern. "Unfortunately I was investigating a report of wild pokemon outside the city during the initial alert, and had no cell reception." Her heart sinks as she realizes that would almost certainly invite more questions. <em>I should have prepared an excuse for this.</em></p>
+
+<p>"Why didn't your Second mobilize the Gym?"</p>
+
+<p>"One question each, please. Frank?"</p>
+
+<p>"Same question, Leader."</p>
+
+<p>"Ariya was with me. Peter held the Gym, and reported that he began mobilization at a medium priority. Due to the distance he knew only psychics with a teleporter and trainers with fliers would arrive on time to help, and two members of the Gym did leave for the mountain before the crisis was passed. Yes, Paula?"</p>
+
+<p>"Where were you and Ariya investigating? Was there another incident today?"</p>
+
+<p>"No, thankfully we were able to address the issue." Misty is grateful that Paula asked two questions so she could ignore the first. Zoey has her hand up again, but luckily so do others. "Sachio?"</p>
+
+<p>"Was anyone injured?"</p>
+
+<p>"No. Mia?"</p>
+
+<p>"What prompted the investigation?"</p>
+
+<p>"A routine patrol brought up a concern." She's dodging, and knows it shows. For a Leader and their Second to personally investigate something would make it anything but a "routine" concern.</p>
+
+<p>Zoey's hand is still in the air, ready to ask where it took place that didn't have reception, and at that point Misty's choices will be to either look like she's making excuses, which makes her weak and potentially suspicious, or to give away details that could expose the cave.</p>
+
+<p><em>No win, don't play.</em> "I'm sorry, but that's all the time I have<em>—</em>"</p>
+
+<p>The door opens and the mayor walks in. "<em>—</em>so please direct any remaining questions to Mayor Tonio." <em>Asshole. </em>A few seconds earlier and she wouldn't have had to appear like she was running, but at least he arrived in time for a clean transition.</p>
+
+<p>She slips the card in her sleeve and hands the podium over to the Mayor with a quick smile and nod, then turns on her heel and strides out of the room. "Dial Ariya," she says after putting her earpiece in. "Report?"</p>
+
+<p>"I've got Molly and Ryuso here, they've been briefed. What's up on the mountain?"</p>
+
+<p>"You'll figure it out as soon as you check the news. I'll fill you in later with the rest, just head back to the Gym and take over for Peter."</p>
+
+<p>"Yes'm."</p>
+
+<p>Misty ends the call as she exits the building and summons Nimbus. "Hey boy, ready for a ride?" She straps the swanna's harness on, then lifts herself up and dons her goggles just as the door behind her opens and Zoey walks out, clearly looking for her and just as clearly surprised to see her already leaving. Misty gives an apologetic smile and wave, then takes off toward the distant mountains before the reporter can open her mouth.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>The sun is beginning to set as Misty and Nimbus reach Mount Moon and start to climb altitude. The air turns chilly with the fading light and lower pressure, and Misty buttons her coat as a shiver wracks her form.</p>
+
+<p>The dig site is easy to spot from the air, and she hunches down and banks toward it. When they get closer she can see the aftermath of the battle still being cleaned up, and feels a pang of guilt for having missed it. She might not have made it on time even if she hadn't been in the cavern, but this could clearly have been much worse.</p>
+
+<p>She begins a slow, circling descent until she can land in front of the dig's largest building. She takes a moment after dismounting to let her legs get used to standing and walking again, then knocks on the door and enters.</p>
+
+<p>The inside is spacious, with a long table and chairs taking up half of the room and the rest left open with counters and cabinets. The building clearly serves as a meeting hall for staff, and Misty spies the site director Dr. Zapata, some of her people, and a ranger at one end of the room while Leader Giovanni and Leader Brock hold their own council at the other. She takes her gloves off and slips them in her coat pockets as she walks to her peers.</p>
+
+<p>"Ah, Misty. Thank you for coming," Giovanni says.</p>
+
+<p>"Hello Giovanni, Brock. It's good to see you two again."</p>
+
+<p>Giovanni inclines his head. "I only wish the circumstances were better."</p>
+
+<p>"Me too. I'm sorry I'm late."</p>
+
+<p>"It's no trouble, we've only just been ready to begin. Let's speak again after." Giovanni heads toward the table, and the dig site staff take the cue and do the same. Dr. Zapata takes the head seat at one end, and her people sit around her.</p>
+
+<p>"Glad you could make it," Brock murmurs to Misty as they follow Giovanni.</p>
+
+<p>She smiles. "You know I wouldn't leave you alone with him if I could avoid it."</p>
+
+<p>He grins back. When Leaders meet there are almost always important decisions made about their shared territory, and any not present for those discussions tend to lose out. On top of that, though neither would admit it, on their own it's easy to be intimidated by the Viridian Leader, and go along with whatever he says. When they're together though, it's not as hard to challenge or push back against him from time to time. If Giovanni ever resented the younger Leaders that shared his borders banding against him, he never showed it.</p>
+
+<p>When Misty first became a Leader she felt like something of a fraud around the others. It wasn't so bad with younger ones like Brock, or later Erika when she took over Celadon, but Koga, Blaine, Surge, and even Sabrina were all so serious and intimidating. And then there was Giovanni, for whom becoming Champion was just a footnote in his legend. Now, after leading Cerulean for almost five years, she feels much more comfortable in her position, but is still occasionally humbled by the fact that they share the same title.</p>
+
+<p>Leader Giovanni takes the other head seat, and Brock goes to the one on his left while she sits at the old champion's right. She wondered if Erika would come, as she's the fourth Leader to share borders with them, but technically the mountain range doesn't extend to Celadon, so she must have bowed out.</p>
+
+<p>"First, my gratitude to you for joining us, Leaders," Dr. Zapata says. "We've all had a harrowing day, as you can imagine, and we appreciate your presence on such short notice."</p>
+
+<p>"Of course," Giovanni says. "My sincerest condolences for your losses, and my thanks for your bravery and sacrifices." Brock and Misty murmur their agreement, and Dr. Zapata bows her head.</p>
+
+<p>"Thank you. As soon as we've finished cleaning the site, I've announced a week of mourning and rest before work resumes. I hope by then to have a new security plan in place to assure our financiers and ensure another incident like this isn't repeated, or is better defended against."</p>
+
+<p>The others with her nod their agreement, all but one, who sits in distracted silence. Misty recognizes him, the ACE trainer in charge of security for the site. Pete? Palmer? Something like that. She doesn't need her powers to tell he's not happy about the topic of conversation. Anxiety, pride, and shame radiate off him in a tightly controlled spiral that fluctuates with his breaths.</p>
+
+<p>"Understandable. First, let us review the facts," Giovanni says. "The parasect colony was migrating through the mountain, resulting in a wave of fleeing pokemon. One of the forefronts of that wave broke through the weakened ceiling under one of the dig sites. Tragically, two personnel were immediately killed then. I think we can all agree, this is where our review must begin."</p>
+
+<p>Brock leans forward. "Your seismographs. Why didn't they give warning of the attack?"</p>
+
+<p>One of the site employees speaks up. "They did, but the person tasked with monitoring them claims that he was not with them at the time. He was later branded a Renegade for using the attack as an excuse to try and steal the fossils, but in any case, it was an unforeseeable failure in site security."</p>
+
+<p>"Unforeseeable," Brock says, and looks around. "Does anyone disagree?"</p>
+
+<p>"Perhaps it would be better to ask what you plan to do different, moving forward," Giovanni says.</p>
+
+<p>"Two people assigned to monitor it, and one must be present at all times, of course," Dr. Zapata says. "We've already begun such a system."</p>
+
+<p>"Allow me to make a suggestion, then. Update your equipment and send its output over local wireless. Install apps to allow remote monitoring at all times, with alerts for signals over a threshold."</p>
+
+<p>Dr. Zapata looks surprised. "Does equipment and software exist for such small vibrations? We're hoping to detect things far more subtle than even the lightest earthquakes."</p>
+
+<p>Giovanni makes a careless gesture with one hand. "I believe one of my people has spoken of something similar. I will check and ensure you have access to it later tonight. If not, I will try and finance its creation. It would no doubt be a widely useful technology in any case."</p>
+
+<p>"That... would be very helpful, Leader. Thank you."</p>
+
+<p>"Next, then. The response to the incident was immediate and effective: removal of the hazardous spores. Unfortunately another person was killed by the moving cloud. What happened?"</p>
+
+<p>A woman speaks up next. "I was the one that made the call, Leader. We had moments to recognize the threat and act before it could spread further and make any coordinated response impossible. I recognized the risk and gave warning of our intentions, then cleared the spores when we received only affirmative messages of safety. Mary… wasn't one of those to respond, either to say she was clear or not. It's hard to tell from the—her—remains, but I assumed that anyone unable to respond would already be hurt too badly to be saved by waiting any longer."</p>
+
+<p>"Understandable. Does anyone here disagree with that decision or its reasoning?" No one answered, and Giovanni nodded. "We shall say no more about it then. Next..."</p>
+
+<p>The conversation goes on, examining each point of the attack, their response, and the result. Though ostensibly the meeting is to ensure the future safety and well-being of the site employees and improve their security, Misty can feel the tension and occasional fear of those on the other side of the table. She understands. Even though they're here to help and not cast blame, it never feels good to have your decisions and actions scrutinized by others, especially those in authority, and especially decisions made in a crisis.</p>
+
+<p>At one point Misty senses a spike of anger and indecision from one of the dig employees, an older man with his arms crossed. She waits for the current speaker to finish before saying, "If I could take a moment, I'd like to say that so far it sounds like everyone here did an admirable job responding to the threat. I want to thank you again for your efforts, and reiterate that this meeting is to help improve preparations in case something similar happens again." She locks her gaze on that of the older man. "Don't be afraid to say something if you have a suggestion or comment. You're among friends."</p>
+
+<p>He drops his eyes when she finishes speaking, and after the other members of the table murmur their agreement and thanks, looks up again. "I…" He hesitates. "I had a thought. Earlier. Didn't want to accuse anyone of anything. Still don't. You're right, everyone did a fine job. Seen a lot of Tier 1s over the years. This was kept local, very local. A fine job."</p>
+
+<p>He frowns, and seems to be searching for words. The table waits. Finally he says, "Hell, I'll just spit it out. Some of the trainers, they were using balls to capture pokemon as they fought. Sometimes it's understandable, 'course it is, you have a moment to catch something you take it. Sometimes it's even the best choice strategically. But a lot of trainers were wasting time and energy weakening pokemon rather than killing 'em. Using status effects and baiting attacks on a particularly strong or rare pokemon, while a dozen more walk by, a threat to those around them.</p>
+
+<p>"Like I said, I don't want to get no one in trouble, or accuse anyone. But I just thought I'd say it, make sure it was out there. Maybe we could tell the Rangers, put up a PSA to remind people. I dunno. Just thought I'd say." He's quiet a moment, then nods to himself.</p>
+
+<p>Giovanni steeples his fingers. "Thank you, Misty, and you, Albert, wasn't it? A good point. As you said, it's an understandable impulse, but one that bears vigilance against. I'll personally speak with the mountain's Director, and see about some coverage for it in an upcoming issue of The Daily Trainer."</p>
+
+<p>The conversation only goes on another few minutes, and as it wraps up Misty prepares to address the issue she's concerned about. Giovanni glances at her and lifts a finger from the table, almost imperceptible. He knows what she'll ask, and apparently wants to address something first. She nods.</p>
+
+<p>"As we conclude, I would like to make one final suggestion," he says. "When we began this venture, the question of security was broached and, for the time, properly addressed. I want to thank you, Paul, and the rest of your people, for their good work."</p>
+
+<p>The table murmurs agreement, and the ACE Trainer looks at Giovanni in some surprise, and to Misty's senses, trepidation. "Thank you, Leader."</p>
+
+<p>"However. In light of this incident, I'd like to, once again, formally offer Gym services to assist in the security of the site."</p>
+
+<p>The table is quiet. Paul's face reddens, but he doesn't speak. Giovanni's hands move apart and together, tapping his fingertips. "Let me be clear. I in no way blame Paul or his organization for anything that occurred today. But as you may remember, I offered the extra personnel initially, and was voted down by my peers and some of you sitting here. At the time I was eventually convinced that showing such favoritism for a project like this could set an undesired precedent. Now, however, I believe that this incident would clear up any potential misunderstandings by the public, and allow us to ensure the continued safety of the site employees and its assets. I understand that many fossils were almost stolen, and would have been if not for the timely intervention of some assisting trainers. That risk must be minimized as thoroughly as possible."</p>
+
+<p>Misty and Brock exchange glances. She can read the Pewter Leader's misgivings, and still shares them herself. "I'm sure that Paul and his people will be extra diligent in watching the fossils," Misty says slowly. "And I don't know whether I can commit anyone to such a task." She thinks of the staff she'll already be committing to watching the new cavern.</p>
+
+<p>"Nor I," Brock says. "We're still assisting in the aftermath of the Viridian Forest fire."</p>
+
+<p>"I understand," Giovanni says. "My gym is prepared to staff it ourselves. And I have no doubt as to the efficacy of ACE training. Your people will continue to be employed, Paul, and I will be adding a bonus to their salaries. I was planning to do so regardless. To ensure there is no reduction in perimeter vigilance, however, my people can commit exclusively to guarding the fossils, and allow yours to do their jobs unhindered."</p>
+
+<p>Paul's tension slowly leaks away, and while Misty still senses some mixed feelings, he eventually says, "Thank you, Leader. That's very generous of you."</p>
+
+<p>"I hope that's agreeable to everyone?" Giovanni spreads his palms. "This endeavor can be the first of many profitable ventures on these mountains, and I merely wish to ensure it has every chance to achieve full success."</p>
+
+<p>Those around the table begin to nod and voice their agreement, and Misty feels any further objections dying on her lips as even Dr. Zapata capitulates. She feels the wry amusement from Brock and raises her brow at him. Fight, or give in? Brock merely lifts his shoulders in a minute shrug and says, "With all that in mind, I can only agree, of course."</p>
+
+<p>Misty sighs. "Agreed." This is often how it is with Giovanni: he can speak eloquently, head off objections, satisfy pride, and, just to add icing on the cake, throw around money wherever necessary to ease people's resistance and just in general be so gracious that disagreement becomes impossible.</p>
+
+<p>She can even almost believe that it would be a good thing, though she knows the political consequences will come up again and again for years if similar projects come about. The amount of power it grants Viridian Gym is massive. Cerulean and Pewter can gain a share themselves, of course… if they're able to commit the resources. Which, of course, they can't.</p>
+
+<p>"Good. Now that's done with, I believe Misty had one more topic to address?"</p>
+
+<p>"Yes, thank you. I think it's time at last to speak of the Renegade." The mood of the room immediately plunges, and Misty throws up some light defenses to keep their emotions from washing over her too much. "I would like to know all the details, if you please."</p>
+
+<p>The Ranger lifts her head. "I believe I can cover that, Leader." She explains the situation in concise terms, voice bland as she recounts the Witnessing. Misty is surprised to hear that Blue Oak was one of the trainers to be attacked by and help stop the Renegade. She wasn't aware Sam's grandson has begun his journey already.</p>
+
+<p>"Thank you, Ranger. Is there any reason this Yuuta hasn't been seen by a psychic yet?"</p>
+
+<p>"He was too quick to suggest it himself for me to trust the results, and given his actions I didn't think it was necessary. You are welcome to examine him if you wish, Leader. Will you be the one to oversee his execution?" She looks between Misty, Brock and Giovanni. "I assumed I would have to transfer him to one of your cities, but with all three of you here…"</p>
+
+<p>"Yes, I can oversee it. I'll meet with him as soon as we finish here."</p>
+
+<p>"Understood. Just find me when you're ready."</p>
+
+<p>Giovanni looks at her, then to the rest of the table. "Does that cover everything? Any further questions? Well and good. Thank you all again, and if anyone needs to speak with me, I will be outside for a while. A good evening to the rest of you."</p>
+
+<p>The dig staff begins speaking among themselves as they leave the table, and the three Leaders rise together and head for the door. Night has fully fallen on the mountain, and Misty stares up at the stars, so bright and rich this far from the city lights.</p>
+
+<p>Giovanni follows her gaze. "Beautiful, aren't they? Seeing them so clearly is always a pleasant benefit to any mountain trip." He turns to her and Brock. "I hope I didn't put either of you out too much tonight?"</p>
+
+<p>"It's your money and your people," Brock says, and Misty nods. "If you judge it to be the right thing to do, we can only bow to your wisdom."</p>
+
+<p>"You have my thanks. Do let me know if there's anything you need help with regarding the Renegade, Misty."</p>
+
+<p>"Same," Brock says.</p>
+
+<p>"I think I'll be alright. I just want to make sure things go smoothly." Misty buttons her coat back up as the chill night air seeps in. Overseeing Renegade executions was an unpleasant part of being a Leader for the first year or so, but over time it became easier, especially as she began to see the results of their actions more and more. Now she just sees it as an unhappy responsibility of her office, and strives to ensure she gives each case its due consideration to ensure justice is done. "We got lucky that he was stopped. If those two trainers hadn't been passing by… but of course one of them was an Oak, so I guess it's to be expected."</p>
+
+<p>"Indeed," Giovanni says. "None of that man's line have ever had normal journeys. Trouble seems to find them, or perhaps they simply stand out in troubling circumstances more than most."</p>
+
+<p>"That's the truth of it," Brock says. "Blue was in the forest during the fire. I met him before speaking with you; he was widening the firebreak and helped take down a whole family of shiftry. Caught one, too, and used it to get my badge."</p>
+
+<p>"Wait, he already beat you?" Misty says. "I didn't realize he was on his journey that long."</p>
+
+<p>"Oh, he just began it. I think it was a month ago?"</p>
+
+<p>Misty whistles. "That fast, yeah, I should have figured. I guess he's coming for me next? Should be fun."</p>
+
+<p>"Don't be so sure. I'm still digging up my main arena after he revealed a strategic flaw in its design."</p>
+
+<p>Giovanni chuckles, a rare sound. "Yes, that sounds like an Oak. After his sister, we should expect great things from him."</p>
+
+<p>"His companions aren't without note either," Brock says. "One is seeking to become a Professor, the other some sort of journalist or politician."</p>
+
+<p>"Yes, I've heard of them," Giovanni says. "If they continue to follow the young Oak on his journey, I look forward to meeting them all." Misty nods as the door behind them opens, and some of the site workers come out. "If you'll excuse me, Brock, Misty. Until next we speak." Giovanni walks off to speak with Dr. Zapata.</p>
+
+<p>Misty sees the Ranger come out and turns to Brock. "Call you later? We've got some things to discuss."</p>
+
+<p>"You got it. Safe travels."</p>
+
+<p>"You too." Misty approaches Ranger Sasaki. "I'm ready."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>The renegade sits tied to his chair, apparently unconscious. Ranger Sasaki frowns as she finishes opening the door and sees the rest of the room. "Someone was supposed to be stationed here. You do your thing, Leader, I'm going to go speak with whoever had the last<em>—"</em> The ranger stops and stares as Misty walks up to the Renegade, heart pounding. "What's the matter?"</p>
+
+<p>The man in front of her looks asleep, but even asleep there are flickers. Physical sensations, emotional reactions to dreams, something that she should be able to pick up this close. She puts her fingers under his nose, then presses them to his neck.</p>
+
+<p>"Don't say it..."</p>
+
+<p>Misty drops her hand away, mind racing. "We'd better go speak to them together, Ranger. He's already dead."</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/32/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/34/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -898,6 +936,6 @@ Well, she tried. If he got upset with what she writes, he had his chance to weig
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

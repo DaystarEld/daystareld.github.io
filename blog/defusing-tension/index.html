@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advice Level: Beginner to Expert Gamers
+
+Tension between characters is something most groups have to deal with at one point or another.  Last post discussed some ways of creating tension between chara...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Defusing Tension Between Your Players">
+    <meta property="og:description" content="Advice Level: Beginner to Expert Gamers
+
+Tension between characters is something most groups have to deal with at one point or another.  Last post discussed some ways of creating tension between chara...">
+    <meta property="og:type" content="article">
+    <title>Defusing Tension Between Your Players - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Defusing Tension Between Your Players</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        April 26, 2016
+                    </span>
+                    <span>📁 Storytelling Advice</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><em>Advice Level: Beginner to Expert Gamers</em></p>
+
+<p>Tension between characters is something most groups have to deal with at one point or another.  <a title="Tensions Between Characters/Players, Part One" href="https://daystareld.com/creating-tension/">Last post</a> discussed some ways of creating tension between characters to add spice to the story, but sometimes that tension can spill over into the player interactions.</p>
+
+<p><span style="text-decoration: underline;"><b>Reducing Player Tension: Power Unbalances</b></span></p>
+
+<p>There are a number of things that can cause tension between friends or family, but one of the trickiest to diffuse is a disproportionate amount of power. Whether it’s money, or control, or even contribution to the common goals, a difference in power can rile up all sorts of negative emotions, either consciously or subconsciously.
+<div id="attachment_3798" class="wp-caption alignright"></p>
+
+<p><a class="fancybox" href="http://www.dmfiat.com/wp-content/uploads/2013/04/jlh-supwall.jpg" rel="gallery-0"><img class="size-medium wp-image-3798" src="http://www.dmfiat.com/wp-content/uploads/2013/04/jlh-supwall-300x225.jpg" alt="No wonder the whole party is grumpy." width="300" height="225" /></a>
+<p class="wp-caption-text">That’s the face of a man two inches away from heat-ray lobotomies.</p></p>
+
+<p></div>
+Think of how much it must suck sometimes to work with Superman. Great guy, glad he’s on your side… but the man is ridiculously powerful.  In most circumstances he easily steals the limelight, while his allies are basically relegated to damage control or backup.  Plus, he’s nigh indestructible, while you’re out risking your much more fragile neck.  After enough time, that’s got to cause some resentment.</p>
+
+<p>Not that things are so great for Superman. He’s the most powerful in pretty much every situation, which means he has the most responsibility.  The mission rides on his shoulders, and if he screws up, people die.  And indestructible is not the same as immune to pain.  Throwing yourself in harm’s way again and again so your more squishy allies don’t get killed isn’t exactly fun, but you do it, because you can take it.</p>
+
+<p>And when it comes time to making decisions, whose should have more weight?  Superman’s going to do more of the work than anyone else.  Success is going to hinge quite a lot on his involvement. What if he doesn’t agree with the plan?  Is it fair to expect him to go along with ideas he doesn’t agree with just because you need him?</p>
+
+<p>All these perceptions and attitudes can apply in a game where one player character is more powerful or useful than the others.  If a certain character feels useless, or a different one feels like they’re carrying the others on their backs, the playful ribbing that often occurs between players (“Hey look, a locked door… you get to be useful again!”) can turn somewhat less harmless (“You know what, how about we follow <em>my</em> suggestions for once, because I’m getting kind of sick of having to save your asses every five minutes.”).</p>
+
+<p>If you see players getting disgruntled over a certain character being too much the “main character” of the story, or if a player is starting to develop a messiah complex, do a reality check and examine how you’ve been constructing the challenges of the campaign (or if you’re a player, talk to the GM about it).  Are they sufficiently varied to give each player a chance to shine, or are you repeating the same basics again and again, which play mostly to one or two character’s strengths?  This is by no means an easy thing to balance: planning out and improvising a story that allows characters of every strength to shine takes practice and constant creativity.</p>
+
+<p>If rebalancing encounters and plot points isn’t enough and you see players already snapping at each other or getting frustrated, put things on pause and have an honest conversation with your players.  Explain what you think is happening, and admit fault (even if it isn’t entirely yours) to diffuse responsibility away from the players themselves.  As a general rule, the GM is safe to “hate,” and most players worth playing with in the first place will be quick to forgive or excuse a GM who self-deprecates.</p>
+
+<p>If it’s simply a matter of unbalanced experience points or magic item acquisition, give the weaker characters opportunities to catch up through RP assignments (“Start a journal for your character, one entry between sessions for X experience”) or side quests relating to their specialized skills to justify giving them bonuses.</p>
+
+<p><span style="text-decoration: underline;"><b>Reducing Player Tension: Conflicting Values</b></span></p>
+
+<p>Some of the most interesting RP occurs between characters with different views on how the world should be, or how to achieve the same goals.  This doesn’t always just have to do with story-related events, though.   Sure, it’s possible you might see two players get into a heated argument over the various pros and cons of capitalism because of something that’s taking place in the game, or have everyone get pissed at a player who decided his character should kill the little orphan girl because she might grow up into an evil witch.</p>
+
+<p>But it’s at least as likely that the conflicting values that cause tension between players have more to do with playing the game itself. Broadly speaking, it might help to group players into two categories: players that focus on fun, and players that focus on winning. Let's call the fun-oriented players Timmy, and the win-oriented ones Spike. People can of course belong to both to different degrees, but sometimes one label does apply more than the other.
+<div id="attachment_3799" class="wp-caption alignright"></p>
+
+<p><a class="fancybox" href="http://www.dmfiat.com/wp-content/uploads/2013/04/retard-owl.jpg" rel="gallery-0"><img class="size-medium wp-image-3799" src="http://www.dmfiat.com/wp-content/uploads/2013/04/retard-owl-300x98.jpg" alt="One of these owls is playing to win." width="300" height="98" /></a>
+<p class="wp-caption-text">“Gettin’ real sick of your shit, Paul.”</p></p>
+
+<p></div>
+Timmy may go for the most interesting character backstories or amusing plot advancement, and is okay with fudging with numbers, continuity, and even dice rolls to keep everything enjoyable.  Spike on the other hand gets their enjoyment from min/maxing their characters for highest effectiveness, will argue for every advantage, and want to take the most efficient routes to every goal.  When players that tend toward either extreme are at the table, you might see a Timmy get irritated at a Spike for taking up 10 minutes just to eke out a minor bonus, or a Spike insulting a Timmy for making a sub-optimal choice or action for RP reasons.</p>
+
+<p>And sometimes the disagreement is on a completely different axis.  For some people, Timmy or Spike, the game itself is the source of the fun.  Getting the <em>most gameplay</em> packed into the few hours everyone has together is their preferred type of session.  For others, the <em>social company and conversations</em> are the main appeal.  They enjoy the game, but have no qualms about “wasting” half the session with goofing around or chatting OOC about their week.</p>
+
+<p>And this conflict can exist in the GM too. It can be hard for GMs to toe the line between keeping everyone on track, but also not seeming like a taskmaster forcing people to play when they’re enjoying an amusing anecdote someone is sharing.</p>
+
+<p>The most important thing to ensure is that most "discipline" at the table does come from the GM, rather than letting things get to the point where players are sniping at each other to “pay attention” or “relax, it’s just a game.”  The GM should gauge the mood at the table, or come right out and ask for a vote. Make sure to use language like “I feel like I might not be running the game tight enough, who thinks it should be more focused?” or “Is the game moving too quickly? Should I slow down and give you guys more breathing room?”</p>
+
+<p>Based in part on your own preferred style of GMing, try to go by the majority of players’ preference, and talk to those in the minority about how the experience could be more enjoyable to them. Some players might want to focus more on the game because they’re the “newbie” of the group, and feel left out of most of the conversations or inside jokes.  Others might prefer the social aspects of gaming because they feel incompetent at the game, or aren’t really engaged in their character or the story.  Talk to your players, or if you’re a player talk to your GM, and nip such disagreements or feelings of alienation in the bud before they cause real, lasting drama.</p>
+
+<p><span style="text-decoration: underline;"><b>Reducing Player Tension: Uneven Relationships</b></span></p>
+
+<p>Finally, we come to the most basic source of tension between players, and it often has nothing to do with the game itself.  When game groups are formed of mixes of different friends who don’t all know each other equally well, there can be a pseudo-tribalism that takes place wherein players side (or are perceived to side) with the people they know best in a dispute, or when making a decision that would benefit one player over another.  This can get especially problematic if someone who is supposed to be neutral does it, like the GM.</p>
+
+<p><a class="fancybox" href="http://www.dmfiat.com/wp-content/uploads/2013/04/calvin_arguing.png" rel="gallery-0"><img class="size-medium wp-image-3796 alignright" src="http://www.dmfiat.com/wp-content/uploads/2013/04/calvin_arguing-300x202.png" alt="calvin_arguing" width="300" height="202" /></a>Because this comes down to personality of players involved more than any of the other sources of tension, there’s not a whole lot that can be done about it except doing your best to treat each other with respect, honesty, and fairness.  Be self-aware and recognize if you’re exhibiting bias in a way that actually impacts another person’s enjoyment of the game.  However, if a player continually accuses others of granting another player an advantage “because you’re friends” or “because you’re dating/married,” remind them that it’s just a game, and straining real friendships isn’t worth the drama. If the negative attitude persists, it might be time to privately inform them that perhaps they would have a better experience at another table.</p>
+
+<p>No one is perfect, and both GMs and players should be aware of their mistakes and work to fix them.  But ultimately, there is a level of maturity that should be expected and enacted by all people involved, and if one person is ruining the experience for others, and mediation or intervention fails, the best way to reduce tension may just be to go your separate ways, as far as this particular hobby is concerned.</p>
+            </div>
+
+            <div class="article-footer">
+                
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

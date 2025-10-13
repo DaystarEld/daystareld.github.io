@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="[Epistemic status: still figuring things out. Like most discussion of class or society, this is a somewhat reductive view on categories of people and their thoughts/preferences/behaviors. I&#x27;m trying t...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Classy Agency">
+    <meta property="og:description" content="[Epistemic status: still figuring things out. Like most discussion of class or society, this is a somewhat reductive view on categories of people and their thoughts/preferences/behaviors. I&#x27;m trying t...">
+    <meta property="og:type" content="article">
+    <title>Classy Agency - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Classy Agency</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        April 07, 2022
+                    </span>
+                    <span>📁 Politics And Society</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><em>[Epistemic status: still figuring things out. Like most discussion of class or society, this is a somewhat reductive view on categories of people and their thoughts/preferences/behaviors. I'm trying to figure out and point to broad trends, not prescribe what should be, or what has to be, for any given person.]</em></p>
+
+<p>The relationship between class and agency has been really interesting to poke into as a way of exploring both. I've been working on developing a new lens on this in relation to my actions and what perspectives/generators they're coming from, and it seems to have uncovered some assumptions/blind spots.</p>
+
+<p>Starting to notice what class my actions would signal has lead to a feeling of constraint on what I could actually do to solve problems around me. The explicit version of an inexplicit chain of thought I had today would be something like "If I want to test this brush before I buy it, the obvious thing to do is just lay my jacket out on the floor and test how good it is at getting dust off." Which totally works, assuming you don't care what strangers in a store who you'll probably never meet again think of you.</p>
+
+<p>And that lack of care can be crucial to actually getting things done sometimes. When you boil it down, about a third of what "having agency" ends up requiring in the world includes the willingness to break social norms that others would be too afraid of censure or judgement to breach. This is a big part of why Quest Day is so successful for students at the end of SPARC or ESPR, the rationality camps that I teach at; it creates an atmosphere that gives license to do things that are, in essence, "weird," such as walking up to strangers and gathering data on unusual questions, putting on an impromptu improv show at a local pub, or asking a cab driver to let you put on a blindfold and get dropped off at a random location.</p>
+
+<p>Weirdness isn't <em>necessary </em>in many cases where showing agency is what gets something done, but it can't be an impediment if the thing you're prioritizing is actually to Do The Thing.</p>
+
+<p>But there are costs to ignoring some Chesterton Fences around others' comfort that someone blind or uninterested in class or status is much more ready to pay. And this means more than just how people judge you. It includes the comfort of those associated with you. Being <em>able</em> to make that trade can be vital for someone who has no other options in getting something difficult done, but that doesn't mean you <em>have</em> to do it, if you judge the tradeoff too high.  you can have more than one consideration while prioritizing, and there's a fine line between determination and tunnel-vision, and if you're used to doing things with low resources, then you might get stuck in a local maximum when your context has changed.</p>
+
+<p>High class people don't have this problem, because they operate with fewer constraints, and have socially supported ways of exercising agency. This isn't to say that all of them do, I'm not actually sure which classes are most or least "agentic," and maybe the framing itself is still too entangled in what it means to enact your will on the world.</p>
+
+<p>But it seems more clear to me now how, when high class individuals exercise agency, it looks different than what lower or middle class people are used to. One example is that it's much more likely to be through delegating tasks to others. My friend Lulie made the analogy of limbs as an extension of the self in enacting agency in the world, and obvious though it seems in retrospect, it unlocked a whole cascade of realizations.</p>
+
+<p>Giovanni makes a similar argument in my story at one point, but at the time I wrote it more as a method to achieve difficult goals, not ways-of-being. How well you delegate suddenly doesn't just seem a matter of efficiency; it's like an entirely different theory of self.  When you legitimately think of yourself as not just your body, but the resources at your command, your agency <em>is </em>enacted through everyone who does what you want them to, for whatever reason you give them to do it.</p>
+
+<p>From many low or middle-class perspectives, this can look like indolence, sloth, parasitism, etc. Part of this is because being low-resourced develops habits that skew against relying on others, but I think another part is because bodily skills feel intrinsic and heroic, while social skills seem (and in the case of things like money, often are) transferrable, which is bucketed with concepts like "unearned" or "vulnerable." The average skilled laborer could get dropped naked onto a deserted island and maybe build themselves a shelter, but the average elite raised with a silver spoon would be helpless.</p>
+
+<p>Except that's clearly a challenge biased toward one set of skills. Social skills may be more contextually fragile, but they're also immensely more powerful in a world as interconnected as ours; success through skills useful in the state of nature may be a more deep-seated value evaluators, the same way muscles do, but social muscles are no less real for being invisible.</p>
+
+<p>(This is probably in part reinforced by fiction. Heroes (both in life and in stories) use charisma all the time to talk their way out of problems, but most fiction doesn't turn those sorts of actions into interesting plots resolutions outside of a few narrow situations like rousing speeches or duplicity. This is largely because a) most writers are themselves unused to seeing these dynamics play out, and b) most readers wouldn't find the challenges of someone in this position as relatable or aspirational. By and large, people want to be rich and socially respected to <em>avoid</em> conflict and hardship in life, not to face new types.)</p>
+
+<p>What's left, then? Well, there's also general attitude of what agency "looks like" and what it says about the person.</p>
+
+<p>One of the major marks of an "Honor Culture" is that how you're perceived has actual effects on how you're treated. The best example of this is what's considered an appropriate response when someone gets insulted. In most "modern, progressive, civilized" societies, ignoring insults is a sign of maturity and status; it indicates that you're secure enough in your life and sense of self to be utterly unconcerned by what someone else thinks of you. But in Honor Culture it's a sign of weakness, because reputation often means as much, if not more, than resources. If being perceived as weak invites attack, then you have to show strength at all times.</p>
+
+<p>Similarly, I think taking action to solve one's own problems seems intrinsically to be a lower class act by those in the upper classes. For the leisure classes, security is taken for granted, and so any actions taken are at most a hobby or interest, not something you get invested in. In more cut-throat setting, being invested is a sign of vulnerability; if you <em>care </em>about something besides your wealth, you may be willing to trade wealth for it at disproportionate rates.</p>
+
+<p>In addition, not having someone at hand to do something for you could indicate a lack of sufficient security itself. Taking on the task of repairing an out of date automobile is impressive if it's a choice, but it doesn't signal competence at anything that "matters," because the moment you actually need a car to be fixed, it's almost always a better use of your time to hire someone else to do it for you.</p>
+
+<p>To lower and middle class people, being personally dependable and resourceful in this way is an attractive and admirable trait, but if it is the only way you can get something done, it seems on net a weakness.</p>
+
+<p>This is all still a series of tentative hypotheses, but they feel like the start of a new generator. Meanwhile the class-lens feels much clearer, and the self-reflective part of it feels less restricting; instead it's more like there's new space for "me" to stretch into, if I choose to.</p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">advice</span><span class="tag">culture</span><span class="tag">sociopolitics</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

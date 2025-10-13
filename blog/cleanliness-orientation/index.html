@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="For Alice, a clean home means it’s been dusted, vacuumed, and window-wiped sometime in the past week, with all the dirty laundry in their hamper and all the clean clothes already folded and put away, ...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Cleanliness Orientation">
+    <meta property="og:description" content="For Alice, a clean home means it’s been dusted, vacuumed, and window-wiped sometime in the past week, with all the dirty laundry in their hamper and all the clean clothes already folded and put away, ...">
+    <meta property="og:type" content="article">
+    <title>Cleanliness Orientation - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Cleanliness Orientation</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        March 03, 2021
+                    </span>
+                    <span>📁 Relationship Advice</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><span style="font-weight: 400;">For Alice, a clean home means it’s been dusted, vacuumed, and window-wiped sometime in the past week, with all the dirty laundry in their hamper and all the clean clothes already folded and put away, no dishes in the sink, no visible garbage poking out the top of cans, and no visible stains anywhere.</span></p>
+
+<p><span style="font-weight: 400;">For Bob, a "clean home" isn't incompatible with having some clothes draped on furniture (but not the floor), some dishes in the sink and some garbage in bags by the door; he’ll take them out all together at some point soon. The bed doesn’t need to be made, the bookshelf doesn’t need to be dusted... that stuff's just extra work.</span></p>
+
+<p><span style="font-weight: 400;">For Carol, as long as nothing is rotting or liable to trip someone, it’s “good enough.” Sure, it may not be “clean,” but it’s livable and safe and with two kids and a dog running around that’s all she feels she’s got the energy for. She may do some extra cleaning if guests are coming over, but she doesn't stress about it day to day.</span></p>
+
+<p><span style="font-weight: 400;">David doesn’t have kids or a dog, he’s just not bothered by the state of his home. He works 10+ hours a day, and spends most of his time at home in bed, watching TV, or on the computer. The pile of dirty laundry by the door and the stain on the couch aren’t hurting anyone, nor is the perpetual pile of dirty dishes in the sink; he rinses them first, after all, and he can clean them as he needs them.</span></p>
+
+<p><span style="font-weight: 400;">And still others live with the perpetual stink of pet urine that’s steeped into the carpet, boxes of junk crowding the halls and living spaces, and other stuff that makes a therapist called to the house for crisis intervention go “Oh…”</span></p>
+
+<p><span style="font-weight: 400;">But let’s put that last category aside. Even within the range of what would generally be considered “normal,” whether you’re the kind of person who feels a need to scrub the toilet every week, the kind of person who is now wondering when the last time they scrubbed their toilet was, or somewhere between, the chances that you’ll end up sharing your living space or life with someone who has exactly the same ideas of clean as you are fairly small.</span></p>
+
+<p><span style="font-weight: 400;">Of course “exactly the same” isn’t necessary. Most people can get along okay as long as they fall within the same general range of turnover for chores.</span></p>
+
+<p><span style="font-weight: 400;">But deeply ingrained in all of us is a sense of what “clean,” “fine,” or “messy” looks like, feels like, smells like. And it’s not just a matter of taste or preference; something about our nature and nurture have instilled a sense of normalcy to certain environments. The affordance widths tend to be lopsided toward cleanliness, as most people are comfortable in environments cleaner than their baseline, but if it goes too far it can still be stressful (if that seems weird to you, imagine the feeling of being in a very rich stranger’s mansion and being told to make yourself at home while every move you make is under careful watch).</span></p>
+
+<p><b>How does the orientation frame help?</b></p>
+
+<p><span style="font-weight: 400;">I can’t count how many times I’ve observed or experienced the following type of interaction:</span></p>
+
+<p><span style="font-weight: 400;">Bob: I thought you were going to clean the kitchen last night?</span></p>
+
+<p><span style="font-weight: 400;">Alice: Uh… I did?</span></p>
+
+<p><span style="font-weight: 400;">Bob: The top of the fridge wasn’t dusted.</span></p>
+
+<p><span style="font-weight: 400;">Alice: Well I didn’t know you wanted me to do that.</span></p>
+
+<p><span style="font-weight: 400;">Bob: Can you do it now?</span></p>
+
+<p><span style="font-weight: 400;">Alice: It feels pointless. No one’s regularly going up there for anything.</span></p>
+
+<p><span style="font-weight: 400;">Bob: It’s still bad for our health to have dust build up in the house.</span></p>
+
+<p><span style="font-weight: 400;">Alice: Says who?</span></p>
+
+<p><span style="font-weight: 400;">Bob: *googles it* See?</span></p>
+
+<p><span style="font-weight: 400;">Alice: *googles it too* No, look, see?!</span></p>
+
+<p><span style="font-weight: 400;">In reality, a google war isn’t a bad outcome; at least the question is being put to some objective measure, and evidence might even soften one or the other’s position. If Bob is Alice’s parent, the answer in most cases is “Because I said so.”</span></p>
+
+<p><span style="font-weight: 400;">Assuming research is brought into it, however, what Bob might discover is that regardless of what the research says, he can’t actually feel comfortable unless the fridge is dusted, while Alice discovers that also regardless of the research, the risk is so small that the hassle of getting a footstool and wiping the top of the fridge still feels like an onerous and pointless chore. </span></p>
+
+<p><span style="font-weight: 400;">But “This is a pointles chore” is different from “This is making X happy,” and even that is different from “This is making X comfortable.” Recognizing that the issue is more important for one person than the other can short-cut the debate entirely.</span></p>
+
+<p><span style="font-weight: 400;">Of course it might raise a more important point: whose responsibility is it to appease Bob’s orientation? Again, if Bob is the parent, the default is probably going to be “everyone’s.” If they’re roommates, Bob might feel bad asking others to accommodate him if the thing he needs feels too far outside the “expected norm.” That might also apply to a romantic relationship, though Alice might also accommodate Bob knowing he would do the same for her.</span></p>
+
+<p><span style="font-weight: 400;">It can also be tempting to think “Well it’s not a lot of effort, really, especially compared to cleaning the whole kitchen. Why make a big deal about it?” But doing a chore that feels necessary vs one that doesn’t can have a </span><i><span style="font-weight: 400;">huge</span></i><span style="font-weight: 400;"> impact on motivation, and when it comes to something that needs even more regular maintenance, like making the bed, or affects the way you live day to day, like eating somewhere besides the table, conforming entirely to another person’s preferences in every way can be a very onerous ask.</span></p>
+
+<p><span style="font-weight: 400;">For some people the idea that how clean a house should be is as “important” as whether or not the relationship is monogamous or how involved extended family is silly, and I’m not necessarily saying they’re wrong. Most people find it much less important, both on an emotional and a consequential level. Not all orientations are created equal, and cleanliness is much closer to the “preference” side of the spectrum than extended family, let alone sexuality.</span></p>
+
+<p><span style="font-weight: 400;">But if you consider how consistently your living environment will be around you day to day, it can be a bit easier to see why this is something that can be important to use the orientation lens on, and why the expectation that others “just relax” or “just do more” can miss the mark on what they’re actually asking of each other.</span></p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">advice</span><span class="tag">psychology</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

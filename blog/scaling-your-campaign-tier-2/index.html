@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advice Level: Beginner to Advanced Gamers
+
+The previous post discussed how to start a wide ranging campaign at Tier 1, at a scale that&#x27;s small but personal, and the value that adds to the story and ch...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Scaling Your Campaign, Tier 2">
+    <meta property="og:description" content="Advice Level: Beginner to Advanced Gamers
+
+The previous post discussed how to start a wide ranging campaign at Tier 1, at a scale that&#x27;s small but personal, and the value that adds to the story and ch...">
+    <meta property="og:type" content="article">
+    <title>Scaling Your Campaign, Tier 2 - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Scaling Your Campaign, Tier 2</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        May 08, 2016
+                    </span>
+                    <span>📁 Storytelling Advice</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><em>Advice Level: Beginner to Advanced Gamers</em></p>
+
+<p>The <a href="https://daystareld.com/scaling-your-campaign-tier-1/">previous post</a> discussed how to start a wide ranging campaign at Tier 1, at a scale that's small but personal, and the value that adds to the story and character development.  Eventually the stakes go up, and the story evolves to Tier 2.</p>
+
+<p><strong>Tier 2: Local Story</strong></p>
+
+<p>A Tier 2 story is about events that affect a locality.  They’re not quite big enough to be visible from space, but they’re not just about the protagonists anymore.  Instead the Player Characters are aware that the stakes they’re fighting for are more wide-reaching, and will affect their community/town, city, or region… and more importantly, those around them know it too.</p>
+
+<p>This brings about a number of changes in scope of situations the characters face.  For one thing, the threats and challenges should visibly affect other people around them.  This is an important thing for the storyteller to incorporate: not just remarking on the negative consequences going on, but going into details about the ways they affect the NPCs that populate the world.  A disease that’s filling hospitals to the brim and causing people to die on the streets.  A breakdown of law/order that allows for mass lootings and banditry.  Crushing taxes that cause people to riot at the marketplace and increase the amount of beggars and homeless.</p>
+
+<p>These events don’t just set the mood and tone, they also introduce other potential dangers.  Simply put, the primary threat the heroes face is no longer isolated: it has symptoms that could prove just as dangerous, and the characters should absolutely not be immune to these symptoms.  In the crushing-taxes example above, imagine the heroes stopping at an inn for the night and noticing that it’s virtually empty, and what few people there are look ragged and hungry. On top of that, the innkeeper is eyeing their fine quality equipment and weapons in a wholly unnerving manner.  Perhaps they decide it’s better to camp outdoors for the night instead… and cover the tracks of where they’re going.  If not, one hopes they agree to sleep in shifts so their throats aren’t cut in their sleep.  Or perhaps they decide to give away some extra coin to help the innkeeper through these rough times, and earn some unexpected gratitude and benefit.
+<p style="text-align: left;">How they decide to react to the symptoms is an important part of character development, and helps build the sense of immersion in the events of the story. Sometimes diplomacy isn’t an option: explaining that you are trying to stop the larger problem doesn’t put food in a hungry bandit’s stomach, or stop an infected NPC from seeking aid or succor.</p>
+But that doesn’t mean the players are still alone in their journey.  Tier 2 is also the tier where allies should really begin to take a prominent role.  After all, this threat is not just to the players anymore, as it was in Tier 1, and that means they aren’t likely to be the only ones willing to challenge it.</p>
+
+<p>Whether it’s a group of scientists willing to help the players understand an important issue, government agencies trying to minimize collateral damage, or another band of would-be heroes on a similar quest, there should be potential allies for the protagonists to interact with, even if they don’t always have the exact same goals.</p>
+
+<p><b>Transitioning to a Tier 2 Story:</b></p>
+
+<p><i>When last we left Michael, his players—Cassy, Don, Jeff and Mary—had met up and decided to investigate the death of Cassy and Don’s son, Jacob, and the disappearance of Jeff’s sister, Lara.  As they looked into medical research on their son’s mysterious illness and talked to some of Lara’s coworkers, they began to notice patterns that led them to conclude that someone at the company had knowledge of Jacob’s illness… before he became ill.  They suspect that Jeff’s sister knew what was happening, and this is why she’d attempted to warn Cassy and Don.</i></p>
+
+<p><i>As sometimes happens, let's say the players have some trouble putting the clues together, or miss some investigation or intelligence checks. So Michael decides to hit them in the face with a clue: three men beat and mug Jeff on his way home from work, and when he gets home he finds a note warning him to stop investigating his sister’s disappearance slipped under his door.  He and Mary believe the two are related, and begin investigating his assailants in hopes it leads them back to whoever sent him the note.  Meanwhile, Cassy and Don are finding and talking to other parents who lost children under similar circumstances.</i></p>
+
+<p><i>Through their combined efforts, they begin to realize that what happened to Jacob is not isolated, and that similar cases have occurred all over the country.  The story has now entered Tier 2.</i></p>
+
+<p><i>Don and Cassy form an online group of parents who lost children in the same way, and begin spreading awareness that there is something going on. When they request an autopsy of their son’s body, they’re told that a filing error has led to his body being destroyed or misplaced.  They ask around through their new network, and discover that none of the other parents have been able to have an autopsy done on their children.</i></p>
+
+<p><i>Jeff and Mary track down a high positioned scientist at Lara’s company, and try to talk to her.  When she rebuffs their attempts to question her, Mary wants to bring the law in, while Jeff decides to interrogate her personally, convinced that they don’t have time to get through the lawyers and legal issues that will come up.  Against her better judgment, Mary agrees to help Jeff break into the scientist’s house.  Don and Cassy share what they know and agree to help.</i></p>
+
+<p>With the shift to an awareness that the personal tragedies and challenges are in fact tied to a larger conspiracy, the story shifts to Tier 2.  This particular story maintains a strong focus on the protagonists, but the players recruit the assistance of others who have suffered similarly and have a similar incentive to solve the mystery.</p>
+
+<p>Some of the impetus to make use of a wider range of resources than just themselves will be up to the players, especially if they are particularly adept at thinking creatively.  If they are having trouble deciding on the best course of action however, there are many new “set pieces” or events that the GM can put into motion in order to help the players learn more, and give them a chance to gain allies.</p>
+
+<p>And even though it has expanded to a wider story with more difficult challenges, each character should still be given a chance to take advantage of and develop their various skills and specialties, such as in the  example with  Cassy’s medical knowledge, Don’s people skills, and Mary and Jeff’ s investigative experience.</p>
+
+<p>In the <a href="https://daystareld.com/scaling-your-campaign-tier-3/">final article</a> we will focus on the unique elements of a Tier 3 story, and how transition a campaign to its endgame.</p>
+            </div>
+
+            <div class="article-footer">
+                
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

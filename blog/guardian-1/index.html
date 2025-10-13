@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terra is used to being the new kid at school who sits alone at lunch, but this is the first year he doesn’t mind it; no one around means no one to see him talking to himself.
+
+“Alone” is, as Terra dis...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Guardian - Chapter 1">
+    <meta property="og:description" content="Terra is used to being the new kid at school who sits alone at lunch, but this is the first year he doesn’t mind it; no one around means no one to see him talking to himself.
+
+“Alone” is, as Terra dis...">
+    <meta property="og:type" content="article">
+    <title>Guardian - Chapter 1 - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Guardian - Chapter 1</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        March 16, 2017
+                    </span>
+                    <span>📁 Guardian</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p>Terra is used to being the new kid at school who sits alone at lunch, but this is the first year he doesn’t mind it; no one around means no one to see him talking to himself.</p>
+
+<p>“Alone” is, as Terra discovered over the summer, a relative term. Across from him sits a boy only he can see.</p>
+
+<p>Puck currently looks like a lanky teenager about Terra’s age, with spiky blonde hair and bright green eyes. His skin is pale, his features sharp and angled, and his lips are perpetually curved in a slight, sarcastic smile as he watches Terra continue to search through his lunchbox for something edible.</p>
+
+<p>A group of fellow 10<sup>th</sup> graders walk by, their gazes sliding right over Puck before coming to rest on Terra. “Hey, you’re in our spot.”</p>
+
+<p>Terra resists the urge to roll his eyes. “It’s the first day of school, how do you already have a ‘spot?’”</p>
+
+<p>“This is where we always sat last year.”</p>
+
+<p>Terra opens his mouth to argue, then remembers Puck’s presence and lets his breath out. “Fine. Whatever.” He puts everything back in his lunch box and moves to one of the few remaining empty tables at the corner of the cafeteria, so he can still see the whole room.</p>
+
+<p>Puck keeps pace with him, stepping with the effortless grace of a cat around and between tables and chairs before lowering himself into his new seat, across from Terra again. “Pitiful. Why not stand up for yourself? Perhaps one of them would lay hands on you, and I’d have to turn them into a frog.”</p>
+
+<p>“No transformations, I told you,” Terra says as he sits back down and unpacks his lunch again.</p>
+
+<p>“Forget the frogging then, what about a subtle illusion? I could make all his food taste rotten. Going hungry for a day never killed anyone.”</p>
+
+<p>“No.”</p>
+
+<p>“A minor hex? Trip him as he sits, so his face lands in his food?”</p>
+
+<p>Terra smiles at the mental image, but just shakes his head.</p>
+
+<p>“You’re no fun.” Puck leans back in his seat and braces himself against the underside of the table with his knees. A girl walking behind him veers around his outstretched form without looking. Terra knows that if he asked her why she took such a sudden detour, she would stare at him in confusion and say she just felt like it. Faerie glamour can be a frightening thing. “What’s the point of having me around if you won’t make use of me?”</p>
+
+<p>“You’re here to ‘protect and promote my well-being,’ not hex anyone who’s mean to me.” Terra unwraps the sandwich and bites into it. It takes all his willpower not to spit it back out. How did Puck know how disgusted Terra is by egg salad? Was it a lucky guess, or did Terra mention it at some point and forget? He wasn't always as careful with what he said around the so-called "Fair Folk," and he doubts he's a good enough actor to fool one.</p>
+
+<p>From the slight widening of Puck's smile, the doubt is justified.</p>
+
+<p>“Speaking of which." Terra puts his sandwich down and bites into some tasteless saltine crackers. “Let’s get started. How many fae are here?”</p>
+
+<p>“Millions.”</p>
+
+<p>Terra rolls his eyes and picks his words more carefully. “How many fae, other than yourself, did you sense since we entered the school building?”</p>
+
+<p>Puck’s smile widens. “Three.”</p>
+
+<p><i></i>“Are any of them in the lunchroom now?”</p>
+
+<p>“Two.”</p>
+
+<p>Terra bites his lower lip, then lowers his voice, just in case. “Is their masque on, or are they <i>dim</i>?”</p>
+
+<p>Puck wags a finger. “Ah, ah. That’s three asked and answered. If you’d like to bargain for more—”</p>
+
+<p>“No, it’s fine.” He wasted his first question because he was distracted. Now he’ll have to wait 24 hours until Puck has to answer any more. It was one of the first bargains he struck with his guardian: three questions that Puck would be obligated to answer a day, in exchange for the freedom to watch TV while Terra is asleep. Unless Terra decides to renegotiate, he’s stuck with it for a full year and a day.</p>
+
+<p>Still, he got what he needs, if he’s thorough.</p>
+
+<p>Terra closes his eyes and concentrates on his breathing. The sounds of the cafeteria fade to a dull drone as he does his best to clear his mind, as his dad taught him. Not to literally remove all thoughts, which is impossible, but to take a step back from each thought, observe himself having it, and then let it go as he breathes out. He imagines himself sitting on a rock in a river, the voices and laughter of the students around him blending with the rushing water.</p>
+
+<p>He realizes how he must look to others, a skinny kid with baggy clothes  sitting by himself with his head bowed and his closed. Anyone watching probably thinks he's crying or sleeping... or is labeling him a total weirdo.</p>
+
+<p>Terra lets that thought go with his next exhale, focusing on the sensation of air rushing through his nostrils, then breathing in and feeling it expand his lungs. He can’t afford to be distracted.</p>
+
+<p>When he finally opens his eyes, the first thing he notices is that Puck isn’t smiling. The fae is gazing at him with an intensity that most kids his apparent age can’t match.</p>
+
+<p>But then, Puck is older than he looks.</p>
+
+<p><i>Much</i> older.</p>
+
+<p>That thought, combined with his heightened attention, affects Terra's perception. Glamour, the primary magic of faerie, is all about beliefs. As Terra looks at Puck, really <i>looks</i> at him<i>, </i>and acknowledges the lie he knows is in front of him, the edges of the glamour start to unravel. Puck’s blonde hair becomes lighter, ears growing points, face stretching—</p>
+
+<p>Terra quickly looks away, not wanting to see what the being that calls itself “Puck” really looks like right now.</p>
+
+<p>Instead he lets his eyes drift slowly over the cafeteria from one end to the other, not letting his gaze linger on anything that catches his attention, trying to take in everything he sees equally.</p>
+
+<p>Among the crowd of students he notes two boys taking turns trying to steal fries from a third’s tray. A group of girls have their heads together and giggle over something one of them is saying. Some other kids sit apart like himself, a few in pairs, others with books or their phones out. All completely normal.</p>
+
+<p>He finishes a full turn, and blinks. He thinks back to what he saw, every face, every interaction... then shakes his head. Nothing seems out of place. He closes his eyes and starts again.</p>
+
+<p>And again.</p>
+
+<p>And again.</p>
+
+<p>It isn’t until after his seventh try that, running back over his memories, he sees it.</p>
+
+<p>A group of three girls, all smiling, talking, laughing. Smiling at whom?</p>
+
+<p>He can’t remember.</p>
+
+<p>He looks at them now. Four girls, chatting and smiling. Normal.</p>
+
+<p>He turns away, trying to hold the memory in place, and realizes something is… off. Three girls, laughing, then smiling, with looks of attention on their face as they look at…</p>
+
+<p>...who? A fourth? There were only three.</p>
+
+<p>He stares at the four girls again, then closes his eyes and tries to keep the image in his head. Three girls, all laughing as they look at...</p>
+
+<p>As they look at...</p>
+
+<p>Terra grabs three figs and holds them in his hand. He takes a deep breath, closes his eyes, turns toward the girls… and opens his eyes.</p>
+
+<p>Four girls, all talking and laughing.</p>
+
+<p>Terra’s hand tightens around the figs. Three figs.</p>
+
+<p>Four girls.</p>
+
+<p>Without looking away, he takes a fourth fig and adds it to his hand.</p>
+
+<p>Then he closes his eyes and thinks back to the three girls who were all laughing—</p>
+
+<p>Three?</p>
+
+<p>Terra feels the four figs in his hand… and smiles.</p>
+
+<p><i>Got you.</i></p>
+
+<p>Terra opens his eyes and studies the four at the table. Two of the girls are white, the first with curly blonde hair and the second with a short dark pixie cut. One is Latino, brown hair in a long ponytail, and one is black with a neon pink hair band. He tries to fix all four of them in his memory, then takes his phone out and snaps a picture before looking away to check which of the three girls—no, the <i>four </i>girls seems unfamiliar.</p>
+
+<p>He studies the picture and tries to remember each of them. Where did this Latino girl come from?</p>
+
+<p>“There,” he says, tapping the screen. “It’s got to be her. Some kind of memory charm, making everyone but the girls she’s talking to forget any details about her.”</p>
+
+<p>“You humans and your toys.” Terra looks up to see Puck chewing on one of the remaining figs. His teeth look sharper than usual as they bite into the soft fruit. “So what will you do now? Expose her?” Puck isn’t leaning back anymore, his gaze intense on Terra’s face.</p>
+
+<p>Terra goes back to watching the girls.  “I want to know what she’s doing first. If she’s got some plots going, or has anyone ensorcelled, or gave someone a token...” The blonde girl plays with a charm on her necklace, and he wonders if it’s a gift from the fae sitting next to her. Something that would help her get good grades? Make her seem prettier? Or maybe just a ward against bad dreams.</p>
+
+<p>If only it were that simple. With gifts from Faerie, there’s always a catch.</p>
+
+<p>Even if it’s something as simple as figs and egg salad for lunch.</p>
+
+<p>Terra's stomach growls, but instead of trying the sandwich again he opens the box of raisins and empties them into his mouth, ignoring the sour aftertaste as best he can. Thanks to some cleverness from Terra’s dad, Puck was bound by oath and contract to look after Terra’s well-being. However, there’s a lot of wiggle-room in the word “well-being,” as Terra discovered again and again since Puck started watching over him.</p>
+
+<p>“I could reveal myself to her,” Puck says. “Ask her what she’s doing with her playthings.”</p>
+
+<p>Terra turns back to Puck warily. “In exchange for what?” He wants to keep Puck secret as long as possible, but he’s curious to know what the faerie would try to bargain for.</p>
+
+<p>“An hour of freedom after school today, once you’re safely home.”</p>
+
+<p>“Denied.”</p>
+
+<p>“Half an hour.”</p>
+
+<p>“No.”</p>
+
+<p>“Five minutes.”</p>
+
+<p>Terra pretends to think it over. Puck doesn’t seem particularly interested, but he rarely looks interested in anything, and when he does, as he did a moment ago, Terra is inclined not to trust it. It’s hard to tell if this is something Puck actually wants, or if he’s just testing Terra’s desires the way Terra is testing his.</p>
+
+<p>“No, I’ve thought of a better idea,” Terra says.</p>
+
+<p>“Oh? Do tell.”</p>
+
+<p>Terra ignores him and stands. He closes his lunch box and approaches the table with the fae and three girls, drawing curious looks from all of them. When he sits to the side in one of the empty chairs, they become annoyed.</p>
+
+<p>“Um. Can we <i>help</i> you?” the blonde asks. The Latino girl seems the least hostile, appraising him with a brow raised as she twirls her fork through untouched food.</p>
+
+<p>“Yeah, mind looking at my drawing? I want a second opinion.” Terra pulls a folded slip of paper out of his pocket and opens it to reveal the simple sketch on the inside. It looks like a capital F, but with the top and middle lines slanted downward at an angle rather than sticking straight out, and with a dot to its left side.</p>
+
+<p>“That’s not a drawing, it’s barely even a doodle,” the black girl says, causing the blonde to giggle.</p>
+
+<p>Terra ignores them and pulls a thumbtack out of his belt, where its pin pierced the looped stretch of leather. He pricks his finger with it, just enough to draw a drop of blood, and presses it against the underside of the paper, so that it bleeds onto the rune he drew. As soon as the paper touches his open wound, it begins to prickle with renewed pain.</p>
+
+<p>“Ew, what’s wrong with you? Are you some kind of frea...” The blonde’s words trail off as she watches the blood seep through the paper faster and faster until it completely covers the rune. Her  eyelids droop closed, and her breathing slows until she’s fast asleep.</p>
+
+<p>The other two follow suit, but Terra keeps his gaze on the Latino girl… or rather, the fae creature disguised as one.</p>
+
+<p>Her eyes are the only ones that glanced away from the rune as he pressed his blood to it. Now she studies him with her chin on her palm.</p>
+
+<p>“You’re human,” she says at last. “How did you find me? Where did you learn that symbol, and how to use it?”</p>
+
+<p>“Three questions for three questions?” Terra asks.</p>
+
+<p>Her brow shoots up. “Bargaining now, are we? Are you sure you know what you’re doing, child?”</p>
+
+<p><i>Not really. </i>His heart beats hard and fast as he wipes a sweaty palm on his pantleg. His other hand stays where it is, keeping the wound on his finger pressed to the paper. This is the first time he’s interacted with any faerie other than Puck, but the middle of a crowded lunch room is likely the safest opportunity for such an experiment. As long as he’s careful with his words, that is.</p>
+
+<p>Puck, meanwhile, walks in slow circles around their table, humming to himself. The other fae doesn’t seem to have noticed him, which is encouraging. It means that Puck wasn’t just boasting when he implied that he’s stronger than most of his kind, and likely more powerful than those who got exiled to the human world, <span style="font-weight: 400;">especially if they spend their time in a high school.</span></p>
+
+<p>Or maybe she’s just pretending not to notice him, and the humming is some secret language. Either way, all Terra can do is take a chance and hope to learn something.</p>
+
+<p>“I believe I do," he says. "So, three questions each?”</p>
+
+<p>“Very well. Three for thee, and then for me.”</p>
+
+<p>“If you don’t mind, be more specific.”</p>
+
+<p>The fae girl smiles. “You may ask three questions, and if I deem them acceptable, I will answer. Afterwards, I will ask three questions that you must answer honestly.”</p>
+
+<p>Terra doesn’t miss that she’s changed the rules, nor the slight difference at the end. “I’ll ask three questions, and if you choose to accept them, you must answer all three. Then I’ll answer those three questions you’ve already asked, honestly.” Knowing that the fae can't lie makes this much easier than it otherwise would be.</p>
+
+<p>Her eyes narrow. “I’ll ask three questions, and if you choose to answer them, you must answer honestly. Then you will ask three questions, and I will answer them.”</p>
+
+<p><i>Damn. </i>Terra hoped that she forgot the other questions she asked, so he could re-answer those instead. Over her shoulder, he can see Puck lean against the wall and cross his arms, fingers tapping against his arms. Is his guardian giving him a hint? He would only do something like that if he feels Terra’s well-being is at risk.</p>
+
+<p>He remembers what Puck told him during one of their many Q&A sessions, where Terra was desperate to learn all he could of Puck’s kind. “<i>The fae love the game of back and forth, but it does grow tiresome if neither side admits defeat. It is natural to try and gain advantage, but both sides must demonstrate good faith, or else risk the other’s ire. If you wish to spar with the fae, you must learn to lose a battle, here and there.</i>”</p>
+
+<p>Maybe it’s time to lose, a little. “Let’s just make it fair as can be. We’ll both ask three questions. Then, if we both agree that the questions are acceptable, we’ll answer all three honestly, me first, then you. Sound alright?”</p>
+
+<p>The fae sitting across from him considers a moment, eyes upward and finger twirling in her hair. “Deal,” she says at last. “My questions are: How were you able to remember me? What was the name of the one who taught you that rune? And what is your true name?”</p>
+
+<p>Terra stays quiet, repeating what she said over in his head. Overall, he thinks he can get away with answering them without revealing anything too important. He’s about to say yes when he notices Puck shaking his head, with three fingers pressed against his jaw. Something wrong with the third question? It seems the most harmless… and it wouldn’t be too hard for this creature to get his if she really tries. It’s in the school records, after all.</p>
+
+<p>Still, better play it safe. “I accept the first two, but would need a different third one.”</p>
+
+<p>“Very well. Why were you looking for me, how were you able to remember me, and what was the name of the one who taught you that rune?”</p>
+
+<p><i>Much easier.</i> Puck seems unconcerned too.</p>
+
+<p>That leaves his own questions. He takes a deep breath and lowers his gaze to the table, thinking hard. All around them the other students happily chat and eat their lunches, unaware that there’s a pair of monsters in their midst, or that three of their classmates are unconscious.</p>
+
+<p>Another, stronger throb of pain goes through Terra’s finger. It’s slowly getting worse as more blood seeps out with every passing second. Terra does his best to ignore it. He tested this trick twice before, which is why he's not surprised by how much more he's bleeding than he should be, but the longest he let it go on was a minute. Still, he can’t rush this part or all this would be for nothing.</p>
+
+<p>He takes his time and thinks the questions through, word by word, forming them in his head and considering them from all angles. The trick is to have questions that aren’t too narrow, or she might say no, and not too broad, so she can’t give a vague answer.</p>
+
+<p>An impatient noise from the fae makes him look up. Her brow is creased again. “Your questions are acceptable,” he says at last.</p>
+
+<p>“Exquisite. And your questions are?”</p>
+
+<p>“My three questions are... Why are you attending this school? What do these girls have that you gave them? What crime were you exiled from Faerie for?”</p>
+
+<p>The fae’s eyes narrow. “I accept the first one. Not the other two.”</p>
+
+<p><em>Shit. </em>He thought the third would be too personal, but the second is something he needs to know.</p>
+
+<p>Terra jerks as a stab of pain starts repeating through his finger with every heart beat. He’ll have to figure it out later: for now he just needs to get some info.</p>
+
+<p>“Why are you attending school, why are you attending <i>this </i>school, and how long have you been attending this school?”</p>
+
+<p>“Accepted. You first.”</p>
+
+<p>“I wasn’t looking for you specifically, I was just looking for any fae. I found you by counting figs. As for who taught me the rune, the only name I know for them is ‘Puck.’”</p>
+
+<p>Her eyes narrow at the second answer and roll at the third. “I’m attending school because it amuses me, I’m attending <i>this </i>school because it’s the only high school in town, and today marks the start of my twenty-third year attending this school. Would you like to exchange another question?”</p>
+
+<p>Hmm. If she wants something specific, chances are he won’t want to answer it. He tries to make himself appear interested before he says no.</p>
+
+<p>“I’ll even give you two for one,” she says, clearly reading his reluctance.</p>
+
+<p>Now <i>that’s </i>tempting. Puck is shaking his head behind her, but Terra is intrigued. “May I hear the question first?”</p>
+
+<p>“This ‘Puck,’ who taught you, where did you meet them?”</p>
+
+<p>Well, he’s certainly not going to answer that. But maybe he can work her down to something more vague…</p>
+
+<p>The pain in his finger pierces his concentration again, so deep it feels as though a needle has driven into his bone. He gasps and struggles not to let the paper go yet. “Perhaps we can negotiate this at… another time,” he says, eyes watering.</p>
+
+<p>Before she can respond, the bell rings.</p>
+
+<p>The lunchroom surges into motion around them as kids prepare to return to class. “Meet me after school by the parking lot gate,” the fae says, her posture shifting back to what it was before the girls fell asleep.</p>
+
+<p>Terra finally pulls his finger away from the blood-stained scrap of paper and stands. The room spins, and he puts a hand on the table to steady himself. <i>Damn. </i>That took more out of him than he was expecting. He feels light headed, like he just gave blood for some free movie tickets. Far more than he should have lost from such a tiny wound. Where it all went, he can’t begin to guess; on the paper it's only spread around the rune.</p>
+
+<p>The girls start to stir, and he pushes away from the table before they wake up, only to stumble on legs that feel like jelly. Terra staggers past kids heading for the exits until his legs give out, and he collapses into a chair at a recently emptied table, taking deep breaths. He spots some unused napkins and wraps one around the paper before stuffing it in his pocket, then takes another to wrap around his finger.</p>
+
+<p>Terra closes his eyes and rests his forehead against the cool table, tuning out the sounds of the crowd around him. Still, he can hear it when someone sits across from him, and knows that it’s Puck before his guardian even speaks.</p>
+
+<p>“If you’re fishing for a response, you can save your energy,” Puck says, amused. “I know you can handle a little spell like that without your ‘wellbeing’ coming to risk.”</p>
+
+<p>Terra bites back an insult. He’s been trying to avoid cursing Puck out, to avoid getting too used to letting his temper get the best of him. All it takes is one careless phrase implying he doesn’t want Puck around anymore, and the fae would be free of his bond.</p>
+
+<p>“So, how did I do?” Terra asks instead. Perhaps even more valuable than the explicit agreement for three questions per day is the insight he had that, in dealing with the fae, he needs constant, honest feedback to safely navigate their social norms. It's one of the few areas where Puck can’t refuse to answer or mislead him and still hold true to his oath.</p>
+
+<p>“Average at best,” Puck says. “You didn’t sign your life or first born away, but you missed four opportunities to close loopholes, and gave more information away than you needed to. Our adolescents can negotiate better than you, but for a human’s first attempt it was an acceptable show, even if it demonstrated why your kind so often gets overconfident enough to be drawn ever deeper into our webs.”</p>
+
+<p>Terra feels nauseous, and isn't sure if it’s from what Puck said, the blood loss, or the egg salad sandwich. It’s much harder not to take insults personally when you know as the speaker is compelled to tell the truth.</p>
+
+<p>“Okay, well what should I have done different? Did I ‘lose’ too early, or too late?”</p>
+
+<p>“Too early.” Puck leans his chair back from the table again, somehow managing to balance it on just one hind leg, arms to the sides for balance. “It’s a subtle dance indeed to know when a fae is actually upset, and when they are playing at offense to pressure you into disadvantage. Of course, she had a right to be upset in any case, with you barging into her plot unannounced. If you weren’t such a novelty, I think she would have made you regret it rather quickly.”</p>
+
+<p>“Ugh. Well, I must have done something right, if I didn’t completely fail?”</p>
+
+<p>“Yes, that’s true,” Puck drawls. “You showed good faith. Too many mortals to count lose an eye or a finger or their Wednesdays after their first conversation with the fae, simply because they can’t help but try to be too clever with their endless clauses and qualifiers and insecurities.”</p>
+
+<p>“Um. That… might have been accidental. Just to be sure I do it again though, what does ‘good faith’ cover, specifically?”</p>
+
+<p>“There’s no easy answer there. Some fae are more prickly than others, and either kind can still make you regret not being more strict. That said, a good rule of thumb would be not to demand conditions you would find insulting. For example, it’s not usually a problem to insist that a fae answer your question in a timely manner, say, ‘within one minute.’ This can ensure that you are not made the fool left standing with hat in hand for years and years. But if you also request that some fae speak in the same language as you when answering a question, it implies they have an intention to cheat you of your answer… which is another thing entirely from fully intending to give it to you, but on their terms.”</p>
+
+<p>Terra tries to wrap his head around the distinction, and doesn’t quite succeed. “But… they <i>will</i> want to cheat me if they can, won’t they?”</p>
+
+<p>“Of course. It is our nature. But only to the extent that you allow yourself to make mistakes, and be deceived.”</p>
+
+<p>“So I’m not allowed to make super-extra-sure that a fae can’t trick me, but it’s my fault if I end up being tricked?”</p>
+
+<p>“Can’t trick you in <em>subtle</em> ways. A true fae does not resort to simple tricks or brutishness. If she were to answer a question while bashing her fists on the table to obscure the sound? Terribly uncouth. The mark of a weak mind, and implying that she might resort to such would be insulting, even if it might be deserved for one who got herself exiled to your world.”</p>
+
+<p>“That’s totally contradictory.”</p>
+
+<p>Puck smiles, and somehow manages to bow from the waist while still balancing the chair on one foot. “That, too, is in our nature.”</p>
+
+<p>Terra sighs. “Well, I’ll try to keep that in mind when I see her after school.”</p>
+
+<p>“It’s a terrible idea, you know.”</p>
+
+<p>“What do—”</p>
+
+<p>“Excuse me.” Terra turns to see a teacher standing over him. “Lunch time is over. You need to head back to class.”</p>
+
+<p>Oh, right. He looks around and sees the lunch room has mostly emptied of students. Terra’s head feels clearer, but he’s still a bit nauseous. “I’m sorry, I wasn’t feeling well. I accidentally cut myself, and the sight of blood makes me faint.” He holds up his napkin-wrapped finger, with its big red splotch on the front. It looks like it finally stopped bleeding, but he’s not sure. Puck would say something if he pierced himself too deep, right?</p>
+
+<p>The teacher’s skeptical look changes to alarm as soon as she sees the blood. “How did… why haven’t you gone to the nurse’s office for a band-aid?”</p>
+
+<p>“I was just sitting here until my head is clear. Also I don’t know where it is...”</p>
+
+<p>“Come, I’ll walk you there."</p>
+
+<p>Terra dutifully gets to his feet and follows her, staying a good five or six paces back in case he needs to speak to Puck. His guardian straggles along without falling behind, zigzagging left and right through the hallway with his gaze on his feet.</p>
+
+<p>“As I was saying, it’s a terrible idea,” Puck repeats. “What do you hope to accomplish, seeking out other fae like this?”</p>
+
+<p>“I want to know what they’re up to,” Terra mutters, low enough that he knows only Puck’s sharp ears can hear him. “If I learn enough, maybe I can stop your kind from screwing up anyone else's life. Not that it's any of your business.”</p>
+
+<p>“It is, in fact. At some point they may try to harm you, and I’ll be compelled to intervene.”</p>
+
+<p>Terra shrugs. “That’s your problem. All I care about is making sure your kind doesn’t hurt anyone here. Just be a good guardian and keep me safe while I do it.”</p>
+
+<p>Puck gives a long-suffering sigh. “Well, I would like to be on record as advising you against it… with only your well-being in mind, of course. There are limits to my power, and if you antagonize too many fae, I won’t be able to protect you. Think of your father. He went through quite a lot of trouble, binding me to watch over you. Surely he wouldn’t want you to go seeking danger, and make it all for naught.”</p>
+
+<p>Heat floods Terra’s stomach and chest as his hands curl into fists. <i>He’s trying to get a rise out of you. Don’t take the bait. </i>One hand goes to the silver coin hanging from his necklace, and Terra focuses on his breathing until he’s calm enough to control the volume of his voice. “Well since he’s dead, I don’t know what he’d want,” Terra mutters. “And his murderer is the last person I’d listen to about respecting his memory."</p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">rationalist writing</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

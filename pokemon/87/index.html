@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guardian - Chapter 1 - Pokemon: The Origin of Species</title>
+    <title>Chapter 87: Ghost Town - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,334 +329,611 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Guardian - Chapter 1</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/86/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/88/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            Terra is used to being the new kid at school who sits alone at lunch, but this is the first year he doesn’t mind it; no one around means no one to see him talking to himself.<br>
-<br>
-“Alone” is, as Terra discovered over the summer, a relative term. Across from him sits a boy only he can see.<br>
-<br>
-Puck currently looks like a lanky teenager about Terra’s age, with spiky blonde hair and bright green eyes. His skin is pale, his features sharp and angled, and his lips are perpetually curved in a slight, sarcastic smile as he watches Terra continue to search through his lunchbox for something edible.<br>
-<br>
-A group of fellow 10<sup>th</sup> graders walk by, their gazes sliding right over Puck before coming to rest on Terra. “Hey, you’re in our spot.”<br>
-<br>
-Terra resists the urge to roll his eyes. “It’s the first day of school, how do you already have a ‘spot?’”<br>
-<br>
-“This is where we always sat last year.”<br>
-<br>
-Terra opens his mouth to argue, then remembers Puck’s presence and lets his breath out. “Fine. Whatever.” He puts everything back in his lunch box and moves to one of the few remaining empty tables at the corner of the cafeteria, so he can still see the whole room.<br>
-<br>
-Puck keeps pace with him, stepping with the effortless grace of a cat around and between tables and chairs before lowering himself into his new seat, across from Terra again. “Pitiful. Why not stand up for yourself? Perhaps one of them would lay hands on you, and I’d have to turn them into a frog.”<br>
-<br>
-“No transformations, I told you,” Terra says as he sits back down and unpacks his lunch again.<br>
-<br>
-“Forget the frogging then, what about a subtle illusion? I could make all his food taste rotten. Going hungry for a day never killed anyone.”<br>
-<br>
-“No.”<br>
-<br>
-“A minor hex? Trip him as he sits, so his face lands in his food?”<br>
-<br>
-Terra smiles at the mental image, but just shakes his head.<br>
-<br>
-“You’re no fun.” Puck leans back in his seat and braces himself against the underside of the table with his knees. A girl walking behind him veers around his outstretched form without looking. Terra knows that if he asked her why she took such a sudden detour, she would stare at him in confusion and say she just felt like it. Faerie glamour can be a frightening thing. “What’s the point of having me around if you won’t make use of me?”<br>
-<br>
-“You’re here to ‘protect and promote my well-being,’ not hex anyone who’s mean to me.” Terra unwraps the sandwich and bites into it. It takes all his willpower not to spit it back out. How did Puck know how disgusted Terra is by egg salad? Was it a lucky guess, or did Terra mention it at some point and forget? He wasn't always as careful with what he said around the so-called "Fair Folk," and he doubts he's a good enough actor to fool one.<br>
-<br>
-From the slight widening of Puck's smile, the doubt is justified.<br>
-<br>
-“Speaking of which." Terra puts his sandwich down and bites into some tasteless saltine crackers. “Let’s get started. How many fae are here?”<br>
-<br>
-“Millions.”<br>
-<br>
-Terra rolls his eyes and picks his words more carefully. “How many fae, other than yourself, did you sense since we entered the school building?”<br>
-<br>
-Puck’s smile widens. “Three.”<br>
-<br>
-<i></i>“Are any of them in the lunchroom now?”<br>
-<br>
-“Two.”<br>
-<br>
-Terra bites his lower lip, then lowers his voice, just in case. “Is their masque on, or are they <i>dim</i>?”<br>
-<br>
-Puck wags a finger. “Ah, ah. That’s three asked and answered. If you’d like to bargain for more—”<br>
-<br>
-“No, it’s fine.” He wasted his first question because he was distracted. Now he’ll have to wait 24 hours until Puck has to answer any more. It was one of the first bargains he struck with his guardian: three questions that Puck would be obligated to answer a day, in exchange for the freedom to watch TV while Terra is asleep. Unless Terra decides to renegotiate, he’s stuck with it for a full year and a day.<br>
-<br>
-Still, he got what he needs, if he’s thorough.<br>
-<br>
-Terra closes his eyes and concentrates on his breathing. The sounds of the cafeteria fade to a dull drone as he does his best to clear his mind, as his dad taught him. Not to literally remove all thoughts, which is impossible, but to take a step back from each thought, observe himself having it, and then let it go as he breathes out. He imagines himself sitting on a rock in a river, the voices and laughter of the students around him blending with the rushing water.<br>
-<br>
-He realizes how he must look to others, a skinny kid with baggy clothes  sitting by himself with his head bowed and his closed. Anyone watching probably thinks he's crying or sleeping... or is labeling him a total weirdo.<br>
-<br>
-Terra lets that thought go with his next exhale, focusing on the sensation of air rushing through his nostrils, then breathing in and feeling it expand his lungs. He can’t afford to be distracted.<br>
-<br>
-When he finally opens his eyes, the first thing he notices is that Puck isn’t smiling. The fae is gazing at him with an intensity that most kids his apparent age can’t match.<br>
-<br>
-But then, Puck is older than he looks.<br>
-<br>
-<i>Much</i> older.<br>
-<br>
-That thought, combined with his heightened attention, affects Terra's perception. Glamour, the primary magic of faerie, is all about beliefs. As Terra looks at Puck, really <i>looks</i> at him<i>, </i>and acknowledges the lie he knows is in front of him, the edges of the glamour start to unravel. Puck’s blonde hair becomes lighter, ears growing points, face stretching—<br>
-<br>
-Terra quickly looks away, not wanting to see what the being that calls itself “Puck” really looks like right now.<br>
-<br>
-Instead he lets his eyes drift slowly over the cafeteria from one end to the other, not letting his gaze linger on anything that catches his attention, trying to take in everything he sees equally.<br>
-<br>
-Among the crowd of students he notes two boys taking turns trying to steal fries from a third’s tray. A group of girls have their heads together and giggle over something one of them is saying. Some other kids sit apart like himself, a few in pairs, others with books or their phones out. All completely normal.<br>
-<br>
-He finishes a full turn, and blinks. He thinks back to what he saw, every face, every interaction... then shakes his head. Nothing seems out of place. He closes his eyes and starts again.<br>
-<br>
-And again.<br>
-<br>
-And again.<br>
-<br>
-It isn’t until after his seventh try that, running back over his memories, he sees it.<br>
-<br>
-A group of three girls, all smiling, talking, laughing. Smiling at whom?<br>
-<br>
-He can’t remember.<br>
-<br>
-He looks at them now. Four girls, chatting and smiling. Normal.<br>
-<br>
-He turns away, trying to hold the memory in place, and realizes something is… off. Three girls, laughing, then smiling, with looks of attention on their face as they look at…<br>
-<br>
-...who? A fourth? There were only three.<br>
-<br>
-He stares at the four girls again, then closes his eyes and tries to keep the image in his head. Three girls, all laughing as they look at...<br>
-<br>
-As they look at...<br>
-<br>
-Terra grabs three figs and holds them in his hand. He takes a deep breath, closes his eyes, turns toward the girls… and opens his eyes.<br>
-<br>
-Four girls, all talking and laughing.<br>
-<br>
-Terra’s hand tightens around the figs. Three figs.<br>
-<br>
-Four girls.<br>
-<br>
-Without looking away, he takes a fourth fig and adds it to his hand.<br>
-<br>
-Then he closes his eyes and thinks back to the three girls who were all laughing—<br>
-<br>
-Three?<br>
-<br>
-Terra feels the four figs in his hand… and smiles.<br>
-<br>
-<i>Got you.</i><br>
-<br>
-Terra opens his eyes and studies the four at the table. Two of the girls are white, the first with curly blonde hair and the second with a short dark pixie cut. One is Latino, brown hair in a long ponytail, and one is black with a neon pink hair band. He tries to fix all four of them in his memory, then takes his phone out and snaps a picture before looking away to check which of the three girls—no, the <i>four </i>girls seems unfamiliar.<br>
-<br>
-He studies the picture and tries to remember each of them. Where did this Latino girl come from?<br>
-<br>
-“There,” he says, tapping the screen. “It’s got to be her. Some kind of memory charm, making everyone but the girls she’s talking to forget any details about her.”<br>
-<br>
-“You humans and your toys.” Terra looks up to see Puck chewing on one of the remaining figs. His teeth look sharper than usual as they bite into the soft fruit. “So what will you do now? Expose her?” Puck isn’t leaning back anymore, his gaze intense on Terra’s face.<br>
-<br>
-Terra goes back to watching the girls.  “I want to know what she’s doing first. If she’s got some plots going, or has anyone ensorcelled, or gave someone a token...” The blonde girl plays with a charm on her necklace, and he wonders if it’s a gift from the fae sitting next to her. Something that would help her get good grades? Make her seem prettier? Or maybe just a ward against bad dreams.<br>
-<br>
-If only it were that simple. With gifts from Faerie, there’s always a catch.<br>
-<br>
-Even if it’s something as simple as figs and egg salad for lunch.<br>
-<br>
-Terra's stomach growls, but instead of trying the sandwich again he opens the box of raisins and empties them into his mouth, ignoring the sour aftertaste as best he can. Thanks to some cleverness from Terra’s dad, Puck was bound by oath and contract to look after Terra’s well-being. However, there’s a lot of wiggle-room in the word “well-being,” as Terra discovered again and again since Puck started watching over him.<br>
-<br>
-“I could reveal myself to her,” Puck says. “Ask her what she’s doing with her playthings.”<br>
-<br>
-Terra turns back to Puck warily. “In exchange for what?” He wants to keep Puck secret as long as possible, but he’s curious to know what the faerie would try to bargain for.<br>
-<br>
-“An hour of freedom after school today, once you’re safely home.”<br>
-<br>
-“Denied.”<br>
-<br>
-“Half an hour.”<br>
-<br>
-“No.”<br>
-<br>
-“Five minutes.”<br>
-<br>
-Terra pretends to think it over. Puck doesn’t seem particularly interested, but he rarely looks interested in anything, and when he does, as he did a moment ago, Terra is inclined not to trust it. It’s hard to tell if this is something Puck actually wants, or if he’s just testing Terra’s desires the way Terra is testing his.<br>
-<br>
-“No, I’ve thought of a better idea,” Terra says.<br>
-<br>
-“Oh? Do tell.”<br>
-<br>
-Terra ignores him and stands. He closes his lunch box and approaches the table with the fae and three girls, drawing curious looks from all of them. When he sits to the side in one of the empty chairs, they become annoyed.<br>
-<br>
-“Um. Can we <i>help</i> you?” the blonde asks. The Latino girl seems the least hostile, appraising him with a brow raised as she twirls her fork through untouched food.<br>
-<br>
-“Yeah, mind looking at my drawing? I want a second opinion.” Terra pulls a folded slip of paper out of his pocket and opens it to reveal the simple sketch on the inside. It looks like a capital F, but with the top and middle lines slanted downward at an angle rather than sticking straight out, and with a dot to its left side.<br>
-<br>
-“That’s not a drawing, it’s barely even a doodle,” the black girl says, causing the blonde to giggle.<br>
-<br>
-Terra ignores them and pulls a thumbtack out of his belt, where its pin pierced the looped stretch of leather. He pricks his finger with it, just enough to draw a drop of blood, and presses it against the underside of the paper, so that it bleeds onto the rune he drew. As soon as the paper touches his open wound, it begins to prickle with renewed pain.<br>
-<br>
-“Ew, what’s wrong with you? Are you some kind of frea...” The blonde’s words trail off as she watches the blood seep through the paper faster and faster until it completely covers the rune. Her  eyelids droop closed, and her breathing slows until she’s fast asleep.<br>
-<br>
-The other two follow suit, but Terra keeps his gaze on the Latino girl… or rather, the fae creature disguised as one.<br>
-<br>
-Her eyes are the only ones that glanced away from the rune as he pressed his blood to it. Now she studies him with her chin on her palm.<br>
-<br>
-“You’re human,” she says at last. “How did you find me? Where did you learn that symbol, and how to use it?”<br>
-<br>
-“Three questions for three questions?” Terra asks.<br>
-<br>
-Her brow shoots up. “Bargaining now, are we? Are you sure you know what you’re doing, child?”<br>
-<br>
-<i>Not really. </i>His heart beats hard and fast as he wipes a sweaty palm on his pantleg. His other hand stays where it is, keeping the wound on his finger pressed to the paper. This is the first time he’s interacted with any faerie other than Puck, but the middle of a crowded lunch room is likely the safest opportunity for such an experiment. As long as he’s careful with his words, that is.<br>
-<br>
-Puck, meanwhile, walks in slow circles around their table, humming to himself. The other fae doesn’t seem to have noticed him, which is encouraging. It means that Puck wasn’t just boasting when he implied that he’s stronger than most of his kind, and likely more powerful than those who got exiled to the human world, <span style="font-weight: 400;">especially if they spend their time in a high school.</span><br>
-<br>
-Or maybe she’s just pretending not to notice him, and the humming is some secret language. Either way, all Terra can do is take a chance and hope to learn something.<br>
-<br>
-“I believe I do," he says. "So, three questions each?”<br>
-<br>
-“Very well. Three for thee, and then for me.”<br>
-<br>
-“If you don’t mind, be more specific.”<br>
-<br>
-The fae girl smiles. “You may ask three questions, and if I deem them acceptable, I will answer. Afterwards, I will ask three questions that you must answer honestly.”<br>
-<br>
-Terra doesn’t miss that she’s changed the rules, nor the slight difference at the end. “I’ll ask three questions, and if you choose to accept them, you must answer all three. Then I’ll answer those three questions you’ve already asked, honestly.” Knowing that the fae can't lie makes this much easier than it otherwise would be.<br>
-<br>
-Her eyes narrow. “I’ll ask three questions, and if you choose to answer them, you must answer honestly. Then you will ask three questions, and I will answer them.”<br>
-<br>
-<i>Damn. </i>Terra hoped that she forgot the other questions she asked, so he could re-answer those instead. Over her shoulder, he can see Puck lean against the wall and cross his arms, fingers tapping against his arms. Is his guardian giving him a hint? He would only do something like that if he feels Terra’s well-being is at risk.<br>
-<br>
-He remembers what Puck told him during one of their many Q&A sessions, where Terra was desperate to learn all he could of Puck’s kind. “<i>The fae love the game of back and forth, but it does grow tiresome if neither side admits defeat. It is natural to try and gain advantage, but both sides must demonstrate good faith, or else risk the other’s ire. If you wish to spar with the fae, you must learn to lose a battle, here and there.</i>”<br>
-<br>
-Maybe it’s time to lose, a little. “Let’s just make it fair as can be. We’ll both ask three questions. Then, if we both agree that the questions are acceptable, we’ll answer all three honestly, me first, then you. Sound alright?”<br>
-<br>
-The fae sitting across from him considers a moment, eyes upward and finger twirling in her hair. “Deal,” she says at last. “My questions are: How were you able to remember me? What was the name of the one who taught you that rune? And what is your true name?”<br>
-<br>
-Terra stays quiet, repeating what she said over in his head. Overall, he thinks he can get away with answering them without revealing anything too important. He’s about to say yes when he notices Puck shaking his head, with three fingers pressed against his jaw. Something wrong with the third question? It seems the most harmless… and it wouldn’t be too hard for this creature to get his if she really tries. It’s in the school records, after all.<br>
-<br>
-Still, better play it safe. “I accept the first two, but would need a different third one.”<br>
-<br>
-“Very well. Why were you looking for me, how were you able to remember me, and what was the name of the one who taught you that rune?”<br>
-<br>
-<i>Much easier.</i> Puck seems unconcerned too.<br>
-<br>
-That leaves his own questions. He takes a deep breath and lowers his gaze to the table, thinking hard. All around them the other students happily chat and eat their lunches, unaware that there’s a pair of monsters in their midst, or that three of their classmates are unconscious.<br>
-<br>
-Another, stronger throb of pain goes through Terra’s finger. It’s slowly getting worse as more blood seeps out with every passing second. Terra does his best to ignore it. He tested this trick twice before, which is why he's not surprised by how much more he's bleeding than he should be, but the longest he let it go on was a minute. Still, he can’t rush this part or all this would be for nothing.<br>
-<br>
-He takes his time and thinks the questions through, word by word, forming them in his head and considering them from all angles. The trick is to have questions that aren’t too narrow, or she might say no, and not too broad, so she can’t give a vague answer.<br>
-<br>
-An impatient noise from the fae makes him look up. Her brow is creased again. “Your questions are acceptable,” he says at last.<br>
-<br>
-“Exquisite. And your questions are?”<br>
-<br>
-“My three questions are... Why are you attending this school? What do these girls have that you gave them? What crime were you exiled from Faerie for?”<br>
-<br>
-The fae’s eyes narrow. “I accept the first one. Not the other two.”<br>
-<br>
-<em>Shit. </em>He thought the third would be too personal, but the second is something he needs to know.<br>
-<br>
-Terra jerks as a stab of pain starts repeating through his finger with every heart beat. He’ll have to figure it out later: for now he just needs to get some info.<br>
-<br>
-“Why are you attending school, why are you attending <i>this </i>school, and how long have you been attending this school?”<br>
-<br>
-“Accepted. You first.”<br>
-<br>
-“I wasn’t looking for you specifically, I was just looking for any fae. I found you by counting figs. As for who taught me the rune, the only name I know for them is ‘Puck.’”<br>
-<br>
-Her eyes narrow at the second answer and roll at the third. “I’m attending school because it amuses me, I’m attending <i>this </i>school because it’s the only high school in town, and today marks the start of my twenty-third year attending this school. Would you like to exchange another question?”<br>
-<br>
-Hmm. If she wants something specific, chances are he won’t want to answer it. He tries to make himself appear interested before he says no.<br>
-<br>
-“I’ll even give you two for one,” she says, clearly reading his reluctance.<br>
-<br>
-Now <i>that’s </i>tempting. Puck is shaking his head behind her, but Terra is intrigued. “May I hear the question first?”<br>
-<br>
-“This ‘Puck,’ who taught you, where did you meet them?”<br>
-<br>
-Well, he’s certainly not going to answer that. But maybe he can work her down to something more vague…<br>
-<br>
-The pain in his finger pierces his concentration again, so deep it feels as though a needle has driven into his bone. He gasps and struggles not to let the paper go yet. “Perhaps we can negotiate this at… another time,” he says, eyes watering.<br>
-<br>
-Before she can respond, the bell rings.<br>
-<br>
-The lunchroom surges into motion around them as kids prepare to return to class. “Meet me after school by the parking lot gate,” the fae says, her posture shifting back to what it was before the girls fell asleep.<br>
-<br>
-Terra finally pulls his finger away from the blood-stained scrap of paper and stands. The room spins, and he puts a hand on the table to steady himself. <i>Damn. </i>That took more out of him than he was expecting. He feels light headed, like he just gave blood for some free movie tickets. Far more than he should have lost from such a tiny wound. Where it all went, he can’t begin to guess; on the paper it's only spread around the rune.<br>
-<br>
-The girls start to stir, and he pushes away from the table before they wake up, only to stumble on legs that feel like jelly. Terra staggers past kids heading for the exits until his legs give out, and he collapses into a chair at a recently emptied table, taking deep breaths. He spots some unused napkins and wraps one around the paper before stuffing it in his pocket, then takes another to wrap around his finger.<br>
-<br>
-Terra closes his eyes and rests his forehead against the cool table, tuning out the sounds of the crowd around him. Still, he can hear it when someone sits across from him, and knows that it’s Puck before his guardian even speaks.<br>
-<br>
-“If you’re fishing for a response, you can save your energy,” Puck says, amused. “I know you can handle a little spell like that without your ‘wellbeing’ coming to risk.”<br>
-<br>
-Terra bites back an insult. He’s been trying to avoid cursing Puck out, to avoid getting too used to letting his temper get the best of him. All it takes is one careless phrase implying he doesn’t want Puck around anymore, and the fae would be free of his bond.<br>
-<br>
-“So, how did I do?” Terra asks instead. Perhaps even more valuable than the explicit agreement for three questions per day is the insight he had that, in dealing with the fae, he needs constant, honest feedback to safely navigate their social norms. It's one of the few areas where Puck can’t refuse to answer or mislead him and still hold true to his oath.<br>
-<br>
-“Average at best,” Puck says. “You didn’t sign your life or first born away, but you missed four opportunities to close loopholes, and gave more information away than you needed to. Our adolescents can negotiate better than you, but for a human’s first attempt it was an acceptable show, even if it demonstrated why your kind so often gets overconfident enough to be drawn ever deeper into our webs.”<br>
-<br>
-Terra feels nauseous, and isn't sure if it’s from what Puck said, the blood loss, or the egg salad sandwich. It’s much harder not to take insults personally when you know as the speaker is compelled to tell the truth.<br>
-<br>
-“Okay, well what should I have done different? Did I ‘lose’ too early, or too late?”<br>
-<br>
-“Too early.” Puck leans his chair back from the table again, somehow managing to balance it on just one hind leg, arms to the sides for balance. “It’s a subtle dance indeed to know when a fae is actually upset, and when they are playing at offense to pressure you into disadvantage. Of course, she had a right to be upset in any case, with you barging into her plot unannounced. If you weren’t such a novelty, I think she would have made you regret it rather quickly.”<br>
-<br>
-“Ugh. Well, I must have done something right, if I didn’t completely fail?”<br>
-<br>
-“Yes, that’s true,” Puck drawls. “You showed good faith. Too many mortals to count lose an eye or a finger or their Wednesdays after their first conversation with the fae, simply because they can’t help but try to be too clever with their endless clauses and qualifiers and insecurities.”<br>
-<br>
-“Um. That… might have been accidental. Just to be sure I do it again though, what does ‘good faith’ cover, specifically?”<br>
-<br>
-“There’s no easy answer there. Some fae are more prickly than others, and either kind can still make you regret not being more strict. That said, a good rule of thumb would be not to demand conditions you would find insulting. For example, it’s not usually a problem to insist that a fae answer your question in a timely manner, say, ‘within one minute.’ This can ensure that you are not made the fool left standing with hat in hand for years and years. But if you also request that some fae speak in the same language as you when answering a question, it implies they have an intention to cheat you of your answer… which is another thing entirely from fully intending to give it to you, but on their terms.”<br>
-<br>
-Terra tries to wrap his head around the distinction, and doesn’t quite succeed. “But… they <i>will</i> want to cheat me if they can, won’t they?”<br>
-<br>
-“Of course. It is our nature. But only to the extent that you allow yourself to make mistakes, and be deceived.”<br>
-<br>
-“So I’m not allowed to make super-extra-sure that a fae can’t trick me, but it’s my fault if I end up being tricked?”<br>
-<br>
-“Can’t trick you in <em>subtle</em> ways. A true fae does not resort to simple tricks or brutishness. If she were to answer a question while bashing her fists on the table to obscure the sound? Terribly uncouth. The mark of a weak mind, and implying that she might resort to such would be insulting, even if it might be deserved for one who got herself exiled to your world.”<br>
-<br>
-“That’s totally contradictory.”<br>
-<br>
-Puck smiles, and somehow manages to bow from the waist while still balancing the chair on one foot. “That, too, is in our nature.”<br>
-<br>
-Terra sighs. “Well, I’ll try to keep that in mind when I see her after school.”<br>
-<br>
-“It’s a terrible idea, you know.”<br>
-<br>
-“What do—”<br>
-<br>
-“Excuse me.” Terra turns to see a teacher standing over him. “Lunch time is over. You need to head back to class.”<br>
-<br>
-Oh, right. He looks around and sees the lunch room has mostly emptied of students. Terra’s head feels clearer, but he’s still a bit nauseous. “I’m sorry, I wasn’t feeling well. I accidentally cut myself, and the sight of blood makes me faint.” He holds up his napkin-wrapped finger, with its big red splotch on the front. It looks like it finally stopped bleeding, but he’s not sure. Puck would say something if he pierced himself too deep, right?<br>
-<br>
-The teacher’s skeptical look changes to alarm as soon as she sees the blood. “How did… why haven’t you gone to the nurse’s office for a band-aid?”<br>
-<br>
-“I was just sitting here until my head is clear. Also I don’t know where it is...”<br>
-<br>
-“Come, I’ll walk you there."<br>
-<br>
-Terra dutifully gets to his feet and follows her, staying a good five or six paces back in case he needs to speak to Puck. His guardian straggles along without falling behind, zigzagging left and right through the hallway with his gaze on his feet.<br>
-<br>
-“As I was saying, it’s a terrible idea,” Puck repeats. “What do you hope to accomplish, seeking out other fae like this?”<br>
-<br>
-“I want to know what they’re up to,” Terra mutters, low enough that he knows only Puck’s sharp ears can hear him. “If I learn enough, maybe I can stop your kind from screwing up anyone else's life. Not that it's any of your business.”<br>
-<br>
-“It is, in fact. At some point they may try to harm you, and I’ll be compelled to intervene.”<br>
-<br>
-Terra shrugs. “That’s your problem. All I care about is making sure your kind doesn’t hurt anyone here. Just be a good guardian and keep me safe while I do it.”<br>
-<br>
-Puck gives a long-suffering sigh. “Well, I would like to be on record as advising you against it… with only your well-being in mind, of course. There are limits to my power, and if you antagonize too many fae, I won’t be able to protect you. Think of your father. He went through quite a lot of trouble, binding me to watch over you. Surely he wouldn’t want you to go seeking danger, and make it all for naught.”<br>
-<br>
-Heat floods Terra’s stomach and chest as his hands curl into fists. <i>He’s trying to get a rise out of you. Don’t take the bait. </i>One hand goes to the silver coin hanging from his necklace, and Terra focuses on his breathing until he’s calm enough to control the volume of his voice. “Well since he’s dead, I don’t know what he’d want,” Terra mutters. “And his murderer is the last person I’d listen to about respecting his memory."
-        </div>
+            <h1 class="chapter-title">Chapter 87: Ghost Town</h1>
 
-        <div class="chapter-nav">
-            <a href="../86/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../88/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p><em>Hey everyone, welcome back! Brief comment about the last chapter's battle: it bent a couple rules from the pokemon game in ways that feel justified, to me. The first was the whirlwind attack being able to clear field hazards the way defog does, since both are essentially the same type of attack, but divided by function. I'm not sure it makes sense for some flying pokemon to be able to create a whirlwind that can blow pokemon away, but not blow objects or fog away, so I'm ignoring the fact that the pidgey line doesn't naturally learn defog outside of egg moves.</em></p>
+
+<p><em>The second is ingrain, which normally stops a pokemon from being blown or scared away from battle, but also stops you from being able to withdraw it, which is just… strange. It's not like it stops you from catching a pokemon in the wild, and there's nothing about the move that to me indicates that it should make a pokemon immune to a pokeball's effects. It seems to just be a balance decision they made, logic bedamned, and so I'm okay with putting the logic back in at the cost of game fidelity. One reader suggested that using an ultraball would overcome any possible difficulty some trainers would have in accounting for the increased mass, which is as good an explanation as any.</em></p>
+
+<p><em>Enjoy the chapter, and hope everyone is staying safe this holiday. It would be a shame to get COVID just before vaccines start to roll out!</em></p>
+
+<hr />
+
+<p>Red takes a deep breath, then knocks on Leader Sabrina's door. Three seconds and a brief probe of his shielded mind later, he hears her say, "Come in."</p>
+
+<p><em>She still looks so tired,</em> Unpartitioned Red notes as they step inside, and after a moment Red agrees. The bags under her eyes, the slight droop in her posture, the hair done up in a loose ponytail instead of her usual long, straight curtain… it's clear Sabrina has yet to really recover from her long absence last month. Upon returning she spent nearly all her time working through the backlog of Challenge matches, and then Groudon and Kyogre awoke and she teleported to Hoenn to fight them.</p>
+
+<p>It's also clear that something changed for her when she did, though it's hard to describe what. He could say that she's been more reclusive than she was before she was gone, and that would be part of it. He could say that, when he <em>does </em>see her, she's been distracted… but that would still only be part.</p>
+
+<p>The best way he can think to put it is that she seems more like she's doing everything by rote. Like her heart isn't in the duties of a Gym Leader anymore, nor teaching her psychic students, nor researching and learning from them.</p>
+
+<p>Whatever happened in Hoenn, it must have badly shaken her. Her psychic shields are as strong as ever, but the less tangible signs of strength, her force of personality, her aura of leadership, have faded somewhat as her clear distraction keeps her from being fully present. Even the question of whether psychics can lie just doesn't seem to interest her the way it used to.</p>
+
+<p>Of course, he knows the answer to that now. A month with Rowan taught him not just how to create partitions at will, but, finally, how to induce amnesia in himself… something he was relieved to finally be able to do.</p>
+
+<p>Not that he remembers why, of course. And he doesn't need to as long as he's around other psychics that he might merge with; the vague sense that there are secrets hidden behind partitions is all that's left, which is common enough among psychics as to be unremarkable. It was strange recognizing it for what it was, at first, but after some consideration it's no different from everyone holding a sign noting that they have secrets. Unusual to be reminded of in day to day life, but completely understandable and unalarming in most contexts.</p>
+
+<p>What is remarkable, as far as Red can tell, is that his current, partitioned self can be fed information as needed by his whole, unpartitioned self, which knows all the things he forgot. Re-establishing direct communication was one of the most valuable things he learned to do with Rowan, but far from the only one.</p>
+
+<p>(What Rowan notably <em>hasn't </em>been able to help Red do is come up with better ways to refer to himself and his unpartitioned self; apparently he sets his partitions along emotional lines, or things similar to them, and so just uses those.)</p>
+
+<p>For his part, Rowan spent a lot of time recently trying to develop his own "tulpa," and though he hasn't quite succeeded yet as far as Red can tell, he can shift so abruptly between different mental states that even Red is worried about what the ability might do to him. The older psychic already writes intricately detailed personal contracts the way most people set alarms, and takes turns in any serious conversation letting various partitions up and down at a time to make sure he's fully expressing the range of things he wants to, sometimes over a dozen in a row… more than once Red has simply sat by and waited for Rowan to finish arguing with his variously partitioned selves.</p>
+
+<p>Not that Red is one to throw stones, but Rowan is definitely an odd one.</p>
+
+<p>But none of that is why Red is here today.</p>
+
+<p>"Good evening, Sensei<em>.</em>"</p>
+
+<p>"Hello, Red. Please, join me." The Leader is seated at a wide couch, each end of which has enough pillows to allow them to comfortably face each other. "Can I get you something to drink?"</p>
+
+<p>"No, I'm alright." He steps out of his flip-flops, leaving them by the door before going to sit on the couch and crossing his legs beneath him.</p>
+
+<p>"You said it was important?"</p>
+
+<p><em>So much for small talk. Or any other kind of talk.</em> It's fair enough, he wouldn't have been able to get this audience just to chat. He senses his unpartitioned self silently acknowledging that, but still feeling a bit disappointed.</p>
+
+<p>"Yeah, so... a couple days ago, Leader Erika reached out to me about joining a group she would like to form to find Renegades in Celadon." Sabrina's attention sharpens on him, overt enough that even he can pick it up without Partitioned Red's help. "I came to see what you think of it."</p>
+
+<p>"What I think?"</p>
+
+<p>"And for approval," Red admits, though the truth is he's hoping for disapproval, an excuse to say no without having to say it himself.</p>
+
+<p>She watches him a moment, and he makes no effort to hide his reluctance. "Do you believe it would interfere with your duties here?"</p>
+
+<p>"I'm not sure," he admits. "The message was light on details."</p>
+
+<p>"Then it's because of what you did in the Casino." It's not a question, but he still nods, and Sabrina returns it, then lapses into silence, gaze distant. Red waits, wondering if he should try to get a sense of her mood, if she would reciprocate the glimpse, but before he can try she stirs, taking a deep breath. "I never spoke with you about what happened down there. I meant to, but other things kept coming up... I'm sorry I haven't made the time."</p>
+
+<p>Red just stares in surprise for a moment. "I… that's okay, Sensei. I know you've been busy."</p>
+
+<p>"It's a minimal excuse. You and your friends nearly died, and you used your psychic abilities to save many lives. I should have let you know that I'm proud, to call you my student."</p>
+
+<p>There's something in her tone that's hard to interpret, and Red's too embarrassed by the praise to really try. He bows his head in thanks as he murmurs, "I just wish I could have done more."</p>
+
+<p>"We always do. But no matter how many were lost that day, I can still be glad you weren't among them."</p>
+
+<p>Again, there's something in her tone…</p>
+
+<p><em>What if it wasn't just being busy and tiredness, these past few weeks?</em></p>
+
+<p>It's a good thought, and Red debates if now is the right time to dig into it…</p>
+
+<p><em>We probably won't get a smoother segue.</em></p>
+
+<p>Another good point. "I appreciate that." He looks back up at her. "Forgive me for being forward, Sensei, but… did <em>you</em> lose someone that day?"</p>
+
+<p>Sabrina's eyes widen for just a moment, and then she's the one that drops her gaze. "Yes." The word is quiet. "A very old, very dear friend."</p>
+
+<p>A stab of empathy, an echo of pain from Aiko's loss, and his father's before that. He sits with the feelings for a moment, acknowledging them, letting himself mourn them anew… then lets his breath out, and focuses on the sensation of it to let the thoughts go, let the emotions get taken gently back behind his partition, knowing his unpartitioned self will be able to work through the feelings, however painfully, so he doesn't have to deal with them himself… a far more useful trick than multithreading mental math. It's still a distraction that might lead to some missed thoughts or insights, but it's far better than what he used to have to deal with. "I'm so sorry, Sensei."</p>
+
+<p>"I am too. The worst part is, I don't even know if he's dead or not." She's staring into the distance again. "A body was never found."</p>
+
+<p>Damn. He tries to imagine not knowing for sure if his dad or Aiko were alive or not, and even with the partition taking that pain too, it leaves an ache in his chest. "That's horrible. It would be distracting to anyone."</p>
+
+<p>"Yes. It's hard not to think that he's probably dead, after all this time. And if not, that's almost worse. The idea of him be out there somewhere, hurt... alone." She takes a deep breath, and the next words come out in a murmur. "He always hated being alone."</p>
+
+<p>Red wonders what circumstances the person would have to be in, to be missing and lost for so long. Flying between regions? Maybe someone on the frontier? Or someone like Bill, living alone in seclusion? No, surely their place would have been checked. And if they got lost in the wilderness somewhere, and haven't reached a town or Ranger Outpost by now, then… yeah. Probably dead.</p>
+
+<p>"It's painful," Sabrina goes on. "Knowing that I was so busy that day that I couldn't... I wasn't there for him. I wasn't there for a lot of people."</p>
+
+<p>Red doesn't know what else to say, so he just nods, lost in his own memories and distant guilt.</p>
+
+<p>"Tell me about it?"</p>
+
+<p>He blinks and finds her gaze on his again. For a moment he thinks she's talking about Aiko, what it was like for him afterward. Then he reconnects the question to what she said before, and he suddenly feels wary. But he has no reason not to talk about it other than discomfort.</p>
+
+<p>"It was scary. I couldn't tell how badly I was hurt, let alone the others, and when Blue wasn't waking up…" He swallows. Those were a desperate couple of minutes, the most frightening in his life, even counting those moments in Viridian when they were surrounded by pikachu, or everything that happened during the storm. He thought they were all going to suffocate or bleed out, and still sometimes wakes in the middle of the night gasping for air. "I leave the light on, now, when I go to sleep. So I don't wake in the dark."</p>
+
+<p>It makes him feel ashamed, weak, admitting that. A reminder that he's still a kid who can't handle the real world. But it feels only fair, after he asked her such a personal question, and Sabrina just nods, face sympathetic. "It's amazing that you managed to keep your psychic concentration, even through that. What was your first sign that the renegades were there?"</p>
+
+<p>The wariness deepens. Talking or thinking about this part in particular always makes the discomfort worse. "I didn't. Keep my concentration, I mean. It was hard to focus on any one thing at a time, so I used my psydar instead, and only realized when the first two people… when their minds vanished at the same time, right next to the golem that I thought was summoned to save them."</p>
+
+<p>"And then you focused on it?"</p>
+
+<p>"With the help of my partitioned self, yeah. I realized the next time it attacked a survivor that it was able to see humans as threats. After that it was just a matter of warning my friends."</p>
+
+<p>She studies him until eventually her lips twitch in a slight smile. "You don't like the limelight much, do you?"</p>
+
+<p>"Not… really, no." He wonders if she's going to try to convince him to be more public about what he did, maybe talk about how good it would look for psychics. That thought in particular makes him deeply uneasy. "Blue and Leaf have talked to me about this sort of thing a lot. I've been trying to lean into it more, but for something like this… it would feel wrong."</p>
+
+<p>"I suppose I can understand that. But you also don't want your more unique psychic abilities becoming public?"</p>
+
+<p>"Yeah." He looks down. Looks like she saw right through him. "Don't want to have to worry about what people think of me, and of psychics in general."</p>
+
+<p>Sabrina chuckles, and Red blinks at her, wondering what he said that was funny. "I used to worry about that a lot," she explains upon noticing his confusion. "I'm not saying I don't anymore, but… I understand. The problem is, I've begun to think that this house of cards will come tumbling down sooner or later. It's just a matter of time before some psychic somewhere does something new and frightening enough that the public turns against us."</p>
+
+<p>She's looking off into the distance again, and Red tries to think of something to say to such a bleak prediction when she suddenly asks, "You used your partition while we spoke, right?"</p>
+
+<p>"Yeah." He's unsurprised that she can pick up on it after having merged with him while he had the partition both up and down, but the sudden change of topic takes him off guard. "Why?"</p>
+
+<p>"Your control is impressive. I know I haven't been as dedicated lately, to your education, or to pursuing the task I set for all of you. I would be lying if I didn't admit that none of it is as important now as it was before…" Again there's something heavy in her tone, something in the way she trails off momentarily, that makes him feel a surge of empathy, and then she rallies. "But it is still important. I'm sorry it took you coming to see me to make me confront that I've been shirking my duties. Since arriving here, you've been hardworking, shown good judgement, demonstrated initiative, and of course, loyalty. In normal times that would all be rewarded more thoroughly, but for now…"</p>
+
+<p>She trails off again, this time seeming to be hard at thought over something, and Red patiently waits. Eventually she nods to herself and meets his gaze. "I'll speak with Erika to see what she wants from you, exactly. In the meantime, you're still trying to lie to Rowan?"</p>
+
+<p>"Yeah, and I think we're close. I can lie about things and not know that I'm lying, but as long as he can tell I have partitions up, he knows that one might be an amnesia."</p>
+
+<p>"So he can't tell if you're lying, but he can't verify that you're not, either… only use the fact that you don't bring your partitions down as evidence that you are."</p>
+
+<p>"Exactly. If this is possible, that's the trick right there; hiding a partition. Once you forget you have partitions—"</p>
+
+<p>"There's no way to tell that something might be missing," Sabrina says, and suddenly she sounds so tired again. Or defeated, maybe, as he confirms what she already said about trust in psychics being a house of cards.</p>
+
+<p>Red nods, then reluctantly adds, "I mean, technically that might already have happened."</p>
+
+<p>Sabrina glances at him, then nods. "Because neither you nor Rowan would be able to tell if the other had pulled it off. Not long ago I would have been ecstatic to hear about this, and terrified, of course. The age of trust may be coming to an end, and all that will be left is... a form of meta-trust, I suppose."</p>
+
+<p>Red remembers his conversation with Leaf, about the way Pressure affected her during the storm, and how she fought back against it. "Trust in the person, that if they <em>are </em>hiding something, it's for good reason?"</p>
+
+<p>Sabrina smiles. It's a small smile, and a tired one, but it seems to bring some warmth back to her features. "Yes. That's exactly it. Not something we can afford to do in every situation, of course, but… hopefully in enough, that our society can go on functioning."</p>
+
+<p><em>Without turning on its psychics, </em>she doesn't add. She doesn't need to, for him and his unpartitioned self to both think it.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Once Red returns to his room, he takes a minute to note some thoughts and observations from the meeting, takes a shower, then lies in bed and, little by little, brings his partition down.</p>
+
+<p>His breath catches as the world loses some vague shine. He stays present in his body, noticing the way it feels heavier, and the way his thoughts seem to slow and become more easily distracted.</p>
+
+<p>And then the memories come.</p>
+
+<p>Memories of what really happened under the Casino that night.</p>
+
+<p><em>Fear to panic, as Glen was knocked unconscious.</em></p>
+
+<p><em>Panic to desperation, as the pokemon moved in for the kill.</em></p>
+
+<p><em>Desperation to determination, as he realized what he had to do.</em></p>
+
+<p>The hardest thing he's ever done. And the most difficult; on its own the <em>sakki </em>is just the removal of conditioning. If it was all he projected, the pokemon would have been as likely to kill Maria or each other as the renegade.</p>
+
+<p>Instead he also had to use his partitioned self to project the feeling of the renegade as <em>the enemy </em>so that the vulpix would run past the two pokemon in front of it to attack him.</p>
+
+<p>To murder him.</p>
+
+<p><em>Hey</em>, Partitioned Red says, mental voice sharp. <em>None of that. We're not murderers, let alone renegades. Trainers are allowed to defend themselves, we looked up the laws, remember?</em></p>
+
+<p>He does, thanks to the reminder. He pored over them while at the hospital with Blue, waiting for him to wake up, so he knows that technically what he did shouldn't get him branded.</p>
+
+<p>And yet.</p>
+
+<p>He remembers what it was like, in that trailer on Mount Moon. He remembers the fear from the others in the room, their disgust, their apparent focus on reaching a conclusion then and there, rather than taking more time to investigate the truth. And he remembers the pressure to conform. To pass judgement, to not hold things up with niggling doubts or uncertainties.</p>
+
+<p>The thought of being on the receiving end of that sort of situation makes him feel sick with fear if he contemplates it too long.</p>
+
+<p>What he did under the Casino has never been done before, or at least never investigated. If he's charged, he can't predict what attitudes would be, or even who the witnesses would be. Leaf and Maria and Lizzy? Surely none of them would vote against him, right?</p>
+
+<p>But even if cleared, it would be absurdly optimistic to not expect to be constantly viewed with fear and suspicion afterward by others. And given the risks involved if some other psychic learns to do the same thing, there's no way something like this would stay quiet; he's pretty sure it would be the first global news to displace the cataclysm.</p>
+
+<p>Everyone would know that he could turn their pokemon against them at any time. He would be a pariah… along with every other psychic in the world, probably, through no fault of their own. Which is the <em>actual </em>reason why joining some task force to hunt for Renegades is the last thing he wants to do, and why his partitioned self feels so uncomfortable when it, or what happened that night, comes up in discussion. He can't do anything that might put him in a position to accidentally let the secret out.</p>
+
+<p>Well. Any <em>more </em>out. He knew that he would be safest if he never told anyone… but he still had to tell Maria.</p>
+
+<p>It was his fault, after all. Once he was determined to do whatever it took to save her and Glen, he still hadn't been thinking straight. It's so obvious, in retrospect, that he could have used the renegade's own pokemon to kill him. Instead he'd been stuck thinking of the vulpix as their only available resource. The idea of using someone's pokemon against them just feels… wrong.</p>
+
+<p>It still does, even after he ended up using the other renegade's sandslash on her, lacking another option. But if he thought of it to save Maria, she never would have known something strange had happened beyond the renegade's pokemon turning on him.</p>
+
+<p>Instead the fear that others would find out <em>her</em> pokemon killed someone was eating her up inside, all that night and the next day. He couldn't just let her keep believing she might have been at fault in any way, and if she revealed what actually happened, whether out of confusion or guilt, she might have gotten herself in trouble, or even launched an investigation.</p>
+
+<p>So he told her. She was shocked, but grateful, particularly when he assured her that he would come forward if any suspicion ever fell on her. She insisted in return that she would take his secret to her grave, since he saved her life.</p>
+
+<p>Saved all their lives.</p>
+
+<p>And maybe doomed psychics everywhere.</p>
+
+<p><em>Catastrophic thinking</em>, Partitioned Red insists. <em>Focus on the positive!</em></p>
+
+<p>Right. Positives. He takes his notebook out and starts writing:</p>
+
+<p><em>1) All my friends are alive, and we managed to save some strangers too.</em></p>
+
+<p><em>2) We helped expose whatever was going on under the Casino. If all of us died it might have been covered up.</em></p>
+
+<p><em>3) If I ever face a renegade, I can probably survive as long as they don't use Dark pokemon.</em></p>
+
+<p>That last thought sends a chill through him, but also reveals something else; a door in his thoughts, one he dares not open for fear of what's on the other side.</p>
+
+<p><em>All truth is worth knowing. Or don't we believe that anymore?</em></p>
+
+<p>Red closes his eyes and lets himself follow the thought.</p>
+
+<p>Maybe he <em>should </em>reveal what he can do.</p>
+
+<p>Maybe the knowledge that it's possible will be on net beneficial to the world at large.</p>
+
+<p>And maybe <em>he</em> can do more good with it. Become a ranger, or even a renegade hunter...</p>
+
+<p>The thought makes him want to turn away again. Red hasn't watched or read a lot of fiction, relatively speaking, but from what he remembers, whether the heroes in stories even <em>used </em>their special powers isn't often seriously explored in most.</p>
+
+<p>What they did with them, sure. One character he particularly identified with was Dr. Banner, a scientist who, through a freak lab accident, "evolved" into a new form of human with incredible fighting potential and literal Fighting abilities. All he wanted to do was continue his research, but instead Dr. Banner repeatedly found himself in situations where he had to use his new powers (guided by his human intellect) to save others.</p>
+
+<p>But while the show sometimes featured others treating the transformed scientist as a freak, and dealt with his desire to be "normal" again, he was never in danger of being hunted by society and executed just for what he could do. At worst there were a couple episodes where some immoral scientists or renegades tried to capture and study or use him. Most people in the show saw him as a hero.</p>
+
+<p>Would even Red's friends and family see him as one? Or would the danger he represents scare them, too?</p>
+
+<p><em>Mom wouldn't abandon us. Neither would Blue and Leaf, and Professor Oak wouldn't let anything happen.</em></p>
+
+<p>Red closes his eyes. The words from his partitioned self are defiant, but there's no hiding the uncertainty under the words, particularly at the end. <em>Maybe </em>they would all stand by him, and <em>maybe </em>he wouldn't be executed. But he would live the rest of his life under a cloud of suspicion, and if any pokemon around him ever accidentally hurt someone, he would be blamed.</p>
+
+<p>He wouldn't even be able to prove his innocence, once they knew he's also studied how to lie to other psychics.</p>
+
+<p>Despair rises like a black tide, and it's hard to fight it down. There doesn't seem to be a way out. Like Sabrina said about the view of psychics in general: it's all a house of cards. Sooner or later, it will come tumbling down.</p>
+
+<p>Irrationally, even feeling like it's inevitable, what scares Red more than the actual potential outcomes is the idea that he might be the one who causes it.</p>
+
+<p>A probe of his mental shield derails the forming depressive spiral, and as he quickly builds his partition back up there's a knock at the door.</p>
+
+<p>He takes a deep breath as the world lightens and grows clearer, and rubs his face. Yes, things are difficult. The worries of another cataclysm, of new legendaries appearing, of people fearing psychics that can lie… it makes sense to be afraid. But they can come together to prepare, and the real worst case scenario for psychics is they become as distrusted as dark people. He's not the only one with doubts; Leaf is experimenting with fundamentally rewriting the brains of millions of pokemon so they can live in better harmony with humans, despite her views on their moral value. Blue gets up and does his best to become the greatest Champion in history every day while knowing that some people will always view his motives with suspicion. Red can't do any less just because the same thing might happen to him.</p>
+
+<p>"Coming," he calls out, then walks to the door as he lowers his shield and probes back. "Hey Jason," he says as he opens the door, and sees his peer is dressed in an informal yukata today. After spending some time at Celadon Gym, where the members used their clothing as a way to communicate everything from rank to expertise to mood, he can't help but read into Jason's choice of modest dark cloth. He looks like he's in mourning, or maybe just expressing a particularly somber attitude, though the mental impression Red got was more… worried. And of course his fingers move over the beads of his necklace as he turns it around and around, a sure sign that something's bothering him.</p>
+
+<p>"Good evening, Red. I'd like to talk to you about something. May I come in?"</p>
+
+<p>"Sure, I'm free." Red steps back, curious and a little concerned. Jason is generally formal, but as they've gotten to know each other better he's been a bit more relaxed in private with him. "Can I get you something?" he asks as he closes the door, echoing Sabrina.</p>
+
+<p>"I'm alright, thank you."</p>
+
+<p>Red nods and leads the older boy to the beanbags he set up for himself and guests. Jason sits carefully on his, adjusts a few times to get comfortable, then continues to fidget with his necklace.</p>
+
+<p>Red lowers his shield to read him again, just a brief dip that communicates Jason's uncertainty and worry. He can't recall ever seeing his friend like this, and the silence stretches out for what feels like a minute before Red dares to break it. "So…?"</p>
+
+<p>"I'm sorry, I'm still not sure if I have the right to ask…"</p>
+
+<p>Maybe he should be more trepidatious, but curiosity is stronger. "Take your time. Maybe start with what's got you so nervous?"</p>
+
+<p>Jason nods, and takes a breath. "Do you remember when I told you my upbringing, in Lavender Town?" Red nods. "My family still lives there, as does my first sensei. Over the past week, she's been telling me that something is disturbing the Ghosts at Lavender Tower."</p>
+
+<p>Ah, there's the trepidation. "Disturbing, how?"</p>
+
+<p>"There are more of them. The rangers guarding the tower have reported no unusual activity, Ghosts haven't attacked anyone recently so no one seems concerned. But Sensei Reigen says whatever is happening started shortly after the cataclysm, and has only been getting worse since then."</p>
+
+<p>The words spread a chill through Red's stomach, cold fingers creeping up his torso until he can feel each heartbeat. "She told people that, and they still haven't looked into it? The <em>rangers</em> haven't looked into it?"</p>
+
+<p>"They have, but apparently found no evidence of impending attack…"</p>
+
+<p>"Maybe Sensei can—"</p>
+
+<p>"I already asked her. She said I could investigate as long as I don't do it alone, but is too busy to go herself."</p>
+
+<p>"Ah." Red says, then, "Shit."</p>
+
+<p>"I'm sorry, you don't have to—"</p>
+
+<p>"No." Red takes a breath, trying to control his fear, and the memories they invoke of standing on the roof and seeing that dark sphere, feeling that burning hunger… "But I'll still go with you."</p>
+
+<p>Jason searches his gaze. "Really?"</p>
+
+<p>"Yeah, of course. It seems important, and besides, my mother's in Lavender Town for work. I want to make sure she's okay. But… why me? My only experience with Ghosts was with you."</p>
+
+<p>"I am experienced enough on that front. What I lack is experience in… other things. Your journey has exposed you to many dangers, and you've been involved in organized groups. I was hoping…"</p>
+
+<p>"Ah." Red smiles as he gets it. "You're hoping for Blue and his friends to get involved."</p>
+
+<p>Jason nods. "This is why I was hesitant to ask. You have a unique and analytical way of thinking that might see things I would miss, so I am happy to have you come as well. But I don't know how dangerous the investigation will be, and I don't know many other trainers, and it seemed like you could form a group who would be interested and competent more easily than I." Jason pauses to breathe, and Red hides his smile at the sight of the normally stoic medium's obvious embarrassment.</p>
+
+<p>"I'm not offended, Jason." He's pretty sure he wouldn't be even if he couldn't sense his sincerity. Part of the point in getting involved with What Comes Next was to improve coordination for important tasks, and he's used it himself to get access to unown research. He can't resent someone seeking him out to make use of the network too. "I'll put a general message out tonight, and talk to Blue to see if he's got time. I wouldn't get your hopes up, he's pretty focused on getting badges, but he might know someone else who's up for it."</p>
+
+<p>Jason lets out a breath. "Thank you, Red. I was going to send a message to Mistress Agatha, but… if Sensei doesn't think it's worth investigating herself yet, I want something more substantial before I bother an Elite about it."</p>
+
+<p>"Yeah, I get it. But you should message her anyway." He still remembers the wild impulse he had in Viridian Forest to randomly message Giovanni, and his shock at actually getting an answer. "What's the worst thing that happens, you waste, like, ten seconds of her time? You don't think she'll be mad at you, do you?"</p>
+
+<p>"...I suppose not. Alright, I will."</p>
+
+<p>"Good. So when did you want to head out?"</p>
+
+<p>"You are the one doing me the favor. When are you free?"</p>
+
+<p>Red thinks through his schedule for the next few days. "I'll pack tonight and reach out to Blue to see if he's in touch with anyone that might want to come. Tomorrow I have to take care of some errands, and I'll do some research on the issue. Let's add a day for others to prepare, and tentatively say three days from now?"</p>
+
+<p>"Wonderful." Jason smiles, looking much more his usual self. "Thank you, Red."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Blue, as it turns out, is more willing to come along than Red expected.</p>
+
+<p>"You actually caught me at the perfect time," Blue admits. From the background noises it sounds like he's walking through the city. "Most of the gang is still working their way through the challenge matches here. I wasn't planning to go to Saffron without them, but a lot of them are part of other groups now too, so it's not as necessary for us all to move around together."</p>
+
+<p>"Makes sense," Red says as he climbs the stairs toward the roof of his building. Everyone will want to journey with the trainers that fought in those scenarios at Vermilion, and most of them are heavily involved in What Comes Next. "How many do you think will want to come with you, then?"</p>
+
+<p>"Of those not done with their challenge matches or busy with their own projects, I'd say at least three, plus anyone else here who might be interested in coming. Any guesses for what's happening, yet?"</p>
+
+<p>"Well, the data is all secondhand, but assuming it's accurate… it's possible that the earthquakes changed something in Lavender Tower or around it that made it easier for Ghosts to breed."</p>
+
+<p>From what Red remembers reading a while back, while the few "living" pokemon considered Ghost type, such as jellicent and decidueye, breed in recognizably biological fashion, "non-living" Ghost pokemon reproduce by spreading incorporeal "seeds" in objects that then become their offspring. Red watched, fascinated, as a sped up recording of a litwick breeding room (just a bunch of candles set out in an area where chandelure and lampent could freely roam through) eventually showed one of the candles abruptly flare to life, yellow eyes blinking into existence under its blue flame.</p>
+
+<p>And so, with Lavender Tower being mostly occupied by the gastly line, that would mean...</p>
+
+<p>"What, like there might just be a ton of extra dead bodies decomposing all over the place?" Blue asks. "Wouldn't people notice that?"</p>
+
+<p>Red shrugs and smiles. "That's part of what we'll be investigating."</p>
+
+<p>"Right. Well in any case, I'm in. I'll ask around to see who else wants to come. What about Leaf?"</p>
+
+<p>"Heading to the ranch now, I'll ask her in person."</p>
+
+<p>"Cool. Tell her I said hi, gotta go."</p>
+
+<p>The call ends, and Red opens the door to the roof. The morning sun is bright and untouched by clouds, but can't quite take the kiss of early winter from the air, and he zips up his jacket before bringing Ranch out.</p>
+
+<p>The abra has grown to twice its size since he caught it, despite not being in any battles. Melding with its mind is as easy as adjusting his partition, and soon he's experiencing the brisk morning air through two bodies. Ranch's eyes stay closed, but its nostrils flare as it scents for danger, then for food… which are the only two things it's particularly good at identifying by smell. Still, Red feels Ranch's body relax slightly as it smells <em>him, </em>the scent associated with family, and he takes a moment to send reassuring feelings back while digging some berries out of the side pouch of his bag.</p>
+
+<p>His own mouth waters as his pokemon smells the berries, then hungrily laps them from his palm, mouth filling with tart pulp and sweet juices. Once Ranch is fed, Red starts concentrating on his destination… Pallet Town.</p>
+
+<p>Leaf isn't expecting Red for about another ten minutes, which means Red has time to practice free teleportation. Most of the work involves merging with a pokemon so thoroughly that they can use their trainer's senses as well as the trainer can theirs, which is necessary to reach the point that your memories are as real to them as their own. After spending every spare moment merged with his abra over the course of weeks, he believes he's finally accomplished that.</p>
+
+<p>All that's left is concentrating so thoroughly on a location he's been to before that, when he triggers the teleportation command, they go there instead of the registered location. And there's nowhere he knows as well as his childhood home. His mother told him that she was renting the place out to a couple, but that they were staying in the guest bedroom, and that her room and his were left as is. If he can just focus on what it felt like to be in his room…</p>
+
+<p><em>The smell of linen and books. Safety. Warmth blanket books smell-of-breakfast quiet-nights-screenglow</em></p>
+
+<p>He feels the sense of familiarity projected and echoed back by Ranch. Something <em>tickles </em>in his brain, a sensation he's not entirely sure is physical rather than mental (if there's even a difference), and he almost, for a moment, understands what it is abra do when they teleport, almost understands in some wordless way how teleportation doesn't interact with the physical world at all, but rather the one in which minds leave an impression that can be read and communicated with…</p>
+
+<p><em>...the astral realm…</em></p>
+
+<p>...and then the sensation starts to disperse, failing to catch onto something solid, and finally fades as his thoughts scatter.</p>
+
+<p>Red opens his eyes with a sigh. He's close, far closer than he would be at this point in his psychic career if he hadn't practiced mirroring the mental states of others as they use free teleportation, but there's still some final bit of familiarity or connection he's missing, or that Ranch is. It would be so convenient to be able to just have one abra that lets him travel anywhere, rather than having to constantly swap the registered locations of the ones he has.</p>
+
+<p>He checks the time to see if he can try again, but sees that as usual more time passed than it seemed, and instead just gives the mental command to teleport to Ranch's registered spot. The world twists around him as Ranch links their minds, and <em>pulls </em>their bodies sideways through reality, causing him to stumble a bit as he lands on the grass outside Aiko's home.</p>
+
+<p>He reinforces his pokemon's success, then withdraws him and looks around. Most of the damage to the ranch was repaired within a week, though the two ponds seem to just be permanently bigger and merged into one now. Mr. Sakai is in the process of building a dam (or a weir, maybe, Red isn't sure what the right term is) between them to keep two distinct bodies of water for aquatic pokemon with different preferences. Red can see him now, wearing just a bathing suit as he wades into the shallow water connecting the two deep pools.</p>
+
+<p>Red waves to him, but isn't seen. He debates going over to say hello, maybe offer his help. He still feels a wretched guilt in his stomach every time he talks to Aiko's father. Still fears the condemnation, the rage, the tears.</p>
+
+<p>It's getting easier. Little by little, every time it doesn't happen, he feels safer assuring himself it won't.</p>
+
+<p>But part of him still feels like he deserves it. What helps is knowing that Leaf and even Blue feel the same, to some degree.</p>
+
+<p>"Red!"</p>
+
+<p>Leaf is jogging over to him with a smile, and he smiles back as she reaches him for a hug. With his partition up he might have frozen, blushed, stammered out a hello. Without it, he can just appreciate the friendly comfort for what it is.</p>
+
+<p>Like Sabrina, Leaf is also aware of the differences in him. When she pulls away, her gaze searches his. "How are you?"</p>
+
+<p>"Not bad, actually. I've had it down since this morning."</p>
+
+<p>"Wow. Is that a new record?"</p>
+
+<p>"Yeah." He takes a deep breath of the fresh country air. "It's getting easier, as long as I don't get hit with something bad." Like whatever is behind his amnesia'd partition.</p>
+
+<p>"I'm glad." She links her arm with his and leads him back toward the bags of feed. "So what adventure have you come to sweep me off to this time?"</p>
+
+<p>"Hmm. I think you've been the adventure sweeper up until now."</p>
+
+<p>"That can't be right… what about the time you took me to Bill's house?"</p>
+
+<p>"Doesn't count, we were already journeying together. You weren't swept, more of a... tag-along."</p>
+
+<p>"Hmph. That's far less romantic sounding. Guess you're going to discount the cruise by that logic too?"</p>
+
+<p>"Yep." Partition down or not, his pulse quickens at the word "romantic," but somehow it's easy to keep the banter going. "And going to face Zapdos. In fact, you're right, you're not the sweeper. It's been your whole thing from the very first day at Pallet Lab: see me about to go do something cool, tag along for the ride."</p>
+
+<p>"I'm sorry, which of us cracked open a murderous conspiracy and met Leader Giovanni? If you weren't Laura's son you probably wouldn't have even been told about the hacker spy ninja… hacker ninja spy?... ninja hacker spy I've been investigating."</p>
+
+<p>"Well—"</p>
+
+<p>"Mount Moon was my suggestion too, and <em>I'm </em>not discounting it just because we were already journeying together."</p>
+
+<p>"If we—"</p>
+
+<p>"Also you're not giving me enough credit for getting us all trapped by the worst earthquakes in Kanto history. I had to practically drag you to that near death experience, and I deserve credit for it."</p>
+
+<p>Her words are deceptively light, but Red can't help snorting, and her responding smile brings out his own. "Okay, we've both swept each other into adventures. This one's spooky though."</p>
+
+<p>"We haven't done a spooky adventure before," she concedes. "We going to see your mom?"</p>
+
+<p>"No, though we can still say hi. Something's up at Lavender Tower, and I want you to come investigate it with us."</p>
+
+<p>"Why me? I don't know much about Ghosts."</p>
+
+<p>Red smiles. "That's what <em>I </em>said about myself, so I'll give you the same answer I was given: you think in a different way than I do, and you've done things no one else has as a result. I want you on any adventures I go on."</p>
+
+<p>He's thrilled to see a slight blush spread over her cheeks, and she looks away briefly, then back. "Well, sure. Plus, someone's got to keep you company the next time you run at a nidoqueen by yourself."</p>
+
+<p>There's a brief flash of fear and guilt from the sight of Leaf on the wet pavement, followed by a deeper echo as he feels Aiko's shirt slip from his fingers. He almost brings the partition up, but takes a moment to breathe instead, to focus on the warmth of Leaf's arm in his. "Thanks. So, uh. How <em>is </em>the ninja investigation going?"</p>
+
+<p>"Ac-tually, I may have hit a breakthrough on that," she says with a grin as they reach the sacks of pokeballs and food, each taking a pair. "Remember my friend Natural?"</p>
+
+<p>"Yeah?"</p>
+
+<p>"I might have sent him a copy of documents I found in the secret lab."</p>
+
+<p>Red stops and stares at Leaf. She seems a bit nervous, but her smile doesn't fade, and eventually Red grins back. "Does Mom know?"</p>
+
+<p>"Yeah, I told her after it became clear that someone leaked a lot of the same info. I thought it was Natural, but he swore it wasn't, and I believe him; the info on the web is slightly different from what I got."</p>
+
+<p>"So you've got a source of Silph documents that could be used as a lure for someone else looking for them?"</p>
+
+<p>"Oh, sure, maybe. But it also proves that whoever leaked those documents had a <em>different </em>but similar source, likely the files from a computer at the same lab."</p>
+
+<p>Now Red gets it. "You think they're a police detective?"</p>
+
+<p>Leaf smiles. "It would explain their skills and motive more than an ex-employee. And now that they don't feel safe bringing the info to Laura, they're just putting the info online to damage Silph as much as possible."</p>
+
+<p>"Huh. Makes sense… but didn't you think the ninja is from Fuchsia?"</p>
+
+<p>"We don't know where the CPD's information was sent and if they're a Fuchsia officer they might have friends in other places. I know, it's not airtight, but at this point I'll take any narrowing parameters. I've been working on cross-checking Fuchsia and Celadon police, along with Saffron for good measure."</p>
+
+<p>Red nods. "No, it makes sense. Want a hand with it after the chores are done?"</p>
+
+<p>"Absolutely. Maybe we'll be able to surprise Laura with more than just our presence."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Leaf joins Red and Jason in Saffron a couple days later, and they have lunch at a restaurant on the eastern edge of the city. The air is chilly, and Red finds himself constantly glancing at Leaf, whose cheeks are rosy above her collared coat and scarf. He feels comfortable enough with his jacket buttoned up, but he keeps his hands wrapped around his hot mug of tea as they wait for Blue and his group to arrive. When they finally do, Red sees only one other familiar face.</p>
+
+<p>"So the bad news is, fewer people were free to come than I expected," Blue explains as he hugs Leaf and knocks fists with Red, then turns to Jason. "Hi, I'm Blue. This is Maria, a journey mate of mine, and Jean, a psychic from the Celadon Gym. Jean, this is Red and Leaf, and I assume Jason."</p>
+
+<p>"It's nice to meet you all," Jean says with a bow. She has pale skin and dark red hair, but it's her kimono that draws the eye, a complex swirl of patterns and colors that Red has rarely seen outside of the garden gym. "I'm looking forward to working with two of Leader Sabrina's students."</p>
+
+<p>"Yeah, good to have you," Red says, gaze quickly moving back to Maria and wondering why she decided to come.</p>
+
+<p>"I have a ton of questions for you," Leaf says to Jean, smiling, then turns to Maria. "Hi, Maria."</p>
+
+<p>"Hello, Leaf." The pale girl smiles back. These days she still wears a dark cloak, but the wide black hat is gone, leaving her murkrow to perch on her shoulder, its dark feathers blending with her hair. "Red." Her eyes meet his, and there's something he can't quite read in them. Then she's looking to the third in their group.</p>
+
+<p>"Thank you all for coming." The medium bows. "I don't see how this is bad news, as this many trainers is more than I expected."</p>
+
+<p>"Yeah, you said that like there's good news coming?" Red asks Blue.</p>
+
+<p>"Yep. The good news is, our mission got sponsored." Blue unclips a container ball and summons a box from it. He opens the top and starts passing around the contents. "Remember that anti-surreality tech that Silph was working on?"</p>
+
+<p>Red examines the goggles he's handed. They're surprisingly heavy, and he wonders what the lenses are made of. He remembers reading about early experiments to counter the effects of surreality, including viewing ghost pokemon through glass, thin cloth, even a recording cell phone, since they appear "normal" on camera. But something about the physical proximity combined with viewing them, even indistinctly or by digital representation, is important… as if it's the <em>attention </em>that matters, the act of observing.</p>
+
+<p>The strongest Ghost pokemon still only affect those within fifty meters, which means the audience in a stadium are safe, but the effects of young or weak Ghost types all extend beyond the range of even an ultra ball. With goggles like these on, catching Ghost pokemon would be much easier. "I thought they weren't on the market yet..."</p>
+
+<p>"They're not," Leaf says as she carefully puts hers on. "When their schematics leaked online, Silph knew that a patent lawsuit would only help stop commercial sales. Governments and organizations are just going to make their own unless Silph starts throwing its weight around… which means you got these from a gym, or the Rangers, or... Oh, duh."</p>
+
+<p>"Yep. A few engineers over at Pallet Labs built one to help study Ghost pokemon. From there it wasn't hard to replicate the rest."</p>
+
+<p>"Nice." Replication was always possible with pokeball tech, but only for very simple constructs. One of the side effects of the advanced replication breakthrough showcased on the SS Anne is the ability to do it with much higher fidelity, which has apparently made all sorts of technology much cheaper after shaking up the manufacturing industry. (And the world of sculptures: some guy from the pokemon cloning research team going online by 'Froggy' started selling anatomically perfect statues of pokemon made from various materials, instantly shaped in various poses based on what the pokemon was commanded to do at moment of capture.) The dropped price of pokedex in particular has been a huge boon to many, though all Red could think when he saw the new prices was how Aiko could probably have afforded a new pokedex of her own years before she met them if the technology had advanced earlier.</p>
+
+<p>"With these we should be more prepared than a group of our size would normally be," Blue says as he puts the box away, then takes out his box of riding gear. "I did put the news out on the net, of course, so more people might join us in Lavender."</p>
+
+<p>"To be clear, this is just for protective purposes?" Jason asks as he gives his goggles one last thoughtful look, then takes out his own box of biking gear and puts it inside in exchange for a helmet. "Our main objective is to study what may be happening at the Tower."</p>
+
+<p>"Sure, but if there's any chance of an impending rampage, we need to be able to cut their numbers down." Blue finishes putting his pads and helmet on, but doesn't lift his bike out of its box. Instead he grins at Red and Leaf. "You guys want to see something cool?" Without waiting for an answer, he lifts a great ball. "Go, Soul!"</p>
+
+<p>The arcanine appears in a flash, and lifts its head, sniffing as it looks around them. It's <em>big </em>up close in the way that has as much to do with presence as actual size; the very air feels warm around it, and Red can smell the faint burning-charcoal scent of its fur.</p>
+
+<p>"He's beautiful, Blue," Leaf says with a smile. "But you should have said—"</p>
+
+<p>"Something hot, yeah, I know. That's not the cool part, though Soul is pretty awesome. This is." Instead of taking his bike out of the box, he lifts a saddle.</p>
+
+<p>"You've been riding him?" Red asks, surprised.</p>
+
+<p>"Just in training rooms. Figured this would be a good time for a—"</p>
+
+<p>"<em>Field</em> test?" Leaf grins.</p>
+
+<p>Blue looks at Leaf, then the open grasslands ahead, then sighs and straps the saddle onto his pokemon one side at a time. "Live run," he mutters. "Yours is better."</p>
+
+<p>"I know."</p>
+
+<p>Red smiles and waits until he's finished adjusting the straps tight, then takes out his list and adds a new line. "Saddle secure?"</p>
+
+<p>Blue rolls his eyes. "You're still on that? Yes, they're… what's another word for secure?"</p>
+
+<p>"Safe," Jason offers.</p>
+
+<p>"Stable," Jean suggests.</p>
+
+<p>Blue glares at them, then Leaf as she starts giggling. Finally his lips curl in a slight smile, and he shakes his head as he climbs up onto his saddle. "Come on, boy, let's get away from these losers." He squeezes his knees, and the rest of them watch as his pokemon leaps forward, causing Blue to whoop as they race ahead.</p>
+
+<p>Red pulls his bike up. "Better get moving, with our luck he's going to run right into another wigglytuff if we don't—" There's the distant sound of pokeball discharge, and he looks up to see Blue's pidgeotto flying ahead of him and his arcanine. "Well, we should still hurry after them." A rapid series of explosive discharges sound as they each summon their own pokemon; Red brings out Pikachu to ride in his basket, and Butterfree to fly above him. Once everyone's ready he takes off after Blue, the others close behind.</p>
+
+<p>It's been nearly half a year since Red travelled in a group, and it takes a few minutes for the instincts to come back. <em>Check the sides, check your travel mates, eyes front, repeat. Watch for tall patches or hills that might obscure pokemon near the road.</em> He's never been the one to set the pace before, but once they catch up to Blue he takes the lead, while Jason and Jean form the other two points of a triangle for maximum spread of psychic threat scanning. He's nervous about the possibility of battle after so long without being in one, but he does his best to project confidence for Jason's sake; with their senses both open to their surroundings, it's easy to notice that the medium seems uncertain about something, almost uncomfortably so. Jean by comparison seems to be enjoying herself.</p>
+
+<p>Red sends Jason a pulse of concerned curiosity, wondering if he's just nervous about being out in the wilderness, tame as the route between Saffron and Lavender is. Jason sends back appreciation and deferral, so Red waits until their first rest stop near a ranger outpost to approach him.</p>
+
+<p>"It's nothing, really," Jason assures him without Red even needing to say anything. The medium is lying on a small hill, and Red joins him while the others feed their pokemon and Blue drinks a whole water bottle down, body covered in sweat. "It's been a while since I did not have the luxury of being able to ground loose thoughts, that's all."</p>
+
+<p>"I can leave you to meditate if you'd prefer," Red says. "But I'd like to help if I can."</p>
+
+<p>Jason hesitates. "I don't mean to question your leadership, or that of your friend… I know you both are more experienced than I am at facing danger."</p>
+
+<p>Is that what this is about? "Jason, you're not here as an adviser, it's <em>your mission. </em>Blue may be famous, but he's not conceited about it. He'll listen if you have something you want to say."</p>
+
+<p>"That is… reassuring."</p>
+
+<p>"You only seem slightly reassured." Red tries to make a joke of it, but he's never seen his fellow psychic so unsure of himself. "I never asked, did you have journeymates before you became Sabrina's student?"</p>
+
+<p>"Briefly. Four trainers who were passing through Lavender Town accepted me as a fifth companion while they explored the outlying areas, and then let me accompany them to Saffron."</p>
+
+<p>Red tries imagining that; leaving Pallet Town with four older, more experienced trainers who he just recently met. He would have felt both eager to prove himself and worried about being a burden. "And they weren't inclined to listen much to the new guy?"</p>
+
+<p>"Well, I didn't have any experience or insight to offer, outside of my expertise with Ghost and Psychic pokemon. But they did not include me in their discussions of strategy or planning. It made sense. They knew what they were doing, and I was the inexperienced outsider..."</p>
+
+<p>"But now that we're specifically on our way to investigate something about Ghost pokemon, it probably worries you, seeing how easily Blue takes the lead."</p>
+
+<p>Jason bows his head. "Yes. You and I are similar in that navigating social hierarchy doesn't come naturally to us, but Blue seems very adept at it, which confers on him automatic power in such situations."</p>
+
+<p>"Well, what if I do something that makes it clear I value your expertise on Ghost pokemon? I probably should have done more when I introduced you to make that clear."</p>
+
+<p>"That… might help, yes. I trust that he is a good leader, based on his experiences and your regard for him. I only worry that, once we arrive at the Tower, the mission might not have a clear solution or direction, and if Blue naturally steps up to guide us…"</p>
+
+<p>"You want to make sure he doesn't get distracted by other priorities. I get it." He thinks of the goggles, and his own interest in testing them. "I'll try not to divert the mission either, and speak up if someone else does."</p>
+
+<p>"Thank you, Red."</p>
+
+<p>"No problem, thanks for filling me in." His attention is distracted by Maria, who's standing not too far and glancing over at the two of them as she brushes her murkrow's feathers. Behind her, Leaf is asking Jean about her kimono, and Blue is adjusting the straps on Soul.</p>
+
+<p>"That girl, Maria," Jason murmurs. "She's a sensitive."</p>
+
+<p>"You can tell?" Red asks, surprised.</p>
+
+<p>"Yes." The medium raises his voice. "Would you like to join us?"</p>
+
+<p>She seems surprised to be addressed, then nods and approaches as her pokemon flaps to the ground and begins to search the grass. "Hello."</p>
+
+<p>"Hi, Maria. Want to join us?"</p>
+
+<p>"No, thank you. Grass stains." She pats down the edges of her short cloak. "You seemed to be curious?" She's looking at Jason.</p>
+
+<p>"Yes, I'm sorry if it was discomforting. I didn't realize you could sense me at first."</p>
+
+<p>"That's alright, I became used to the feeling."</p>
+
+<p>"Ah, yes, I thought I recognized you. You're one of the girls from the Casino."</p>
+
+<p>She ducks her head. "I am. That's actually part of why I'm here." She glances at Red, and smiles. "Red saved my life that night. I wanted to help repay him, if possible."</p>
+
+<p><em>Smile back. </em>Red does so, not sure what his unpartitioned self knows that he doesn't but trusting there's a good reason for it. "All I did was warn you. Capturing their pokemon and keeping Glen alive were way more impressive."</p>
+
+<p>"Well, I'm glad you are here," Jason says. "I believe you may have some untapped talent regarding Ghost pokemon."</p>
+
+<p>Her eyes widen. "How do you know?"</p>
+
+<p>"Just a feeling. Like recognizing like, shall we say? I don't know for sure, but am happy to work with you and discover it if so. Have you ever encountered a Ghost pokemon before?"</p>
+
+<p>"No. That's the other part of why I came. I was curious to experience something new."</p>
+
+<p>"Then tonight, after we arrive, you'll meet my Ghost pokemon in a safe setting." He gives a wry smile. "Assuming we do not encounter any after we arrive."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Lavender Tower appears before the town itself is visible, a distant exclamation point against the horizon that gains color and definition until Red can count each story and make out the lightning rod above the domed roof. Its color fits the name of the town, but each story above the first is a slightly lighter shade than the last, so that it appears as if the whole thing were blending into the sky. They arrive at the outskirts as the sun is starting to descend, the trip concluding uneventfully; between the three psychics searching for threats, they were able to avoid any confrontation with wild pokemon along the way.</p>
+
+<p>The town's Trainer House is small, just three stories high and sharing its block with a trainer supply market. Their group draws a lot of stares, probably because of Blue's arcanine, which pants for breath as Blue slides out of the saddle and to the ground, clothing and hair soaked through. He groans as he puts his hands on the back of his hips and stretches.</p>
+
+<p>"That can't have been comfortable," Leaf remarks as the rest of them take out their container boxes and begin packing away their riding gear.</p>
+
+<p>"It wasn't," he grumbles. "He kept me warm, but riding on pokemon is overrated."</p>
+
+<p>"Depends on the terrain, I'd say," Jean points out. "Bikes are less effective in forests, for example, while arcanine can move through them much more quickly. You're still trading comfort, but at least it's for a reason." She smiles. "Other than to look impressive, of course. Which you accomplished."</p>
+
+<p>Blue grins and starts brushing his pokemon's fur. "Guess it wasn't that bad."</p>
+
+<p>Soon they're inside and registering for rooms. As Red waits in line, he takes his phone out to message his mom and let her know they arrived just as a young man with short dirty blond hair approaches. He's wearing a pokebelt, but also the white coat of a researcher.</p>
+
+<p>"Hello, Blue? Red?" He smiles, clearly recognizing them. "I'm Artem. I've been working with—"</p>
+
+<p>"The unown research team," Red says, and smiles. "I remember you from the forum. Nice to meet you! What are you doing here?"</p>
+
+<p>"You too! I was nearby when your message about Lavender Tower went out, and decided to come investigate too. It's actually quite fascinating what's been happening—"</p>
+
+<p>"Hold that thought." Red psychically gets Jason's attention, then waves him over. "Artem, this is Jason. He's a medium studying under Leader Sabrina, and is actually our team leader in the investigation. Jason, Artem got here before us and has apparently already noticed something."</p>
+
+<p>Jason smiles at Red, then bows to Artem. "Thank you for joining us. What did you find? Have the increased amount of Ghosts in the area become noticeable?"</p>
+
+<p>"Ah, no, actually quite the opposite!" Artem belatedly bows back, hands fidgeting in the pockets of his coat and smiling excitedly as he looks back and forth between them. "It seems the Ghosts in Lavender Tower have largely disappeared!"</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/86/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/88/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -652,6 +950,6 @@ Heat floods Terra’s stomach and chest as his hands curl into fists. <i>He’s 
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 38: Learning from Failure - Pokemon: The Origin of Species</title>
+    <title>Chapter 81: Interlude XIII - Titans - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,616 +329,295 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 38: Learning from Failure</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/80/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/82/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            The wind sends rippling waves through the field of grass around Leaf, tossing her hair back over her shoulders. She instinctively raises a hand to keep her hat from blowing off before remembering that she put it away.<br>
-<br>
-Joy, Leaf's freshly named wigglytuff, stands mute and waiting, its wide, beautiful blue eyes peering cheerfully around. Leaf walks a slow circle around her pokemon, staying just within range to return her if needed. Meanwhile, her eyes scan rippling fields of grass.<br>
-<br>
-Her phone vibrates, and she checks Blue's message:<br>
-<br>
-<strong>4th speaker set</strong><br>
-<br>
-That was the last one for him. Now Red just has to get his fourth in position, and they'll start.<br>
-<br>
-It took them over an hour to meticulously comb through the central circle where they plan to drive the abra. There were a few pokemon that fled from them, but Blue did manage to catch a venonat, which he traded to Leaf after she and Red caught a pair of bellsprouts. She knew Grass types are going to be especially useful to him in the next Gym battle, and some quick research showed her that venonat and its evolution venomoth have a lot more non-lethal attacks than the bellsprout family.<br>
-<br>
-Now the field is as empty as they can make it to ensure there aren't any pokemon around that might resist Joy's singing.<br>
-<br>
-Leaf checks her phone as it buzzes again. <strong>Fourth speaker ready.</strong><br>
-<br>
-<em><strong>Ready when you guys are</strong></em>, she texts back, pulse picking up. She puts her phone away, sets a vibrating alarm on her new watch, and sticks her earplugs in. "Joy," she says, voice muffled and distorted in her head. "Sing!"<br>
-<br>
-Her wigglytuff bounces and twirls happily, then opens its mouth wide and fills the air with its haunting melody. Muted through her earplugs, just barely audible enough for Leaf to know if it's still going.<br>
-<br>
-Somewhere, Red and Blue are returning to the inside of Joy's singing radius, after which they'll activate the speakers to begin transmitting various sounds of one of abra's natural predators: an umbreon.<br>
-<br>
-It wasn't a perfect choice, Red admitted. Ideally they would want one that would neither scare off or attract the plant and bug pokemon in the area. But they had limited options when it came to local pokemon that wild abra might encounter and be wary of, and umbreon was the most neutral of those.<br>
-<br>
-Leaf doesn't know when it'll start working, if it even does. But after about two minutes, once she's gotten a pair of vibrations indicating the activation of the speakers, she enlarges a pokeball in either hand, then begins turning in a slow circle, taking deep breaths as she scans the fields around her. The tall grass rustles silently as she passes through it, as high as her knees. Hopefully any pokemon lurking in it that weren't scared off by her approach are asleep now.<br>
-<br>
-"<em>Remember," Red said in the taxi ride over. "Since there's no guarantee they'll fall asleep right away, there might be a few moments where they sense our minds. Blue is safe from that, but the two of us need to be focusing on projecting feelings of calm and safety and peace as much as we can, or we'll spook them into teleporting again before they get knocked out."</em><br>
-<br>
-"<em>What about you?" Leaf asked. "Isn't it hard for you to engage a psychic mind?"</em><br>
-<br>
-<em>Red smiled. "As long as it's only for a few seconds at a time, I'll be fine."</em><br>
-<br>
-He sounded confident at the time, and Leaf let it go.<br>
-<br>
-Now that they're here, doing it and waiting for the first abra to show up, her mind has nothing better to do but feed her all sorts of worst case what-ifs, and one she keeps coming back to is Red's exposure to the abra being too much for him to handle, maybe even causing him to pass out.<br>
-<br>
-A drop of sweat slides down Leaf's back. The risk for Red seems too big, suddenly, he should have stayed out, he should have-<br>
-<br>
-<em>Stop! Your mind is supposed to be calm. An abra might show up at any second, so get to soothing!</em><br>
-<br>
-Leaf takes a deep breath, then focuses all of her thoughts on things that comfort her. <em>A warm bedroll to keep out the morning chill. The sound of rain on a roof, far off thunder. The smell of grandpa's travel bag. Mom's voice, singing to herself as she worked.</em><br>
-<br>
-It feels a bit forced, but hopefully it's better than nothing.<br>
-<br>
-The wind lifts Leaf's hair again as she continues her slow spin, smelling acres of grass as she breathes in, then out. In the corner of her eye she sees a minute pass on her watch, then another, and imagines what might be happening elsewhere: abra, teleporting around the field as they go from one area with the umbreon cries to another. Surely some will teleport into their middle circle, rather than out of it… and of those, at least one or two <em>should </em>be near the center where she and Joy-<br>
-<br>
-A flash of yellow, and Leaf's heart leaps into her throat. Her body reacts automatically, running in its direction as she quickly scans the area around her to see if the area is safe for her to leave Joy alone. The spot of yellow in the thick grass resolves itself into the top of a head, and Leaf grins as she recognizes it as an abra.<br>
-<br>
-She quickly focuses on projecting calm thoughts again, but it doesn't seem to matter: the abra is completely still as she approaches, and with a wide grin she points the ball at it and, after counting down a few seconds to ensure it locks, lobs it gently underhand.<br>
-<br>
-There's a flash of light as the ball bounces off the abra's head, and by the time it begins to fall, the pokemon is gone. Leaf quickly grabs the ball out of the grass and tucks it into her backpack, then dashes back toward Joy, practically skipping. <em>It works! IT WORKS!</em><br>
-<br>
-She keeps her vision moving to try and catch any new abra that appear as she returns to Joy and begins circling around her again. Red and Blue should be moving in a slow circle from opposite ends of the singing zone to catch any abra that teleported in and are dozing in the grass. When her watch vibrates, she resets the countdown on it and dashes over to her wigglytuff.<br>
-<br>
-"Joy, stop!" she yells once she's close.<br>
-<br>
-The pokemon's muffled song fades away. Leaf rubs Joy's soft fur and feeds her a berry, eyes on her watch. When 30 seconds have counted down, she says "Sing!" and backs up again, returning to her position of slowly circling Joy as she watches the surrounding field.<br>
-<br>
-In their last test, Joy maintained a song for nine minutes and fourteen seconds without pause. It left her breathless and tired, and she needed over twice as long to rest before she could do it for anywhere near the same length again.<br>
-<br>
-But, when they tried giving her a breather every few minutes, she was able to sing for an hour and a half. They realized they could probably stretch it longer, but that was about when they lost patience with the test. They were aiming for as little downtime as possible in any case.<br>
-<br>
-Leaf keeps cycling Joy through quick moments of rest as she patrols the area, waiting for the next abra to appear. <em>We should have cut the grass around here, </em>she thinks as she tries to spot another glimpse of yellow in the rustling green stalks.<br>
-<br>
-She's just starting to wonder if she should message the others and see if something's gone wrong when the second abra pops into sight, close enough for her to actually see it displace the grass around it as it appears.<br>
-<br>
-Leaf raises her pokeball, careful not to make any sound, but stops cold as it vanishes.<br>
-<br>
-She stares, wondering for a brief moment if she imagined it, then lets out a muffled cry of frustration. She forgot to maintain the calming thoughts! Even a couple seconds of wakefulness before the singing puts them to sleep is enough to let the abra escape, and if it's particularly resistant and takes a few seconds...<br>
-<br>
-Leaf closes her eyes, not caring that she might miss another abra showing up. She needs to exude comfort and calm, or the only abra she'll catch are the ones that fall asleep quickly or are too far to sense her before they're affected.<br>
-<br>
-<em>Warm blankets. Hugging gramps. Rain on the roof.</em><br>
-<br>
-She focuses on each memory until she feels calmer, then opens her eyes and tries to walk around again. The note of discord in the back of her mind is still there however, and when the next abra appears and disappears again within seconds, her calm shatters.<br>
-<br>
-A wave of panic threatens to crush Leaf as she feels her breathing become quick and shallow. She <em>can't </em>mess this up for everyone. Hopefully the next abra appears far enough from her to fall asleep before it senses her mind, but how many more will she lose because she can't keep herself from stressing out?<br>
-<br>
-Leaf gives Joy another quick break, then walks in growing circles around her pokemon to try and find abra that appeared without her noticing and are napping in the tall grass.<br>
-<br>
-As she continues to turn in a slow circle, she checks her watch through the corner of her eye. 2:17. Red timed the whole operation around a nearby Ranger Outpost sending a patrol out that would pass by the outskirt of the speakers' radius. A final safety measure, ensuring that Rangers will be nearby if something goes wrong and they need to call for help. But the window of time left to have them nearby if something goes wrong is shrinking.<br>
-<br>
-If she's going to do something risky, now's the best time.<br>
-<br>
-Leaf breaks into a run. Grass whips by her knees as she keeps turning her head left and right, covering almost every angle of sight to ensure that she's not missing any. The wind whips her hair into her face as she keeps turning in her slow revolution, and one hand dips into her pocket before tying her hair back into a ponytail. She starts to leap into the air to get a better view, and on the third jump she spots a flash of yellow to her left.<br>
-<br>
-She takes a quick second to reorient herself relative to Joy, then dashes for the yellow. Seconds later she sees it: a sleeping abra almost completely hidden by the grass. A quick scan and capture, and she's running back toward her wigglytuff to give her another rest, heart pounding as she catches her breath along with her pokemon.<br>
-<br>
-<em>Okay. Two captures isn't bad. </em>Still, how many more is she missing out on?<br>
-<br>
-Leaf wonders if Red is having better luck. She knows his idea for calming them down was never a sure thing, but if it's not possible then they're going to lose out on a lot of potential captures.<br>
-<br>
-She has to resolve the problem. If she accepts the premise that the abra are reading her thoughts on a surface level and reacting to what they find, what can she be focusing on that might slow them from teleporting away for at least another second or two, to give Joy's song a better chance to put them under?<br>
-<br>
-Maybe a sense of safety instead.<br>
-<br>
-She tells Joy to resume singing and takes off again<em>,</em> running through the grass and focusing on memories and sensations of being <em>safe. </em>She tries to dismiss all the thoughts and worries about her circumstances, making herself feel as safe and carefree as she can while running, turning, and leaping around the field.<br>
-<br>
-Another flash of yellow, this time far off to the right of Joy. She wonders if she should leave it: it might be close enough to be in Blue's path. She turns toward it anyway, knowing that every potential catch is worth pursuing over more fruitless searching.<br>
-<br>
-She's panting hard by the time she arrives at the slumbering abra, and wipes sweat out of her eyes with one hand as the other aims a pokeball and tosses it. She tucks the third abra away, slightly more at ease and focusing hard on feeling <em>safe </em>and <em>carefree </em>as she makes her way back toward Joy.<br>
-<br>
-When the next abra appears a stone's throw away she's ready for it, holding still and maintaining her sense of confident safety. Barely a second passes however before it vanishes.<br>
-<br>
-"<em>Dammit," </em>she yells as she jogs back toward Joy with a scowl. What's she doing wrong? Maybe nothing, maybe it's just the presence of a nearby human that's enough to send them off, but admitting that would mean there's nothing she can do about it, and she's not about to give up.<br>
-<br>
-<em>All of these emotions aren't genuine. I need something I really feel, something effortless.</em><br>
-<br>
-Leaf reaches Joy and gives the wigglytuff another quick break, spraying a bit of ether into her mouth to make up for the longer singing period. <em>What do I want right now? Why am I doing this?</em><br>
-<br>
-Not just for the money. Not just because Red needs help with it. <em>Deeper. Why do I want to be a trainer at all?</em> She could be a groomer or breeder if she just likes spending time with pokemon.<br>
-<br>
-Leaf commands Joy to start singing again and resumes her spiraling outward walk. What are her priorities? Too many. <em>Focus. Simplify. Find the inverse. What would have to be true for me not to want to be a trainer anymore?</em><br>
-<br>
-Put like that the answer is obvious. If she knows, for sure, that being a trainer is worse for pokemon than not being a trainer… not just pokemon in general, but <em>her </em>pokemon… she wouldn't be able to do it. She loves her pokemon, and even when she's training them or using them to defend her from wild pokemon, their well-being is at an equal priority with her own. Staying alive and becoming a better trainer means continuing to help them live longer, safer, happier lives.<br>
-<br>
-Leaf feels something loosen inside herself, and smiles. <em>This </em>she could do effortlessly, and with all her heart. Loving pokemon is her default emotion at any given time: she just has to bring it out.<br>
-<br>
-She begins to jog again, thinking over all the adorable and fun and fascinating pokemon she's cuddled and played with and learned about. Pokemon are <em>awesome</em>, pokemon are <em>fun, </em>and she can't wait to make <em>more pokemon friends today </em>to save them from a dangerous wilderness full of predators and other trainers that might be less interested in their well-being.<br>
-<br>
-It takes two revolutions for her to find another abra, far off to her left. This one's already fast asleep too, as is the next one she encounters. It makes sense: the longer the trial goes on, the more likely the abra are to bounce around into the song's area of influence. She might not have the chance to test her new mood on a conscious abra, but is too thrilled at the double capture to care, and keeps maintaining it anyway.<br>
-<br>
-Leaf dashes back to give Joy another quick rest, then checks the time. 2:41. The Rangers should be heading past the edge of their outermost circle now. No more running around: time to play it safe.<br>
-<br>
-She begins walking again once she finishes catching her breath. She finds her sixth abra after starting some controlled hop-spins to get a better view of her surroundings, and her seventh after she gets dizzy and goes back to simple patrolling.<br>
-<br>
-It isn't until she gives Joy another rest and begins patrolling again that the next abra appears near her. Leaf reinforces her feelings of love and caring, mentally throwing her arms wide and letting them thunder through her whole being as she stands completely still and waits.<br>
-<br>
-A heartbeat later, the abra is still there.<br>
-<br>
-Two heartbeats later. Three.<br>
-<br>
-Its head dips beneath the grass, yellow ears the only thing visible.<br>
-<br>
-Chest bursting with gratitude and happiness, Leaf finally steps forward and captures the abra, smiling down at its ball before carefully putting it in a separate pocket from the others. Maybe it was a fluke and her emotions had nothing to do with it staying, but this abra she would keep for herself.<br>
-<br>
-Leaf keeps walking through her spiraling route, beaming out love for all to feel.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-"Dad… Come back, dad… please…"<br>
-<br>
-Red's fingers curl in the grass, forehead pressed to the ground. His mind feels wobbly, like a mound of gelatin on a plate just a bit too small for it. Tears drip from his nose and chin as he tries to even out his breathing.<br>
-<br>
-Ten abra-filled pokeballs are in his bag, a source of distant, hollow joy compared to the soaring triumph that filled him from his first capture. He rode that feeling all the way through the next two captures, until the first abra popped into existence near him, and the connection of its mind took his breath away.<br>
-<br>
-It teleported away a couple seconds later, but he stood rooted, gasping at the sudden, crushing sense of despair. The next few abra he caught helped renew his spirits, until the second awake encounter left him quietly weeping, unable to stop himself even through his next captures. The third one drove him to his knees, chest heaving with sobs that felt like they would break him in two. It took him almost three minutes to force himself back to his feet, trembling and scared of what the next encounter would bring.<br>
-<br>
-At first he thought the abra were actually attacking him, using a Confusion attack or something. But each only stayed for a couple heartbeats before they teleport away, and besides, these were nothing like his spinarak's Night Shade, where he was forced to feel memories he couldn't identify, and actively remembering the encounter caused echoed effects.<br>
-<br>
-He knows exactly what's happening, for once. He might be glad for that, if it wasn't so terrifying: his partition is being rapidly eroded by the abra's coupling. Where Psychic Ayane's mind approached his like a ship docking at harbor, throwing out ropes one by one before sidling alongside the pier, the abra minds couple with his in binary states: one second absent, the next second fully there.<br>
-<br>
-Whether it's the strength of the connection or the sudden speed, his psychic abilities seem unable to balance their work. All the memories and emotions behind his partition come pouring out every time, a flood that fills him for the second or two the abra is around, then vanishes as they do.<br>
-<br>
-Leaving a backwash of loneliness. Shock. Despair.<br>
-<br>
-Grief.<br>
-<br>
-He was able to catch three more sleeping abra before the fourth awake one leaves him a sobbing heap on the ground.<br>
-<br>
-"Please, dad, you promised! Please... I miss you so much..."<br>
-<br>
-Red doesn't know how many minutes pass, but eventually the sobs grow weaker, then fade. He raises his head and wipes at his face with one hand as his other picks up his hat from where it fell. His hands knead the bill rather than put it back on, and he pulls in a trembling breath. When no new burst of sobs come out with it, he relaxes a little.<br>
-<br>
-Red lets his head hang back, wind blowing his hair and fresh tears streaming down his face as he watches the clouds drift across the pale blue sky.<br>
-<br>
-<em>This was a mistake.</em><br>
-<br>
-Psychic Narud was right. Red's partition is essentially a type of selective amnesia that leaves him with the memories of his father's passing, but just a shadow of the emotions.<br>
-<br>
-No wonder he still can't think about it for too long without having to shift his thoughts away. He hasn't been able to for years, but this is different. It's not a memory or an echo: he feels almost exactly the same way he did right after his dad died.<br>
-<br>
-"<em>Fragile?" his therapist asked. She stared at him with gentle but intent eyes, her tone curious. "In what way?"</em><br>
-<br>
-"<em>Like I'm made of glass." Red sat hunched in the chair, gaze down. He barely saw the office around him, barely took note of anything for longer than a moment. It was his third session, and he was just beginning to respond in more than single words, when he responded at all.</em><br>
-<br>
-"<em>Your mom says you don't react to hugs anymore. That you go stiff. Is that why? Because you think you'll break?"</em><br>
-<br>
-<em>Red shook his head. "Already broken." His voice sounded rusty to his own ears, hollow from being so long unused. "Full of cracks. Ready to… fall to pieces. Shatter, if the wind blows too hard. Or someone touches me."</em><br>
-<br>
-<em>Her eyes were full of too many things: detached calm, gentle compassion, clinical interest. Red kept his gaze down. He just wanted to make her understand, so she and his mom would leave him alone.</em><br>
-<br>
-"<em>Wow. That sounds pretty shitty."</em><br>
-<br>
-<em>Red felt something at that. It wasn't much: just a flicker of surprise, deep down. But it was more than he felt of anything besides anger or sadness or emptiness in awhile.</em><br>
-<br>
-<em>Unable to muster the energy for a response, he just shrugged.</em><br>
-<br>
-"<em>It also sounds like you need time, Red. Nothing wrong with wanting breathing room to let the pieces settle. "</em><br>
-<br>
-Red lets out a shaking breath. "Let the pieces settle." That's what he thought happened, over the years. Apparently not as well as he thought.<br>
-<br>
-Red's phone vibrates in his pocket. He takes it out and stares blankly at the message from Blue until a thread of alarm finally penetrates the fog around his mind.<br>
-<br>
-<em>3rd speaker offline. dunno if glitched or some wild got it.</em><br>
-<br>
-Red wipes his face again, then slowly gets to his feet and begins walking, one arm wrapped around his stomach as if it'll help hold himself together. Tears continue to track down his cheeks as he makes his way across the grassy field, intent to keep sweeping his path of the abra landing zone. If he holds still too long Blue will finish looping around and come up behind him.<br>
-<br>
-He has to catch as many as he can. The longer the speakers are in effect, the more abra should be already in the middle zone and asleep, rather than popping in. If he's lucky, he won't encounter any more awake ones.<br>
-<br>
-But he needs to be ready in case he does.<br>
-<br>
-At first Red tried to prepare his mind for abra contact the same way he prepared for Ayane's: by mimicking the state of mental connection enough that he could get used to it, and keep his mental footing when she linked with him.<br>
-<br>
-Now that he knows that's not going to work, what's left?<br>
-<br>
-Red spots another pair of abra ears sticking out of the tall grass and walks over to capture it. His arm trembles as he holds the pokeball toward it, and fresh tears slide down his cheeks as he remembers standing with his dad in their backyard and mimicking his ball-throwing motion.<br>
-<br>
-Red's ball pings its lock, and he gets closer before tossing it underhanded to ensure it doesn't miss. After he tucks the new capture away, Red checks the time. 2:31. An hour left. He doesn't know if he can make it that long.<br>
-<br>
-He tries refocusing on the basics as he walks. The air rushing into his lungs, the beat of his heart, both seeming louder than usual thanks to his plugged ears. His attention shifts to the feel of the wind on his skin, pressing his shirt to his body... then to the hollow pit in his chest, sucking inward, a constant, aching pain that completely breaks his concentration.<br>
-<br>
-<em>Red scowled and opened his eyes. "I can't do it," he said, voice sullen even to his own ears. He pushed himself off the floor anyway, returning to the comfy chair as his therapist stayed on the floor with her legs crossed. "I can't concentrate, I keep thinking of… other things."</em><br>
-<br>
-<em>She nodded. "That's understandable. As I said, it takes time and practice. It's okay to be distracted when you first try."</em><br>
-<br>
-"<em>It's </em>not <em>okay! Easy for you to say to 'let it go,' it's not something stupid like thinking of a math test that's distracting me!" Red realized he was shouting and forced himself to stop, fuming silently in his seat. It was only his sixth session with the therapist, but suddenly the whole thing felt like a waste of time.</em><br>
-<br>
-"<em>What is it that's distracting you, then?" she asked, still serene.</em><br>
-<br>
-"<em>You know what it is," he snapped, but he could already feel his anger leaving him. It took too much effort to hold onto emotion, even anger. Everything got sucked down the empty void in his chest eventually. "The point is I'm trying to </em>stop <em>feeling this way, having these thoughts. It's totally stupid to say it's okay to be distracted by them while trying to stop being distracted by them."</em><br>
-<br>
-<em>She raised an eyebrow then surprised him for the second time in their sessions together by nodding and getting up. "I think you're right, meditation probably isn't the answer right now." She returned to her chair. "So, let's see what else we can try."</em><br>
-<br>
-Red takes a deep breath, not breaking stride as he tries to ignore the pain. If it's one thing he learned in those sessions, it was not to give up on searching for answers. To not get stuck on one solution just because it worked before, or angst about how hopeless everything is. His therapist never let him dwell on his failures, or her own. She just kept engaging him, pushing them both to try new things, until something helps, even a little… and then to keep finding new things to build on the successes. A sort of inverse of the "death by a thousand cuts" concept.<br>
-<br>
-A thousand small braces and splints and bits of glue tacked onto every part of him, so he could keep moving, keep walking forward, into the wind, without it blowing him to pieces.<br>
-<br>
-He draws on those memories again now, the ones he could apply in the moment. Comfort foods are out, even in moderation. Same with music, since he has his earplugs in. He's already being physically active, but maybe he can step it up.<br>
-<br>
-Red forces himself into a jog, trying to kick some adrenaline into his system to help chase the depression away by brute force. It doesn't feel like it's helping, but he keeps at it anyway. If nothing else it'll help him cover more ground.<br>
-<br>
-In the meantime he still needs a mental defense in case he encounters another abra. How else can he use his powers to help him?<br>
-<br>
-Red feels frustration welling up, a frustration that hides a familiar hopeless apathy at its core. He doesn't know enough about how his powers work to fashion a solution. He only knows a couple tricks, one trick, really, just copying mental states. If he had any experience utilizing his powers from the ground up-<br>
-<br>
-<em>Stop focusing on problems. Focus on solutions.</em><br>
-<br>
-Mimicking mental states. His first, balancing-on-a-tightwire, didn't work, but he also copied a weak form of Ayane's ability to block physical pain. Could he use many-mirrors-and-a-dim-room to ignore emotional pain too?<br>
-<br>
-Now wouldn't be a great time to get nauseous and throw up again, but it's worth trying, even for a moment.<br>
-<br>
-Red focuses on the sadness and loss that reverberate through his chest. He pictures the black hole centered there, just below his heart, scraping everything inside him raw as it pulled and tugged in pulsing aches.<br>
-<br>
-It's surprisingly easy, maybe too easy. The sensation seems to amplify, his focus and attention making the feelings more pronounced, and Red slows to a stop, breathing hard as his lip trembles, eyes welling with tears.<br>
-<br>
-Some distant part of him cries out in alarm, worried that he's actually feeding the sadness with his psychic powers. It doesn't matter, though. None of it matters. His dad's dead, he's <em>gone </em>and never coming back, even if Bill's right and people eventually cure death, his dad will be forever in the past, his mom probably will too, and…<br>
-<br>
-<em>And me… one day, I'll die too, and there'll be nothing, just blank absence of everything I am...</em><br>
-<br>
-Red sees his dad a dozen times a second, in the kitchen with his mom in the morning, training with his pokemon, coming home for the weekend, carrying Red on his shoulders, leading him through the forest...<br>
-<br>
-Red falls to his knees, pokeball dropping from his hand as he rests his palms on the grass, catching himself as he begins to weep again.<br>
-<br>
-<em>If you're going to put yourself through this, at least let it be worth something. Try the experiment, just so you know if it works.</em><br>
-<br>
-Red sucks in a long, shuddering breath, then closes his eyes, concentrating on the gaping black hole inside him. He pictures his psychic powers like vibrant colored lines around it, streaks of gleaming light that connect in a hexagon, keeping the effects of the hole from reaching past to the rest of him.<br>
-<br>
-Red winces as the ache continues, and the image falls apart. Ayane's skepticism comes back to him: "<em>It's not enough to simply imagine yourself doing something with your powers, or a psychic's life would be far easier."</em> She's right: it's one thing to mimic a state of mind he felt and come up with a metaphor afterward: doing it in reverse would be pure wish fulfillment.<br>
-<br>
-<em>NO! That's loser talk!</em><br>
-<br>
-Red blinks, tears trembling on his lashes. That mental voice sounded oddly like Blue. He wonders if he's starting to crack up.<br>
-<br>
-<em>You're not concentrating. You lost the mental state when you imagined the black hole, before you even started with the lines. Try again, something easier.</em><br>
-<br>
-Red feels a gust of wind blow his hair against his wet face, and tugs his hat down lower to keep it from blowing off. Ok. Something easier. He can do this.<br>
-<br>
-The black hole is there, he doesn't have to imagine it any clearer. Instead he focuses on his heart: a glowing source of warmth in his chest, being worn away by the sucking, empty void. Red imagines the blocking lines around his heart instead, and at the same time shifts his thoughts to all the memorized points of many-mirrors-and-a-dim-room, then-<br>
-<br>
--<em>wait what if that takes away all feeling-</em><br>
-<br>
--inverts-<br>
-<br>
--<em>who cares that's better than this-</em><br>
-<br>
--it into a single island of light inside him, everything else going dark as he gives them over to the void.<br>
-<br>
-Red's trembling stops. He breathes deep a few times, surprised at how… quiet isn't the right word, with his earplugs in <em>everything's </em>quiet, but <em>still </em>his emotional state feels.<br>
-<br>
-The depression is there, the sucking ache in his chest is there, and, yes, the nausea is there. It's just all… distant. Dim, like the pain in his arm was.<br>
-<br>
-Red smiles. It feels strange on his face, <em>strained </em>and oddly disconnected from his inner self, like the muscles of his face are reacting independently. But he finds he can't stop.<br>
-<br>
-He figured something else out with his powers. Neat.<br>
-<br>
-Red gets back up, and picks up the pokeball he dropped. He starts walking again.<br>
-<br>
-Things feel strange. Not just emotions, but <em>things. </em>The feel of his clothing on his body, the wind on his skin, the sunlight. It's all muted.<br>
-<br>
-Why isn't he moving?<br>
-<br>
-Oh right. He stopped walking.<br>
-<br>
-Red looks around. Nothing of particular interest is going on.<br>
-<br>
-What's he doing again? He knows what he's doing, obviously, but what's the point?<br>
-<br>
-<em>Shit. This is what it's like to not feel anything, isn't it?</em><br>
-<br>
-But that's ridiculous, he clearly still wants things. He doesn't want to get hurt, for example. Dropping shining-mirror-in-a-dim-house would make the hurting feelings come back.<br>
-<br>
-He had a purpose in doing that though. To keep catching abra unimpeded. It would all be rather useless if he didn't keep catching abra, right?<br>
-<br>
-Red keeps walking. Eventually he finds more abra and catches them. He doesn't know how long he walks, but nothing exciting or interesting happens. He just keeps walking and catching abra. Eventually his phone vibrates, though he barely feels it.<br>
-<br>
-It's probably not important.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-Blue stares down at the broken speakers with a frown. He hoped it was something he could fix, but this thing is utterly trashed. Looks like something really heavy smashed it over and over again.<br>
-<br>
-Blue looks around. Nothing but grassy fields. Whatever pokemon did it is long gone.<br>
-<br>
-He sighs and jogs back toward the abra landing zone. The gap in their circle of speakers will make it easier for abra to slip free, but they only have about 30 minutes left before Joy gets tired anyway.<br>
-<br>
-His bag jostles with over a dozen expanded pokeballs in it, most of them filled with abra. There was another bellsprout that wandered into range of Joy's singing after it had started, and now that he has two he feels much more prepared for his battle with Misty.<br>
-<br>
-He keeps an eye on his GPS as he moves, and relaxes when he reaches the landing zone again. It's a nice feeling, being able to walk through fields of empty grass and not worry about pokemon jumping out and attacking. Relaxing, even.<br>
-<br>
-Most of the abra he encountered were already asleep, but a few popped into existence within his line of sight. He just stood completely still for a few seconds until it was clear they were out of it, then caught them too. He hopes whatever Red and Leaf figured out works too, because if they've caught as many as he has...<br>
-<br>
-Blue grins. They're going to make <em>so much money</em> off of this.<br>
-<br>
-He spots another pair of yellow ears sticking out of the grass and changes course to catch it, cheerfully lobbing the pokeball underhand after giving it a moment to lock. He really has to hand it to Red, he really struck gold with this idea. They'll be able to control the market on abra for a bit before it gets flooded, and combined with the cash from their clefairy trades, make enough money to not have to worry about their allowance restrictions for months.<br>
-<br>
-He's already thinking of all the TMs and training tools he'll buy, along with maybe a competitive pokemon or two. He probably won't be able to afford a larvitar or anything crazy like that, but with his eye on the next couple gyms, he could use a solid Ground or Fire type.<br>
-<br>
-Blue reels himself in before he goes too far down that imaginary road. He already comes from enough of a privileged position, with the Oak name and connection and resources at his back. Beginning his journey with a premium starter, instead of a rattata or meowth or whatever most people could get, is usually grudgingly accepted by the less fortunate masses, but only as long as skill is still shown. No one cares that Lance started his journey with one of his clan's dratini, because he raised it himself, without even using a pokeball. As long as Blue doesn't throw money around enough to seem like a "spoiled rich kid," he could use it for a number of helpful boosts.<br>
-<br>
-Blue checks his supply of pokeballs. He has nineteen left before he has to start using the more expensive balls. He doesn't think he'll need them all, but it would be nice to cap out.<br>
-<br>
-The next few minutes are spent continuing his circuit, occasionally spotting an abra and detouring to catch it. He finds a rare hill, really just a small elevation in the grassy field, and stands at the top as he takes out his binoculars and looks around.<br>
-<br>
-Hmm. One abra there, another about a 120 degrees from it. He'll pick up the farther one first, since the closer is on his way forward.<br>
-<br>
-He catches both and keeps walking, wondering how far ahead or behind Red is. Hopefully they kept about the same pace with each other, but his detour to see the speaker might have closed the area of their search a bit.<br>
-<br>
-Blue finds Red's GPS position and sees it's not far in front of him. Huh. Guess he got delayed by something too.<br>
-<br>
-<em>Better slow down a bit. </em>Blue looks for another hill to spot from, and a few minutes later he finds one, taller than the last. He runs to the top and lifts his binoculars again, looking around. There's an abra, aaaand another… and…<br>
-<br>
-Blue lowers his binoculars, then lifts them back up. <em>Shit. </em>He checks his GPS. "Shit!"<br>
-<br>
-He lifts his binoculars again, pulse quickening as he watches the loudred walking steadily toward the center of the field, a small group of whismur following it. They're not heading directly toward Joy and Leaf, but they're moving in their general direction.<br>
-<br>
-There are only two pokemon families in the area that might be completely immune to Joy's singing: hoothoot/noctowl, some of which don't sleep, and whismur/loudred/exploud, who are immune to sound-based attacks. The former rarely travel during the day, and the latter mostly stick to the caves that dot the surrounding mountains, only occasionally migrating. Still, knowing that they're attracted to loud sounds, Red and Leaf planned for this.<br>
-<br>
-Blue takes out his phone and sends them a warning.<br>
-<br>
-<strong>Got it. </strong>Leaf sends back. <strong>Heading back to Joy to move us. Let me know when you guys are ready for the song to end.</strong><br>
-<br>
-<em><strong>might not have time for that if they get close enough to fight. maybe we cancel the song and hit them together?</strong></em><br>
-<br>
-<strong>Let's avoid battling a group please, especially since we have no Fight/Rock/Steel pokemon.</strong><br>
-<br>
-<em><strong>we can put them to sleep another way, bulbasaur and zephyr with sleep powder?</strong></em><br>
-<br>
-<strong>Maybe. What do you think Red?</strong><br>
-<br>
-Blue taps his foot as he waits for Red to respond, and looks around. Should he rush over to the abra he saw and catch them? He picks up the binoculars and tracks the loudred's progress until it's out of sight.<br>
-<br>
-<em><strong>careful leaf it's close</strong></em><br>
-<br>
-<em><strong>red you there?</strong></em><br>
-<br>
-<em><strong>shit</strong></em><br>
-<br>
-<em><strong>RED</strong></em><br>
-<br>
-<strong>Have you talked to him recently?</strong><br>
-<br>
-<em><strong>no</strong></em><br>
-<br>
-<em><strong>he's close though gonna find him</strong></em><br>
-<br>
-Blue takes off, nearby abra forgotten. <em>Come on man, answer. </em>He keeps checking his GPS as he runs to see if Red is moving. Finally his phone buzzes again.<br>
-<br>
-<strong>I'm here.</strong><br>
-<br>
-Blue slows to a stop, breathing hard. <em><strong>the hell man?</strong></em><br>
-<br>
-<strong>Are you okay Red? </strong>Leaf asks.<br>
-<br>
-<strong>Fine. Stop the song, relocate somewhere safe until they pass through.</strong><br>
-<br>
-<em><strong>you're not going to use charmander's smokescreen?</strong></em><br>
-<br>
-Red takes his sweet time responding again. Blue wonders if he's actually hurt after all, and is about to send another message when Red says <strong>No need. It probably broke speaker. Without singing it'll go for another.</strong><br>
-<br>
-Blue frowns. <em><strong>we can take them, if the three of us are together.</strong></em><br>
-<br>
-<strong>Sound based attacks. Too risky. Stick to abra catching.</strong><br>
-<br>
-Shit, he left two of them back there. Rather than argue, he turns and rushes back in the direction one of them was, knowing he won't make it to both on time before Leaf stops the song.<br>
-<br>
-Red better have a good explanation for what's going on with him.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-Red stands in front of the sleeping abra, and waits.<br>
-<br>
-The phone's continued vibrations grew annoying eventually, and he took it out of his pocket to turn it off. Seeing the screen made him hesitate, and some part of him reacted with enough horror to what he almost did to snap him out of the mental state.<br>
-<br>
-Returning from it was like getting a bucket of cold water dumped on his head. He trembled as the aching sadness filled him again, and in fear of how far he almost sank into total apathy.<br>
-<br>
-Still, he knew he had to return to it. He has to test if it works on awake abra.<br>
-<br>
-So he ran until he found one. He holds a pokeball pointed at it, already locked on by now. He knows he's risking throwing away a capture, and wants to at least try to get it if he can.<br>
-<br>
-The seconds crawl by as he waits for Leaf to end Joy's song, and as he does he sinks back into the apathetic state, trying to remain focused on his singular goal: catch the abra after it wakes.<br>
-<br>
-Catch the abra after it wakes.<br>
-<br>
-Catch the abra. After it wakes.<br>
-<br>
-Catch the ab-<br>
-<br>
-Its mind is suddenly there, sleepy at first, but alert within a second. Red groans as despair floods him, pushing past the numbness and breaking his concentration. He throws the pokeball as he doubles over and clutches his torso with both arms, but the abra vanishes before the ball reaches it.<br>
-<br>
-Red sobs in a mix of grief and frustration. Not enough. All that effort and risk for nothing. He can blunt his feelings, but they're still just a portion of what's behind his partition when it comes down.<br>
-<br>
-Somehow he manages to keep his feet as the storm of sobs wrack him, but when they pass he feels utterly hopeless. If coming up with a whole new mental state wasn't enough, then he's out of tricks. He tried, and he failed.<br>
-<br>
-"<em>Why do you think of that as failure?" His therapist seemed genuinely curious, the way she always did when asking questions no matter how obvious or pointed the question might be.</em><br>
-<br>
-"<em>What do you mean, why? It's the definition of the word." She stayed quiet, waiting, and eventually Red searched for something else to say. "If I passed the class, I would have succeeded. I didn't, so I failed. It's not complicated."</em><br>
-<br>
-"<em>But why do </em>you <em>think of that as failure?"</em><br>
-<br>
-<em>Red frowned. "You can't just emphasize a word and repeat the question as if that changes the answer."</em><br>
-<br>
-"<em>Doesn't it?"</em><br>
-<br>
-"<em>No," he said, ignoring the dissonance he felt. "I think of that as failure because that's what failure is, to everyone."</em><br>
-<br>
-"<em>I see. So if a scientist tests an idea and doesn't get the result they want, did they fail?"</em><br>
-<br>
-"<em>Obviously."</em><br>
-<br>
-"<em>What if they learned something from it?"</em><br>
-<br>
-"<em>Well, good for them, I guess, but they still failed."</em><br>
-<br>
-"<em>Do you think they could ever be happy they failed, if the thing they learned ended up being more important?"</em><br>
-<br>
-<em>Red sensed the trap, but he couldn't ignore his inner agreement this time. "Sure, I guess. So what did I learn from failing a class? Since, you know, failing a class comes from not learning?"</em><br>
-<br>
-<em>"I thought you failed because you didn't do the work," his therapist said, but continued on before he could answer. "But if you failed because you didn't learn the subject, then at the very least, you learned what doesn't work for you, right?"</em><br>
-<br>
-<em>Red rolled his eyes. "Right, I learned that staying in bed all day and not doing the homework won't pass the class. I'm a genius, now."</em><br>
-<br>
-<em>She leaned forward, resting her chin on one fist. "What if you also learned that you can't force yourself to be productive when you're feeling shitty? That maybe you have to focus on feeling better first?"</em><br>
-<br>
-"<em>Sounds like an excuse to not even go to class next quarter. I'll take it, thanks."</em><br>
-<br>
-"<em>Maybe you shouldn't. Do you want me to call your teachers?"</em><br>
-<br>
-<em>Red's eyes widened. "Uh. No, that's okay."</em><br>
-<br>
-<em>"Are you saying that because you think you'll get in trouble? Because I promise you won't. I'll speak to your mother about it too if you want."</em><br>
-<br>
-<em>Red fidgeted in his chair. "I can't just miss a whole quarter."</em><br>
-<br>
-<em>"Why not? You're not going to pass it anyway."</em><br>
-<br>
-<em>Red felt like arguing, but caught himself. Why was he trying so hard to stay in school? But the implication that he wouldn't pass… it bothered him, even though he didn't care a moment ago. "What are you trying to do, here? Get me to skip a quarter, or push me into trying to pass it?"</em><br>
-<br>
-<em>His therapist cocked her head to the side. "What do you think I'm trying to do?"</em><br>
-<br>
-Red stifles a sob before it can escape his lips, and breathes deep, smelling the fresh green grass all around him. <em>Change a failure into a learning opportunity.</em><br>
-<br>
-So. What did he learn?<br>
-<br>
-He learned that the loss of the partition is more impactful than a change to his mood. So what he needs to do is keep his partition from mattering.<br>
-<br>
-Start at the beginning. What are his tools? What can he do?<br>
-<br>
-He can mimic mental states influenced by psychic powers. He can mimic his own from specific stimuli, and others'. What does that leave him with?<br>
-<br>
-Red keeps breathing in and out, focusing on the thought. What other psychically influenced mental state can he mimic? If only Ayane had used her power in a way to make her mind "healthy" or "stable" or-<br>
-<br>
-Red's eyes open as his breath catches. <em>I don't need Ayane's mind in that format: my default state</em> is<em> a psychically sculpted stable one!</em><br>
-<br>
-He doesn't waste time wondering if it could work. Red drops into the lotus position, evening out his breaths as best he can. One arm rises to impatiently rub his face dry, then again as fresh tears appear at the ache of sadness that goes through him. <em>Nevermind. Let it go. </em>He waits until his awareness is mostly drawn inward, then begins shifting his attention to different parts of his mental state. He's <em>emotionally </em>sad, but his <em>thoughts </em>aren't being overwhelmed with negative associations like when the partition is down.<br>
-<br>
-For a glimmering second, Red almost grasps what Elite Agatha meant when she insisted to Professor Oak that there's a distinction between mental and emotional pokemon attacks.<br>
-<br>
-Then it passes, but he's still able to reach far enough to work with the distinction.<br>
-<br>
-No set of words seem fit to describe it, however. How would you describe your default mental state? It's just "existing normally." But that still has markers, anchors, a framework he can remember and nail into place.<br>
-<br>
-It doesn't feel like anything has changed. He hasn't made the partition stronger, and he isn't using his powers to do anything. He's just… focusing on keeping everything as it is.<br>
-<br>
-He stays that way until his phone vibrates again. He checks it and sees that the first speaker he put down is offline. <strong>The loudred got another one, </strong>he sends. <strong>We should be clear.</strong><br>
-<br>
-<strong>Okay, </strong>Leaf says. <strong>Summoning Joy. Earplugs back in, if you took them out.</strong><br>
-<br>
-Red puts his phone away and focuses on the mental state again, waiting until it feels stable before he gets to his feet and resumes walking. Every so often he feels as though he's lost it: trying to consciously hold onto a "default" feels like trying to cup water in his hands, but he keeps reinforcing it every so often, retracing his mental path around the touchstones of how he thinks, around the gap between what he feels and his memories of his dad's death.<br>
-<br>
-He eventually spots a sleeping abra and catches it. A few minutes later he finds another. Part of him is glad the system's still working with two speakers down, but he begins to grow impatient as he walks, checking the time occasionally. He needs to find another awake one. He needs to know if this works.<br>
-<br>
-When there's just fifteen minutes of singing left, Red starts to seriously consider sending one of his captured abra back out and waking it up himself. He's still talking himself out of it when he feels an abra pop into existence nearby, its mind suddenly "next to" his.<br>
-<br>
-He freezes, eyes flicking around. He can't see it, it must be behind him… but-<br>
-<br>
-Red's mind wobbles, a mass of gelatin on a small plate again as the abra… tries to reconnect. It's almost like the mind bounced off, then came back again. He focuses on his mental state, keeping all the anchors in place, all the parts of his mind that make up just-being-normal-Red…<br>
-<br>
-And a few heartbeats later, suddenly as it started, the sensation is gone.<br>
-<br>
-Red waits a few more seconds, pulse pounding in his ears, and finally, slowly, looks around. He spots the abra a few paces behind him and to the left, practically in arm's reach.<br>
-<br>
-Red slowly extends his pokeball turning it so the lens aligns with the abra. He counts to three. He throws.<br>
-<br>
-The ball flashes, snaps shut, and rolls onto the grass.<br>
-<br>
-Red falls to his knees once again.<br>
-<br>
-The ache is there. The grief. The pain. The loneliness. The despair. The wind blows, feeling extra cold on the tear tracks on his face.<br>
-<br>
-But still, for a moment, he smiles.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-"Are you kidding me?" Red asks. "You got them to stay with <em>the</em> <em>power of love?"</em><br>
-<br>
-"It's not that simple." Leaf pauses, then smiles. "Okay I guess it is that simple, but it's not as easy as it sounds. It took a few tries to actually figure it out."<br>
-<br>
-Red grumbles. "Well, it probably wouldn't work for me anyway. And I figured out my own solution, eventually."<br>
-<br>
-"Good, because when we do this again I expect you guys to get on my level," Blue says as he cheerfully fills his corner of the table with pokeballs almost twice as fast as them. He can already tell he got a lot more than they did.<br>
-<br>
-They sit in one of Bill's living rooms, placing a growing collection of balls on the table after registering each pokemon in their dex. There's a fruit bowl in the middle that Blue quickly has to move elsewhere to make more room. His stomach grumbles, and he picks out an apple before resuming work one-handed.<br>
-<br>
-Once they finish emptying their bags, the three put aside the other pokemon they caught until just the abra are left, then start counting. Blue glances at Red every so often, noting the tautness of his features. When Red explained what happened to him, he made it seem like his experimental mental states were temporary. But there's something distant and off about his friend's gaze, and Blue wonders if Red understated how strong the renewed emotions are, or how he's managing them.<br>
-<br>
-The final tally is 19 for Red, 24 for Leaf, and 31 for Blue, a few of them temporarily in greatballs.<br>
-<br>
-"I got one more." Leaf holds the ball up. "But I'm keeping it."<br>
-<br>
-"Yeah," Red says. "I'll keep one too, once we finish analyzing them all."<br>
-<br>
-"How long do you think your study will take?"<br>
-<br>
-Red shrugs. "A week, maybe? The only reason the last one took so long is because I had to wait for people with spinarak to come to me. Now I have a big sample ready to be tested."<br>
-<br>
-Blue studies Red's face again. He sounds almost... uninterested. "Well, it'll take at least that long to study the market and come up with a good plan to sell them," Blue says. "So no rush on that."<br>
-<br>
-"I'd like to vet my buyers personally anyway," Leaf says.<br>
-<br>
-They look at her in surprise. "What, you're going to meet each one?" Blue asks.<br>
-<br>
-"Maybe not meet in person, obviously, but at least check them out online, maybe give them a call. I want to at least try and make sure the people who buy mine are going to take good care of them."<br>
-<br>
-Blue shrugs. "As long as we agree on how we price and list them, then your pokemon, your rules."<br>
-<br>
-His hands move out among his collected pokeballs, straightening each one into a uniform pattern, enjoying the sight of all of them. It's a bit hard to believe how many he got. Hearing the other two talk about their struggles to catch the awake abra showed how being Dark has its advantages, but now that the catching is over and he listens to the other two discuss how they'll train their abra, all the great uses they'll have for them, Blue feels the warm glow of contentment fading away. He always wanted an abra when he was younger. The idea of being able to teleport, or share the thoughts of one of his pokemon, always seemed so cool.<br>
-<br>
-But he'll never have that, no matter how many abra he catches.<br>
-<br>
-Blue's jaw sets as he picks one of his abra's balls up. Leaf has gone around to get the bowl of fruit, and is sharing it with Red. Blue waits until they've picked something out, then says, "I'm going to keep one too."<br>
-<br>
-Red and Leaf look at him in surprise. Dark trainers don't use Psychic pokemon. It's just not done: without the ability for their pokemon to sense them, they would be incredibly hard to interact with, let alone train.<br>
-<br>
-Blue meets their gazes, waiting for their skepticism and questions.<br>
-<br>
-"Wouldn't the time be better spent training others, though?" Red asks. He holds a palm up to stop Blue's response. "I'm just curious. I don't doubt you can do it. You're the most determined person I know, and a great trainer. I'm asking from an efficiency perspective."<br>
-<br>
-Blue relaxes slightly, and smiles. It means a lot, hearing Red say that. Not that Blue would ever admit it out loud. "It won't be efficient, no," he says. "I don't fully know how I'll do it yet. Maybe in the time it takes I could train two other pokemon instead. But I'm going to do it anyway."<br>
-<br>
-"Strategic advantage?" Red asks. "Having a psychic will surprise people who know you're Dark."<br>
-<br>
-"Optics," Leaf suggests instead, munching on a strawberry she liberated from the bowl. "A Dark trainer with a powerful, well trained Psychic pokemon… I don't think I've ever heard of someone like that. It'll really make you stand out."<br>
-<br>
-Blue nods. "You're both right. But most of all, it's-"<br>
-<br>
-"To prove you can," Red says.<br>
-<br>
-Leaf smiles and adds, "To yourself as much as anyone."<br>
-<br>
-Blue grins back. "You guys know me so well. Can I count on your help?"<br>
-<br>
-Red extends a fist, and Blue bumps it, glad to see the gesture. Blue then extends his other fist toward Leaf. She grins and taps her knuckles to his, and Red and her extend their other hands at the same time to complete the triangle. Blue feels a bit better seeing Red smile, even though it fades a second later.<br>
-<br>
-"Today was... a good day," Red says, keeping his fists out.<br>
-<br>
-Leaf nods. "To Red, for his great idea."<br>
-<br>
-"Hear, hear!" Blue says.<br>
-<br>
-His friend flushes. "To Bill," Red says. "For letting us use his land."<br>
-<br>
-"Hear, hear!" the other two repeat.<br>
-<br>
-"Welcome," the speakers above them says, making them all jump and lower their arms at last.<br>
-<br>
-"And to me," Blue says with a smile, "For catching Joy and making it all possible." He ducks as the others toss fruit at him. "No need for thanks, folks, my bigger catch is thanks enough. And next time, I'm going to be bringing more pokeballs."
-        </div>
+            <h1 class="chapter-title">Chapter 81: Interlude XIII - Titans</h1>
 
-        <div class="chapter-nav">
-            <a href="../80/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../82/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>The worst thing about learning that a myth turned out to be true, is learning it also turned out to be incomplete.</p>
+<p>Professor Birch stares transfixed at the sight of the titan on his monitor, eyes moving restlessly over it. Armor plates cover its body from head to tail, even redder than a crawdaunt shell, and every step of its two massive lower claws sends rumbles through the earth. It looks like it would more naturally crawl on all fours, but instead it stands with a forward hunch, wide tail beating a secondary rhythm behind it with each stride. Though the helicopter is flying high enough to stay safely away from it, he can tell that it's fast, faster than anything so big has a right to be. But that's not what keeps him watching in horrified fascination.</p>
+<p>When the footage first started airing, Groudon looked a little taller than a house. Now it looks as <em>wide </em>as one, and its head would probably tower over his three-story lab... and it's still growing. But that's not what keeps him breathlessly watching either, even as he feels his home shake around him with the quakes that continue to ripple through the region.</p>
+<p>The helicopter's footage abruptly wobbles as turbulence hits it, and a moment later the lingering sunlight that had illuminated Groudon is covered by a downpour, enough rain to make the titan only barely visible. It stops, flexes its body, and <em>roars,</em> the sound piercing through both the rain and the helicopter's propellers. Between the red scales, Birch sees light flare, like magma deep within Groudon's body, and within moments the rain cuts off to a trickle, and sunlight returns to reveal it.</p>
+<p>There's a moment of disorientation as the cameraman swings the lens up to the sky, clearly wanting to capture on video the way the rain clouds race away from Groudon in a ring. Even in the middle of setting, the sunlight somehow seems to blaze through the atmosphere, making the pokemon's scales shine when the cameraman brings it back into focus.</p>
+<p>And even that is still not what keeps Birch from the dozens of things he should be doing right now, including silencing his phone's regional warning, which has been blaring nonstop (and rather superfluously, all things considered) ever since the quakes started.</p>
+<p>What keeps Birch glued to his screen is what's happening <em>around </em>the legendary pokemon. The copter caught up as it was approaching the coast, and at first it seemed like it would just walk straight into the sea.</p>
+<p>Instead, new earth rose up to meet its steps as it approached the water, magma boiling the sea into steaming clouds before solidifying under its stomping claws. The beach now extends nearly a kilometer further than it used to, and the group of trainers (he assumes they're rangers, but they're hard to make out) that were chasing after it are clearly having trouble traversing the rough, newly risen ground.</p>
+<p>Professor Birch wouldn't believe what he's seeing if he hadn't already run through every dream check he knows, including slapping himself across the face. Now that he knows he's awake, all he can do is stare in horror as the colossal pokemon wreaks havoc on his region.</p>
+<p>It stomps down onto all fours, and a few seconds later he feels the quake hit his house; not the constant tremors that have been ongoing, but a real earthquake strong enough to make the whole house rock back and forth.</p>
+<p>His phone shakes to the edge of his desk, then off it, and after a moment he realizes it's also ringing in between the harsh buzz of the alerts. He hears it continuing to ring under his desk, and half shifts, half falls off his chair to get onto his knees, cursing his gut as he shuffles forward to grab it before it vibrates further out of reach.</p>
+<p>"Hello?"</p>
+<p>"Birch, where are the kids?"</p>
+<p>"Norman!" Birch's head rises too fast as he pulls back, and he smacks it on the underside of his desk. The stunning pain makes him bite back another curse as he settles a hand on ground to steady himself. "They were in Sootopolis an hour ago!"</p>
+<p>"They're not answering their phones!"</p>
+<p>Fear jolts through the professor, and he pushes himself up only to fall back onto his hands and knees. "You think they…" He trails off, not needing to finish the question. He distantly hears glass breaking downstairs, and recognizes that the quake is still ongoing and he should get out of the building.</p>
+<p>Instead he looks around, then shuffles on his free hand and knees toward his headset, looping it around his neck and turning it on so he can jam his phone into his pocket and shuffle back toward his computer.</p>
+<p>After everything their kids have been through on their journey together, would Brendan and May be staying safely out of the way at a time like this?</p>
+<p>Or would they be racing toward the crisis, hoping to help stop it?</p>
+<p>"Where are you?" he asks as he climbs onto his chair, which wobbles but stays mostly in place.</p>
+<p>"We're forming a perimeter around Petalburg, local pokemon are panicking!"</p>
+<p>Birch's heart sinks the rest of the way down into the pit of his stomach. Hoenn sees its fair share of rampages, some even reaching Tier 3 status, but despite its size it's not like Kanto or Johto, with their Birds and Beasts, or Sinnoh with its Titans. He always felt a mix of relief and guilt when he considered how much less stress he's had to deal with, growing up and becoming Professor of such a relatively safe region. He's not a battle trainer, never has been, let alone ex-Champion like Oak and Rowan.</p>
+<p>Thirty-five years of relief and guilt, all wiped away in a matter of minutes as he stares at the monster that's been slumbering under their "safe region." A titan all their own, and one that's affecting the entire island, skipping the mostly-theoretical 4 to reach a true Tier 5 event.</p>
+<p>"Birch, are you there?"</p>
+<p>"Yeah." The Professor forces himself to minimize the window and pins his vibrating keyboard in place with one wrist as his other grabs his thankfully corded mouse to pull up the pokedex tracker. Hundreds of dots populate the map of Hoenn, and he clicks his most recent filter on. "The kids are…" He trails off, blinking.</p>
+<p>"Are <em>what, </em>Birch?"</p>
+<p>"I don't understand, they're… it must be glitching." He clicks each dot to confirm he's filtering the right three trainers. "They're not with each other, it says Wally is at some tiny island while Brendan and May are flying over the sea." He watches the dots move across his screen in real time, which is absurd given the distance involved.</p>
+<p>Norman lets out a gust of breath, and mutters something that sounds like a prayer. "Thank Arceus, for a minute I thought… When did they get fliers?"</p>
+<p>"They never registered any."</p>
+<p>"So they're hitching a ride somewhere? Hang on, I need to take th-"</p>
+<p>The sound cuts out as Norman puts him on hold, and Birch realizes that the quaking has finally trailed off. He opens the tab with the chopper's live feed again and sees that Groudon is back on its hind legs, striding toward what looks like a new island that's forming in the distance. The coast stops pushing out in every direction as magma stops rising at its edges, all of it concentrating on what looks like a land-bridge to the newly rising surface.</p>
+<p>He gets another call of his own from Littleroot's mayor and ignores it as he switches back to the tracker, cycling through a few other filters to ensure they're working properly. Most of the other trainers he's keeping tabs on are about where he expects them to be, so why—</p>
+<p>"Birch," Norman says, now outside from the sounds in the background. "Thanks for letting me know, I have to—"</p>
+<p>"Norman, the kids are moving fast. Faster than any pokemon I know of."</p>
+<p>"What are you saying, they're on a jet?"</p>
+<p>Birch watches as the dots move independently from each other. "Two jets, more like."</p>
+<p>"Where would they… where the hell are they going?"</p>
+<p>"It's hard to tell," Birch hedges, his heart pounding as he watches the dots move, erratically but steadily, in a particular direction. "They're not moving in a straight line, but… it looks like they're headed to…"</p>
+<p>The Gym Leader's voice is barely controlled. "<em>No,</em> they can't be… they have to know there's nothing they can do!"</p>
+<p>Birch would have agreed with him even a year ago. But the things those three have gone through since they started their journey… "They're not kids anymore, Norman," he says as he sets his own fear aside. Well, Wally is, but thankfully they seem to have left him behind… how did he get to that island, anyway? "And this is their home, their world, too."</p>
+<p>He hears Norman let out a gust of breath. "I haven't been the best father, Birch. I know that. But I can't leave my gym."</p>
+<p>"I understand." He just wishes he could go himself… that he wasn't so soft, so <em>weak…</em></p>
+<p>He blinks as a thought occurs. This is a Tier 5 event. <em>Surely </em>the other regions…</p>
+<p>"And I'm going to do everything I can to help them," he finishes, already taking his phone out to make some calls.</p>
+<p>"Thank you, Birch. I have to go."</p>
+<p>"Good luck, Norman." Birch closes the call, then hovers his finger over Sam's number before skipping it to call Lance first. Oak nearly died just a couple months ago, and he doesn't know if these things create Pressure yet.</p>
+<p>As the phone rings, he looks back at the screen and feels a fist form in his stomach, crushing the mild hope that had risen.</p>
+<p>Groudon is definitely bigger than the last time he looked. And unless its density is surprisingly low, a heavy ball is no longer enough to contain it, if it ever was.</p>
+<hr noshade="noshade" size="1" />
+<p>Up until the floor of the casino cracked like the shell of her favorite cream-filled chocolate egg, Lizzy's primary worries involved the power plants. Even minor quakes could cause major problems for the more delicate types of infrastructure work, and her sister is overseeing construction of a new site to the north of Lavender Town.</p>
+<p>Because of that worry, she expected the power to go out at any moment, and so already has her magnemite summoned and glowing by the time the air fills with crashes and screams, slot machines and people sliding into the dark depths of the earth.</p>
+<p>Bretta clearly had other concerns, because she uses the same time to grab Lizzy's arm to yank her toward the corner of the casino. The two of them run around card tables and chairs, some empty as people flee in a panic, others still occupied by people either paralyzed by fear or desperately trying to hold onto tokens that threaten to spill all over the shifting tables and floor.</p>
+<p>Feeling the ground tilt under her feet as she runs is one of the scariest things Lizzy has ever experienced, including everything that happened in Vermilion, but they find firmer footing as soon as they reach the corner of the building. She turns back just as the emergency lights kick in and the quake subsides to a steady series of vibrations again.</p>
+<p>The red-tinted casino is in shambles, the destruction centered around a rubble-filled crater close to the food court and rippling outward in a slope. The cries of the injured and scared are, unfortunately, still competing with the cheerful jangle of many slot machines, because <em>of course </em>a casino would put its game machines on the emergency power supply…</p>
+<p>"Where's Blue?" Bretta asks, looking wildly around.</p>
+<p>"He was at the slots over there," Lizzy says with a gesture, and her blood runs cold as she sees nothing but a pile of machines and broken rubble.</p>
+<p>Most people are running for the exits, but Lizzy and Bretta turn to stare at each other, and in that moment she thinks of Aiko, crushed by a roof, then Bretta, standing alone against Surge on a dragonite.</p>
+<p>"Don't—" is all she manages before Bretta grabs her shoulders.</p>
+<p>"Get the others—"</p>
+<p>"<em>You </em>get the others, let someone else be the hero for a—"</p>
+<p>Another quake hits, rocking them on their feet. It's not as powerful as the last one, but they still hear things breaking outside the casino.</p>
+<p>"You think it'll be any safer out there?" Bretta asks. "I have the pokemon for this, you don't."</p>
+<p>"Every minute we argue is one they might suffocate." Fear makes her whole mouth taste like copper, her heart beating so hard she can feel her pulse in her throat, but she keeps her gaze on Bretta's, and the fear she sees mirrored there keeps her anchored. "I'll call them while you start, but I'm not leaving."</p>
+<p>Her friend scowls at her, then hugs her tight. She hugs her back, and then they're moving toward the rubble as Lizzy gets her phone out.</p>
+<p>"Liz?"</p>
+<p>"Glen! Are you still at the gym?"</p>
+<p>"Yeah, things are a mess—" There's another quake, and she hears someone near him shout <em>"Watch out, up top!" </em>before there's a crashing sound.</p>
+<p>"What's going on there?" she asks as Bretta summons a sandslash and sets it to digging. The two of them start working together to haul tables and chairs out of the pit.</p>
+<p>"One of the buildings nearby collapsed against another. Pieces of it keep shaking loose when another quake hits."</p>
+<p>Lizzy curses as she strains to flip a slab of tile from the broken floor, feet slipping under her. "Ngh… figures…" She gasps with relief as someone reaches her and helps, and looks around after to see more people bringing pokemon out to start digging.</p>
+<p>"What about you, everyone okay?"</p>
+<p>"No, Blue got buried in—"</p>
+<p>"<em>What?!"</em></p>
+<p>"—the floor of the casino, <em>ow, </em>don't yell, Glen!"</p>
+<p>"Is he… sorry!… do you need help?"</p>
+<p>"Help would be nice," she says faintly, and looks up at the roof as another mini-quake trembles through the earth. Luckily it doesn't look like the ceiling is damaged at all, but another big one might change that. "Is the power out there too?"</p>
+<p>"Yeah, through the whole city, looks like."</p>
+<p><em>Come on, Sis, get on it. </em>"I need to focus on this… if you guys have a chance to come…"</p>
+<p>"Yeah, we're on our way," Glen says. "Hang in there, Liz, and be careful."</p>
+<p>Relief courses through her. She knows part of her should feel guilty; there are other people in danger, and they might need everyone's help more… but the idea of Blue down there, in the dark, injured…</p>
+<p>"We need more light over here," someone calls from another part of the hole, and Lizzy goes still as a new thought hits her:</p>
+<p><em>Comparative advantage.</em></p>
+<p>Hers is not digging through rubble.</p>
+<p>"Bretta," she says as she scrambles toward her friend. "They're on their way, but I've got to go. I'm leaving my magnemite."</p>
+<p>"Go where?" Bretta grunts as she lifts a stone her pokemon cut in two, then hands it to someone else. People are forming a chain to move the rubble.</p>
+<p>"To get the power back on."</p>
+<hr noshade="noshade" size="1" />
+<p>Petrel finishes climbing up the hatch and into the roof, taking his first breath of fresh air in over a day. He's gone longer without it before, but the past 24 hours in Team Aqua's headquarters have been hard to get through considering all the dead bodies in it.</p>
+<p>He lets the rain pelt his face for a few precious minutes, treating it like a brisk shower to fight his tiredness, then pulls himself the rest of the way out of the hatch and lets it close behind him with a <em>clang. </em>The battle that raged through the headquarters left not just bodies, but broken machinery that allowed the base to function as a submarine port, and they just managed to finish repairing enough that it stopped taking on water when the quakes started. His muscles ache and his thoughts feel slow with exhaustion from both the battle and the cleanup, but he knows he has to report in before he can rest, now that he finally has a moment to get outside the base's communication blocks.</p>
+<p>He pulls his earphone out of his pocket and turns it on, then speaks Giovanni's private number by memory, keeping his eyes closed as the storm rages above and the base continues to occasionally vibrate from the quakes beneath him.</p>
+<p>It's been months since he was stationed here, long enough to make some friends among Archie's people, even if he didn't quite buy into their mission. Giovanni didn't ask him and the others to come here and convert, though; just keep tabs on things, gather intel, and help however they could.</p>
+<p>Now the whole region is going to hell, tremors still occasionally rocking the headquarters as they struggle to keep things stabilized, and he hasn't received any new orders from Archie in a day. He needs to know what's expected of him, and the boss needs to know what happened here, if he doesn't already.</p>
+<p>Giovanni responds at the fifth ring. "Lambda?"</p>
+<p>"Hey, Boss," Petrel says, and can't help but smile.</p>
+<p>"You're alive." There's relief there, too, but also tightly reined frustration. "I requested <em>immediate</em> alerts of any battles between Magma and Aqua, including major breakthroughs in the search for Kyogre <em>or</em> Groudon, even if it would blow your cover. Now all three of these things have happened, and I only found out about it in the past few hours." Giovanni audibly takes a calming breath. "I'm happy you survived so I can ask you directly… <em>what</em> <em>happened?"</em></p>
+<p>"Sir…" Petrel licks his lips and tastes something bitter in the rain. "We were kept entirely out of the loop on any new developments after the orbs were retrieved on Mt. Pyre. Since then we've been stationed at Aqua's headquarters without anything to do until it came under attack yesterday."</p>
+<p>"Magma?"</p>
+<p>"Yeah, but others showed up too."</p>
+<p>"There's no gym in Lilycove…" Giovanni trails off, then guesses, "Norman and Birch's kids?"</p>
+<p>"And others," Petrel confirms. The two prominent trainers were among the group at Mt. Pyre that nearly managed to stop Archie and Maxie from getting the orbs that reawakened Groudon and Kyogre. "A shorter boy with green hair, a—"</p>
+<p>"They were working <em>with </em>Magma?"</p>
+<p>"I don't believe so, Sir. I had a quick look at the security feeds, and they came in after. Magma came straight for us, but they fought only when challenged, and seemed to be after something else. Videos didn't capture what."</p>
+<p>Giovanni is silent for a moment, and Petrel's hand finds his side, still tender from where a Vine Whip cracked his rib. Potions applied to the surface only help so much with damaged bones.</p>
+<p>"I don't see any relevance there," Giovanni finally says, voice terse, which Petrel thinks is the boss's way of saying he has no idea what to make of it either. "Get me a copy of that feed and I'll look over it myself. In any case, Groudon and Kyogre have been resurrected, within a day of each other. That <em>cannot</em> be coincidence, Aqua and Magma must have known where to find them already and kept that knowledge hidden. Has there been any word from Archie or anyone else from within the inner circle?"</p>
+<p>"No, Sir, not since yesterday."</p>
+<p>"Then it's possible they're all dead. How are the others there reacting?"</p>
+<p>"There's an air of confusion and uncertainty here, but no one is panicking or acting as though they've heard something definitive."</p>
+<p>Giovanni sighs. "Alright, then. If Archie or any of his inner circle live, they'll have the orb with them. Chances of getting it at this point seem low, but I need a copy of their research on it."</p>
+<p>That would be more difficult. "The research lab is still being heavily guarded," he says to ensure he knows what the boss is asking of him.</p>
+<p>"Do anything you have to, Lambda. You're coming home after."</p>
+<p>A rush of relief eases some tension deep in his stomach, and Petrel swallows the thanks that rise to his lips. He should feel worse about having just been told to kill the members of Team Aqua that get in his way, some of whom he's even grown to like and respect, but right now all he feels is glad he has permission to get the hell out of the region that still feels like it's being shaken apart under him. "Yes, Sir. Should I pull everyone on this, or do they have their own orders?"</p>
+<p>"This is the new priority. The fate of the world may rest on what we can discover in that research, even if it won't come quick enough to save Hoenn."</p>
+<hr noshade="noshade" size="1" />
+<p><em>The end of the world,</em> Steven Stone reflects as he mounts his skarmory and commands it to take off from the roof of the Sootopolis Gym, <em>should not be so wet.</em></p>
+<p>Oh, there are stories of the world ending in water, of course. From this very region, in fact. There are also myths that warn of the world ending in the pure oblivion of Arceus's final Judgement, or all of life being drained away and turned to stone, or its light eaten away to leave them in eternal darkness. Fire, that's a popular one too, as well as ice.</p>
+<p>But water is just... undignified. He feels dampness seeping down his neck and reaches back to tug his collar more firmly against his skin. Even suits <em>specifically tailored </em>to be water resistant don't look particularly impressive while sodden, and no one's hair looks better wet, not even Wallace's.</p>
+<p>He wonders if it's normal to worry about how your hair looks during the end of the world, then reassures himself that the world probably isn't actually ending; just Hoenn, and maybe a few of the closer regions.</p>
+<p>Though the sun is still in the process of setting, the massive rain clouds turn the sky nearly as dark as night… or they would, if not for the circles in the clouds that keep growing and shrinking. The visible beams of sunlight they let through turn the horizon into a gorgeous dance of light and shadow, but the largest, steadiest sunbeam illuminates a scene that makes it hard to focus on the beauty of it all.</p>
+<p><em>Cold as stone. </em>He heard it a number of times growing up (and once from a boyfriend during their breakup) for how unexcitable he was, whether from good things or bad. Once Devon Corporation started to grow internationally, his father changed the family name to Stone to reflect their beginnings in gem mining and excavation; Steven inherited his interest in studying rare minerals, particularly the evolutionary stones.</p>
+<p>But his dad gets angry, and excited, and frightened, and passionate. No one's ever compared his dad to a stone, not that Steven has heard at least. The calm… that seems to just be him. Excitement, fear, anticipation, anger… all things he understands in abstract more than any stirring in his chest. Losing his mother caused some, as did becoming Champion.</p>
+<p>Steven's pulse, a slow and steady thing even in the heat of battle, has barely changed since the earthquakes and rainstorms began. Even learning about the sudden appearance of the mythical pokemon didn't change that.</p>
+<p>It's only when he <em>sees </em>them that he feels it, the thumping against his ribs, his pulse vibrating in a dozen different places throughout his body, sharpening his focus until every detail seems to burn into his memory.</p>
+<p>The red one is practically glowing in the sunlight, or maybe it's the body itself that's glowing beneath the scales. It's stopped traveling as it fights the other one, whose shape is only visible when it surfaces as a pattern of gleaming white circles and red lines along its body and fins.</p>
+<p>Steven watches as waves rise up higher than a stadium, then crash against Groudon, trying to sweep it out to sea. It roars in defiance, the sunlight seeming to brighten as it stands its ground, then stomps its tail down. A spike of earth juts out of the water, barely missing Kyogre as it dives back under. A moment later it resurfaces on its opponent's other side, multiple jets of water shooting out to pelt Groudon.</p>
+<p>The impact of each jet is audible even above the rain and waves, but Groudon stays upright, then hits the ground again. Boiling magma sends a cloud of steam up near Kyogre, who swiftly retreats from what must be a much larger pocket of heat under the ocean. Steven quickly banks his skarmory to the side to avoid the hot cloud as it spreads upward, unable to tear his gaze from the battle below.</p>
+<p>He thought he'd seen what pokemon could do when he visited Kanto and fought against Articuno. The power they held, power enough to bring a city to its knees.</p>
+<p>What he's seeing now are two pokemon who are turning the planet itself into weapons against each other, and everything happening to his region and those around it is just collateral damage.</p>
+<p><em>Badump, badump, badump. </em>His heart is pounding, his breaths uneven, and despite everything, he finds himself smiling as he raises a hand to his headset.</p>
+<p>"I have them in sight. Still no Pressure." Unless this stirring excitement counts.</p>
+<p>"Roger that, Champion," Drake says. "I'm five minutes away."</p>
+<p>"Three minutes," Phoebe reports.</p>
+<p>"Ten." Glacia's teleport point turned out to be the furthest.</p>
+<p>Ten minutes before they're at full force to engage, since Sidney won't be joining them. As the only Dark member of the Elite Four there's no way he'd be able to reach them anytime soon, which led him to defend Lilycove instead. It's the first time the Elite being Dark has really felt like a liability, but they've never faced a threat that's <em>needed </em>every member of the League before. He'd like to call in every Gym Leader too, and their Seconds and Thirds, but they've got their own troubles to deal with; there's barely a town in Hoenn that isn't facing rampaging pokemon, not to mention damage from the earthquakes and heavy rain.</p>
+<p>He watches the battle for a few more moments, a plan slowly forming. "Some good news, this thing might just be a Ground type. As long as we stay high and mobile to avoid any rocks or steam clouds it sends up, we might be able to t—"</p>
+<p>Groudon's whole body suddenly flares with light, and a beam of superheated air escapes its mouth with a roar, sending clouds of steam up from a whole stretch of the ocean. "Nevermind," Steven says once his ears have stopped ringing. "It just… did something, like a Solar Beam super-charged by a Hyper Beam, but also hot enough to flash-boil the sea."</p>
+<p>"Didn't sound like you had much warning, either," Phoebe comments.</p>
+<p>"Barely a second." Which means they need to get off their pokemon to fight it. "Going to find a place to land."</p>
+<p>Steven scans the area around Groudon for something safe, and notices a group of about a dozen people, close enough to stay within the circle of sunlight while far enough to avoid any of the massive waves that occasionally rise up to batter Groudon. He angles his skarmory to land in front of them. "There seem to be rangers already nearby," he says. "Touching down now."</p>
+<p>"Rangers?" He can hear Drake's frown in his voice. "CoRRNet didn't report anyone nearby..."</p>
+<p>"Yeah, looks like I spoke too soon again," Steven says as he lands. They're dressed in red and black, but they aren't rangers. Rangers don't hide their faces, and he's seen these uniforms before; on the renegades that he helped fight off at the Mossdeep Space Center.</p>
+<p>"You," he says as he slides off his skarmory's back and summons his aggron and metagross, "Should count yourselves lucky that I have a bigger concern right now than a pack of renegades, which are words I never thought I'd say, and leave while you can." His pokemon both shine silver in the bright sunlight as they face off with the dozen pokemon in front of him, taking on battle stances despite the tremors that constantly undermine their footing. Steven trained both to overcome their weaknesses as much as he could, and they're the only ones he trusts to take a hit from something that powerful.</p>
+<p>The pokemon he's facing are heavy on Dark, Poison, Fire, and Ground types, with what looks like the leader fielding the biggest camerupt he's ever seen. The other man steps forward, one hand on his pokemon's orange fur.</p>
+<p>"Hello, Champion." His voice is modulated by his mask, the upper half a visor that shows just a glimpse of the eyes behind it. Most of the glass is covered in some display too small for Steven to make out. "I understand your animosity, but believe it or not, we are here to help."</p>
+<p>Steven smiles, a distant part of him noting that his clothes are already dry, and that the sunlight is actually uncomfortably hot against his skin now that he's holding still. "I won't pretend this isn't a desperate situation, but it's not quite desperate enough to accept help from people I can't trust." Groudon slaps the ground again, and everyone's knees bend as they brace and shift to withstand the tremor. "You have sixty seconds to get out of range before I blow the lot of you to oblivion. Fifty-nine… fifty-eight..."</p>
+<p>The group is silent, or rather their leader is, and they all wait on his cue. Probably incredulous that he thinks he can stop them all himself, and he wonders if they'll call his bluff.</p>
+<p>Of course, "bluff" is the wrong word; he prefers "delay tactic." Not that it might not be interesting to see how many of them his boys could take down, but he needs to save his pokemon's strength if he can help it, and some of the pokemon they're fielding are powerful enough that he'd actually lose.</p>
+<p>Steven keeps counting, carefully not taking his eyes off the leader to check if Phoebe or Drake have arrived yet. He reaches "twenty-four" before their leader pulls a red orb out of his pocket.</p>
+<p>Even in the harsh sunlight, the orb is visibly lit from within. Steven prepares for an attack, but instead the leader just says, "This was the tool to awaken Groudon, and also a way to control and empower it."</p>
+<p>Steven briefly wonders if they're purposely delaying too, but the bait is too good not to bite. "You want me to believe you're not only responsible for summoning that thing, but you're actually controlling it?"</p>
+<p>"Summoning, yes, but unfortunately control was lost. It seemed like our custom programs had tamed it upon capture, but during our tests it began to grow, subtly at first. It soon became too large to be contained in any ball, and shortly after stopped listening to even basic commands."</p>
+<p>"So you raised a pokemon that myths describe as a god, tried to run experiments on it, then were surprised when it escaped?" Steven shakes his head. "Jirachi's tears, haven't you people seen any movies?"</p>
+<p>"Life is not a movie. You have ample reason not to trust me, but consider this: Kyogre was not our doing, and we did everything we could to stop it from rising as well." Another quake nearly drowns out his next words, and he raises his voice to be heard over it. "We were attempting to be prepared for this eventuality!"</p>
+<p>Steven shifts his feet and balances himself with his arms until the quake is past. "I don't see how two island-destroying titans are better than one." Steven takes his eyes off the group for just a second to glance at Groudon, who is advancing again on newly risen land. "Them killing each other would be too lucky, and meanwhile Hoenn is being torn apart <em>and </em>drowned."</p>
+<p>"If Groudon were not here, Kyogre's power would go unchecked. Glaciers would be melting around the planet, releasing enough water to submerge every coastal city in the world, and—"</p>
+<p>Phoebe lands beside him on her oricorio, its violet feathers practically pink in the sunlight. <em>He really hasn't seen any movies, </em>Steven thinks. <em>Or he's watched too many League matches and thinks monologuing is a part of serious pokemon battles.</em></p>
+<p>"Disperse." The normally cheerful Alolan girl's tone is flat as she summons her pokemon. Not surprising, considering he was still broadcasting everything he said to the others; they all know who's responsible, now. Her palossand immediately forms a wall out of the hardened earth beneath them, and her marowak's spinning bone burns brighter than he's ever seen it, making it even harder than usual not to get unnerved. "You will not be asked again."</p>
+<p>The tension among the group has visibly increased, all except for the leader and the two contrasting figures on either side of him. But still no one moves to leave, and after a moment the leader slowly returns the orb to his pocket to free up his hand. <em>And now we fight, </em>Steven thinks, resignation stronger than any other feeling. Drake will be arriving within a minute, and with the three of them even a group this big doesn't stand a chance. What a waste.</p>
+<p>Instead of reaching for his pokebelt, however, the leader raises his hands to his mask... and unclasps it.</p>
+<p>There's a stir of surprise by those around the man, and even Steven takes a moment to understand what he's seeing as the terrorist drops the mask to the quaking ground. A moment later he presses something on his visor, and reveals his upper face as well.</p>
+<p>"Matsubusa." Steven stares at the famous paleontologist as the pieces fall into place, irritation a mild prickle under his skin. "Studying them wasn't enough, you had to prove they were real?"</p>
+<p>"I <em>knew</em> they were real," Matsubusa says, calm voice tinged for a moment with pique. "I had to ensure they were controllable, before someone else woke them with other intentions. Don't be foolish," he suddenly snaps, and it takes Steven a moment to realize he's talking to his own people, whose hands are rising to their masks.</p>
+<p>Soon they're falling to the ground, one after another, and when the large subordinate to his left responds it's out loud. "We will follow you to the end. You should have known that." Steven isn't sure if they're a man or woman, but he vaguely recognizes their round face and wide smile from somewhere… One of dad's employees?</p>
+<p>"Our odds of survival do drop," the girl to his right says in a detached tone as she shakes her hair out after pushing her own visor back, along with the hood that was covering her hair. "But it was not high enough to matter, if we do not survive together."</p>
+<p>Steven watches with mild fascination as Maximilian Matsubusa's face, always calm on camera, twitches with some barely controlled feelings. Max has always seemed similar to himself in the way he emotes, or rather doesn't, and Steven finds himself a little envious. Not of the loyalty shown, which he expects he would receive as well in a similar circumstance, but in the way it so clearly overwhelms the normally stoic man.</p>
+<p>"This is touching, really," Phoebe says, her voice just a hair less cold as Drake finally lands to Steven's other side, his salamence kicking up a mild windstorm as it touches down. "But we don't need your help."</p>
+<p>"You do," the girl says as their leader regains control of himself. "If we leave now, there's a chance it will weaken. Perhaps you will be able to defeat it, but then Kyogre will remain unchecked. How will you stop something this powerful, but underwater?"</p>
+<p>Steven exchanges a glance with Phoebe, then Drake, who looks mad enough to Draco Meteor them all right now. The older man spits to the side from atop his dragon. "I can stop it, aboard the Tidal."</p>
+<p>The first henchman to speak shakes their head. "Your ship, while impressive, is not a match for the God of the Sea on its own, let alone one being assisted by a group of pirates in the stolen Explorer."</p>
+<p>Steven feels his irritation growing as he learns how connected the crime spree that has plagued his region was. "Of <em>course</em> that was related to all this. Next you'll tell me Professor Birch is leading that group?"</p>
+<p>"Birch?" The man(?) sneers. "That close-minded fool <em>laughed</em> at the idea that either could be resurrected."</p>
+<p>"Their leader is a pirate named Archie Aogiri." Matsubusa looks like he bit into a lemon. "We used to work together, until he stole my research."</p>
+<p>"So both of them were awakened on purpose," Phoebe says, her disgust plain. "You made it sound like Kyogre was going to rise on its own, and resurrecting Groudon was insurance."</p>
+<p>"I knew Archie, and I knew Kyogre was real. This outcome was entirely predictable."</p>
+<p>"With eighty-seven percent probability," the girl to his left adds.</p>
+<p>"Uh huh." Phoebe's hands are still on her pokebelt. "So where is this Archie now? Underwater, making Kyogre stronger with another of those gems?"</p>
+<p>"We suspect so," Matsubusa says, "As Kyogre has been growing in strength as well."</p>
+<p>"Then you're saying <em>he </em>should be our target." Steven turns to Drake, who nods.</p>
+<p>"The sea's in as fine a mood as I've ever seen her, but if he's down there, we'll find him and flush him out." Drake salutes, then turns his salamence and guides it into a running leap before it soars off.</p>
+<p>Steven turns back to the group and realizes the rain is approaching them, and glances at Groudon, who looks farther away. It's hard to tell given that it's still growing. "Is it taking the sunlight <em>with </em>it?"</p>
+<p>"In a manner of speaking. It seems to create a localized high temperature atmosphere that—"</p>
+<p>"Forget I asked, we need to move."</p>
+<p>"Then you'll let us help?"</p>
+<p>Steven considers the other man for a moment. "I don't believe you're being honest with me. Or maybe you're just telling the story in a way that makes you look good, and gets us to focus on your rival."</p>
+<p>"Collateral," Glacia suggests in his ear.</p>
+<p>Steven almost nods, and wonders if she's in sight of them yet. He holds out his hand. "If you really mean to help, give me the orb."</p>
+<p>Matsubusa stares at him, then slowly takes the red sphere back out of his pocket.</p>
+<p>The round renegade stirs. "Maxie—"</p>
+<p>"He's right," Matsubusa interrupts, and steps forward past his pokemon. The camerupt tries to stay ahead of him until he gestures with his hand, settling it in place. "We hold some responsibility for what has occurred. If this will help us make it right…" Despite his words, as he steps past Steven's pokemon the Champion can see the reluctance on his face. Matsubusa gazes into the glowing gem for another moment, then slowly, regretfully, drops it into his hand.</p>
+<p>It's warm. No, hot. Burning, but without any real pain. Steven stares into the depths of the sphere, fascinated. It's not a ruby, he's almost sure of that; too flawlessly round, and not transparent at all, somehow. There's a shape within it, gleaming gold… he can almost make out what it is...</p>
+<p>"Steven," Phoebe says, and something in her voice makes him turn to her. "Your ring…"</p>
+<p>He follows her gaze as he turns his hand over, and sees the gem on his ring is glowing, a rainbow flame swirling at its center. "Huh." He feels a mild awe stir in his chest, and looks up at Matsubusa to see naked shock on his face.</p>
+<p>"What sort of gemstone is that?" the paleontologist whispers.</p>
+<p>"Aggronite," Steven says. He shifts the orb to his left hand, and the gem on his ring continues to glow for a moment, then slowly returns to normal… and as he suspected, the gem on the ring of his left hand has started glowing instead. "And metagrossite."</p>
+<p>"I'm not… familiar, with those names..."</p>
+<p>"Yeah, I kind of made them up." He pockets the orb. "Well, we'll figure out what that's about later. Your people will follow our orders, understand? I can't guarantee amnesty after this crisis is passed, but first we need to make sure it <em>does </em>pass."</p>
+<p>"Understood, Champion," the other man says, still clearly preoccupied by what he saw. "We'll focus on Kyogre first, then?"</p>
+<p>"I'd rather take out the one we can more easily get, especially if it will stop the quakes... but if taking this orb away from Groudon will make it grow weaker, then yes, we'll help it beat Kyogre first."</p>
+<hr noshade="noshade" size="1" />
+<p>At first, Kawabata Gyokusho thinks Cinnabar's volcano is erupting.</p>
+<p>It's an alarming thought, but not a catastrophic one. The lab was purposefully built here, after all, with every eventuality planned for, and more added in the years after 2.351 awoke and its capabilities became known. They ran simulations and drills, and even if the entire island gets covered in magma they could still survive in the lab for over a week as they use their pokemon to dig themselves out.</p>
+<p>But instead of rising into an eruption, the shakes dip and rise and continue in sporadic bursts that make the whole structure groan throughout the day. The lab is equipped with the best seismometers in the world, sensitive enough to tell them if a diglett is moving anywhere in the mountain the lab is built into in case the experiment tried to drive other pokemon to attack the lab in an effort to free itself, but the data they're getting from them don't point to any local source.</p>
+<p>It becomes clear that something unnatural is happening when the evening shift begins and the quakes start to chain into each other more rapidly. Eventually there's a crack that everyone in the lab can feel through the floor, and things go downhill from there. Still, it's only when the alarms start to go off that the fear hits.</p>
+<p>Being one of the lab's engineers shielded him from panic when the power cut out, and even when the elevator shaft collapsed. But the alarm he's hearing now isn't one he knows. It's not the fire alarm, or the invasion alarm, or the subject escape alarm. Those would all be <em>better, </em>because by process of elimination, he can now guess what this alarm is<em>.</em></p>
+<p>When Kawabata joined the lab, the end of the interview process included an additional offer to be one of Mewtwo's comforters if he was willing to live in the lab rather than the manor above. The idea that his free time could serve the double purpose of giving Mewtwo–then just <em>the subject</em>–a source of peace and positivity seemed a form of charity, something he was happy to do considering how little it impacted his own happiness; he's always been one of those apparently unusual people who enjoy being inside as much as possible.</p>
+<p>The downside was that, if something happened, he would likely have no chance of surviving. Every scientist, engineer, guard, cook, and plumber in the lab feels the sword hanging over their heads. You can forget it, most days, sometimes even for as long as a week or a month. But sooner or later you remember, and the fear returns, for a few minutes at least.</p>
+<p>Fear of the final fail-safe.</p>
+<p>They don't all know what it <em>is, </em>of course. Or at least, the non-psychic, non-dark employees don't. But they have guesses. Poison gas in the air supply. Bombs rigged in the walls to bury them in rubble. Things that would kill everything in the lab, in case it's invaded by a hostile force set on capturing their research.</p>
+<p>And, since the subject awoke, probably also in case it goes rogue.</p>
+<p>But it <em>isn't </em>trying to escape, and they're <em>not </em>being invaded. The creators of the lab thought through a lot of possibilities, but did they imagine ceaseless, ongoing earthquakes that would make it <em>seem </em>like those things were happening?</p>
+<p>Kawabata is prepared to die if it means keeping such a powerful pokemon from falling into the wrong hands, or becoming another perpetual Tier 3. They all are, or they wouldn't be working here.</p>
+<p>But dying to a freak accident… worse, the subject dying to it, erasing all their progress over the years, removing humanity's best chance at defeating the Stormbringers and other legendaries? Something in him rebels against the thought.</p>
+<p>It's been months, but he remembers the day he met it like yesterday. They were all informed that the subject would be let out of its room for the first time, but he hadn't expected it to just <em>show up </em>at his door, with Sabrina and Giovanni and Dr. Light all there with it, looking into his room as it complimented a drawing he didn't ever name except in his own head.</p>
+<p>The sight of it stayed with him ever since, and he resisted the itch to draw it for a long time, until finally one night he gave in... only to get a distinct feeling of sadness, and quickly destroyed the drawing. He knew that it had been with him, then, and that it didn't like the way it looked.</p>
+<p>The subject has occasionally touched his mind since, always at seeming random, to express gratitude and appreciation for the things he draws. Not being remotely psychic himself, he never knew it was there until he suddenly felt himself experiencing an emotion with no apparent cause.</p>
+<p>He never told anyone that he had an invisible friend when he was young, and he hasn't admitted that it's been a bit like having one again... except real, this time. He'd think things at it, wonder how it felt about stuff going on around the lab that it surely also experienced through others. It never responded to his thoughts in words, but it was still like a conversation.</p>
+<p>It's dangerous to think that way. There are people that aren't spoken of by name in the lab, past employees who left the project for reasons that are never spelled out. But negative space can form a picture too, and eventually it became clear that there's more than one reason no one gets too close to the subject.</p>
+<p>But letting it die just so they can all live, when it didn't do anything wrong… worse, letting it die rather than letting it help save itself, and them all… it feels wrong. More, he can't imagine that Giovanni would want something like that.</p>
+<p>Which means he has to do something about it.</p>
+<p>The alarm cuts off before he finishes putting a fresh voltorb in one of the backup power banks, then comes back on as he goes down the diagnostic list to ensure the transformer is undamaged, then cuts off again by the time he reaches Dr. Light's office. There's already a crowd there, and Kawabata stays near the back and listens as the project leader's harried voice drifts over the sound of the quakes.</p>
+<p>"—a station to get to, get to it," she says. "We ran those drills for a reason, and nothing that's happened so far is outside the scope of Giovanni's predictions."</p>
+<p>"The <em>Sevii Islands </em>are sinking!" someone calls out.</p>
+<p>"Well we're not <em>on </em>the Sevii Islands, are we?" she shoots back.</p>
+<p>"Director, are you saying Giovanni actually knew that Groudon and Kyogre would rise?"</p>
+<p>Dr. Light makes a disgusted sound. "I know this situation is freaking everyone out, Leo, so I'm going to <em>ignore</em> the fact that you just asked me to reveal information that might be above your security cl—"</p>
+<p>Another quake hits the lab, dimming the lights and causing a round of cursing as people are nearly knocked off their feet. Kawabata leans against the wall, feeling it vibrate under his hand.</p>
+<p>"What I <em>will </em>reiterate," Dr. Light continues once it fades, "Is that Giovanni and our security team predicted <em>many </em>circumstances, there's a goddamn flowchart and everything, and we are still within the part that translates to not abandoning the lab while there's still a chance of salvaging it."</p>
+<p>"Have we been in contact with him lately?" someone else asks.</p>
+<p>"He checked in when everything started," Dr. Light says. "We reported what was happening and he told us to stay the course."</p>
+<p>"That was before the power lines were damaged," someone points out. "Have you tried raising him since?"</p>
+<p>"Yes," Dr. Light admits after a moment. "There was no answer, <em>probably</em> because he has other fires to put out!" she yells to be heard over the new outbreak of comments. "I'm not repeating myself again, people. Get to work or I'm going to start writing names."</p>
+<p>The iron in her voice quells the air of potential mutiny, if not quite the panic. The two fears clash silently for a moment, and then the crowd starts to disperse.</p>
+<p>Kawabata almost leaves with them, but after a moment his resolve hardens. He has something legitimate to report, and he can use it to lead into the conversation. He steps into the office once the last person leaves, and weathers the glare Dr. Light aims at him with a salute.</p>
+<p>"Oh put your hand down, Gyokusho, what is it?"</p>
+<p>"Ma'am, the backup generator is online—"</p>
+<p>"I've noticed."</p>
+<p>"—but it's the second-to-last undamaged one we have."</p>
+<p>Her lips purse. "The others are being repaired?"</p>
+<p>"Yes Ma—" Another quake pitches him forward, and he catches himself on the desk as Dr. Light grabs it to steady herself too. After it fades he straightens. "Yes Ma'am, but... in these conditions… with the ongoing damage, there's no way to predict how long we can maintain this. It could be hours, it could be minutes."</p>
+<p>Dr. Light closes her eyes, hands massaging her temples, and he waits in silence as an after-tremor rattles the lab.</p>
+<p>"The stairwells are still unblocked?" she asks at last.</p>
+<p>"One of them is," he says. "The other has some damage, but is still passable with a bit of work."</p>
+<p>"If they collapse while people are in them, those people will die," she says. "If we all stay in here, we can dig through once the quakes pass."</p>
+<p>"Yes, Ma'am." He bites his lip, but he can see the same thought in her weary eyes. <em>If the quakes pass. </em>They'll have to eventually, of course, but it's already been an hour. They might not survive another.</p>
+<p>"You have an alternate suggestion," she guesses. Maybe hopes.</p>
+<p>Still, he hesitates. "Ma'am, what happens if we do evacuate? I mean what happens to… the subject?" He almost said Mewtwo, but one of the "superstitions" in the lab is that thinking of it directly can summon its attention. He doesn't believe it, exactly… and yet.</p>
+<p>"We take it with us, of course," she says. "Its suit can sustain it for nearly four hours now, long enough that hopefully all this would be over and it can return to its pod."</p>
+<p>"I see."</p>
+<p>He doesn't believe her.</p>
+<p>She spoke with such authority, such conviction. Like it was the most natural answer.</p>
+<p>But a moment ago even the simplest responses came out with… more. Call it grumpiness, for she could be grumpy, or stress, as they're all stressed, but there was something that was there and gone between responses, and…</p>
+<p>He shouldn't be thinking about this. He shouldn't be thinking about how, if they have to abandon the lab, there's almost certainly a part of that flowchart that insists on ending the subject's life… or that if it gets to that, she might just trigger the whole lab's destruction.</p>
+<p>It can't be allowed to come to that.</p>
+<p>"Ma'am," he says, swallowing his nervousness. "What if it helped?"</p>
+<p>The office is silent, or as silent as it can be while they hear the dim sounds of frenzied activity through the stone walls and ceiling. "Helped how, Gyokusho?"</p>
+<p>"I'm not sure," he says. "But it can coordinate people, right? And move or hold up debris, maybe it can even sense a quake when it's coming, or help secure infrastructure…"</p>
+<p>"Perhaps," she says. "But its room is the safest, most secure area of the lab. Letting it out in such an uncertain situation to move about the building would be putting at risk the very thing we're all trying to protect." The lights flicker as another quake hits them, and she dismisses him with the words, "Still, thank you for the suggestion."</p>
+<p>"Of course, Ma'am." He leaves the office at a jog to check on the generators again, still worrying over what he said, and what the director didn't say.</p>
+<p>Mixed in with those worries are a feeling of gratitude, and it isn't until he reaches the power room that he recognizes it as separate from himself.</p>
+<hr noshade="noshade" size="1" />
+<p>The director of the Hoenn Weather Institute is having a bad year.</p>
+<p>First a bunch of criminals ransacked the place and stole some of their very rare, very <em>valuable </em>castforms.</p>
+<p>Then the regional grant money was cut to help shore up "other deficits," as if their losses didn't qualify as a deficit worth shoring up.</p>
+<p>Then his wife left him, probably because he started drinking again. He only did that to deal with the stress of knowing the board is probably going to vote him out once the year is over.</p>
+<p>And as if all that wasn't bad enough, or perhaps out of sympathy for his troubles, the world seems to have decided it might be time to just get it all over with… through torrential downpours and earthquakes, of course, so he'll probably be blamed for this too. He can hear his soon-to-be-ex-wife already… <em>Didn't see the storm of the century coming, with all that fancy equipment? Working late with a bottle that night?</em></p>
+<p>He was, as a matter of fact, but his subordinates weren't, and they didn't say <em>shit </em>about any of this. Which is why, while everyone runs around in a panic through the building, he is already drunk as a croagunk on the roof, where tables are set up for people to eat on their lunch breaks or after work. A wide umbrella keeps off the rain as he watches the anomalous weather shift and spread throughout the region, both on his laptop and right in front of his eyes.</p>
+<p>The weather has turned particularly bad around the mountain they're set on, and he can vaguely make out a helicopter as it struggles to fly in the downpour. <em>Doesn't make sense, </em>he thinks for the fifth time as he takes a long pull of bourbon, feeling the burn slide down his throat as he watches the rain come down in sheets. <em>Barely any wind. </em>This much precipitation is absurd on its own, of course. Entirely wrong time of year for it besides, but what does he know, he's just a <em>self-pitying fool </em>with <em>poor administrative skills </em>and…</p>
+<p>The helicopter is spinning out of control. The director watches in sickened fascination as it fights to stay aloft, then to land... but it's falling too quickly, and he raises his bottle in mournful salute as it drops into the distant hills, a brief flash of light signaling its end.</p>
+<p>His other arm rises to wipe his face, and he curses the umbrella for not catching all the rain. Once his eyes are clear, he looks back at the laptop, feeling hollow inside as he sees rain clouds continuing to spread over every region on the island, and beyond them. Satellite comparisons show the ice at the planet's poles are already noticeably shrinking, and there's rising ozone depletion just south of Sootopolis, right above the biggest gap in the clouds. It's nonsensical, the atmosphere thinning should be at the poles for the ice there to be melting… there's no reason they should be melting at all, unless… he switches to measures of the ocean currents, stomach churning as he sees the graph of the temperature rising.</p>
+<p><em>Doomed, </em>he thinks, and raises the bottle to his lips again only to find it empty. He tosses it over his shoulder without a second thought and stares at the screen with eyes that see nothing… not even the thin line that's forming in the clouds above Hoenn, parting the swirling white like a knife to cut its way toward the hole in the atmosphere.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/80/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/82/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -934,6 +634,6 @@ His friend flushes. "To Bill," Red says. "For letting us use his land."<br>
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

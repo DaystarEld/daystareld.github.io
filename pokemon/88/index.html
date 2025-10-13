@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guardian - Pokemon: The Origin of Species</title>
+    <title>Chapter 88: Heeding Whispers - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,22 +329,645 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Guardian</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/87/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/89/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <a href="https://daystareld.com/guardian-1/">Chapter 1</a><br>
-<br>
-<a href="https://daystareld.com/guardian-2/">Chapter 2</a>
-        </div>
+            <h1 class="chapter-title">Chapter 88: Heeding Whispers</h1>
 
-        <div class="chapter-nav">
-            <a href="../87/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../89/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>There's a beat of silence after Artem's announcement, followed by Jean saying, "Well, that's anticlimactic. Back to Celadon, then?"</p>
+
+<p>Red turns to her. "Really?"</p>
+
+<p>"Well, we came to investigate why there were so many of them."</p>
+
+<p>"He didn't say they're back to normal, he said they're <em>all gone</em>."</p>
+
+<p>"Mostly," Artem clarifies.</p>
+
+<p>"<em>Mostly</em> gone, sure." Red steps forward and hands his trainer ID to the receptionist. "Either way, that seems just as worth investigating!"</p>
+
+<p>"Agreed," Jason says. "If anything this is even more alarming."</p>
+
+<p>Blue looks back and forth between them, then nods to Artem. "Fill us in on the way."</p>
+
+<p>They finish registering at the Trainer House (except for Jason, who says he'll be staying with his family) then follow Jason out of the Trainer House and toward the tower, which juts up from the middle of the town like a sundial. In a city it would barely qualify as tall, but as the only building over three stories tall in Lavender it practically looms overhead as they walk down the main street toward it.</p>
+
+<p>"The tower became closed to visitors a few hours ago, after they rushed everyone visiting out," Artem explains, hands stuffed in his jacket pockets against the cold as he walks in the middle of the group so everyone can hear him. "It was really sudden, and they didn't really explain why, just said it was some unscheduled maintenance. There are extra rangers on patrol around it, but I asked around and none of them seem to be new to town, so the tower seems to be empty. But compared to a few days ago, the graveyard around the tower is basically empty of ghosts, so the extra rangers are basically just walking in circles."</p>
+
+<p>"Visitors usually don't encounter many ghosts as long as they stick to the public mausoleum," Jason says from the front of the group. "If they didn't close the tower when there were extra around, why would they close it now that there don't seem to be any?"</p>
+
+<p>"Maybe they're not actually gone," Jean asks. "If we assume they closed it for a good reason, that makes more sense, right? Hard to see how a lack of ghosts would be dangerous."</p>
+
+<p>"All depends what's causing it," Leaf says.</p>
+
+<p>"She's right." Jason's voice is tense. "Unless a dark pokemon got in, the biggest threat to ghosts are other ghosts. If one became strong enough to scare off its competition, it might be more dangerous than a large number of weaker pokemon."</p>
+
+<p>"Scare off," Maria murmurs. "Or consume."</p>
+
+<p>As they walk, Red notices the way some people are hurriedly placing strips of paper over their doors and windows. He's about to bring it up when Blue mutters, "I think the word is out."</p>
+
+<p>"What are they?" Leaf asks.</p>
+
+<p>"Ofuda." Red's katakana is spotty, but he can recognize the five symbols spelling Arceus out on the one hanging above the door of a mixed barbershop and pokemon grooming salon.</p>
+
+<p>"The people who got kicked out must have spread the word," Artem muses. "Or someone in the rangers talked."</p>
+
+<p>"Doubt it was the rangers," Blue says. "They wouldn't want people panicking like this while they still don't even know what's going on. Assuming they still don't, I guess."</p>
+
+<p>"I don't see panic," Jason says, voice mild but firm. "Just reasonable precaution."</p>
+
+<p>"Wait, sorry, still not clear on what's happening," Leaf says. "Those are, what, protective charms? Against ghost pokemon?"</p>
+
+<p>"Against evil spirits of all kinds," Jason says. "Though personally I do not believe such things exist. Many spirits may not be beneficial to humans, but 'evil' implies a malevolent will, which is much like calling a pokemon or virus evil."</p>
+
+<p>From their expressions Red can tell that wasn't the followup sentence the rest of the group expected, but no one seems willing to challenge the idea. Blue glances at Red, as if surprised he's not saying something in response.</p>
+
+<p>The beat of awkward silence is broken by Leaf, who breaks away from the group and walks up to one of the people moving from building to building. The young woman is wearing the white and red of a shrine priestess, and as Leaf approaches she aims a can with a caterpie on it above the window of the grocery store and presses the nozzle, spraying out a brief stream of sticky thread.</p>
+
+<p>"Excuse me, I was wondering… what you're doing? Sorry, I'm not from around here."</p>
+
+<p>The priestess presses the top of the ofuda to the sticky spot, then turns to Leaf, assessing gaze taking in her pokebelt, then jumping to the rest of the group. "Trainers come to the tower?"</p>
+
+<p>"Yes, to research what's been going on recently. Have you heard something?"</p>
+
+<p>"Only that the spirits have fled. We don't know where, but..." She separates a handful of the tags and holds them out to her. "Please, be cautious."</p>
+
+<p>Leaf takes them and nods. "Thank you." She returns to the group, looking dubiously at the paper… but then her nose wrinkles, and she brings them close to her face for a moment before holding them out far from her body. When she gets closer Jason steps forward, and she turns so he can take one, slipping it under his pokebelt.</p>
+
+<p>"They've been soaked in repel," she explains to the others as she peels one off and follows Jason's example. "I thought this was… spiritual?"</p>
+
+<p>"You're like Red," Jason says, seeming amused. "Thinking the world of spirit and matter are distinct and exclusive. The repel is for pokemon, and the prayer is to strengthen the repel against ghost types."</p>
+
+<p>"And that works?" Leaf asks, glancing at Red, who already has his pokedex out.</p>
+
+<p>"Inconclusive," he says after a moment, disappointed. "Come on, how hard can that be to test? I know repel is hard to test in general, and ghosts are fickle, but…"</p>
+
+<p>"But in the meantime, it's still free repel," Blue says, and shrugs as he takes the last one and slips it under his own belt.</p>
+
+<p>Soon after they reach the last block before the gates of the massive cemetery surrounding Lavender Tower. "This is where wild ghosts start to regularly get seen," Jason says, and summons his gastly before taking out his goggles. "Shall we see if these work?"</p>
+
+<p>"What are those?" Artem asks, and Blue explains while the others follow suit. The professor apparently made an even ten, leaving Blue with two spare after he gives Artem one.</p>
+
+<p>Red has to adjust the strap on his three times, during which he hears Leaf say, "Oh, that's bizarre." He turns to see her already looking in the gastly's direction with hers on.</p>
+
+<p>"Yeah, but it's working… mostly?" Artem adds. "I keep wanting to take it off to see more clearly, which is weird."</p>
+
+<p>"No, I get it," Jean insists. "I feel the same, like part of me is convinced the goggles are the problem."</p>
+
+<p>Curiosity burning, Red finally gets the goggles mostly snug before he opens his eyes and looks around. There's a slight loss in peripheral vision, and the glass has an odd tinting effect that simultaneously darkens whatever Red sees while sharpening the colors, but overall it's only a little more restrictive of his vision than safety goggles used to protect against wind, smoke, and powders. He adjusts it once more to try and alleviate the weight of it on the bridge of his nose, then turns and beholds the gastly.</p>
+
+<p>It looks… normal. Or rather, "normal" as he's been taught to see it on monitors and pokedex screens. It's not <em>quite </em>like a camera would capture it; the haze around the dark central sphere seems more opaque, which makes it hard to make out the large white eyes that seem to stare into his soul, or the pink tongue that flicks from its mouth.</p>
+
+<p>But Red sees these things, and they don't make him recoil. No muscles tighten along his spine, no cold sweat pops out of his forehead. Instead a tension in his stomach slowly eases as he realizes that they're not <em>going </em>to come.</p>
+
+<p>"Cooool…"</p>
+
+<p>The others chuckle, and Red takes a step forward before remembering that he shouldn't. He starts to walk around the gastly, and instead of its blank white eyes seeming to follow him, he quickly moves beyond its line of sight and gets to observe the others' indistinct forms through the cloud of its body.</p>
+
+<p>Leaf and Maria begin circling the gastly too, and Red only notices it turning when its eyes come back into sight, following Maria. "Do you think it realizes something's wrong?" she asks, voice taking on a distant tone that he recognizes as her own intense curiosity. "Maybe it's not used to people focusing so directly on it. Or so many. Or maybe it feels our lack of unnerve."</p>
+
+<p>"It's confused," Jason confirms. "But not wary or worried. It's particularly interested in you, Maria. As I suspected, you may have unexplored talent as a medium."</p>
+
+<p>"Oh." Her hands rub down the front of her coat, a gesture Red imagines she picked up from Lizzy. "I'm, um. Not sure what to do with that information?"</p>
+
+<p>"Ghost pokemon sense and manipulate emotions the way psychics do thoughts. As a sensitive, your gift, faint though it is, makes your emotions easier for them to detect and respond to, though it will also make you extra susceptible to wild ghosts we might encounter. But if you've never tried training ghost types before, you might be surprised by how easy it is."</p>
+
+<p>"Nice," Blue says, and smiles at her. "If you can pick one up it would help a lot against Sabrina."</p>
+
+<p>Jason frowns slightly. "If there are only a few left in the area, catching them may make some natural imbalance worse. As I said before, our main objective—"</p>
+
+<p>"Is to study, sure, but if we're attacked it's better to catch them than kill them, right?"</p>
+
+<p>Red starts to suspect, too late, why Blue was so interested in coming, and calls himself ten kinds of fool for not thinking of it right away. He must have been thrilled to hear about all the extra ghost pokemon appearing just before he would be heading to Sabrina's gym.</p>
+
+<p>"We can be careful," Leaf says, and looks between Red, Jason and Jean. "You guys can detect them, right?"</p>
+
+<p>"Yes, though it comes with a risk," Jean says. "Any we sense will sense us back, and might attack. Still, it's better than being taken by surprise."</p>
+
+<p>Leaf nods and taps the ofuda in her belt. "Combined with these, we might be able to avoid any fights."</p>
+
+<p>Blue (reluctantly) nods, and Maria is thoughtfully looking over the gravestone studded hills. Jason joins her, turning a slow half circle to survey the area around the tower as well. "I'd like to do a full search of the graveyard before we attempt to go in. I may be able to learn something from any that have left."</p>
+
+<p>"Let's split up, then," Blue says. "We can let you know if we spot one, while also looking for other clues."</p>
+
+<p>Red makes a point of turning to Jason. "Does that sound good?"</p>
+
+<p>The medium sends Red a pulse of gratitude, then considers this a moment before nodding. "I'll be safe travelling alone. For the rest…" He looks at Blue. "What would you recommend?"</p>
+
+<p>Blue hooks his thumbs in his pockets. "Well, Jean and I are the strongest trainers here, so I could go with Red and Leaf while she leads Maria and Artem… but to be honest, however good you are with ghost pokemon, this is an unusual situation. I don't think anyone should be traveling alone."</p>
+
+<p>"I'm confident that I can avoid a battle with a wild if I encounter one, but I can't assure the same for anyone with me."</p>
+
+<p>"Should we expect observable clues?" Artem asks. "If not, the rest of us are basically just here for muscle, and to help figure out what's happening once we start learning something. Seems silly not to make use of us at every stage."</p>
+
+<p>It's a fair point. Red turns to Jason and shrugs. "At least take Maria with you? You can teach her more about her gift, in case it's something she wants to pursue."</p>
+
+<p>Jason's expression becomes thoughtful again (or at least, Red thinks it does, he's hard to read even without the goggles), and when he turns to her Maria is already nodding. "I'd be happy to learn, if it's not an imposition."</p>
+
+<p>"Not at all."</p>
+
+<p>"Alright, then," Blue says, hand tracing the dive ball at the front right position on his waist. "Artem, sorry, I assumed without asking that Jean and I are the most experienced trainers here. What's on your belt?"</p>
+
+<p>"Oh, that's fine, yeah, I only have two badges. Right now I'm carrying nosepass, trubbish, magnemite, claydol, and electrode."</p>
+
+<p>Blue blinks. "You use an <em>electrode</em>? In battle?"</p>
+
+<p>Red can't tell if Blue is worried or impressed (maybe both), but his own attention is elsewhere. "You only use manmade pokemon?"</p>
+
+<p>"It overlaps with my research," Artem says to Red, then turns to Blue. "I spent a few months at Vermilion Gym last year."</p>
+
+<p>"Alright, well I'm still going to pair you with Jean, since she's our strongest. You two head right, Jason and Maria go straight, and Leaf, Red and I will go left. We'll meet at the far side if nothing is found, then make our way back to the tower entrance. Any questions?"</p>
+
+<p>No one appears to have any, and Blue looks to Jason last. The medium nods, and Blue unclips the white and blue diveball. "Go, Maturin!"</p>
+
+<p>"Woah. She's gotten big." Standing on its hindlegs brings the wartortle's fanlike ears past Blue's head, and her body is as wide as his. When Red brings out Charmeleon his horn only comes up to Maturin's neck, and when Leaf summons Raff, he feels a note of chagrin to see that even the ivysaur is bigger than Charmeleon now. Clearly he needs to spend more time with his starter.</p>
+
+<p>Once the others summon their own pokemon and Blue coordinates their radio frequencies, the three groups set off, and Red starts to pulse out his psydar. He quickly filters the minds of Leaf and their three pokemon out from his attention, then focuses on any new ones that appear at the edges of his "bubble."</p>
+
+<p>Before long he senses a pokemon underground, probably a cubone looking for a meal among the dead. The scavenger goes still as their footsteps approach, then quickly flees beyond his range, and soon after they pass within range of an old couple visiting a gravestone, followed by a small funeral gathering, everyone's minds touched with fresh grief. It's a relatively new emotion for Red to sense through simple observation rather than merger; the only time he felt it in the past was after the storm.</p>
+
+<p>Occasionally he also senses the cautious, tense, or alert minds of rangers, always in pairs as they walk patrols around the tower.</p>
+
+<p>About a quarter of an hour passes without any sense of the alien minds he glimpsed when meeting Jason's ghost pokemon… but instead of relaxing into a less vigilant state, his body remains tense, and he realizes how nervous he is about mentally contacting a ghost again.</p>
+
+<p><em>Don't stress about it. The others can protect us if you're disoriented, and Jason is nearby.</em></p>
+
+<p>Hmm. Usually unpartitioned Red isn't the optimistic one… if he feels safe because of the partition, he definitely shouldn't given that their Spinarak's ghost attack weakened his partition for weeks.</p>
+
+<p><em>Yes, I know. If we get hit by one now, we're in danger of losing all this progress for a while...</em></p>
+
+<p>Red's stomach feels queasy, and he almost thinks it's just from the idea of losing "himself" for a while if the partition stays down. But there's something else, too, some other fear that feels hard to define, and he wishes he could stop using his psydar for a moment to try Focusing on it…</p>
+
+<p><em>No. </em>The rejection is strong enough to make Red stumble a step, and he quickly understands why: whatever he'd been about to poke at was hidden for a reason.</p>
+
+<p>"What's up?" Blue asks, suddenly tense. "Found something?"</p>
+
+<p>"No, just, uh, tripped." His curiosity burns to find out what he's forgetting, what secret might be revealed if his partition goes down... but no, that would defeat the purpose. Whatever it is, his unpartitioned self is worried about being revealed, all he has to know is that it would be bad. Red forces himself to focus on his psydar again. "Still all quiet around us." He realizes with surprise that they've walked halfway around the tower.</p>
+
+<p>"I know we're here for a reason, but it's hard not to hope it stays that way," Leaf says as she tosses a treat toward Raff. The ivysaur catches it out of the air with a vine, and she throws another at Maturin, then Charmeleon, who dashes after it once Red mentally nudges him to let him know it's okay to eat. "This is really nice."</p>
+
+<p>"Less creepy than hunting ghosts in a graveyard should be," Blue agrees.</p>
+
+<p>"Could always come back at night," Leaf says with a grin. "Particularly without Red to warn us if something is coming. But I meant just… the surroundings, I guess. It's oddly peaceful. And it's nice traveling with you two again, no offense to the others." She nudges Blue with her elbow. "You group us three together on purpose?"</p>
+
+<p>"Nah, this split made the most sense. It does let me ask, though…" He turns to Red. "Was I being overbearing?"</p>
+
+<p>"A little," he says, relieved he didn't have to bring it up himself, and that Blue sounds curious rather than upset. "I know you've got the most experience doing things like this, and Jason does too. But, well, he is the one that set things off, and the expert on ghosts…"</p>
+
+<p>"I get it. Been treating him like a quest giver." Blue sighs, breath pluming out in front of him. "Still feels like a waste not to catch whatever pokemon we can find, especially if they're suddenly becoming rare, and I <em>know </em>Sabrina is going to have a couple Psychic/Fighting types waiting for me. Isn't there some way you could attract them to us, Red?"</p>
+
+<p>"I thought about it," he admits. "I don't think any ghosts hunt by sound, though, or by smell. They like to feed on psychics or other ghosts, so Jean or Jason or I would have to just project out something that would make us seem vulnerable enough that any ghosts in the area come to feed."</p>
+
+<p>"Which would maybe get you eaten by a hungry horde." Blue sighs. "Guess I'll just buy a couple ghosts if we don't find any."</p>
+
+<p>"Getting rid of another self-imposed rule?"</p>
+
+<p>"Maybe, yeah. They feel more arbitrary after everything that's happened, particularly my battle with Erika. And I did buy Rive for Surge, so it's not unprecedented. Just wanted to keep my main fighters those I caught myself, if I could."</p>
+
+<p>They walk silently after that, and Red starts to pay more attention to their surroundings. After a minute he decides Leaf is right. There's something calming about the rows of white and grey stone on green hills beneath the grey winter sky. The faint smells of grass and stone and soil come to him with every cold breath, and the air is still and quiet, almost like the world itself is holding its breath in respect of the dead.</p>
+
+<p>He's glad the partition is up, or he'd have a much harder time appreciating all this.</p>
+
+<p>Just as he has that thought, he notices a speck of something falling slowly across his field of vision. He looks up, then to the sides, and stops to take off his goggles, blinking at the brighter world he finds himself in. He rubs the bridge of his nose where the weight of the goggles was resting, then grins as he realizes that what he's seeing is the first snowfall of winter descending around them.</p>
+
+<p>"Ooo!" Leaf sticks her tongue out and tries to catch a falling flake, and Red watches for long enough that Blue nudges him with his elbow. Red flushes and starts his psydar pulses again as he raises his collar and tugs his hat down.</p>
+
+<p>"About time." Blue opens a container ball from his bag and takes out a scarf. "Thought all that shit in Hoenn meant we weren't getting a proper winter this year."</p>
+
+<p>"Glad we did. It's been years since I saw snow." Leaf ties her hair up, then pulls a wool hat out of her bag while Raff makes a plaintive sound and rubs at his nose. "Relax you big baby, it's a snowflake, not an Ice Beam." Still, she withdraws him, and Red replaces Charmeleon with Pikachu while Blue swaps Maturin for Aiko's eevee.</p>
+
+<p>She's grown as well, as tall as Blue's waist. Her black nose lifts to sniff the cold air, then she bounds toward Leaf to nuzzle her legs. "You're really using a Normal type to hunt ghosts?" Leaf asks as she bends down to vigorously rub her fingers through its silver fur with a grin. "Or are you trying to get her to evolve into glaceon?"</p>
+
+<p>"Wouldn't mind a glaceon," Blue admits. "But no, this pretty lady is, in fact, a ghost hunting machine. I bought a Shadow Ball TM so she and Snorlax have coverage. It's not too strong from either of them, but combined with their defensive advantage I'm pretty confident in her ability to handle most things we might encounter."</p>
+
+<p>Red nods speculatively. The research is still spotty, but does seem to point to the Normal pokemon not being consistently "interesting" to ghosts, such that they'll often ignore them in the wild. It's often cited as the only attribute the Normal type can be said to directly possess, though it seems like backwards reasoning to Red. If the label gets put on any pokemon that would not otherwise be called Normal but shares the same attribute, then they've just come up with a "type" to explain a single trait that many, varied other pokemon share.</p>
+
+<p>Still, it can't be denied that it's an advantage if paired with an attack that the ghost is susceptible to. "Good thinking. I actually bought Shadow Claw before I set—" His head yanks up.</p>
+
+<p>The other two immediately turn to follow his gaze, but he knows they don't see them, since Red can't see them either, even with his goggles off; the grey sky is nearly hidden by growing flurries of falling snow. But he can still sense them, just on the edge of his awareness…</p>
+
+<p>"Red?"</p>
+
+<p>"It's okay," he says, and closes his eyes so he can better focus on what he's sensing. "They're not… I think they're unown." There's five of them moving through the air in a loose ribbon. Red brushes some melted snowflakes from his eyelids, then puts his goggles back on and opens them before looking up again. He thinks he can vaguely make them out, though they keep disappearing for a while when he blinks. "They're just flying around above us." He'd love to catch one and try merging with it; he read online that their minds are absurdly simple, even more so than exeggcute, but it still seems like it would be a new and interesting experience.</p>
+
+<p>"Good reminder to get some air support, in case there's more than unown above us," Leaf says, and summons Wise, the noctowl she caught during the Vermilion storm.</p>
+
+<p>"It makes Pikachu the prime target," Blue admits. "But also makes the ghosts more predictable. Don't worry, we'll keep him safe."</p>
+
+<p>Red nods, letting his worry for his pokemon go by leaning into his trust in his friends, and they set off again as Wise soars above them in a protective, near-silent circle. The crunch of their footsteps grows louder as they go from walking on grass to compacting fresh snow beneath each step, and soon snow covers the grass around them entirely, the whole graveyard transformed into something even more stark and colorless… but still beautiful in its own way.</p>
+
+<p>They watch Pikachu and Eevee frolic through the snow and catch up on some of the minutiae of their recent day-to-day lives. Red gets a text from his mother expressing excitement about him being in town and asking him if he's wearing enough layers, and Leaf sends a message to Mr. Sakai to see if he needs help due to the snow.</p>
+
+<p>They're three fourths of the way around the tower when Jean suddenly speaks into their earpieces. "Got one, about 25 degrees from the tower. It noticed me, but it's keeping its distance. We are too."</p>
+
+<p>The three of them are already running when Blue says, "On our way," back, which is quickly echoed by Jason.</p>
+
+<p>The snow is coming down hard enough to limit visibility beyond the tower, but once they reach the top of the hill where it sits they quickly spot the others and start down towards them.</p>
+
+<p>There's two more figures than they expected with the others, however: a man and woman pair of rangers. The man is in discussion with Jean, while the woman examines one of their goggles. As they get closer Red sees that Jason isn't wearing his; instead the medium is standing with his eyes closed, fingers turning his beads as snow collects on the handmade wool cap covering his head and ears. It looks decidedly out of place with his robes.</p>
+
+<p>"...for our investigation," Jean is saying as they get close enough to overhear. The cold air cuts Red's lungs like knives with each breath, and he struggles to draw his next one in quieter. "We were tipped off that something unusual was happening."</p>
+
+<p>"Tipped off by whom, exactly—" The young ranger pauses, having just noticed the three of them. He's maybe Daisy's age, but a square jaw and crew cut make him look older. "Shit, it's the Oaklings themselves." Leaf discreetly elbows Red, who bites his tongue. "These five with you, Young Oak?"</p>
+
+<p><em>Oh boy. </em>But Blue doesn't puff out his chest, simply nodding as he bends down to feed his panting Eevee a treat. "Is there a problem here?"</p>
+
+<p>"No, I just… didn't expect the Professor to send you kids, that's all." His partner, a tall woman with cornrows that end in various colorful beads, has stopped examining the goggles for a moment to also look between the three of them in surprise. Her name tag says Gale on it, and his Nathan.</p>
+
+<p>"Send us? I mean, he knows we're here, but it was our idea to come." Blue is frowning slightly. "We made a public post about our intent to investigate the tower a few days ago?"</p>
+
+<p>"A few days... Oh, because of all the ghosts that were showing up. But if the Professor didn't send you today…" Nathan glances at his partner, but Gale is focusing on the goggles again. After adjusting the strap to fit her, she summons a mismagius. Red instinctively looks away, then remembers he's wearing the goggles and turns curiously back. It looks like a floating puppet, some elaborately designed piece of purple and violet cloth with three red gems embroidered on the front, and painted-on yellow and crimson eyes.</p>
+
+<p>"Huh," she says as she withdraws her pokemon and takes the goggles off. "It really works."</p>
+
+<p>"Shit, how come we don't have this stuff?" Nathan shakes his head and turns back to Blue. "Would your grandfather be willing to make a couple dozen of these for those of us stationed here?"</p>
+
+<p>"Uh, maybe. I can call him…?"</p>
+
+<p>"Please do. We're happy to pay, assuming they don't cost a fortune. In the meantime, we may have to appropriate this gear for our own investigation."</p>
+
+<p>There's a moment of silence, and then a lot of people start speaking at once.</p>
+
+<p>"Wait, but you—"</p>
+
+<p>"—<em>we're </em>here to—"</p>
+
+<p>"—that mean you found—"</p>
+
+<p>"—can help if we—"</p>
+
+<p>"—guys, chill, chill!" Blue says, hands up to either side, and the rest of the group trails off. Blue nods to them (ignoring Leaf's grin) then looks at Jason, who's still standing silently with his eyes closed. "Everything okay, Jason?"</p>
+
+<p>"Yes," the medium replies, voice flat and distant in a way that Red recognizes from their merging practice. He realizes Jason is sweating, despite the cold, and feels guilty for not noticing before Blue did. A quick pulse of his psydar confirms that Jason is attempting to merge with a nearby gastly… and also reveals that both rangers are dark.</p>
+
+<p>"Wait, what's wrong?" Gale's alarm turns her voice sharp, one hand dropping to her belt. "Are you being attacked?"</p>
+
+<p>"Not… quite… from your perspective… perhaps... carry on, please…"</p>
+
+<p>"Don't worry," Blue says to the rangers. "He knows what he's doing. That's what I meant to tell you… we would, of course, be happy to assist by lending you our equipment if needed, but I believe we could be valuable resources ourselves."</p>
+
+<p>Gale is frowning as she looks between them, still clearly concerned for Jason. "We're still trying to determine what's happening here, exactly. We don't want to involve non-rangers until we know what we're stepping into, and if the Professor didn't send you… plus, three of you are psychics, which puts you at higher risk."</p>
+
+<p>"Not just any psychics," Red puts in. If he's going to learn to flex his status, might as well start now. "Jason and I are Sabrina's students, and he's an expert on Ghost type pokemon." He hopes Jason doesn't pick this moment to contest that label. "And Jean is from Celadon Gym."</p>
+
+<p>"That I guessed," the ranger says, voice wry. "And the rest of you? Are you Ghost experts too?"</p>
+
+<p>"Trainer and researcher," Artem says, raising his hand.</p>
+
+<p>"Trainer and journalist?" Leaf tries, raising her own. "Also, I might have special love-powers that help calm psychics and might work on ghosts?"</p>
+
+<p>Both rangers, Artem, and Jean all stare at Leaf while Maria raises her hand. "I'm not really sure why I'm here, other than curiosity and a desire to be helpful. Oh, trainer. But also Jason says I might be a non-psychic medium, which I didn't know existed, so I'd like to stay and learn more about that if I'm allowed?"</p>
+
+<p>"Love-powers," a bemused Jean repeats as Blue murmurs something to Maria.</p>
+
+<p>"Of course, the thing with the abra." Artem looks excited. "You think that might keep you safe from ghosts? Or is there some other experiment you've run that hasn't been publicized?"</p>
+
+<p>Leaf shrugs and tosses a treat up for Wise, who snaps it out of the air. "It seems to calm other psychics that I'm around, though I've only tested it on tame ones, and know they aren't naturally scared of humans, so maybe it won't be as reassuring, but—"</p>
+
+<p>"Look, it's not just about the ghosts," Nathan interrupts. "We're not at liberty to discuss everything, but there have also been a suspicious amount of people moving around the tower over the past few weeks."</p>
+
+<p>"Wait, what?" Blue is frowning at the rangers. "Why hasn't that been mentioned anywhere?"</p>
+
+<p>"Suspicious in retrospect," Gale amends, shooting her partner a look. "We had no reason to suspect anything before, but they seem to have stopped showing up today, which may be related to nearly all the ghosts having vanished. We've reported it, of course, but there's nothing to justify a general bulletin."</p>
+
+<p>"So you thought the Professor sent us because he was told about what's going on," Blue smiles. "When really, we were already on our way. I bet Grandpa won't even read your message until sometime tonight."</p>
+
+<p>"What do you plan to do with the goggles, anyway?" Red asks. "If the ghosts are mostly gone, and the mysterious people aren't showing up…"</p>
+
+<p>The rangers share a look this time, and Gale sighs. "Alright, this is above our paygrade. Better let the sergeant know and see what he says."</p>
+
+<p>Nathan nods and steps away, presumably to make a call, while Blue gives Gale a charming smile. "So what <em>can </em>you tell us?"</p>
+
+<p>Red lets Blue handle that, walking over to Jason with Pikachu trailing him in the snow and settling between his feet. Red drops some berries for him as he studies the medium, who's still standing with his eyes closed, face pale but for twin red spots on his cheeks. His fingers are clutching his necklace beads rather than turning them, and Red feels worry spread through his gut.</p>
+
+<p>"Hey," Red murmurs. "Anything I can do?"</p>
+
+<p>"Nh," Jason grunts back, and swallows. "No… just need… time..."</p>
+
+<p>Jean joins them, and Red turns to her. "Were the rangers here when you found it?"</p>
+
+<p>"No, they saw Jason and Maria running to us and came to see what was wrong." She's still watching Jason, brow creased. "Amazing that he can continue to do this while being attacked."</p>
+
+<p>"While… what?" Red looks back at Jason in horror. "He said he wasn't…" Wait, shit, it's the usual thing he does of framing things in his own way. Red remembers being hit by the spinarak attack again, and winces as he imagines being constantly hit by something even stronger… "How is he doing it?"</p>
+
+<p>"I don't know. Some very specialized and skillful use of amnesia, perhaps, or a unique mental shield… or something in his state of mind that makes the attacks less harmful than they would otherwise be…"</p>
+
+<p>Red considers it a mark of personal growth that he doesn't immediately decide to try mirroring Jason's mental state. Of course, that could just be his unpartitioned self sending him some restraint…</p>
+
+<p><em>Not really. Kind of hard to stay interested in anything at the moment.</em></p>
+
+<p>Red understands; he never did visit Dad's grave, and being around other rangers is sometimes triggering. He's glad the partition is there to keep him able to focus on the puzzle in front of him, but knows he should probably talk to Dr. Seward about how he can build up to visiting the Pallet graveyard.</p>
+
+<p>For now, he needs to focus on the puzzle in front of him. It's easy to think of the reasons to merge with Jason right now: they may be about to enter the tower, in which he may get attacked by a ghost, and there's no other opportunity to try mirroring a live attack since Jason can't exactly order his own pokemon to attack him, and Red doubts anyone else with one would unless Red sets up another research study.</p>
+
+<p>For reasons <em>not</em> to do it now… well those are obvious too. It might go badly and mess things up for Jason, or mess up Blue's plan to get them all involved in investigating whatever is happening. Also it might be really painful and unpleasant to have his partition get ruined for a while if something goes wrong, and that itself might cause bad stuff he can't even think of.</p>
+
+<p>Meaning there are some known unknowns, which Red should probably work to shift to knowns before he tries it—</p>
+
+<p><em>Ask Jason. We don't know what we might face in the tower, and we need to be prepared. It's not pessimistic, I'm being appropriately cautious by planning for things going wrong. Things always go wrong, do you want to lose another friend? No, morbid would be—</em></p>
+
+<p>"Red?" Jean is looking at him with concern. "Are you alright?"</p>
+
+<p>"Yeah, fine. Why?"</p>
+
+<p>"You were muttering to yourself."</p>
+
+<p>Well that's awkward. <em>Better keep an eye out for that. </em>"I was just thinking, I might be able to learn to do it if I could join the merger for a moment. I'll only do it if Jason says it's okay, though."</p>
+
+<p>"Do it," Jason says, almost before Red finishes talking. It takes him by surprise, and he almost asks if the medium is sure before realizing that now probably isn't the time to pester him with questions. <em>Trust him to know what you can handle.</em></p>
+
+<p>He does, when it comes to Ghost pokemon. But first he summons a container box to sit on. Pikachu jumps into his lap and curls into a warm, fuzzy ball, and Red uses the mouse's rapid heartbeats against his thigh to ground himself before extending his senses.</p>
+
+<p>The merger is difficult to focus on at first. While he expected a fierce strain of mind against mind, oddly enough the impression he gets is… calling it a dance would be aggrandizing it. It's nothing so coordinated. Instead the ghost is keeping its distance, while Jason keeps trying to gently merge with it, only to be driven away by an attack for a few moments before trying again. Or maybe "attack" really is the wrong word... in terms of effort from the gastly, they seem like the equivalent of a meowth batting at a hand trying to pet it at the wrong moment.</p>
+
+<p>Most pokemon would probably get more irritated and lash out, but he remembers Jason saying that ghost pokemon experience time, space, and the order of events in very different ways, and this is the first time he's seeing it in action. The gastly seems locked in a loop of indifference, as if everything happening is happening for the first time. In return, the medium is only trying to share one sense at a time, and waiting patiently for more even as he's hit by something that he quickly shuts down. Sometimes it's a memory that gets amnesia'd, or an emotion that he partitions, but whatever the effect, he's ready to abandon that part of himself and (humbly) try again.</p>
+
+<p><em>Humility. </em>It's hard to think of how it wasn't the first thing he noticed, the medium is <em>radiating </em>it, his entire being focused on a sense of unassuming deference to the ghost's preferences and desires. Even his goal to merge is somehow expressed through humility, and once Red taps into it the analogy that immediately comes to mind is his own attitude at Pallet Lab when he had the opportunity to help one of the researchers on some project, no matter how minor his role would be.</p>
+
+<p><em>Let me help, </em>Jason sends without words, only to be hit by something that feels like intense disgust, evoking memories of a time Red stepped in poop barefoot as a child and started crying with the intensity of how unclean he felt, wanting to crawl out of his own skin...</p>
+
+<p>Partition, reorient, extend... <em>Let me learn...</em></p>
+
+<p>Agony, sharp and debilitating, lying with a broken arm that sent pain lancing through him as he struggled to stay still on the forest floor…</p>
+
+<p>Abruptly forgotten, to Jason if not to Red. <em>Let me share...</em></p>
+
+<p>Each repetition lets Red lock down another aspect of Jason's mental state, until little by little a shape emerges, a mental mold to adjust his own thoughts to… except he can't.</p>
+
+<p>Or maybe he can… it takes effort, holding a rubber band tense instead of flipping a switch. The mold is harder to inhabit than any other he adopted, because his own thoughts, his axiomatic beliefs and perspectives, feel spiky, more firmly bolted down, unwilling or unable to fit.</p>
+
+<p>He tries, a bit desperately, to ask his unpartitioned self for help, and is surprised when he gets a response.</p>
+
+<p><em>You can do this. There's nothing another brain can think that we can't, and there's always some value to being able to hold another perspective. I'll keep us safe.</em></p>
+
+<p>Red nods to himself, and tries again. First he revisits one axiom, then the other, then the worldview itself, then the minute to minute attitude… little by little, he feels like he can inhabit his own alternative, a mental state that feels like… like…</p>
+
+<p>...like boggling-prostrate-before-the-universe. A feeling that he's truly free, that he can understand the world's infinite vastness, and simultaneously that he can't, that no one can, and that's how it would always be, and that's okay...</p>
+
+<p><em>Woah. That feels… wobbly. No thanks.</em></p>
+
+<p>The mental state abruptly ends, and there's a feeling of <em>solidity </em>that returns to his mind. Only now can he look back on how it was for those few moments and realize how <em>open </em>he was to anything that might come.</p>
+
+<p>A chill goes down Red's back that has nothing to do with the cold. That level of humility, where <em>anything</em> seemed possible, now feels dangerously like what he worried about before. It's a frame of mind that lets anything in, without preconceived notions or biases… but also without any guardrails or filters. And he has no idea what might come in to stay, if he's not careful.</p>
+
+<p>But his unpartitioned self didn't seem affected by it…</p>
+
+<p><em>No, not at all, which from his side feels like an extra plus we learned.</em></p>
+
+<p>Huh. Red never tried mirroring a mental state while the partition was up, but it's good to know it works like that. He'll have to make sure never to use that particular one while the partition is down.</p>
+
+<p>Red feels it when the gastly finally lets Jason in, and quickly withdraws his own senses so as not to scare it off. When he opens his eyes the group is watching him and Jason, who's sitting on the container box beside him. Jean has a distant look in her eyes, which clears when she meets his.</p>
+
+<p>"I was worried he might get tired," she says, and he realizes she must have led Jason to the box. "Something's changed?"</p>
+
+<p>"Yeah." Red looks at the others again, who seem to be expecting him to say something, but when he tries to speak he finds his throat is dry, and has to drink some water first. That's when he notices the cold sweat on his face and looks back at Jason, concerned. How the medium is able to deal with that, so much more directly and for so much longer… it's hard to imagine that he learned to do it on his own, years ago and with only basic psychic training. He was Red's age at the time, but even with everything Red has learned from his various teachers and tutors, not to mention Jason himself, he's not sure he ever would have figured that out. It's too fundamentally a different way to view the world. "He's okay," Red adds after a moment for extra reassurance.</p>
+
+<p>"Did he learn anything?" Gale asks as she approaches, still holding Jason's goggles.</p>
+
+<p>"Uh, not yet, but I think he might now? That was all just… preparation."</p>
+
+<p>"Damn." She sounds more impressed than disappointed. "Well, Sarge says he wants to meet you all, so we'll head up to the tower as soon as—"</p>
+
+<p>Jason takes a deep breath, eyes opening, but unfocused. He abruptly sags to the side, and Red extends an arm to brace around his shoulders, then holds up his water bottle.</p>
+
+<p>The medium gives him a grateful look as he drinks, then one to Jean, who gently wipes his forehead with some cloth pulled from some hidden pocket of her kimono. When he lowers the water bottle and clears his throat, Jason looks at the gathered trainers and says, "Fear."</p>
+
+<p>The group is silent a moment. "Fear…?" Blue finally prompts.</p>
+
+<p>"That's what it felt, when it left the tower. When it left its home. That's what it felt from the others, before they disappeared… that, and grief."</p>
+
+<p>Silence returns. No one suggests that this is very little information to have gained given what Jason went through to learn it.</p>
+
+<p>Red looks up at the tower, and feels another chill skitter up his spine. <em>Fear, and grief.</em></p>
+
+<hr noshade="noshade" size="1" />
+
+<p>The tower entrance does indeed have a sign regretfully informing visitors of temporary maintenance, but Gale and Nathan lead the group straight in and past the entrance lobby. Red can tell by the others' reactions that he's not the only one here for the first time, and not the only one impressed.</p>
+
+<p>"Pictures don't really do it justice," Leaf murmurs, and Red nods agreement as their feet echo on the clean marble. The combination of white floors, walls, and ceiling makes Red feel like he's walking into a church. Which, he supposes, isn't far off. Even lacking religious iconography the mausoleum has the sacred feel of a spiritual place, one that doesn't make anyone feel excluded.</p>
+
+<p>Normally he knows the halls would be filled with people come to visit the interred dead; he remembers enough history to know that it was built to house the remains of those people and pokemon lost in defense of the town during a Moltres attack decades ago. That was only part of its purpose, however, and arguably its least important one. Built entirely of stone and without windows in order to resist the might of subsequent Stormbringers, it's the town's primary shelter when calamity approaches, able to house its entire population when it was built.</p>
+
+<p>The town has grown since then, and Red figures the pokemon center and trainer house and others help shelter any overflow for emergencies, but the extra burial space the tower started with has been subsequently given over the years to anyone else who died in attacks on the town. As Red follows the group down into the first basement level, he wonders what they'll do when they run out of space.</p>
+
+<p>The sergeant's office looks more like a repurposed storage room, which makes it a bit crowded once they're all inside. The man behind the desk is one of the oldest rangers Red's ever seen; completely bald, with spotted skin, bushy eyebrows, and a thin white goatee that trails to his chest. His eyes are intense, however, and like most rangers Red's met (<em>like Dad) </em>he doesn't stand on ceremony, simply waving them all in and resting his chin on his hands before asking, "How did you all find out about what was going on here?" in a voice roughened with age.</p>
+
+<p>Red gets the impression that half the group (himself included) looks at Jason while the other half looks at Artem, because when he glances back the sergeant's piercing gaze is looking between them expectantly.</p>
+
+<p>"I grew up here," Jason starts. "My old teacher told me about the gradual abundance of ghosts. That's what we came to investigate."</p>
+
+<p>"I came in response to the public post to investigate," Artem says, then clears his throat. "As for the rest, I kind of just guessed? It's not too hard, once you've seen enough rangers covering something up."</p>
+
+<p>Now everyone is staring at Artem, except for Blue, who smirks. The researcher does an admirable job of not wilting from the concentrated attention, until Sergeant Iko nods. "Well, I won't turn away competent help, and Gale and Nathan say you have some skills that might be particularly useful. The question is how much value those skills bring compared to your goggles on one of my own people."</p>
+
+<p>Maria steps forward. "I'd like to volunteer my goggles."</p>
+
+<p>"I would also like to offer my goggles," Jason says, cutting off what Red predicts would be an objection from Blue. "I don't believe I need them to be helpful."</p>
+
+<p>Red knows he should probably offer his too, he's not even the best trainer in the room let alone among the rangers…</p>
+
+<p>"Hold on, guys." Blue crosses his arms, staring levelly at the sergeant. "I'm happy to call Gramps and see how quickly we can get more goggles to your people, but first it would be nice to know what you need them for. There's been no reported incident here to warrant immediate appropriation, so what's the secret danger that you don't want the public to know about? Artem is right, I've been in a situation like this before, down to the ofuda being plastered all over town because the civilians were afraid of things the rangers weren't telling them. Unless your people are all very good at not gossiping, which I'm guessing you're not sure of by the way you asked how we know what's happening, this secret feels like it's only got a couple days of life to it, max."</p>
+
+<p>Sergeant Iko meets his gaze for a few tense heartbeats, and Red imagines the rest of the group is also holding its breath to see how such a bold challenge will be taken.</p>
+
+<p>Then the ranger smiles ruefully and runs a hand over his smooth head. "You have to understand, this is supposed to be the safe retreat for the town. We've done our best to ensure people can <em>feel</em> safe with ghosts randomly wandering in their midst. Luckily, though they give people a fright sometimes, they've only rarely gone really hostile… Until about four hours ago, when some unidentified phenomenon cleared out the top floor. Oak, Tanaka, Birch, Ikeda, Abe, Morty, Harrow, Agatha, everyone who might be interested in this has been told, but it doesn't appear to be directly dangerous, so right now it's mostly an intellectual curiosity. But given the previous build up of ghosts and their sudden disappearance, it's hard not to be worried—"</p>
+
+<p>"What's the phenomenon?" Red interrupts, unable to help himself from getting excited.</p>
+
+<p>"Fear," Jason guesses, voice distant. "And grief."</p>
+
+<p>The sergeant doesn't even look surprised that he knows. "Along with visual distortions, possibly hallucinations. In my case, it was like the walls were closing in; I couldn't stay for more than twenty seconds before feeling like I was going to collapse into a heap and cry like a baby." He speaks with the flat, simple tone of someone relaying what he ate for lunch. "It feels like surreality, but not focused on a particular pokemon, or not one that we've been able to catch sight of yet. It's possible the goggles do nothing, but I'd like to find out as soon as we can what's causing this."</p>
+
+<p>Even this news doesn't keep Red from dancing his weight from foot to foot, and he sees the same excitement in Artem's face. They share a look, and a nod that Red doesn't even understand. What did he just instinctively agree to? Collaborating on a paper? Or maybe it was just an acknowledgement of mutual excitement—</p>
+
+<p>Leaf subtly elbows Red again, and he realizes that he should probably not look <em>too </em>excited. Everyone else seems pretty grim, but come on, it's not like anyone's died.</p>
+
+<p><em>Yet.</em></p>
+
+<p>"And the suspicious people?" Blue asks.</p>
+
+<p>Iko looks from Blue to Gale and Nathan, and Red doesn't need his powers to sense their chagrin. "Still looking into it, but so far we've got nothing. Cameras are hard to keep in good order inside the tower, the ghosts seem to like breaking them, but I've got a man looking through footage around it for the past two weeks and so far no one's been caught doing anything suspicious."</p>
+
+<p>Blue rubs his face. "Just to check… you guys would have noticed if an absol ran upstairs somehow?"</p>
+
+<p>Red remembers his story about the caves. "You think this is Pressure? I guess it does sound more like it than surreality…" He turns to Jason, who looks troubled, but nods.</p>
+
+<p>"Or maybe some ghost has it, but a strong Dark pokemon would probably kill or scare everything away, right?"</p>
+
+<p>"I'm not going to say 'impossible,'" Gale says, "Because clearly something unusual is happening. But I think someone would have noticed if a dark pokemon was running around in here..." She grows thoughtful. "Unless…"</p>
+
+<p>"Unless a renegade summoned it on the top floor," Leaf says, voice grim.</p>
+
+<p>"Or it flew or climbed through a hole in the roof?" Red looks around. "Has anyone flown overhead to check?"</p>
+
+<p>The room is quiet a moment, and then Sergeant Iko turns subtly to Nathan, who nods before stepping outside.</p>
+
+<p>"Be careful," Blue calls after him. "It might actually be <em>on </em>the roof!"</p>
+
+<p>"I'd like to request permission to check the top floor with your rangers," Jason asks the sergeant. "At the very least I'd like to go to the second or third floor and see what I can sense from there."</p>
+
+<p>"I'd like to go with him," Red says, and Jean adds, "As would I."</p>
+
+<p>"Me too." Artem shrugs. "Not a psychic, but there's not much else I'm here for."</p>
+
+<p>"I suppose I can join, just to listen in," Maria says, and Blue smiles at her before turning back to Iko.</p>
+
+<p>"Assuming that's okay with you, I'll step outside to call my grandpa and make sure he got your message." Blue unclips a container ball. "Meanwhile, there are three spare goggles for your people to wear in here, and the rest of us can lend you ours if you want to try another check of the top floor."</p>
+
+<p>The sergeant taps his fingers on the desk, then looks at Gale. "Call everyone in. If something goes wrong, I want to make sure we're ready to handle it." She nods, and he turns to Blue. "Go ahead. If he can make more goggles for us I'd appreciate it, and if he can't come himself—"</p>
+
+<p>"A new phenomenon like this, possibly a new pokemon?" Red grins. "He'll be here."</p>
+
+<p>"—well, then I want to be able to provide him with as much info as we can. Gale, tell Aimi to watch the door."</p>
+
+<p>"Yes, Sir."</p>
+
+<p>She leaves, and Iko gets to his feet, scanning the group once more before saying, "Welcome aboard."</p>
+
+<p>They go upstairs, and Red uses the downtime to visit the washroom, feeling nervous flutters in his stomach at the idea of what might be waiting for them at the top of the tower. Little by little the excitement gets dwarfed by something else: the memory of the casino, of being trapped in rubble, in pain while people died and fought around him…</p>
+
+<p>He takes a deep breath, tries to ground himself in his body. Simple sensations, like the feel of his shirt and jacket and hat, the press of the ground against his shoes. What's the worst case? Renegades with some pokemon that can use pressure, but with a small army of rangers, we'll probably be fine.</p>
+
+<p><em>There might be casualties. And even that's not </em>really <em>the worst case, there are many others, like some new pokemon with abilities we can't imagine, or even a new legendary, freshly born and ready to wipe out the town if bothered…</em></p>
+
+<p>"Get a grip," he mutters, staring at himself in the mirror. He's overcome fear before, he can do it again...</p>
+
+<p><em>Except for that one time…</em></p>
+
+<p>Red shakes his head, growing angry at his unpartitioned self now. They've had months to look into how justified that decision was, and so far they haven't because unpartitioned Red is still having trouble bringing himself to do so, but they made an agreement (back before they were simultaneously around and he was Sad Red or whatever) not to think that way until they do.</p>
+
+<p>"I don't know what's gotten into you," he says to his reflection. "But you treat being the unpartitioned one as if it automatically makes you the undisputed leader. There's not much I can do about that, but if you're going to act like the leader, start <em>really </em>acting like one rather than switching between bossy and pessimistic."</p>
+
+<p>Silence from his unpartitioned self. Which is just great, as if he needed to feel <em>more </em>awkward about talking to himself…</p>
+
+<p><em>Sorry.</em></p>
+
+<p>Red blinks, then nods, washing his hands one more time just to give himself time to think before he heads outside. They know what to do. Premortem, plan for failure modes, ready contingencies.</p>
+
+<p><em>Right. And avoid direct contact with ghosts.</em></p>
+
+<p>But… the new mental state… new species!</p>
+
+<p><em>We don't know it's a new species, and we don't know how well the new state will work for us yet. Play it safe, let someone else catch it if it exists, study it later.</em></p>
+
+<p>Red can't argue with that, it's not like he's going to be storming the top floor himself. He sighs, acknowledges the point, then leaves the washroom to rejoin the others. By the time he finds them the lobby of the tower has rows of rangers standing at attention as Sergeant Iko relays the plan. Nathan is back, still wearing his riding gear, and Blue standing by the others. He grins as Red approaches.</p>
+
+<p>"Gramps is coming, along with a small team. He also said he'll reach out to Agatha; busy or not, he said she'd be interested."</p>
+
+<p>"That's great," Red says, already feeling relieved. "Anything on the roof?"</p>
+
+<p>"Nope. So it's probably a ghost. Or renegades, but why they'd hole up at the top of the tower pushing out Pressure is beyond me."</p>
+
+<p>"I was thinking, we should do a premortem. Get Iko involved."</p>
+
+<p>"Already suggested that," Leaf says with a grin. "Blue and Jean backed me up, apparently they do it all the time at her gym."</p>
+
+<p>"I'd like to claim credit, but they were doing it before I got there," Blue says. "Iko said we'd have time while waiting anyway. Look, he's talking about it now."</p>
+
+<p>"...planning that may be helpful to ensure we're covering all our bases." The sergeant gestures toward their group. "The whole thing might get tossed out once the big brains get here, but I don't intend to be seen as sitting on my thumbs waiting to be rescued. Do any of you?"</p>
+
+<p>"No sir," the crowd chants, and Red feels a tug in his belly as he glimpses the Ranger Corps' inner world for the first time in a while. The sense that his dad carried with him all the time, of being one who acts, who protects others, rather than being protected. He remembers his mom saying, with both exasperation and affection, that most rangers she met struggled to ever see themselves in a weak or helpless role, and that his father was no different.</p>
+
+<p>"Didn't think so. While most of us prepare, a small team will accompany the psychics up to the third floor to see what they can learn. Vera and Seto, you're with me for planning. Hiro, Xavier, Gale, go with the psychics. Jon and Nathan, full equipment check. Hop to it everyone."</p>
+
+<p>Most of the two dozen rangers start unbuckling their belts and supply bandoliers, while six approach the group. As Iko hands the extra goggles they brought to the rangers that would be accompanying Jason, Leaf turns to Red and smiles. "Good luck."</p>
+
+<p>"See you soon." He steps away from Leaf and Blue and makes his way toward the stairway with the others. It's wide enough that they can walk three abreast, and Red ends up in the third row with just Artem, who turns to him as they start climbing.</p>
+
+<p>"Hey, you know the Professor, right? Is he going to, uh…"</p>
+
+<p>"Steal all the glory?" Red smiles. "No, he's great about sharing. I don't know if that's always true, but as far as I've ever seen he likes to be included, but prefers watching other people learn."</p>
+
+<p>"Great, because <em>this is awesome.</em>" The older boy grins. "I thought there might be some interesting phenomenon here, but we might actually be among the first people to see a new species! It might even be an artificial pokemon."</p>
+
+<p>"You think?" Red considers their surroundings as they reach the second floor and walk across toward the third. "I guess there's not a lot that's natural for it to use." Hallways in either direction from the main corridor are filled with cushioned benches and seats, incense burners, and small fountains, while the walls are lined with sarcophagi nameplates.</p>
+
+<p>"Yeah, assuming it didn't arise out of a pillow or something there's nothing here but stone and bones. Let's see, full list might be Ghost/Rock, Ghost/Ground, Ghost/Water, Ghost/Fire if we're counting the incense… hey, we could find an Electric version of the lampent line if it comes from a light fixture. I always wondered what came first, there, the candle, the lamp, or the chandelier…"</p>
+
+<p>"It could also just be another Ghost/Poison," Red points out as they reach the stairs to the third floor (it's strange to be in a place where the stairs only go up one floor at a time and are located so far from each other). "No reason all pokemon that come from a decomposing body have to be the same species, right?"</p>
+
+<p>"Yeah, but… eh. Seems boring." He smiles. "Not scientific, I know. We don't even know if it's a new species yet. Still, if it <em>is </em>a new species, I'd prefer some variety."</p>
+
+<p>"We've got enough Poison pokemon in Kanto already anyway," one of the rangers just ahead of them grunts.</p>
+
+<p>They reach the third floor, and the pace slows as Jason looks around, then finds a hallway full of cushioned chairs and benches to sit in. First he finds a small fountain, which he uses to wash his hands in the same cleansing ritual he does at home. As he does so, Red sees some tension leave his shoulders, and then he sits on one of the benches, folding his legs beneath him.</p>
+
+<p>The rest of the group joins him except for the rangers, who stay standing. He looks around at all of them, seeming a bit unsure if he should say something, until Gale prompts, "Is there anything we can do for you?"</p>
+
+<p>"No, thank you. Just… be ready."</p>
+
+<p>"What should we expect, as a worst case scenario?"</p>
+
+<p>The medium hesitates. "There's a very small chance that it attacks us?"</p>
+
+<p>The rangers share glances, then begin summoning their pokemon: a krokorok, bisharp, and Gale's mismagius again. It's unusual for a dark trainer to raise psychics or ghosts, and Red reminds himself to let Blue know she is one in case he wants to ask her questions about it.</p>
+
+<p>Red wonders if he should summon his own pokemon, but no, there's limited space in the hallway and he's not here for that. Instead he closes his eyes and breathes deep, briefly touching the minds around him.</p>
+
+<p>Jason, most familiar, is preparing himself for what he expects is going to be another painful attempt to commune with a wild ghost. Red sends him a pulse of reassurance and confidence, which he responds to with gratitude.</p>
+
+<p>Maria is second most familiar to him, worried and uncertain of herself, but also excited and curious. Artem is buzzing with curiosity too, and he can't sense anything from Jean but cautious anticipation, which mirrors what the two rangers beside Gale feel as they prepare for whatever happens. Red is careful not to linger on the mismagius, but just sensing it is enough to feel uncomfortable, the psychic equivalent to a room full of overlapping voices that he can almost make sense out of.</p>
+
+<p>"I'm going to begin," Jason says, and Red focuses his attention on him. He can't reach as high as the tower's top floor himself, but he can watch as Jason extends his mental senses up… not literally, of course, Jason's mind doesn't actually go anywhere. But he can tell Jason finds something because his tranquil thoughts suddenly ripple with unease, then grief.</p>
+
+<p>Red watches him attempt to do the same thing as before, to partition the emotion away. It takes him longer, and Red catches a splash of what he's feeling, having to push down his own memories of Aiko and his dad until he can focus again…</p>
+
+<p>And notice that Jason is still struggling with grief. Struggling to partition it again, and again, and again… more and more keeps building up, and Jason just keeps himself open to it, stays humble in accepting what the Ghost is pushing onto him, so much that Red has to switch to boggling-prostrate-before-the-universe himself just to keep himself from wallowing in memories of Aiko's laugh—</p>
+
+<p>—her father's tears—</p>
+
+<p>—Dad's smile—</p>
+
+<p>—Blue's heart-wrenching sobs as a child, a memory he barely remembers—</p>
+
+<p>—loss, and grief, so much grief—</p>
+
+<p><em>Yes, </em>Jason says, not with words but with being as he accepts the pain and extends an open hand for more, tries to form a connection. <em>Understanding. Agreement. Shared sorrow.</em></p>
+
+<p>But it doesn't stop, and Red finally recognizes that something is wrong when Jean projects not just worry but alarm, and it doesn't reach Jason. Red tries to do the same, and the openness that Jason holds forth just… doesn't see it. Is too full of what he's sensing from the ghost.</p>
+
+<p>Red forces himself to ground and opens his eyes to see the medium's face twisted in grief, tears pouring down his face. Maria is sitting beside him with his hand in hers, but looks unsure what to do, and Red feels dread and horror rising up in him. Trapped, Jason is trapped, there's got to be something he can do...</p>
+
+<p>"Hey," Jean says, kneeling in front of Jason and gently shaking him. "Hey, come on, Jason, come back! Grey!"</p>
+
+<p><em>Think. What would he do for you?</em></p>
+
+<p>Red is frozen with indecision for a moment longer as the Rangers start to tersely discuss carrying him downstairs, then rushes up and to the fountain. He takes the ladle and fills it, then carries it back to Jason and holds up his palm. <em>Don't mess it up. Left hand… right hand… left hand… </em>He lifts the hand to Jason's lips so he can drink, come on drink…</p>
+
+<p>Jason's lips twitch, and Red lets his hand drop, then hurries to pick up one of the incense sticks, heart pounding as he moves it over Jason's body. Placebos are real, it doesn't matter if they make sense they're <em>real, </em>they have <em>real </em>effects, come on Jason wake up…</p>
+
+<p>Almost too late Red remembers the prayer beads, and he takes Jason's hand and brings it up to his necklace, moving the fingers over the beads… and letting out a breath of relief as they tighten. And move.</p>
+
+<p>He holds the stick where it is, just under Jason's nose, and the rational side of him insists that that's what makes the medium finally twitch and shudder and open his eyes, nose wrinkling. Red moves back just in time to avoid being sneezed on, and everyone lets out a breath or cry of relief as Jason blinks and wipes at his streaming eyes.</p>
+
+<p>"What the <em>hell</em> was that?" Gale asks, looking relieved but also vibrating with adrenaline. Or maybe that's just Red projecting; he sits back onto his bench, legs weak with relief as Artem claps him on the shoulder.</p>
+
+<p>"New pokemon," Jason coughs out. Maria hands him a water bottle, and he takes a long drink before clearing his throat and trying again. "Don't know what it is. Strong. Angry." He takes a shuddering breath and closes his eyes, wiping at them with his sleeve again. "Mad with grief."</p>
+
+<p>Gale stares at him, then nods. "Alright, back down we go. Can you walk?"</p>
+
+<p>"Yes." He still leans on Maria's offered arm, looking wobbly, and turns to Red. "Thank you." He looks at Jean. "Both of you. I could sense you, but…" He trails off, then looks up… and blood drains from his face. "Oh."</p>
+
+<p>Jean frowns, then goes stiff and breathes out, "Oh..."</p>
+
+<p>Gale looks like she wants to grab and shake them. "Oh, what 'oh?' What's 'oh' mean?"</p>
+
+<p>Red was shielding as soon as he ended the link with Jason, relying on his partition to deal with the residue. Now he lowers it to send his own psydar pulse out, and what comes out instead is "Fuck" as he feels the swell of grief return before he can even do anything. He slams his shields back up and turns to Gale. "It's projecting now, because... it might be uh, suicidal. So…" He remembers what he told Blue earlier and feels his heart kick back into high gear. "I think we're going to have company soon."</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/87/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/89/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -340,6 +984,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

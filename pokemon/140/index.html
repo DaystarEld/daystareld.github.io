@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Therapy Practice - Pokemon: The Origin of Species</title>
+    <title>Chapter 140: Inheritance - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,29 +329,372 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">My Therapy Practice</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/139/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/141/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <!-- wp:paragraph --><br>
-<p><em>(Using this as a landing page for anyone looking for remote therapy. To learn more about my general thoughts on therapy topics, please check out my <a href="https://daystareld.com/blog/">blog posts</a>)</em></p><br>
-<p>I work as a licensed Marriage and Family Therapist, primarily through systemic and existential models. My private practice involves remote therapy, and I’m open to new clients at this time.</p><br>
-<p>No matter what modality a therapist uses, the two most important things required for growth in therapy are that 1) the client wants to change, and 2) the client trusts and feels comfortable with their therapist. I assume that every client I see wants to change, and so I focus on ensuring that I’m the kind of therapist they need: empathetic, curious, non-judgmental, and knowledgeable of the best practices for whatever challenges they’re struggling with.</p><br>
-<p>My model of therapy is non-hierarchical. As the therapist I have education and experience, but the client always has expertise on their own life, history, and what works and doesn't work for them. I utilize evidence based therapies (such as CBT/DBT, Internal Family Systems, Solution Focused, and Narrative therapy), and my focus is always on ensuring that I’m not just providing a non-judgmental ear, but also access to a knowledge base and depth of experience that can supplement the client’s own understanding of their life and difficulties to achieve measurable growth.</p><br>
-<p>I believe the goal of therapy should always be to give the client tools and understanding they need to figure out not just how to overcome their current challenges, but also others they may encounter in life. To that end, therapy is a place for open exploration and learning what can be done differently to achieve goals that will lead not just to happiness now, but flourishing throughout life.</p><br>
-<p>I’ve assisted clients going through everything from divorce to grief to addiction to depression, and have the most experience and knowledge with interpersonal and relationship difficulties, as well as self-insight and self-esteem. Among other things, I’m happy to teach meditation and Focusing to any clients who believe it might be helpful to them.</p><br>
-<p><strong>If you’re looking for remote therapy, email me at damon@polarisguidance.org to discuss rates and availability.</strong></p><br>
-<p>I also “specialize” in therapy for those in the Effective Altruist and rationalist communities, who may have an extra hard time finding therapists who share their values and methods of thinking about themselves and the world. This often includes difficulties with motivation, guilt about impact in the world, desire for evidence-based methods of determining a course of action, therapy for non-monogamous relationships, and having a philosophy of grief and hardship that doesn’t include spirituality or religion.</p><br>
-<!-- /wp:paragraph -->
-        </div>
+            <h1 class="chapter-title">Chapter 140: Inheritance</h1>
 
-        <div class="chapter-nav">
-            <a href="../139/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../141/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p><p style="text-align: center;">Chapter 140: Inheritance</p>
+Blue walks into Viridian gym's largest arena ten minutes early for his final pre-badge challenge. The earthy smell of the soil between the trainer platforms is rich in the air, and he slowly walks a path around the semi-designed terrain, scuffing the dirt beneath his shoe tip to see how dense it is, thinking of his first matches at Pewter.</p>
+
+<p>It's been nearly two years since he entered his first gym, and here at his last, what Blue appreciates most is to once again do nothing but eat, sleep, and breathe pokemon battling.</p>
+
+<p>There was a purity to it when he first arrived at Pewter, and even Cerulean. He was alone back then, even though he traveled with Red and Leaf; both went off to do their own things each time, and he had nothing to do but sink entirely into running drills with his pokemon, studying new potential strategies, and battling trainer after trainer.</p>
+
+<p>Then Vermilion happened, and he had Aiko to train and bounce ideas off of, and met Glen and Elaine and Maria and so many others who traveled with him from place to place, and his focus was still on battles, but also on finding better ways for gyms to teach and coordinate around what mattered. He still focused on battles, still spent most of his time and energy on making sure his team was ready for the badge challenge, but there was also always something else to do, something else to focus his attention on if he needed a break, or even if he didn't.</p>
+
+<p>Viridian Gym has been a return to his beginning, and even once his friends arrived it's been different. Some were here for their fifth, sixth, and in Glen's case seventh badge. No one else is doing their eighth. They trained together, ate together, laughed together, but there were no long meetings about the gym culture, no nearby emergencies to coordinate help with, and no scenarios to design or run.</p>
+
+<p>Blue thought someone would suggest that last one. He thought at least one person would bring up some part of the gym culture that they could change. Instead they focus on building their teams up, on training hard, on countering each other, then countering the counters, then countering those, day after day.</p>
+
+<p>He wonders if they talked about it without him. About just treating the gym like a normal gym, for once. About not distracting him from his goal.</p>
+
+<p>If so, he's grateful.</p>
+
+<p>Because the week he's spent at Viridian makes it clear that a part of him missed the purity of it. The ability to let it fill every corner of his thoughts, to crowd out his worries about Red or the ninjas or Rocket, so that even in his downtime, new thoughts occur to him in the shower or at the store.</p>
+
+<p>He kicks over a small rock embedded in the ground, then kneels to feel how damp the soil is beneath the surface. It's too much effort to replace all the soil after every battle where water attacks are used, and they're used often at this gym. Damp patches could make Grass moves like Ingrain more powerful, or impede Ground pokemon movement…</p>
+
+<p><em>Nidoking and Gliscor for anti-Grass…</em></p>
+
+<p><em>Torterra and Stunfisk for anti-Water…</em></p>
+
+<p><em>Steelix and Camerupt for anti-Ice…?</em></p>
+
+<p>Blue dusts his hands off and stands. He's been doing his best not to think about what Giovanni would field against him, as the imagined voice of his "Shoulder Red" suggested. Instead he's focused on building one of his dream teams, independent of any predictions that Giovanni might himself predict and counter. But the thoughts are intrusive, and require at least a little deliberation before he can get his brain to shift to thinking over his own team again, hand tracing the balls clipped to his belt.</p>
+
+<p><em>Corviknight</em>. Extremely powerful pivot, able to strike hard and retreat fast if needed, or win a slugfest against a wide range of walls, while providing great protection against traps to boot. It's slower than Zephyr, but much tougher to take down, particularly from Rock attacks. He'll just have to watch out for a Smack Down.</p>
+
+<p><em>Breloom. </em>Training a replacement for Gon has felt bittersweet, but he definitely wants the sky-high strength of the Grass/Fighting on his side to take down any Ground/Steel types Giovanni brings out, not to mention tank both Ground and Rock attacks, plus any Grass or Electric attacks that might be aimed at…</p>
+
+<p><em>Maturin. </em>Keeping his starter on his belt is how he avoids completely capitulating to the extreme efficiency of the rest of his team. A blastoise has a lot to offer in a battle against Ground pokemon, but aside from all that, Maturin has been with him from the start, and optics aside he'd be damned if he didn't bring his starter to the end of his badge journey.</p>
+
+<p><em>Weavile. </em>Extremely quick and vicious, trained extra hard to outspeed anything Giovanni fields against it, even if he tries to get sneaky with a dugtrio. Blue is trying hard not to predict the Leader beyond the general anti-Ground focus, but he genuinely didn't need an excuse to buy the weavile; it's been one of his favorite pokemon since even before he found out he was Dark, since it's one of the few pokemon that outright prey on Dragons.</p>
+
+<p><em>Gliscor</em>. Sharp claws, an extremely tough shell, and it still manages to be faster than most Ground types. Gliscor's ability to fly over Ground attacks <em>and </em>shrug off Rock attacks if it gets knocked down, not to mention the wide range of attack types it can learn, makes it an incredibly versatile physical bruiser… and it even heals from poisons in case the enemy tries to make it a battle of attrition.</p>
+
+<p>And, last but not least…</p>
+
+<p>Blue sits on the edge of the arena, and unclips the last ultraball from his belt. He rotates it in his hand, letting the light gleam along the yellow highlights.</p>
+
+<p>It cost him more than the others he bought put together, and so few are sold that it's going to be extremely obvious he bought it fully evolved rather than as something he secretly trained for months. If any purchase is going to bring him grief, from both haters and fans, it's this one.</p>
+
+<p>Part of him would even agree with them.</p>
+
+<p>The opposite door opens, and Arnaud walks in, steps echoing through the empty stands around the cavernous arena. The gym's Second is a Kalosian with a wirey frame and short, silver hair. He's about a decade Giovanni's senior, and became the Leader's right hand within a month of the young Champion's conquest of Viridian Gym.</p>
+
+<p>Blue has seen him in the news a number of times when Viridian has had an incident that caused the gym to mobilize. It's hard not to think of him as "secretive" or "private" because, unlike most Seconds and Thirds in the region, he doesn't have an online presence or do any sort of media appearances in general; <em>most </em>Viridian Gym members don't, in fact, which is why it might be unfair to judge any individual that way. Maybe it's a suggestion from Giovanni, maybe it's just part of the culture to avoid people spending too much time polishing their ego or something.</p>
+
+<p>He's been personable enough as an instructor, but not particularly social in the day-to-day events at the gym. Blue is hoping that once they've battled the older man will be up for a chat now and then.</p>
+
+<p>Arnaud approaches him at the edge of the arena rather than going straight to his platform. "Hello, Oak. That the reason we're here?" The man's light blue eyes go to the ball in his hand.</p>
+
+<p>"Yeah." He stands. "Last arena wasn't quite big enough."</p>
+
+<p>"So I heard. And now you get a preview of what battling here will be like."</p>
+
+<p>"Not my goal, but it's a nice bonus."</p>
+
+<p>"Well, let's see it."</p>
+
+<p>Blue hesirates for just a moment, then points the ball at an empty patch and presses the release.</p>
+
+<p>The stream of white energy pours out in a flash to form the dragonite's silhouette, and an eyeblink later it's there, weight immediately compressing the packed earth beneath its feet.</p>
+
+<p>It stands calmly, orange scales gleaming under the gym's lights. Its proportions were odd to see up close for the first time, body bulky with muscles that ripple with every movement. According to the listing it evolved a week before it was put on the market, which makes it relatively young, but it's still big enough to tower over Blue if it stands on its hind legs. As for power, like age, it's a relative thing; even the youngest dragonite is stronger than most pokemon on a trainer's belt.</p>
+
+<p>It doesn't make any sudden movements, but Blue's instinct is still to take a step back as it takes a deep breath, nostrils flaring. Its head slowly rises, antennae undulating as it takes in the unfamiliar surroundings, and its tail shifts slightly to compensate for the uneven ground as it settles into a balanced stance.</p>
+
+<p>"I see how the last arena wasn't large enough," is all Arnaud says, but there's clear admiration in his gaze as he looks the dragonite over. "Why this?"</p>
+
+<p>Blue stares at him, unsure how to answer such an open-ended question.</p>
+
+<p>"Why this pokemon, specifically? Flying, sure, good against Ground. Powerful, sure, but there are others in its class. Why dragonite?"</p>
+
+<p>"It's symbolic." Blue shrugs. "My grandpa's dragonite, Goldie, is well known, and this one isn't one of its kids, but the symbolic inheritance is there. There's Lance's trio, of course, and I plan to take his place. But it's also symbolic of Indigo." He looks over at his dragonite, which he has yet to name. "Other regions have their own powerhouses, most of which are even dragons. But this one is ours."</p>
+
+<p>"Mmhm. So how worried should I be?"</p>
+
+<p>The words hurt more than he expected, another sign of his unclean conscience. "Wouldn't bring it into a gym if I didn't think I could control it."</p>
+
+<p>"Never been wrong before?"</p>
+
+<p>Blue stares at him, but Arnaud is still looking over the dragonite, walking a slow circle around it now. His pokemon's sharp gaze follows the older man, neck craning surprisingly far around, then tilting up and rotating so that he doesn't leave its line of sight. "Sure. But I've gotta risk it sooner or later, and we did fine against Rohin."</p>
+
+<p>It was a close thing. Even basic, reserved attacks are delivered with such power that he feels mildly lucky he got through the first few training matches without crippling any of his friends' pokemon. But it only took him a few battles to feel comfortable using it competitively, and without it he's not sure he would have beaten the Gym's Third, whose team included a flygon strong enough to survive Maturin's Ice Beam and then take her down.</p>
+
+<p>Blue kept his dragonite on his belt the whole match, hoping not to need it, but as his last resort it proved to be devastating. The (admittedly already weakened) flygon went down with one blow, and the rest of its team didn't fare much better.</p>
+
+<p>But it's not the risk that has Blue feeling split about his decision. He doesn't think it's arrogance at this point to believe he can manage a dragonite's power, hard though it was.</p>
+
+<p>It's the part of him that wishes he could have made it at least to Victory Road with just his own catches. If he hadn't started feeling the time pressure again, maybe he would have. It feels like skipping ahead, like jumping up the power ladder, because it undeniably <em>is</em>. He worked hard to make the money he used to buy it, his own money rather than his grandfather's, but a trainer just as good as him who didn't have the connections and opportunities would be justified in feeling left behind.</p>
+
+<p><em>Glen</em> would be justified in feeling left behind.</p>
+
+<p>Still… he can't deny that it feels good, having this much power in his hand. <em>Using </em>this much power, and feeling capable of handling it.</p>
+
+<p>He's looking forward to feeling it again.</p>
+
+<p>"So I heard." Arnaud walks back over to Blue, whose dragonite has lost interest in him now that he's no longer moving around it. "Which is why I prepared a special challenge for you: this match is going to be 2v2."</p>
+
+<p>Blue's brow rises. "Giovanni doesn't do twos. Not in any of the matches I've seen or heard about." There are a few gyms that do it, like Mossdeep in Hoenn, but it's never been part of the Indigo League standards… which, to be fair, are now much less standard, given his effect on Viridian.</p>
+
+<p>"That's correct."</p>
+
+<p>Blue crosses his arms as he considers the Gym Second, who stares blandly back. "I'm guessing it won't be the new normal for badge challenges, or even 8th badge challenges?"</p>
+
+<p>"Likely not."</p>
+
+<p>"This isn't even you telling me that <em>my </em>badge challenge will be a 2v2, then. You just want to try it for your own curiosity?"</p>
+
+<p>"I think anything's possible, and my curiosity is just one of many motivations."</p>
+
+<p>He manages not to roll his eyes. "My team wasn't picked with a 2v2 in mind."</p>
+
+<p>"And yet any encounter in the wild might require you to battle with more than one pokemon at a time. Adaptation is not this gym's virtue, but it still prizes it."</p>
+
+<p>Blue half expected his own arguments against standard battles to be turned against him, and he doesn't <em>mind, </em>not really, but he can't figure out what the <em>point </em>of being this obscure is. His chat with Giovanni in November made it seem like the Leader was inviting him to an accelerated battle and (likely) win. Blue declined, but he still expected a standard challenge.</p>
+
+<p>If Giovanni (and Blue has no doubt this is his decision, rather than Arnaud's) wants him to know they'd do a 2v2 battle, he thinks the Leader would just say so. Instead what he seems to want is for Blue to go into their battle uncertain, and deal with that uncertainty.</p>
+
+<p>If there's a lesson here tied to the virtue of efficiency, Blue can't see it. But he's only mostly confident that efficiency <em>is </em>the gym's virtue. If he's wrong, whatever lesson this is supposed to be is an important one for him to learn.</p>
+
+<p>"Alright. I'm ready."</p>
+
+<p>Arnaud nods. "Four pokemon, two out at a time." He turns and walks toward his podium. "Treat it like it's the badge challenge."</p>
+
+<p>Blue stares after him a moment, then heads for his own podium, withdrawing his dragonite along the way. <em>Treat it like it's the badge challenge </em>is another way of saying <em>take it seriously, </em>but Blue can't think of why Arnaud would believe he needs an extra prod to do so.</p>
+
+<p>Once he's in position, he gives the Second a thumb's up, and unclips two balls, which he resists the urge to juggle as he waits for the signal. If he can only use four of his pokemon, it'll have to be Corviknight, Breloom, Dragonite, and Weavile. He'll start with the first two, trusting Corviknight to play defense while Breloom strikes hard, or going all in on one of the enemies with both if there's a clear opening or advantage…</p>
+
+<p>Arnaud unclips a ball with each hand, then points them forward, and Blue stops juggling to mirror him. "Three, two, one, <em>go!"</em></p>
+
+<p>Deafening noise and blinding light as four balls discharge at once, and then Blue's breloom and corviknight are facing a mamoswine and a toedscruel.</p>
+
+<p>Mamoswine are one of the new evolutions that have been showing up ever since the Hoenn incident, though it was in Sinnoh where they first figured out how to evolve piloswine into the massive, primal behemoth in front of him now. Incredible strength and bulk, combined with the ability to attack too fast to dodge, would normally make it a dangerous opponent capable of incredibly powerful Ice and Ground attacks.</p>
+
+<p>With the pokemon Blue currently has out, however, the word <em>easy</em> is what darts through his mind as the battle calm descends, and his hand blurs to his belt to reclip his corviknight's ball and detach the laser pointer beside it, bringing it up aimed at the mamoswine as he shouts, "Ava, saw, Gon, pam!"</p>
+
+<p>Blue can't hear Arnaud's shouts over his own, but the toesdcruel has already shot out a cloud of powder, and his pokemon both swerve toward it instead of his indicated target. <em>Rage Powder.</em> His pokemons' Steel Wing and Mach Punch hit the toedscruel's spongy body while the mamoswine spits out sharp spears of ice that send Gon stumbling back, shivering in pain.</p>
+
+<p>The toesdcruel is bruised and bleeding, but still standing as Blue withdraws Gon and replaces him with Weavile, hand moving automatically. He needs to take that mamoswine down before his dragonite is sent out, but it's been ages since he fought a double battle and he forgot about redirects… he needs to take the toedscruel down first…</p>
+
+<p>It's a split-second decision before he targets the mamoswine again instead, repeating the command for Body Press and adding a Low Kick for his weavile. As he intuitied, the toesdcruel doesn't spray more Rage Powder out and instead Protects itself in anticipation, which gives Blue's pokemon free reign to take down the mamoswine.</p>
+
+<p>Except the mamoswine gets swapped out at the last second by a stunfisk, who seems to barely feel the attacks. A static charge runs through Blue's corviknight as it makes contact with the electric landfish, causing its flight away to be jerky and irregular.</p>
+
+<p>"Pai!" Blue yells, aiming his pointer at the toedscruel as soon as its protection ends, and his weavile is fast enough to get the Ice Punch in before Arnaud can respond. Instead his stunfisk sends a bolt of electricity at Blue's corviknight, who's still shaking off the earlier stun. Blue almost withdraws it, but he needs it to take out the excadrill that Arnaud just sent out to replace his toedscruel; Blue's weavile won't be able to take down in one blow, but the reverse isn't true.</p>
+
+<p>Still, sacrifice needs to be made to take down the stunfisk, and another quick Ice Punch command directly lands—</p>
+
+<p>—but isn't quite enough to knock the stunfisk out, allowing it to send a clap of thunder through the arena as a massive bolt of electricity sends his corviknight crashing to the ground just after it finishes slamming into the excadrill—</p>
+
+<p>—which staggers on to deliver an Iron Head to his weavile, sending it tumbling back in a limp heap.</p>
+
+<p>Blue's heart is pounding beneath his battle calm as he withdraws his two pokemon. Arnaud's aren't just <em>stronger </em>than he expected, they're going all out, using attacks that might seriously injure Blue's…</p>
+
+<p><em>Treat it like it's the badge.</em></p>
+
+<p>Right. Not just take it seriously; take it <em>as seriously as possible, </em>balancing risk of injury and defeat on a razor's edge.</p>
+
+<p>Blue summons his last pokemon, and this time dragonite doesn't just take in the surroundings; its gaze locks on the excadrill and resummoned mamoswine, his last two opponents, and the thoughts come too fast for words as Blue predicts what'll come next: his dragonite, getting hit with icicle spears from one side and thrown rocks from the other, might not be able to take both down on its own.</p>
+
+<p>Not unless it goes all out.</p>
+
+<p>Blue looks over at Arnaud in the temporary lull of battle, wanting to check, wanting to get verbal confirmation that this is what the Second wants… but he doesn't have to say anything. The older man is looking back at him, watching, waiting for him to continue the battle. He knows what it would take for Blue to win, and is waiting to see if he'll do it.</p>
+
+<p>If he <em>can </em>do it, without his pokemon killing or maiming one of Arnaud's. There are a dozen moves on the tip of Blue's tongue that would safely take them down, but aren't sure one-shots… and even a dragonite can be overwhelmed by multiple hits from pokemon as strong as these.</p>
+
+<p><em>Aqua Tail kills both. Close Combat kills both. Outrage kills the mamoswine, maybe the excadrill too…</em></p>
+
+<p><em>Dragon Breath and Extreme Speed aren't enough for the excadrill, but might take down the mamoswine…</em></p>
+
+<p><em>Flamethrower kills the excadrill, probably kills the mamoswine…? </em>He eyes the mamoswine more closely, notes the thickness of its body. <em>Maybe not.</em></p>
+
+<p>A series of plays and counterplays run through his mind, and even through the battle calm he's tempted to just run with some of them, to go for an easy knock out and hope his pokemon can make it through whatever attacks they throw at it.</p>
+
+<p>Instead he takes his time running through options until Arnaud holds a hand up, with five fingers extended.</p>
+
+<p>After a second, the pinky goes down.</p>
+
+<p>After another second, the ring finger does too.</p>
+
+<p>Blue takes a deep breath and aims his pointer.</p>
+
+<p>Arnaud lowers his index finger, then his thumb.</p>
+
+<p>"Wah."</p>
+
+<p>Quick as a blink, the mamoswine spits a spear of ice out that embeds in Dragonite's shoulder, but it only flinches before opening its mouth and roaring out a Heat Wave.</p>
+
+<p>The sound in the enclosed space is an assault on its own, and both pokemon flinch, then shudder and twitch as the attack hits them together, a wide cone of shimmering air that bakes the soil black. The excadrill tries to attack through it, but the rocks it flings fly wide.</p>
+
+<p>When the attack ends Blue is ready with a "Sae," and Dragonite blurs forward too fast for the mamoswine to hit it again, bulky body slamming into it hard enough to topple the hulking pokemon onto its side. Another slew of rocks are flung from the excadrill, but its powerful claws are shaking with pain from its burns, and Dragonite is only knocked back for a moment before another "Sae!" finishes the excadrill off too.</p>
+
+<p>Arnaud withdraws both pokemon, and Blue lets out a breath before hopping down to tend to his dragonite. It's favoring the foreleg whose shoulder has the ice in it, and one of its wings is torn from the rocks, but otherwise it seems fine; still, there's a tension in its body that makes Blue approach cautiously. Its eyes track him as he approaches, potion in one hand and a handful of poffins in the other. It relaxes a little as he gets closer, scooping the food out of his hand with its tongue and then sniffing for more.</p>
+
+<p>He opens a container box that's been lined with plastic wrap and filled with various sliced fish chunks. The smell isn't great, but the dragonite starts to eat with gusto, and Blue examines the spear of ice stuck in him.</p>
+
+<p>The air is still warm from the Heat Wave, and it's melting the icicle fast enough that Blue can see it'll fall out on its own soon. Blue takes a rag out of his bag and wipes gently at the pink blood dripping down Dragonite's scales; his pokemon's eye rolls back to watch him, but it doesn't stop eating, and soon the icicle falls out and Blue can spray the wound with the potion, causing the dragonite's eyes to close.</p>
+
+<p>A knot in Blue's stomach relaxes, and he climbs carefully over his pokemon to get to the wing as well. Thankfully it doesn't look like it'll need a pokemon center, and when he checks the shoulder wound again it also seems to be healing fine, and the last of his tension fades. The icicle was big enough that it could have pierced a vital organ if it hit the right spot, or if his dragonite's hide wasn't so tough.</p>
+
+<p>Now his pokemon is digging at the ground to scoop out a hollow, then slides its bulk into it, seeming to enjoy the heat of the baked dirt. Blue withdraws the still-half-full fish container, then turns to Arnaud, who is spraying potion over his excadrill. "Okay?"</p>
+
+<p>"Not quite. Going to need an overnight stay at the pokecenter."</p>
+
+<p><em>Shit. </em>"Sorry."</p>
+
+<p>"Don't be." Arnaud withdraws his pokemon, then turns to him. "Almost took you too long, though."</p>
+
+<p>Blue knows what he means. "Did you guess I had that move in specific TM'd?"</p>
+
+<p>"Sort of. I assumed, if you bought it, then you bought every TM for it that's on the market. Which means you'd have <em>something</em> that could get you out of a jam, if you were willing to risk some serious injuries."</p>
+
+<p>"A few," Blue admits. "I'm not sure I understand. The last few battles were hard, pushed me to my limits. This was something else, and if Leader Giovanni wants me to be willing to take risks—"</p>
+
+<p>"Not quite it."</p>
+
+<p>Blue frowns, but Arnaud is smiling, and eventually Blue smiles as well. "Okay. I guess I'll have to figure it out myself."</p>
+
+<p>"Do that. It's important." He points at Dragonite. "Especially if you're going to use that."</p>
+
+<p>"Haven't locked my team in yet." He's especially going to need to make some changes if it's going to be a 2v2.</p>
+
+<p>"Of course. But if you want to figure it out, keep it in the lineup, or something at least as powerful. It's important. Understand?"</p>
+
+<p>Blue understands that the Second doesn't mean it's important to win, though it might be as well. "I think so."</p>
+
+<p>"Good." He extends a hand. "Good battle."</p>
+
+<p>Blue grips it. "You too. And thanks for the questions."</p>
+
+<p>Arnaud nods, then walks away. Blue watches him until he's through the doors, then leans his back against Dragonite's side and slides to the comfortably warm ground, looking around at the empty bleachers while feeling his pokemon's deep breaths.</p>
+
+<p><em>Something at least as powerful…</em></p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Leaf assumes that if she starts to abuse the investigative permissions she was granted, she would be told. Maybe warned, and then have her permissions revoked. She did negotiate (with Looker's support) an inability for people to check what files she requested copies of, but anyone with any sort of relationship to the people in the organizations she queried could probably figure it out without too much effort.</p>
+
+<p>So she scattershots it, requesting a ton of information she has no interest in from every sector of the government, hoping it obscures her real interests, which she only pursues in bits and pieces each day.</p>
+
+<p>This still means she has far too much to look through, and within a few days she had to enlist help.</p>
+
+<p>The first person she asked was Laura; Koga's old clan gave Leaf permission to inform Red's mother of what she and Blue have been negotiating, with the Leader's support. Laura's subdued acceptance and tired sigh, rather than the spark of excitement, incredulity, or even worry that Leaf expected, had hurt her heart, and demonstrated just how little spirit Red's mother has for other things while her son is still unconscious.</p>
+
+<p>Still, she seemed grateful for an opportunity to do something with her time besides stress over Red and cycle between dead ends in the Silph investigation; all the other potential researchers-in-hiding she tried following up on were no longer at the addresses from her files, and while President Silph dropped the charges against her after the Rocket attack, it's not hard to imagine that was more due to not having to worry about what she might find anymore, rather than extended gratitude to Red.</p>
+
+<p>Next Leaf thought of reaching out to Bill, who she heard had to spend a few days in the hospital after he was attacked by Rowan, but went back to his home after some visits from Agatha. She didn't plan to tell him about the ninja clan, but thought he might have ideas for how to sort through lots of data efficiently.</p>
+
+<p>She knew it would be a long shot; he's been dealing with a lot of scrutiny and public backlash after it was revealed that he was responsible for the region-wide network shutdown. Thankfully there weren't any deaths as a result, but it did cause a state of emergency for every city in the region, with hospitals, rangers, and airports in particular being heavily affected. After the revelation of the glitchmon most people agreed it was a necessary call—it just wasn't one the public was aware that he had the power to unilaterally make, and a number of politicians who <em>were </em>aware have been facing some difficult questions and pressure. There's a lot of talk online of a formal investigation into his home lab and infrastructure access.</p>
+
+<p>So she would have completely understood if he had bigger things on his plate, not to mention ongoing recovery from whatever happened to him. But instead he sent her a terse reply that he'd help, and a day later she received a new computer that he warned her not to let anyone else use. "A very secure system," was his answer to what it was, "Except for the massive backdoor I put in for Eve to use in case you need help finding patterns in whatever you've got."</p>
+
+<p>She hasn't used it yet, for reasons she's not quite sure she can put into words. Something about not feeling like she could stand behind what she finds, if she relies on an AI whose reasoning she can't follow or check to tell her what's relevant and what isn't. But it's nice to know it's available, if she gets stuck.</p>
+
+<p>The third person she considered asking was Natural, but they've had an odd relationship ever since the Silph Scope plans got leaked; he insisted it wasn't him, and seemed hurt that she had thought he would do it. She apologized, but was vaguely aware that she was either completely in the wrong or being manipulated, and wasn't sure how to deal with that duality. They kept things simple and friendly, mostly focused on pokemon rights work and talking about her stories; she'd even inspired him to write some things of his own. But she's not sure she trusts him enough with this… plus, despite being from Unova as well, it feels wrong to include a non-Kantonian.</p>
+
+<p>And finally she thought to ask Janine, who was maybe a bit <em>too </em>happy to help. Their relationship was a strange one, having gone from only secretive informer/informant, to vaguely trusted confidants, to quasi-friends ever since the meeting with the ninjas.</p>
+
+<p>They don't have much in common, and Leaf still isn't quite sure how she feels about the (ex)vigilante. Janine did insist on helping Leaf train her pokemon now and then after she learned how rudimentary Leaf's trainer battle skills were, asserting it's an important part of defensive precautions, and so Leaf has spent more time with her lately than Blue once he went to Viridian Gym.</p>
+
+<p>It's still hard, seeing her pokemon get hurt. Telling them to hurt others, when life isn't on the line. Janine was less understanding than Blue, or at least less supportive, but she wasn't cruel about it, just exasperated. Thankfully, she's almost as good a researcher as she is a trainer.</p>
+
+<p><em>I think I found something</em>.<em> Come look when you have a minute?</em></p>
+
+<p>Janine's message pops up in the corner of Leaf's screen, and she takes a moment to finish writing a note for herself before getting up and opening the sliding door to the living space, where Janine is sprawled on a reclining couch, computer on her lap. They're in her home, where Leaf's been given one of the spare rooms to use as a personal office; both of them prefer a lack of distractions around them to sink into their work, and Janine likes to move around every ten minutes or so, picking a different surface to sit, lay, or lean on.</p>
+
+<p>"Whatcha got?" Leaf asks as she sits on the arm rest beside Janine's head so she can look at her screen.</p>
+
+<p>"Some verification that the clan's activities have been tied to some unexpected jumps in prosperity for various Indigo companies and cities. Back when Silph was competing more directly with Devon, you can see the way some companies shrank back or lost everything in the fallout, while others rode the coattails up, or got directly absorbed. Investors are public, so I made a list, crossed it with people who had connections in government, then color coded for which ones went up over time and which ones didn't…" She points to a few places where the colored lines intersect into nodes. "Correlation with certain investment patterns, but it's not consistent with any single investor. It's more like a network, but a few names pop up more than others."</p>
+
+<p>Leaf frowns as she scans the names. "I recognize some of these… Erika Yamamoto, daughter of the Celadon mayor, married someone on the Indigo League commission. Controlled the department store chain and half the fashion industry by the end of her life."</p>
+
+<p>"Apparently she had a reputation as someone you didn't want to cross, though others said it was her husband who was doing the backroom wheeling and dealing. Her companies always seemed to get favorable regulatory treatment, in any case… until she disappeared in the Sevii Islands years ago. And here's Masato Kageyama," Janine points to another node. "Started on Saffron's City Council, then jumped to Regional Commerce Director."</p>
+
+<p>"Old transportation money," Leaf recalls. "Pushed hard for infrastructure projects that his telecom and energy companies benefited from. Created some cultural foundations that might be worth looking into… or am I way off that 'traditional cultural preservation' might be a cover for some ninja clan activity?"</p>
+
+<p>"It's a bit on the nose, but worth looking into." She points to another. "Chogi Ito. Former intelligence officer who started the region's first corporate security consulting firm in Goldenrod. Trained bodyguards for all the major companies, had family connections to those mountain clans with ninja traditions that 'went public' a few decades ago. There were a couple foreign regions whose major corporations had high profile data leaks, and even a suspected assassination, that led to a lot of companies following his security recommendations to the letter."</p>
+
+<p>Leaf nods absently and keeps scanning the names. <em>Amanda Kikuchi. Leader of Olivine City, then became one of the Elites for a few years before transitioning to the civilian government side of things for over thirty years at different departments. Lived modestly but had serious money by the end of her life. Created a lot of regulatory framework during the Silph-Devon competitive years. Retired, still alive, out of the public eye…</em></p>
+
+<p><em>Marcel Watanabe</em>. <em>Old mayor of Vermilion, helped build the shipping empire. Flashy public persona, lots of friends in business. Companies that wouldn't partner with him faced labor issues and shipping accidents…</em></p>
+
+<p><em>Hisashi Fujita. Cerulean Gym Leader for ten years, then the head of Indigo Treasury for twenty, with family all over the map in research, construction, and real estate development, most of whom did unusually well…</em></p>
+
+<p><em>Hiromi Tsuru…</em></p>
+
+<p>Leaf blinks, then rushes back to her room and brings her computer back to confirm. Laura said to look for who benefitted most from unusual events, but also which shifts in political power left gaps in their activity, which is why Leaf made note of the lifespans of all the major government officials in Indigo to superimpose on the list of suspected ninja activities.</p>
+
+<p>"Hiromi Tsuru," Leaf reads after confirming the same time period in her own timeline and the stretched out web that Janine made. "Last descendant of Viridian's original line of warlords before it unified with the rest of Kanto."</p>
+
+<p>"Basically landed gentry, yeah?" Janine checks her own notes. "Tons of wealth from passed down farmland and mineral rights."</p>
+
+<p>"Among other things. Shifted to development when the city was expanding, then passed her duties off to various company heads and had a quiet retirement. Never officially served in politics, but her dad and uncles were in various parts of the Indigo government, and of course Viridian's. Took up philanthropy and investing, as well as lots of political contributions, until she died about forty years ago."</p>
+
+<p>"Which is one of the slowdowns in the clan's activities." Janine is studying Leaf's screen. "A couple of these others also. Marcel, Hisashi…"</p>
+
+<p>"Yeah. Worth digging into each of the ones that overlap, I think?"</p>
+
+<p>"Definitely." Janine has turned her dark gaze toward Leaf, now. "Stlll not planning to publish any new chapters of the ninja story?"</p>
+
+<p>"Not until we have some leverage." Leaf frowns at Janine, who usually doesn't ask questions she knows the answer to. "Why?"</p>
+
+<p>"It might be worth posting one or two. Not naming these folks, but… versions of them. Similar backstories. See if anyone reaches out, or reacts."</p>
+
+<p>"Hmm." It's risky. Bold in the way that Janine likes to tackle her problems, but Leaf can't say it's not worth considering. "I'll think it over. Right now I'm taking enough risks."</p>
+
+<p>"Oh yeah, the hybrid story."</p>
+
+<p>Leaf doesn't blink, but realizes a second too late that her face is too still, and she can't think of a convincing level of confusion before Janine chuckles.</p>
+
+<p>"I started reading it ever since finding out it might be the Dreamer. Interesting turn of events, lately."</p>
+
+<p>Leaf crosses her arms, trying not to be too worried. "'Finding out?'"</p>
+
+<p>"Well, not everyone knows the ninjas are real, do they?" Janine pats her knee. "Don't worry, I won't tell anyone. I <em>am </em>curious what your goal is, given how cautious you're being with the clans."</p>
+
+<p>Leaf sighs. "I can't really talk about it. But, uh. You could say one inspired the other, in a way. Uh, strategically."</p>
+
+<p>"Oh." Janine's eyes widen. "Shit."</p>
+
+<p>"Yeah."</p>
+
+<p>"Have they…? Sorry, you can't talk about it, right."</p>
+
+<p>"Right. But no, not yet." Leaf's phone rings, and she digs it out of her pocket.</p>
+
+<p>"Well, good luck with that. By the way, you were wrong earlier when you said 'last descendant.'"</p>
+
+<p>"What?"</p>
+
+<p>"Hiromi. She had a kid."</p>
+
+<p>Leaf frowns, gaze drawn back to her spreadsheet. Most of the people she's looked into from the last few generations of rich and effective political figures had heirs to pass down some measure of wealth or influence to. Some of their children or grandchildren have made names for themselves as well, but… "Her public page said 'no surviving relatives,' and she left her wealth to her 'estate,' which I assumed meant some mix of close friends or business partners."</p>
+
+<p>"Yeah, it's not official, but not a huge secret either. Or at least, not for Kanto natives who grew up hearing stories about him. She had a kid out of wedlock, which back then was still a big deal. He didn't inherit anything from her until he was already grown; some say he just walked into her old manor, name freshly etched in the Indigo Hall of Fame, and asked for it all."</p>
+
+<p>"So this is someone I'd have heard of."</p>
+
+<p>"You can say that." Janine is smirking as she types something into her browser, then turns the screen to show Leaf another public profile page.</p>
+
+<p>Leader Giovanni stares back at her.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/139/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/141/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -347,6 +711,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

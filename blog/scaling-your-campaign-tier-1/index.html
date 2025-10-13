@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advice Level: Beginner to Advanced Gamers
+
+A major step in plotting out a tabletop RPG campaign is determining its scope.  Do you want a small, intimate tale, where the plot revolves around the Player...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Scaling Your Campaign, Tier 1">
+    <meta property="og:description" content="Advice Level: Beginner to Advanced Gamers
+
+A major step in plotting out a tabletop RPG campaign is determining its scope.  Do you want a small, intimate tale, where the plot revolves around the Player...">
+    <meta property="og:type" content="article">
+    <title>Scaling Your Campaign, Tier 1 - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Scaling Your Campaign, Tier 1</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        May 02, 2016
+                    </span>
+                    <span>📁 Storytelling Advice</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><em>Advice Level: Beginner to Advanced Gamers</em></p>
+
+<p>A major step in plotting out a tabletop RPG campaign is determining its scope.  Do you want a small, intimate tale, where the plot revolves around the Player Characters’ personal lives (Tier 1)?  Are they caught up in bigger events that affect the entire city or kingdom around them (Tier 2)?  Or do their actions shake the very foundations of the world, and make an indelible mark on history (Tier 3)?</p>
+
+<p>These classifications can work for more than just designing RPG campaigns, and also help structure novels or TV series. Deciding ahead of time where to start a story, and where to end it, can open up a lot of opportunities when planning it to enhance the reader's/player's immersion. This post will review what makes up the structure and themes of a Tier 1 story, and advice on how to craft it.</p>
+
+<p><b>Tier 1: Personal Story</b></p>
+
+<p>When many stories start, the player’s characters are rarely big, important people that have a lot of influence.  Whether they’re small-time adventurers or average civilians going about their daily lives, the things that matter to them are usually things that matter to <b>only</b> them.  Their goals are to gain riches or fame, help loved ones, survive some sudden personal threat, etc.</p>
+
+<p>As such, the challenges they face in the beginning tend to be ones that rely on their investment in their personal lives.  This is where the storytelling aspect is so important in immersing players with the characters' lives: without “anchors” to care about, it’s hard to really feel engaged in the story, rather than interacting with it only as a game.</p>
+
+<p>In Tier 2 or Tier 3 stories, this engagement is often accomplished through simple, but rather bland, means: the impetus to “save the city/country/world” is an effective motivator, but it doesn’t quite tap the full potential an RPG holds.  It’s all well and good to want to save the world, but if you don’t care about your characters, and if your characters don’t care about other things <b>besides</b> saving the world, they can come off as somewhat flat and one-dimensional.
+<div id="attachment_4784" class="wp-caption alignright"></p>
+
+<p></div>
+It’s far easier to really grow attached to them and get in their heads if you know them at a more intimate level in the story.  As a storyteller, choosing to start the campaign at Tier 1 helps your players get to know their characters on a small scale <b>first</b>, where everyone has more opportunities to see how their characters react to things, and can get a sense of their personality, desires, and flaws.</p>
+
+<p>Imagine a campaign that culminates in heroes fighting a King who has been secretly using mind-mages to ensorcel people and force them to spy on and kill dissidents in his kingdom: a Tier 2 story. If the story starts with the players already knowing that, the campaign can seem very cut and dry.   But there are ways to make it hit home with the players on a personal level first, by starting it as a Tier 1 story.</p>
+
+<p>Let's say when the adventure starts, the warrior of the group is merely concerned for his brother, who uncharacteristically snuck into some politician’s house and murdered them.  Believing his brother framed despite the evidence against him, the warrior seeks the true murderer, and along the way meets the other party members who end up uncovering the King’s plot. Later on in their adventure, an assassin jumps them, and during the fight, the group’s magic user recognizes the signs of mental domination on the assassin.  Upon hearing this, the warrior hesitates, both player and character conflicted.</p>
+
+<p>Because the players first learned about these mental manipulators due to the warrior’s brother being targeted by them, and perhaps eventually  imprisoned and executed due to a crime he was forced to commit against his will, there’s a dissonance between how he might normally act.  The warrior may find it hard to strike the assassin down, knowing that they’re probably just as innocent as his brother, and having experienced first-hand the confused anguish the dominated person’s loved ones would feel at their loss.</p>
+
+<p>Of course, this is the kind of thing anyone can infer in such a situation.  But by building the story from the ground up, starting at a Tier 1 plot where the warrior is trying to find the truth about his brother’s actions and clear his name, it’s more visceral and real for the player to stop and think about this assassin as more than a token antagonist, rather than just finding out about it through backstory or narration.</p>
+
+<p><strong>Example: Constructing Your Tier 1 Story</strong></p>
+
+<p><i>Michael wants to tell a long term Tier 3 story about a global conspiracy where children suspected of harboring supernatural talents are kidnapped and replaced by fast-grown, short-lived clones, the technology for which is not publicly known. Instead of starting the story with the conspiracy revealed to the players however, he decides to start things on a more personal scale and introduce the overarching plot slowly, over three chapters.</i></p>
+
+<p><i>So he designs the first chapter of the campaign as a Tier 1 story, revolving it around the player characters’ lives. Two PCs, Cassy and Don, are a divorced lawyer and doctor with partial custody of their son Jacob. Their college friend is an NPC named Lara, who works for a large bio-tech company, and her brother is the third PC, Jeff, a journalist.  A fourth PC is Mary, who’s a detective that is suspicious of the multiple sudden childhood deaths in the state over the past few months.</i></p>
+
+<p><i>The players have little idea of what the campaign is about, and within the first few sessions Cassy and Don realize that their son is acting strangely, Jeff’s sister talks to him about a moral dilemma she’s in at work, and Mary investigates the children’s death on her off time and succeeds in getting her boss’s attention over it.</i></p>
+
+<p><i>After each player has enough time to start to get a feel for their character, Michael sets the plot off with a bang: Cassy and Don’s child comes down with a sudden sickness, and within a couple days, dies. Shortly afterward, Jeff’s sister goes missing, much to his bewilderment and worry.  She left a cryptic message for Cassy and Don implying that their son’s illness may not be natural, but they had missed it in their panic and grief.  When they discover the message, they go to Jeff, who believes his sister’s disappearance may be related.  Jeff calls his friend in the police force, who directs him to Mary.</i></p>
+
+<p>Now that the party is grouped, the plot of the campaign becomes clear: to investigate Jacob’s death and Lara’s disappearance.  It’s something extremely important to the players, but is still mostly personal.  They’re ultimately the only ones for whom the stakes are so high (that they’re aware of anyway), and the only ones who they can rely on to help them.</p>
+
+<p>This is another important aspect of the story’s tier: it limits the scope of outside interference.
+<p style="text-align: left;">In a Tier 1 story, the players are more or less on their own.  While they may be able to recruit others into assisting them for various reasons, or even start to suspect that something bigger might be afoot, the sense of isolation is at the center of the story’s themes.  While it’s possible to have a Tier 2 or even Tier 3 story where your characters are the only ones who know about the dominant threat, it’s generally easier to find allies when other people are being affected by it.</p>
+<p style="text-align: left;">When it’s only your child or your sister or your career or your life at stake, others might lend a hand… but few will be willing to risk much, or go quite as far, as you would.</p>
+<p style="text-align: left;">The next post will discuss the structure of Tier 2 stories, and explore how to transition a Tier 1 campaign into a Tier 2 one.</p></p>
+            </div>
+
+            <div class="article-footer">
+                
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

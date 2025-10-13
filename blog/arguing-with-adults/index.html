@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a quick summary and mash-up of the sorts of things I often tell kids about arguing with adults, particularly their parents and sometimes their teachers. 
+
+(0)
+
+Quick disclaimer, a lot of wha...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Arguing with Adults">
+    <meta property="og:description" content="This is a quick summary and mash-up of the sorts of things I often tell kids about arguing with adults, particularly their parents and sometimes their teachers. 
+
+(0)
+
+Quick disclaimer, a lot of wha...">
+    <meta property="og:type" content="article">
+    <title>Arguing with Adults - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Arguing with Adults</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        March 19, 2018
+                    </span>
+                    <span>📁 Therapy</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><div class="_2cuy _3dgx _2vxa"></p>
+
+<p><span style="font-weight: 400;">This is a quick summary and mash-up of the sorts of things I often tell kids about arguing with adults, particularly their parents and sometimes their teachers. </span></p>
+
+<p><span style="font-weight: 400;">(0)</span></p>
+
+<p><span style="font-weight: 400;">Quick disclaimer, a lot of what I’m talking about here is using generalized assumptions, like that your parents are mostly responsible adults, and love you, and have some sense of fairness, and are not suffering from mental illness, and are not in some altered state of mind due to drugs or alcohol. This may not be the case for all of you all the time, and I’m sorry about that. For those of you it does apply to, try not to lose sight of how lucky that makes you. It doesn’t always seem like much, but it at least might allow some of this advice to come in handy.</span></p>
+
+<p><span style="font-weight: 400;">(1)</span></p>
+
+<p><span style="font-weight: 400;">Before talking about how to win arguments, it’s vital to understand </span><b>power imbalances</b><span style="font-weight: 400;"> and </span><b>learning to lose</b><span style="font-weight: 400;">. When you learn self-defense, one of the first things they teach is learning when not to fight at all. If you take a martial arts course so you can go around beating people up, you’re going to get in trouble one way or another. Similarly, you have to be capable of recognizing arguments that are winnable and those that are not, so you can pick your battles. </span></p>
+
+<p><span style="font-weight: 400;">Your parents have power in your house, and you don’t. Your teachers have power at school, and you don’t. That means sometimes you have to be ready to lose an argument, even if it means admitting to and apologizing for something that wasn’t entirely your fault, or being the bigger person and apologizing first even when it’s not fair. When you’re older and driving, and a cop pulls you over and tells you you were speeding when you know you didn’t speed, would you argue with them? What do you think would happen next? Arguing with adults as a child can be similar. This does not mean you should not have any pride, or just always admit to things you didn’t do to avoid arguments. It just means that sometimes the real time to fight is later.</span></p>
+
+<p><span style="font-weight: 400;">If you forget that you’re arguing with someone who has more power than you, you’re more likely to say or do things that will get you in trouble. On the other hand, if you learn to pick your battles, you can earn trust by admitting defeat on things, which will be important in arguments that you can potentially win. Kids who always drag every argument out no matter how many times their parent says “no” quickly lose the impact of fighting hard for something when it really matters and might make a difference. </span></p>
+
+<p><span style="font-weight: 400;">(2)</span></p>
+
+<p><span style="font-weight: 400;">An extension of that is </span><b>situational awareness</b><span style="font-weight: 400;">, particularly of </span><b>status imbalances</b><span style="font-weight: 400;">. Parents and teachers don’t just have more power than you, they also demonstrate status differences that are socially reinforced between adults and children in general. If you’re not polite or don’t show respect, even if you have a good reason not to, adults will often get more upset with you than they would if another adult did the same thing.</span></p>
+
+<p><span style="font-weight: 400;">This is especially true if other adults or children are present: if you are rude to your parents around their friends or while out in public, their embarrassment will often make them more angry with you, and they may feel like they have to be more strict or else be seen as “bad parents.” If you contradict or are rude to your teacher around other students, they may feel as though they have to respond with stronger punishment to show that they are in charge and that the other students have to respect them. Do not forget the social context you’re in when arguing with adults. Try and be polite and respectful, even if you are angry, or you will make arguments even harder to win.</span></p>
+
+<p><span style="font-weight: 400;">(3) </span></p>
+
+<p><span style="font-weight: 400;">With those two things in mind, the most important thing to remember when arguing with anyone is </span><b>different priorities and values</b><span style="font-weight: 400;">. It is almost impossible to win an argument with anyone if you do not understand their perspective, including what they want or care about, and why. When arguing with your parents, you have to recognize that they have different concerns and goals than you do. To use some simple examples and generalize a bit, they want you to be safe, your grades to be high, and your chores to be done, likely in that order. Most parents don’t care how well you do in your video games, or how much you want to spend the weekend with your friends. This is not the same thing as not wanting you to be happy: I didn’t list that above because happiness is hard to measure, while those other things are not. </span></p>
+
+<p><span style="font-weight: 400;">The point is that their priorities are often skewed toward what they believe is best for you and the family in general, right or wrong, and yours are more often skewed toward what will make you happy. A more severe example is that, compared to how much your parents want to be able to afford the bills, they may care very little how much happier you will be if you get to eat out, or can have those shoes or clothes you want. To reduce conflict and improve your ability to reach compromises or win an argument, it helps a lot when you can demonstrate that you understand what they want and don’t shy away from it just because it is not what you want. Show that you actually can take their priorities seriously, and it can be a lot easier to build up the trust needed to convince them to give you leeway sometimes.</span></p>
+
+<p><span style="font-weight: 400;">(4)</span></p>
+
+<p><span style="font-weight: 400;">You will almost always be entering an argument with </span><b>reputation</b><span style="font-weight: 400;">. You are going to be judged by what you’ve done or failed to do in the past. More, you will often be judged by what they believe you’ve done or failed to do in the past, regardless of whether you argue that they’re wrong. And even more than that, you may be judged by what your siblings or classmates have done, mistrusted by association. It’s not unheard of to be judged by what complete strangers do that your parents heard about and are now worried you will do.</span></p>
+
+<p><span style="font-weight: 400;">All of which sucks. But the one thing you have control over is your behavior, and how well you have earned trust on your own. I can’t promise that everyone will always care about this, but I have often seen how much arguing with bad reputation is like fighting on quicksand. Your behavior sets an expectation of you, and that expectation will either be in your favor or against you. Trust is important in arguments. If you make a habit of saying you’ll do something and then forget to do it, you lose the trust needed to negotiate in future arguments.</span></p>
+
+<p><span style="font-weight: 400;">So when you’re trying to decide whether to do something or ignore something that will upset someone, particularly your parents, you have to weigh not just the short-term gain you get by doing it, but also the long-term difficulty it will cause you in future conversations and arguments when your parents or teachers are unable to trust you as much as you or they might want. </span></p>
+
+<p><span style="font-weight: 400;">(5) </span></p>
+
+<p><span style="font-weight: 400;">Building up all that trust is important, because it’s the cornerstone of any negotiation. This is the actual work of winning an argument with adults. It may not seem like negotiation is the right word for all kinds of arguments, and it may not be for every single one, but you might be surprised by how many arguments ultimately can be described as negotiations, or can be reframed as one to help reach a positive conclusion. </span></p>
+
+<p><span style="font-weight: 400;">Kids often argue with their parents about what they’re allowed to do, or what they want, and if the parent is resistant, it’s usually because they are being asked to give something up or compromise something they want, even if it’s invisible or not a big deal to the kid. When you ask to stay up late, from their perspective you’re actually asking them to risk your health or ability to get up on time tomorrow morning, or to risk an argument and being late to school, or make them late to work. Even if it’s on a weekend, you’re asking them to let you change your sleep schedule, which may carry over to Monday morning. These are the things you are negotiating for.  </span><span style="font-weight: 400;">These considerations are what parents often think about all the time. </span></p>
+
+<p><span style="font-weight: 400;">You have to have something else to offer in return, and I’m not talking about something like money. It might be extra chores that you offer to do, but you can instead also offer your well-being in other ways. If you’re doing well in school, you have more leeway to say something like “I really need some extra time to relax after this week.” What I’ve observed is that parents are easier to talk into the things their kids want when the kid has good grades, does their chores, and is well behaved in general. This probably seems obvious, but it’s worth reiterating that <em>these are things your parents</em> <em>want for and from you</em>, and so they are what you have to negotiate with. This also extends to more important arguments about, say, your future career, or your romantic lives, or your religious choices. These are areas where what you want to be happy and what your parents want for you are at odds because of different expectations about the world and different information. </span></p>
+
+<p><span style="font-weight: 400;">Arguments like these, including those about some scientific fact or political belief, can also be framed as a negotiation of sorts: the thing you’re negotiating for is often respect. Parents want to make sure that you understand and respect their knowledge and experiences and perspective (whether it’s wrong or not), and offering them that respect as best you can, doing your best to make sure you show that you understand where they’re coming from, can often help a lot in such arguments, even if you still end up disagreeing forever. Which is okay too: it’s normal for parents and kids not to agree about everything. Something worth keeping in mind is that narcissistic or entitled parent may very often just end the conversation at "that's what I want/deserve" or "that's just the way it is," and may not respond well to even simple, unthreatening questions. </span></p>
+
+<p><span style="font-weight: 400;">There are some arguments that you will never win with your parents, but also should never feel the need to lose, either.  In those cases where your mental health is at stake, where your parents are showing signs of being obstinate, entitled, abusive, or narcissistic, your job isn't to win the arguments, it's to survive long enough to gain your independence, and then, if you choose,  <a href="https://daystareld.com/creating-boundaries/">create boundaries</a> to ensure your emotional wellbeing.</span></p>
+
+<p></div></p>
+            </div>
+
+            <div class="article-footer">
+                
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

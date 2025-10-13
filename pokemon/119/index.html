@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 54: Into the Black - Pokemon: The Origin of Species</title>
+    <title>119: Coverup - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,783 +329,427 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 54: Into the Black</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/118/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/120/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <em>"Diglett!"</em><br>
-<br>
-Blue's mouth is open, but it was Elaine who shouted, beating him to the warning by a second as she turns to face the oncoming rumble of digging pokemon, hands reaching for her pockets.<br>
-<br>
-Blue is faster there, having grabbed two bottles of pokemon repellent the moment he recognized the sound of the oncoming pokemon and realized its implications. The renewed jolt of adrenaline cuts through his confusion for a moment, and his voice is steady as it follows Elaine's warning. "Elaine, stay on the absol! You and Glen on dexes, Aiko with me on repels!" He begins spraying Elaine down, keeping the triggers pressed until the cans are empty and she's liberally coated, then tossing them aside and getting another two out for Aiko.<br>
-<br>
-She's already spraying Glen, who keeps his focus on the absol, though he's taken his pokedex out and is holding it up. "Tell me when!" Glen says. "Machoke, Submission!"<br>
-<br>
-Blue glances to the side to see the absol dance out of the machoke's reach, then turns his attention back to his task. The rumbling is louder, and the first diglett shows up far to their right, popping out of the wall and dropping to the ground before dashing toward the opposite wall, giving the five battling pokemon a wide berth. Blue knows they won't all be so skittish, however, and even as he finishes spraying Aiko down, he reaches into Glen's bag pockets for two of his repel cans and runs a quick line between the four of them and the diglett that are now arriving in twos and threes from all along the wall and ceiling.<br>
-<br>
-Blue starts spraying a double line of repellant along the cavern floor, and Aiko summons a container box and leaps onto it, just as diglett start pouring out of the dozen or so indents along the floor, wall and occasional hole in the ceiling. "Now!" Blue yells as their furry brown bodies and sharp claws start scrambling toward them, and from behind Glen and Elaine's pokedexes come the echoing screeches of a pidgeot and a fearow.<br>
-<br>
-The sounds are incredibly loud in the small cavern, drowning out the rumbling of the diglett. They leave Blue's ears ringing, but he immediately sees the effect on the tide of diglett: they begin scrambling for the closest hole, often fighting against each other to see who would fit in them first, while some of the bigger ones start to make their own.<br>
-<br>
-Unfortunately the dugtrio among the horde are less frightened, and while most scramble around and away from the four smelly trainers, two of them come straight at them.<br>
-<br>
-"Ba!" Blue yells, and Maturin spits a handful of bubbles out in a spray that catches one of the dugtrio and knocks it back with the explosive pop. "Bab!" The bubblebeam focuses on the other one and hits it away too, but a third turns from the side and dashes at Elaine until Aiko's oddish shoots a cloud of spores at it. It stumbles to a stop, sneezes, then turns to face the new threat, movements slower.<br>
-<br>
-Blue turns to focus on the other two again, pokeballs trying to get a lock as Maturin spits water and bubbles again and again to fend them off. One dives below the ground, and Blue has a moment of relief until he feels the ground vibrating below the box they're standing on. Dust rains from the ceiling, and more diglett are still pouring out of the wall. A particularly large one joins the dugtrio in attacking them, and when the dugtrio that caused the quake pops back up to their left, Blue quickly swaps an empty ball out to summon Gon. The shroomish manages to hold it off, but with its three heads and quick movements, it's almost impossible to really stop.<br>
-<br>
-Worse than that, with three pokemon out Blue can barely pay attention to Kemuri, and within moments both he and Aiko's split focus is punished by a cry of pain from her sandslash, then another from Kemuri.<br>
-<br>
-"Low Kick! Machoke's tiring fast!" Glen calls out.<br>
-<br>
-"Ours here too," Aiko says, and a moment later her oddish is pierced by a dugtrio's long claws. "Shit, return! Go, Sneaker!"<br>
-<br>
-<em>Shit is right. </em>The diglett have finally stopped coming out of the wall, and most have fled, but there are three dugtrio and a big diglett still in the chamber with them, popping in and out of the ground to attack their pokemon from various angles. Blue can see Maturin is running out of water, and with Kemuri busy he doesn't have any other pokemon that can really stand up to the diglett as well. Worst of all, the constant shocks to the cavern have begun sending dust and pebbles down on them.<br>
-<br>
-"We can't hold like this," Blue yells between commands. A dugtrio gouges a chunk of Gon's fungal dome off, and Blue quickly jumps off the box with a potion in hand to spray his pokemon, unable to risk returning him just yet. He leaps back onto the box as Aiko shouts a warning, and barely avoids the spew of rocks and dirt that one of the dugtrio aims at him. Blue drops the potion bottle without re-attaching it and takes an empty pokeball out, hand steady but heart pounding in his throat. <em>Could really use that battle calm about now. </em>"Gon, sal! Guys, how's the absol?"<br>
-<br>
-"We still can't pin it down! We'll have to let it go!" Elaine says.<br>
-<br>
-Blue grits his teeth. If they let it go now, it won't return to this chamber after being caught here, especially with all the repel they've sprayed. But if they keep fighting like this someone is going to lose a pokemon soon, or worse...<br>
-<br>
-Frustration wells up, turns black and bitter inside him. He should just order them to stop holding back, to finish it off. Better that than letting it get away and losing it. Hell, it's already injured, it might just end up killing itself, like the pikachu in the forest did.<br>
-<br>
-The memory brings up another one: catching Kemuri the way he did, the shock and horror of those with him. Gramps telling him in Pewter later to be more careful how he does things. <em>We came here to capture it, not kill it. We'll have another chance.</em><br>
-<br>
-"One more attempt, all together!" He shouts at last. "Try to get a lock and throw, then give it a path to leave!"<br>
-<br>
-"On three, then!" Glen yells. "One…. Machoke, Vital Throw! Two…"<br>
-<br>
-"Maturin, Withdraw!"<br>
-<br>
-"Sneaker, Fast!"<br>
-<br>
-"Three!"<br>
-<br>
-As one, Blue and Aiko wheel around on their box and dash toward their pokemon penning the absol in, pokeballs extended. Blue takes a deep breath, aims at the leaping, slashing blur of black and white, and as he lets the breath out, holds the balls as steady as he can as he tracks its movements.<br>
-<br>
-He hears three pings, one after another, and throws both balls without being sure if the locks were his own or someone else's. The others throw their balls too, but the absol, still evading the machoke's grabs, leaps back onto the wall of the cavern, its claws gripping the stone for a moment to avoid the half a dozen pokeballs and great balls… all but for one, which hits it in the leg, bounces off…<br>
-<br>
-...and tumbles to the ground. It wasn't one that locked on.<br>
-<br>
-Blue doesn't waste another second, merely turning and running back for the box as he takes in the situation. Their pokemon are scratched and bleeding, Maturin even retreating to her shell unprompted, which let two of the dugtrio gang up on Gon, who's desperately shooting out cloud after cloud of spores in every direction to keep them away. "Let it go, give it a path to go! Guard our backs Glen and Elaine! Kemuri, here! Lar!" he says and points to the dugtrio that are raking dirt at Gon to keep his spores from reaching them. "Maturin, Ba!"<br>
-<br>
-His wartortle sticks her head out, relieving him immensely, and half-heartedly spits some bubbles out at the dugtrio as they retreat from the shiftry's sudden arrival, its remaining appendage slashing at them. Those damned extra heads see the bubbles coming however and they avoid them—<br>
-<br>
-—only to face Elaine's psyduck on one side and Glen's gloom on the other, water and vines slapping them aside. "It's gone," Elaine says as she steps up beside Blue. "Leapt up to the higher passage!"<br>
-<br>
-Blue stifles his disappointment and focuses on the battle as best he can. Before long, the four of them working together turn the tide, and once Blue catches the first Dugtrio, the other two quickly get nabbed too.<br>
-<br>
-It's the last, large diglett that somehow manages to avoid them long enough to dive back underground for a prolonged period. They all tensely wait for it to reappear, during which Blue tries to catch his breath. They only fought for a couple minutes at most, but he feels wrung out. He just has to stay vigilant a little longer to finish the last one…<br>
-<br>
-Instead of the diglett reappearing, however, there's a burst of light that suddenly shoots out from one of the holes in the ceiling above them. They all stare up at it in shock.<br>
-<br>
-"Did it just—" Elaine starts, then yelps in surprise as a rumbling shock runs through the ceiling, sending more dust and chips of stone raining down on them.<br>
-<br>
-"Oh, come <em>on</em>!" Aiko shouts as a grinding, trembling groan continues through the cavern. "<em>Now?</em>"<br>
-<br>
-"Just run!" Blue yells as he hurries to withdraw his pokemon and pick up the balls that have dugtrio in them before he breaks for the side passage they originally came from. The others quickly join him, Aiko pausing just to withdraw the container box they were standing on before running to the rest of them, arms full.<br>
-<br>
-The tremors slow to a stop as they run down the tunnel, Glen and his butterfree in front to illuminate the path. Blue imagines the cavern collapsing behind them with an earthy roar, but thankfully everything eventually becomes silent but for the sounds of their quick steps and heavy breathing.<br>
-<br>
-Once they reach another small cavern that branches in multiple directions, Blue calls for a stop. The party slows, then collapses against the walls or to the floor as they catch their breath.<br>
-<br>
-"Everyone okay?" he asks. "Injuries?"<br>
-<br>
-"Scrapes and cuts from earth shards," Aiko says. "Okay otherwise."<br>
-<br>
-"I'm okay too," Elaine says, and Glen echoes her. Blue finally pays attention to himself, hands roaming over his legs and torso to make sure he didn't get cut by something without noticing it.<br>
-<br>
-"Do you need help healing yourself?" Glen asks Aiko, who hasn't moved to heal her cuts and bruises.<br>
-<br>
-"No, I'm just… still recovering." She lets a shuddering breath out. "That was intense, in more ways than one."<br>
-<br>
-"More than it should have been," Glen says, and everyone murmurs or nods their assent. Blue lets himself slide to the floor of the cavern. The others follow suit, and Blue wipes cold sweat from his forehead as he rests his eyes for a moment, limbs and mind almost gelatinous with fatigue.<br>
-<br>
-He plays the fight back in his memory as best he can, trying to remember what exactly happened and when. The whole thing felt off from the very beginning. Blue assumed it was just his frustration that the absol hadn't actually eaten all the meat, had noticed that it was off somehow and went silent for other reasons. Despite that, and the absol's amazing evasion and quickness, they still would have worn it down… if not for the stampede of diglett arriving when it did.<br>
-<br>
-"So just to be clear," Glen says after a minute. "And not to blame anyone prematurely… but did we screw up?"<br>
-<br>
-"Nothing in the dex said that diglett were attracted to absol mating calls, or beef," Blue insists. "I double checked. There's never been any reports filed about that, unless someone discovered it in the time since we entered the caves."<br>
-<br>
-"Someone might have," Elaine suggests. "Us." She lazily lifts both fists above her head. "Yaaay…"<br>
-<br>
-"No, it can't have been the calls," Aiko says. "Those were broadcast from a different part of the caves than where we fought it, remember? And none of the diglett went after the meat. Could have been the sound of the fighting, but… that didn't happen in our last fight with diglett. No new ones from nearby showed up to join in."<br>
-<br>
-"And there were a lot of them," Blue says. "So many being close enough to hear seems unlikely."<br>
-<br>
-Glen drags a finger through the dirt beside him, brow creased. The ensuing silence is unbroken except for the flapping of his butterfree's wings, and after a moment he holds a hand up and gestures, which brings his pokemon down to rest on his arm. He takes a poffin from his bag and feeds the glowing bug. "So I think it might be time to revisit the topic of absol and bad luck, because I don't know what else to call what just happened."<br>
-<br>
-"Well, of course it was bad luck," Aiko says. "But that doesn't mean the absol <em>caused </em>it."<br>
-<br>
-"Yeah, true."<br>
-<br>
-"Hell of a coincidence, though," Blue says, fingers drumming against his knee.<br>
-<br>
-She looks at him in surprise. "<em>You </em>don't think it was the absol, do you?"<br>
-<br>
-"I think after what we just saw, I'm open to talking about it."<br>
-<br>
-"Seriously? With a sample size of one, we're really going to reconsider whether <em>bad luck </em>exists?"<br>
-<br>
-Glen shrugs. "I'm not one of those trainers who wears lucky socks or anything, but sometimes something looks like bad luck and is really caused by something else, you know? People can psych themselves out, or get overconfident, or something."<br>
-<br>
-"The car crash thing again? People are nervous because there's an absol nearby, so they, what, forget how to drive?"<br>
-<br>
-"Something like that."<br>
-<br>
-"Come on, we're talking about a horde of pokemon attacking. That's not something you can put in the same category."<br>
-<br>
-Blue looks at Elaine while the other two argue, and sees her silently biting her lower lip. She seemed to support the idea of absol causing bad luck, back in town. She didn't really defend the idea much though. "What do you think, Elaine?"<br>
-<br>
-"Hm? About what?"<br>
-<br>
-"The absol. The diglett arriving when they did."<br>
-<br>
-Her gaze darts around to the three of them, seeming to rest on Aiko for longer than usual. She hesitates a moment longer, then says, "I think… it was <em>really </em>bad luck. Too much. If it was anything less, we probably would have been okay, still. So—"<br>
-<br>
-"That's just hindsight bias," Aiko says. "We happened to be unable to handle that, but if there was another one or two trainers with us, we could have still caught it. Do you really think <em>more </em>diglett would have shown up if, like, Red and Leaf were here? Or the ceiling would have come down?"<br>
-<br>
-Elaine opens her mouth, then closes it and shrugs, looking down again.<br>
-<br>
-"What I'm more interested in is the way our pokemon—"<br>
-<br>
-"Hang on," Blue says, interrupting Aiko. "You didn't let her finish." He turns back to Elaine. "What were you going to say? 'So'...?"<br>
-<br>
-"It's nothing."<br>
-<br>
-Blue studies her, some inkling of intuition kicking in. Elaine is usually really talkative, but he remembers her seeming unusually withdrawn a few times yesterday. He's still getting used to traveling with people other than Red and Leaf, who are always quick to speak their mind, even if it means getting into an argument. But he can't remember Elaine ever arguing with anyone.<br>
-<br>
-"Elaine, you know it's okay if you disagree with us, right?" Blue asks.<br>
-<br>
-Her eyes widen, and she nods. "Yeah. Of course."<br>
-<br>
-"Do you?" Aiko asks with frown.<br>
-<br>
-"What?"<br>
-<br>
-"Still disagree? About absol and luck."<br>
-<br>
-"I… um. I think… I guess maybe not… I mean, but, it's hard to be sure, you know?" Even in the relatively dim light of the butterfree's wings, Elaine's face seems to be flushing rather violently.<br>
-<br>
-"You don't have to be sure," Glen says. "But are you leaning more toward yes or no, right now?"<br>
-<br>
-"Mm." Elaine nods.<br>
-<br>
-"Is that a yes?" Aiko asks, voice dripping skepticism.<br>
-<br>
-Elaine hesitates, then shakes her head.<br>
-<br>
-"Aiko," Blue starts, "Your tone—"<br>
-<br>
-"I know, I know." She considers Elaine briefly, then says, "Hey, Elaine. I think tangela are stupid pokemon. Don't you?"<br>
-<br>
-Elaine's eyes widen, and she looks down between her feet. "Um. I… I don't think… I mean they're not… super smart I guess… but I like them," she finishes, voice trailing to a whisper at the end.<br>
-<br>
-Glen whistles quietly, and turns to Blue. "Good catch."<br>
-<br>
-"Wow, yeah." Aiko's voice softens. "Elaine, I don't really think that about tangela, you know? I was just trying to get a rise out of you. Do you really not feel comfortable arguing with us? Or is it me? Am I pushing too hard?"<br>
-<br>
-"Probably a little," Blue says. "But I think she's been holding back from contradicting any of us."<br>
-<br>
-Elaine looks up at the three of them, blushing harder than ever. She shrugs. "I just don't like fighting?"<br>
-<br>
-"Are you not sure about that either?" Aiko asks, then winces. "Shit, that was meant jokingly. I'm sorry, Elaine, I'm not trying to pick on you. I may be missing some social filters."<br>
-<br>
-"It's okay. I just really like you guys."<br>
-<br>
-"Psh. So?" Blue asks. "I argue with Red all the time, and he's my best friend. Arguing with us won't make us like you less."<br>
-<br>
-Elaine's hands flutter around her knees briefly. "It's not just that, I don't know a lot, compared to you guys—"<br>
-<br>
-"Elaine," Glen cuts her off. "We literally wouldn't be here right now without you. None of us have ever gone trailblazing or spelunking."<br>
-<br>
-"That's different. I know what I'm good at, and I just don't like to argue about things I don't know about."<br>
-<br>
-"That's great," Aiko says. "Really, I wish more people were like that, but in situations like this, where none of us really knows, it's okay to speak your mind."<br>
-<br>
-"In fact, we need you to," Blue says. "We're only at our best as a 'party' when we can pool our ideas, not just our skills." Elaine smiles slightly, and Blue smiles back. "We won't get mad at you or make fun of you if you tell us what you think. Will we?"<br>
-<br>
-"Nope," Glen says.<br>
-<br>
-"Absolutely, and I'm sorry if I come off that way," Aiko says. "I'll try to get better with that, if you try to speak up more often when you disagree?"<br>
-<br>
-Elaine's smile widens. "I think I can try. I mean, I will."<br>
-<br>
-"Great," Blue says. "We can start with absol. You seemed to support the idea of them causing bad luck, back in town. Can you try to give us a summary of what you think about them causing bad luck?"<br>
-<br>
-"Um. Okay." She rubs her legs, frowning down at her shoes. "So. What I was thinking of in town was that a lot of trainers have mentioned how hard they are to catch, right? And, I mean yeah it was fast, and dangerous, but we almost had it before the diglett came. It's not <em>that </em>strong, like, if we had a fighting pokemon that was faster than a machoke we probably would have gotten it, you know?" Elaine's words are speeding up as she talks, her customary enthusiasm leaking into her expression and tone. "So maybe there's more going on, some of it that's hard to measure or even notice at the time. Like a pokeball that malfunctions at just the wrong time?"<br>
-<br>
-"Wait," Aiko says. "You really think <em>that's</em> what happened to the ball that hit it?" Elaine's smile fades slightly, but Aiko is already making a sound of frustration. "Damn it, sorry, let me try that again. Do you… I mean, I thought the ball that hit it just didn't lock on."<br>
-<br>
-Blue is about to add that he thought that too, but holds back so it wouldn't feel like they're all ganging up on Elaine. He really wants her to start arguing back, almost more than he wants to get to the bottom of the absol mystery, right now. He can't head the team effectively if one of the members is too worried about upsetting anyone to speak their mind.<br>
-<br>
-Luckily, after Elaine takes a moment to think it over, she shrugs and says, "It was my ball, I'm pretty sure. And I thought I heard it ping. But I guess I could be wrong?"<br>
-<br>
-Aiko opens her mouth, then closes it again. "I think you may be too," she says, slowly. "But I didn't know it was your ball, so… you might know better than I do. But… okay, so let's just talk about luck for a moment. Luck isn't a <em>force of nature, </em>you can't just… just increase or decrease the random events in the world to favor a certain outcome. That would imply that there's some higher, conscious being or force that's tilting things a certain, very, <em>very </em>specific way. Like the absol couldn't have just caused a cave-in on us, it would have trapped itself. Or if it caused the cave-in and it somehow left it a way free, what does that even say about reality? What if the cavern is literally unable to collapse a certain way? Does the absol somehow know that? Because something's got to." Aiko seems to stop herself from continuing and turns to Blue and Glen. "Was that okay?"<br>
-<br>
-"I think it was fine," Glen says, and Blue nods, looking at Elaine.<br>
-<br>
-"It was fine!" she says. "Um. Give me a second?"<br>
-<br>
-"Sure!" Aiko takes a potion out of her bag and begins to spray her wounds as she waits, and Blue stretches his limbs out, feeling a bit more like himself now that he's caught his breath and the adrenaline is wearing off. He sees the others stretching and adjusting themselves to be more comfortable too.<br>
-<br>
-"Okay," Elaine says after a minute. "So maybe it's not something like a force in the world, but something that just looks like it? I felt really odd while we were fighting it, like everything I was doing was rushed, like I didn't have any… I don't know how to describe it, but sort of like I was watching myself act on fast forward. What—"<br>
-<br>
-"I felt something like that too!" Blue says, sitting up. "Shit, sorry, I interrupted."<br>
-<br>
-"It's okay! What was yours?"<br>
-<br>
-"It's not like yours, but it's close. It was more like something was wrong, like whatever I thought of or did was slightly off. It kept me from really focusing."<br>
-<br>
-"Hey, yeah," Glen says. "That's kind of how I felt too. But more like I was… not doing my best? No, that's not right. Like I was letting you guys down. Like I was going to screw things up for everyone. And my machoke just kept missing it, I think it only got one solid hit in, and that just made the feeling worse…"<br>
-<br>
-They all look at Aiko, who's frowning at her arm as she sprays a cut there, then wipes the blood away with a paper towel. "Nothing like that," she says. "I just felt… afraid. That's all. Almost paralyzed. Like I had to push through my fear to do anything."<br>
-<br>
-"This sounds like a mental attack, right?" Elaine asks. "What if absol have some mental effect to make people clumsier or less focused?"<br>
-<br>
-"But I'm Dark," Blue points out. "It would have to be a Ghost or Dark attack, and I've never heard of an attack like that."<br>
-<br>
-"Something more passive," Glen suggests. "An ability that works like an aura."<br>
-<br>
-Blue frowns. "That... sounds like a legendary pokemon ability. Absol are rare and dangerous, but not <em>that </em>much."<br>
-<br>
-"And this could all just be expectations," Aiko says, sounding only slightly exasperated. "What you're describing are normal feelings people have in tense situations."<br>
-<br>
-"No," Blue says. "Hang on, I think they're right, actually, it wasn't normal. I can't really explain why, but something about the battle was harder for me than any other…" He trails off, suddenly doubting himself. That's not strictly true, is it? He's lost his battle calm before... "I think."<br>
-<br>
-"If the effect is so different for all of us, though," Elaine says after a moment of silence, "It would be really hard to know for sure. And not all absol might have the ability! Other pokemon might too, but without… ah, expectations, like you said," she turns to Aiko, "It would be even harder to notice, you know?"<br>
-<br>
-"So it's something that feeds off of confirmation bias?" Aiko asks, brow raised.<br>
-<br>
-Elaine raises her hands up "Maybe? I mean it could be some of that, the confirmation bias, yeah, but what if it's not? I mean… could you imagine how many people might have reported something similar and been dismissed because others thought of another explanation? That would be really frustrating!"<br>
-<br>
-"But wait, now we're talking about something else," Aiko says. "Or do you think the car crashes might be explained by this too? If so, why would the same effect that does that make the diglett come to that area? How far reaching does this go?"<br>
-<br>
-Blue retreats from the discussion for a bit, simply listening and frowning slightly as he tries to consider both sides. Aiko sounds like Red in most of their arguments, but Elaine is saying a lot of the same stuff Blue would normally, and he tries to think through why he's more willing to side with Aiko in this case. Is it just because he doesn't want to believe that a Dark pokemon can actually cause misfortune to those around them? He knows what Red would say about <em>that.</em><br>
-<br>
-"That's it, we're tabooing the word 'luck,'" Aiko says suddenly.<br>
-<br>
-"Tabooing?" Elaine asks.<br>
-<br>
-"It's a way to keep from getting caught up in semantics. We're not allowed to use that word in the discussion anymore, we <em>clearly</em> mean different things when we say it, and are just getting more aggravated every time that happens." She lets out a breath. "Or I am, anyway, so let's just focus on what we're <em>actually</em> trying to say instead of tripping over that word again and again."<br>
-<br>
-"Oh, that's like a game! What would you say instead, then?"<br>
-<br>
-Aiko stops to think, then continues slowly. "If this power or ability or whatever exists, it has to be something <em>guided</em>. It can't just be some diffuse, aimless effect that happens at random <em>but also </em>keeps benefiting the absol. Otherwise it could just as easily hinder itself with the things it causes. So it must be through some specific mechanism, something under conscious control, like clouding someone's mind or sending a tremor through the ground or whatever."<br>
-<br>
-"I guess that makes sense," Elaine says, after some visible consideration. "My main point is just… that it might exist, so we have to be ready, you know? We shouldn't just assume it's all in people's heads, we have to be ready for something unexpected to happen. More than we usually would, I mean."<br>
-<br>
-Aiko nods. "I can get on board with that, if we can figure out how you prepare for something so… vague."<br>
-<br>
-"Do you think the rangers know something?" Glen asks. "They must have experience hunting absol, even if it's not made official."<br>
-<br>
-"But then why not make it official?" Aiko asks. "If they can really influence events or people like this, they should be paying a lot of attention to it."<br>
-<br>
-"Well, they're paying attention to it. They're just not labeling it an incident, which… I mean, fair enough, right? If not all absol can do this, they can't consider it a major incident every time one appears just in case. What has this one really, provably done?"<br>
-<br>
-"What has it really done," Blue muses, thoughts drifting as something tickles the back of his memory. He picks a pair of small stones up and begins to roll them around each other in his palm, trying to pin the association down. Something he overheard Gramps talking to a ranger about. Was it Red's dad?<br>
-<br>
-"You say something, Blue?" Aiko asks.<br>
-<br>
-"Hm?" He looks up to see the others watching him. "Just remembering something. I think Gramps was arguing with Red's dad about some risk to Pallet town. Gramps was asking him why they hadn't classified it as an incident yet, and Red's dad said the pokemon hadn't done anything yet. I don't remember what they were, I think a full nido family was migrating. The rangers knew if they marked it publicly they would have a bunch of trainers trying to catch them, and that might actually start a rampage, whereas if they left them alone they'd just move on."<br>
-<br>
-"Trying to balance their priorities between protecting the ecology and people," Aiko says with a nod. "But for a single absol…"<br>
-<br>
-"Maybe it's not the absol they're worried about," Elaine says. "Maybe it's the diglett. I mean look what happened to us."<br>
-<br>
-"But people fight diglett in the tunnels all the time! And besides, they're coordinating some people to find the absol. They just don't want a bunch of people around, wasting their time."<br>
-<br>
-"Whose time? The trainers, or the rangers?" Glen asks. "I mean, if this doesn't happen a lot with absol, but there's a persistent superstition about them causing catastrophes, they probably get a lot of false-positives. They can't react to them <em>all </em>like they're real incidents."<br>
-<br>
-The group is silent at that. Blue wonders how much that would factor into his own decisions if he were in charge, and has to admit it would. "So this is a kind of covert op, for them? A way to address the potential incident without actually making it one prematurely?"<br>
-<br>
-"If that's true, what qualifies?" Elaine asks. "If this absol is actually a Tier 1 incident, we shouldn't be trying to capture it on our own. We have to warn the others!"<br>
-<br>
-Aiko makes a face. "But warn them of what? Say we felt scared or worried? Tell them about the diglett? They'd probably just think we messed up and attracted them somehow. Or got unlucky, like anyone would expect. Even if we assume this absol can… exert some power that makes things go in their favor, what will our warning them even do? They're probably already being careful."<br>
-<br>
-"What do you think we should do?" Blue asks her.<br>
-<br>
-Aiko hesitates. "Well. Heal up, first. Give our pokemon some rest. Then… go back to the chamber and track it again. The blood trail will make it easy. We might get it this time, we can heal our pokemon much faster than the absol will recover on its own."<br>
-<br>
-Blue considers it a moment, then looks at Elaine and Glen. "What do you guys think?"<br>
-<br>
-"I'm okay with giving it another shot," Glen says. "It can't have gone too far, after a fight like that."<br>
-<br>
-Elaine is clearly uncomfortable contradicting them again. Blue waits, giving her time to speak her own mind, already thinking about the journey back up, until she lets a breath out and says, "Okay, yeah. Let's try it. And I'm not just saying that to avoid arguing," she adds with a smile before Blue can say anything.<br>
-<br>
-He grins. "Alright then."<br>
-<br>
-They get to their feet, and Blue and Elaine help Aiko and Glen set up a triage station that they can release their pokemon at, one at a time, for healing. Once that's done, they let their pokemon stay out of their balls and make sure they're fed, rested, and especially in Maturin's case, well-watered.<br>
-<br>
-"Alright, let's try and be prepared for anything," Blue says as they make their way back to the chamber and Aiko brings Sneaker out to start tracking it by the blood it left. "If we spot it, we'll try to set things up so seemingly random chance can't make any sort of difference. It's probably looking for a place to rest..."<br>
-<br>
-They confirm that it never came back into the chamber after going up the elevated path, and bring container boxes out to climb up. The ceiling is low for the next ten minutes of winding travel, and eventually Blue stops seeing any spots of blood on the ground. It's a relief to know that it didn't end up dying of its wounds, and thankfully the lack of blood doesn't stop Sneaker.<br>
-<br>
-"You said it had to have stopped soon, right?" he eventually mutters.<br>
-<br>
-"Yeah, their stamina isn't amazing," Glen says as he holds his butterfree up to light the path ahead, the ceiling too low for it to fly. "Maybe it took a quick breather here and there, but it can't have gone much farther… we might even find it asleep…"<br>
-<br>
-Blue keeps track of the time as they follow the path as quick as they can, back to marking their choices and consulting Elaine's maps. The one theme that's quickly obvious is that the absol was descending; within fifteen minutes, they're deeper than they've ever been, and the corridors are getting less and less easily navigated.<br>
-<br>
-Blue is starting to worry that they'll reach a point they can't squeeze through when instead they reach a large opening in part of the floor and wall, almost like a gash.<br>
-<br>
-"Huh," Elaine says. "This isn't on the map."<br>
-<br>
-"Ominous," Blue mutters as they watch Aiko's raticate step up to the hole and sniff at it, then start to crawl through until Aiko commands it to stop. Elaine kneels down and touches the edges of the opening, then shines her headlamp into it. They see the floor not too far below; what to them looks like a hole in the floor is actually an opening somewhere along the edge of a wall and ceiling.<br>
-<br>
-"It's not super new, I don't think. This area of the tunnels hasn't been mapped for almost two years."<br>
-<br>
-"Ok, so the absol didn't cause this, probably. If we go in there though, we won't have the map to guide us, right?"<br>
-<br>
-"Yeah."<br>
-<br>
-Blue lets out a breath. "Let's make extra sure to mark this area up, then. Also, Glen, tie some rope around that stalagmite? It looks like we could climb back up if we need to, but it might come in handy."<br>
-<br>
-One by one they go through… and emerge into a tunnel that's much wider than the network they just left.<br>
-<br>
-"Uh oh," Elaine says.<br>
-<br>
-Everyone immediately turns to her.<br>
-<br>
-"Uh oh, as in, 'Uh oh, this place actually is on the map?'" Glen tries, voice hopeful.<br>
-<br>
-"That's more of an 'oops,'" Aiko suggests. "Maybe she means something like 'Uh oh, my phone is losing charge.'"<br>
-<br>
-"I think I'll take 'Uh oh, I've had the map upside down all along,'" Blue sighs. "What's up, Elaine?"<br>
-<br>
-"Well." She's looking around the tunnel. "The smoothness here is concerning?"<br>
-<br>
-"Smooth?" Aiko walks to a wall and runs a hand over it. "It's rough to me." She tests her footing. "Even the ground."<br>
-<br>
-"I guess I should say the… Evenness. No stalactites up there, or stalagmites around us, even at the corners. I think this is an onix tunnel."<br>
-<br>
-"Ha-haaa, well, look at the time," Glen says. "We just hit nope-o-clock. I change my vote, Blue. This is bad luck if I've ever seen it."<br>
-<br>
-Blue is rubbing his eyes, trying to decide just how big a deal this is. "Aiko, Sneaker's sure it came down here?"<br>
-<br>
-"Yeah. Also… um. He's been getting excited. I think we're close?"<br>
-<br>
-They all turn to the raticate, and Blue sees it's true: her pokemon is practically moving in circles as it keeps trying to follow some path only it can sense, noticing she's not with him, and turning back, only to start tracking the absol again.<br>
-<br>
-"Okay. Glen, was that actually a vote to abort?"<br>
-<br>
-"Shit. I guess not… not without even hearing an onix. These could be old tunnels, right?"<br>
-<br>
-"Yeah," Elaine says. "I mean it's been here awhile. We could just go another fifteen minutes or so?"<br>
-<br>
-They agree, and start to move out again, everyone on even higher alert as they follow the raticate down the tunnel, leaving an arrow on the wall. Blue feels the tension in every part of his body, ears trained for the slightest sound of rumbling. He keeps a close eye on the time too, intent on not going past the fifteen minutes, but in the end it only takes eleven.<br>
-<br>
-The air changes again as they reach an opening to a wide open chamber that's pitch black beyond the relatively dim light of Glen's butterfree. The ground slopes down from where they are at a sharp angle that Blue is not eager to go down in the dark.<br>
-<br>
-Aiko's hand shoots out and stops Glen from reaching up to activate his headlamp. He looks at her curiously, and there's a sudden snapping sound as Elaine activates a delayed glowstick.<br>
-<br>
-"Get ready," she says... and throws.<br>
-<br>
-Three seconds pass. Four. Five… six…<br>
-<br>
-It ignites mid-air, just before hitting the ground and bouncing, a flare of green that reveals most of the chamber for a handful of heartbeats.<br>
-<br>
-The absol is the first thing Blue notices, the only splash of white in all the grey and brown and black. It appears to be lying on its haunches in an alcove against the wall.<br>
-<br>
-The second thing Blue notices is more a collection of things. Boulders, coiled in a loose circle. Its head isn't facing them, thankfully, so Blue doesn't see it, but he knows what he's looking at: an adult onix.<br>
-<br>
-The third thing was also a collection. Eggs.<br>
-<br>
-The flare of light dies, and Blue feels his whole body tense like a coiled spring, ready to throw himself back the way they came or unclip a pokeball. Instead, as seconds pass and nothing happens, his breath comes out in a long, low rush, and he can hear the others' rapid breaths past his heartbeats.<br>
-<br>
-"Okay," Blue mutters, and starts to inch backward. "Bad luck it is. New plan: call for backup. Let's get the hell out of here."<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-It takes a bit less than an hour to reach the surface, Elaine guiding them to a tunnel entrance that's much closer than the one they entered through. Returning to the fresh air and sunlight has a restorative effect that no amount of rest in the tunnels did, and everyone takes a moment to rest before they begin to get out their lunches. If nothing else, Blue reflects, it's nice to smell something besides stale air, stone and all the repellant they sprayed themselves with. He sends a message to Ranger Tanaka and Ranger Fischer as he eats, flagging their location with CoRRNet's generic ask-for-reinforcements button.<br>
-<br>
-Normally there would be an incident page for him to put it on, but since one was never formed for the absol, Blue can't easily let everyone else involved in the hunt know. He does at least send it to Bretta too so that her group is aware, since they're the only others involved in the hunt that he knows of. Any motivation to gloat feels tempered by the fact that they did not, in fact, capture the absol.<br>
-<br>
-He expects there to be some delay before they get back to him, assuming they're below ground and out of reception range, but before he can even finish a granola bar he gets a call back from Fischer. "Hey, you're not in the tunnels?"<br>
-<br>
-"I'm coordinating the hunt from above ground. Where are you, Mr. Oak? What happened?"<br>
-<br>
-"Like I said, we found the absol, injured it, but it got away," Blue says. "The details are a bit of a story. Are you stationed at Golden Hills, or in the field?"<br>
-<br>
-"In the field. Just tell me now."<br>
-<br>
-So Blue begins describing their hunt and encounter. Before he gets to the surprise assault by the diglett, however, the Ranger interrupts. "Hold on, this was just the four of you, then? The group you were with last night?"<br>
-<br>
-Blue steels himself. "That's right."<br>
-<br>
-"Mr. Oak, Ranger Tanaka and I made it clear that we did not think your group was suited to hunt this absol."<br>
-<br>
-"You did, Ranger, and we respectfully disagreed with your assessment. As I tried to explain, my team members are more than they appear on paper." He catches the smiles the others exchange, particularly Aiko. "Which is why we almost caught it."<br>
-<br>
-"Almost is hardly a source of confidence. What is your team doing now?"<br>
-<br>
-"Eating. Resting."<br>
-<br>
-"You could have stayed underground and done that. Does this mean you've given up the hunt?"<br>
-<br>
-"That's complicated." Blue says. "It was bleeding when we let it go, and our team's tracker was able to find it before even without that. After wearing it down, I'd say we could get it for sure… but there was a bit of a complication. Something strange had happened during the battle. It's hard to describe, some sort of mental disorientation, combined with becoming… suspiciously and almost lethally unlucky."<br>
-<br>
-There's silence on the other end of the phone, and when Ranger Fischer finally speaks again, his tone is less irritated, more detached. "Unlucky."<br>
-<br>
-"Yeah. A massive horde of diglett and dugtrio arrived and attacked us."<br>
-<br>
-"Massive?"<br>
-<br>
-"More than thirty. Probably less than a hundred."<br>
-<br>
-Blue expects skepticism, even outright disbelief. Instead the Ranger just says, "That huge spike on the seismographs was you, then. It's impressive that your team made it out alive."<br>
-<br>
-<em>This just got a lot easier. </em>He catches Aiko watching him, and he gives her a thumbs up. The others see it too and look relieved. "If we weren't the type to prepare for as many surprises as we could, I don't think we would have. Assuming what happened was in some way under its control, we don't want to risk anything like it happening again."<br>
-<br>
-"And you have no need to, now that we know where to look. You did well in finding it, and—"<br>
-<br>
-"Actually, Ranger, even the more experienced groups hunting it would have trouble… especially now."<br>
-<br>
-"Now…?"<br>
-<br>
-"Now that it's resting right next to an onix nest."<br>
-<br>
-Silence. The rest of the team is clearly distracted as they eat, waiting for Blue's reaction. He tries to look confident, even as he expects Fischer to tell them to stand down and give up the hunt.<br>
-<br>
-"Your team rides bikes?" Fischer asks at last.<br>
-<br>
-"Yes?"<br>
-<br>
-"The location you sent is half an hour from the Golden Hills pokecenter. Head there."<br>
-<br>
-Blue frowns. "Ranger, again with all due respect, we're not going to—"<br>
-<br>
-"Not to stay. I'm recalling our teams and meeting you there."<br>
-<br>
-Blue blinks, skepticism warring with relief. "Okay, we'll be there," he says after a moment. "See you soon." He hangs up. "We're meeting at Golden Hills."<br>
-<br>
-They quickly pack everything back away and switch their spelunking gear out for bike pads and helmets, then head to town. Blue was expecting to have to convince the Rangers or other groups to work with them based on what they saw, but it seems that might not be so hard. Still, he tries to think over and refine the plan they came up with as best he can.<br>
-<br>
-By the time the party reaches the pokemon center, Ranger Fischer and a few other trainers are already there. Blue notes a stormy expression on Fischer's face as he spots them and approaches, and quickly sticks a hand out.<br>
-<br>
-"Ranger, good to see you again. We're ready to give our report, here or elsewhere."<br>
-<br>
-Fischer's gaze flicks down to Blue's hand, then back up to meet Blue's before he gives his hand the briefest of squeezes. "Elsewhere. We're waiting on others to join us, though it's hard to know for sure how many were within range to get the message. We'll wait another fifteen minutes, then begin."<br>
-<br>
-"Sure thing." Blue watches him turn away, and lets a breath out. Some part of him was still expecting a public browbeating.<br>
-<br>
-"I don't think he likes you."<br>
-<br>
-"Yeah, well, he's only half the problem. We need to convince those other trainers to take us seriously." He looks at the other three. "Do any of you think you'd like to do the talking in there?"<br>
-<br>
-"Don't be silly," Elaine says. "You're Blue Oak. If they're going to listen to any of us, it's you."<br>
-<br>
-"Just making sure I'm not hogging the limelight."<br>
-<br>
-"You are," Glen says, and claps his shoulder. "But after leading my own group of trainers for a few years, I'm happy to have someone else to blame if things go wrong."<br>
-<br>
-Aiko grins. "We're right behind you."<br>
-<br>
-Eventually they're all ensconced in a common office meeting room at the administrative wing of the center, a large oval table taking up most of the space inside. There isn't enough room for all the trainers who came, and since Blue anticipates doing some speaking during the meeting, he decides to stand near where the Ranger is sitting rather than take some of the seats. Aiko, Elaine, and Glen take his cue and stand beside him, and the other trainers naturally space themselves out in groups in the rest of the room so that it's just Ranger Fischer and Blue's party at the "front" facing everyone else.<br>
-<br>
-"Hello everyone. I've called this meeting because new information came in about the target that changes the nature of the hunt. I was hoping everyone else could make it here on time, but better to act on what we know with whomever we have." He gestures to Blue and the others. "These trainers encountered the absol. I'll let them give their report."<br>
-<br>
-Blue steps forward and recounts the encounter as best he could, focusing mostly on its speed and precision, every movement either evading one of their attacks or bounding close for a quick but meaningful strike. He also described the feeling of unease and second-guessing himself, and how it made him ready for the unexpected arrival of the diglett horde. His phone chimes in his pocket while he's talking, and he quickly dips a hand in it to silence it, embarrassed.<br>
-<br>
-"We'd already come up with countermeasures for facing too many of them elsewhere in the tunnel, and quickly emptied some repel cans and began playing the hunting cries of pidgeot and fearow. Even below ground where none should have been, the smell and sounds were enough to drive most of them away so that we could fight the few dugtrio that stuck around, but we couldn't split our attention well enough to capture the absol and defend ourselves at once. We had to let it go and leave the cavern before the diglett shook it to pieces." Blue pauses, seeing some skeptical faces. One seems about to speak up when Blue turns to a trainer that looks puzzled instead. "You have a question?"<br>
-<br>
-"Huh? No… well, yeah, I guess. Do we even know if it's still alive?"<br>
-<br>
-"Yes, we followed it again after some delay. It was able to find a place to rest, but unfortunately it had another stroke of luck, and happened to pick a location right by an onix nest."<br>
-<br>
-Murmurs and swears fill the room. "You escaped an attack by an onix family too?" one of the skeptical trainers asks before Blue could continue or call on someone else.<br>
-<br>
-"Of course not," Blue says, voice even as he meets the speaker's gaze. "The onix appeared to be sleeping, so we retreated."<br>
-<br>
-"Why not just capture it while it was sleeping and get the absol?" he persists.<br>
-<br>
-"Because of the feeling we had earlier, when we fought it. We were worried it would rouse the onix if we got any closer."<br>
-<br>
-"Because of a feeling?"<br>
-<br>
-"Let's focus on that in a moment," Ranger Fischer interrupts. "Given your experiences, does your team have a plan, Mr. Oak?"<br>
-<br>
-"Yeah. Our idea is pretty simple, but it will take a lot of work. We lead everyone down and check if the absol is still there, then do everything we can to ensure it can't surprise us in any way we can predict. Have people on standby so that if it manages to get away somehow, we have another team standing by to cut it off, then more teams after that. We're working off the assumption that it will make things as inconvenient as possible for anyone who faces it, but only in realistic ways. It shouldn't be able to pull one trick, then another a couple minutes later, then another a couple after that."<br>
-<br>
-"How many onix were there, exactly?" Someone asks.<br>
-<br>
-"Just the one that we saw, and a bunch of eggs."<br>
-<br>
-"Then why not just overwhelm it? Even with the onix, the lot of us could split up and probably capture it in moments, then focus on the onix together."<br>
-<br>
-"Too many eggs in one basket," Blue says. "We want to avoid any one piece of bad luck, however unlikely, from preventing us all from catching it."<br>
-<br>
-Another trainer speaks up. "So you're really suggesting it might… what? Cause all our pokeballs to glitch or something?"<br>
-<br>
-"Or the eggs would start hatching," a guy by the door says before Blue can answer. "Or the other parent could show up."<br>
-<br>
-"Come on, what are the odds of that?"<br>
-<br>
-"It could bring the whole ceiling down," another suggests.<br>
-<br>
-"We should all get some luck charms…"<br>
-<br>
-"Get off it, how would an absol even do something like that?"<br>
-<br>
-Blue watches the room erupt into arguments and tries to find a good moment to step in. After that last line, however, it's Elaine who steps forward. "We're not sure." Everyone turns to her. She clasps her hands behind her to keep them from fidgeting. "It's not… we don't really know what we're dealing with, you know? We're just trying to be careful. The diglett it summoned against us—"<br>
-<br>
-"Summoned?" someone asks, voice incredulous.<br>
-<br>
-Elaine's hands wring together at the small of her back, and she bites her lower lip. Aiko watches with a creased brow and opens her mouth, but Blue slightly shakes his head, and she subsides with a frown.<br>
-<br>
-"Not literally, maybe," Elaine says at last. "But something like it might happen again. It doesn't seem like an accident that it found an onix nest to rest by."<br>
-<br>
-"Sorry, but this seems ridiculous," one of the older trainers says, ignoring the dirty looks by some other trainers. "Absol just can't do stuff like that. If things happened the way you say they did, you guys got unlucky a couple times, but—"<br>
-<br>
-"I agree with you," Aiko says before Blue can respond. "I don't think the absol can control luck either. But even if you think we're wrong, we <em>will </em>find it again, and we're going to play it as safe as we can. You can be part of that or try your own luck. It's up to you. But the other things it did were definitely real, and anyone who hunts it has to know about it. Our pokemon felt it too, I think. They were less able to coordinate than they should have been, and tired more quickly."<br>
-<br>
-Ranger Fischer speaks up. "Yes, that brings us to the most important point of the encounter." Blue watches the ranger warily, wondering if he'll cast doubt on what they felt. "Could you each describe what it was like, facing the absol? Psychologically?"<br>
-<br>
-"Sure." Blue repeats his experience, highlighting that it was very unusual for him. Aiko goes next, followed by Elaine and Glen.<br>
-<br>
-"Thank you all." Fischer turns to the rest of the room. "Some of you may find these descriptions familiar, in some way. You may be embarrassed to suggest why. If so, raise your hands." He smiles, perhaps acknowledging the difficulty of asking embarrassed people to single themselves out. "Please trust that this is important."<br>
-<br>
-The room is silent and still. Blue has just enough time to wonder what the hell Fischer is talking about, and then a hand goes up. It's an older trainer, late twenties or early thirties. Two more raise their hands, then another two. All are at least a decade older than Blue, and in total make up about a third of the room's population.<br>
-<br>
-"Thank you. It's hard to know for sure, with this sort of thing." He takes a deep breath, then lets it out. "What I'm about to reveal to all of you can be considered cutting edge information, and also, by the same token, incredibly unreliable. The Rangers have had a suspicion about certain pokemon, and the strange abilities that are at times attributed to them. One ability in particular is worrisome, if we're right. We've coordinated with researchers to try and confirm our theories, but so far we've had no luck."<br>
-<br>
-"Pressure," one of the trainers who raised their hand says, and even through his shock, Blue hears a sharp intake of breath from Aiko, barely audible. "That's what you think they're describing? What Rangers have been suspicious about? Non-legendary pokemon that have it?"<br>
-<br>
-"Yes. Pressure, or something very like it. A different variation of the same power, perhaps. Reports are incredibly rare, and only a handful of non-legendary pokemon have been suspected, such as spiritomb and weavile. Like absol, most of them are Dark Types, and most of the ones encountered don't seem to have it. If it exists, it's a tiny subset of a tiny subset of pokemon. In absol's case, we don't know to what degree this ability is related to stories of bringing misfortune. Perhaps they're entirely coincidental. But from the sensations reported by these four, combined with the frenzied behavior of the wild diglett, we've decided to approach the situation as if it's true. My preference would be to wait until Ranger Tanaka and the other trainers who responded to the bounty have resurfaced before mobilizing, but it may disappear in that time. A squad of rangers is arriving soon, and they, combined with any of us here who are willing, will move out by nightfall."<br>
-<br>
-The ranger is going on about compensation for any trainer who does capture the absol and is willing to trade it to the Rangers for study, but Blue is still trying to wrap his mind around all the implications of what he's hearing. He wishes Red were here, wants to hear what he would make of this. Blue has spent years chasing down stories of what it felt like to face the Stormbringers and the terrifying Pressure they exert, knowing he would have to experience it himself one day. More, to endure it again and again, as few others do.<br>
-<br>
-To think, that he may have actually felt it without even realizing it. A weaker form, sure, but there's a sense of exhilaration in knowing that he survived a brush with such an ultimate challenge.<br>
-<br>
-Until he remembers that even this lesser form totally robbed him of the calm clarity he's come to rely on in battles. A chill works its way up his spine, and his heart begins to pound as he remembers that feeling of constant unsureness, second-guessing, feeling off balance. How can he face the Stormbringers like that? How much worse would the real thing be?<br>
-<br>
-"—Storm Birds, then it may be cumulative in the same way, even if to a lesser degree," Fischer says, snapping Blue's attention back to him. "Therefore, those of you who have faced them before may want to assist in other aspects of the hunt. Those of you who will assist in the hunt, please meet back here by 6 PM. I thank the rest of you for your time and efforts thus far."<br>
-<br>
-The room stirs to life, and a few trainers rush up to the Ranger with questions. A few of those leaving glance at the four of them, but Blue barely notices, hands curl into fists as fear and uncertainty steadily grow inside him.<br>
-<br>
-<em>The first exposure was worth it, gave me a taste of what facing them will be like. But if each exposure weakens tolerance… </em>How many fights do most trainers get with the birds before they start getting overpowered? Ten, maybe fifteen? Gramps has gone against them 23 times, the last one being against Moltres when Blue's parents were killed. He used to think that Gramps never fought the Stormbringers anymore because he didn't want to risk orphaning him and Daisy, but there are rumors that he was nearly crippled from the after effects, and was warned off ever attending another by his physician. None of them ever bring it up.<br>
-<br>
-Blue doesn't plan on needing 23 attempts to bring Kanto's legends down, but the effects will start to catch up to him long before then. Catching one absol isn't worth risking that happening a single day sooner than it has to.<br>
-<br>
-<em>I should have finished it off in the tunnels, </em>he thinks, gut souring with anger at himself. <em>I was too worried about looking bad, and let a really dangerous pokemon go… now this…</em><br>
-<br>
-"Blue?"<br>
-<br>
-He blinks at Aiko's whisper, and realizes that the room is mostly empty, and the others have been waiting on him at the doorway.<br>
-<br>
-"Sorry," he mutters, and follows them out, trying to get his priorities straightened.<br>
-<br>
-"I was saying, I usually head home by sunset if I can," Aiko says. "If the plan is to go down at 6, I don't know if… I mean, I don't want to leave you guys…"<br>
-<br>
-"It's okay," Glen says. "With everyone else there, we should be fine."<br>
-<br>
-Elaine nudges him with her elbow. "I think she's probably also just not wanting to miss out on the experience with us. Missing major bonding moments with friends sucks!"<br>
-<br>
-Aiko smiles. "Right, that."<br>
-<br>
-Glen shrugs. "If it makes you feel better, we're about to become cogs in a machine. You were there for the important stuff."<br>
-<br>
-"To be honest," Blue says cautiously, "Maybe we should all step back." Everyone stares at him. "We did the important part. We even marked the path we took. The others can find it, catch it."<br>
-<br>
-"Well. That's kind of unexpected," Elaine says. "I thought you'd want to be there for sure."<br>
-<br>
-"Are you feeling okay, Blue?" Aiko asks. "You're not just saying that for my sake, right?"<br>
-<br>
-"I'm fine. And no, though that makes it even easier to decide not to go." He tries to think of a reason not to tell them the truth, and can't find one. He owes them that much at least. "I won't blame any of you for not wanting to go, but I think I'd just rather not 'use up' whatever resilience I have to Pressure, if that's what it really is."<br>
-<br>
-"Oh. Right, I didn't think of that," Glen says. "Your vow…"<br>
-<br>
-"We could stay back," Elaine suggests. "Be one of the last fallback positions. Probably won't even need to face it."<br>
-<br>
-"That's… not a bad idea," he says slowly. He tries to think of whether he loses face more if he suggests staying out of danger compared to just not being there at all. All the momentum he gained of associating himself with this capture might go to waste if he's not there for the finale, but he also doesn't want to come off as a coward. "Let me think about it?"<br>
-<br>
-The others nod, and he heads for the entrance of the pokemon center to call Gramps and ask his advice. It isn't until he turns the screen on and sees the missed messages that he remembers putting it on silent during the meeting.<br>
-<br>
-<em>14:31 Hey, we just surfaced and got your message. And Fischer's. Talking about heading back down where you guys came up, since we're nearby. You guys still there, or did you go to the meeting? Do you know if it's important?</em><br>
-<br>
-<em>14:52 We found the entrance. Let me know if you're still topside, so we can join up. Or at the meeting. Whichever.</em><br>
-<br>
-<em>15:01 Going down. Maybe we'll run into you!</em><br>
-<br>
-The messages are from someone named Sumi. Blue stares at them in blank confusion for a moment before it turns to sudden horror. He quickly looks up the trainer's profile and confirms that it's the girl who was with Bretta last night. The one who had almost said something, then wished them luck. A cheerful notification at the side informs him that she's Following him, and has been since his match in Pewter.<br>
-<br>
-Blue's eyes skip back to the latest timestamp. Almost ten minutes ago. He knows he's too late even as he calls her number, but he still finds himself closing his eyes and praying that she picks up, that they did some last minute preparation before going out of cell range…<br>
-<br>
-The call goes to voice message. "Hey, it's Blue," he says as he quickly strides back into the Pokemon center. "If you get this, call me! Don't go back down alone, the situation has changed. Just… we're all at Golden Hills…" He realizes that might not still be true by the time they resurface, and ends the call there as he spots the others.<br>
-<br>
-"Blue! What's wrong?" Aiko asks.<br>
-<br>
-"Fischer still in there?"<br>
-<br>
-"I think so? He hasn't left…"<br>
-<br>
-Blue opens the Staff Only door behind the front desk and jogs through the halls, drawing stares. <em>My fault, this is my fault... </em>If he'd just remembered to message Bretta to let her know he was heading to Golden Hills instead of assuming she'd follow the Ranger's message... Blue begins to go faster, practically running through the pokemon center. He hears the others pick up their pace to match behind him.<br>
-<br>
-Fischer is still there with a few other trainers, looking at some underground map on his laptop. They all turn as Blue bursts in. "Ranger! Three trainers are on their way to the absol. They don't know what's down there, we marked our path and they're headed straight for it!"<br>
-<br>
-The Ranger's brow furrows. "How do you know this?"<br>
-<br>
-"Look!" He shoves his phone at him. "My phone was on silent, I just saw these… they must have come up while we were in the meeting."<br>
-<br>
-Fischer stares at the screen with a blend of confusion and indignation. "You sent them the coordinates?"<br>
-<br>
-"Yes, at the same time I did you! I wanted to see if they would join up, this was before I knew where you were or that you would organize this meeting… why isn't there an incident page for this, so updates can be posted there?" Frustration and impatience is building up in him as he tries to do the math. If they went down ten minutes ago, and it took Blue's group half an hour to get here, then by the time they reach the tunnel entrance again, they'll nearly be at the onix nest. Assuming they don't get lost. <em>Please get lost…</em><br>
-<br>
-"What's the big deal?" one of the fucking stupid trainers nearby comments. "They'll see the onix and stay back, right?"<br>
-<br>
-Blue rounds on him and barely manages to keep from shouting. "They don't know about the Pressure. They might <em>not </em>hold back. The absol might not even still be there, hell, it might go back up and encounter them on the way!"<br>
-<br>
-Ranger is typing on his laptop. "I'm calling everyone from the meeting back again. We'll have to move up the timetable and be prepared to go with who we have." He looks up. "Oak, your team knows the path best. I'll requisition aerial flyers from town to take you ahead of us to try and catch up to them. Leave someone at the entrance for the rest of us." He turns to the others in the room. "Who here will go with them? Then go, now! I'll get as many flyers as are available. Do any of you not have Heavy Balls?" He unclips a pouch at his belt without waiting for an answer and takes a ball bag from it to toss to Blue, whose hand snaps up to grab it automatically. "There are four in there, along with some others. Use what you need to. I expect the rest back."<br>
-<br>
-Blue stares at him, but the Ranger has already activated his earpiece even as he keeps typing. Blue's phone pings a moment later with the mutual pickup spot, and after another moment's hesitation, he turns to the rest of his party.<br>
-<br>
-The three of them return his gaze steadily, ready and waiting for his lead. Their trust fills him with determination.<br>
-<br>
-"Let's go," he says, and leads the way back out of the center.<br>
-<br>
-Back toward the dark depths.<br>
-<br>
-<hr noshade="noshade" size="1" /><br>
-<br>
-The tunnels feel more claustrophobic as the party descends into them the second time, the footing more treacherous as they try to move as fast as they can while maintaining some level of vigilance. For Blue, at least, his mind is mostly on how far ahead Bretta's group is, and what they might do if they reach the onix chamber.<br>
-<br>
-The flying mounts met them at the edge of town and took off with minimal preparation. There were six of them, which meant two of the trainers who followed them from the center had to stay behind. Blue didn't waste any time and simply chose the oldest and third oldest looking ones, skipping over the idiot. The riders helped each of them into the rear saddles on their pidgeot and gave them quick instructions on what to do and not do during flights, then they were off.<br>
-<br>
-Blue normally enjoys flying, but his stress and impatience robbed the experience of any pleasure, the birds seeming unbearably slow and uncomfortable. Still, they made it to the entrance in under five minutes, wasting just one more getting unstrapped and putting their gear on. Glen was given a sick bag before the flight that Blue saw him still clutching in one hand when they landed, though it was thankfully empty. Still, he was pale and clammy, and offered to be the one to stay behind and lead the rest of the arrivals. Normally Blue would have argued; he had some of their strongest pokemon, and the machoke in particular would be useful against both the onix and absol. But the two strangers they'd brought, combined with the two rangers that were waiting for them at the entrance in response to Fischer's broadcast, made it so that speed was what they really needed most. They left him to recover at the entrance.<br>
-<br>
-As they descend deeper and Blue starts to remember some of the tunnels they're traveling through, he keeps expecting to hear an onix roar from somewhere below and ahead. Thanks to the flights they're just twenty minutes behind Bretta's group, maybe twenty-five max. If they can descend at twice the other group's speed... if they were slowed by diglett attacks at all (their own group has encountered none)... if, if, if. It feels like a long shot, but Blue hopes they're at least smart enough to spend a few minutes strategizing, if they end up attacking at all.<br>
-<br>
-The occasional rumblings in the earth around them keep his anxiety up, but he feels a surge of relief when they find the gap in the floor and still don't hear anything like a battle.<br>
-<br>
-"We're close," Elaine tells the others, whose names Blue has already forgotten. "Just down here, then a few more minutes…"<br>
-<br>
-They lower themselves into the onix tunnel and start to move toward the cavern at a jog. Blue wants to call out, but restrains himself, eyes straining to see past the edges of the light provided by one of the rangers' jolteon. <em>Almost there… almost…</em><br>
-<br>
-"Is that light?" someone says.<br>
-<br>
-Blue nearly stumbles, and a couple of the people in their group make sounds of surprise at the unexpected appearance of light around the bend in the tunnel up ahead. Soon after, a quiet shout of "Who's there?" reaches them.<br>
-<br>
-"Bretta? Sumi?"<br>
-<br>
-"<em>Oak?!"</em><br>
-<br>
-Blue is grinning with relief as the light gets brighter. The three trainers meet them at the curve in the tunnel, a magnemite floating beside them, its eye glowing. All of them look shocked at the size of the group in front of them, or perhaps just by their very presence.<br>
-<br>
-"What… where were you, we followed your marks but—"<br>
-<br>
-Blue steps past Bretta and pulls Sumi's hand between his, bowing over it. "Thank you for messaging me. I'm sorry I didn't respond on time. We got here as fast as we could… thank you," he says, voice low.<br>
-<br>
-"I… you… welcome?" the trainer squeaks, looking thoroughly confused.<br>
-<br>
-Blue grins and releases her hand, taking in the sight of the three of them, then looking back at the rest of the group, who are leaning against the wall or sitting down, breathing hard to recover from their rapid pace. Most are smiling, Aiko and Elaine looking outright giddy with relief.<br>
-<br>
-"It's a long story. Let's get out of here, and we can explain," he whispers.<br>
-<br>
-"Get out? Why? We're about to catch the absol!" Bretta says, also keeping her voice down even as she gesticulates back behind her.<br>
-<br>
-Blue shakes his head. "Too dangerous. There's… it has a sort of Pressure-like ability, and the onix there, it might wake it up—"<br>
-<br>
-"Woah, woah, slow down," the guy beside Bretta says. "Pressure? From an absol? And what onix? It's just lying by itself in a big cavern."<br>
-<br>
-Blue stares at him.<br>
-<br>
-"We think it's asleep," Sumi offers, gaze searching his face. "Hopefully, I mean, and not dead. It was weird, finding it here, but not you guys, we thought maybe this was a second one that showed up after you left…"<br>
-<br>
-"No onix?" Aiko asks.<br>
-<br>
-"No?"<br>
-<br>
-Blue feels uneasy.<br>
-<br>
-He looks back the way they came, then at the rest of the group, then peers at the dark cavern ahead. "How long have you guys been here?"<br>
-<br>
-"Uh. Maybe five minutes?"<br>
-<br>
-"Was there any sound of tunneling when you got here?"<br>
-<br>
-"Yeah, how did you know? It was moving away, though."<br>
-<br>
-Blue wipes suddenly sweaty palms on his pants, then lowers himself to listen to the ground.<br>
-<br>
-And hears the rumbling.<br>
-<br>
-He gets up and starts walking toward the onix chamber.<br>
-<br>
-"Hey, what—"<br>
-<br>
-Nine pairs of feet follow him, some of them scrambling to keep up as he breaks into a jog. The sense of unease grows as he approaches the big, dark chamber, and he stops in front of it, the others almost colliding with him as they do the same.<br>
-<br>
-"<em>Blue</em>," Bretta hisses, grabbing his arm. "<em>What </em>is going <em>on?"</em> She jumps as Elaine snaps a glowstick and throws it. "What was… did you just…?"<br>
-<br>
-"Do you guys feel it?" Blue murmurs.<br>
-<br>
-"No," Elaine says.<br>
-<br>
-"Yes," Aiko says.<br>
-<br>
-"I… yes," one of the trainers from Golden Hills confirms. "A little. Arceus, it's real."<br>
-<br>
-"<em>What's real?!" </em>Bretta whisper-shouts.<br>
-<br>
-The glowstick flares into light just then, and they all get a dozen heartbeats of light to see the big empty chamber… empty save for the absol, right where it was, and the eggs in the center.<br>
-<br>
-"There." Elaine points them out. "They… left them?"<br>
-<br>
-"Holy shit, those are eggs?" Sumi takes a telescope out of her pocket and looking through it just before the light dies.<br>
-<br>
-"Everyone, get ready," Blue says. His eyes had locked onto the absol, then moved over the whole chamber quickly and spotted it: the hole in the wall that hadn't been there before. He imagines he can hear the rumbling now. "Elaine, got any of those that last longer?"<br>
-<br>
-"Yep. They're not as bright though. I'll throw a bunch around."<br>
-<br>
-"Am I right to assume that you're planning an attack, Trainer Oak?" one of the rangers asks. <em>Seishi,</em> Blue remembers. <em>Ranger Seishi. </em><em>Learn their names.</em> "We were told this would be search and rescue."<br>
-<br>
-"I think we're the ones that might need rescuing. This is a trap. We've already walked into it."<br>
-<br>
-The other ranger (Miko) immediately drops to the ground and presses her ear to the stone, as Blue did. "Seismic activity. It's increasing." The first ranger immediately reacts to his partner's words by taking out more of the sticks Elaine is holding and beginning to help her in tossing them around the big cavern, and behind them.<br>
-<br>
-"I hear it," Bretta says, sounding surprised. "Does anyone else hear it?"<br>
-<br>
-"No… wait, yes!" another trainer says.<br>
-<br>
-"Can't we run?" Elaine asks.<br>
-<br>
-"I think one is coming from behind us," Blue says. "Took us what, six minutes to get here from the hole? If we fight it in that narrow tunnel…" He already has his shiftry's ball out, and summons Kemuri manually as Aiko and Sumi do the same with their pokemon, followed quickly by everyone else. "We'll be crushed like bugs."<br>
-<br>
-"I don't understand what's happening," the guy with Bretta says as he summons a poliwhirl. "And I'm going to go with 'pissed off' instead of 'scared' if someone doesn't explain it soon."<br>
-<br>
-"Onix nest," Aiko says. "When we came here before, there was one parent. Now there's none. The absol used its Pressure to make it leave… and then when it hit the end of its range, it came back? Or…"<br>
-<br>
-"Or it found its mate and is returning with them," Ranger Seishi says as Blue turns back the way they came and starts spraying repel along the ground. It won't stop an onix, but just in case anything else comes too. Some others quickly start to mimic him, and Blue leaves it to them, using the rest to spray himself, then turning toward the now-mostly-lit chamber to see if the absol reacted. It's standing up now. "Onix often leave their nest if they sense a threat and return with their mate, trusting their eggs to endure a while."<br>
-<br>
-"It… what? Guys… a pokemon can't do that," Bretta's friend says, sounding half incredulous and half pleading. "I mean… that kind of planning…"<br>
-<br>
-"It's the bad luck," a trainer that came with them says miserably as the rumbling starts to get really pronounced. Blue can't remember his name, and really hopes that doesn't end up getting someone killed. "Them coming now, of all times? No way that's coincidence. I should have gotten that stupid charm."<br>
-<br>
-"I don't think it's a plan, <em>or </em>luck," Aiko says, voice seemingly detached, almost musing, unless you pick up on the hint of barely restrained fear beneath the surface. "Or anything like luck. I think it's just… what it does when it feels threatened. Or constantly. And what it does is shake boxes, and stay out of the way of what that results in better than those around it. And that often just looks like it has really great luck. Or everything around it has really bad luck."<br>
-<br>
-"Everyone, state your names again," Blue says before anyone else can respond. The cavern is as bright as it's going to get, as Elaine and the ranger seem to have run out of glow sticks. "We need to be able to get each other's attention quickly. I'm Blue."<br>
-<br>
-They name themselves. The guy in Bretta and Sumi's group is Slava, and the two trainers from Golden Hills are Payton and Abdu.<br>
-<br>
-"We have to capture that absol," Ranger Miko says, stepping up beside Blue and looking at the absol as it watches them from the other side of the chamber.<br>
-"It's too dangerous to leave unattended."<br>
-<br>
-"More than you think. It's incredibly agile, and getting close to it causes effects similar to Pressure. It's probably going to try and stay away from us until the onix get here, then run for it, maybe striking at us along the way."<br>
-<br>
-"Then those of you with fast pokemon to keep it in check, come with Ranger Seishi and I. The rest of you, try to capture the onix if you can, but if not..." Miko glances at Kemuri. "Do what you need to survive."<br>
-<br>
-"Right." Blue sets aside his desire to fight the absol again. He pulls the bag of pokeballs out and hands out all the Heavy Balls in it, keeping one for himself. If he misses a throw at an <em>onix</em>, he doesn't deserve a second try. "Someone with a tanky pokemon, with me! They're almost here!" He rushes down the slope into the cavern, heading for the other tunnel as the Rangers head toward the absol with Payton.<br>
-<br>
-As he reaches the bottom of the slope, the full force of the Pressure is suddenly there all around him, unease and confusion making him feel as though tragedy is imminent, as though there's something he's missing, and there's no time to consider what it might be, or wonder if the effect is stronger than last time, or if that's just expectation or if there's <em>even a difference</em>, because that's when the first onix roars from within the new hole in the wall, and the other one responds from somewhere back the way they came, and all that matters is survival.
-        </div>
+            <h1 class="chapter-title">119: Coverup</h1>
 
-        <div class="chapter-nav">
-            <a href="../118/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../120/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>Even at first glance, with no new information to make her think her discovery meaningful, Leaf feels a touch of surreality upon looking at the mansion, and glances around for any ghost pokemon before staring back at it. It doesn't match the one from her imagination, of course, but certain features, like the lack of road to it and the ocean surrounding most of the cliff, makes it feel that strange mix of real and unreal, like she <em>did </em>just stumble onto a replica from out of a daydream she had.</p>
+
+<p>It's also less overgrown than she'd have expected. The pit of rubble has grass growing in from the edges, and some vines wrapped around the walls have curled inward where half the structure collapsed to expose the rooms inside, but that's it. The roof and walls of the uncollapsed side look almost entirely undamaged; even the windows are mostly whole. And while there's some wind and rain damage to beds and carpets she can make out, the exposed wood doesn't appear rotten or moldy.</p>
+
+<p>"How long ago did you say this was built?" she asks Ranger Neasman.</p>
+
+<p>"Records say nearly twenty years. It had a caretaker that was supposed to come to the island now and then, and he reported that it was destroyed during the Hoenn Incident."</p>
+
+<p>Blue, Ira, and Wendy are clearly being cautious as they sweep the perimeter for any sign of wild pokemon nesting nearby, while Red and his guards stay near her, idly investigating what they can from outside the building. They avoid stepping too close to the sloping, earth and rubble filled pit beside the mansion in case it's prone to further collapse.</p>
+
+<p>She explained her suspicions before they left, both to justify why this was so urgent and so they'd know what to look for. None of them read her story except Wendy and Red, but it was one of his guard who asked outright where the information for it came from, which she said she couldn't answer. They seemed unhappy with that, but with Blue and Red backing her up, and Wendy showing clear urgency too, no one argued against going.</p>
+
+<p>Red's expression of engaged curiosity is nostalgic, and makes her apprehension about spilling part of her secret feel more worthwhile. She flags her location to Laura specifying the location just in case something happens to them, then after a moment's thought does the same for Janine as well.</p>
+
+<p>"Everyone unsummon your pokemon," Ranger Neasman says, then pauses as he remembers Red's abra hanging off his back. "That one's fine." Once the rest are withdrawn, he brings out a zubat.</p>
+
+<p>His pokemon flaps around at random for a moment, then begins to fly in a clear pattern. "There are definitely pokemon inside," Neasman says as his zubat flies in a specific pattern. "At least four different species, and at least six of them in total."</p>
+
+<p>"Doesn't seem so bad," Blue notes.</p>
+
+<p>"The <em>at least </em>is important." The ranger shrugs. "She can't count too high."</p>
+
+<p>"He can," Blue says, sticking a thumb at Red.</p>
+
+<p>"At least a dozen," Red says, smiling slightly. "But some might be dark, obviously. And bugs are hard to sense, particularly if they're not active."</p>
+
+<p>Ranger Neasman looks a little embarrassed, but nods. "Right. Thanks." He reaches up to his earpiece. "I'm calling for sup—"</p>
+
+<p>"Wait."</p>
+
+<p>Everyone turns to Leaf, and her mind races to come up with something she can say that would make sense. "Do we… need to involve others if we don't even know there are ditto here?"</p>
+
+<p>"True, it could be a waste of time. But we're not a proper scouting party, we're just trying to get eyes on nests and take easy wins. A place like this, we should at least get one of the local outposts to send some people."</p>
+
+<p>"What's wrong, Leaf?" Red asks.</p>
+
+<p>Leaf eyes the rangers. The cadet is from another region, but… "How long have you guys been stationed here at Cinnabar, Ranger Neasman?"</p>
+
+<p>"'Bout six years. Brought my family over after two." His posture and voice are relaxed as he looks over the manor, not turning to her as he casually asks, "You about to accuse me of something?"</p>
+
+<p>Wendy frowns and gives Leaf a hostile look, but Blue just looks intrigued, and Red thoughtful. "No. But if I'm right about this place, some local rangers must have been in on it."</p>
+
+<p>"That's crazy," Wendy says. "Why would rangers—"</p>
+
+<p>"I didn't say they <em>were. </em>Only that they would have to be, <em>if </em>I'm right. Which I'm probably not. But on the chance I am, it's not worth the risk."</p>
+
+<p>"The risk of what, exactly? You think they'll attack us?" He glances at Red's guards. Or maybe just Red.</p>
+
+<p>"No. But if they join the search, maybe they'd know where to direct it so we don't stumble onto anything we shouldn't. Maybe they'll even find evidence they need to cover up."</p>
+
+<p>"If this place <em>was </em>part of some conspiracy, surely they would have cleaned the evidence up before they abandoned it."</p>
+
+<p>Leaf had considered that, of course. "I know it's not a lot to go on, but—"</p>
+
+<p>"But you've had experience with secret conspiracies before, I don't," the ranger says, and smiles as Leaf doesn't hide her surprise. "What? When you're right, you're right. I can't guarantee that local rangers wouldn't have been in on some shit, much as I'd like to."</p>
+
+<p>"It's an unnecessary risk," one of Red's guards says. "Looker—"</p>
+
+<p>"Isn't my boss. Technically, neither is Director Tsunemori." Red crosses his arms. "Feel free to call them, but it's not a discussion. If they go in, I go in."</p>
+
+<p>Despite his words it's clear to Leaf at least that Red isn't as sure as he sounds, and Leaf suddenly realizes that she's been thinking of them as guards to keep Red safe. But they're likely to <em>also </em>be guards here to keep others safe from Red, or report if he misuses his powers. Which means Red is testing them, in a way that he might not have had the chance to before.</p>
+
+<p><em>Would</em> they try to stop him? And what should Leaf do, if they do?</p>
+
+<p>Eventually the tall one sighs. "Of course. Just try to keep in mind what could happen if something happens to you, and remember that the rest of us are here to keep you safe. We're not going to just stand around and watch if you're taking risks, which means you decide what risks <em>we</em> take."</p>
+
+<p>Red's expression softens as he absorbs this, then nods. "Understood. But really, you guys just continuing to watch our perimeter as you normally would is probably for the best in any case, since we still want to minimize surprises of any kind. What we do here probably isn't going to be much of a risk at all." He turns to smile at her and Blue. "Not if we do it right."</p>
+
+<p>Blue grins. "Just like old times, huh?"</p>
+
+<p>"Better," Leaf says as she smiles back at them, fingers tracing over Raff's ball. "Because now we can do so much more."</p>
+
+<hr />
+
+<p>"Check check, final position check." Ranger Neasman's voice is a smooth drawl in Leaf's earpiece, and she looks up to see him circling overhead on his pidgeot. "Ready up here."</p>
+
+<p>"Ready," Leaf says, standing on a container box in front of the manor and ensuring the straps around her facemask are tight for the fifth time.</p>
+
+<p>"Ready," Blue says from her left side, followed by Wendy's "Ready" on her right.</p>
+
+<p>"Ready," Red says from beside his alakazam on a stable spot on the roof above them. He'd grumbled a little about being the one that's going on a high place again, but it seemed mostly performative. He's holding a fishing rod, its fake lumineon bait staring at her with wide eyes from the grass in front of her. He apologized about it, which she thought was unnecessary but sweet, but her gaze does keep going back to it more than she'd like.</p>
+
+<p>"Ready," echo Red's guards from their patrolling perimeter.</p>
+
+<p>"That's full ready. Alright folks, we're good to go. On you, Juniper."</p>
+
+<p>Leaf carefully opens her jar of combee honey. Despite the busy year, each drop is so effective that it's still half full; she carefully crouches to take the lure and dip it into the jar, then back out without letting the honey smear anywhere else. Once it's clear she flashes a thumbs up, and Red starts reeling it up.</p>
+
+<p>Leaf quickly tucks the rest of the bottle back into its container, then says, "Ready for wind, going mute."</p>
+
+<p>Above her Red feeds his Alakazam some chesto berries while Leaf swaps her headset to produce white noise, then braces herself just as the wind from the ranger's flier starts gusting past them.</p>
+
+<p>It's from far enough behind that they're in no danger of being knocked over, but the plastic lumineon bobs wildly as it's whipped toward the half-exposed mansion. It only lasts for a few moments, and then the wind fades and the lure swings back and forth above the grass… just as the first pokemon come darting out at it.</p>
+
+<p>Leaf knows Red is holding the fishing rod loose, ready to let go if it gets grabbed, but meanwhile he does his best to reel and swing it up and out of reach of the leaping growlithe that runs out first. It's big, definitely big enough to evolve if it gets enough exposure to firestones, and its teeth snap just shy of the lure as Red frantically yanks it up. It tries again, then tracks the aromatic fish for a moment, causing Red to jerk the fishing rod to the side a moment before it spits out a stream of fire.</p>
+
+<p>Leaf's whole body is tense, ready for the growlithe to notice her at any moment, but Red keeps its attention on the fish while predicting it long enough for the rest of its pack to arrive, as well as a family of raticate/rattata and some vulpix.</p>
+
+<p>As soon as the pokemon start attacking each other in their struggle for the lure, Leaf summons Joy and commands her to sing.</p>
+
+<p>The wild rattata and raticate are the first to drop, followed a few seconds later by some of the growlithe. The biggest one and the vulpix hold out long enough to turn toward Joy.</p>
+
+<p>The growlithe stumbles as it charges forward, either from the song or from a mental attack by Red's alakazam, whose berries helped it resist the effects of Joy's song, but the vulpix sends out a gout of flame. Leaf's chest burns in empathy as the faint warble of Joy's voice that she can barely make out through the whitenoise cuts off.</p>
+
+<p>She swaps her wigglytuff out for Hops, which signals everyone to go audial again and frees them to bring out their own pokemon.</p>
+
+<p>Blue sends Rive and Maturin out against the growlithe and two vulpix while Wendy starts throwing balls to capture the sleeping mon. Leaf commands her nidorino to stay and guard her, then brings Joy back out, potions in hand to start spraying over the harsh burns along her quivering flesh.</p>
+
+<p>"More coming," Red says, and Leaf turns to see a cloud of purple smog emerging from the manor's shadowed innards.</p>
+
+<p>"Coming around for another gust!"</p>
+
+<p>"Almost got them all!" Wendy locks another pair of balls on a raticate and a growlithe, then throwing, capturing them just as they stir awake. "Three more… one…"</p>
+
+<p>The last growlithe regains its senses in time to dodge her throw, but gets blasted by a jet of water from Maturin before it can attack. "Do it!" Blue calls just as Wendy catches it.</p>
+
+<p>The smog is just starting to reach Red and his alakazam when the burst of air blows it back into the mansion to reveal a small swarm of muk, grimer, weezing, and koffing. Three of them aren't moving, probably thanks to Red, but the rest start shooting jets of acid and globs of gunk at them, causing them to scatter.</p>
+
+<p>"Horn Attack!" Leaf yells as she leaps back onto her container box, withdrawing Joy along the way. When she turns around, Wendy has summoned a ponyta, who attacks alongside Blue's rhydon. They can't be sure how many ditto are in the mansion, so made sure to pick melee pokemon that can be easily taken down by their ranged ones.</p>
+
+<p>Thankfully none of those they battle do transform, and with Ranger Neasman's continued gusts to disrupt the poisonous attacks, the four of their pokemon are able to defeat and capture the wilds. Leaf's heart is racing as she scans the area a few times over, but no new pokemon come out from the mansion, nor do any dig out of the ground beneath them.</p>
+
+<p>After another few breaths, Red says, "None incoming."</p>
+
+<p>"Anything still inside?" Ranger Neasman asks.</p>
+
+<p>"Nothing new."</p>
+
+<p>Tension starts to ease out of Leaf, but back down to combat readiness as she calls Hops back and brings Joy back out to fully heal both. Her mind does the usual thing of replaying over the battle, but she also finds her attention circling the way Red responded to the ranger's question. In the old days, being asked a question like that might have gotten a response like "Not that I can sense, but there might be dark pokemon" or "not in my range, but remember that there might be more deeper down."</p>
+
+<p>Instead he concisely and clearly communicated what he sensed and what he didn't. The benefit of all his training, no doubt, and a good one. But it also makes her feel a pang of distance, of him pulling away from them.</p>
+
+<p>"Ready for second lure," she says once her pokemon are healed and she's back on the container box.</p>
+
+<p>"Almost," Blue says as he finishes putting the new captures in a spare bag, then gets on his container box and summons a set of speakers. He tips them down to face the ground with a heavy <em>whump,</em> then flashes a thumbs up. "Ready."</p>
+
+<p>Leaf looks up to see Red carefully lowering the fishing rod and honeyed bait into a container box, which he withdraws before saying, "Ready."</p>
+
+<p>"Go, Raff!" Leaf's ivysaur's bud is nearly as tall as she is, and his body is as wide around as her bed. When she unclips her laser pointer and starts dragging it around with a command of "Sleep Powder," the plants on his back start to jet out plumes of shimmering blue pollen, more emerging in seconds than he was able to produce in one sitting when she first got him.</p>
+
+<p>"Go, Shimmer!"</p>
+
+<p>"Go, Butterfree!"</p>
+
+<p>"Go, Lady!"</p>
+
+<p>The venomoth, butterfree, and tangela all appear, then get commands to join Raff in coating the ground around them with various powders and spores. Soon it looks like the whole area around them has been covered in pastel snow, and Leaf kicks a small pile off the edge of her box, covering a bit more of the green around her. "I think we're good."</p>
+
+<p>"Starting." Blue taps at his phone screen a few times, looks around once more to ensure everyone is prepared, then taps once more.</p>
+
+<p>The vibrations are muffled, but strong enough that even through the grass some of the pollen immediately around the speakers kicks up in a faint haze. The noise isn't quite music, instead being a rhythmic pattern that isn't created by the throat of any pokemon, but rather the vibrations they make as they dig.</p>
+
+<p>Most burrowing pokemon communicate through sounds of claws against earth, though it's usually pretty low range. While there's no guarantee that a mix of mating rhythms and food signals from sandshrew, diglett, rattata, and other digging pokemon on the island will bring them all to the surface, it'll probably bring the most adventurous ones.</p>
+
+<p>"<em>This might be overkill," Ranger Neasman said with a frown as he studied the list. "That mansion, or whatever it is, looks unstable, and a dozen or more pokemon digging around beneath us all at once might destabilize something."</em></p>
+
+<p>"<em>Plus," Wendy added, "This one might actually disrupt the local ecosystem. The mansion is a new biome that's at least somewhat isolated, but if we remove all the burrowing pokemon around…"</em></p>
+
+<p>"<em>I'll be sure to place it far from the base," Blue says. "And better we know now rather than later if some digging will cause more to collapse. If the house starts to break down Red can just port away."</em></p>
+
+<p>"<em>And don't worry about the biome," Leaf said, and smiled at the ranger cadet. "I think I've got something for that."</em></p>
+
+<p>Leaf counts a rapid thirty-seven heartbeats before the first sandslash pops up in a shower of dirt and cloud of spores. Leaf thinks it looks very cute covered in colorful powder as it looks curiously around, but a moment later it sniffs, then slumps unconscious and slides halfway back into its hole.</p>
+
+<p>Another pops up to their left, followed by a raticate just in front of Leaf. Each burrowing pokemon is quickly knocked out by the carpet of sleep powder all over the grass, then captured by one of the safari balls that Leaf handed out earlier. Leaf catches five herself, staying vigilant for any pokemon that might be resistant to the powder or dig their way out in the wrong place.</p>
+
+<p>None reach come up under any of their container boxes, thankfully, but after the fourteenth pokemon appears there's a series of crunching, cracking sounds as a sandslash tears its way through the speakers. Sparks fly, but it merely looks around in confusion before being tagged by Blue. It's hard to make out his expression from this distance and the facemask, but she can imagine his scowl.</p>
+
+<p>Leaf starts to worry they'll run out of safari balls, but the time between each new pokemon appearing gets longer and longer until nearly a full minute passes without any new one appearing. "I think that's it?" Wendy finally says.</p>
+
+<p>"Yeah, nothing in range." Red and Alakazam were their first line of defense against any pokemon that didn't fall asleep, and now Red swaps him for a machamp (that he apparently now has), whose back he climbs onto so he can hang from its neck as it quickly climbs down. The rest of them withdraw their container boxes, then she and Blue collect the safari balls and clear the area so Red, Wendy, and Joey can use their fire pokemon to burn the carpet of spores away.</p>
+
+<p>Maturin sprays a fine shower over the area after to dampen the embers, and then they regather as the smoke rises in a fine haze. "Smooth," Ranger Neasman says as he lands beside them. "<em>Very </em>smooth. Nice job, everyone."</p>
+
+<p>"That was textbook!" Wendy is grinning at the three of them. "I didn't think the stories about you were fake or anything, but it's different seeing it in person. You could nearly be full rangers!"</p>
+
+<p>"Yeah, we've still got it." Blue holds out a pair of fists, and Leaf shares a smile with Red before, holding out her own so that she can form a triangle with the boys.</p>
+
+<p>Wendy hefts one of the safari balls, examining its beige and green lid. "I still can't believe they let you travel with these. They're that confident they'll work?"</p>
+
+<p>"They have to test them on pokemon outside the Zone somehow. But yeah, the early results have been good."</p>
+
+<p>The latest fruit of the project she started, these new balls are specially programmed to have just one training outcome: total paralysis. It's illegal for any pokeball to not condition the pokemon they catch to be safe upon release, but with just one condition imposed, they've been able to come up with a (hopefully universal) deconditioning program so that anything caught in them can be re-released into the wild. Useless for most trainers, but a great boon to rangers, and it's one step closer to the more selective re-conditioning.</p>
+
+<p>And of course she was cleared by a psychic for intent, but that part probably goes without saying.</p>
+
+<p>"So, we're clear to go in?" Leaf asks the rangers.</p>
+
+<p>"For now. First sign of a ditto nest, we call in support." Neasman finishes caring for his pidgeot, then withdraws it and switches in a wartortle to counter Wendy's geodude in case a ditto copies it.</p>
+
+<p>Instead of climbing over the rubble the way the pokemon did, they strap on their headlamps and walk around the building until they reach the main doors on the mostly undamaged side. From up close she can see more cracks, but nothing looks broken but a few windows that litter the grass with twinkling glass.</p>
+
+<p>Leaf can't help but think of Aiko as she looks at the damaged building, and a glance at Red and Blue makes it clear she's not alone. Anxiety, grief, empathy, and simple fear well up inside her, and she almost calls it all off; they could get demolition experts here, have them make sure the building is safe to explore… but once they involve outsiders the chance of a leak skyrockets, and Leaf can't risk that.</p>
+
+<p>"Be careful," is all she says, and turns on her headlamp before carefully opening the front doors to illuminate an entrance hall of white and pink marble. Blue walks over to a light switch and flips it a few times, then Ranger Neasman cracks some glowsticks and tosses them around before they spread out through the open space with their pokemon. Her raticate Sticks scampers forward, while Red steps steadily behind his bold ivysaur and Blue walks beside his shiny umbreon (after it evolved, it stopped feeling to Leaf like Aiko's eevee).</p>
+
+<p>There are fewer signs of damage inside, but still some. Fallen plaster speckles the black and white tiles on the floor, but it's the signs of pokemon habitation that has Leaf stepping cautiously through the entrance hall. She looks up, light reflecting off a chandelier hanging above the second floor, then traces a path down one of the curving stairs and toward a hallway that leads through the building.</p>
+
+<p>"Halls are too cramped for us all to move through them," Ranger Neasman says as he summons a container box full of glowsticks tied together in long chains they can loop over their necks. "Use one of these to mark each room you've explored. I'll take Wendy upstairs, we can check-in every five minutes."</p>
+
+<p>"So we're looking for the elevator, right?" Wendy asks Leaf. "Or stairs, maybe, leading down to the lower labs?"</p>
+
+<p>"That would be ideal, though obviously we shouldn't go down without more precautions. Still, if it was all destroyed then there might not be an obvious way down, so… just look for any evidence that this place isn't what it seems."</p>
+
+<p>"Right. See you soon."</p>
+
+<p>Leaf, Red, and Blue watch the rangers climb up to the second floor, then make their way from room to room, checking for pokemon and taking pictures of all the abandoned luxury. Fully furnished bedrooms, lounges, and kitchenettes sit gathering dust, mattresses bare and fridges empty. The end of the initial hall has a large picture window set in it, and Leaf peers through the spiderweb of cracks to see an overgrown garden in the manor's central courtyard before turning left to pass through a dining hall, where long mahogany tables still stand sturdy, though the china cabinet doors hang off their hinges, glassware shattered across the floor.</p>
+
+<p>"Brings back memories, huh?" Blue mutters, and Leaf nods. Many houses and apartments had damage like this after the Hoenn Incident, and this place feels frozen in time to just after it happened.</p>
+
+<p>After ten minutes without any pokemon appearing and all-clear check-ins from the rangers, it's hard to maintain vigilance, and soon the exploration starts to feel more… fun. Red calls them over when he ducks his head through a door and finds a massive library, books strewn across the floor and some shelves collapsed. Blue lets out a low whistle as he looks up, and when they follow suit three cones of light illuminate an intricate fresco that spans the domed ceiling. They find game rooms with ping pong and pool tables, as well as board games and a big open space with some simulation equipment nearby. Blue gets diverted for a few minutes by some pokemon training rooms, and checks if there's backup power to the PC.</p>
+
+<p>"Think there's anything in it?" he asks once it fails to boot up. "Maybe we should take it with us."</p>
+
+<p>"If there <em>was </em>some conspiracy here, it would count as evidence, and we shouldn't tamper with it," Leaf says as she heads back toward the hall. "And if it wasn't, we'd just be stealing."</p>
+
+<p>Red is waiting outside the room, and his expression immediately puts her on high alert. "What's up?"</p>
+
+<p>"Got a sleeping mind nearby," Red mutters. "Three or four bedrooms down."</p>
+
+<p>They follow his gaze and see a slight glow coming out of the room. "Can you keep it asleep?" Blue whispers.</p>
+
+<p>"No. Calm, maybe, if it wakes."</p>
+
+<p>"Fingers crossed." Blue eases by, Xenon's rings shimmering a faint blue in the dark at his side, then Leaf turns to watch their back, trusting Red to ensure he's safe as he looks into one door after another.</p>
+
+<p>Until she hears the ping, after which she can't help but turn and watch him chuck a ball into one. He goes in after it, then returns with a greatball bouncing in his hand. "Magmar. Any others? And anyone want it?"</p>
+
+<p>"Not that I can sense, and no, I'm good," Red says. "New pokemon isn't really a bottleneck for me anymore."</p>
+
+<p>"I'll take it," Leaf says on sudden impulse, before she can talk herself out of it.</p>
+
+<p>Both of them turn to Leaf in surprise, but Blue tosses the ball over without a word. Leaf catches it reflexively. She knows they know she's not a huge fan of fire types, since it's so hard to fight nonlethally with them… but that hole in her teams feels less and less excusable, particularly if she faces renegades.</p>
+
+<p>Part of her wants them to ask about it, but neither does, and she decides she'll bring it up later, when they're in less perilous circumstances. "Let them know what we found?" she asks as she brings her pokedex out to register her new pokemon.</p>
+
+<p>"Sure."</p>
+
+<p>Once Blue relays their encounter, they keep moving, occasionally checking in with the rangers as they explore for nearly half an hour, looking for any hint of secrets in the mansion's past. Leaf's not exactly sure what that would look like, but she trusts she'd know it if she sees it as they pass from room to room, still finding new ones between the endless bedrooms, bathrooms, and kitchens.</p>
+
+<p>One for music, its piano and drum sets covered in sheets but various other instruments scattered across the floor, some in cases and others bare. Another gaming room, a sauna, a massage parlor, even a miniature barbershop. It's like the manor was a whole town in miniature, every need predicted and taken care of.</p>
+
+<p>"There's a lot of stuff," Red muses as they look over the equipment in a fitness center. "I'm trying to imagine this place as a kind of… stationary version of the cruise convention, but there's still more than I'd expect. Why not clear it out after the quakes?</p>
+
+<p>"Been wondering the same thing," Leaf says. "But I'm not sure if it's a clue, or just… I don't know. A mix of laziness and wealth?".</p>
+
+<p>"If it was properly cleaned out we'd probably be wondering why there's not more stuff around," Blue says. "It takes time and effort to gather up and transfer stuff, even with teleportation. Add in the chance of wild pokemon sneaking in and the owner probably decided it's not worth the effort." He shrugs. "Some rich people are careful with their money, but others are just as wasteful as everyone else, and it's just more noticeable cuz they have so much stuff."</p>
+
+<p>As they finally reach the exposed rooms they start to step more carefully, and Leaf's confidence that she'd be able to tell if she saw something is starting to wane. She pokes her head through each door just to be thorough, but some of the passages are blocked by rubble here, and eventually they double back to meet the rangers at the entrance hall for a debrief.</p>
+
+<p>"Pretty sure we hit everything on the second floor," Ranger Neasman says as he feeds his wartortle some berries. "Mostly bedrooms and offices, a few places for socializing and entertainment. Nothing that stood out."</p>
+
+<p>"Same for us," Blue says as he opens one of Glen's energy drinks and takes a swallow. "I mean it's a little weird, but not suspicious, I think?"</p>
+
+<p>As the others go over what they found and their theories, Leaf walks a slow circle through the lobby, brow furrowed. She can recognize the pit of stubbornness at the center of her confusion, the feeling of not wanting to admit that she was wrong… but she should be relieved, right? Why was she so sure in the first place that she'd spot something, if there was something to spot?</p>
+
+<p>"I'm approaching this wrong," Leaf says after a minute. She turns to the others, who are listening attentively. "If I really take this seriously… if it was actually covering up a secret lab… the people in charge wouldn't have just left it as it is after the earthquake, or the pokemon attack, or whatever happened here."</p>
+
+<p>"You're saying we missed the signs of whatever they changed?" Red asks. "Or that you think this wasn't the lab after all?"</p>
+
+<p>"I'm not sure. But if the lab mansion exists, wherever it is, if it's still standing then we have to assume <em>something </em>was changed after it was abandoned. They could have taken out all the lab equipment and filled this place with beds and pianos and anyone who comes by would just conclude there's nothing special here."</p>
+
+<p>"Why not just raze the building entirely, then?" Ranger Neasman asks. "The owner for this one could have just written it off as a total loss, which it looks like it is, and demolished all that's left here. They're probably still planning to do it, but if so I wouldn't even say they're dragging their feet a suspicious amount of time. Sometimes these things go slow."</p>
+
+<p>It's a good question, and it stymies Leaf for a moment. She was assuming the quakes led to the lab's shutdown because that's how Fuji's notes had it, but what if he just added that after to make it resonate better with what people have gone through? But if she starts doubting the outline she has no reason to believe there was any secret lab at all…</p>
+
+<p>"Maybe they didn't want the attention," Wendy says. "There have been rangers scouting all over the island since the ditto appeared. Even if the people who come to bring the building down have the right paperwork, they'd probably need to have rangers on site to make sure no ditto were nesting here, just like we're doing."</p>
+
+<p>"It's possible…" Leaf runs a hand over a crack in the wall. "I think we have to assume these people in charge of this hypothetical lab include people at least as smart as us, and that they had plenty of opportunity to cover their tracks in a way that's most beneficial to their goals, even if we don't know exactly what those are."</p>
+
+<p>"We're pretty sunk if that's true," Red says, looking around. "If we assign them an arbitrary amount of intelligence and resources, then there would be no way to distinguish the reality they're creating from the actual one."</p>
+
+<p>"Not arbitrary, just… enough to fool anyone with a reasonable chance of piercing the illusion." Leaf thought back to conversations she had with Laura about her training in investigating coverups. "Every change they make leaves <em>some </em>irregularity, if we just know enough to find it. With enough knowledge and resources of our own we could, I don't know, study the patterns of destruction and see if any of it doesn't fit the rest… an expert on earthquakes would be helpful."</p>
+
+<p>Wendy sits up. "Oo, we can find purchasing patterns for furniture like these and see if there was a recent spike!"</p>
+
+<p>"Or carbon date the furniture to see if a batch of it is all much newer than others," Blue suggests.</p>
+
+<p>"Or something like it," Red adds, "Since actual carbon dating wouldn't help with things younger than 500 years."</p>
+
+<p>Ranger Neasman nods. "So that's it, right? Do some research and ask around, quietly, for some experts to quietly consult."</p>
+
+<p>"Yeah, and I think Mom or the Professor or Looker can recommend some we can trust."</p>
+
+<p>Leaf bites her lower lip. It does seem like the most sensible plan, now that she's confronted the scope of the problem. What <em>would </em>it take to see through an illusion by someone equally smart (if not smarter) and able to set the stage to their liking? A dedicated team here to find a lab if there is one would break through the facade no matter how hard they tried covering it up.</p>
+
+<p>But she still worries about information slipping out. The more time passes before she figures things out, the more likely those who built the lab catch wind of them poking around. Hell, a single hidden camera here with a battery would be enough to let them know… why hadn't she thought of that earlier? Not that there's anything she could do about it…</p>
+
+<p>Frustration sits like a heavy stone in Leaf's gut, and goes to one of the broken windows to take a deep breath, centering herself in the scent of ocean and grass, and the sensations of warm sunlight and cool wind. Over the past few months her confusion, fear, and helplessness have threatened to overwhelm her as she tried to walk the balance between <em>doing something </em>about the secrets she knew and not making things worse. Dr. Fuji's cryptic thank you/goodbye card only made things worse, but this is her chance to actually make progress in some way, and she can't let negativity keep her from acting.</p>
+
+<p>So, a reverse premortem: start from the assumption that she figures things out. If she does, what would cause that to happen?</p>
+
+<p>When she puts it like that, it feels more obvious. If a well-made illusion was constructed here, and she pierced it, it would be because she had an edge, something the crafters wouldn't expect a random curious passerby to have.</p>
+
+<p>Maybe a kind of expertise like the others mentioned. Maybe familiarity with the location, or those who came here. Or maybe…</p>
+
+<p>…maybe a thing like what brought her here in the first place.</p>
+
+<p>The thought feels like a spark at the base of her skull, spreading energy through her body, and she quickly takes out her phone. "New plan. I'm going to share the notes of the person whose story I'm helping write. It's pretty long, but we can at least all skim it, look for something that gives us some clue we're on the right track."</p>
+
+<p>She's speaking quickly, feeling energized, and after she sends the document out to them she finally looks up to see them watching her. "I mean… assuming that's okay with you guys? I know this has already taken a lot of time, but…"</p>
+
+<p>Wendy bites her lip and looks at Ranger Neasman, who rubs his chin. "Alright, but if we're going to be doing some reading, let's do it outside. We can make a picnic out of it."</p>
+
+<p>They do so, bringing more pokemon out so some can stand guard while those that went through the building with them can relax. As they summon containers of food, Red calls his escort to invite them to eat together, but they decline, sounding to Leaf's ear professionally displeased by the longer time this would all take.</p>
+
+<p>Still, Red doesn't give them an opportunity to argue, which shifts Leaf's perspective a bit more about what their relationship is, exactly, and makes her feel a little better about the whole thing.</p>
+
+<p>Leaf breaks the outline up into five sections and assigns each one to read over, and soon they're digging into various salads and sandwiches while scrolling on their phones. It's the most silent picnic she's ever been on, just the sounds of their eating mixing with the occasional whipping gust of wind.</p>
+
+<p>The outline was a mix of bullet points and brief bits of prose, and occasionally she'd come across something that felt so poignant or vivid that she thought Fuji sold his writing ability short. Leaf gets distracted, now and then, by taking in their surroundings, usually after reading some segment of prose describing (always in passing) some detail of the lab or island.</p>
+
+<p>She can still faintly smell the burnt grass on the other side of the mansion where they fought the wilds, but around her it's grown tall from months without upkeep. Wind and rain did their part to erode the exposed side, but from here she can ignore the broken windows and cracks, almost picture what it would have looked like, felt like, to stand here on a lonely cliff on an island, and feel like it was the whole of it…</p>
+
+<p>"Teleported in supplies," Wendy notes, eyes on her screen. "Probably nothing, and the fridges I checked were all empty, but did anyone check the spare toilet paper? Probably not traceable, but…"</p>
+
+<p>"It's something," Leaf says. "Make a shared doc, start a list?"</p>
+
+<p>"On it."</p>
+
+<p>"Something I don't get," Red says, words slow and thoughtful. "If this story was meant to help people uncover the plot, what stopped the writer from just revealing it?"</p>
+
+<p>Leaf keeps her gaze on her screen to hide her internal battle. Does Fuji's disappearance mean she should be more free to share his secrets? But no, Red's point still holds, if he thought that was the best thing to do he wouldn't need her at all. Still, what if his abrupt disappearance was in anticipation of the secret getting out? He'd definitely want to avoid punishment if so.</p>
+
+<p>"I'm not sure, but… I think the goal of the story <em>isn't </em>to reveal the lab. It's to prepare society for what was in it."</p>
+
+<p>"A human pokemon hybrid." Ranger Neasman's tone isn't skepticism so much as that of a man trying to ensure he understands something properly. "One powerful enough to take down legendaries."</p>
+
+<p>"Yes," Leaf says with more confidence than she feels, and adds, "Probably. It's why they <em>wouldn't </em>just share their work in a lab like this; they care about its wellbeing. Alerting the world to its existence before it's ready would be a betrayal. Maybe they guessed that sooner or later someone would stumble onto the mansion and ask questions, but they also probably trust their former employers to cover things up."</p>
+
+<p>"Then…" Red shifts his weight as he takes another bite of his carrot and holds the remaining nub over his shoulder for his abra to eat. "Maybe this is a silly question, but… do <em>we </em>want to actually find this thing? I mean, speaking as someone who's had to hold a pretty big secret for a while, I'd like to think I had good reason to—"</p>
+
+<p>"If you hadn't, Rocket wouldn't have underestimated you, and they'd have the Master Ball now," Blue says. "Or, more realistically, everyone in Silph that day would have been killed by the hunters."</p>
+
+<p>Red holds a hand up to forestall any more argument, though Leaf thinks he looks secretly pleased. "I'm glad it worked out. But in this case we'd have to tell someone right away, right?"</p>
+
+<p>He doesn't look at the rangers, but he doesn't have to. "I would be obligated to report any sign of… this… to my superiors," Ranger Neasman confirms, frowning at his phone. "I just got to the part where it has three times the range of an alakazam. A psychic with that kind of power would be nearly impossible to catch by surprise."</p>
+
+<p>"Wait till you reach the part where it flies," Wendy murmurs.</p>
+
+<p>"Where it <em>what?</em>"</p>
+
+<p>"I'm with him, this can't be kept secret," Blue says. "If it's real, if they <em>actually </em>created this thing… it's as bad as the Hoenn Incident. Maybe worse."</p>
+
+<p>Leaf opens her mouth, but Red beats her to it. "That's completely different. This hybrid is intelligent, can be reasoned with. Groudon and Kyogre weren't <em>people</em>."</p>
+
+<p>He gives Leaf a guilty glance a moment later, but she smiles and waves it off, still mulling over the original question. She saw it coming a moment before he asked it, as she was still speaking, and it formed a pit in her stomach. "I don't know," she admits. Maybe all this <em>was</em> a mistake… if Fuji is the unnamed doctor in the story, maybe she should respect his decision…</p>
+
+<p>Then she remembers what Ranger Neasman said, and realizes the decision isn't up to her anymore. Not unless she calls it off here, declares it all a mistake, hopes he doesn't follow up, and maybe comes back on her own. Or Red could come with her, try tunneling under the manor with his ground pokemon from a safe distance to see if they could find the lab... but if <em>that </em>causes a full collapse, would the rangers guess what they'd done? They have legal cover for poking around the ruined manor while ostensibly looking for ditto, but deliberately damaging the property while looking for what might just turn out to be a regular basement could be trouble, and she doesn't need Laura to warn her about getting on the bad side of someone rich enough to own this place. Not to mention, tipping them off if they <em>did </em>build a secret lab here...</p>
+
+<p>"I see the similarities," Wendy says as Leaf is battling her indecision. The young ranger hasn't stopped reading as she slurps up noodles, looking fascinated at what to her must be a behind-the-scenes glimpse of a story she's been enjoying for months now. "But there are some major differences too, ones that would be a hassle to add after, like the pool."</p>
+
+<p>"It specifies that there's no pool?" Red asks, leaning over to look. Wendy tilts her phone in his direction. "Huh. That's… conspicuous, right? Why go out of his way to mention that?""</p>
+
+<p>"His style is—" Leaf almost said <em>was— </em>"to just write out any thoughts he has, at different levels of detail. It's not clear he wanted to include <em>everything </em>in the final story, and…" <em>And maybe they changed since he left</em>, Leaf muses. But that might be revealing too much. "The story spans ten years, not all the differences need to have been from a cover-up."</p>
+
+<p>"The way the teams of people are described here and in your story, they had a wide mix of specialists," Red says, then looks around at them. "Did any of you guys find any computers? We found just a few, like in the training room."</p>
+
+<p>There's a momentary silence, then some head shakes. "They would definitely take any with anything damning on them," Blue says.</p>
+
+<p>"But is there a suspicious lack of any?"</p>
+
+<p>"Not… really?" Wendy frowns.</p>
+
+<p>Ranger Neasman nods. "People wouldn't need PCs in their rooms if they bring laptops, and they can use the communal ones for storage and pokemon needs."</p>
+
+<p>Leaf nods, then ducks her head back to look over the story outline again. <em>Something they wouldn't expect others to know… something that gives me unfair help in pinpointing things…</em></p>
+
+<p>She starts to pay extra attention to the details about the narrator's daily life, scant though they are, his routine, his observations about the things around him. She didn't include all of the details from the outline, which Dr. Fuji seemed fine with, but she remembers the choice for each, how some seemed to flow naturally into the chapters she felt an urge to write and some would have felt tacked on, out of place, or like they slowed things down too much…</p>
+
+<p>Something itches at her as she reads a description of the doctor's commute to the basement lab, and before she realizes it she's on her feet.</p>
+
+<p>"I have to check something," she says, and makes her way back toward the manor, calling for her pokemon to come with her. She hears the others scramble to follow, and distantly wonders how she looked and sounded, but most of her focus is on what's ahead, on what feels like half a memory and half a fiction…</p>
+
+<p>Through the hall, then following it around the central garden, to the broken side of the manor, and all the while her head is tilted up, her eyes watching the ceiling, until she slows as her feet start to kick pieces of rubble.</p>
+
+<p>"Leaf?"</p>
+
+<p>She turns her head as if to look at him, but doesn't take her eyes off the ceiling. There's a crack running through it, but here it shines a burnished gold, a crystal chandelier hanging below it, and words float through her mind, words she read long ago and just reread now…</p>
+
+<p>…<em>each day I would walk that hall of white and gold, a gilded cage for wealthy jailors who were themselves jailed, to take the elevator down to our captive…</em></p>
+
+<p>"What do you see?"</p>
+
+<p>"Maybe nothing," she says, but she's walking now, walking the path described in Dr. Fuji's notes.</p>
+
+<p>She's vaguely aware of Red in particular following her beneath the chandelier, of his curious gaze watching her take in the room, each hall, trying to navigate by a map made through some unknown blend of memory and imagination. <em>Could </em>it just be a coincidence? Perhaps there was some conference here that Fuji attended while younger, which acted as inspiration…</p>
+
+<p>Each path leads too far, and she circles back to the chandelier room again and again until she starts to despair the hall he described was in the collapsed side of the manor, chunks of concrete and marble and earth sloping into the crushed pit… but there's one left…</p>
+
+<p>…one blocked entirely by rubble.</p>
+
+<p>She quietly stares at it, and Red stands quietly beside her. Part of her wants to feel frustrated, another relieved, but she ignores both because they're not done yet. She has to be sure.</p>
+
+<p>No words pass between them, and then Red summons his machamp and mentally sends him forward to start moving the stones.</p>
+
+<p>First a big slate from the top is dexterously passed between the machamp's four hands to be set against the wall beside them, then a smaller, thicker piece of ceiling is placed on the other side. The others gather quickly when they hear the sound of heavy stone shifting and cracking against the ground, and soon smaller pieces of both wall and ceiling start to get lifted out in each hand, and they shift to give the pokemon space to move it all. Ranger Neasman summons an electabuzz who, with a point and a command, starts to carry the broken pieces away toward the pit.</p>
+
+<p>Leaf stands silent and wary, gaze on the ceiling for any fresh cracks or signs of shifting walls. When Red makes a noise beside her, she finally looks down again, and she's not sure what she was expecting, exactly, but the sight of the elevator doors still her breath.</p>
+
+<p><em>Got you, </em>she thinks, though she's still not sure to who.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/118/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/120/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -1101,6 +766,6 @@ As he reaches the bottom of the slope, the full force of the Pressure is suddenl
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

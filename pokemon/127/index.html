@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 61: Storm - Pokemon: The Origin of Species</title>
+    <title>Chapter 127: Tests - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,496 +329,412 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 61: Storm</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/126/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/128/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            Disorientation hits Red as he appears on the roof of the Trainer House, legs adjusting to the sudden stillness of the building below him, nose flaring as the heavy scent of the ocean is replaced with the scents of the city. He takes a moment to brace himself against the wind, which is gusting hard enough to flap his jacket and tug at his cap.<br>
-<br>
-He and Leaf had changed into their traveling clothes and left a note in their room so the crew would know they'd left before going out onto the deck of the ship and teleporting back together. Red's fear for Blue and Aiko, for himself, and most of all for Leaf were overwhelming as he summoned his abra and prepared for the unknown…<br>
-<br>
-...but now that he's here, his fear takes the backseat to a sense of awe as he gazes over the city.<br>
-<br>
-Half the sky is twilight, the last gleam of light not enough to hide the stars on the deep, cloudless blue. The other half of the horizon is the dark of a starless night, storm clouds gathered in a sweeping curtain, rising up like the rough wall of a sheer mountain cliff. It's like the storm has sucked all the clouds out of the sky into one half of it, and was now marching across to blanket it all.<br>
-<br>
-"Swords of Justice," Leaf whispers from beside him. "One pokemon did that?"<br>
-<br>
-As if to punctuate her point, lightning flashes across the cloudwall, illuminating its many peaks and valleys. The thunder hits them a few seconds later, and it breaks the spell, Red's fear resurfacing as he quickly withdraws his abra, then puts his headphones in and calls Blue. As he watches, lightning lights up a different part of the cloudwall, then another flash arcs down to the ground below it, then another far to the left. The thunder from each one hits with a few seconds between them, and Red realizes that he's hearing what will be a constant refrain throughout the storm.<br>
-<br>
-Blue answers after the fourth ring. "Red, how-"<br>
-<br>
-"I'm here." Red looks at Leaf, who's at the railing and, looking down at the city below. "<em>We're </em>here. We teleported back as soon as we saw on the news."<br>
-<br>
-"You're… You actually…" Blue laughs. "Red, you brave, beautiful idiot! I shouldn't have doubted you for a second!"<br>
-<br>
-A particularly loud crack of thunder echoes across the city, and Red hears it both in the air around him, then a half-second later through his headset. He turns to the west. "Where are you guys?"<br>
-<br>
-"Pokemon center by the harbor. We're all here, Glen, Aiko, and I plan on helping out inside if we need to." His voice loses its excitement, turning serious. "Come quick, Red, most of the trainers are already stationed somewhere."<br>
-<br>
-Red fights down his feeling of dread as he feels the wind gust around him again. The idea of getting caught out in that storm is viscerally terrifying, even though he knows objectively that it's not the storm itself he should be worried about. He checks his map and puts in the destination. Seventeen minutes by bike. It might be faster than that estimate without traffic, but the storm is moving so quickly... "I don't think we can make it to you, Blue."<br>
-<br>
-"Shit! Are you sure?"<br>
-<br>
-"Even if everything goes right—"<br>
-<br>
-"—I know, I know, it probably won't. The other defense points are pokemon centers, city shelters, and hospitals, but I want you guys <em>here. </em>Together we'll be unstoppable."<br>
-<br>
-Red grins. "Right. We'll try."<br>
-<br>
-"Hurry, and watch yourselves!"<br>
-<br>
-"You too."<br>
-<br>
-Red closes the call and turns to Leaf, who's still staring down at the street below. He swallows, still worried about how they left things despite all that's happening. "Leaf! We gotta go!"<br>
-<br>
-She rushes over, and they head inside, taking the elevator down as he relays what Blue said.<br>
-<br>
-"People are still moving through the streets," she says, voice tense. "Most don't seem to have pokemon with them, and… Red, a lot of them are moving on foot."<br>
-<br>
-Red stares at her, reading the same quiet horror in her expression that he feels. Most of those people wouldn't make it to a shelter in time, why did they even leave their homes? Could they do something to help them move faster or… No, he could maybe take one person on his bike with him if they're about his size, but there's nothing they can do for all these people. He feels his confidence spiral again. They're not ready for this… things are happening too quickly, he's forgetting stuff he should be doing…<br>
-<br>
-They reach the lobby and hurry over to the PCs against the wall.<br>
-<br>
-"Which pokemon are you bringing?" Red asks as he deposits his metapod, then brings out his spinarak, then swaps Vermilion the abra with his pineco. Bill is in his bag rather than his belt: he has no intention of facing this situation without a way to escape.<br>
-<br>
-"All of them," Leaf says, and he sees her fill ball after ball with her pokemon, putting them on the ground after. He's about to ask if her bag really has room for them, then sees her take a container ball out and summon its box. She pulls her spare pokebelt off it, then straps it loosely over her main one before tightening it and adding the balls. "I haven't practiced with it much, but every pokemon might matter, here."<br>
-<br>
-Red nods, considering those he was leaving out. Metapod is the only truly "useless" pokemon he has, good for little more than a sacrificial distraction unless it evolves in the field. He chose bellsprout over oddish because they were the same types and he'd trained it more, but there's nothing wrong with having both. And he has barely trained with his whismur, but it still has useful area of effect attacks…<br>
-<br>
-Despite not having practiced at all with a second belt, Red realizes that limiting himself to six pokemon isn't worth the risk. He doesn't need to get used to battling with a team of six for the League, and the added physical awkwardness is less likely to kill him than the lack of options, at this stage in his journey. Even Metapod might save a life; if they need bait or a distraction, there's no other pokemon he has that can survive hits as well, after it hardens its shell a couple times.<br>
-<br>
-Red quickly takes his spare belt out too, and follows Leaf's example by belting it over his first and taking out all his pokemon to attach them. It feels cumbersome, but not incredibly so.<br>
-<br>
-His feeling of being unprepared suddenly returns with a vengeance. He's had no time to really think or prepare for this, what else is he missing that's as obvious as "bring all pokemon?" He grabs his notebook and starts writing as Leaf finishes attaching her biking gear, remembering his lesson from Vermilion Gym on the modes that Rangers try to ensure they're prepared for:<br>
-<br>
-1) Scout<br>
-<br>
-2) Fight<br>
-<br>
-3) Contain<br>
-<br>
-4) Escape<br>
-<br>
-What can he do to prepare for achieving these goals? He limits himself to one thing on each:<br>
-<br>
-1) Scout - psychic radar<br>
-<br>
-2) Fight - coordinate<br>
-<br>
-3) Contain -<br>
-<br>
-4) Escape - teleport<br>
-<br>
-His mind races to find ways to help meaningfully "contain" a Tier 3 incident from getting worse, but can't think of anything. Leaf is watching what he writes, clearly curious despite the nervous energy shifting her from foot to foot, and he starts summoning and putting on his own pads.<br>
-<br>
-"Any quick notes on coordination that we should pre-agree to?" Red asks.<br>
-<br>
-"My pokemon are better for defense and subduing," she immediately says. "And I have better aim than you. You focus on taking them down and I'll focus on keeping others busy or going for the capture."<br>
-<br>
-She's right, Charmeleon, Pikachu, and Nidoran are his strongest fighters, and each is more lethal than any of hers besides maybe Beedrill. "Okay."<br>
-<br>
-"What's psychic radar?"<br>
-<br>
-"Using my ability to sense minds in quick glimpses to just get a rough idea of where they are around me."<br>
-<br>
-"You should call it psydar." Seeing Red's raised brow, she shrugs and smiles, nervous energy shifting her from foot to foot. "Radar stands for Radio Detection And Ranging. Lidar is Light Detection and—"<br>
-<br>
-"I get it," he says, grinning as he finishes clasping his helmet on, then writes (<em>psydar) </em>on the page and tucks his notebook away. "For escaping danger, our best bet is to teleport… I've got a sling to carry my metapod in, you could tie a shirt into one. If we carry our abra against our side, it can save us precious seconds needed to teleport out of danger."<br>
-<br>
-"Red, that's going to make it really hard to maneuver."<br>
-<br>
-She's right, they won't be able to move nearly as nimbly, and any kind of roll would hurt their abra and probably interrupt the movement. He wants to argue that having an instant escape from danger makes up for it, but he's already thought of the counter; they'd only be able to use it once, as it would effectively take them out of action and abandon anyone else who's with them.<br>
-<br>
-"Ok, just remember them as an option, then." He puts his notebook away and stands, and they make their way to the heavy glass doors, which slide open as they approach.<br>
-<br>
-"They didn't even turn off the automatic doors?" Leaf murmurs.<br>
-<br>
-"Must have been in a rush." Red can imagine the panic because he feels it still stirring inside him, the irrational urge to just go to his room and cower in it until the storm passes… a rather outdated instinct for his hindbrain to push on him, since teleportation is a much safer option.<br>
-<br>
-They step out into the dark street together and look up at the same time. The stormfront is moving visibly toward them, and they rush to summon their bikes and ride for the harbor, pushing themselves to get there before the storm envelops them.<br>
-<br>
-There are people in the street making their way either home or to a shelter, and Red suddenly realizes that it was purely wishful thinking to say they would make it to Blue. He wants to be with Blue and Aiko, some part of him is sure that if he's not there with them, something terrible will happen.<br>
-<br>
-<em>That's nonsense and you know it, you're not the best trainer around, they're both better than you, just get safe…</em><br>
-<br>
-Red shakes his head at the inner voice, distrusting it for its cowardice.<br>
-<br>
-<em>Not safe as in hiding, safe as in being with other trainers when the storm hits!</em><br>
-<br>
-Some others are riding pokemon or bikes, or speeding down the roads in cars, last minute escapees heading northwest. But they also pass a lot of people on foot, and while he hopes they're close to their homes, the glimpses of desperation he sees on some faces tears at his heart.<br>
-<br>
-"Red!" Leaf calls out. "They…"<br>
-<br>
-"I know!" he yells, but pedals harder. Blue said they had to make it to a defense point, and he understands why, there would be no way to save all these people in the street.<br>
-<br>
-A minute of pedaling later, Red's phone starts blaring at him. He checks it as he bikes, slowing down slightly, and sees an emergency broadcast message from the Ranger outpost at the eastern edge of Vermilion:<br>
-<br>
-<em><strong>MASSIVE FLOCK FLYING OVER CITY SEEK SHELTER IMMEDIATELY</strong></em><br>
-<br>
-Ice water floods his veins, and he finally listens to his inner nervous voice, recognizing its premortem wisdom. "Leaf! Change of plans!" He struggles to renavigate them to the nearest defense point, and finds a hospital just nine minutes away. "We're not going to make it to the others, but there's a hospital not far!"<br>
-<br>
-"Okay!" She slows slightly so he can take the lead, and they make a hard turn at the next intersection, biking more west than south now. <em>We're going away from the storm now, we have more time, we can make it...</em><br>
-<br>
-The wind grows more intense, along with the frequency and volume of the thunder. A stroke of lightning splits the darkening sky ahead of the stormfront, striking a tall building far in front of the stormfront. Another emergency message appears, and Red checks the map again before he reads it. Five minutes away…<br>
-<br>
-<em><strong>FIRST WAVE PAST CITY LIMITS SEEK SHELTER IMMEDIATELY</strong></em><br>
-<br>
-Four minutes between the flock and the first wave, they'll be fine, they're almost there…<br>
-<br>
-Two minutes later some noise is growing over the near-constant boom of thunder, a windy rush that sounds almost like static, and Red turns toward the storm, unable to help himself. He feels his jaw drop.<br>
-<br>
-The twilight sky ahead of the clouds is dark with birds, racing just ahead of the cloudbank in a loose and frenzied swarm of bodies that flap desperately to keep ahead of it. Some collide and fall, tearing into each other, while others pull further and further ahead, the strongest and fastest managing to stay safe, the gusts of air from their wings displacing those behind them.<br>
-<br>
-As they get closer the roar of noise resolves into that of thousands of flapping wings. Leaf shouts a warning, and he looks around for a building they can duck into—<br>
-<br>
-—and then the wind is pressing down on them as the flock passes overhead. Red's bike is immediately blown over, sending him skidding over the pavement as the wind forces his eyes closed. His bag keeps him from rolling more than once, and Red hears not just cries and flaps of bird pokemon, but also the buzz of bugs and the crashing of glass. He opens his eyes a slit and watches the pokemon pass overhead, many of them flying too low in places and colliding with windows or billboards. Most don't stop for anything short of an attack by another pokemon, which is itself rare despite the natural prey and predators that fly together.<br>
-<br>
-All of them fleeing an indisputable master of the skies.<br>
-<br>
-The wind pressure lessens as the bulk of them pass overhead, and Red sits up and looks around. Garbage cans and street signs are knocked over, and glass litters the street as windows designed to withstand hurricane-force winds were shattered by the beaks and bodies of heedless pokemon. Many of them are on the ground as well, dead or badly injured.<br>
-<br>
-Red looks around for Leaf and spots her staring around in horror. Her eyes lock on something, and she struggles to her feet. He follows her gaze to see a spearow at the end of the street with a bleeding gash across its body sprinkling blood on the ground. It tries to take off, only to tumble back to the ground, one of its wings broken.<br>
-<br>
-"Leaf!" he shouts, forcing himself to his feet as well. His arms and legs ache with what promise to be bruises, but his gear protected him from any serious injury. "We gotta go!"<br>
-<br>
-She hesitates, turning back to him, then looks up. Her eyes widen, and she looks back at the spearow, struggling to take flight again… then rushes for her bike.<br>
-<br>
-Red turns to see what scared her, then scrambles for his own. The stormcloud looks like it's right on top of them, lightning illuminating the whole mass as it shifts in a slow, lazy circle. The thunder is near constant now, one rumble barely fading before the next one starts, and as they start to bike away again, Leaf in the lead now, Red feels his panic growing. <em>Three minutes away… we can make it… but we never should have come here, what can we even do against this, it's a stupid risk, I should teleport away, we can't make it, we're going to die…</em><br>
-<br>
-The thoughts grow stronger, his panic rising as the winds pick up and the sky continues to darken with the onset of true night and the onrushing storm.<br>
-<br>
-His legs are aching as he pedals harder, faster, trying to avoid an overturned trash bin and nearly spilling onto the street again. He can't think, he just needs to <em>get away, get away, GET AWAY!</em><br>
-<br>
-Red skids to a stop and starts scrambling for Bill's pokeball, mouth opening to shout to Leaf as he manually summons his abra…<br>
-<br>
-...then remembers that Leaf doesn't have a teleport spot outside of Vermilion.<br>
-<br>
-She's trapped here.<br>
-<br>
-He has to leave her behind.<br>
-<br>
-The thought comes as he watches her race away ahead of him, unaware that he's stopped, and Red's mind locks up as that thought hits a brick wall. He has to leave, <em>has </em>to, he'll <em>die</em> if he stays, but she <em>can't </em>leave…<br>
-<br>
-She's going to die.<br>
-<br>
-"Le-!"<br>
-<br>
-Thunder claps just as he yells, drowning him out. Leaf reaches the turn in the street ahead and disappears.<br>
-<br>
-<em>She's going to die!</em><br>
-<br>
-Red withdraws Bill and starts cycling again as the fear fills him, bending his thoughts toward nothing but running, hiding, escaping, <em>surviving</em>. He ignores the impulse and forces himself to cling to the thought of Leaf being left here, alone, dying without him, and races after her, bent over the handlebars. "<em>Leaf!"</em><br>
-<br>
-Shit, his phone! He can call her…<br>
-<br>
-"Dial Leaf!" he yells, then turns the corner and sees her. She's turned off the main road, bike leaning against her legs as she aims a pokeball at a bleeding pidgeotto, a huge shard of glass through its torso.<br>
-<br>
-As Red pedals toward her and cancels the call, she throws the ball and captures it, then bikes over and picks it up.<br>
-<br>
-"Leaf!" he yells as he gets closer. "What are you doing?"<br>
-<br>
-She turns to him, and he feels an emotional punch hit his gut. She's crying, face streaked with tears. "They're hurting!" she sobs, arm wiping at her face. "There's so many of them… you have to help me, Red! How can you just ride past them!?" She turns away and starts heading toward another downed pokemon.<br>
-<br>
-Red stares at her, at a loss for words. The storm is almost on top of them, and she's… He curses and follows after her as the panic rises up again. "Leaf, we have to go! We have to get out of the city!"<br>
-<br>
-Leaf looks at him in shock. "I can't <em>leave </em>them, Red, they're going to <em>die </em>without me!"<br>
-<br>
-Red feels like pulling his hair out. How can she be so <em>blind</em>, doesn't she realize they're <em>all going to die anyway…</em><br>
-<br>
-<em>Wait…</em><br>
-<br>
-Confusion. Something was wrong with that thought, and with how she's acting…<br>
-<br>
-A flash of light illuminates the street as lightning hits the building beside them. The thunder is oppressively loud and immediate, and behind it Red can suddenly hear something odd: the neigh of a rapidash.<br>
-<br>
-It appears at the end of the street and runs through it in a blur of light. Red vibrates with a sudden preparation to bike away, but the rapidash doesn't even glance at him or Leaf, who has paused to stare after it in awe. It just gallops past them, embers of light trailing its ignited mane and legs.<br>
-<br>
-There's another neigh behind him, and they turn to see <em>another </em>rapidash running toward them, followed by a dodrio. This time Red has the presence of mind to think of catching them, but they're moving so fast he barely has time to think it before they're upon them, then past, one after the other… and now he can dimly hear even more pokemon coming.<br>
-<br>
-The first wave is here. He forgot to check the time after the flock went past. He forgot because...<br>
-<br>
-Leaf smacks her cheeks with both hands, then rubs them hard. "Red, the Pressure is already here!"<br>
-<br>
-Red blinks, staring at her. The Pressure can't be here, they would <em>feel </em>it…<br>
-<br>
-<em>Oh.</em><br>
-<br>
-Even recognizing that he's under the effects of it doesn't change the fact that he needs to RUN or HIDE or LEAVE, but the confusion from before is satisfied, just in time for him to realize that the correct choice is in fact to follow the instinct that the Pressure is promoting.<br>
-<br>
-"<em>Hide!" </em>he yells as another pair of dodrio run by, his mind registering the growing rumbling that's not thunder, and starts biking again until he spots a two story clothing store with lights on. He turns to head straight toward it, making sure Leaf is following, and they skid to a stop in front of the door just as a crowd of pokemon turn onto their street, running wild and trampling anything in their way.<br>
-<br>
-The doors slide open automatically, and as Red and Leaf rush in, biking between the clothing aisles, Red can make out the small crowd of people in the back, cowering against the walls or behind countertops.<br>
-<br>
-Then the stampede arrives outside, a cacophony of different steps and cries filling the street as first a handful of pokemon run by, then a steady stream. Red turns to see nidorino, tauros, raticate, arcanine, ninetales, and others all rush by.<br>
-<br>
-Red and Leaf move together off their bikes to summon Charmeleon and Raff, standing between the doors and the people in the store. Their pokemon appear, then both twitch and shiver, adjusting to the new environment… and the Pressure that's bearing down on them.<br>
-<br>
-Red feels like he's holding his breath, and forces himself to exhale as the pokemon run by outside, muscles tense and jumping with fear and preparation… they're all running by… they might be okay...<br>
-<br>
-And then a nidorino runs into the side of a tauros and is headbutted away, sending it careening directly toward the storefront and through the automatic doors before it has a chance to fully open. Glass shatters and plastic crunches, and a quick set of commands from Red and Leaf send vines and fire whipping out to drive it back.<br>
-<br>
-Instead it barrels through the pain, still spilling glass around it as it bellows and tears through racks of clothes to smash into a small pillar, cracking it.<br>
-<br>
-<em>We have to hide! </em>"Smokescreen," Red yells, and Charmeleon starts pouring smoke out of his tail <em>No, wait, it's acting randomly anyway, we need to be able to see it! </em>"Stop!" He grits his teeth, trying to drown out the fear with anger. He has to kill this nidorino quickly before it hurts anyone, before it hurts Leaf...<br>
-<br>
-"Sleep Powder!" Red turns in shock as Raff sends blue spores at the rampaging pokemon. The blue powder saturates the air, but the nidorino avoids it, not nearly injured enough to walk into the growing cloud. <em>What's she doing?</em><br>
-<br>
-But he knows: just as his Pressure is driving him to fear, it's drowning her in sadness, or maybe guilt. She's going for the least painful attacks she can, even if they're ineffective.<br>
-<br>
-Then the Nidorino turns to him and charges, and panic makes Red yell "Ember!" as he dives aside.<br>
-<br>
-The nidorino cries out in pain as it tries to get away from the fire that's sticking to its side. It stomps through the store, throwing its horned snout around and tearing through racks of clothing… and spreading the fire to each. It gets close to one of the people hiding in the room, who screams and runs away, the movement catching the nidorino's attention and causing it to rush toward him.<br>
-<br>
-"Tackle!" Leaf yells, and Raff intercepts. The nidorino, flank still burning, is sent crashing into a row of clothing racks, and the shirts on them quickly catch fire. It shies away from it and tries to find another way out, but stops as it finds fire on every side of it, now.<br>
-<br>
-Leaf lets out a dismayed cry, and runs toward it.<br>
-<br>
-"Stop, Leaf!" Red says, and his pokemon stops attacking, taking the command as if directed at him. He rushes forward to grab her shirt, then freezes as the heat is felt, suddenly scared of being burned, watching in horror as she rushes straight for the flames...<br>
-<br>
-...then drops to grab the bottom of one of the shirt racks, lifting the fire atop it toward the ceiling.<br>
-<br>
-Water starts pouring from the sprinkler, though no fire alarm goes off. Leaf drops the rack and pulls out a pokeball, then runs through the dying flames to ping a lock and capture the nidorino. She quickly leaps back and away from the fires, even as they start dying too.<br>
-<br>
-Red steps back from the powerful downpour of water, then turns back toward the front door. The stampede outside seems to be finally thinning, and soon Leaf has rejoined him with Raff, her clothes and hair soaked as they watch together for any more pokemon coming in.<br>
-<br>
-They continue to run by outside, but fewer and fewer every passing second. Eventually a bibarel turns toward the broken doors for no discernible reason, only to slam into the edge of them and stumble away rather than coming inside. A young voice screams in fear anyway, which draws Red's attention to the back of the store even as it sets his flight response into high gear again.<br>
-<br>
-"It's okay, hon, we're safe," the woman beside the small boy who'd screamed says, rocking his head against her stomach. She looks at Red and Leaf, eyes wide. "Th-thank you, both of you."<br>
-<br>
-It's a little hard to hear her with the water rushing down, the constant thunder, and the cries of pokemon outside. Red shakes his head, still not relaxing. They had barely won that, they'd made so many mistakes… And he still feels an urge to just hide and stay safe, distracting him from thinking about what to do next.<br>
-<br>
-<em>It's just fear, I can handle fear. </em>He almost left when the Pressure first hit, but his desire to keep Leaf safe stopped him. He can do it again, he just has to focus on <em>something to protect.</em><br>
-<br>
-The sprinkler finally stops pouring water down, and Red takes a deep breath, then lets it out, trying to let go of all else but that thought. He shifts his mind to many-mirrors-and-a-dim-room before inverting it to shining-mirror-in-a-dim-house...<br>
-<br>
-Red opens his eyes and looks around, able to think clearly at last… but finding it hard to decide what to think about. It's strange, trying to decide what to think about, it requires thinking about other things first, trying to decide on a priority list… but what priority did he have? He enters this state to clear his head. His head is clear. Done. No more priorities.<br>
-<br>
-No, wait, he had a priority before that one, which led to it… the priority was to stay alive. He's alive now, so that's done. Why does it matter that he even completes priorities, again? It does give him something to direct his thoughts at, which is more pleasant than when they wander aimlessly.<br>
-<br>
-No, that wasn't it either. Protecting others. <em>That's</em> what he needs to focus on. What can they do next to stay safe?<br>
-<br>
-Red looks around. Leaf is using a burn heal on her arm. The man that was chased by the nidorino is leaning against the wall and shaking. There's a crashing sound outside that makes him twitch and turn, fear naked on his face, and after a moment Red turns in the same direction toward the door. It was something outside.<br>
-<br>
-They're not safe here, that much is clear. Which means they need to go elsewhere, and if they can't go outside... "Stairs," he says, then withdraws Charmeleon and starts walking around looking for them. He finds them in the corner, and climbs until he reaches the top to see another room full of clothes, though less wet and burned and smashed up. The five strangers follow him, with Leaf bringing up the rear. Her face and arm are slightly burned.<br>
-<br>
-Red feels a strain inside, a note of something that he would normally call grief if he… wait no, it is grief, and it's…<br>
-<br>
-He lets the mental state go, and immediately shivers as the Pressure brings the fear back. He's used his powers a lot already today on the cruise, he can't rely on them that much. <em>I can deal with it. They are. </em>He looks to the others. A young mother is holding her son, who looks about 4, tight against her leg. The man who tried to run from the nidorino is leaning against a counter with his hands in his hair, and the other two are an elderly couple, their clasped hands held tight between them.<br>
-<br>
-None of them have pokebelts. What the hell were they even doing out there when the storm hit?<br>
-<br>
-"Red." Leaf approaches him, cheeks still wet with tears. Wait, no, that's the water from the sprinklers. "I'm sorry for, before…"<br>
-<br>
-"It's alright, I went a little nuts too." Red shakes his head. "I was a hair's breadth from just… leaving. If you weren't here, I would have." He still wants to, but he seems to be getting used to the feeling, at least a little, though his nerves still feel jittery, his heart pounding too fast in his ears.<br>
-<br>
-He needs to calm himself. He summons Pikachu, and sits on the floor as he pulls his pokemon into his lap and strokes him. Not just for his own comfort, but also because the electric mouse seems particularly agitated. Red merges minds with his pokemon briefly, and—<br>
-<br>
-—<br>
-<br>
-—then breaks the connection with a small cry of shock.<br>
-<br>
-"You okay, Red?" Leaf asks from where she's kneeling beside Raff.<br>
-<br>
-"Yeah," he says, staring at his pokemon with wide eyes as he rubs his forehead and focuses on his body to remind himself he just has one. <em>How</em> are their pokemon still following orders, while feeling the terror and desperate aggression that the Pressure is forcing on them?<br>
-<br>
-He should have realized he'd end up feeling the stormgod's aura twice over, would have if the damn thing didn't keep pushing at him to <em>run </em>and <em>hide</em>… But there was something more interesting underneath that. Some overwhelming sensory input he couldn't process at all, but was still aware of through Pikachu. Did he just begin adapting to a new sense his pokemon has? Or maybe it's something he sensed through Pikachu before, but in such small amounts that he never noticed...<br>
-<br>
-Something crashes downstairs, and everyone turns toward the stairway as the young boy screams and cowers against his mother. "Oh, what now?" Leaf moans, mirroring Red's thoughts as they all listen to the pokemon downstairs knock over and smash things, probably confused as it tries to get back out. There's a cry of pain from some pokemon Red doesn't recognize, and he glances at Leaf, but she's holding herself together, arms tight around her middle, biting her lower lip hard.<br>
-<br>
-Red turns back to the stairs, swallowing against his own fear. <em>Whatever you are, don't be able to go up stairs… stay down there, get out...</em><br>
-<br>
-Something else falls over with the crash of glass, and the boy screams again. The man turns to the woman, eyes wide. "Shut that kid up," he hisses.<br>
-<br>
-She glares at him, looking like she wants to shout something back, but fear contorts her features and she starts shushing the boy, rocking him against her.<br>
-<br>
-A loud banging sounds below them, somewhere near the wall, and then there's a crash, and the sounds of battle. Something hits the first floor's ceiling hard enough to crack the floor nearby them, and everyone scrambles toward the walls away from it.<br>
-<br>
-Red gets up and rushes to the stairs. He hears a pokeball discharge and looks back to see Leaf stand by the crack with Raff, as if preparing for something to burst through.<br>
-<br>
-When he reaches the bottom of the stairs he sees the huge hole in the wall, some of which is still stuck to the spikes on the carapace of the kingler smashing at a male and female nidoran that dart around it. Each one leaps forward to strike the huge crustacean as soon as it focuses on the other, biting and stinging and kicking at it until it spews a foamy stream at both, sending them scrambling for traction. The ceiling is cracked above a linoone's limp and bloody body, which looks like it was smashed against it. Red tries to imagine how that happened before he realizes he has more important concerns.<br>
-<br>
-Everything's wet from the sprinklers going off, and Red's hand goes to Pikachu's ball, fumbling for a moment with the one above it. A sudden jolt of fear keeps him from pulling it off, however, imagining the pokemon not getting taken down by his first attack and all turning on him together…<br>
-<br>
-<em>This is a normal fear, it's a justified fear, but the Pressure is amplifying it, just set it aside. </em>He breathes deep, then lets it out as he watches the kingler scurry to the male nidoran and crash its massive claw onto it in a blow that crushes it. Red barely notes the gore, watching the female nidoran switch from trying to scramble toward the kingler to running away, out through the broken front door.<br>
-<br>
-<em>Now. </em>Red's arm doesn't move, and the kingler turns itself around to search for threats… then spots him in the stairwell. <em>NOW!</em><br>
-<br>
-He leaps backward as another stream of foamy water shoots out, tripping over the stairs behind him and scrambling back as the attack hits his legs in a painful spray… and covering his shoes in slippery foam that would make running impossible.<br>
-<br>
-Red pulls Pikachu's ball off and aims it at the stairs above him, out of the water soaking the stairs and floor below him. "Go, Pikachu!" His pokemon appears and flinches, quivering in place until Red lifts his legs to the side and yells, "Shoot!"<br>
-<br>
-Pikachu leaps forward over Red, and electricity arcs out. It bends toward a metal clothing rack to the side, but its feet are in the water, and the charging kingler falls over twitching as it slides. Pikachu lands and immediately leaps onto its back, shocking it directly this time before scrambling to avoid its flailing limbs.<br>
-<br>
-Red struggles to pull a greatball out and get to his feet, shoes slipping and sliding, and nearly misses it when Pikachu, sending another jolt through the kingler, gets knocked across the room by a swing of its claw.<br>
-<br>
-"Pikachu!" Red pulls the greatball out, fury and fear pumping through him. There's a trail of blood on the ground in the direction his pokemon was flung, mixing with the water, <em>he's okay, he's okay—</em><br>
-<br>
-The kingler gets to its feet before Red does, and he's about to unclip Oddish's ball when he hears running footsteps behind him. Red turns to see Leaf appear, and immediately tosses her the ball. "Careful of—!" he starts, but she's already caught it and leaping over him, feet skidding on the slippery stairs and spilling her onto her side. She rolls with it, however, a few pokeballs coming loose from her second belt, and stops herself within range to aim at the kingler as it skitters toward her.<br>
-<br>
-She throws, and it bats the ball away with its small claw while raising the massive one overhead, but the contact was enough; the greatball sucks the pokemon inside as it sails away and rolls behind a service counter.<br>
-<br>
-Red lets out his breath, then yells, "Pikachu, here!" as he struggles to get up again. "Leaf, are you okay?" She's still wearing her biking gear, but he watches with concern as she pushes herself to her feet, then struggles to keep them under her.<br>
-<br>
-"Fine…" She holds onto a mannequin that managed to stay up, then looks around and gasps as she takes in the bloody bodies of the linoone and nidoran. He sees her visibly shudder, then try to step forward, forgetting about what she'd stepped in. She flails for balance, nearly takes the mannequin down before righting herself, then angrily pulls the shirt off it and lifts one foot at a time to wipe off the slippery residue from the bubblebeam.<br>
-<br>
-Red's mind fills with images of his pokemon bleeding out in a corner somewhere, or with its skull caved in, and feels tears gather in his eyes. He reaches back for a side pocket on his bag where he keeps some tissues to start wiping at his own shoe soles, but they're not nearly enough, and frustration boils up in him, an anger and feeling of unfairness similar to when he watched his spearow die.<br>
-<br>
-Red yanks his shoes off and carefully gets to his feet, stepping around the bubblebeam residue and rushing toward where Pikachu flew, digging a potion and revive capsule out of his bag, ignoring the feeling of his socks getting soaked around his feet.<br>
-<br>
-His heart leaps as he sees the flash of yellow against the wall, under the hanging clothes hooked against it. He crouches and carefully picks his pokemon up, remembering too late that he can use his powers to check if he's alive.<br>
-<br>
-He uses them now, and feels relief as he senses Pikachu's mind. He quickly empties a potion bottle into the long gash that goes over his back and side.<br>
-<br>
-His pokemon twitches and starts to move again as it's healed, but Red quickly realizes something is wrong. Pikachu's hind legs and tail are utterly still.<br>
-<br>
-Red hugs his pokemon to his chest, feeling like he going to cry. He doesn't hear Leaf approach until she puts her hand on his shoulder, and he turns to her as a tear leaks down his cheek.<br>
-<br>
-"Is he?" Leaf whispers, face horrified, but then she sees Pikachu moving, and lets out a breath of relief.<br>
-<br>
-"His lower spine got severed," Red says. They could fix it at a pokemon center… maybe. Depending on how bad the injury is.<br>
-<br>
-"Oh, no, poor thing." She crouches beside him and strokes Pikachu's head between its ears. "Withdraw him, Red, you can't do any more for him now."<br>
-<br>
-Red nods and puts his pokemon down, whispering words of encouragement before stepping back and withdrawing him. He puts his ball carefully at the back of his lower belt, swapping its position with his spinarak, heart heavy.<br>
-<br>
-Leaf wraps her arms around him, shocking Red into stillness for a moment before he awkwardly hugs her back, then squeezes. "He'll be okay," Leaf says, and Red nods against her shoulder, not trusting himself to speak.<br>
-<br>
-Over the wind and thunder he hears another pokemon's cry outside, either in challenge, pain, or fear. Both of them flinch, then pull apart and stare at the doorway. Nothing comes in out of the darkness.<br>
-<br>
-"Here." Leaf hands Red the kingler's greatball.<br>
-<br>
-"Thanks." He clips it to his second belt's remaining spot, barely feeling any joy at having caught such a powerful pokemon. His heart is still pounding, and he realizes that it's probably not going to stop on its own, not when more crazed pokemon might rush in at any moment… "We need to…" He clears his throat. "Talk about our next step?"<br>
-<br>
-"I don't know. We should talk to the people upstairs."<br>
-<br>
-Red nods, and leads the way up, grabbing his shoes and long-stepping around the slippery spots around the stairs along the way.<br>
-<br>
-Upon reaching the second floor they hear a huge crashing sound outside, a grinding rumble that goes on and on, different from thunder, and they rush to the nearest window together as Red mutters, "Oh, what <em>now</em>," causing Leaf to snort in exasperated amusement.<br>
-<br>
-Though night has fallen and storm clouds blot out the moon and stars, from the second floor they can make out the occasional street lights and lit windows in the distance… and the shapes of pokemon as they continue to stampede. There's no sign of what the massive noise was, but…<br>
-<br>
-"That was a building, wasn't it?" Red murmurs, and Leaf nods, face tight. <em>Something powerful enough to knock down buildings is out there….</em><br>
-<br>
-"We may not be safe here," Leaf whispers as lightning illuminates her face through the window.<br>
-<br>
-"That means they won't be either," Red asks after the thundercrack, leaving the implication obvious.<br>
-<br>
-She closes her eyes, and he doesn't need his powers to know that she's thinking of all those pokemon out there, hurt and dying. "We should get them to the hospital. It wasn't far, right?"<br>
-<br>
-Red checks his phone. A three minute bike ride becomes… "About a ten minute walk. But only—"<br>
-<br>
-"—assuming nothing goes wrong," they say together, and smile slightly. Hers looks as strained as Red's feels, but he's still glad to see it. He takes his hat off and runs a hand through his hair, trying to still his nerves, then turns back to the group of people who have regathered near the middle of the room and approaches them. He plops down onto the floor and pulls his socks off, then starts cleaning the slippery foam from his shoes with them as best he can.<br>
-<br>
-"I'm Red Verres," he says, and waits for the others to introduce themselves.<br>
-<br>
-"Pam," the mother says. "And this is Jordan."<br>
-<br>
-"Sara," the older woman says. "This is my husband, Kaito."<br>
-<br>
-"Tony," the lone man says, scratching at his arm.<br>
-<br>
-"Where were you all going?" Red asks. "Why didn't you stay in your homes?"<br>
-<br>
-"We weren't home when the sirens started," Kaito says. He sounds like he's barely holding together, clutching his wife's hand hard as his other adjusts his glasses. "We were eating out… took a walk after, the transport services got filled or stopped, we couldn't get one…"<br>
-<br>
-"I work here," Pam says, voice quiet. "I was doing some accounting, and my son was scared from the sirens, I had to find him, he was hiding in a bathroom and locked it..."<br>
-<br>
-Red frowns at the boy, who's pressing his face into his mom's leg as she strokes his back, then turns to Tony, who looks defensive and upset.<br>
-<br>
-"I was… napping, alright?" He shakes his head. "I'm from out of town, and my phone's broken. Didn't know where the nearest shelter was."<br>
-<br>
-<em>Napping?</em> Whatever, the whole line of questioning wasn't important, now that he thinks about it. "Didn't mean to sound judgemental, sorry. My friend and I were just talking about what to do next. We don't know how safe this place will stay, and were thinking of going to the nearby hospital, at best ten minutes away, to help defend it. You guys could stay out the storm there."<br>
-<br>
-"Go back outside?" Kaito asks, a quiver in his voice as it rises. "You can't be serious!"<br>
-<br>
-"You don't have to come with us," Leaf says, stepping up beside Red and handing him a towel that she clearly just used to dry herself a bit. He takes it with thanks and tosses his socks aside. Pam glances at them but says nothing, and Red reminds himself to pick them back up later. "But there are others who may need our help too."<br>
-<br>
-"Would you two protect us?" Sara asks, quiet voice almost drowned out by nearby thunder.<br>
-<br>
-"Of course."<br>
-<br>
-Pam hesitates. "My son, I don't think he'd… he might get scared and panic. He doesn't like storms, and… new things upset him."<br>
-<br>
-<em>Shit.</em> Red thinks of projecting calm to the boy, then realizes that if he's having trouble even getting himself to feel that way here in the building, there's little chance he'll be able to while out in the storm or in a combat situation. And that's not even taking into account his own psychic exhaustion.<br>
-<br>
-He looks to Leaf, who seems as conflicted as he is. "Staying here… would it be so bad?" she murmurs.<br>
-<br>
-Red closes his eyes, letting out a breath. He... really doesn't want to go back out there.<br>
-<br>
-He knows that's the cowardice from the Pressure that he's feeling, but there are objective reasons not to leave the relative safety of the building. That said, he didn't leave the Cruise Convention just to hide out in a clothing store.<br>
-<br>
-<em>We saved these people, Pikachu might be crippled, that's enough, let that be enough...</em><br>
-<br>
-Is that the Pressure talking, or just common sense? Because if they go back out there, he knows there will be more, and worse, to come.<br>
-<br>
-"Pam, are there any rooms in the middle of the floor, separate from everything else that has locks on the door?" he asks, opening his eyes. Leaf is looking at him in surprise, then turns to the woman expectantly.<br>
-<br>
-"No… I mean, yes, the offices, but—"<br>
-<br>
-"You can open them?" She nods. "Then take everyone there."<br>
-<br>
-"I don't… customers aren't allowed to…"<br>
-<br>
-Red isn't sure what his expression is, but it makes Pam look nervous and Leaf cut in, voice calm but forceful. "Pam, your son isn't safe out here, and neither are the others. Take everyone there, lock yourselves in until the thunder stops."<br>
-<br>
-"Screw that," Tony says. "I'm not staying in an <em>office </em>while the place fills with pokemon. I'll come with you two and get to a real shelter."<br>
-<br>
-Red had been about to snap at the man and tell him he doesn't have much choice, until his final comment. What's he going to do, say no, Tony can't come with them? It would be easier than defending everyone at the same time, but if it's just Leaf and Red they could use their bikes. "You don't have a bike in there, do you?" Red asks, looking at the container ball on his belt.<br>
-<br>
-The man stares at him like he asked an unreasonable question, then says, "No."<br>
-<br>
-<em>How do non-trainers live so unprepared? </em>He knows it's an unfair thought, but he's too busy thinking about ways to convince the man to stay to spare thought for being charitable. Going slow to protect 5 people makes sense, doing it for one just feels suboptimal. That might just be because he doesn't like the man.<br>
-<br>
-"We'll stay here?" Kaito half asks his wife, who nods. "If you'll let us," he says to Pam. "We'll keep out of anything."<br>
-<br>
-Pam hesitates a moment more, then her gaze flick to Tony. "Alright," Pam agrees, seeming relieved that he won't be with them.<br>
-<br>
-<em>Dammit. </em>Red is glad the older folks wouldn't be more people for them to watch over, but now convincing Tony to stay might cause trouble with Pam.<br>
-<br>
-"Take us there now," Red says as he takes his container ball out and grabs some new socks, then pulls his shoes on. "I have an idea to keep you guys a bit safer."<br>
-<br>
-They reach the administration wing, the whole thing set against a wall of the building with multiple rooms inside. "Stay in one of the middle ones, not too close to the building's wall or these inner walls," Leaf says.<br>
-<br>
-Red brings his pineco out, near where the administration wall meets the building wall, then lifts it up and says, "Set!" The pineco shivers, then starts dropping sharp shards of its hard shell, the patter of the razor thin chitin faint on the carpet as Red starts walking backwards, repeating the command as needed.<br>
-<br>
-Leaf does the same with her own pineco from the other side, and soon they reach the door. "Ok, get in. We'll spread this in front afterward. Watch your step when you end up leaving, you'll have to jump over it. Oh and be careful on the stairs."<br>
-<br>
-"Thank you, both of you," Pam says, then leads her son inside. The elderly couple echo her, and then Red looks at Tony.<br>
-<br>
-"Last chance to stay," he says. "I'm pretty positive this will be safer for you than coming outside with us."<br>
-<br>
-Tony hesitates, then shakes his head. Red suppresses a sigh and finishes spreading more spikes, then withdraws his pokemon, whose bottom half now looks somewhat bare.<br>
-<br>
-Leaf walks behind him and Tony to spread more spikes along the stairs as they go down. The first floor is still empty, but they're still cautious as they make their way to the door.<br>
-<br>
-Red reaches it and holds a hand up so Tony and Leaf stop. He pokes his head out and looks around. "Nothing I can see."<br>
-<br>
-"More waves are probably coming," Leaf says, and checks her phone. "The slower pokemon." She grimaces and tucks it away. "No signal."<br>
-<br>
-Red has none either. "Guess we're on our own." <em>Shit, I forgot to tell Blue we wouldn't be coming...</em> He looks up at the black sky as lightning flashes nearly constantly. No rain, yet, but he can't risk bringing Charmeleon out when it could come pouring down at any time.<br>
-<br>
-Instead he summons Nidoran, then Bellsprout. Red watches his pokemon to see how they're reacting to the Pressure. Both are tense, Nidoran's ears twitching madly in every direction. Probably hearing pokemon that Red can't.<br>
-<br>
-Thunder cracks at the same time as a blinding flash of lightning, making Red jerk in fear, adrenaline pumping through him and setting his nerves on edge. He lets out an angry sigh as he tries to calm himself down again. <em>It's been barely an hour since the flock went over us, and I already feel like taking a nap… somewhere far away or deeply protected. </em>He pushes back the instinct to run back upstairs and hide with the others, sucking in a deep breath, then letting it out slowly. It takes some time, but little by little he regains some sense of calm, and sends his psychic sense outward in a quick burst.<br>
-<br>
-Other than the minds of Tony, Leaf, their pokemon, and the four upstairs, he senses nothing. He sends another pulse out just to be sure, then asks, "You guys ready?"<br>
-<br>
-"Yes, dammit," Tony mutters, breaths coming too fast.<br>
-<br>
-"Ready," Leaf says, voice steady, but with a tense edge.<br>
-<br>
-"Okay. Follow me," Red says, and leads them out into the storm, hoping he's not about to get them all killed.<br>
-<br>
-They're not five steps away from the building when rain begins to fall.
-        </div>
+            <h1 class="chapter-title">Chapter 127: Tests</h1>
 
-        <div class="chapter-nav">
-            <a href="../126/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../128/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p><p style="text-align: center;">Chapter 127: Tests</p>
+Blue makes an effort to slow down just before he walks into Cinnabar Gym's coordination room, taking a breath and doing his best to shed any frustration or anxiety from his body language. There's a knot in his stomach, a restless, jittery heat in his limbs, but by the time the door closes behind him he feels at least a little more like he's stepping into a battle arena.</p>
+
+<p>The room is dimly lit so that the various monitors on the walls easily stand out, and so the 3D hologram of Cinnabar Island being projected above the central table is vibrant and crisp. Normally the room would have a mix of gym members and rangers, but other than Chase the rest of the people in the room are "his" crew. Friends who flew or ferried over from all over Kanto, when he put out the call weeks ago. Friends who are relying on him to have a vision, to know what he's doing, and he pulls those expectations around him like a cloak, reminding himself of all the things he's done to earn their trust, until he feels even more fully in control and confident.</p>
+
+<p>He raises his hand in greeting when people turn toward him, then wanders from one part of the room to another, listening to each group as they work, as he normally would. Elaine and Marcus are sitting face to face on their computers, while Glen and Maria are searching through the storage PCs. Bretta, Slava, and Sumi are standing with Chase by a trainer roster being displayed on a wall monitor, the latter two mostly listening in as the former debate some of the newer trainers' merits and weaknesses. By the time Blue makes it to the central table, he feels like enough time has passed that people will take the news more lightly, but still he waits, bringing up the visual overlay of the island that puts the grid over it, then highlights sections by emergency level.</p>
+
+<p>Within a minute the colors update, and he says, "We've got problems."</p>
+
+<p>Elaine looks up from her computer, then stands and comes around to his side of the table, and after a moment Marcus follows her. Glen and Maria walk over from behind him, while Chase and the others turn from the wall.</p>
+
+<p>"Zone D4?" Elaine frowns. "And E3."</p>
+
+<p>"Back to yellow?" Bretta asks.</p>
+
+<p>"Orange."</p>
+
+<p>There's a moment of silence, then Chase sighs. "Figured." Cinnabar Gym's Third is still wearing the dirt and stains of a hard battle on his uniform, and he looks even more tired than he sounds. "Heard G5 is also set to shift by the end of the week, if they don't get that ranger outpost back up. Did they say what would turn D2 red?"</p>
+
+<p>"Another few casualties might." Blue zooms in on the region in question, a fertile plateau where some farm houses and ranches were set between Ranger outposts… until the whole area got overrun in the initial ditto stampede. "A new ditto outbreak would also do it, according to Mako."</p>
+
+<p>"He's a worrier." Glen taps another part of the table monitor to switch to the trainer roster the others are viewing. "Who can we rotate into the area?"</p>
+
+<p>Blue glances around, trying to get a temperature check of the room. Maria seems grim. Glenn and Bretta, frustrated. Elaine is sad, but clearly focused. Slava and Marcus, disappointed. Sumi… dispirited? He'll have a talk with her later.</p>
+
+<p>They <em>all</em> look tired.</p>
+
+<p>They've worked hard on this over the past few weeks. Lizzy and Alex are with the newer members, going over after-action reports while training Jamil to take over that role, while Maria and Viraj meet with Cadet Wendy and some other local trainers who like to do extra surveys with the rangers.</p>
+
+<p>Together, they've built a system. A training program that weaves Cinnabar gym's facilities, the group scenarios, and live field work side by side with the rangers to help ensure that the trainers here for their badge, most of whom have mainly focused on surviving wilds and battling other trainers, are prepared for... more.</p>
+
+<p>Not just Cinnabar's reclamation, but true wilderness taming. Expanding the reach of civilization.</p>
+
+<p>But to do that, they've needed to both broaden and level up in a number of areas. Which means the team people Blue has gathered to guide them toward that goal needs to level up in a number of ways too.</p>
+
+<p>First, evaluation. What trainers would work well together? What are their skills, and how balanced would the different teams be? They all help out with it, but Bretta, Sumi, and Maria have gravitated toward taking point, with a lot of input from Blue.</p>
+
+<p>Second, scenario design. Elaine has become the main brains for those, working together with Marcus, Glen, and sometimes Bretta, who ran her own scenarios at the gyms she, Slava and Sumi visited if they didn't already have them.</p>
+
+<p>Third, field missions. Working side by side with rangers gives the trainers a wider range of knowledge, wider skills… and while most don't translate to better skill in trainer battles, they do strengthen people's pokemon, and give them opportunities to catch new ones.</p>
+
+<p>Still, they've just barely managed to maintain the progress that led to CoRRNet downgrading Cinnabar's risk profile. Something's changed, on the island; stronger, higher stage evolutions of wild pokemon are showing up more often, and the stampeding patterns seem to be changing every few days.</p>
+
+<p>Blue attended the ranger meeting at their city headquarters today to suggest the idea that a pokemon with Pressure is riling things up, like the absol in the diglett tunnels. It's something they had already considered, apparently, but had no practical solution to discovering or dealing with if true. For now they're just looking into ways to hold the areas they've worked so hard to reclaim lately.</p>
+
+<p>Blue feels a resurgence of frustration and worry as he looks over how few strong trainers are left to do extra shifts, then reaches past Elaine to add his name to an extra D2 tour tomorrow. That done, he takes another breath. "I need you guys to tell me straight: how much more of this can you keep doing?"</p>
+
+<p>The room is quiet. Blue turns to Chase, who has a brow raised. "This is your home, so I expect you'll keep at it as long as you can. But I still want to know how long you think you can keep going at this pace, with your other duties as they are?"</p>
+
+<p>"Blaine's my Leader," Chase says, as if that explains everything. "He says stop, give up some parts of the island, that's what I do. He says keep trying, find a way? Then I go until I drop."</p>
+
+<p>Blue nods, but it's not good enough. "Not doubting your commitment. But still, I want to know when you think that'll be. Two weeks? Three? Can you keep your reflexes sharp enough to survive out there if you go through another month of this?"</p>
+
+<p>Chase turns back toward the roster on the wall. Blue doesn't fill the silence, and eventually Chase says, "Two more weeks, at least, if I start to get another hour of sleep each night. After that, even with a full nights' worth, I'll probably start making bigger mistakes, losing track of stuff, unless I cut down some shifts."</p>
+
+<p>Blue nods, then turns to Glen, because it has to be Glen next. His friend's brow is furrowed, mouth set in a hard line. "This is my priority right now. The startup is going okay, new orders are coming in. Selling in Cinnabar has helped let me keep feeling good about both. I'm here."</p>
+
+<p>"For a month?" Blue tries not to sound like he's pressing. "Three months?"</p>
+
+<p>"Would <em>you</em> stay that long?" Chase asks, sounding more curious than skeptical.</p>
+
+<p>It's a fair question, and Blue turns back to him. "You know I'm aiming for the top, and more. If Cinnabar's going to follow me the way I want all of Indigo to, I can't leave it like this any more than Blaine could."</p>
+
+<p>"I'm here," Glen says again, drawing Blue's attention back to him. "So long as you are."</p>
+
+<p>Blue smiles, brief but sincere. "Good to know. Now how long can you keep this pace up?"</p>
+
+<p>Glen's expression softens, and he glances at Chase before turning back toward the projected island. "I was thinking of cutting down to five shifts a week. Now I feel like I need to stay at seven, but… at this rate, I've got a week of charge left, maybe two."</p>
+
+<p>Blue puts a hand on the older teen's shoulder and squeezes. One of the many nice things about his growth spurt is he's nearly as tall as Glen, now. He's starting to think he might end up even taller. "Start with six. See how it feels."</p>
+
+<p>He turns to Elaine before Glen can argue. She's got her arms folded, and the look in her eye reminds him of their talk, back in Fuchsia. When she confessed her feelings for Glen, and her worries that she was losing her edge. And her response to <em>his </em>fear, that he'd get people killed who weren't ambitious or skilled enough to fight beside him willingly.</p>
+
+<p>"I'm here," is all she says. "I can go at least another two weeks at this pace."</p>
+
+<p>Marcus, standing beside her, shrugs a shoulder. "I'm still having fun with the scenarios we're making, and the wilds getting stronger just means I get stronger too. Ask me again in a month."</p>
+
+<p>Blue nods, then turns to Maria and says before she can start, "Don't feel bad if—"</p>
+
+<p>"—two weeks. Then I have to get back to my training with Jason. But I'll still come by, now and then." She gives him a slight smile, and it rests easy on her face. "I might feel a little bad, but not as much as if I hadn't come at all."</p>
+
+<p>Blue smiles back. "Fair." Maria's time with Jason seems to have finished the process of pulling her out of her shell, and made her a lot more… calm is the only word Blue can think of for it. His disappointment over her pausing her journey has been entirely replaced by a confused relief over the clear benefits to her after what happened under the Rocket Casino, and he keeps meaning to talk to Jason about what they've been doing in case it's a skill he could have learned to do for her instead.</p>
+
+<p>He turns to Bretta, Slava, and Sumi. Bretta looks at her two friends, clearly pushing them to answer first, until Slava caves.</p>
+
+<p>"I think I can keep this up for another week. I'm willing to keep going for more, but… I don't know how much more."</p>
+
+<p>Sumi runs a hand through her hair. "I'd like to stay as long as we can." Blue doesn't miss the way she subtly includes Slava, and possibly Bretta. "But if the island ends up going through cycles… I still have two more badges besides this one. Might take a break to pick them up."</p>
+
+<p>"I want a path to victory," Bretta says, blunt as ever. "Even if we gain ground faster than we lose it, we'll end up stuck if the lost ground gets stronger than we can easily handle. It's like we're facing a trainer whose whole team is a setup for a Toxic stall."</p>
+
+<p>"It's not that bad," Chase says with a shrug. "We can secure most of the island, except a handful of areas that only the strongest trainers can deal with. Blaine won't be happy, but he's a pragmatist at heart. If he sees it's no-win, he'll shift focus to containment."</p>
+
+<p>Blue shakes his head. He likes Chase, but it's exactly this kind of thinking that he has to change, even here on Cinnabar where people are used to more "active" defense. "That's not sustainable if it takes weeks of extra trainer rotations to bring the zones to blue. Anything could happen in that time to put the whole island back in red."</p>
+
+<p>Bretta nods. "Stormbringer."</p>
+
+<p>"Second new species outbreak," Sumi adds.</p>
+
+<p>"Renegade activity." Glen glances at Blue, who keeps his face neutral.</p>
+
+<p>He gave his friends simple tasks, if they had the free slack, tasks which he sort of regrets given the sudden slew of new difficulties the island faces, and how little they learned.</p>
+
+<p>Glen's startup has been going well, and it puts him in contact with a growing list of distributors for all the various restaurants, grocers, and supply stores in the region… and on Cinnabar, that list is fairly short. Elaine's been scouting the island more than anyone else to find good locations for scenarios, which gave her plenty of reasons to check out the different potential places where other hidden labs might be set up. Maria, Lizzy, Bretta, everyone has been making friends, asking questions, trying to get a better sense from the locals of what else might be happening on the island.</p>
+
+<p>The little bits of information shared with each other haven't amounted to much, which Blue expected, but was still mildly disappointed by. All they had was a rough time range where odd people might have showed up in the city or nearby towns, a general location where weird things might have happened, and a vague idea of what sorts of things might be included.</p>
+
+<p>Even the lab's discovery hasn't changed much, other than to raise everyone's awareness of the potential stakes. Blaine's arrival made it clear that there was no need to hide things anymore… but at the very least, Blue has kept the secret of what Leaf suspects the lab was for. He doesn't want to betray people's confidence, and also it might make him seem a little unhinged if they're wrong.</p>
+
+<p>But it's what's on his mind when he says, "Or another set of myths waking up somewhere and turning the world on its head."</p>
+
+<p>Bretta nods. "Hell, a big enough stampede could send everyone back to the safety of the city."</p>
+
+<p>"Alright, alright," Chase says, and sighs. "Not saying I <em>want </em>that. But most of our trainers aren't getting strong enough, fast enough, to make a meaningful difference in the zones that are flaring up. We've got an absurdly low casualty rate given what we've been doing, and you guys can claim some credit for that. It's a part of why Blaine has been so willing to give you more autonomy. But if more trainers start getting maimed or killed, or even losing too many strong pokemon, we'll lose even more to caution and worry."</p>
+
+<p><em>And Blaine might retract some, or all, of that autonomy.</em> It doesn't need to be said, and Blue nods to show he's got the message, feeling some of the anxious churn in his stomach again.</p>
+
+<p>"We've still got a quarter of the recruits to organize." Bretta says. "Once they're ready to run a scenario—"</p>
+
+<p>"Just run?" Chase asks. "Half the groups from last week couldn't complete theirs."</p>
+
+<p>"We need a path to victory, like Bretta said," Blue cuts in. It's so clear, in pokemon battles. It's not always <em>right, </em>but it's at least there. A series of steps that will force the opponent into a corner, strip their options one by one, until defeat is inevitable. A series of readied reactions for different possibilities, to adapt to the range of things they might do.</p>
+
+<p>But there's no <em>opponent </em>here, no single mind he's trying to beat, with limited options on its belt. There's just… the world. It's the endless potential of the wilds, of new combinations of enemies showing up at times and places that are hard to predict, and in amounts that are hard to prepare for.</p>
+
+<p>"I want to believe we could do it with the people we have," Blue says. "That we just need to be more—" He almost says <em>unpredictable</em>. Which wouldn't make any sense, in this case, but… "Adaptable. Something we haven't thought of before, something gyms or CoRRNet couldn't do before. But new options would be good, whatever form they come in."</p>
+
+<p>"More resources can also lead to new options," Elaine says.</p>
+
+<p>"Resources are tapped, if you mean money," Chase says. "Emergency funding worked, as far as Indigo is concerned, and CoRRNet won't re-escalate our ranking unless things get way worse. Cinnabar's in debt for the foreseeable future, and the Gym's only avoiding budget cuts because the League is helping out."</p>
+
+<p>"Do we know any charitable millionaires willing to offer a bunch of money?" Slava asks. "Maybe even bounty money? We could reach out to some, frame it as a charity thing, or…?"</p>
+
+<p>"It's not a bad idea," Glen says, speaking slowly. "But a bunch of professional bounty hunters showing up would definitely create a different vibe."</p>
+
+<p>"Do we care about vibes?" Chase asks, brow raised. "Because I know Blaine wouldn't care about vibes, if it makes people safer."</p>
+
+<p>"It might get trainers already helping out wondering why they're not getting paid," Slava says.</p>
+
+<p>Glen crosses his arms. "If they're as skilled as the professionals, maybe they should."</p>
+
+<p>"Okay, sidelining that debate for the third time," Blue says. "Good ideas so far, keep them coming. Something besides money."</p>
+
+<p>"New outreach," Elaine says. "We tapped What Comes Next, and there's a lot of overlap with the others we know, but we could reach out to people directly?"</p>
+
+<p>"Dragon Dojo." Glen starts ticking off with his fingers. "Stormchasers?"</p>
+
+<p>"Ew," Sumi says.</p>
+
+<p>"Agreed, but we're in babble mode," Blue says. "Just spit the ideas out, we'll prune down to practical ones later. More suggestions?"</p>
+
+<p>Bretta was studying the roster again, but turns to face them, frowning slightly. "Vermilion Gym? Might seem like poaching…"</p>
+
+<p>The room is quiet for a moment. Blue tries to imagine that conversation, maybe between him and Surge directly, maybe just between Blaine and Surge…. "It's not bad," he says slowly. "But also might not be enough. At this point, we'd need, what, another fifty trainers with 3+ badges?"</p>
+
+<p>"At least," Sumi says. "Closer to seventy, all dedicating a few hours a day for three weeks."</p>
+
+<p>"Four to be safe," Slava adds.</p>
+
+<p>Bretta returns to studying the roster. "And yeah, three badges or equivalent would be needed to be extra careful not to risk new casualties. 4 badges would be better, with how absurdly fast the wilds on the island are getting stronger."</p>
+
+<p>"I'd be surprised if there are that many unattached high level trainers in Kanto that haven't already come," Chase says. "Or even all of Indigo. And if we want to attract people from further out, there needs to be a better prize involved, which leads us back to the incentives. If not money, then…?"</p>
+
+<p>"Status?" Blue muses. "If we can hype participation up more…"</p>
+
+<p>"Ditto," Glen suggests. "People still need to hand over their catches until they're safe, but maybe we can ensure everyone has a rotation through a ditto heavy area."</p>
+
+<p>"What about the area where a more stable ecosystem is developing?" Elaine suggests.</p>
+
+<p>"It's an idea. I'll talk with Ira and Wendy. As for the earlier idea about rich folk, Red knows Bill, and Silph owes him a favor. Gramps also might have ideas about what's happening on the island, and what we can do about it." Blue switches the table setting to view the island hologram again, selecting the routes going through that area. "What about tactics? What sort of terrain are we working in, how can we change that?"</p>
+
+<p>"You want to drain a lake or something?" Chase asks, sounding grudgingly admiring. "Flood some strong wild habitats? Because Blaine might have objections."</p>
+
+<p>"Babble first," Elaine reminds him. "Pretty sure CoRRNet would too, but that's for later."</p>
+
+<p>"Speaking of which…" Slava hesitates, then clears his throat. "Yeah, terrible idea probably, but uh… what about introducing some new invasive species?"</p>
+
+<p>"Oh yeah," Chase sighs. "This'll go well."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>"And we're live, in three... two... Hey Indigo, what's bad, what's good, what's better than yesterday, cuz today I'm here <em>on </em>the island of fiery desire <em>live</em> with a random trainer you may have heard of named Blue Oak, currently acting member of the Cinnabar Gym. Mug for the camera, Blue."</p>
+
+<p>Blue smiles, a naturally wry expression he turns toward the held up camera for just a couple seconds before returning his gaze to the path they're climbing. "Hey everyone. Watch your step here, it's mossy."</p>
+
+<p>"Mossy, right." Brightfire has bright blue hair swept up to a twirling point above his head, a cheerful disposition, and dark golden eyes that mark him as a member of one of Indigo's "Dragon Clans." To his credit, those gold eyes do sweep over the ground as he takes some careful steps up to the next ridge. The camera set in its swivel-mount atop his shoulder points down to take in the uneven terrain before lifting and turning to take in his profile again, and Blue's face beyond. "Clan, Blue here says this is the best route to get a good view of what he's been up to over on Cinnabar. It's been a bit of a climb, but we'll be there in…?"</p>
+
+<p>"Few more minutes."</p>
+
+<p>"A few more minutes! During which, we have time for a few starters. Such as, what made you reach out to little old me? I'm sure all my clanmates who've been busy doing cool shit weren't too busy to hear about that whole Miracle Eye thing, but you haven't spoken to the press since, despite all the stuff you've been doing here, and I'm not exactly a journalist."</p>
+
+<p>Brightfire (born Bastion, as if that wasn't already a cool enough name) may not be a journalist, but he's got a larger online presence than most news sources. Child to a branch of the most famous Indigo Dragon Clan family, he started his journey under the massive shadow of his first cousin twice removed, Indigo Champion Lance. But unlike most in his family (and according to rumors, much to their displeasure), he aborted his gym circuit after his 7th badge, a couple years before Blue left Pallet Town. Instead of going on to challenge his aunt's gym in Blackthorn, he ended up liveblogging a series of daring and extremely risky pokemon captures.</p>
+
+<p>It exploded his already decently sized following, and the infamy he gained from some online commenters only brought him more. Blue had written him off as an interesting but somewhat dangerous influence, spurring people on to try things they weren't prepared for to imitate his heroics, or gather some of his fame for themselves…</p>
+
+<p>But the older teen is undeniably skilled, and undeniably inspires trainers to try harder and push their boundaries. Things Blue shares a natural affinity for, even if he's more interested in reinventing gym cultures than rejecting them entirely.</p>
+
+<p>"I invited you because I think you'd appreciate what we're doing here," Blue says, letting his voice carry the frank honesty he feels. "But I also invited you because I want your audience."</p>
+
+<p>"Uh oh, clan. Have we been duped? Top ten anime betrayals?" Brightfire is smiling. They didn't rehearse any of this; it's a point of pride for him to only record things live, and his reputation is built on authenticity. "You've got a pretty big following yourself, Oak. If they won't bite, what makes you think my collection of free spirits will pay the price of admission for whatever you're selling here?"</p>
+
+<p>Blue feels a spark of heat in his chest. He wants to push back against the idea that his followers aren't "biting," but there's a tangle of traps around claiming the people who follow him are people he can get to do things, comparing them in any way to Brightfire's following, all while avoiding coming off as defensive if he says he <em>did </em>get plenty of people to come. "No price, and it's not for me. I won't even be on Cinnabar much longer, if things go well. But we're doing something new here, something daring, and something hard. I'll be pretty surprised if you or your 'clan' don't want a taste."</p>
+
+<p>"We heard those airquotes, didn't we, <em>clan?</em> But okay, Oak, we're here and you've got us pegged. Just gotta see if whatever you're doing is worth my time. The clan can decide for themselves, obviously."</p>
+
+<p>"Obviously." Like any of them would do something their idol had spurned… though it might not be all-or-nothing. Brightfire could admit that the endeavor is daring enough, but say he's not joining because he's got other plans, and those people who want to be part of it could feel like they have his blessing to come. "How much do you know about what I've been up to, exactly?"</p>
+
+<p>"I've heard about the wargames you've been putting people through at Kanto gyms. I'd say it's a step in the right direction, but if you know anything about me—"</p>
+
+<p>"Been watching your stuff since I was 9."</p>
+
+<p>"—you know what I'm going to say next."</p>
+
+<p>"'No risk of dying, no point in trying.'" Blue shrugs a shoulder. "It took you far, and led a lot of your clan to greatness."</p>
+
+<p>"You mean my bio clan, or are you sucking up to the viewers?"</p>
+
+<p>"Both. But there are still god-like, elemental forces wreaking havoc throughout Indigo, and I'd be dumb to call you a coward, but I <em>am</em> wondering when you're going to go for broke."</p>
+
+<p>Brightfire grins. "He's calling us out, clan. You bring me all this way just for that, Oak? What do we say, clan? You go for a dragonite, your belt better be loaded. Glory comes in the fight even if you fail, but fighting hard means fighting smart, and I'm not dumb enough to think I'm ready to beat the Beasts."</p>
+
+<p>"But you plan to be, someday? Does anyone from your clan plan to be?"</p>
+
+<p>"Hey clan, he's talking to you. Anyone gonna do something stupid enough to make all of us look like overeager idiots?"</p>
+
+<p>Blue wants to say that's not answering his question. If anything it's implying the answer is <em>no, not really, </em>but in a way that makes them look noble and sane rather than afraid or hypocritical. But before he can, Brightfire slows, then grins and speeds up.</p>
+
+<p>He heard it.</p>
+
+<p>They make the rest of the climb quickly, spurred on by the distant shouts and other sounds of battle drifting from afar and echoing faintly around them, until they finally crest the final ridge, where a top down view of a plateau sticking out the side of a nearby mountain is waiting for them.</p>
+
+<p>From this distance, they can just make out a squad of four trainers who are currently engaged against seven "wild" pokemon, their own trainers imitating a stampede that's upping its pressure little by little, pushing them back toward the edge of the plateau. Brightfire seems at least a little interested, maybe just by how close the defending trainers are from the cliff's edge. His left thumb and forefinger have sensor rings around them, and small twitches pan the camera on his shoulder left and right, followed by a pinching motion that sends its lens stretching forward.</p>
+
+<p>They watch together as one of the trainers is forced back even further by rock thrown by a graveler. The figures are distant enough that it's hard to differentiate them, but one of the closer trainers comes to their rescue, only for a fresh stampede wave to force the two of them further back.</p>
+
+<p>"What are they trying to do?" Brightfire asks. "Not just survive, yeah?"</p>
+
+<p>"Why not?" Blue asks, tone light. Obviously baiting.</p>
+
+<p>"Too tame." Brightfire's gaze is fixed on the battle, despite his motto, and he detaches the camera from his shoulder, then holds it up to his eye so he can see more clearly. The four trainers are all being forced back again, and some are almost entirely out of room to maneuver. "And pointless. If it's a real cliff, and they're supposed to be in the field, they should have teleporters. Non-dark trainers hold them off while darks get on their fliers, then teleport away. Let them stampede off, or fight them somewhere better suited."</p>
+
+<p>It's always nice to get reminders of how taken for granted it is, these days, that teleportation should be factored into any group of trainers' strategy. "And if it's not?"</p>
+
+<p>"What, like the drop is a crowd of civvies or a hospital or something? And you just have them fight here to make it more intense?" Brightfire's smiling now. "Still seems too tame. I thought you were doing interesting stuff. Come on, Oak. What's the trick?"</p>
+
+<p>"I'll give you hints. One, they <em>are </em>just trying to survive."</p>
+
+<p>"Lame."</p>
+
+<p>"And two, it <em>is </em>supposed to be a real cliff."</p>
+
+<p>Brightfire glances at him, then looks through his camera again. A moment passes before he says, "But there's a trick. Alright. Clan chat's probably exploding with guesses, but I'll figure this out myself."</p>
+
+<p>Blue nods, and watches as the fourth trainer has finished healing their pokemon, and rejoins the fight. Some of the "stampeding" pokemon get ordered to move toward a path off the plateau, and the recovered trainer rushes to engage them in battle, drawing them back toward the others and joining them in a more robust defense.</p>
+
+<p>Brightfire's lips purse, and Blue catches him looking up, then around, then down, and knows he got it, even if he doesn't know the how, yet.</p>
+
+<p>Still, the group has to survive a little longer, and it's looking bad. A blast of heat from an arcanine sends a pokemon nearly tumbling over the edge, sending Blue's heart leaping into his throat. It only barely gets returned on time, but the distraction causes the trainer to get forced back once more… and then they turn to leap off the plateau.</p>
+
+<p>"What," is all Brightfire gets out before the plummeting figure engages their parachute, which blooms above them and slows their descent before they drop too far or fast, letting them glide toward the valley below. "Ha! Okay, clan, that got me, and I bet it got most of you. If all their bags are parachutes… they're all dark?"</p>
+
+<p>"No, not all."</p>
+
+<p>"But some won't have time to mount up before it happens."</p>
+
+<p>"Before what happens?"</p>
+
+<p>Brightfire just grins. "Whatever 'it' is. Hoping some of you figured it out, clan. Assuming they last long enough…"</p>
+
+<p>Nearly thirty seconds of more desperate fighting ensue, and a few of the stampeding pokemon "escape," being returned to their balls and sent back out. The team training will lose points for each of those, but it's as Brightfire said. They just have to hold out, and keep the majority of their opponents engaged…</p>
+
+<p>It's gotten easier since that first badge scenario he watched in Vermilion Gym, but Blue's heart still pounds as he watches the battle, and he wipes sweaty palms carefully on his pants. He wants this to go well for the sake of convincing Brightfire, but he also wants it to go well because he wants their new strategy to work. They couldn't exactly practice it, here…</p>
+
+<p>Another trainer looks like they're moments away from jumping when the <em>CRACK </em>sounds. Brightfire and Blue look up to see two trainers higher up on the mountain, who weren't in position yet when Brightfire checked. Their summoned rhyperior and onix are hard at work striking at certain parts of a cliff, and another <em>CRACK </em>echoes around them, followed by a third, until the jutting earth finally starts to fall.</p>
+
+<p>The trainers scramble to withdraw their pokemon and summon teleporters, or run for the edge if dark. Blue feels a stirring of awe at the sight of the mountain face just… breaking, melting, tons of rock billowing dust out as it starts to gain momentum, all that earth almost seeming to turn liquid as it rushes the rest of the way toward the plateau the trainers are on…</p>
+
+<p>…but it's already clear, the last one having just leapt and deployed their parachute as the first of the boulders comes bouncing down ahead of the landslide.</p>
+
+<p>The noise is incredible, an echoing rumble that still manages to be quiet and steady enough that it sounds like a waterfall, but with the occasional echoing crackle of breaking trees or bouncing boulders. Blue's heart leaps into his throat as a boulder bounces in the direction of one of the trainers, while Brightfire lets out a whoop. It's not close, really, but Blue still lets out a long breath as the last of them gets far enough to be clear, the line of colorful parachutes floating steadily away. The mountain continues to feed the hungry beast that awakened on its surface, obliterating greenery and ridges far below them all.</p>
+
+<p>The plateau the trainers were on is still standing, but it's scoured clean, and most of the edge has been cut off as if by a giant knife. It's a little surreal to be standing in the same place he was a minute ago, and have the world in front of him so drastically transformed. Blue looks up to the trainers who caused it, and sees they've withdrawn their pokemon and left.</p>
+
+<p>Brightfire is laughing, and Blue turns toward him with a brow raised. "How close were you?"</p>
+
+<p>"I thought maybe something would appear beneath them." Brightfire shakes his head, still grinning, and turns the camera around to face him. "What do you say clan? Worth the show? Glad you tuned in?"</p>
+
+<p>"I did promise a good view, at the very least."</p>
+
+<p>"You did, and delivered." Brightfire is still chuckling. "CoRRNet really gives you permission for this, Oak?"</p>
+
+<p>"They do. I'm working <em>with </em>them, and the gym, to make sure we're all pushing toward the same goal, so we can do things we otherwise couldn't alone."</p>
+
+<p>"Yeah yeah, message is clear, we got it, don't we, clan? Stronger together." Brightfire shrugs. "Impressive as it is, I don't see how it's supposed to turn the tide of what's going on in Cinnabar."</p>
+
+<p>"It's just a part of the overall plan." Blue shrugs back. "Those trainers, they became more prepared to fight in an environment that limited their movement. They faced overwhelming odds in a battle of endurance. And the other team identified an environmental factor they could use to their advantage, and made it work for them within just a few minutes of scouting the area."</p>
+
+<p>"Assuming this wasn't scripted."</p>
+
+<p>Blue just gives him a level look. "I didn't bring down a chunk of a mountain just to impress you."</p>
+
+<p>"You did it to impress me <em>and </em>spice up the learning activity?"</p>
+
+<p>Blue smiles slightly. "A bit closer. Like I said, there's a few different parts to our new overall strategy. Will you stick around a couple days, so I can show you a few more?"</p>
+
+<p>"Any of them as impressive as this?" Brightfire's brow is raised. "Because I kind of doubt you've got something else of that caliber ready, and we already knew you were a showman. If that was your inner crew—"</p>
+
+<p>"Wasn't," Blue says. "Veteran group, but all 3 and 4 badgers. My friends were the stampede trainers, not the ones being trained, or the two up top, who were just a couple well suited gym members given free rein to do whatever they expected would work, after setting eyes on the location for the first time."</p>
+
+<p>"Sure. Point is, if someone from clan gets here expecting to learn to parachute and bring down mountains, how likely are they instead to shovel shit for weeks, or handhold 1 and 2-badgers?"</p>
+
+<p>Blue does his best to control his smile, to show his amusement without letting on to the sudden hope he feels. Brightfire definitely isn't showing <em>no </em>interest… even if he's only talking as if it's about his clan, and not his own odds of staying to join up.</p>
+
+<p>He addresses the camera directly. "That's up to the trainer. The abilities of everyone here is judged as fairly as we can, so just showing up claiming to be part of 'clan Brightfire' isn't going to give anyone special treatment. But I will say, I plan for this island to be back to where it was before the ditto appeared, and I don't plan to waste any time—or any<em>one's </em>time—on minor shit. We're going to be doing almost two dozen special ops a week, when the ball gets rolling, and we're going to need strong trainers doing what they do best… and learning new tricks along the way."</p>
+
+<p>Brightfire is watching him with a wry look, and when Blue meets those golden eyes, he sees something both predatory and respectful. "I guess I can stick around another day. See just how strong the wilds on this island are, that they're giving you all so much trouble…"</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>This isn't how Blue expected to arrive at Viridian Gym.</p>
+
+<p>Final gyms are supposed to be special. To have an extra air of reverence and anticipation. To inspire an extra level of confidence, a knowledge that everyone there would know he's a step below being qualified to, perhaps, become their boss's boss, or their boss's boss's boss.</p>
+
+<p>But instead of seven badges, he only has six when he walks into the Gym lobby for the first time.</p>
+
+<p>He also hoped to come at the head of a small army, loyal trainers who were also strong enough to get an eighth badge, whether it was Giovanni's or not, and would travel through Indigo Plateau with him until they reached the very top of the League and had a series of final, intense battles to see who among them would be Champion.</p>
+
+<p>But instead he arrives alone. In style, on the back of Soul, but not as impressive as he would otherwise be with a proper retinue.</p>
+
+<p>He even hoped that along the way between arriving and challenging Giovanni, he'd get a sense of the gym culture, find some way to improve or revolutionize it the way he did Vermilion, Fuchsia, Cinnabar, or even Celadon.</p>
+
+<p>Instead Blue just makes his way through the gym without recognizing or connecting with anyone (though he caught the extra stares and excited looks). The gym's overall vibe, as far as he can tell, is that of a standard, competent gym that has no apparent theme beyond the earth tones and geode displays lining the halls.</p>
+
+<p>He knows that's not the whole of it. Giovanni Sakai would not run a standard, competent gym. He could make a right at this fork, go down to the classes to see how they're taught, or check the training rooms to observe a few battles among the gym members.</p>
+
+<p>Instead Blue enters an elevator, walks down a hall, and arrives at Giovanni's office. A black marble door set in the stone walls meets his fist as he knocks.</p>
+
+<p>"Come in."</p>
+
+<p>Blue does, and a moment later he's sitting in the office of one of the most powerful trainers in Indigo, a room that encapsulates the cold, implacable power and authority of the earth, with mosaic walls of polished black and brown stones, geodes of various colors tastefully set in sconces by each corner, and a black stone desk shot through with veins of gold.</p>
+
+<p>"Good morning, Trainer Oak." Giovanni is wearing his usual dark suit, matching the stone of the walls and desk.</p>
+
+<p>"Morning, Leader. Thanks for inviting me." He would have preferred an online exchange, but upon hearing what the topic Blue wanted to discuss, Giovanni said an in-person chat would go better, and Blue isn't the sort to turn down the persuasion advantage that gives.</p>
+
+<p>All of Erika's lessons are on his mind as he meets the powerful Leader's gaze, a distant part of him still capable of fanboying over the youngest champion in Indigo history. "As the nearest gym to Cinnabar, I'd like to suggest—"</p>
+
+<p>"I agree. My gym will reach out to Leader Blaine today, and negotiate logistics." Giovanni's smile is small, but feels almost mischievous as Blue blinks at him. "I'm sorry, did you want to go through your pitch in full, first?"</p>
+
+<p>"No, Leader," Blue says, and the surge of relief as it sinks in that he won is mildly dizzying. Combined with the "Brightfire clan" arrivals, which started with a dozen trainers on the day of the livestream and nearly thirty in the following week, Viridian Gym members would provide an extra robust backbone to their roster. "I appreciate the help." But wait, why invite Blue here if—</p>
+
+<p>"It's nothing. I'd additionally like you to know that should you want to challenge me, the arena is ready at any time. A few basic battles with my gym members, to observe the formalities, one thrilling match between us that you can add to your legacy highlights, and the Viridian badge will be yours."</p>
+
+<p>Blue stares at Leader Giovanni, surprise shifting quickly to wariness. After seven gyms where Blue has had to work his ass off trying to get his matches earlier, to be practically handed the badge... his <em>last </em>badge, by <em>Giovanni </em>of all people...</p>
+
+<p>It doesn't sit right. Is Blue being toyed with? Did Blaine mention to the Viridian Leader that he specifically wanted to save him for last?</p>
+
+<p>"In exchange for what?" is all he says after the silence has spun out too long.</p>
+
+<p>Giovanni spreads his hands, and leans back slightly in his chair. "No cost, Blue Oak. You've made your intention to become Champion clear. I approve. Your skills as a trainer and as a leader are still growing, but you already command more loyalty than you know. You also wish to do so quickly, allowing for the occasional undertaken project. I believe you could beat me if given a chance, or two. Three at absolute most. Do you disagree?"</p>
+
+<p>Blue relaxes slightly, hearing it spelled out so clearly. He feels like he's speaking to Erika, in a way, appreciating the directness and honesty, but... more than that, there's something warming, something empowering, about hearing the Viridian Gym Leader say he <em>approves </em>of Blue aiming to become Champion. "No, Leader."</p>
+
+<p>"Good. So why pretend that you're like any other trainer? The things you've done and seen elevate you above the usual 6 badges you carry. Some of your companions may warrant a similar fast tracking, but they can arrive in their own time."</p>
+
+<p>It's all so gratifying. <em>Too</em> gratifying. "Do you plan to throw the match?"</p>
+
+<p>"Would you say yes, if I did?"</p>
+
+<p><em>Ah, of course. </em>He was so surprised by the sudden shift he didn't think of it, but obviously this has all been some test.</p>
+
+<p>But it seems too easy of one. Giovanni wouldn't be satisfied with a quick and confident no, Blue is sure.</p>
+
+<p>And so he thinks it through. What would it mean for him? Not just his legacy, but how he views himself? Like Giovanni said, Blue knows he'd be able to beat him sooner or later… and he'd get the near-perfect record. Something that might make all the difference, when the time comes to rally the region behind him.</p>
+
+<p>There's no way for Giovanni to know if his answer would be truthful, one way or the other. Maybe it's the pause to deliberate that matters, or maybe he's delayed too long already.</p>
+
+<p>He almost says yes. It would have been unthinkable before he got here, but sitting in the Leader's office, hearing him be so frank and direct… it seems like the obvious, practical answer that the Leader would respect for that, rather than see as a cheat of some kind.</p>
+
+<p>And he so <em>wants</em> to be practical. To be direct in asking for what he wants, and just <em>move on </em>to the next more important thing.</p>
+
+<p>But he didn't make it all the way here on practicality alone.</p>
+
+<p>"I think," Blue says instead, each word feeling heavy and firm as the earth. "That I would do myself more harm than good, carrying your badge into Victory Road like that. I've dreamed of facing you in a real test of skill for half of my life... and that's something I could give up, for the sake of Indigo. But what I can't do without is the knowledge that I <em>deserve </em>to be Champion, in every way that matters. And beating you, for my eighth badge… it's a test that matters, to me, like few others."</p>
+
+<p>It's rare to see Leader Giovanni smile as wide as he does now. "I look forward to it. So let's see how we can deliver Cinnabar back the peace it's lost, and speed up the day that test comes."</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/126/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/128/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -814,6 +751,6 @@ They're not five steps away from the building when rain begins to fall.
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 21: Sample Bias - Pokemon: The Origin of Species</title>
+    <title>Chapter 27: Challenges - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,236 +329,587 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 21: Sample Bias</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/26/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/28/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            The Pewter Museum of Paleontology is one of the city's crown jewels, almost as massive as its gym. It's situated to the far north of Pewter, where the slopes of the surrounding mountains are traced with roads and pockmarked with mansions of the city's most wealthy inhabitants. In the deepening twilight, Red watches through the cab's window as the museum's external lights suddenly turn on and highlight it, so that it's visible from miles away.<br>
-<br>
-He gently massages his right arm, morbidly drawn to feeling the muted tenderness deep within it. He was released from the hospital just an hour ago, and texted the others to let them know. Blue didn't respond, but Leaf said she was still at the museum, so after stopping by the pokemon center Red used some of his swiftly dwindling funds to take a cab there.<br>
-<br>
-As he waits, Red goes over his finances. The new week is coming soon, which means he'll be able to take out another $100 from his savings of $2,148. His mom deposits a portion of his dad's pension into it every month, adding another five hundred or so. He did some heavy spending to get ready for the journey, but now he's hoping to live a bit frugally to start building his savings some more.<br>
-<br>
-The problem is new opportunities to spend keep popping up, like paying Psychic Narud to help with his research, let alone any lessons. At times like this the weekly allowance limit is grating, but he knows that one of the best ways to exercising self control is to have such artificial limits until they become habitual.<br>
-<br>
-The best solution he can think of is to apply to a research institution for funding. He has to preregister his hypothesis and research methodology anyway, so putting in some more work for an application to some places might be worthwhile. But at this point he's not particularly sure his original hypothesis is even worth testing anymore.<br>
-<br>
-When Red met Psychic Laurie and explained the situation, the doctor grumbled and muttered to himself a bit as he felt around in Red's mind, much the same way Narud had. Even prepared for the sensation this time it was still disconcerting, and Red was relieved when the doctor finished, even though he simply confirmed Narud's estimation and left to see his next patient without another word.<br>
-<br>
-With his spinarak's attack confirmed as a ghost move instead of a psychic one, his own supposed psychic trauma could explain why it was so strong against him. But it doesn't exclude the possibility that it was still an abnormally strong attack paired with a particularly vulnerable target. The high concentration of "Other" that his pokedex detected in his spinarak might still be a significant indication of powerful ability.<br>
-<br>
-It's a thin thread, and seeming thinner all the time. Still, the experiment might be worth running regardless: for the personal experience, yes, but also for the field as a whole. A null finding is still important, so that anyone else who has a similar hypothesis can look back and see his research found no correlation. Such failures are integral for the pursuit of science to march on.<br>
-<br>
-Red sighs. <em>It just sucks to be the one to eat the cost of it, this time.</em><br>
-<br>
-The taxi pulls up to the front of the museum, and Red hands the cabbie a twenty before stepping out into the night, tucking away his three dollars of change. It's just his imagination that his wallet feels lighter, surely…<br>
-<br>
-Red begins to climb the right side of the steps toward the museum entrance. An irregular stream of people walk down the left, mostly younger kids with their parents. About halfway up there's a huge recess in the staircase, with a bronze statue of an aerodactyl skeleton on a podium. Red smiles as he watches a girl of about 5 reach up to grasp the last bone of its long tail, only to be shoo'd away by her father.<br>
-<br>
-Red reaches the top and pushes through the glass doors, into the wide and well lit lobby. His eyes are drawn up to the dome above him, which has been painted to look like an overhead view of an excavation site, with people working to unearth some unidentified skeleton. Red hasn't been to the museum since he was the little girl's age, but he remembers the sense of wonder it evoked. He knows it's had a lot of renovations and new exhibits since he was last here, and an echo of that wonder returns as he heads toward the ticket stalls.<br>
-<br>
-"One please," he says, and slides over another five. <em>43… </em>He forces a smile at the receptionist and enters the museum proper, trying to shake worries of his diminishing cash for awhile and enjoy himself. After the past few days, he figures he deserves it.<br>
-<br>
-The museum is a honeycomb of interconnected sections, each chamber focusing on a different topic. Red starts by entering a long, looping hall, its outside wall showing different strata of earth with pictures and descriptions of the fossils that have been found in each. Occasionally a sample will be on display in a plastic box sticking out of the wall, and Red stops around the middle of the 64-66 million year stratum to admire the perfectly preserved skull of a baby tyrunt, each tooth the size of his fingernails.<br>
-<br>
-The inside wall of the curving hall opens into different rooms that further explore the time period it's across from. The earlier rooms each cover shorter periods of time, but once it gets far enough back, it's not uncommon to see tens of millions of years lumped into one room. Red goes into one of the last ones, which is between the 350 million and 400 million year stratum. It's designed to look like it's underwater, with blue tinted lights and bubbling aquariums, to fit with all the fossils here being from aquatic creatures. A relicanth swims lazily in a tank set in the far wall, ignoring the two kids that are tapping on the glass to get its attention.<br>
-<br>
-Red's phone buzzes, and he sees a message from Leaf asking where he is. After he responds, he wanders over to one of the walls with a lot of writing on it.<br>
-<br>
-<em>From here on back in the fossil record, we find nothing but aquatic creatures. This isn't an accident! The ocean is considered by many to be the source of the first lifeforms: did you know that there are more Water pokemon than any other type? Some scientists believe that hot ocean vents created the perfect environment for the first organisms to form. Whether that's true or not, current evidence indicates that land creatures didn't show up until far after aquatic ones, and the earliest specimen show many of their same features. Whether the result of natural processes or some intelligent creator, the ocean is one of the most fertile grounds for discovering secrets of the potential origin of life on earth, and clues to the origin of species.</em><br>
-<br>
-Under the writing there's a progression of different skeletons, each vaguely less fishy than the last, with the age marked next to each. Red moves on to the next wall, which shows specimens from this time period.<br>
-<br>
-He stares at a sectioned omanyte's shell, admiring the polished gleam of each chamber and smooth geometry of the septa's curvature. The origin of species… it's not hard to imagine some intelligent creator when looking at things like this. Pokemon like klink and magnemite seem far too organized to have just popped into existence on their own. Far easier to grasp the idea of a purposeful creator than the sheer, mind boggling mathematical odds of pseudo-random natural processes forming such complex, working organisms.<br>
-<br>
-But you can't just look at one thing and draw conclusions from that. Avoiding such sample bias is fundamental to science. You can support any conclusion you want if you only look at examples that fit your hypothesis.<br>
-<br>
-If you examine one species in a vacuum, like omanyte, it might make sense to believe it was designed by some intelligent creator that values beauty. But if such a creator exists, they're terribly inconsistent in exhibiting that value.<br>
-<br>
-Yes, the omanyte's shell is beautiful, by many human standards of beauty anyway. But what about a vertebrate's skeleton? Not particularly considered beautiful. Or the chitinous form of insects, which many like himself find outright repulsive?<br>
-<br>
-So if beauty isn't a recurring theme in nature, then maybe some other value was prioritized. The beauty of the omanyte's shell compared to the chitinous form of a spinarak might be subjective, but order is fairly objective. Life may not all be beautiful, but perhaps an argument could be made that it's organized? Klink are living beings made of moving gears. Surely that's the fingerprint of an organized creator?<br>
-<br>
-Red snorts. Voltorb, another pokemon that came into existence more recently, are so volatile that they often live short, fairly pointless lives before exploding, without even attempts at reproduction. The route of the recurrent laryngeal nerve in non-fish vertebrate travels from the brain to the larynx by looping around the aortic arch. In adult giraffarig, that means about twenty feet of extra nerve, a particularly wasteful and pointless design, the result of chaos, not order...<br>
-<br>
-Or maybe expecting gods to follow human concepts like reason and consistency is mistaken on its own, and there are multiple who care about different things, or just one that has no unified or consistent methodology. In which case, trying to understand them would be worse than useless.<br>
-<br>
-But anyone could cloud any idea in contradictory or inconsistent aspects to shield it from logical examination. Not being able to understand something doesn't affect its potential truth value at all, nor justify believing in it.<br>
-<br>
-Red yawns and leans against the exhibit, surprised at how weary he is after spending so much time in bed lately. Maybe it had something to do with his psychic experience earlier. He wonders if he should tell Leaf about it right away, or wait until Blue's around too...<br>
-<br>
-The bubbling of the water tanks and the chatter of the museum visitors makes for a soothing background noise, and he rests his forehead against the cool glass of the exhibit, feeling oddly detached from himself. As the dozens of voices buzz around him, Red admires the path of the helix spiral from an inch away, musing over whether the clue to some god lies somewhere in its curves, perhaps one of order and chaos, his gaze following the loops up right down left, up right down left, up right down left...<br>
-<br>
-"Red!"<br>
-<br>
-He turns and sees Leaf jogging toward him with a wide grin. "It's good to see you up and about! Isn't this place great? Come on, you've <em>got</em> to see this new exhibit that's going up." She grabs his left arm and begins to pull him past the rest of the aquatic fossils section. "I've been talking to the researcher in charge of it, and it looks fascinating, especially since we'll be passing by Mount Moon soon."<br>
-<br>
-Red lets her drag him along as his senses return. "What's it about?"<br>
-<br>
-"Another explanation for the possible origin of life!" She waggles her other hand's fingers, voice deepening. "<em>Frooom spaaaace!"</em><br>
-<br>
-Red grins. "Radiopanspermia? I thought that was proven unlikely: any bacteria that can travel by radiation pressure would be too small to survive in space without protection. Also what does it have to do with paleontology?"<br>
-<br>
-"Not radiopanspermia, lithopanspermia." They've exited the strata tunnel, and Leaf lets go of his hand as they walk together toward the back of the museum, past the artificial indoor dig site and theater room. "The bacteria hitches a ride on or in meteorites."<br>
-<br>
-"So not <em>from</em> space then: from another planet and then <em>through</em> space. What bacteria can survive in space? And planetary re-entry?"<br>
-<br>
-"Cyanobacteria have been shown to do the first but not the second, but non-photosynthetic organisms deep within rocks to protect them have a chance to survive the exit and entry process."<br>
-<br>
-Red's brow rises. "This has been tested?"<br>
-<br>
-Leaf grins. "That's what the exhibit is for. Many of the conditions were simulated of course, but it seems possible."<br>
-<br>
-They reach a doorway with a Coming Attraction banner over it, where a splashy cardboard graphic showing a meteor strike advertises the new exhibit. Red slows down, but Leaf walks around it and through the doorway.<br>
-<br>
-"Uh, Leaf…?"<br>
-<br>
-"Come on back, it's okay!"<br>
-<br>
-Red follows her, and they emerge in a half finished showroom. Most of the floor is still bare and empty, and the walls are bright with a recent coat of paint. A worker is at the top of a ladder installing some lights, and two more are pulling things out of a Container box while a fourth puts the lid back on his and withdraws it into its ball.<br>
-<br>
-Leaf leads him to the side through another door, and this room is clearly much closer to being done. It looks like a small lab, with a focus on equipment and samples. An older woman is testing an unusually large and wide centrifuge on the far side of the room, her grey hair tied back in a ponytail as she peers through her glasses at the spinning machine. She's dressed in jeans, a t-shirt, and flip-flops, and when Leaf and Red approach she looks up with a smile.<br>
-<br>
-"You must be Red." She holds out her hand. "I'm Dr. Brenner."<br>
-<br>
-He shakes it, marveling anew at how normal his arm feels. "Red Verres. What's your field of study, Dr. Brenner?"<br>
-<br>
-"Officially it's microbiology, but lately I've been branching out." She pats the edge of the centrifuge. "Lately I've been studying astrophysics more. It's fascinating stuff."<br>
-<br>
-Red nods. Like math, he finds studying physics more pragmatic than fascinating, but that might just be because he's not as good at it as he'd like to be. "We're not interrupting anything, are we?"<br>
-<br>
-"Oh, no, not at all, I'm glad for the company." She shuts off the centrifuge, and they watch it slow to a stop. She takes empty beakers out and puts them aside. "I'm just testing the equipment before the grand opening. Would you like the not-so-grand pre-opening tour?"<br>
-<br>
-"Sure. I know the basics, but I'm curious to know what you've got on display here."<br>
-<br>
-Leaf stays behind to read the info-placard by the centrifuge as Red follows Dr. Brenner around the lab. "Well, there are a number of aspects to lithopanspermia that needed to be verified for the hypothesis to stay viable. First off, microbial life would need to be capable of surviving the stress of planetary ejection, that is, the gravitational pressure of escape velocity."<br>
-<br>
-"Is that what the centrifuge was for?"<br>
-<br>
-"Exactly. The next is survival in transit: being able to survive the vacuum of space, and the bombardment of radiation." They approach a table with a vacuum tube on it. "Nonfunctional, of course," Dr. Brenner says, tapping the glass. "But simulating space to test different bacteria's resilience has led to some interesting discoveries with extremophiles. And last is atmospheric re-entry." They move on an empty part of the room. "Which we test with-"<br>
-<br>
-"Sorry to interrupt," Red says. "This is all really interesting, but if you don't mind me saying so, even with experimental tests to ensure it's possible, isn't it still too speculative to warrant its own exhibit?"<br>
-<br>
-Dr. Brenner laughs, a full, rich sound that makes Red smile despite a stab of irritation. It was a serious question.<br>
-<br>
-When she finishes though, she's shaking her head. "I'm sorry, I'm not laughing at you, I promise. Leaf told me you worked at Oak's lab, and here I was still treating you like a tourist." She walks back toward Leaf, and Red follows. "Ah, the clarity of youth. And so polite about it! No, I don't mind you saying so, especially since I raised the same objection myself. That's partly why I invited Leaf back here to chat after overhearing her interviewing some of the museum guests."<br>
-<br>
-Red turns to Leaf. "Interviewing is a strong word," she says with a smile. "I was just curious to know what they thought of the museum's exhibits. I've been here all day, and saw some very mixed reactions."<br>
-<br>
-"Like what?"<br>
-<br>
-"Well, there were a few who-"<br>
-<br>
-"Why not read from your review of the museum?" Dr. Brenner says. "It was quite evocative."<br>
-<br>
-Leaf's cheeks flush. "That's nice of you to say, but it's just a rough draft."<br>
-<br>
-"You wrote a review?" Red asks, brow raised. "I'd love to hear it."<br>
-<br>
-She hesitates a moment, then takes a tablet out of her bag and taps a few times on the screen. Leaf clears her throat, then reads, "'The children were fascinated, wide eyed with wonder as they raced from one exhibit to the next, their energy often too much for the parents that trailed behind. It wasn't hard to see why: though paleontology is often lumped in with geology as the 'mere' study of rocks, Pewter's Museum of Science clearly spared little expense to bring such a potentially dry field to life'... mmm…. hang on, I went on a bit describing the place… ah, here: 'the impact of which were most evident on their parents. Some were bemused, others curious or thoughtful. But many looked irritated, shocked, or even angry. It wasn't long before a pattern emerged: the exhibits that discussed evidence and hypotheses on the origins of life were the most troublesome. When asked about their thoughts on the museum, the responses were fairly similar: an admiration of the production value of the exhibits, but a concern for the accuracy of the subject matter.'"<br>
-<br>
-Leaf pauses, looks up at them, then closes the tablet and tucks it away. "That's, uh, the main point. It was interesting to see so many people react so strongly to the idea that life originated in the ocean, as if they didn't expect to see something that challenged their views so much."<br>
-<br>
-"Is it really that widespread?" Red scratches his hair beneath his hat. "I mean, this isn't really new knowledge."<br>
-<br>
-Dr. Brenner smiles. "I think you may have an exaggerated view of just how old and widespread it is. You're both young: things that were discovered even as little as a decade ago seem like common knowledge, simply because you've known of them your whole lives. And you were raised in very educated circles."<br>
-<br>
-Red frowns. He had a few friends and acquaintances in Pallet Town that weren't connected to the lab or any scientific field… some were even adults, like his dad's old friends among the nearby Rangers. But he can't remember ever really talking to them about things like this. It's possible, even probable, that his perception of what's normal is skewed by the company he kept.<br>
-<br>
-"A lot of the people I spoke to were residents of Pewter though," Leaf says. "Shouldn't they be a bit less surprised?"<br>
-<br>
-"Ah, well, the museum's undergone a lot of changes lately. The more we learn the better it refines its exhibits, and the ones that are upsetting people… well, they're generally newer." She takes off her glasses and wipes at the lens, frowning down at them.<br>
-<br>
-"Is that why you raised objections?" Leaf asks. "Do you think this one's going to upset people too?"<br>
-<br>
-Dr. Brenner looks at her in surprise, then smiles and puts her glasses back on, beginning to walk around the lab. They follow her as she starts checking over the various equipment that's set up. "There were politics involved. I wasn't always working with the museum, I'm fairly new here, actually, but Pewter has always had a bit of a conflict at its heart when it comes to the science it specializes in and the beliefs of its people, though of course they have their own interpretations for what gets dug up."<br>
-<br>
-"What about the tourists?" Red says.<br>
-<br>
-"Most have their own beliefs, some of which are pretty compatible with the fossil record. But Mayor Kitto and his predecessors, along with the city legislature, always used to put a lot of pressure on the museum board to keep the controversial exhibits from opening."<br>
-<br>
-Leaf's brow furrows. "That's terrible!"<br>
-<br>
-Dr. Brenner grins at her indignation. "Ostensibly it was to ensure the accuracy of the data, and to keep the peace in the city. To be fair, there's certainly been a lot of complaints in the past year, and it's been getting worse."<br>
-<br>
-Red frowns. Public indignation isn't a justification for suppressing the truth. He supposes he might feel differently if people storm the museum and burn it down, but that seems unlikely. "What changed?" Red asks. "Why did the museum decide to shift course?"<br>
-<br>
-She shrugs. "I wasn't in the board meetings, heck, I wasn't even working here at the time. I don't know what the deciding factor was. But there are always rumors. I've heard the mayor's the one that had a change of heart, told the museum's board behind closed doors to open whatever new exhibits they wanted."<br>
-<br>
-"So when you said politics, you meant it literally," Leaf says. "What does he get out of it?" Red is struck by his friend's intensity, and he can't quite place why it feels so familiar until he realizes she reminds him of his mom when chasing down a story.<br>
-<br>
-Dr. Brenner examines a microscope, peering through the lens and adjusting it. The slides nearby are labeled <em>bacillus subtilis</em>. A poster on the wall has a grid with columns labelled Low Earth Orbit, Planetary Ejection, Atmospheric Re-entry, and Simulated Conditions, and <em>bacillus subtilis </em>has checkmarks across the board. "My best guess?"<br>
-<br>
-"And your second best, if you have one."<br>
-<br>
-She smiles. "Leader Brock isn't happy about it. Considering Mayor Kitto isn't an idiot, I'm assuming that was either the intended result, or an understood cost. I think it's possible that the real pressure has been from the Gym this whole time, and the mayor is starting to push back."<br>
-<br>
-Leaf whistles quietly. "Power struggles between mayors and leaders seldom end well."<br>
-<br>
-"At least the museum gets to show whatever it wants now," Red says. "Brock has no business telling it what to put on display." Red tries to imagine someone telling the Pallet Lab what it can and can't study and fails. He's suddenly glad he never had to worry about the opinions of a popular but uninformed leader, and hopes Pallet doesn't get a Gym anytime soon.<br>
-<br>
-"<em>Leader</em> Brock," Dr Brenner says, the slightest of emphasis on the title, "Has always done what he thinks is best for our city. I disagree with his perspective, of course, but as far as I know he hasn't made any ultimatums or commands. In the end, this exhibit is a sort of compromise."<br>
-<br>
-"How so?"<br>
-<br>
-"Well, recent excavations of meteorite impact sites in Mount Moon found fossils, not just of pokemon but also microbes. There's some debate over whether they were actually in the meteorites when they landed, and are therefore extraterrestrial, or if they're from earth."<br>
-<br>
-"IIIIInteresting," Red says, rubbing his jaw. People have thought clefairy and jigglypuff came from space for ages… this evidence would do even more to support that theory. "And if it's proven that life came from rocks in the sky, that goes a long way toward supporting the idea that Pewter's spiritual beliefs are at least metaphorically correct after all."<br>
-<br>
-"Exactly. So is it a bit premature compared to some of the other exhibits here? Sure. But speculative as it is, I plan to focus it on the science we have available, which is sound."<br>
-<br>
-Leaf smiles. "I'm looking forward to coming back when it's finished."<br>
-<br>
-Dr. Brenner's phone buzzes, and she checks the screen before tucking it away. "Sorry to say, I've got a prior engagement to go to."<br>
-<br>
-Leaf is already heading toward the exit, and Red follows her. "That's okay, we've taken up enough of your time."<br>
-<br>
-The microbiologist laughs as she sees them out of the exhibit. "Not at all, it was a pleasure speaking with you. Are you leaving Pewter soon?"<br>
-<br>
-Red nods. "We might stay for a few days, maybe a week, depending on how long it takes for our friend Blue to challenge Brock. Afterward we're going to Cerulean."<br>
-<br>
-She smiles. "Well, I've gotten Leaf's contact info, and sent her the location of the dig site in case you all decide to drop by and see it. I can give them a heads up: I'm sure they'll be happy to have you visit."<br>
-<br>
-Red turns to Leaf, who's grinning apologetically. "I know Mount Moon isn't the safest place to travel through, but the dig site is on the outskirts. I thought, if our path takes us that way anyway..."<br>
-<br>
-Red smiles back. "It should be okay, yeah. Blue might not be interested in the dig, but I'm sure he'll be happy for the chance to catch new pokemon."<br>
-<br>
-"Thanks again, Dr. Brenner," Leaf says, turning to her and shaking her hand again.<br>
-<br>
-"You're quite welcome," she responds as Red does the same. "Feel free to come back anytime before you go. I'll be here every night, around the same time."<br>
-<br>
-They wave and head for the museum's exit, and Red checks his own phone. Still no messages from Blue. "Hey, have you-"<br>
-<br>
-"No, I assumed he spoke to you. Think he's still at the Gym?"<br>
-<br>
-"One way to find out." Red calls, and after about a dozen rings Blue finally picks up.<br>
-<br>
-"Oh, Red! Hey man, sorry I didn't respond earlier, I was, uh, a little busy."<br>
-<br>
-"That's alright, I figured as much. You're not at the gym, are you?"<br>
-<br>
-"Oh, yeah, I am actually."<br>
-<br>
-Red checks the time with a frown as they leave the museum and begin to head down the front steps. "You've been there all day. Don't your pokemon need a rest?"<br>
-<br>
-"Well, I haven't been battling for awhile. I, uh... I'm with Leader Brock."<br>
-<br>
-Red's brow rises. "Really? I didn't think he'd be giving private lessons on your first day there."<br>
-<br>
-"Well, normally he wouldn't, but... we kind of fought already."<br>
-<br>
-Red stops dead, and from the expression on Leaf's face she can hear Blue through the phone too.<br>
-<br>
-"...You <em>what?!</em>"
-        </div>
+            <h1 class="chapter-title">Chapter 27: Challenges</h1>
 
-        <div class="chapter-nav">
-            <a href="../26/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../28/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>"Daro, Bulldoze!"</p>
+
+<p>"Maturin, Withdraw!"</p>
+
+<p>Blue's squirtle ducks into her shell just as the graveler slams its main arms into the ground. A cone of upheaval spreads outward, buckling the earth of the arena around Maturin and hiding her in a cloud of dirt for a moment. Blue's platform trembles beneath him as the tail end of the quake dissipates against the edge of the arena, and by the time it fades he can see his pokemon again.</p>
+
+<p>"Daro, Slam!"</p>
+
+<p>"Maturin, Bubble!"</p>
+
+<p>Maturin emerges from her shell and spits a stream of bubbles at the advancing graveler. The bubbles pop in rapid flashes as their opponent lets out a deep roar, pushing through the attack with its short, powerful legs as its hide turns white and cracks.</p>
+
+<p>Blue watches his opponent, knowing that any second now he'll realize… there. The other trainer, Rem, grimaces and points his greatball forward. "Daro, return!" Blue lets out a breath as the pokemon dematerializes, glad he didn't have to order Maturin to stop. Another few seconds of that might have badly hurt the graveler, but if it got close enough to hit Maturin...</p>
+
+<p>"Dammit," Rem says. "Usually he can last longer than that."</p>
+
+<p>Blue doesn't respond other than to call his squirtle over and let her have a drink of water. After a month at the gym, he's still surprised at how many trainers that come to Pewter insist on practice matches against types their pokemon are weak against. Blue knows you can't always count on having a favorable matchup, and clearly Brock inspires them to master their type beyond average conventions…. it just seems like a really inefficient use of time.</p>
+
+<p>"Okay, your pick. "</p>
+
+<p>Blue checks the time. Jarod won't be free for about another five minutes. "You said you have a pidgey too, right?"</p>
+
+<p>"Yep. You want to try yours against it?"</p>
+
+<p>"No, my squirtle. Just come at her as normal." Blue checks Maturin over, then commands her forward. "Ready."</p>
+
+<p>"Go, Dream!"</p>
+
+<p>The pidgey bursts into existence mid-air and immediately swoops around their arena in a circle. Blue waits for it to lock onto Maturin, then says, "Water Gun!"</p>
+
+<p>One, two, three darts of water shoot up at the bird, who dodges them with a hard bank and dive. "Dream, Quick Attack!"</p>
+
+<p>"Withdraw!" Blue shouts, too late as the pidgey turns on its wingtip and bolts straight at Maturin and scores three bleeding lines across her head. Maturin lets out a cry of pain, then follows the order and ducks into her shell. <em>Good girl.</em></p>
+
+<p>When the pidgey comes around for another pass, its talons rake harmlessly against her shell. On the next pass, it manages to draw blood from her hind leg or tail: Blue can't quite see the wound. He waits until the pidgey banks around for another pass, then yells, "Maturin, roll right!"</p>
+
+<p>His squirtle's legs dart out on one side and flip her onto her back, then immediately retract as the other side does the same to flip her onto her belly again. Dream misses on its flyby, and Maturin keeps repeating the process, steadily flipping her way to the side.</p>
+
+<p><em>Still too slow.</em> "Maturin, Withdrawup!"</p>
+
+<p>Maturin flips vertically this time, balancing on slightly protruding hind legs. "Dream, Peck!" The pidgey dives in and begins harassing her, nails scrambling for something soft to cut, and Blue sees his opportunity.</p>
+
+<p>"Maturin, Water Gun!"</p>
+
+<p>His squirtle's head pops up and then back down in the space of a heartbeat, and in that time hits the pidgey with a burst of water at point blank range. It tumbles backward, then catches itself in the air and flaps the water from its feathers as it hovers warily in place.</p>
+
+<p>Meanwhile Maturin's head is back in her shell, and she stands upright and ready for her next command.</p>
+
+<p>"Dream, Wing Attack!" The pidgey dives at Maturin and begins to buffet her with its wings, talons scrambling at her shell.</p>
+
+<p>It's a risk to pop her head up again now, and more of her is exposed in this position than the normal one. "Maturin, Withdraw!" She plops back down onto her belly, leaving only her smooth, hard back for the pidgey to batter. "Rapid Spin!"</p>
+
+<p>Her legs all kick out at once, turning her so fast that the pidgey startles backward, wary of another attack. "Water Gun!"</p>
+
+<p>"Quick attack!"</p>
+
+<p>Dream darts forward just as Maturin pokes her head out and spits a shot of water. The pidgey scratches her head again, blood sprinkling the arena floor, but instead of flying past, the bird falls out of the air and tumbles over the ground, chest dark with water. Blue can't tell how badly his pokemon is hurt, but when the pidgey doesn't get back up right away, he withdraws Maturin, and Rem runs forward to get his pokeball in range of Dream.</p>
+
+<p>"Whew. Must have been a hard hit. What do you say? Call that a draw?"</p>
+
+<p>Blue smirks, then forces it into a more friendly smile. "Sure." <em>As if.</em> "Good match."</p>
+
+<p>"You too. I never saw a squirtle do so much from in its shell."</p>
+
+<p>"I've been working on it for about a month now. Still needs some practice." Blue sees the training room door open, and Jarod stick his head in. He raises a hand to catch his attention. "Hey, I've gotta go."</p>
+
+<p>Rem turns, then nods. "Sure. Good luck on your next Challenge!"</p>
+
+<p>"Thanks." Blue jogs over to the door and joins Jarod in the hallway. "Yo. So what do you say?"</p>
+
+<p>"I say you're early. You've still got two days."</p>
+
+<p>Blue crosses his arms. "You're not wussing out on me, are you?"</p>
+
+<p>"Big talk from a badgeless. Maybe I'm concerned for your fragile ego."</p>
+
+<p>"You could have said no over text."</p>
+
+<p>"Nah, not as fun." Jarod rubs where the scar crosses his nose. "So what, you think you can beat me for real? Your squirtle still hasn't evolved."</p>
+
+<p>"Don't need her to."</p>
+
+<p>Jarod's eyes widen, then narrow as he runs his fingers over the balls on the front of his belt. "No wartortle, huh? And you haven't been using any new pokemon... What's your angle?"</p>
+
+<p>"You can find out during our battle, or at my Challenge with everyone else."</p>
+
+<p>"I saw the agenda. You're not scheduled for another four days. I bet you would have gone for a month on the dot, if there was an opening for it."</p>
+
+<p>Blue smiles. He probably would have, though he can admit to himself at least that he's glad for the extra two days. It's time to test his shiftry out in a real match so he still has time to work on flaws in technique. Jarod is the perfect test run for his shiftry: experienced enough and with strong enough pokemon that he can handle it.</p>
+
+<p>"So? Are you free or not?"</p>
+
+<p>Jarod stretches his arms out, then folds them behind his head. "Why not. It'll give you some practice grieving before you lose your second Challenge."</p>
+
+<p>"Alright, pick an arena room then."</p>
+
+<p>"What, here and now?"</p>
+
+<p>"Got something better to do?"</p>
+
+<p>"As a matter of fact, I do. But fuck it, this won't take long." Jarod leads the way to some unused training rooms, stopping at doors every few feet and looking inside a few before finding one that suits his liking. He opens it. "After you."</p>
+
+<p>It's a standard room, with the dirt and boulders that most of Pewter Gym's arenas share. Jarod probably picked this one because it's a bit smaller than most.</p>
+
+<p>Blue goes to his platform without waiting. "One pokemon each, first knockout."</p>
+
+<p>Jarod mounts his own platform. "You're not even going to use your whole lineup? You <em>better </em>have an angle, and it better be that you've gone and bought a perfectly trained dragonair just so you could beat Pewter." Jarod tsks. "Rich kids. Always gotta learn the hard way that buying a top tier pokemon doesn't make them a top tier trainer."</p>
+
+<p>Anger heats Blue's chest and cheeks, but after weeks of verbal sparring with Jarod, it takes barely a second to push it back down. He unclips his greatball and tosses it in his hand. "Ready?"</p>
+
+<p>Jarod raises a brow and unclips an ultraball from his waist. "Guess we get to see what's in there at last. Go, Rocksteady!"</p>
+
+<p>Jarod's ball flies through the air, and in a flash of light spits a Rhydon onto the arena floor.</p>
+
+<p><em>Rock and Ground. Slow, but hits hard. Its Horn Drill can instantly kill most pokemon it can get into position. </em><em><strong>Very </strong></em><em>sturdy against physical attacks, but barely any protection from everything else.</em></p>
+
+<p>Too bad all of his shiftry's Grass attacks are physical. Its type advantage would help, but not by a lot. He'll have to rely on his speed.</p>
+
+<p>"I know you don't want me to hold anything back," Jarod says. "But I'm going to be as careful as I can not to kill your pokemon. Don't be scared."</p>
+
+<p>Blue cocks his arm and throws. "Go, Kemuri!"</p>
+
+<p>His shiftry appears facing the rhydon and immediately fans its leaves out to the sides, rocking back and forth on its odd feet. The surprise on Jarod's face is immensely satisfying. "You caught one of the shiftry in the forest?"</p>
+
+<p>"Kemuri, Leaf Blade!" There's a second of delay, and then he bounds forward and slashes at the rhydon.</p>
+
+<p>"Rocksteady, Take Down!"</p>
+
+<p>Rocksteady surges forward, and Kemuri ducks and rolls to the side. The rhydon roars as it stumbles past, and Blue sees three long lines on its side. White discoloration spreads from the etched rock, and the ragged edges of Kemuri's leaves drip sap onto the ground before they reknit themselves whole and sharp again.</p>
+
+<p>"Rocksteady, Drill Run!" Joren shouts, and his pokemon falls onto all fours and charges, horn rotating with a high pitched <em>rrrrrrr </em>of scraping stone. Kemuri dodges it again and tries to cut downward as the rhydon passes by, but Jarod shouts "Slam!" and it throws its body to the side, forcing Kemuri to leap away.</p>
+
+<p>Within his envelope of calm, Blue absently wipes a drop of sweat from his brow. That was too close. The Rhydon is incredibly quick for its species, and he knows Jarod must have trained its speed to make up for its major weakness. "Kemuri, Leaf Blade!"</p>
+
+<p>His pokemon narrows its leaves on either arm into outstretched, overlapping swords, then stabs them forward to score harsh lines along the side of the rhydon's face and under its eye, dancing a step forward and back to avoid being crushed by its lunges. "Megahorn!" Jarod shouts as Kemuri leans forward again, and Rocksteady throws its head up. Its whirring horn narrowly misses Kemuri's arm, but cuts the bundled leaves from his right "hand" in half as the shiftry jerks to the side. His coughing roar almost drowns out Jarod's command of "Take Down!"</p>
+
+<p>"Feint Attack!" Blue yells, and is relieved to see his shiftry stop its pained reaction immediately and throw itself to the side, slashing the rhydon's rocky hide as it lunges past. Sap drips steadily from his severed leaves, and Blue watches it carefully to see if the wound will close on its own. He shakes his watch loose and taps the screen to set a one minute timer. If it continues to bleed by the end of it, he'll withdraw. Either way, continuing to fight up close is a bad idea. He needs to get some distance and time for an Extrasensory attack. "Kemuri, back!"</p>
+
+<p>The rhydon is beginning to show its injuries, gait uneven and breathing labored from pain. Jarod watches Kemuri leap away, then says, "Rocksteady, Flamethrower."</p>
+
+<p><em>Ah, shit- </em>"Kemuri, dodge!" Blue yells as Rocksteady stands back up on its hind legs, chin bowed and chest heaving. Kemuri leaps in a random direction just before Rocksteady raises its head and vomits out a stream of fire that splatters over the rocky arena in a wide arc. Kemuri leaps again and again without further prompting as the spray of fire follows him, and coughs in pain as some of the fire lands on his long white hair or wooden skin.</p>
+
+<p>Blue feels some of the heat against his face as he aims his greatball and tracks his pokemon's movements. The stream of fire is thin and paltry compared to an arcanine or magmar's flamethrower, but it's dangerous enough to take his pokemon down if he gets directly hit. <em>Three… four… five… six...</em></p>
+
+<p>The rhydon closes its mouth, fire dripping from its jaws and burning harmlessly against its skin. Flames continue to burn across a wide swathe of the arena, scorching the ground and rocks black until they die down a few seconds later. As soon as new fire stops being shot at it, Kemuri throws itself to the ground and begins to roll along the dirt, snuffing out the fire that had landed on it in various spots. "Kemuri, Extrasensory," Blue says once he can't see any more fire, but the shiftry continues to flail along the ground. "<em>Kemuri, stop!" </em>His pokemon goes still. Half of its shaggy white mane has been burnt, and smoke still rises from various parts of its body. The rhydon would need time to use that attack again, and they need to end this now. "Kemuri, Extrasensory," Blue says.</p>
+
+<p>Instead his shiftry dashes forward to attack with his leaves again, scoring more jagged lines along the grey ridges of the rhydon's hide. <em>No! </em>"Kemuri, back!"</p>
+
+<p>"Rocksteady, Hammer Arm!"</p>
+
+<p>"Kemuri, Feint Attack!"</p>
+
+<p>The rhydon's grey arm slams down on Kemuri's shoulder with a sharp <em>crack</em>, and the shiftry crumples to the ground. Blue withdraws him a heartbeat later, stomach rolling with a mix of frustration and anger at his pokemon for not listening to him… and shame for losing the match.</p>
+
+<p>"Rocksteady, return!" Jarod withdraws his rhydon, then clips it to his belt and walks over, casually stepping around the scorched parts of the arena. "Well? Is it okay?" he asks once he's closer.</p>
+
+<p>"It's fine. Just a broken arm and the burns, I think." Blue takes out his pokedex to check anyway. "Yeah. I'll get it over to the center to heal up." He puts his dex away and reclips the ball. "Thanks for the rematch." Blue steps down from his platform and begins to walk across the arena toward the exit.</p>
+
+<p>Jarod follows him. "No problem, beating you was more fun than I expected. I'm happy to do it again sometime."</p>
+
+<p>Blue glances at Jarod as they walk. If he didn't know better he'd say Jarod is being nice, in his own way. "Well, we're 1 to 1 now, so I'd say another rematch is in order."</p>
+
+<p>"Oh sure, count the preliminary match. Anytime, anywhere, Oak. You heal that sorry excuse for a plant pokemon up, make sure it actually listens to you, and after a dozen fights or so, you might actually beat me."</p>
+
+<p>Blue smirks, but it fades by the time they leave the training room. "I'm just glad to see he followed my other orders until then. I had some trouble getting him to listen at all until last week." Blue hates how he sounds like he's making excuses, but he finds that he wants Jarod to know how much effort has gone into his training.</p>
+
+<p>"Well, you've got four days to get it to follow orders better in the heat of things. Do that, and as far as trump cards go, you might stand a chance."</p>
+
+<p>"Especially since onix can't TM Flamethrower, or any other Fire attacks."</p>
+
+<p>Jarod grins. "Liked that, huh?"</p>
+
+<p>Blue shrugs. "It can help their coverage a bit, but hacking their biology to fit in some extra organs doesn't change that rhydon is a physical attacker. Most cases you're better off sticking to what they can learn naturally."</p>
+
+<p>"<em>Hai, sensei</em>." Jarod sketches an elaborate bow. "I'm always grateful of what pearls of wisdom you deign to drop for me."</p>
+
+<p>"May you profit from them all."</p>
+
+<p>Jarod's smile fades slightly as they reach a branch in the corridor, and Blue stops walking when Jarod does. "Well here's one for you. I know you help out at the center most afternoons, but come back tonight if your shiftry is ready by then."</p>
+
+<p>Blue raises a brow. "You offering a rematch, or personal training time?"</p>
+
+<p>"Both. And before you get flattered, this is a safety concern. You're going to be using a temperamental pokemon that's clearly not fully under your control yet in a Challenge match. I need to make sure you get a handle on its disobedience, because if you step out in that coliseum against Brock and your shiftry decides to stop listening to you at the wrong moment, someone could get hurt. That's not happening in my Gym. Understand?"</p>
+
+<p>Blue meets Jarod's gaze for a moment, pride fighting his sense, then nods. "I'll be here. Humiliating myself in the public eye is the last thing I want."</p>
+
+<p>"Good. Brock's a fair guy, but you've only ever seen his friendly side. Believe me, you don't want to come into his arena with an unruly pokemon. Put your pokemon or his at risk like that, and a public browbeating will be the least of your worries."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>"Excuse me. Pardon me. So sorry…"</p>
+
+<p>Red and Leaf make their way to their seats through the throng of spectators. They thought they were getting here early, but apparently underestimated how many people would show up. When Red watched the vid of Blue's first Challenge, the stands were maybe a quarter full. Now it looks like they're well past half.</p>
+
+<p>"This is J-23," Leaf says as she passes an empty chair. "There, those two must be 27 and 28."</p>
+
+<p>Red follows her to them and sits with a sigh of relief. The noise and presence of the crowd sets his nerves on edge, and he finds himself tugging the bill of his hat down every few minutes. "What time is it supposed to start, do we know?"</p>
+
+<p>"Seven on the dot. Not sure how often they're on schedule, this is my first time at one of these."</p>
+
+<p>Red grins. "You too? I thought I was the only one."</p>
+
+<p>Leaf shrugs. "I get that it can be important. I just don't like seeing them get hurt."</p>
+
+<p>"Ah. Right. So, uh, how's the article going?"</p>
+
+<p>Leaf brightens. "I finished it last night."</p>
+
+<p>"That's great! When can I read it?"</p>
+
+<p>"Your mom was looking it over today for final edits. I should have them done by the end of the night."</p>
+
+<p>"I can look it over and give you some feedback by the end of the night too, if you want."</p>
+
+<p>She smiles. "Sure."</p>
+
+<p>"What?"</p>
+
+<p>"What, what?"</p>
+
+<p>"You seemed, I don't know, amused."</p>
+
+<p>"No, not at all, I just... I mean, do you think you'll have some suggestions that Laura wouldn't make?"</p>
+
+<p>Red considers this, and grudgingly nods after a moment. "Okay, fair point. Nevermind."</p>
+
+<p>"No, it's okay, I'm interested to know what you think."</p>
+
+<p>"You don't have to appease my ego, you're right. I'll just give you my thoughts as a reader."</p>
+
+<p>"Well, thanks. I'm open to any feedback."</p>
+
+<p>"No prob."</p>
+
+<p>"What about you, what's going on with the study? It's over, right?"</p>
+
+<p>"Yeah, we finished the last session yesterday."</p>
+
+<p>"So what have you got so far?"</p>
+
+<p>Red hesitates, then pulls out his pokedex and opens the draft of his paper. He goes to the graph and expands it. "Spot my headache."</p>
+
+<p>A simple scatterplot titled "Correlation between Intensity of Night Shade and the concentration of 'Other' pokedex composition metric in spinarak" is displayed. The Y axis is marked from 1 to 10, and the X axis goes from 5% to 25%, with the highest point of data at 23%, and the lowest at 6%. Forty dots fill the graph, clustered mostly between the 5 and 7 on the Y axis, and everywhere on the X.</p>
+
+<p>"Huh. This actually looks… well, mostly random, but it looks like there's some slight correlation."</p>
+
+<p>"Yeah. For the most part, it seems almost totally unrelated. But there's a bit of a blank spot." He points to the different areas on the graph. "You've got spinarak with low Other and low Intensity, spinarak with high Other and high Intensity, spinarak with high Other and low Intensity…" His finger moves to the top left. "But no pokemon that have lower than a 10% in their Other metric scored an intensity above 7…"</p>
+
+<p>"Except for this jerk." Leaf taps on the lone dot sitting separate from the rest, which shows an Other of 7% and an Intensity of 8. "Well, damn. I'm sorry, Red."</p>
+
+<p>"I asked the wrong question in my hypothesis," Red says. "Instead of predicting that there's a correlation between a high Other and intense Night Shade, I should have said that there wouldn't be any cases of an intense Night Shade with a low Other."</p>
+
+<p>"But that would mean your hypothesis is even more clearly wrong."</p>
+
+<p>"Yeah, well, maybe it should be more obvious. At this point I feel like I just wasted a lot of time and money."</p>
+
+<p>Leaf frowns and closes the pokedex. "Don't say that, there still might be useful information in there. That correlation might not be super strong, but it's not nothing. And that one spinarak, who knows, it might have been a mistake, some mix-up from the psychic-"</p>
+
+<p>"Challenger, Blue Oak, first badge."</p>
+
+<p>Red's head snaps up as the noise in the auditorium rises into cheers and applause, and he quickly tucks his pokedex away. "Later." Blue looks tiny as he makes his way across the floor toward the massive stadium, but his face is larger than life on the screens lining the top of the walls. It's a bit surreal seeing his friend at the center of so much attention, and Red feels compelled to clap harder, meaningless as it is.</p>
+
+<p>"Leader Brock, of Pewter City, 138th Indigo League Champion, Trainer of Aeosis, the Mountain's Might!"</p>
+
+<p>Once Brock reaches his podium among the roar of applause, the sound dies down almost instantly, just in time for his voice to replace the announcer's over the speakers. "Citizens of Pewter, gym members, guests from afar, welcome. A month ago a trainer came to this stadium to Challenge our gym, and left wiser than he entered. Today he has returned to demonstrate the fruits of that wisdom. Blue Oak, Pewter Gym honors your request. State the nature of your Challenge."</p>
+
+<p>"I challenge Pewter Gym for Mastery."</p>
+
+<p>"Pewter Gym accepts. Incapacitate or force me to withdraw my pokemon, and you will bear our badge. Prepare for battle!"</p>
+
+<p>Red watches the platforms detach from the stairs leading up to them and feels his pulse speed up. He can feel it in the audience, a silence taut as a stretched rubber band, an almost palpable sense of anticipation that he can't help but feel caught up in. Red is struck by the thought that maybe it's something more than his imagination: maybe it's his nascent psychic abilities. He's about to turn and ask Leaf if she feels it when the battle begins.</p>
+
+<p>"Go, Graveler!"</p>
+
+<p>"Go, Gon!"</p>
+
+<p>"Graveler, Rock Throw!"</p>
+
+<p>"Gon, Leech Seed!"</p>
+
+<p>The projectiles arc through the air toward their opponents, and Red grips the arms of his seat as the rocks crash down around Blue's shroomish. One of them sends it tumbling to the side, and Red lets out a breath as it gets back up and follows Blue's order to use Stun Spore.</p>
+
+<p>As the fight progresses, Red notices Leaf on the edge of her seat as well, though her tension spikes when either pokemon gets hit. She catches him looking at her and mutters through a wan smile, "It's easier when I'm in the battle myself. I have some control over things. Just watching is nerve wracking."</p>
+
+<p>Red's nerves are definitely on edge, but what he feels isn't anxiety: it's excitement, pure and simple. Was <em>this</em> what made Blue watch Challenge matches and League championships obsessively? Red watches the graveler throw itself forward into a Rollout and nearly shouts out loud as Gon doesn't get out of the way on time. Half of the audience does cry out, and Red's heart pounds in his ears as the graveler catches itself and launches back at the recovering shroomish.</p>
+
+<p>"Gon, Poison Powder!"</p>
+
+<p>"Graveler, Body Slam!"</p>
+
+<p>"Gon, back!"</p>
+
+<p>Gon's cloud of poison doesn't even slow the graveler down as it throws itself into it, but it doesn't see which direction the shroomish waddles away in. The graveler slams into the ground through the poison, knocking loose some of the leech seeds that have grown big and ripe, but Gon isn't around to eat them: by the time it picks itself back up to look around, Blue has withdrawn his pokemon and sends out Maturin.</p>
+
+<p>"Graveler, Stone Edge!"</p>
+
+<p>"Maturin, Withdraw!"</p>
+
+<p>Gravelers four arms smack into its body, and thin, jagged chunks of stone crack off. The graveler throws a chunk of itself at Maturin, and the rest of the shards follow through the air, peppering Maturin's shell with sharp jabs. Red wants to look the move up in his pokedex and see how it works, but he can't take his eyes off Maturin as she goes bouncing across the stadium. A moment after she stops, Blue orders her to fire a bubble, and Red sees on one of the screens that she emerges from her shell mostly unharmed but for a bleeding gouge in her leg.</p>
+
+<p>"Come on, come on," Red mutters as the graveler attempts to follow its target through her explosive popping bubbles. When it tries a Rock Throw Maturin ducks back into her shell, but it misses. "Go down!"</p>
+
+<p>Leaf gives him a look just as the graveler begins to cough, its whole body shaking. By now half of its body is covered in the leech seed's tendrils, and when it collapses to its knees, Brock's platform moves close enough for him to withdraw it.</p>
+
+<p>"Well done, Challenger. This graveler would have defeated your pokemon when you first arrived, but you've shown that the time spent in our Gym and our city has honed both you and them."</p>
+
+<p>"Thank you, Leader. I've learned a lot from your city and your students."</p>
+
+<p>Red leans toward Leaf and mutters, "A bit over-dramatic, huh?"</p>
+
+<p>She grins. "I wonder if they have a script."</p>
+
+<p>Someone makes a shushing sound behind them, and Red sits straight again. His pulse is still in his throat as he waits, and he can feel (or thinks he can anyway) the whole stadium's anticipation building higher and higher.</p>
+
+<p>"Our Gym is one where we teach and are taught, and you have by all accounts been a valuable partner to many. I hope we have in turn prepared you for your final test."</p>
+
+<p>"You have. Maturin, return! Go, Kemuri!"</p>
+
+<p>The stadium erupts in surprised chatter, and Red grins. Blue knows how it plays to the audience to show off such a strong pokemon. He hasn't been a part of the training sessions for about a week, and he's eager as anyone to see what Blue and his shiftry are capable of.</p>
+
+<p>"He caught one?" Leaf gasps.</p>
+
+<p>"Yeah, and he's had a hell of a time trying to train it."</p>
+
+<p>"Brock doesn't seem happy."</p>
+
+<p>Red looks around for a monitor trained on the Gym Leader. Brock's lips are moving subtly, and Red remembers what Blue said about the private channel. "Wonder what they're talking about." He looks at Blue to try and read his lips, but Blue's voice suddenly fills the stadium.</p>
+
+<p>"I caught Kemuri in Viridian. I and two trainers were attacked by a pack of six shiftry as we tried to fight the fire. We lost a number of our pokemon fending them off. We nearly lost our lives. Kemuri was the sole survivor, badly injured in our fight, and so full of malice that he struggled to kill me even as he lay dying. But I refused to accept such a loss. I acted decisively, and caught it despite not having a greatball available. Your gym helped me train it, and today I command it. Kemuri and I are prepared for your test of Mastery."</p>
+
+<p>Leaf grins. "Now <em>that's </em>over-dramatic."</p>
+
+<p>"Do people do these speeches often? If so I've got to watch more just for them."</p>
+
+<p>"Shhh!"</p>
+
+<p>Red turns to see a spectator sternly hold a finger over his lips. Red rolls his eyes and faces front again. "<em>Everyone's </em>talking around us," he mutters.</p>
+
+<p>"You and your pokemon have journeyed far together. Now show us the strength of your bond. Go, Onix!"</p>
+
+<p>The audience roars in approval, and Red wonders if there was some ambiguity on whether Brock would use an onix again. Blue beat the geodude, so maybe that's why it was replaced. Of course, this could be a stronger and better trained onix than the one he fought before anyway.</p>
+
+<p>He wants to ask Leaf if it seems any bigger than the one from Blue's first fight, but then the battle begins, and he's once again swept away in its ebb and flow.</p>
+
+<p>"Kemuri, Leaf Blade!" Blue says, and Brock immediately taps some command on the railing near its second microphone.</p>
+
+<p>Blue's shiftry hops forward from one foot to the other as the onix heaves rocks through the air with its tail. Kemuri dodges and closes the distance between them and cuts the onix's grey hide with his leaves. White blemishes begin to spread from a number of cuts crossing the many boulder segments of its body.</p>
+
+<p>Brock taps out another command, and Blue yells "Dodge!" just as the onix swings its body around. Its tail clips Kemuri's side and knocks him away. Kemuri lands with some grace, though a closeup screen shows that it's favoring one of its legs. Red knows by now that shiftry tend to fake injuries to catch their opponent off guard, and hopes that's the case here: if Kemuri's mobility gets restricted, he would be in trouble. "Kemuri, Leaf Tornado!" Blue commands.</p>
+
+<p>The shiftry begins fanning its leaves, around and around each other in a complex pattern. Brock taps out a command, and his onix circles a rock and flings it at Kemuri, causing Red to nearly rise from his seat. <em>Shit-shit-shi-whew.</em> It crashes to the ground on Kemuri's side, and soon his arms are a blur as bits of green particles flow in a mini cyclone toward the onix, far tighter and more directed than stray bits of leaf normally might.</p>
+
+<p>Brock taps the railing again, and his onix jukes to the side. The "wind" is wide enough to blow some of the green particles onto it, but most pass harmlessly by, and Brock taps out another command that sends his onix barreling straight at Kemuri with a roar.</p>
+
+<p>"Leaf Blade!"</p>
+
+<p>"Bide!"</p>
+
+<p>The onix immediately halts its charge and coils itself into a tight spiral, leaving Kemuri nothing to attack but solid sides. Kemuri goes at it with gusto, but Blue quickly commands the shiftry to back off. Red remembers Blue's worries about not knowing when Brock might start a Bide, and wonders why it's a move Brock has to command verbally. Is it a handicap he offers to Challengers?</p>
+
+<p>Either way, Blue has a way to beat it. Red watches Kemuri move farther and farther away, still favoring one of its legs. The onix is still coiled up, waiting. "Kemuri, Extrasensory!"</p>
+
+<p>The shiftry goes still, then spreads its leaves wide to the sides as its eyes begin to glow. The whole stadium seems to be holding its breath as they watch Brock's onix for a reaction. It begins to twitch, then growl and shift in place, but before it gets any worse Brock taps something out on the railing, and its whole body <em>twists</em> as it dives into the ground, tunneling beneath the stadium.</p>
+
+<p>Red has a moment to wonder if that would work when Kemuri blinks, glow fading from its eyes.</p>
+
+<p>"Well, that's okay. He just has to hold still like last... time..." Leaf says, trailing off as Brock scales the fence around his platform and leaps down onto the arena floor.</p>
+
+<p><em>Thud.</em></p>
+
+<p>A single stomp of Brock's heavy boot.</p>
+
+<p><em>Thud thud. Thud... Thud-thud.</em></p>
+
+<p>Distant rumbling from beneath the ground of the arena. The audience's murmurs grow as Brock continues to kick at the ground in brief, deliberate patterns.</p>
+
+<p>"I don't think Brock is interested in repeating challenges," Red whispers, rising tension making his gut twist and sour. "It's... gotta be some kind of standard directive, he can't see where his onix is going..."</p>
+
+<p><em>Thud. Thud thud… thud.</em></p>
+
+<p>Leaf's fingers squeeze her knees, eyes wide. "He knows the stadium's dimensions! If he has a command that sends the onix to a starting location, then guides it from there by fixed intervals..."</p>
+
+<p><em>Thud, thud, thud… thud-thud-thud!</em></p>
+
+<p>"Dodge!" Blue yells just as the onix erupts from the ground beneath Kemuri. The shiftry goes flying, then smacks gracelessly against a rock. It falls to the ground and lies still.</p>
+
+<p>"Oh," Leaf says softly. "Shit…"</p>
+
+<p>"It might be a trick," Red whispers, cold inside. <em>Get up...</em></p>
+
+<p>The stadium watches in dead silence, broken only by the whirring of Blue's platform. "Return," he says, the word seeming to echo.</p>
+
+<p>"Bravely fought, Challenger. Your shiftry is strong, and well trained for what time you've had it. Another month, and it might-"</p>
+
+<p>"I'm not done yet. There's someone here who wants a rematch. Go, Maturin!"</p>
+
+<p>Blue's squirtle appears on the arena floor and, upon catching sight of the onix, immediately falls onto all fours, eyes narrow and foam dripping from its jaws.</p>
+
+<p>Brock is quiet, and Red watches his lips in case he says something in private. "Think he's worried about Maturin's safety?"</p>
+
+<p>Leaf shakes her head. "His onix."</p>
+
+<p>Red looks at her, then the monitors. She's right: the onix's skin is more white than grey, and its cuts are dark with sap or blood. Red knows that the rocksnakes don't need much oxygen, but this one's breathing is vaguely audible from all the way up here.</p>
+
+<p>After a moment Brock merely says. "A good trainer knows our pokemon's pride is as important as our own. Show us what your squirtle can do."</p>
+
+<p>"Maturin, Water Gun!"</p>
+
+<p>"Onix, Dig!"</p>
+
+<p>It dives beneath the ground, its tail hit by the quick, sharp stream of water. Brock begins stomping immediately, and Blue yells, "Maturin, back!"</p>
+
+<p><em>What's he doing?!</em> But no, he's not safe standing still either. Luckily Brock's commands take priority for the onix, or maybe it's too far to attack right away, and Maturin safely moves closer to Blue, standing just in front of his platform by the edge of the arena.</p>
+
+<p>Brock stops stomping. Red can hear his own breathing, and doesn't dare to blink as he looks back and forth between Blue, Brock, and the unmoving arena.</p>
+
+<p>Brock's smile is slow, but wide. He nods at Blue, and Blue gives a two fingered salute.</p>
+
+<p>"Some kind of safe spot in the arena?" Leaf whispers as the audience erupts in murmurs.</p>
+
+<p>"Gotta be, maybe because of the trainer platform's foundation..."</p>
+
+<p><em>Thud, thud thud thud, thud.</em></p>
+
+<p>Brock finishes stomping the ground, then climbs out of the arena and up to his platform again as his onix returns to the surface with a grinding roar.</p>
+
+<p>"Maturin, Water Gun!"</p>
+
+<p>"Onix, Wrap!"</p>
+
+<p>Maturin dashes forward to get into range and the onix rushes to meet it, zigzagging between the boulders to avoid the shots of water in a scene that looks too familiar. Brock is going for the quick victory from last time. Red grips his armrests as the onix begins to circle Maturin.</p>
+
+<p>"Withdrawup!"</p>
+
+<p>Maturin pops into her shell rightside up just as the onix constricts its body around her. "Maturin, Soak!"</p>
+
+<p>The water pours over the onix's coiled body, directly into one of Kemuri's cuts.</p>
+
+<p>The onix roars and thrashes along the ground. Leaf covers her face and Red rises out of his chair with half the audience, adrenaline pumping through his blood and nothing to do with it but watch as the onix writhes along the ground. If Maturin didn't duck her head in immediately, it would be pulverized.</p>
+
+<p>The audience cries out as the coils finally loosen enough to fling Maturin away. A heartbeat later, Brock withdraws his onix, and Blue grabs Maturin as soon as she bounces into range.</p>
+
+<p>In the ringing silence, both trainers take a moment to line their balls up with their pokedex. Brock looks up first, and all the cameras shift to Blue.</p>
+
+<p>"Is she okay?" Leaf whispers, shockingly loud in the silence. "I can't look."</p>
+
+<p>Blue's face relaxes into a smile, and two fingers rise in a V. The dam of silence breaks, and the stadium fills with applause.</p>
+
+<p>"He did it!" Red pumps his fist as Leaf sags in relief. "Way to go, Blue!"</p>
+
+<p>Brock jumps down from his platform again and begins to walk toward Blue, who climbs down to meet him halfway. The applause slowly fade as they meet in the middle of the stadium. "Congratulations, Challenger. Pewter Gym hereby recognizes you, Blue Oak, with the Boulder Badge." Brock takes a small box from his pocket and opens it. Upon its black velvet interior, the dark silver octagon of the badge gleams on every screen. "The world is harsh, but deep within each of us lies the strength of stone, the bones of the earth itself. Today you have shown that strength. May the lessons and wisdom of our gym go with you, and keep you and your pokemon safe."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Leaf and Red walk the corridors of Pewter Gym, following the directory signs from one hallway to the next. She feels exhausted. Somehow Red, who spent the night jumping up and down from his chair and screaming like a madman, is still bright eyed and bushy tailed, and has barely stopped talking about the match since they left the stadium. It would be cute instead of wearying if not for her emotional drain.</p>
+
+<p>"And that last command, Blue must have known it was coming up, it was just the timing that was off, or maybe his shiftry's reaction time-"</p>
+
+<p>"Yes, I saw it," she says. "I was there. It was thrilling."</p>
+
+<p>Red's grin fades slightly. "Sorry, just a bit whelmed. Maybe even overwhelmed. It was… more intense than I expected."</p>
+
+<p>"I could tell. You sound like Blue."</p>
+
+<p>"I'll have to remember this next time he's going on about some match. Having some stake, caring about the outcome and participants, I sort of get his passion for it."</p>
+
+<p>Leaf groans. "Not you too."</p>
+
+<p>"Don't worry, I'm not lining up for a Challenge. Even if I wanted to, I'm not an idiot. My pokemon are a fire type, a normal type, two bug types, and an electric type. I'd get crushed. Literally."</p>
+
+<p>"Good, because I don't think I could attend another one of those for at least a few weeks."</p>
+
+<p>They reach the right door and knock before entering. It's a comfortable looking room, with a table full of food to one side and a number of big, plush couches in the middle. Blue is sitting on one, looking as drained as Leaf feels. He has the small box with the Boulder Badge in one hand, and closes it as they enter, getting to his feet and tucking it away in his pocket. His grin chases the fatigue from his face, and he steps forward to meet her hug.</p>
+
+<p>"Congratulations, Blue!"</p>
+
+<p>"Way to go, man." Red bumps his fist. "That was really awesome."</p>
+
+<p>"Yeah? You guys enjoyed it?"</p>
+
+<p>"Red's been going on about it since we left the match," Leaf says, avoiding her own response. No need to rain on their parade. "Your pokemon are okay, though?"</p>
+
+<p>"They have a small facility here, I got them checked out after the match. Kemuri and Gon will be healed up in no time, Maturin just needed some potion and rest. She was snug in her shell before the onix started thrashing."</p>
+
+<p>The knot of worry in Leaf's chest relaxes, and she takes what feels like the first full breath since the match started. "And Brock's onix, it's okay too?"</p>
+
+<p>"I don't know, haven't seen him since the stadium. He should be on his way now though."</p>
+
+<p>Red and Blue begin talking about the finer details of the match, and Leaf wanders over to the refreshment table to grab a soda and nibble at the vegetable tray. She feels herself growing more calm little by little as time passes, eventually sitting on the couch with a small plate of food. She wonders if she'll ever get used to watching pokemon fight. Everyone in that auditorium seemed to be enjoying themselves. Even when they were worried that one of the pokemon had gotten hurt (or rather, more hurt than "expected"), it didn't seem to <em>really </em>bother them. They left the match talking and laughing. Even Red.</p>
+
+<p>Maybe there's just something wrong with her.</p>
+
+<p>She picks at her food until there's a knock at the door, and the Gym Leader walks in a moment later. "Hello everyone. Sit, sit. I just came by to congratulate you again, Mr. Oak."</p>
+
+<p>"Thank you, Leader."</p>
+
+<p>"Your shiftry took me by surprise tonight. It must have given you trouble, or I imagine you would have used it in our first match. Unless that was just a story, and you acquired it recently?"</p>
+
+<p>"No, it was all true."</p>
+
+<p>"Remarkable. Who helped you train it?"</p>
+
+<p>"Red did, and Jarod."</p>
+
+<p>"And your squirtle?"</p>
+
+<p>"Being able to withdraw is one of Maturin's greatest strengths, but after our last match, I couldn't allow it to become such a liability again. Even with Kemuri, I wanted to make sure Maturin would be more prepared. So I trained her for a few maneuvers while in her shell. " Blue smiles. "Kemuri weakened your onix enough that Maturin didn't even need a direct hit. Once you went for the Wrap again, I knew I had you."</p>
+
+<p>"And yet it was a great risk. If your squirtle wasn't fully withdrawn, or my onix had a more violent reaction…"</p>
+
+<p>Blue shrugs. "It was a calculated risk. Even adolescent onix are massive and powerful creatures, and expecting to take one down without some fallout is unrealistic. Of all my pokemon, Maturin is most capable of staying safe."</p>
+
+<p>"And onix's dig attack? How did you know that part of the arena floor was safe from tunneling?"</p>
+
+<p>"I didn't. From some exploration, I knew that the smaller arenas have more solid ground just around the inside corners. I just figured my best bet was to act as though it was true for the big one as well, since if I was wrong I probably wouldn't win anyway."</p>
+
+<p>Brock nods. "You've acted decisively, from training to combat, and beat me honestly. It was an honor to battle you."</p>
+
+<p>"The honor is mine, Leader." Blue bows. "Thank you for all the help your gym has been."</p>
+
+<p>"I heard you've been as much a teacher to others here. Truth be told, I hoped you would stay another month, perhaps even Challenge for membership."</p>
+
+<p>Blue looks genuinely surprised for a moment. "I'm honored. Really. But we'll be moving on soon. I have a long way to go."</p>
+
+<p>"You're welcome back any time." They clasp hands, and Brock turns to her and Red. "And you two? You were in the Viridian Fire too, weren't you? My city thanks you for your help."</p>
+
+<p>"No need to thank us. We got kind of caught up in it," Red says.</p>
+
+<p>Leaf nods. "Blue was the hero. Red and I didn't get the chance to help anyone."</p>
+
+<p>"I don't know about all that," Red says. "You definitely saved me."</p>
+
+<p>"I'd say we're both even on that score."</p>
+
+<p>Brock smiles. "You were the injured one, right? And you were the one looking after him. I remember. Your friend was quite worried about you two."</p>
+
+<p>Blue's cheeks redden, and Leaf grins. "He's a sweetheart," she says, and to her delight he flushes further.</p>
+
+<p>"Should I expect your Challenges someday?"</p>
+
+<p>"Not likely," Red says. "But I'd love to pick your brain about Rock pokemon someday, especially some of their abilities."</p>
+
+<p>Brock smiles. "A researcher, then? I should have known as much, travelling with an Oak. I don't normally have time to spare, but I might be able to answer an email occasionally, if they're not too long or frequent."</p>
+
+<p>"Really? Thanks!"</p>
+
+<p>"And you? Are you a researcher too?"</p>
+
+<p>If she's ever going to get the Gym Leader's perspective on the museum, now's her best chance. "Not quite. I'm dabbling in some journalism at the moment, and was wondering if you'd be interested in a quick interview?"</p>
+
+<p>"Interesting. What about?"</p>
+
+<p>"The Pewter Museum. I tried to schedule an interview through your gym, but they said…" She trails off at the slight frown on Brock's face.</p>
+
+<p>"I'm sorry, I don't really have the time for such things. My concerns are Pewter's Gym and its people's safety. I'm sure there are others more qualified to answer questions on the museum." Brock stands up, and the three trainers do too. "Congratulations again, Mr. Oak. If you have time before you leave, come by my office, and I'll teach you the basics of the Bide technique."</p>
+
+<p>"I will, thank you." Blue bows again, and Red and Leaf follow suit. Brock returns it, then leaves.</p>
+
+<p>Blue and Red return to chatting about the match as they go to the food table. Leaf stays behind and munches on a carrot. Even knowing it was a long shot, Leaf feels slightly hurt. The Gym Leader didn't even offer her the occasional email question like Red.</p>
+
+<p>Well, she tried. If he got upset with what she writes, he had his chance to weigh in. It's probably delusional to think he'd care what her little article says, but if he does decide to speak out after it's published, well, at least it'll have accomplished something.</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/26/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/28/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -554,6 +926,6 @@ Red stops dead, and from the expression on Leaf's face she can hear Blue through
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

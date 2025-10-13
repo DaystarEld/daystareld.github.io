@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Last year I started my Seasons of Growth experiment, and it was fantastic in a number of ways. This year I continued it, and decided to do a more full writeup for each season.
+Season of Romance
+At the...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Seasons of Growth 2022">
+    <meta property="og:description" content="Last year I started my Seasons of Growth experiment, and it was fantastic in a number of ways. This year I continued it, and decided to do a more full writeup for each season.
+Season of Romance
+At the...">
+    <meta property="og:type" content="article">
+    <title>Seasons of Growth 2022 - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Seasons of Growth 2022</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        February 11, 2023
+                    </span>
+                    <span>📁 Blog</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><span style="font-weight: 400;">Last year I started my <a href="https://daystareld.com/seasons-of-growth/">Seasons of Growth</a> experiment, and it was fantastic in a number of ways. This year I continued it, and decided to do a more full writeup for each season.</span>
+<h2>Season of Romance</h2>
+<span style="font-weight: 400;">At the start of the year I was realizing that my life seemed pretty perfect in most ways, with one major exception: I want to have a long term relationship and kids relatively soon. So I kicked 2022 off with a season attempting to go “all in” on finding a romantic partner.</span></p>
+
+<p><span style="font-weight: 400;">The first things this included were making a Date Me page for my site, which gets decent traffic by the sorts of people I expect to vibe with on some level. I also made dating profiles on a few new sites, and tried the paid option on them and the ones I was already on, in an attempt to up my odds of actually getting good relationships from them. My longest running relationship to date (3 years) was from OKC, so online dating has been relatively good to me all things considered, even if it also involved years of not finding any LTRs.</span></p>
+
+<p><span style="font-weight: 400;">I also spent more time going to events and activities to meet new people, such as Vibecamp and book clubs. Network effects of friends knowing that I was openly looking for a partner was also valuable for getting recommendations from them and getting set up on some dates and introduced to some people.</span></p>
+
+<p><span style="font-weight: 400;">This season was also useful to focus on what I actually want, romantically, and prune away things that didn’t seem likely to get me there. Despite having both a mono side and a poly side, I realized that wanting to settle down and have my own bio kids within a couple years meant I needed to focus on finding a monogamous partner, or alternatively-but-less-likely a poly-primary-partner-who-wants-kids-specifically-with-me, and that meant not pursuing romantic interests that didn’t feel after a few weeks like they would move in that direction. </span></p>
+
+<p><span style="font-weight: 400;">This felt like a cost at times, where I feel like I didn’t invest as much as I might normally have in relationships that could have been good/resulted in new deep friendships, but also was an important time/attention saving heuristic, I think.</span></p>
+
+<p><b>Synergy</b><span style="font-weight: 400;">: Season of Wealth helped me get over the “wasteful” cost of paying for the apps. This didn’t end up leading to anything enduring, but I’m still glad I did it, as I would have always wondered “what if” had I not. Season of Aesthetics obviously was helpful here too, not least of which because it helped lead to better pictures for my dating profiles!</span></p>
+
+<p><b>Outcome</b><span style="font-weight: 400;">: As of yet this season hasn’t accomplished its “primary objective,” but overall I’m pretty happy with how things went. I’ve gotten a gratifying amount of responses to my form, went on about a dozen dates from responders there and to my various dating sites. Most notably, through my Date Me Page I met a girl that I’ve been dating since. The current status of that is Complicated, but I’m hopeful, and no matter how it turns out I’ll always be glad we dated.</span>
+<h2><strong>Season of Class</strong></h2>
+<span style="font-weight: 400;">This season was a “second level” of sorts for Aesthetics. Part of Aesthetics was recognizing what my appearance signaled to others, but it focused a lot more on understanding and developing what I like and dislike. “Class” is more about the way others perceive someone and the ways behavior affects that, which includes their wardrobe choice, but is not limited to it. So I learned more about what clothing signals to others, and made some more minor adjustments based on that.</span></p>
+
+<p><span style="font-weight: 400;">But the more valuable and central thing I developed was a better “outside view” on my behavior; not just how it represented who I appeared to be, but also how it affected those around me.</span></p>
+
+<p><span style="font-weight: 400;">It’s worth noting that this is the first season where I felt something like a “push and pull” toward and away from the “goal” of the season. It happened a little with aesthetics, but part of what “unlocked” aesthetics for me was discarding the false belief that clothing had to be either comfortable and cheap or expensive and aesthetically appealing. </span></p>
+
+<p><span style="font-weight: 400;">The less-obviously-false dichotomy here is the tension between caring what others think of you and being constrained by what others think of you. Most people around me my entire life have only ever demonstrated “caring what others think of you” in a way that was so clearly self-inhibitory, so clearly full of shame and joylessness and anti-life, that I decided from a young age that I wanted None of That, Thanks Very Much. </span></p>
+
+<p><span style="font-weight: 400;">This extended beyond being embarrassed by things like dancing in public, or even interests and passions, such as my stepbrother having to hide that he was into anime when we were in high school so as to be accepted by his “friends." The most clearly limiting effect of it seemed to be a prevalent lack of agency in others, particularly in unusual situations. I can’t count the amount of times I’ve been able to solve problems others thought ~impossible by simply ignoring the expectation of what people thought they were “supposed” to do based on social norms.</span></p>
+
+<p><span style="font-weight: 400;">But I also realized that there were some things I did as a result of having this mix of high agency and non-shame that had negative consequences for those around me. For example, I once got fine dust all over my coat while helping a friend clean their house, and afterward was shopping with them and saw a brush that might serve as a good way to clean it. I wasn’t sure if it would work or not, though, so I decided to just take off my coat and try the brush there first. It worked well, so I bought it.</span></p>
+
+<p><span style="font-weight: 400;">But I realized it also probably embarrassed the friend I was with, who confirmed after that she wasn’t sure I was tracking whether it would be considered rude to get dust on the floor of the store, or how the other customers would feel about me brushing my coat around them. </span><span style="font-weight: 400;">This hadn’t occurred to me as a thing I should care about enough to have it influence my behavior, so I decided it counted as a blind spot; I agree with the general principle that, if you’re going to break the rules, you should still learn them first, and I think that applies to even informal rules and expectations. </span></p>
+
+<p><span style="font-weight: 400;">In general having an extra lens on myself and others seemed like a valuable thing, so I practiced more deliberately and explicitly considering my appearance and behavior from the eyes of those around me, then running through different value systems and preferences on how they might feel about the things I do. It's one thing to consider something's cost and do it anyway, and another to just take for granted that the cost wasn't meaningful, and I wanted to make sure I was able to do the former in every case.</span></p>
+
+<p><span style="font-weight: 400;">Another part of my season included reading </span><a href="https://amzn.to/3ScBhrS"><i><span style="font-weight: 400;">Class </span></i></a><span style="font-weight: 400;">by Paul Fussell, followed by summing up </span><a href="https://twitter.com/DaystarEld/status/1506416342253150208"><span style="font-weight: 400;">each chapter in a tweet</span></a><span style="font-weight: 400;">, along with a quick reaction to them. Fussell breaks up the American social class structure into 9 categories, and I believe many of the insights hold up, despite being from 40 years ago. There are some chapters that are basically just lists of types of clothing or what your house says about you, but also lots of interesting frames on human psychology and culture.</span></p>
+
+<p><span style="font-weight: 400;">It’s also occasionally quite funny, in a dry acerbic way. There’s a lot of upper brow snobbishness that might make someone feel self-conscious if they care about class, but was just amusing to me (my obscure south Florida university even gets a shout-out/put down!), and there’s a section in one of the later chapters where he boggles at the "inanity" of the unicorn fad that had gripped the middle class in the 80’s that was fun to read, even if I didn't share his feelings.</span></p>
+
+<p><span style="font-weight: 400;">In fact, it wasn’t until the final chapter that Fussell described the “tenth class” that made me feel at last like I was being described; in short, people who basically just do what they want, enjoy the good things from each part of society without turning their nose up at any of them, truly don’t care what class they’re perceived as being in, and thus “are the closest thing to free as any American gets.” </span></p>
+
+<p><span style="font-weight: 400;">¯\_(ツ)_/¯ He said it folks, not me.</span></p>
+
+<p><b>Synergy</b><span style="font-weight: 400;">: Aesthetics again for sure, before that season most of the chapters about clothing would have bounced off me, but I could appreciate the points being made better than me-of-a-year-ago.</span></p>
+
+<p><b>Outcome</b><span style="font-weight: 400;">: Broadly a success? I guess you’d have to ask others for some of it, but I definitely developed this lens a lot, such that I notice and think of things I didn’t used to, and now feel more like I get why people act and react the way they do to certain things. </span></p>
+
+<p><span style="font-weight: 400;">If the point was to download that generator such that internalize "class" as an important way to judge others/myself, rather than thinking of it as a game at best or survival strategy or gatekeeping at worst, then no dice. But that was just one potential consideration, and after seeing that, so far as I can tell right now at least, there's nothing "deeper" there,  I’m pretty happy just to have gained some knowledge and perspective. I also have some friends who now seem happier to invite me to fancy dinners and such, which is nice.</span>
+<h2><strong>Season of Vulnerability</strong></h2>
+<span style="font-weight: 400;">This section threatened to be bigger than the rest of the post put together, so I decided to make a <a href="https://daystareld.com/vulnerability/">separate post reviewing vulnerability in general</a>, and my relationship to it, which you can read first if you want some extra background.</span></p>
+
+<p><span style="font-weight: 400;">Long story short, I’ve lived my life as being essentially an open book for anyone who wanted to know more about me, and so thought I had sidestepped vulnerability hangups entirely, the same way I have feelings of self-shame or anxiety or major traumas. I started this season because I did some <a href="https://www.lesswrong.com/posts/aFyWFwGWBsP5DZbHF/circling">circling</a> with some close friends who confessed to feeling at times like I was too distant and unreachable in some meaningful ways due to me being so self-sufficient. Once I started talking about this explicitly, I got messages like this from a romantic partner:</span></p>
+
+<img class="aligncenter size-full wp-image-3438" src="https://daystareld.com/wp-content/uploads/2023/01/Vuln.png" alt="" width="512" height="230" />
+
+<p><span style="font-weight: 400;">It reminded me of something one of my exes used to do, which was playfully prod me to “vent” to them more often, even if I had nothing particularly bothering me to share. So I decided that even if I had nothing sad or stressful to vent about or reveal to friends, even if I didn’t feel a “need” to share my feelings, it would be worth trying to share them anyway and see how that felt and was received.</span></p>
+
+<p><span style="font-weight: 400;">I also started paying more attention to feelings of gratitude and care that I felt for others, and sharing those sentiments when they came up, as well as noticing how I related to others when they were expressing vulnerability. I eventually decided to try alternate ways to develop deeper connections with others.</span></p>
+
+<p><span style="font-weight: 400;">This led to me trying the </span><a href="http://tinyurl.com/2s3ue8y4"><span style="font-weight: 400;">VIEW Connection Course</span></a><span style="font-weight: 400;"> on my friend Lulie’s recommendation, which gives people a chance to practice some of the ideas talked about in the Art of Accomplishment podcast. VIEW is a state of mind that invokes higher levels of Vulnerability, Impartiality, Empathy, and Wonder while talking to others. From my experience, I think it’s a great way to improve communication so that more sensitive things can be discussed without defensiveness, and also a great enhancement for things like pair-debugging and self-exploration.</span></p>
+
+<p><span style="font-weight: 400;">Each virtue mirrors the ones I believe a good therapist should have, but a more personal rather than professional version, better suited for communication with friends. This led to a followup conversation after one of the sessions with Lulie where we talked about how I seem to experience empathy differently than most people: intellectually, but not physically. Lulie noted that this seemed like it would be useful for my therapy work, but left her feeling disconnected at times when she was being vulnerable in some way. </span></p>
+
+<p><span style="font-weight: 400;">I realized immediately that she was right. When I’m with someone who is sad, I can understand their sadness and want to help them, but I don’t feel it myself. It made me realize that I couldn’t remember the last time I’d cried while someone else was crying. I would tear up sometimes in therapy when my client was relating something traumatic, but only if they seemed to not feel it themselves; in essence it was their disconnection from their emotions that brought me to tears.</span></p>
+
+<img class="aligncenter size-full wp-image-3477" src="https://daystareld.com/wp-content/uploads/2023/02/Screenshot-2023-02-11-102400.png" alt="" width="1467" height="915" />
+
+<p><span style="font-weight: 400;">But I </span><i><span style="font-weight: 400;">do </span></i><span style="font-weight: 400;">cry myself, and fairly often, while reading books or watching shows or films. So the obvious next question was to ask myself why it was so much easier for me to feel bodily empathy for fictional characters.</span></p>
+
+<p><span style="font-weight: 400;">And the answer, once I thought about it in those terms, seemed absurdly obvious: when I’m with people in real life who are suffering or in need of help, my focus becomes entirely on how to best help them. There’s space for other considerations, but my feelings are set aside for later while I focus on helping the person in need.</span></p>
+
+<p><span style="font-weight: 400;">But I have </span><i><span style="font-weight: 400;">no way at all </span></i><span style="font-weight: 400;">to help fictional characters suffer less. So I’m “free” to feel and share their emotions myself.</span></p>
+
+<p><span style="font-weight: 400;">This struck me as funny at first, and I began to laugh. It was during lunchtime, and I was in the UC Berkeley cafeteria. After laughing for a bit I began to cry, and couldn’t stop. It felt like machinery in a dark corner of my mind had just had a spotlight aimed at it, and connecting parts began to suddenly make sense.</span></p>
+
+<p><span style="font-weight: 400;">Growing up, fictional characters felt as real to me as real people. I had a ton of friends at school and in my neighborhood, but when I was at home it was just me and my books. My mom worked constantly, I only saw my dad on weekends (which he spent  working constantly), and my older brother and I had let’s-just-say a difficult relationship.</span></p>
+
+<p><span style="font-weight: 400;">I was in effect raised by fiction, by characters in stories who were both friends and mentors. They showed me what I could be, good and bad, and why I might want or not want to. They showed me mistakes I could learn from without making them, and expressed empathy and understanding for things I hadn’t even felt yet, such that when I felt it I already knew what a good and trusted friend would say, and when others did I was ready to be that person for them.</span></p>
+
+<p><span style="font-weight: 400;">I didn’t need stories to feel desire to help others, that generator was with me for as far back as I can remember.  When I was 8 years old, years before I got into reading fiction myself, I walked into a bathroom and saw a fellow 2nd grader being held against the wall by two older boys. I told them to leave him alone. His name was Matthew, and we became best friends, had plenty of other encounters taking on bullies together, and no amount of hurt made it feel less right.</span></p>
+
+<p><span style="font-weight: 400;">But physical confrontations were relatively rare compared to all the other hurts in the world. TV showed plenty of heroes that fought with fists, but books gave me glimpses of what else heroes could look like. How they could think, how they would feel, how they would react to those around them when they were in need of help.</span></p>
+
+<p><span style="font-weight: 400;">I also happened to read a lot of Stephen King when I was young, and King set all his stories in a multiverse that connected all his books into one meta-fictional narrative that included our world as well (not just a version of our world, obviously many of his stories took place in some modern settings, but specifically the world where he, as the author, was writing it). </span></p>
+
+<p><span style="font-weight: 400;">This multiverse was as real to me as God was back when I was religious, and so the deaths of characters felt real too. There was no one in my life I could talk to about any of it… and nothing I could do to help the characters in it. I was grieving for dozens of people every year, and doing my best to live up to what they taught me. To be there for others in a way they were there for me, and in a way I couldn’t be there for them. Especially for Roland, the protagonist of The Dark Tower, whose ancestral name of Eld I took for my own.</span></p>
+
+<p><span style="font-weight: 400;">(Daystar is from the book Talking to Dragons, which I read when I was even younger. It’s about a teenager sent into an enchanted forest with a magical sword. He uses the sword to defend himself or others if needed, but always tries to talk first, politely attempting to understand the magical beings around him and find some solution besides violence.)</span></p>
+
+<p><span style="font-weight: 400;">All of these realizations bubbled up and came out over the course of about 30 minutes of crying. Once it had passed, it felt like a new window was opening up in how I related to that fundamental generator in myself. I could better see what fed it, and how the process of [sensed inputs of people hurting] led to [internal alchemy that evoked a state of mind] that resulted in [behavioral outputs in how I responded].</span></p>
+
+<p><span style="font-weight: 400;">It also gave deeper insight into why I have such strong reactions to particular things in fiction. After watching Spiderman: No Way Home, I tweeted about how much I appreciated it for addressing trauma of characters in previous media... but the underlying emotional effect it had on me was more than that. The best I could describe it at the time was of watching old friends I’d seen go through traumatic experiences, who in essence had their stories irrevocably end in unhappy ways, be given a second chance at a happier one. This season helped me realize how generalized that reaction is, and how deep its roots.</span></p>
+
+<p><span style="font-weight: 400;">It also gave a plausible story for why I've always felt so much older than those around me when I was in school. I used to think it was just living through hundreds of fictional lives + rough home life, either one of which may have been sufficient. But if I take this insight seriously, it could also have been the many, rapid cycles of grief for fictional characters.</span></p>
+
+<p><span style="font-weight: 400;">So that was all part of the first month of my Vulnerability season. </span></p>
+
+<p><span style="font-weight: 400;">As a result of it, the next two months involved, in addition to sharing my internal experiences and feelings more often, paying more attention to my inner state when around someone in distress so I could notice when I was entering “guardian mode.” It was surprising how just noticing it made it easy to turn off, and how automatically my body was able to experience things like sadness and grief while the people I spoke to expressed it. This took some getting used to, but has been valuable experientially in its own right.</span></p>
+
+<p><b>Synergy: </b><span style="font-weight: 400;">None in particular comes to mind for this one.</span></p>
+
+<p><b>Outcome</b><span style="font-weight: 400;">: The first obvious thing is that I have a pair of new internal flags. One of them is noticing when I have a personal thought or feeling that I think the other person would appreciate knowing, and having the decision-possibility to share it. A few people have noticed and expressed appreciation for this, and so I’ve been happy to continue doing it. It’s also nice to share things in more explicit terms when I feel closeness with someone, not just so they know, but also because putting words to feelings can help explore and sharpen them into more powerful experiences.</span></p>
+
+<p><span style="font-weight: 400;">The second flag is for when someone is sharing vulnerability with me in a way that makes them obviously distressed. At first this happened involuntarily, and it was like I had a new set of mirror neurons that activated automatically whenever someone around me was feeling deeply sad or lost. Now it feels more like something I notice and can choose to have happen. This does mean I sometimes miss the opportunity to do it, but it also means that it has yet to cause any debilitation when someone explicitly comes to me for help.</span></p>
+
+<p><span style="font-weight: 400;">I also got a nice artifact from my friend Stag to commemorate my growth:</span></p>
+
+<img class="aligncenter size-full wp-image-3474" src="https://daystareld.com/wp-content/uploads/2023/02/Leaf.jpg" alt="" width="1280" height="721" />
+<h2><strong>Season of Generativity</strong></h2>
+<span style="font-weight: 400;">This season was inspired by a chat about what the best types of conversations look/feel like, and how things like VIEW aim to give new mental frames and verbal handles that improve conversations along certain dimensions. My partner Eowyn in particular noted that her favorite conversations are those that feel very “generative” in the sense of including each participant’s feelings or experiences of a thing being discussed, rather than just their ideas or knowledge of it. She wondered if there are things that can be deliberately done to make conversations spark curiosity and passion in general, rather than just relying on intrinsic interest.</span>
+
+<p><span style="font-weight: 400;">This caused me to introspect on my own experience of conversations more, both to zero in on what makes the best ones good for me too, and to try and better understand how the things I say might land with others. I began to notice more when someone brings up an idea or asks a question that I answer with just what I know about it, but not how I relate to the topic or how it makes me feel. There’s also a default mode that I tend to slip into, because of the sheer volume of messages I get day to day, of treating each unprompted one as… sort of part of a checklist, like “Okay I answered their question/gave a response to what they said, now it’s off to the next message/thing I have to do until they respond.” </span></p>
+
+<p><span style="font-weight: 400;">As a side note, one of the reasons I try not to talk about myself too much is because I recognize how much of it can sound like bragging, or can make others feel bad about themselves, or can feel isolating to them:</span><span style="font-weight: 400;">
+</span></p>
+
+<img class="aligncenter size-full wp-image-3461" src="https://daystareld.com/wp-content/uploads/2023/02/Stress.png" alt="" width="2065" height="1038" />
+
+<p><span style="font-weight: 400;">But part of Season of Vulnerability included not letting that stop me as much, which is why it feels worthwhile, at this point, to mention how my thoughts are never in want of something interesting to occupy them. I am rarely, if ever, “restless.” Outside of very few exceptions, I don’t make bids for others’ attention or feel bad if I don’t get it. Boredom is a foggy memory of being on a long car drive when I was about 8 years old, before I started reading fiction.</span></p>
+
+<p><span style="font-weight: 400;">As far back as I can clearly remember, certainly within the past decade or so, my life has been one of constant engagement with ideas. Ideas about stories I’m writing or reading, ideas about my work, my plans for the future, some experiences I had, curiosities and mysteries and problems to be solved, imagining other worlds, imagining what it’s like to be others, etc.</span></p>
+
+<p><span style="font-weight: 400;">And so upon hearing about the way some of my conversations might feel less generative, honest reflection made me realize that for the most part, my responses to people that come off as perfunctory </span><i><span style="font-weight: 400;">are </span></i><span style="font-weight: 400;">in fact often (though not always) perfunctory, because my mind is often busy with other things.</span></p>
+
+<p><span style="font-weight: 400;">My ideal conversations have a back-and-forth flow of expressing ideas. I love arguing over different values, being taught a new perspective, or seeing a new one land for the other person, and having them build on or counter with something else. I love conversations that spark and flow in new, unpredictable directions entirely. </span></p>
+
+<p><span style="font-weight: 400;">But I haven’t often put effort into making conversations that way if I don’t already feel interested in them, because there are always other things my thoughts will turn to by default that I’m happy to think about instead.</span></p>
+
+<p><span style="font-weight: 400;">So when I consider the topics that make me “come alive” more than others, what comes to mind are fiction, video games, writing, rationality, romantic norms, psychology, morality, epistemology. For most other things, I might have some intellectual interest that can spark into something more, but I don’t feel like I have the same level of investment/curiosity, and so conversations don’t have that “generative quality” and tend to peter out more often.</span></p>
+
+<p><span style="font-weight: 400;">A practical benefit of these realizations was that it also helped notice why particular topics </span><i><span style="font-weight: 400;">fail </span></i><span style="font-weight: 400;">to spark interesting conversations for/from me, such that this itself can then act as the seed for one. For example, I noticed when the idea of creating new “social currencies” came up in conversation, I felt the urge to not say much in response because 1) I felt skeptical that any less fungible currency aimed specifically to not have market value would ever be widely adopted, while 2) I didn’t know much about the topic, so didn’t want to say anything that might be discouraging without concrete critiques.</span></p>
+
+<p><span style="font-weight: 400;">The outcome of that, however, would be missed opportunities to learn more about the topic such that 2 wouldn’t be an issue. By trying to manage my conversation partner’s experience I was making them feel bad in a different way.</span></p>
+
+<p><span style="font-weight: 400;">This is one of the things that gets covered in VIEW, which made it easier to spot, and reinforced the value of avoiding that sort of mistake as a more general category.</span></p>
+
+<p><b>Synergy</b><span style="font-weight: 400;">: This season almost felt like an extension of Vulnerability. It built on the first internal flag from there to also notice sometimes when a conversation that didn’t spark “generativity” in me could possibly be more interesting if I lean into my curiosity and try to think about what feels interesting or exciting about the topic to the other person, which is obvious when put that simply but hard in practice when there are a dozen+ other things making bids for attention and are more “obviously interesting.”</span></p>
+
+<p><b>Outcome: </b><span style="font-weight: 400;">I’m not sure there’s been enough time since this season ended to really evaluate its lasting impact, but if I’m being honest I wouldn’t be surprised if it’s the least transformative. Maybe because it’s the least impactful day-to-day compared to the others from this year, or maybe it’s just a regression-to-the-mean of how drastic a change I can undergo in a 3-month period. It still feels good to keep it in mind whenever conversations feel stilted, dry, or otherwise less than ideal in some way.</span>
+<h2><span style="font-weight: 400;">The plan for 2023</span></h2>
+<span style="font-weight: 400;">Overall, 2022 was an amazing year for me. I spent most of it traveling to teach at and attend various camps and workshops and writing retreats, spent a lot of time with friends I normally only get to see for brief periods, and learned a lot about myself and my interactions with others.</span></p>
+
+<p><span style="font-weight: 400;">I plan to continue my Seasons of Growth in the new year, though my first Season so far has been one of Rest/Reflection. At first I struggled to think of a new theme to focus on for the start of the year, but realized that after 8 of these in a row, it seemed reasonable to take a break. Further integration and practice continue to yield benefits for all of them anyway, and I’m confident that a new theme will reveal itself as valuable to focus on in time.</span></p>
+
+<p><span style="font-weight: 400;">I hope others find value in this structure, or variations of it, and would be interested to hear what themes others have found useful for themselves.</span></p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">advice</span><span class="tag">personal</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

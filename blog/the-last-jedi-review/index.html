@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="There was so much wrong with this movie that I&#x27;m having trouble deciding if it was or worse than the last one. On reflection I can think of only a handful of scenes I really enjoyed:
+
+1) Rose&#x27;s introd...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Review: The Last Jedi (Spoilerrific)">
+    <meta property="og:description" content="There was so much wrong with this movie that I&#x27;m having trouble deciding if it was or worse than the last one. On reflection I can think of only a handful of scenes I really enjoyed:
+
+1) Rose&#x27;s introd...">
+    <meta property="og:type" content="article">
+    <title>Review: The Last Jedi (Spoilerrific) - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Review: The Last Jedi (Spoilerrific)</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        December 22, 2017
+                    </span>
+                    <span>📁 Movie Reviews</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p>There was so much wrong with this movie that I'm having trouble deciding if it was or worse than the last one. On reflection I can think of only a handful of scenes I really enjoyed:</p>
+
+<p>1) Rose's introduction where she meets Fin. Her switch from star-struck to professional was great.</p>
+
+<p>2) Luke's confrontation with Kylo and overall fakeout. It was the perfect rollercoaster of emotions, from anticipation to shock to confusion to suspicion to elated confirmation.</p>
+
+<p>3) The slicer (or whatever they called him)'s "betrayal": it was nice to see a mercenary really act like a mercenary and not end up siding with the good guys. I actually look forward to his character in the third movie. I suspect he will end up being good eventually, but would be happy to be surprised.</p>
+
+<p>4) Corny as it was, the caretakers on the island made me laugh, particularly when Rey sliced the rocks and knocked away their cart. Something about their resigned body language was perfectly humorous to me.</p>
+
+<p>5) Yoda's conversation with Luke was good, and I particularly liked his remark about the ancient texts being rather dry and basic compared to what modern Jedi have learned and could teach.</p>
+
+<p>6) Music overall was great, as usual. Not even the prequels could drag down the score for these films.</p>
+
+<p>7) The lightsaber battle with Kylo and Rey, and their subsequent conversation, was good. Kylo's goals were subversive and persuasive enough to actually make me think Rey would side with him, which would have cemented the movie as the spiritual successor to Empire's "bad ending." Pretty disappointed that didn't turn out to be the case.</p>
+
+<p>8) The movie at various points seems self-aware of the criticism the first movie got, like Snoke asking Kylo to take off his "ridiculous" helmet. Unfortunately, it did not take this self-awareness into any actually constructive directions...</p>
+
+<p>With that I'll get to my list of things I disliked, which are far, far greater. I'll try to summarize to the really important stuff in plot or character missteps:</p>
+
+<p>1) The intro for Rose was subsequently ruined by the two of them finishing each other's sentences about how the ship was tracked through hyperspace, as if such a unique and shocking thing to everyone else would be immediately apparent to two people at once, neither of which I've been given any reason to believe have a thorough understanding of the mechanics or physics involved. I would have been more okay with it if she had figured it out herself, but it still bothers me how quickly this idea was introduced, solved, and never actually explained in any way. Is tracking through hyperspace something everyone will know how to do, now? Won't that fundamentally change the very nature of warfare in the Star Wars universe? I know the heroes have more pressing matters to address, but like the hyperspace-into-planet-'s-atmosphere trick in the last movie, I've seen this kind of playing fast-and-loose with the rules of the universe inevitably end up coming back to bite writers, and I don't have any reason to suspect future Star Wars will avoid the plot holes that will arise from things like this.</p>
+
+<p>2) The entire plotline with the ship chase bothered me, not the least because its conflict came from stupidity-through-miscommunication, the lowest level of idiot-ball holding. The lady who took over after Leia made my brain feel like it was melting. I want heroes to make mistakes and suffer consequences, but I have trouble rooting for people who make mistakes as basic as "don't tell a hotheaded and charismatic underling that I have a plan" and then "don't tell him the plan even while they're holding me at gunpoint while staging a coup." Poe is an idiot, but he's an idiot within the narrowly acceptable confines of his character archetype and potential arc for growth. The lady with the pink hair was actively immersion breaking to me, in part because she kept getting talked up as some great commander.</p>
+
+<p>3) Let's talk more about that chase. A whole fleet is chasing 3 ships in a straight line for hours because they somehow can stay just out of range, and not once does the New Order call for reinforcements from elsewhere to jump into the system and cut them off? Again, they were chasing them for <em>hours</em>. Is that <em>all</em> the ships they have in the New Order? Fuck, why not just have a couple of <em>them</em> jump forward, then turn around and jump back just ahead of the Resistance ships? This whole plotline was mind-mindbogglingly stupid and the fact that it got through writing, editing, and shooting without someone in charge going "Hey, are our villains just colossally dumb? Like too stupid to be believably threatening?" makes me mark this movie as Prequel levels of mismanaged.</p>
+
+<p>4) Speaking of which, no one anywhere in the Star Wars universe above the age of 10 should be surprised by someone using hyper-speed as a weapon, if that's a thing that people can actually get away with doing, let alone anyone in a military, let alone someone in charge of one. For Hux to be made aware that they were charging their hyperspace engines, then choose to ignore the ship turning toward them until it was too late was utterly immersion breaking. When the villains remain dumb-as-doorknobs throughout the movie, something I was hoping would change after they got their asses handed to them so badly in the last movie, I have trouble taking any threats or heroics seriously. <em>Why</em> is Hux still in charge of <em>ANYTHING</em> at this point? He has made terrible calls during pretty much every single job he's been given: if there was something specific from him that made their plan to destroy the New Republic planets a success, it was never shown. If Snoke wasn't dead I would suspect him of being a Jedi plant who's trying to bring down the First Order from within by keeping some bumbling idiot in charge of its military. The scene of the ship being destroyed was amazing, and showing it in silence was a great choice by the director, but seeing villains be so easily made fools of makes it hard for me to remain interested in a movie.</p>
+
+<p>5) I'm dissatisfied with Han's dice remaining just long enough for Kylo to find them, as it happened <em>after </em>Luke faded away. Then again, we just saw Yoda return as a spirit yet again and CALL LIGHTNING FROM THE SKY WTF YODA MAYBE YOU COULD HAVE HELPED OUT ON ENDOR WITH SOME OF THAT SHIT so who knows what powers Luke will retain as a spirit and whether he maintained the illusion/construct purposefully to mess with Kylo.</p>
+
+<p>6) Fin's role in these movies still continues to disappoint and irritate me. Part of it is remaining from the first movie, his character could have been SO MUCH MORE, he could have been an actual storm trooper who had his stomach turned from violence/The Empire after years of slaughter and losing his friend, but no, that was just some random guy who put blood on his helmet, it was Fin's first mission apparently, he was a JANITOR before then, and so he's morally in the clear and doesn't have to have any interesting character arcs other than that of being a coward, which has yet to have any actual impact on the story, especially since Rose stopped him from sacrificing himself with an utterly nonsensical line about "saving what we love" rather than "destroying what we hate" which irritated me even more because they should totally have been captured or killed after crashing a few meters away from an advancing Imperial armada, but whatever, I've already harped on the bad guys being laughably incompetent.</p>
+
+<p>7) Goddammit I can't believe they actually brought Phasma back after throwing her into a trash chute on a planet that exploded less than an hour (?) later, and she STILL accomplished nothing of any importance whatsoever. How she even got out of the trash chute in the last movie, knew to get off planet, and managed to do so in time will forever remain a mystery, unless maybe they bring her back from pointless death yet again. It irritates me all over again that apparently her armor is the only set ever made to actually do something, and they gave it to a coward who capitulated as soon as someone stuck a gun to her head, a gun whose blasts would RICOCHET OFF IF THEY'D SHOT HER ANYWAY APPARENTLY ARE YOU FUCKING KIDDING ME ARRGHIWIFIAOAIWOAWQEI-</p>
+
+<p>*coughs*</p>
+
+<p>Anyway...</p>
+
+<p>8) The casino scene was soulless. Felt like I was watching the prequels again. Not everything in Star Wars has to be grungy, but the aesops were so forced and heavy handed and the setting was just really underutilized. Also the movie seemed to treat it like some great victory when they "saved" the animals, even though they would all surely quickly be returned, but... they left the slave children behind. What made this a good decision? The whole thing felt like empty window dressing. Same goes for the high speed chase and eventual rescue by BB-8 and the slicer.</p>
+
+<p>9) BB-8 incapacitating guards by shooting coins at them, then piloting an AT-ST, makes me once again wonder why droids aren't regularly doing more in this universe. I'm pretty sure he has a higher kill-count than any of the heroes do at this point, just from on-screen effectiveness anyway. Again I was reminded of the prequels, watching Jar-Jar save the day through slapstick. BB-8 is at least doing things intentionally, but if I'm supposed to take him seriously as an action hero, I don't understand why no one else in the movie is doing so. Hell it was an enemy droid that spotted them! How did BB-8 get away and why was he not immediately deactivated for re-programming? Did they want to torture him too?</p>
+
+<p>There's more I can say of substance and a lot more I could say that were just minor irritations, but I'm going to limit myself to just one nitpick, since it was truly distracting:</p>
+
+<p>10) Rey's makeup. She's on a practically deserted island trying to learn how to be a Jedi but she has time for lipstick and eyeliner? Did she have such obvious makeup in the last movie? I don't remember it, but there's nothing in her past as a scrappy desert-scavenger to demonstrate where and why she acquired and learned to use makeup.</p>
+
+<p>I'm probably going to end up ranting about this more at some point and adding to this list. But those are the things most immediately irritating to me right now.</p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">Movie Reviews</span><span class="tag">writing advice</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

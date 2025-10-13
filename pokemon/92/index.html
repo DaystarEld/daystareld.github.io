@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eclipse - Pokemon: The Origin of Species</title>
+    <title>Chapter 92: Authenticity - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,20 +329,691 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Eclipse</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/91/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/93/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            Eclipse board game.
-        </div>
+            <h1 class="chapter-title">Chapter 92: Authenticity</h1>
 
-        <div class="chapter-nav">
-            <a href="../91/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../93/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>Blue hoped that riding on Soul would get less uncomfortable with practice, and while it has to some degree, his legs are still sore and his back still stiff when they arrive in Saffron.</p>
+
+<p>But when he dismounts people stare, particularly nearby kids, and maybe they still would have if he'd ridden his bike once they recognized him, but it's much easier to notice him on the arcanine in the first place compared to on a bike wearing a helmet.</p>
+
+<p>So he does his best to stand straight despite the aches and pains until he finishes removing Soul's saddle and rubbing him down, the big red mutt panting hard as he looks around, gaze sharp and nose twitching. As Blue runs the brush over Soul's heaving sides, Bretta and Liz finish packing their bikes and gear away and enter the Trainer House first, followed by Sumi and Slava, who are arguing over when to take their day trip to Johto via the city's magnet train station.</p>
+
+<p>Elaine seems to linger, moving purposefully slowly to match Glen's pace, and Blue tries to ignore the stab of sympathy that guts him. For as long as he's known him, Glen could bike farther and faster than any of them, and would barely be winded by the time they arrived wherever they were going.</p>
+
+<p>Now he's moving like he has to think through every action, and there's a slight tremor in his hands.</p>
+
+<p>If Glen notices that Elaine is going slowly for his sake he doesn't say anything, simply withdrawing his container once his bike and pads are in it and then following Slava and Sumi. Elaine gives Blue a look he can't quite decipher, but he nods to her, recognizing the pain at least.</p>
+
+<p>A young girl whispers something to her parent, who nods, and she runs over. "Excuse me, can I brush him?"</p>
+
+<p>She's staring at the arcanine with wide eyes, but she seems absolutely fearless of it, and Blue smiles. "Go ahead." He hands her the brush, and she uses both hands to run it along his fur as he directs her. "Do you like Fire types?"</p>
+
+<p>"Yeah! What's his name?"</p>
+
+<p>"Soul."</p>
+
+<p>"Is he your sweeper?"</p>
+
+<p>Blue grins, recognizing a future competitive trainer. "More of a bruiser. He helped me beat Erika." He opens his jacket to show the four badges within.</p>
+
+<p>"Cool!"</p>
+
+<p>Once Soul's fur is gleaming, and he's had a chance to catch his breath, Blue takes the brush and tells her she can pet him, if she wants to. She grins wide, and Blue laughs as she sinks her whole body face-first into the arcanine's fur, seeming to enjoy the heat he gives off. Blue feeds his mount some strips of steak and lets him lap at a container filled with water until the girl's mom recognizes that he's done and tells her it's time to go. They both thank him as he withdraws Soul and waves goodbye.</p>
+
+<p>His legs feel like two pieces of aching rubber by now, but he manages to keep it together long enough to walk into the Trainer House and casually lean against the wall beside everyone where they're lined up to get their room assignments.</p>
+
+<p>A lot more work than riding a bike, but worth it.</p>
+
+<p>As he lets his wobbly legs rest, his gaze tracks the people in the lobby, most of whom take a moment to look them over. But while a few linger on him, many of the looks are perfunctory, gazes quickly returning to the screens around the room. Blue glances at the nearest one, which shows Brendan and May helping with the resettlement and construction work that's still ongoing in the Sevii Islands.</p>
+
+<p>Blue knew they were coming to the region, showing off the speed of their legendary pokemon… no, that's not charitable. It's a mission of unity across the islands, a thank-you tour for the help the other regions gave to Hoenn… symbolic, mostly, but he can't exactly judge them on <em>that</em>.</p>
+
+<p>It still depresses him, watching them fly around on such powerful and unique pokemon, though he's as riveted as anyone else in the room. New info about Latios and Latias is sparse, even all these weeks later. Apparently Brendan and May never caught them in balls, and claim that they're not "tame" so much as "curious, sometimes playful, and occasionally in a helpful mood." The psychic dragons won't do certain things no matter how much they're "asked," including let anyone else approach them; the two trainers are still trying to understand what they're willing to do and what they're not, with the help of various researchers and professors.</p>
+
+<p>Eventually the segment ends, transitioning to a review of the trainers currently making their way through Victory Road. Blue checks the names that show up, and smiles as he sees Donovan has hit third place, with Reza now in first with only a couple losses on his record. His legs feel a little more up to walking, and he steps behind Glen at the back of the line.</p>
+
+<p>"Well?" his friend asks. "Meeting with Sabrina today, or tomorrow?"</p>
+
+<p>"No plans yet. Haven't even reached out."</p>
+
+<p>"You going to just say hi when we visit Red?"</p>
+
+<p>It crossed his mind. "If she's there, sure. I plan to check the gym classes and everything first, though."</p>
+
+<p>Glen snorts. "Sure, don't want to seem <em>too </em>presumptuous. How's the movie deal coming?"</p>
+
+<p>"Gave my interview to the writers the day before yesterday."</p>
+
+<p>"Congrats, man. How much did you exaggerate?"</p>
+
+<p>"Hey, Red and Leaf are going to give their side of the story too, remember?"</p>
+
+<p>Glen nods. "So just for the parts they weren't there for."</p>
+
+<p>Blue grins. "Those are the parts you're there for, so we can agree to overlook each other's exaggerations if you want. Who do you want to play you?"</p>
+
+<p>"Myself, obviously. No one else is handsome enough."</p>
+
+<p>"Now who's being presumptuous? You don't know what kind of talent we can pull in."</p>
+
+<p>"Alright, if you can get Daniel O'Clery, he can play me."</p>
+
+<p>Blue recognizes the name from some movie Leaf and Aiko wanted to see back in Vermilion. The pain there is briefer and duller than it might have been a month ago, and doesn't completely drain his amusement. "Isn't he like, 25?"</p>
+
+<p>"Eh." Glen shrugs, accent growing thicker for a moment as he reaches the counter and hands over his ID. "I'm strangely fine with it."</p>
+
+<p>Once they've all gotten their room assignment, they make plans to meet for dinner and break toward the boy and girl dorms. Blue drops his things off in his bed, then enjoys a long shower, thoughts still on the first thing Glen asked him before they started talking about the film. Despite how lighthearted the exchange was, Blue can't help but wonder whether his friend is jealous.</p>
+
+<p>Blue remembers his justifications for Challenging Erika ahead of everyone else, and for going to Lavender while they finished getting their own badges. He still thinks they were the right call.</p>
+
+<p>But then Glen failed to get his fifth badge.</p>
+
+<p>For the first few days after waking from his coma, Glen was still sleeping a lot, and when he was awake he was often confused, not remembering the earthquake at all. He threw himself into physical therapy like a man possessed, and regained a lot of his coordination and stamina... but not enough to beat Erika.</p>
+
+<p>His decision to move on from Celadon without trying again, even though Erika said she would allow a rematch within a week, shocked Blue. Glen insisted that he could return easily and get his badge later, and that meanwhile he didn't want to slow everyone down. But despite his words, Blue noticed him withdrawing into himself more than he used to, not joining in with the friendly ribbing as often.</p>
+
+<p>Blue tried to talk to him about it a couple times, but his friend brushed it off. It's Elaine who helped him understand; from Glen's perspective, he's glad he helped save Maria and the rest of them, even if he can't remember it, but he lost weeks of his life, weeks in which the whole world changed around him, critical decisions made and groups formed, and worst of all…</p>
+
+<p>Worst of all, he fell behind. When they met, Glen had three badges to Blue's two. They earned Surge's more-or-less together, but when he woke, Blue was finished with Celadon Gym and Glen wasn't. If he hadn't stuck around, if he hadn't gone on his trip to Lavender, if he'd just shot straight for his next badge, Blue would have overtaken him entirely by now.</p>
+
+<p>Instead Glen is stuck needing to rematch Erika, and there's a non-zero chance Blue will have beaten Sabrina by the time he gets his fifth badge. If their roles were reversed, it would be eating at Blue.</p>
+
+<p>And while Glen isn't <em>quite </em>as competitive as Blue is, he's close enough that Blue can guess that he's worried he won't be able to keep up.</p>
+
+<p>Worse than that is <em>Blue's</em> hidden worry that he won't.</p>
+
+<p>Blue sighs and turns the water off, then dries himself and changes before heading back to the room. "Message came in for you," Slava says from where he's sitting on his bunk. Glen is lying in his bed, eyes closed, and Blue does his best to ignore the drawn look on his friend's face.</p>
+
+<p>"Thanks." He hangs the wet towel on the bedpost, then checks his phone.</p>
+
+<p>"Well?"</p>
+
+<p>Blue turns to Glen, whose eyes are still closed. He briefly debates playing dumb, then says, "She asked if I'm free within the hour."</p>
+
+<p>Glen holds his hand up, eyes still closed, and Slava sighs and fishes some bills out of his wallet before handing them down to Glen. "Bet every gym leader has you on watch, now. Soon as someone sees you enter the city alarms start going off at the gym. Emergency meetings get called, protocols laid out..."</p>
+
+<p>"Ha, ha. You make me sound like a Stormbringer."</p>
+
+<p>"About as disruptive," Slava says. "Going from the last two gyms."</p>
+
+<p>"But less destructive," Glen allows. "You've only destroyed one arena."</p>
+
+<p>"When did I… Oh. To be fair Brock did the destroying himself, I just showed him why it was necessary."</p>
+
+<p>Glen snorts. "Bet Misty feels relieved you didn't try anything there."</p>
+
+<p>"Or left out," Slava adds. "Could send her a shirt. 'Blue Oak came to my gym and all I got was a lousy badge challenge.'"</p>
+
+<p>Blue rolls his eyes, but he's grinning. "I'm gonna go, hopefully I'll be done in time to make the meetup."</p>
+
+<p>"Right, see you later."</p>
+
+<p>"Good luck."</p>
+
+<p>"Thanks." Blue starts pulling socks and shoes on. He realizes how nice it is to get off his feet for a moment, and mutters, "Shit."</p>
+
+<p>"What?"</p>
+
+<p>"Nothing, just not looking forward to getting back in the saddle."</p>
+
+<p>Glen tosses him the money Slava lost. "So take a cab!"</p>
+
+<p>Blue tosses it back. "I can't <em>take a cab </em>the first time I show up at the gym."</p>
+
+<p>"You're right, what will the history books say?"</p>
+
+<p>Slava shifts his voice to resemble a documentary narrator. "'The Young Oak, butt still sore from his journey—'"</p>
+
+<p>"Bye guys."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Blue takes a cab, but only until he's a couple blocks away from the gym. Then he finds an alley to summon and saddle Soul in, puts on his riding gear, and rides the rest of the way. He arrives at the gym with a flourish, Soul skidding to a halt in a patch of snow, and Blue waits until his pokemon has melted it before he dismounts and strips them both down again as people who stopped to stare continue walking by.</p>
+
+<p>Keeping his gaze straight, as if unaware of the looks he draws, Blue strides in and toward the front desk. He doesn't even have to introduce himself before the receptionist gives him directions toward Sabrina's office. He takes the elevator to the top, walks down a fancy hallway that reminds him of a high class hotel, and after a "Come in," he enters to see the Gym Leader at her desk typing on her computer. It's a fairly lavish room; nothing that can match Erika's outdoor office, of course, but not as utilitarian as Surge's either.</p>
+
+<p>"Good to see you again, Leader," Blue says, and represses a sigh of relief as he sinks into a very cushy chair in front of her desk.</p>
+
+<p>"And you, Mr. Oak," Sabrina says, gaze still on her monitor. "First things first; this is a courtesy meeting. What you've done at Vermilion and Celadon make it so that not meeting you would seem like a snub, and after how long you spent with Erika in particular, I don't imagine that was unintentional."</p>
+
+<p>Blue isn't quite sure how to take that; it works in his favor, obviously, but if she's highlighting that it's <em>just </em>a courtesy… "Well, I appreciate you playing along."</p>
+
+<p>"I don't mean to imply you're not special, this isn't a power move," she says, still focusing on her paperwork. "It feels strange being formal with you after everything that happened in Lavender. I'm just explaining why I'm not going to accept a Challenge from you anytime soon."</p>
+
+<p>"Ah." Shit. "Even for membership?"</p>
+
+<p>"You don't need membership to do what I assume you're planning to do here." Her gaze flicks toward him. "Do you actually want it?"</p>
+
+<p>"Dunno, actually." In some ways it would be a downgrade from what he was at Celadon Gym, where he operated in a unique and unstructured unofficial capacity, but he didn't really expect other gyms to let him have the same status. "Depends how long I'll be here, and it might help to understand how your gym works from the inside. I figured you'd be too busy to work together more closely." And from what he's heard this gym is more traditional, like Brock and Misty's; a primary focus on pokemon training, with special classes for Psychic types, and some extra unique classes for the trainers themselves based on what Sabrina and her people value or are specialists in.</p>
+
+<p>Sabrina's virtue is supposedly Discipline, but he's always thought that felt among the more tacked-on ones… though being in her presence has him thinking twice, as she continues to work even as they converse. He remembers Leaf saying Giovanni does something similar, and wonders why Erika didn't do it; it's very effective at making him feel less special than he did before, despite her frank acknowledgement otherwise. Though maybe that's just from knowing he's not going to get an early match.</p>
+
+<p>"Whatever you do, I'm afraid it won't involve me. I still have a lot of work to catch up on, and what happened in Lavender didn't help things. If you want to change the culture at my gym, I trust Tetsuo and Keiji enough to curtail whatever you might do that concerns them, or that they think would concern me."</p>
+
+<p>"Right." Damn it, that means he'd have to answer to and negotiate with two people rather than one… and they would be deferring to a hypothetical Sabrina rather than asking the real one. No matter how well they could predict what she might say, they're going to be extra conservative, and his charisma in arguing his points will be much less effective.</p>
+
+<p>She's watching him rather than her monitor, now, probably guessing at his thoughts even without her powers working on him. "Not that I'm trying to drive you away, but you still need three more badges aside from this one. You could always come back later."</p>
+
+<p>"The others I have left are all pretty far, and other than Viridian, this is the last badge that everyone in the group is missing." <em>And I can't teleport. </em>He largely feels that he's left behind his bitterness about being dark, especially given the advantages it's given him, but if he could just register an abra here he could pop back over whenever Sabrina might have an opening. As it is…</p>
+
+<p>"Well, you're also welcome to save me for last," Sabrina says with a brief smile, focus back on her computer screen. "Most dark trainers do."</p>
+
+<p>"I've considered it," he admits. "But—"</p>
+
+<p>"That's all the more reason not to, for you. Making your most difficult badge any easier isn't your style, which means it's Giovanni you'll be challenging last, right?"</p>
+
+<p>"Heh. Guess I'm not that hard to read, dark or not."</p>
+
+<p>"You're definitely part of a type, and it's not about being dark. I'm sorry I can't do more for your aspirations, at the moment, but I think you'll manage well enough."</p>
+
+<p>It sounds like a dismissal. Blue tries to think of something else he can say, then just nods, suppressing a sigh. "Thank you for the meeting."</p>
+
+<p>"You're welcome. I look forward to our match, whether it comes sooner or later."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>The next few days pass quickly as the group attends some basic classes at the gym, along with some low level challenge matches. Red meets up with them on occasion to catch lunch and do some training, and a couple days after they arrive Jason and Maria return from Lavender. The group seems happy to see Maria again, who has changed somewhat; after the casino it was like she lost a lot of the confidence she'd gained over the months of journeying with Blue, but there's a new serenity to her, or rather an old one gained anew.</p>
+
+<p>The classes are interesting, a lot of them about how to better anticipate an opponent's moves when they can read your pokemon's thoughts and feelings, or even yours. The latter parts apply less to Blue, of course, but to offset that advantage, he starts attending Dark classes to train his abra and the gastly he received in thanks for his help at the tower.</p>
+
+<p>It doesn't go well.</p>
+
+<p>He tried a few times on his own, following some guides online. An abra's second strongest sense is sound, followed by smell, so he named his Tops and began taking him out of his ball to wear in a back harness when he'd walk around the Celadon gym on occasion, letting him get used to Blue's smell, the sound of his voice, and the feel of his body as a physical thing. It worked, to some extent; Tops doesn't startle when touched by Blue, responds to commands pretty well, and will sniff around to find him if Blue sits quietly in the same room with him… though Blue suspects that's mostly just for food.</p>
+
+<p>But he doesn't orient to him at all. The 'dex says that abra don't instinctually act to protect others, and having a protective orientation—the kind of passive, automatic inclination that results in things like shifting to stand between a trainer and any sensed enemies—is difficult for them. Without that, in real combat, even the much suppressed instinct to flee simply leaves Tops paralyzed with fear no matter how gentle and encouraging Blue tries to be, or how much of his own fear he tries to inject into his voice.</p>
+
+<p>"Yep," Red confirms on Blue's fourth day in Saffron. "To Tops's senses, you're not really there. You're just a set of stimuli that sometimes gives him food… sorry, sometimes means food is going to appear."</p>
+
+<p>"Great," Blue grumbles. They're sitting in Red's apartment at the building Sabrina's students live in, both of their abra sitting on the rug using their weak kinesis to push a ball back and forth between them. Pikachu and Eevee are napping in the corner, and they can distantly hear Maturin splashing around in Red's tub. "So what do I do?" Tops is the abra he chose to keep from the dozens he, Leaf, and Red caught north of Cerulean; in the top percent of all the pokedex metrics. He could grow into an incredibly powerful pokemon… but none of that matters if he won't fight for Blue.</p>
+
+<p>Thankfully Red knows him well enough not to suggest training a different psychic pokemon instead, one less dependent on its sixth sense. "Well, there are classes at the gym specifically for this sort of thing…"</p>
+
+<p>"I know, I went to one."</p>
+
+<p>"Just one?"</p>
+
+<p>"Yeah. I don't want to show up again and still have no idea what I'm doing, you know?"</p>
+
+<p>Red blinks, brow furrowed. "It's… a class <em>specifically </em>for this, though. You think you're going to look bad in front of other dark trainers struggling with the same thing?"</p>
+
+<p>"I might not look <em>bad, </em>exactly, but I won't look good. At least Tops will follow my voice commands; my gastly won't even do that half the time!"</p>
+
+<p>"What happened to not wanting to discourage others? I'd say seeing Blue Oak struggle a bit would be very encouraging to a lot of people with the same problem."</p>
+
+<p>Blue runs a hand through his hair. He's right, Blue knows that, but… things have changed. "Struggling is fine. But if I try and fail..."</p>
+
+<p>Red is frowning at him. "See, this is what I was worried about. You're more worried about PR than you are the truth."</p>
+
+<p>"What? No I'm not, I'm not <em>lying </em>to anyone." He remembers his trip to the gym, suddenly, but no, that's different, all he did was show what people would have seen if the summon had just come a couple hours later… "I'm just making sure I'm prepared, so I don't fail."</p>
+
+<p>"So you don't fail <em>publicly.</em>"</p>
+
+<p>"What, I'm supposed to just parade around my failures?"</p>
+
+<p>"That would be pretty awesome, actually. Just record the whole process, from start to finish, and show how you learn from it. It would probably help a lot of people."</p>
+
+<p>Blue watches Tops invisibly nudge the ball back toward Red, who uses his hand to roll it toward Bill, who shoves it back toward Tops. Blue is sitting in the third point of the triangle behind Tops, hoping to get him used being between Blue and danger. "I'm being stupid, aren't I?" It feels like a tug-of-war is going on between his chest and stomach. Sabrina's decision, understandable as it is, has been bothering him, probably more than it should have.</p>
+
+<p>"Yeah, but you're smart enough to know it, which is the first step toward wisdom. Now use your wisdom to tell me what you think of my new prospective purchases."</p>
+
+<p>"Right." Blue takes his phone out to pull up the list of pokemon Red sent him as candidates to round out his belt. "Okay, so first off, your Grass and Water choices are obviously solid, but they've got to be expensive, even if Gramps is giving you a discount. Is he?"</p>
+
+<p>"Didn't ask for one."</p>
+
+<p>"Now who's being dumb? In any case, for a lot less you could get pokemon almost as good. Gloom are going for like, a twentieth the price of ivysaur, and a poliwhirl would make a decent land Water replacement for wartortle."</p>
+
+<p>"I already have a weepinbell and kingler, so I'm not just trying to fill slots, but focusing on getting stronger additions that I'm not likely to catch myself. I'm fine with paying more for things I'm unlikely to ever replace, and as a plus to getting these in particular, I'd have you and Leaf to help give me advice on training and raising them."</p>
+
+<p>Blue nods. "Well, see if you can get a discount anyway. As additions to your team they're definitely good ones. Can't say I wouldn't like having a set myself."</p>
+
+<p>"I thought you were over not buying pokemon?"</p>
+
+<p>"I am, this is just a price thing as I weigh what I'll need going forward. I'm happy enough with Soul, and don't particularly need Fire types for anyone else coming up, nor Grass until Giovanni, and for him I'd want something that can deal with Steel too." Giovanni would almost certainly use excadrill.</p>
+
+<p>"Can't you use some Ground TMs on venusaur?"</p>
+
+<p>Blue's brow shoots up. "You really have been looking into their battle potential, huh?"</p>
+
+<p>"I mean, yeah, if I'm going to spend this much money…"</p>
+
+<p>"I get it, no need to get defensive." He grins. "Was just impressed. You're right, you could, but torterra's would be stronger, and it could set up more field hazards. Nothing against venusaur, it's got its own strengths, I'm just talking about team comp… but this is off topic, the competitive scene's a different world from what you're prepping for."</p>
+
+<p>"Yeah. So any objections?"</p>
+
+<p>"Nah, your reasons are solid."</p>
+
+<p>"Cool, because I had one more bonus reason."</p>
+
+<p>"What's that?"</p>
+
+<p>Red smiles, rolling the ball back and forth between his palms, then sending it to Blue's abra. Tops's ears twitch as he hears the ball approaching, and he holds his paws out to send it away with a burst of kinesis. "Long term investment. I won't be using all my pokemon often, which means I can rent them out to breeders."</p>
+
+<p>Blue chuckles. "Putting your money to work, huh?"</p>
+
+<p>"Yeah. I figure they'll pay for themselves within a few years."</p>
+
+<p>"Clever." Blue scrolls down the list of pokemon Red's considering buying, as well as evolution items. He spots moonstone, probably to help Red's nidorino evolve, but... "I don't see thunderstones for Pikachu?" The pokemon in question twitches from where it's napping, looks over at them, then curls up again.</p>
+
+<p>"Right, I was thinking I'd keep him in this form and start ordering some food from Alola."</p>
+
+<p>"Ah." Yeah, the islands' psychic raichu would serve Red better, but... "It might take a while, considering he's gone his whole life without it so far."</p>
+
+<p>"I know, but I figure it's worth a try, and a year of it isn't much more expensive than the thunderstone would be."</p>
+
+<p>Blue nods and keeps looking down the list. "Nothing in the real top end, that I'm seeing?"</p>
+
+<p>"Yeah, goes back to the whole variety thing. Strength is nice, but I can't get both if I blow the whole budget on a dratini or larvitar."</p>
+
+<p>"I get it. Hm. Having trouble with your tanks?"</p>
+
+<p>"Yeah. Nidoqueen is bulky, and venusaur would be too, but—"</p>
+
+<p>"They're still more bruisers, yeah. Well, how about cradily?"</p>
+
+<p>"I already have enough Plant types."</p>
+
+<p>"Shuckle?"</p>
+
+<p>"<em>Too </em>tanky, unless you disagree?"</p>
+
+<p>"Nah, you're right, against wilds most pokemon will just ignore them once they're in their shell… you could get a forretress, or steelix, or, of course, a chansey or snorlax, but not sure if you have the budget for one on top of the ivysaur and wartortle. Maybe if you get a bulba and squirtle and raise them yourself?"</p>
+
+<p>"Maybe. I don't do as much training these days, and part of the point of this was to spend money I have a lot of to save time that I don't."</p>
+
+<p>Blue nods, and then there's a knock at the door. "Come in," Red calls, and Leaf enters with a smile.</p>
+
+<p>"Hey Leaf! Shit, is it time already?" Red gets to his feet and withdraws Bill, and Blue does the same with Tops.</p>
+
+<p>"No, but I figured it's better to be early than late."</p>
+
+<p>"Right, yeah, hang on, let me go get dressed…"</p>
+
+<p>He disappears into his room, and Leaf goes over to pet Pikachu, who twitches an ear. "Heya Blue."</p>
+
+<p>"Heya Leaf. Is this your first time here for the, uh reflection lessons?"</p>
+
+<p>"Mirroring, yeah." She frowns as she hears the splashing. "Is someone else here?"</p>
+
+<p>"Maturin."</p>
+
+<p>Leaf grins. "Not much chance for bathing in trainer houses, huh?"</p>
+
+<p>"Yeah, she enjoyed swimming at the Celadon Gym, figured she'd miss it."</p>
+
+<p>"Where's everyone else?"</p>
+
+<p>"At the gym, if you want to say hi later."</p>
+
+<p>"Maybe, depends how long this takes. I've got a question, by the way… any idea how long before you'll be in Fuchsia?"</p>
+
+<p>"Uhh, no. That's… up in the air, actually. Sabrina said she won't be taking my challenge anytime soon."</p>
+
+<p>"Oof, sorry."</p>
+
+<p>"Why?"</p>
+
+<p>"Weeeell… there's been a bit of a breakthrough with my program."</p>
+
+<p>She's grinning, and Blue stares. "Wait, really? What? When?!"</p>
+
+<p>"Not long ago, I wanted to tell you guys in person…" Red emerges from his room, expression making it clear he heard everything. "More and more people have been working on it, sharing code and building off each other's work, and my friend Natural pushed an update that I tested out on Dewy a few days ago."</p>
+
+<p>"Dewy?" Blue asks. "One of the ranch pokemon?"</p>
+
+<p>"Yeah, a rattata that was so strongly conditioned by its capture program that it basically stopped doing <em>anything </em>unless it's ordered to. Just stands there, waiting for a command to eat or follow or fight."</p>
+
+<p>"And it worked?" Red asks, voice low with awe.</p>
+
+<p>Leaf swallows, eyes misting. "It worked. Dewy started… started moving around, and sniffing… sniffing the others… and when I put food in his pen he ate it, all on his own..."</p>
+
+<p>"Leaf, that's amazing!"</p>
+
+<p>"Congratulations!"</p>
+
+<p>Leaf waves them off, smile watery. "I hardly did anything compared to all the people who've been working on it lately. But, oh, it gave me so much hope…"</p>
+
+<p>"So could Dewy be released, now, theoretically?"</p>
+
+<p>"Theoretically, yes. There's still a lot of testing to do, to see how much of his wild behaviors are back… and it's not a general program, it was specifically built for Dewy. From what I understand of Natural's code he just took what we needed from new scans of it after you used <em>sakki, </em>Red, and slotted them in."</p>
+
+<p>"Ah," Blue says, and turns to Red. "So you'd need to do that with every pokemon that they want released, so they could design a new program for each one…"</p>
+
+<p>"Uh, I've kind of already been doing that," Red says a bit sheepishly. "But don't downplay this, Leaf, it shows it's <em>possible, </em>proves that it works, that pokemon can be not just permanently unconditioned, but quickly and cheaply!"</p>
+
+<p>Leaf nods. "The Rangers are very excited, and want to try it out in the Safari Zone in a couple weeks."</p>
+
+<p>"Why the Zone?" Red asks.</p>
+
+<p>"Only 'controlled' wild environment, I'm guessing," Blue says, and Leaf nods. "Is that why you asked when I'll be in Fuchsia?"</p>
+
+<p>"Yes. They want to keep it an internal matter, for a while, but from the conversation I had with them, a few trusted trainers could be called in as supplemental assistance."</p>
+
+<p>Blue tries not to get too excited, but… "Protected access to Safari? Hell yeah, I'd help."</p>
+
+<p>"You'd still have to follow the rules."</p>
+
+<p>"I know, I know. Still, if it means getting a shot at the inner zone, I'd be crazy to pass up on it." Then he remembers… "What about the others?"</p>
+
+<p>Leaf looks apologetic. "I'm not sure. I asked, and they said they'd let me know later… they know who you are, obviously, but maybe if you vouch for others... I think it might depend on how many. It can't look like we're taking advantage."</p>
+
+<p>"Right. Of course." A leaden ball forms in his gut as he thinks about going on yet another adventure without the others… without Glen, who might not be up for it.</p>
+
+<p>In the beat of silence that follows, Red clears his throat. "We should probably head out."</p>
+
+<p>"Yeah." Leaf smiles. "I'll let you know when I hear more."</p>
+
+<p>"Great. Thanks, Leaf. And congrats again."</p>
+
+<p>They collect the rest of their pokemon and head out, parting ways at the elevator. Blue wraps his scarf around his neck as he walks out of the apartment building, feeling snow drift down onto his hair, and walks aimlessly down the street for a while, just letting his thoughts wander as his feet do. The sun is directly overhead, keeping Blue from getting too cold, and after a few minutes he decides he's hungry, going to a nearby cafe and ordering a sandwich and smoothie.</p>
+
+<p>As he waits for his food, a few people recognize him, and one even comes up to ask for his autograph. Blue gives it with a smile, and soon a couple more people approach. He chats with them about their day; one works at Silph and has a son who's on his journey, another is a trainer with two badges who's been following his journey "from the start," and the third is an artist and avid League fan who shows him some shirts she's designed, one depicting the entire island chain united under the words <em>What Comes Next,</em> another showing his win in Celadon, Soul glowing on the field as his head tips back in a roar. It's surreal, in a way, but by the time he leaves with his food his feet feel light as air.</p>
+
+<p>Once he finishes eating he decides to call Glen, who picks up after a couple rings.</p>
+
+<p>"Hey, how are things at the gym?"</p>
+
+<p>"Not bad when I left, but I'm not there, actually."</p>
+
+<p>"Want to head over?" Blue was thinking of taking another class for dark trainers, but despite what he said to Red the idea robs him of most of his good mood. He'd rather do a class with Glen.</p>
+
+<p>"Uh, maybe a bit later? I've actually got a meeting first…"</p>
+
+<p>"Ooo, a meeting, huh?" Is Glen being vague on purpose? He doesn't sound embarrassed, exactly… "What kind?"</p>
+
+<p>"One of the groups I met through What Comes Next. They do training, both for people and pokemon."</p>
+
+<p>"What, here in Saffron? Why aren't they part of the gym?"</p>
+
+<p>"Apparently they, uh, have a different philosophy." Blue can hear his friend's shrug. "Anyway, it seemed worth checking out. A big focus on self-development and supporting each other, not too different from what we do. And what we did at Vermilion."</p>
+
+<p>Blue frowns. "How did I not hear about this before?"</p>
+
+<p>"Well, they only formed up after the incident. They reached out to me about my energy drinks once I linked my site to the forums, and I only got to know more about them in the past few days."</p>
+
+<p>Right, and Blue's been busy with other things since then. He vaguely remembers Glen boasting about someone being interested in his formula, before Lavender, but he never followed up on it. "So you're going to see them now?"</p>
+
+<p>"Yeah, I figured while I was in town, why not, right?"</p>
+
+<p>"Right." He thinks about the classes he could go to, particularly the one for dark trainers, then makes his decision. "Well, want some company?"</p>
+
+<p>"You sure?"</p>
+
+<p>"Sure I'm sure." He needs to reconnect with Glen, get more involved in his side projects. Blue unclips the container ball with his bike in it. "Just tell me where to meet you."</p>
+
+<p>The address Glen gives leads him to a wide, unmarked two-story building in the warehouse district that seems to take up an entire block. Or at least it appears unmarked at first; when he gets closer he sees a small banner above the door showing a vaguely draconic silhouette wrapped around a fist.</p>
+
+<p>"Dragonfist?" Blue asks. "Sounds like a superhero. What did you say this place was, again?"</p>
+
+<p>"A place to train. The guys in charge use a lot of Dragon and Fighting types."</p>
+
+<p>Dragon and Fighting? Weird combo, Fighting pokemon can cover Dragon's Ice weakness while the Dragon pokemon cover everything else, but the same could be said for Rock, or even better, Fire… but this place might be important to Glen, to his continued recovery, so Blue keeps his thoughts to himself as Glen opens the wide double doors.</p>
+
+<p>Blue is immediately hit with a unique combination of smells; floor polish and sweat, metal and wood and foam, and over it all the faint aroma of some lemon-scented cleaning product. Blue walks in and finds the temperature not much warmer than the outside, and looks around to see the entirety of the warehouse is open around him, with just a few sectioned off rooms at the corners and along the walls, and no second floor.</p>
+
+<p>Blue feels a wave of nostalgia for Surge's gym as he sees people moving through obstacle courses or training their pokemon. A door opens to Blue's left as someone walks into the corner room, and through it he catches a glimpse of people deep in some discussion as a pair of them stand in front of poster boards. It really does feel like he entered a small gym.</p>
+
+<p>Except there's less pokemon training than in a gym, and more the sorts of things he'd expect to find in a fitness club. Exercise weights, for one thing, and the obstacle course isn't being run with pokemon, just people moving in a uniquely efficient and fluid way…</p>
+
+<p>"It's called parkour."</p>
+
+<p>Blue turns to see a vaguely familiar Unovan boy approaching, not much older than himself, with bright red hair and lean, muscular build. "I think I've seen a few videos of it online."</p>
+
+<p>The boy grins. "Yeah? Which ones?"</p>
+
+<p>It's the grin that completes his memory. "I think I've seen <em>you </em>in one or two of them, actually."</p>
+
+<p>"If any were in Lumiose City, probably. I spent some time in Kalos before I came here." He clasps hands with Glen. "Thanks for coming by."</p>
+
+<p>"Thanks for inviting me. Hope you don't mind me bringing my friend."</p>
+
+<p>"I'm—"</p>
+
+<p>"Blue Oak. I've seen some videos of you, too, specifically Glen and your Vermilion matches, after I found his site. I'm Duncan Sabien." He holds his hand out, and Blue grips it. "Kiyo is in that office, Glen, if you wanted to talk to him about the bulk orders before anything else."</p>
+
+<p>"Right." Glen turns to Blue. "It'll just be some boring stuff about ingredients and shelf life… why don't you hang here till I'm back?"</p>
+
+<p>"Sure."</p>
+
+<p>"I'll keep him company," Duncan says, and Glen nods and jogs off. As Blue watches him go, his gaze once again starts to take in the sheer variety of activities being practiced. Sudden movement above cranes his neck up, and he sees people walking and climbing along the beams that crisscross beneath the roof.</p>
+
+<p>The movement was someone falling until just their hands grip the suspension bar, and his heart leaps into his throat as the figure swings and releases herself forward in a somersault.</p>
+
+<p>Before Blue can cry out the woman plummets… then bounces back up into the air and catches hold of another scaffold, applause breaking out as she pulls herself back up.</p>
+
+<p>"Trampoline," Duncan explains, seeming to enjoy his shock.</p>
+
+<p>"That was intentional? Why?"</p>
+
+<p>Duncan seems about to respond, then pauses. "That answer has layers. The surface one is that we get a lot of people here who work as stunt doubles in movies, or who want to."</p>
+
+<p>"Huh." He watches as someone else drops down, then bounces back up. "Okay, that makes sense. What's the second layer?"</p>
+
+<p>"Some are working to get over a fear of heights."</p>
+
+<p>Blue blinks. "And that works?"</p>
+
+<p>"Sometimes. The third layer is preparation. I've been pushing for trampolines to be included in more standard trainer kits." He sees Blue's raised brow. "I know, there's already a lot of competition for what's worth the mass to carry. But even large trampolines are relatively light, and just think of how many times you'd have benefited from having one to get somewhere higher!"</p>
+
+<p>Blue purses his lips. "Honestly, can't really think of a time."</p>
+
+<p>"Really? What about helping people get down from a high place more easily, or saving them from a bad fall?"</p>
+
+<p>"Uh... my friend fell out of a tree once, but there wouldn't have been time to take a trampoline out and set it under him."</p>
+
+<p>"Oh." Duncan shrugs, seeming a bit disappointed. "Well, it still might come in handy someday. Plus, there's another layer."</p>
+
+<p>"What's that?"</p>
+
+<p>"It's <em>sooo </em>fun!"</p>
+
+<p>Blue laughs. "I've actually never even been on one."</p>
+
+<p>The other boy turns to him with sudden wide-eyed intensity, and Blue abruptly knows what's going to happen next.</p>
+
+<p>A minute later they're at a big trampoline, waiting for a couple people in line ahead of Blue to finish some impressive mid-air twists, flips, and corkscrews, sometimes multiple in the same jump. Blue starts to get excited, and once it's his turn he slips his shoes off and braces his legs before carefully stepping out onto the taut elastic mat. It barely sags beneath him even once he reaches the center.</p>
+
+<p>"Okay, so what do I do?"</p>
+
+<p>"You know what to do. Don't worry about the stuff you saw, just enjoy yourself first!"</p>
+
+<p>Blue hesitates, then bounces his weight a bit, then a bit more, until his feet start to leave the mat with each movement.</p>
+
+<p>Feeling a little more confident, he bounces harder, then bends his knees and leaps up, stomach lurching as he hangs in the air for a second, then drops back down and does it again, then again, until he's purposefully trying to go higher each time.</p>
+
+<p>It <em>is </em>fun, engaging muscles he doesn't often use and evoking a feeling of freedom that's hard to understand. Maybe it's just something about being able to jump so high, higher than he ever could on his own no matter how hard he trained…</p>
+
+<p>He decides to try a maneuver someone before him did, angling himself to fall onto his back so he can bounce back up onto his feet. He doesn't bounce as high as he thought he would, however, and ends up half-falling awkwardly onto his side.</p>
+
+<p>"Keep your back straight when you fall," Duncan instructs as Blue pushes himself back up and starts bouncing again. "And lift your legs, knees slightly bent. Right, like that. Arms to the sides… there you go. You want your whole back to hit the mat at the same time."</p>
+
+<p>It takes Blue a few tries, during which he lands in awkward crouches or stumble-bounces to the sides, but ultimately this is nothing compared to the fine motor control he developed learning his pokeball tricks. Soon he shifts every muscle of his body until he gets them just right, bouncing effortlessly from back to feet, then even swapping to do it with his chest and stomach, understanding that he wants to do the opposite and spread-eagling just right to bounce his torso and hips all at once.</p>
+
+<p>"Nice! Want to try a kaboom next?"</p>
+
+<p>"A what?"</p>
+
+<p>"Backflip from the back drop."</p>
+
+<p>"Sure!"</p>
+
+<p>"Okay, this time slap your heels down and tuck your knees to your chest just after your back lands, and use the momentum of your feet bouncing up to flip yourself over."</p>
+
+<p>Just then, however, Blue notices the small crowd that's gathered to watch. He thinks of how he tumbled around during his mistakes and is tempted to stop instead… but no, that would look bad too.</p>
+
+<p>Instead he brings all his focus into his body, feeling the way it shifts as he bounces onto his back, then again, not trying the kaboom just yet as he imagines the timing…</p>
+
+<p>...then drops his heels and tucks his knees as they flip up and over, arms pinwheeling as he lands on his feet. His balance is off, and his next bounce sends him toward the edge, but he manages to catch himself and vault onto the pads around the trampoline rather than faceplant.</p>
+
+<p>There's some scattered applause, and Blue grins and bows before he goes to put his shoes back on.</p>
+
+<p>"Not bad for a first try," Duncan says.</p>
+
+<p>"Thanks." There's something in the other boy's gaze, though, something assessing. Blue almost asks if everything's okay, but the redhead is already turning to take a water bottle and a towel from a cubbyhole beneath the trampoline and handing them to Blue, who thanks him again and moves to sit as he wipes his face and drinks.</p>
+
+<p>His legs feel a bit rubbery, but not as bad as when he was riding on Soul. As he recovers, he looks around the warehouse again and notices large words stencil-sprayed above the entrance in block-letters. It's written in Unown, but he doesn't recognize the words. "What's that?"</p>
+
+<p>"Être fort pour être utile," Duncan says in a Kalosian accent. "Be strong, to be useful."</p>
+
+<p>"Personal motto?"</p>
+
+<p>"The motto of a man I admire. For us it's more of an oath, kind of the base layer under everything here; what we do to improve ourselves is in service to society."</p>
+
+<p>Blue grins. "I like it."</p>
+
+<p>"I thought you might. Of course, there are other ways to be useful, which is why we focus on learning too, on knowledge and wisdom and reason. But if a Stormbringer hits this city, every extra person who can defend themselves is one less person that will need to be defended… and who can help defend others."</p>
+
+<p>"I couldn't agree more. The only thing I don't get is… why this separate club? Why not join a gym, or train as rangers?"</p>
+
+<p>"Eh. Rangers serve a very specific set of roles, and gyms have their own rules and cultures. I wanted to make my own, let others experiment more, try things really outside the box if it seems like it might work. Some gyms are more open to that sort of thing, but this seemed easiest."</p>
+
+<p>Blue looks around, brow raised. "I doubt anything about setting all this up was easy. And you did it in what, two months?"</p>
+
+<p>"Easiest to get what I really want, rather than a facsimile." Duncan clarifies. "Besides, the League hierarchy has enough power as it is. You never know when parallel structures might come in handy."</p>
+
+<p>Blue grins. "So this <em>is </em>a gym, basically."</p>
+
+<p>"Oh, no, the League charter is very clear that there can only be one gym per city." Duncan smiles as he looks around, then points, and Blue sees a small group of men and women practicing kicks and punches, even sparring in hand-to-hand combat. "As far as the city is concerned, <em>this</em> is a dojo."</p>
+
+<p>Blue laughs. "Does that mean you aren't going to challenge Sabrina, someday?"</p>
+
+<p>Duncan shrugs. "Maybe. If I prove my methods are better. She's in charge during a major crisis, of course, but as long as we can still respond to nearby incidents on our own and she's not making major mistakes..."</p>
+
+<p>Blue nods, suddenly excited about something new. "You must be a pretty strong trainer, given your philosophy."</p>
+
+<p>"At least strong enough to pull my weight." He smiles. "You want to battle."</p>
+
+<p>"I would <em>love </em>to battle."</p>
+
+<p>"One question, first."</p>
+
+<p>"Shoot."</p>
+
+<p>"Why did you freeze up, before you tried the kaboom?"</p>
+
+<p>Blue turns to Duncan to find the other boy watching him with that assessing gaze again. "What do you mean? I just wanted to practice the backfall a bit more first."</p>
+
+<p>"You wanted to get it right the first try."</p>
+
+<p>"Yeah, that's right."</p>
+
+<p>Duncan nods, eyes weighing him a moment longer before he looks away. "I see."</p>
+
+<p>"See what?" Blue asks, starting to get a bit irritated.</p>
+
+<p>"Before you saw the crowd you were… happy. Playing. You were focused on getting things right, too, but it was fun for you. Once you saw people watching, it was like a light went out. You did it on your first try, but not perfectly, and instead of trying again, trying until you got it right, you just stopped."</p>
+
+<p>"I was tired." The words come out automatically, defensively, and the look Duncan gives him is so scornful that Blue's anger flares until shame at his own evasion extinguishes the flame. "But you're right, that's not why I stopped."</p>
+
+<p>"The stuff you've done, it's clear you're cultivating a legend. I don't know what for, or what the ending to the story you're trying to tell is. Most obvious guess is being Champion, but in a way where that's just a step rather than the goal. And you probably <em>can </em>become Champion. You've clearly got the talent."</p>
+
+<p>"Thanks," Blue says. "Though I feel a 'but' coming."</p>
+
+<p>"That's quite a gift," Duncan says, lips quirked, then nods toward the obstacle course nearby. "See that girl there?" Blue watches the indicated young woman vaulting up and down a series of low walls. Her body seems to almost float above hands and feet that propel her up and down from one side of the wall to the other as nimbly as a mankey. "She was panting and struggling for weeks, and ended up on the ground more times than I could count. You're a natural athlete with amazing coordination, but you're not good enough to do what she's doing now without kissing the mat a few times, and if that would stop you from trying then your talent isn't as valuable as her grit."</p>
+
+<p>"You think I can't do hard things?"</p>
+
+<p>"No, but I know fear when I see it. I doubt it's just stage fright, not with how you act on camera. So it's got to be fear of fucking up when you haven't had time to prepare, to practice. Or, to be more specific, to rehearse."</p>
+
+<p>Blue's anger returns, along with a trace of bitterness. "It's different, for her. People aren't going to remember how much she messed up."</p>
+
+<p>"I literally just told you about it."</p>
+
+<p>Blue waves his hand. "You know what I mean. Three people came up to me for an autograph just an hour ago while I was getting lunch. This is... it's not the same."</p>
+
+<p>"It's not the same because you're trying to get people to think a certain way about you. You're cultivating an image, a pseudo-relationship with you as their future Champion."</p>
+
+<p>"Sure, I guess."</p>
+
+<p>"Just one problem: if you're not being honest with someone to preserve a relationship, it already doesn't exist."</p>
+
+<p>"What?" Blue looks at him, pulse speeding up. Did Glen mention something…?</p>
+
+<p>"The relationship, the one you think you're preserving with the lies or evasions, it's already gone. Maybe it never existed at all, and all you've ever had was a front. You have to look for the natural overlaps between you and others, and build from there. Nothing else is sustainable. Whatever you ask has to be asked freely, openly, and whatever people give you, the same."</p>
+
+<p>Blue drops his gaze, studying the pattern on the black rubbery ground. "I know."</p>
+
+<p>"Do you?"</p>
+
+<p>"Yes! I just… I can't meet everyone, one on one. I can't spend time with them all, show them—"</p>
+
+<p>"Doesn't matter. One person or a hundred, it's the same thing. Was I right before? About you wanting to be Champion, not just for the title, wanting to do something with the position?"</p>
+
+<p>"I… yeah."</p>
+
+<p>"Then as long as you're afraid of the region seeing who you truly are, whatever you hope to get is already beyond your reach. If you just want fame and fortune, sure, people will throw that at you whether you wear a mask or not. But if you're actively keeping an illusion going instead of building from what's real..." Duncan shakes his head. "You're rolling the dice, again and again. On a long enough timeline, they won't come up in your favor."</p>
+
+<p>Blue's stomach twists. "What I'm trying to do… it's important. And hard. No one's done it before. What if I'm not good enough?"</p>
+
+<p>"Then you have to really look at whether you should be the one doing it. Or else you're just sabotaging the thing you claim to actually be fighting for." He nods at the people doing parkour again. "We make videos, sometimes, showing off all the cool stuff we do here to put online, like the ones you saw. But we also make videos of people messing up as they learn. It doesn't look as cool, so they don't get as many views. But if we don't show both sets of videos, we're not being honest about what we're asking of people."</p>
+
+<p>"And you want the right sort of people to come," Blue guesses, smiling slightly. <em>Red would like this place.</em></p>
+
+<p>"Right. Other places I've been part of would get people who just saw all the cool stuff, came to try it, got frustrated, and left. We get a lot fewer of those. And sure, maybe some people get scared off, think it's too hard for them, when if they had come they might have stuck it out. But it's a tradeoff either way, and I care more about not wasting the first group's time, and ours, than scaring off the second group. If they've got the heart for it, they'll come."</p>
+
+<p>The words are like a bucket of ice water on Blue's head. <em>If they've got the heart for it… </em>Isn't that what he tried to do when Zapdos came? He thought he'd learned this lesson, from Amy, and TaroChie, maybe Vlad and the others… But it's not quite the same.</p>
+
+<p>"Ever since the incident, everything seems... too much," he murmurs. "My goals were big even before then, I knew people would think I was insane for what I planned to do, but I was determined to do it anyway."</p>
+
+<p>"Seems like you still are."</p>
+
+<p>"Yeah. But it doesn't feel like enough, after what happened. <em>I </em>don't feel like enough." Blue turns to Duncan, who's still watching the people in his dojo. "Is this, for you? Enough?"</p>
+
+<p>The redhead is silent for a while, scratching at a scab on his knee. When he finally answers, his voice is low too. "I wonder that myself, sometimes. I don't have all the answers, and what you asked earlier, about challenging Sabrina… becoming a <em>real </em>Leader… I'm not sure if it's what's right, for me. I could be wrong, but I <em>suspect</em> it would just feel like more of the same. Quantitatively bigger but… not enough to become something fundamentally more, or meaningfully different. But if there <em>is </em>something bigger I should be doing, I don't know what it is, yet. All this…" He gestures at the dojo. "Raising the competence waterline… it feels like the best I can do, for now, while I figure it out. I still mess up. Still learn from it. As long as that's true, maybe it's the best I <em>can</em> do for now."</p>
+
+<p>"It's already more than most."</p>
+
+<p>"One person doing more than most won't fix the world."</p>
+
+<p>"Right. For that you need others." Blue takes a deep breath, then slowly lets it out as something eases in him. "I'm glad I came here."</p>
+
+<p>"Me too. You can buy a trampoline at the entrance on your way out."</p>
+
+<p>Blue laughs. "That's what all this has been about, huh?"</p>
+
+<p>"Trampolines won't fix the world either, but they're still worth carrying around." Duncan's smile fades to something more serious. "You're welcome to join us here whenever. You and the rest of your people."</p>
+
+<p>"Heh. Looking to absorb us?"</p>
+
+<p>"Would that be a bad thing?"</p>
+
+<p>"No. It might be just what we need. Or maybe just what I need. For a little while, at least."</p>
+
+<p>Duncan is watching him. "How about this: if I win our match, you don't leave until I say you're ready to leave, or three months, whichever comes first."</p>
+
+<p><em>Three months?! </em>Well, he might have to wait that long to face Sabrina anyway… but it would be longer than he's stayed in any city before, and if Leaf is right about the Safari Zone... "And if I win?"</p>
+
+<p>"You get one of the pokemon I fight you with, your choice which."</p>
+
+<p>Blue blinks. It's an elegant wager, ensuring that the harder he makes it for Blue, the more he puts on the line... "One of your dragons?"</p>
+
+<p>"Fuck no," Duncan laughs. "I'm not crazy."</p>
+
+<p>Blue laughs too, and holds his hand out. "Deal."</p>
+
+<p>They shake on it, and stand to walk toward the open arena at the center of the stadium. Along the way they pass some trainers all dressed in karate gi beside their fighting pokemon, listening to a tall, muscled man instruct on something. As they get closer the students all bow, and the man bows back before everyone begins to disperse, and Blue frowns, then slows to a stop as he catches sight of the side of the man's face. "Is that…"</p>
+
+<p>"Oh, perfect timing. Let's put our match on hold for a minute… hey, Koichi!"</p>
+
+<p>Blue stares in growing anger at the man who failed utterly in his role as Saffron Gym Leader, but brutally clung to it anyway until Sabrina bled him of his supporters and dethroned him.</p>
+
+<p>"Koichi, this is Blue Oak," Duncan is saying, and despite the heat in his chest Blue has to resist the urge to step back as the man's stony expression turns toward him. He's in his early forties, but looks older, deep lines creasing his face and grey hair starting to lighten the black at his temples. Despite that, his body is as thickly muscled as a machamp's, and he looms over six feet tall as he approaches. "I'd like him to learn how to lose, and I can't think of a better teacher."</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/91/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/93/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -338,6 +1030,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

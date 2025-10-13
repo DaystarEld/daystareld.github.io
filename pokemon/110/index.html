@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 48: Popularity - Pokemon: The Origin of Species</title>
+    <title>110: Conflict Theory - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,1518 +329,589 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Chapter 48: Popularity</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/109/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/111/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <!-- wp:paragraph --><br>
-<p>Leaf expected a media response. Leaf wanted a media response.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf <em>prepared</em> for a media response.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf did not prepare for a feeding frenzy.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Within a day at Vermilion, the amount of interview requests the group gets is more than she can handle on her own. Red is particularly sought after, but he's got his own flood of mail from professional catchers and researchers. Even the company that made the speakers they used reaches out to see if he would appear in a commercial.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The look on Red's face was still worth a chuckle a couple days later, when the offer is extended to her and Blue, who also refuses, though he at least looks conflicted about it. Leaf talks it over with Laura and decides to accept and donate the payment, as long as they grant her some creative control to ensure it's more of an informational guide that just happens to feature their speakers. That takes some back and forth, but ultimately they reach an agreement she can feel good about.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue ignores most of the media storm, and focuses on his challenge to the new gym. He used some of his money to buy a competitive rhyhorn, and trains it with Aiko in secret while he beats the gym's first test match without using any Ground pokemon. The two plan out an expedition into Diglett Cave for after Red and Leaf are on their voyage, and as soon as they put a post up on the Looking For Group forums, there's an immediate swell of interest to join.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I think you've got groupies," Aiko observes as the four have lunch together, eyes on their Looking For Members entry. "The other Diglett Cave parties aren't getting half the response."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue snorts. "Maybe they're there for you."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Oh, please, no one even remembers my name."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"No, seriously. They might be curious about who the mysterious girl traveling with The Pallet Three is."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"No one is calling us that," Red says, deadpan. "Please tell me you made that up."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"'Oaklings' is the one I see a lot," Leaf says, and Red groans. "Which seems like evidence that they're coming for you, Blue."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue narrows his eyes, and Leaf is careful to keep her face perfectly innocent.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"It's too bad your name isn't Green," Aiko says, still studying the page. "You guys could have been The Primaries."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Oooh, or The Additives," Red says, perking up.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Laaame."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"The Trichromes?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"A little better. Sounds like a gang though."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue ignores them, looking at the LFG page now too. "They might just think we have a way to catch a ton of diglett. You happen to have something like that, Red?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Um. Just stomp around and wait? I was under the impression you can barely walk through the tunnel without tripping over them."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Sure, but too many and you can get overwhelmed. The trick is to only attract a few at a time." Blue strokes his chin. "What we'd need is some kind of adjustable diglett magnet…"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red looks at Blue as if not quite sure whether he's making an Alolan diglett joke, or if he really expects Red to come up with something like that for regular diglett. "Magnet. Right. I'll look into that."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>It strikes Leaf as strange at first how this of all things seems to be the biggest story of their adventure so far. It wasn't like they saved anyone's lives, or helped stop some pokemon rampage. It wasn't a new pokemon discovery, or even some significant new understanding of one, though Red's research is getting a fair bit of publicity too.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>What really drives home the impact of what they did is seeing groups form online to try to get people together and hunt abra. Large speakers quickly sell out in Cerulean and Saffron city, and have to be transported into local stores from elsewhere. The price of abra on the market begins to decline before many more even get listed.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The secondary effects start to manifest a few days later, once a sizeable amount of abra are made available. Not just for trainers who normally wouldn't be able to afford an abra, but also breeders, who in turn offer a reduced rate to anyone that doesn't intend to use the abra for combat and just cares about their teleporting ability. Even the Celadon City casinos, who regularly offer rare pokemon as rewards, lowers the rarity and effective price of their abra.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Soon a whole new industry pops up: some entrepreneuring spirit, no doubt predicting a jump in demand for teleportation spots, begins advertising deluxe facilities that trainers can set as their "traveling homes," with everything in their room being transferred from place to place by staff. Leaf can see the attraction of it, and that's when it really hits her: the three of them changed things in Kanto, possibly the world, permanently.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red acts as though this is obvious. "Let's say 10% of trainers with abra have their lives saved by them over the course of their journey. Maybe it's less, but it also may easily be more. Even if the amount of abra owners merely doubles in the next year, we've altered the course of a generation."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"But it's more than that," Aiko says. "This could be the last generation to grow up with teleportation being a luxury. Even after the first wave of easy to catch abra are done, the amount of breeding stock that will be introduced to nurseries and ranches might make an even bigger difference in the long run."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Which in turn will affect the bike industry, and various riding pokemon's worth," Blue says, then shrugs. "For non-Dark trainers, anyway. And since pokemon can only teleport with their trainer, the markets will probably shift more toward multi-passenger pokemon."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>All these possibilities and more make it hard to decide what project to focus on next. Leaf originally planned on spending her pre-voyage time in Vermilion looking into the Mt. Moon incident further and trying to figure out what Giovanni's investigation is working toward, but there's so much else that draws her interest… a geothermal plant accident on Cinnabar that causes power outages on a third of the island, new announcements about exhibits in the Pewter Museum, and particularly some leaked hints about what would be on the S.S. Anne tech expo that has her excited all over again for the voyage.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>And then there's the individual responses and forum discussions. It was hard enough staying out of the controversy and negative comments that sprang up from her Pewter article, and most of those weren't even targeting her. For every post or thread full of positive or neutral conversation topics she sees, there are a few comments that stick out at her like angry welts:</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"<em>Why is everyone throwing a ticket parade for them? Sure they gave a discount, but still made more than most do in a year from a couple day's work. That's charity, now?"</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"<em>I worked my ass off to catch abra for the past few months, and now the market crashing thanks to these rich kids using their parents' secrets to make a splash."</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"<em>Does anyone actually believe that Red came up with this strategy? They obviously put him front and center because of the sob story, while the professors' kids did the actual work."</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Anger and disgust makes Leaf's stomach churn throughout the days, and she can only hope the other two remain too busy to pay attention to such conversations. She knows she should stop following it all, but she somehow just… can't. The comments dance in her head whenever she tries to do something else, like look into the investigation at Mount Moon, her mind throwing up responses and refining what she wants to tell them until she feels compelled to do so.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"<em>The ecological impact of this is going to be massive. These young trainers don't think things through."</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>-"<em>Hi there! Red checked with Professor Oak and the nearby Rangers before we launched the plan, and their only concerns were physical safety of trainers. It's possible that new ecological impacts will be seen if it becomes widespread, but for now the Rangers have said that the change in wild abra populations should not upset any local ecologies."</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>-"<em>Sure the rangers said that, they knew they'd get a bunch of them cheap. Professor Oak is just another short-sighted scientist who cares more about his research than the environment!"</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Some are just nonsensical or contradictory even by the same users:</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"<em>Tried the strategy, only caught five abra. These kids are bullshitting us, they were clearly farming them for a while and didn't want to tell anyone so they could cash in first."</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>-"I'm sorry you only caught a few! It might be important where you attempted the strategy. We happened to be in a big open area, where did you try it?"</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>-"What so you could come grab them here too? You probably already emptied the area out!"</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Soon she's only dropping in where the comments aren't openly hostile or suspicious to clarify something about her own contribution or explain what she did to keep the abra from running in more detail. Unfortunately once she makes an appearance in a thread, the activity increases tenfold, and while many comments are still positive, the negative ones start popping up too, and those are the ones that keep Leaf distracted day and night.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf eventually realizes she's abandoning her own projects and pursuits to keep up with the conversations full time. She starts sleeping less, until she practically has to drag herself out of bed in the mornings and the thought of opening her email or browsers fills her with anxious dread… but she does it anyway.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>On their fourth morning in Vermilion she sits at breakfast with Red and Blue, barely eating and listening with some bitterness as they talk about their latest successes and plans. Red's abra paper cleared peer review, and a combination of double birthday and Research License celebration is scheduled whenever his arrives.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"...both journals, but I wasn't sure if the focus on pokemon discoveries or psychic phenomenon was better. It felt like picking sides," Red says. "Did you finish vetting the interview requests, Leaf?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She jerks out of a light doze at the sound of her name. "I forwarded all of the ones I've finished," she says after replaying what she last heard.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"What about the one from Celadon?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I didn't look at any last night."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Oh. It was sent a couple days ago, though..."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Well I said I forwarded the ones I looked over," Leaf snaps. "If you don't have it then what does that tell you?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red stares at her, eyes wide, as Blue raises a brow, chewing on a mouth full of noodles. Leaf sighs and rubs her face. "I'm sorry, Red, I'm just tired. I guess I might have missed that one. I'll look for it after breakfast."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"It's okay," he says, and everyone eats quietly for a moment before he says, "If there's something you want to talk about though, you can tell us."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Nope." Leaf tries to focus on her food, but the thought occurs that Red might be using his powers on her. She feels herself getting angry, then realizes she's being stupid. She puts her fork down and clasps her hands, which gets their attention. "Actually, there is something. I know I volunteered to be the group's media liaison, but I think it might be more than a one person job at this point." Especially if she keeps spending too much time on the message boards… "Sorry, I should have brought it up sooner."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Nah, it's our fault," Blue says. "We should have checked to make sure you were doing okay."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Want us to pool some money together and hire a secretary?" Red asks.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf blinks. "Isn't that a bit extreme? It'll probably die down in a few days, maybe a week." <em>Especially if I can just stop paying so much attention to the forums...</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue shrugs. "Not if we play our cards right. If any of you come up with some amazing new discoveries or techniques, keep it under wraps until the media coverage dies down then drop it for a new cycle." He pops an egg slice into his mouth. "Unless it would save lives, of course."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Um." Red raises his hand. "Don't know how much you're joking, but can I register opposition to having an official PR strategy? It feels fake. Worse, manipulative."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"We've been over this," Blue says. "You can ignore public perception if you want to be another Bill, but public perception won't ignore you."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf sees something flash over Red's face, some mix of anger and pain that's there and gone before she can fully process it. Blue doesn't seem to have noticed, and before Leaf can bring it up Red sighs and nods. "I can't commit to anything, but I'll run whatever comes up by you guys, at least. I don't want to mess up your plans."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf feels herself nodding off again, until a text jolts her back awake. "Speaking of plans, Aiko's on her way," she says, and stands. "We're going to take a walk around the city, if either of you want to join us."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>They pass, and Leaf goes to the roof to meet Aiko as she ports in. She looks as tired as Leaf feels, but smiles when she sees Leaf. "Hey, you."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Hey." Leaf waits for her to withdraw her abra, then starts walking side by side to the elevator and down from the roof of the trainer house. Leaf brings Bulbasaur and Buneary out while Aiko summons her Eevee and Sandshrew. The former was just returned to her with a clean bill of health yesterday, some genetic disorder with its lungs requiring a few days of treatment to get fixed. Aiko looks overjoyed at her pokemon bounding around with Bulbasaur, and explains how just a minute of that would have tired the eevee out before.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I'm glad they were able to heal her," Leaf says as she tosses a treat straight up, grinning when Buneary hops over her to eat it. "Any evolution plans?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I think Espeon or Umbreon would be best," Aiko says. She stomps her feet every so often to send directions to her Sandshrew when it wanders too far or starts investigating something rather than keep walking. "I don't like the idea of forcing one on her, but I might put all the stones in a circle and see which way she walks. If I do that every day and she picks the same one consistently, that should trigger that evolution eventually."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Getting that many stones will be an adventure in itself."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Yeah," Aiko says with a smile, folding her hands behind her head. "An adventure I thought was years away. I can't wait to get started."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The city unfolds around them as they head toward the docks to the south, Vermilion's beating heart. Unlike Cerulean North, whose beaches and vibrant boardwalks made it feel like one big tourist attraction, Kanto's major port has a more industrial feel to it, helped along by the many construction sites they pass. The girls pause to watch some machoke carry girders away from a massive container box, the skeleton of the new building rising up to about the same level as the moderately sized buildings around it.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"This city's busy," Aiko says.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"The layout's weird too." Leaf looks around, but can't put her finger on it. "Let's go somewhere high."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>They head for the skyscrapers in the distance. After passing a few only to realize how close they are to taller ones nearer the shore, they finally choose one that's about eighty stories. They return their pokemon, then go up the elevator and onto the roof and summon Crimson and Spearow, who fly above them as they look out over the city, enjoying the thrill of being so high up. The wind whips at their hair and clothes as they go from the railing on one side to another and study the layout of the city.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>This close to the coast they can see mostly ocean to the south and the west, the harbors teeming with vessels of all shapes and sizes. Leaf can just make out some of the bigger pokemon being ridden as well. She takes a moment to enjoy the smell of the sea as flying pokemon soar around the city, trainers on their backs. The walk helped wake her up, and the wind and view up here does the rest of the job.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Lots of new construction," Aiko says after a moment from beside her.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Yeah." Leaf looks around. "At least half the buildings look like they're being worked on, but they look fine. Maybe they were just finished?" Leaf is itching to go back downstairs and start asking the city's residents if they know something.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Look how much space the pokemon centers all have around them, too."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Same with those factories."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"They're really spread out in the city… that can't be efficient."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"There must be some reason they're built that way. Less risk of losing them all from an attack?" Leaf watches the traffic from the harbor a while longer. "I wonder what the city was like before container technology took off."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Oh, way busier. It was the biggest shipping port on the whole island, not just for Kanto. Now that shipping stuff isn't as big a deal, its purpose is more civilian. I think the city must still be adapting to that."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Is this your first time here?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Yeah. Before the ranch we lived in Viridian, never came this far south of Saffron. Dad didn't have much interest in traveling afterward."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"How's he doing, anyway?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko's face is carefully neutral. "Fine. He's mostly ignoring what's happening, hasn't brought up my leaving every day, or responded when I talk about the stuff I've been doing."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Oh." Leaf senses some deeper worry there, but doesn't want to poke at it. "What about Mrs. Ino?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"So far I just showed her around the ranch and talked about the basics of what we can offer. Dad was as engaged as he gets while talking to her, which is promising. What about you, anything exciting coming up?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Too much. We're getting dozens of emails a day from all sorts of people, and digging through them to find offers worth taking or opportunities is hard, there's just so many choices, and wow as I'm saying all this it sounds like such a petty problem to have, I'm sorry."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko laughs. "No, you're good. I'm glad I just have to focus on the gym right now, I don't know how Blue is going to juggle his battles there with all the attention you guys are getting. Though I guess you're helping out with that."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I think the conversation with the Professor and the others helped a lot. Without that we'd probably all feel overwhelmed not just by the volume but the choices themselves. I turned down the third Coordinator Academy that reached out to me today, and can't help but feel like it's a huge waste of goodwill and opportunity."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"It sounds like one, yeah. Isn't there anything else you can do with them that doesn't require attending? Maybe offer to write a column on their site?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"You think they'd go for that? Sounds like something they'd reserve for faculty, or at least alumni."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko shrugs. "What do you have to lose? You just need one of them to say yes. They want to know more about your unique relationship and bond with pokemon, right? You could be a voice against people eating pokemon."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf is nodding, the possibilities unfurling in her mind. "I could start with the abra catching, and if it gets a positive response… yeah, I think I can do that." There's a part of her, however, that worries about what responses she'll get to such a post, and how much more time she'll spend poring over them. Maybe she can make an anonymous account to respond to the comments with...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I'd love to have enough influence to pull it off, if I could get around the whole media blitz."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"What would you use it for?" Leaf asks, curious to know what drives the girl. "Are you on your journey for something in specific?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Besides trying to become Champion?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Is that all you care about though? I mean… I was surprised to find out you don't eat pokemon either, since..."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Since I battle with them?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I battle with them too."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"You know what I mean. Or rather, I know what you meant. Why don't you just ask it?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf puts her hand on her hat as the wind gusts, hair whipping around her. "I didn't mean to offend—"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko turns to her. "Do I sound offended?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"A little, yeah." <em>That </em>pisses the other girl off, and Leaf holds a hand up. "I'm sorry, I didn't mean to start a fight."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The girl rolls her eyes. "This isn't a fight. I'm good at battling, and I care about pokemon. That's all there is to it."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"But… what do you <em>want</em>?" Leaf asks. "I mean, let's say you got the fame and glory and skillset, somehow, of a pokemon master. Would you still want to become Champion?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"The journey to becoming Champion is important. That's how I get stronger, how I learn more about training my pokemon and catching others. But yeah, becoming a Champion would help in something." Aiko is quiet for a minute, then smiles. "It's weird, I just realized I've never told someone else."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Well, I won't laugh if that's what you're worried about. I've only just figured out mine."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Which is?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf extends an arm out toward the city. "Being a voice others respect, listen to. Find ways to improve human and pokemon relations. Get people to stop eating them, hopefully."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"That's great. You should push for mandatory end-of-life care for trainer's pokemon, too. Most just keep them in their balls when they're not capable of fighting anymore, or release them into the wild, unprepared, which is just another death sentence."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf smiles. "I've been thinking about that a lot since visiting your ranch, yeah."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"But getting people to stop eating pokemon… that would be amazing. Almost hard to imagine."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Sometimes it seems like a pipe dream, but Red and Blue are shooting for the moon too. So whatever yours is, you're in good company."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko nods. "I want to be a Tracker."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Oh." Discovering new pokemon isn't a particularly strange job, unless… "You mean you want to hunt for mythical pokemon?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Yeah."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Which ones?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"All of them. Mew, Shaymin, Manaphy… my mom used to tell me stories about them. It's stupid, I know. But since I was a kid I wanted to go on my journey so I could get stronger, make friends, discover new species. I want to travel the world, and maybe… be one of those trainers from the stories, the ones who cleverly put the clues together and found Jirachi and got wishes granted, or saved some forest and encountered Celebi and traveled through time..."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf watches Aiko's flushed face, her gaze out over the city. "I think I get it." <em>Red and Blue would even more, I think.</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko shrugs. "Even if they're all made up and I never find any of the myths, hunting down leads and discovering even a couple new species would be amazing. Can you imagine? Being the first person to see a new pokemon, figuring out what it can do, how it acts, what it likes and dislikes..."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf smiles. "That would be cool, yeah. But you <em>do </em>believe in the myths, right?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Some, yeah."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Why? I'm not scoffing," Leaf quickly says. "You just seem really determined."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko hesitates a moment longer, then simply says, "I saw one."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf stares. "Saw… which one? Saw as in, saw <em>in person? </em>When? Where?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Ho-Oh. A Johto legend."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"The Guardian of the Skies," Leaf recites, remembering the stories she read when researching her book. <em>A golden flame that endlessly reincarnates, rekindling life even from ashes...</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Yeah. Over here there are stories of a fourth seasonal bird, the avatar of Spring, embodying the fire of renewed life and leaving a rainbow in its wake. I think they're the same bird, and I saw it a few years ago."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"How many is a few?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko's face darkens. "I don't really expect you to believe me, I know memories can be unreliable. Obviously I could have been wrong, but… it was three years ago, early April. I was out in a pen taking care of some pokemon. Out of nowhere all the pokemon around started freaking out. It was terrifying, and then… I felt it too. It was like the air was heavy. Like a storm was about to burst out over us at any moment. I know it sounds weird saying this, but I <em>felt </em>a storm, inside. It made my bones feel like they were thrumming. I even looked up in case stormclouds had somehow snuck up on me, but the sky was completely clear. Instead I saw the bird."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf listens in rapt silence, the described sensations so powerful that she shivers in the warm sunlight as Aiko continues. "It was like a prismatic jewel in the sky, a rainbow of colored lights reflecting off its feathers. It wasn't huge, maybe a little bigger than a full grown pidgeot, but it <em>felt</em> enormous, like craning your head up at a tropius in a forest, or looking at the shadow of a wailord swimming under a rowboat in the ocean. The air shimmered around it, and as it passed over us the heat it gave off was like a second sun, burning my skin."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko runs out of breath, then takes a deep one. Her face isn't flushed anymore, now it looks pale, and Leaf sees a tremor go through the other girl.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Maybe it's just my memory exaggerating, maybe the pokemon freaking out was a coincidence, maybe I just saw a shiny fearow and was suffering from heat stroke. But I don't think I would have made up that feeling, the Pressure. It's too strong. Even if I just read someone's account of what it feels like facing one of the Stormbringers and forgot, I don't think my imagination is good enough for that. I think I really saw it, and I want to prove that it exists."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"You didn't take a picture, I guess?" Leaf asks with a weak smile.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I didn't even think about it until after it was long gone and I'd finished calming all the pokemon down. Thinking at all, about <em>anything, </em>was hard. I tried drawing it, but the details are all confused in my head, and I'm not a great artist."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"What will you do if you find it?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko is quiet for a long time as they both look over the city. Leaf doesn't think she'll answer at first, too embarrassed or still shaken by her memory, but when she sneaks a peak she sees the other girl smiling slightly, watching their birds fly around them.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"There are a lot of stories about the avatar of Spring and Johto's golden Guardian of the Skies. While the Stormbringers wreak death and destruction, the stories say Ho-Oh heralds greatness and brings life. Some say anyone who the bird appears to is blessed, while others say its feathers—"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Bring back the dead," Leaf says, thinking of the discussion with Amy, Red, and Blue back in Viridian.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko shrugs, still looking up at the sky. "I'm not fooling myself. Magic like that isn't real. Celebi, if it exists, probably doesn't actually travel in time. Jirachi can't grant wishes."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"But even still…"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko nods. "Even still. If the bird itself actually does exist, maybe the part about seeing it and being 'destined for greatness' is true too."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Leaf smiles. <em>And if the </em>other <em>stories about it just happen to be true…</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>They watch the city together, dreaming of the future.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:separator --><hr class="wp-block-separator" /><!-- /wp:separator --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue's first impression of Vermilion's gym was that it's rather small and plain. Not plain the way Pewter's is, that monolith of granite is at least distinctive. From the outside Vermilion's looked just like it did in media, camouflage green walls with its sign in big bold letters of electric yellow. The inside resembled an office building's lobby however, and as he registered and signed up for his challenge matches, he noted that the gym members all wore the uniforms he saw in pictures and videos.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>It wasn't until he walked through the rest of the small building and out the back entrance that he found himself in the "real" gym… a sprawling campus of outdoor training zones, arenas, and various squat, unadorned buildings. Blue always thought the military mannerisms and clothes of Vermilion's gym members were mostly theater: no doubt the Leader ran a tight ship, but he figured at its core it would be similar to other gyms.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>That first day, as Blue walked across the campus to start his challenge matches, saw a formation of gym members jogging side by side with their pokemon, passed a line of trainers practicing their pokemon's aim and timing against targets, and heard the cries of battle commands mixed with shouted orders, he knew he'd been wrong. And he began to believe that he came to the right place to learn how to be a leader.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Unfortunately, by their fifth day in Vermilion he still hasn't been able to schedule a meeting with the Unovan gym leader. After the first challenge battle, a straightforward fight against a pikachu and a mareep that seemed insultingly easy considering his two badges, he wasn't able to request another until the following week. Until then, he's been… "training."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue stands at attention with the other new challengers in a field, eyes on the gym teacher in front of them. None of them are wearing the full uniform of the gym members, but they were each provided shirts and pants in various green and khaki colors. Just putting it on made Blue feel like he was part of something new, made his spine stiffen as he fell into formation with the others at the assigned time and place.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The first few days were spent learning basic presentation, then the importance of physical conditioning (AKA, lots and lots of running and some obstacle courses), then a few standard commands to position groups of pokemon in strategically useful ways. Today they finally have their first combat related lesson. Blue looks around, wondering where Aiko is… then spots her jogging toward them, already short hair tied back. Blue smiles at her, and she flashes one back before joining the rear line just as the instructor finishes unpacking some supplies and standing an easel up.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Morning trainers, and welcome to Positioning 101," the instructor says in a lazy drawl. The Gym's Third, Sabra, is a tall young woman with dark skin, a buzz cut, and a perpetually half-lidded gaze. "This being your first official lesson, I'm going to introduce you to something you may have seen others carrying around."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She opens a box full of plain wooden disks with the Thunder Badge symbol on them and a pin in the back. "These are your 'Objections.' Used to just be called 'tokens' when I started, but someone began calling them Objections and it stuck. Raise your hands with fingers out for each badge you have."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue raises two fingers into the air. Most others raise at least one finger, while the majority show between two and four. An older woman with short greying hair is the only one with seven fingers up. Blue vaguely recognizes her from a battle match against Erika. <em>Lin, that was her name. Had a crazy-strong slowking and heracross.<br /></em><br />"Keep em up." Sabra begins tossing Objections to each of them for their badge counts. The trainers quickly space themselves out to give themselves more room to catch, many beginning to smile or laugh as they grab the flying discs with one hand as the other keeps holding their fingers in the air. She leaves Lin for last, then holds seven discs up with a raised brow. Lin smiles and lowers her hands, palms out and fingers curled. The trainers back away from her as the instructor begins to fling discs in every direction, and Lin's hands dart left, right, up and down, grabbing every one. The class applauds, and Sabra smiles.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Alright, form up again. I want you all to pin those to the front of your uniforms, rows of four. Pay attention to who's got how many, because as of this moment, while you're on the Gym grounds, those with more than you are your superiors. Any group activities, they give the orders. Any strategy decisions, they have final say. Understood?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue nods along with the others, brow creased. This feels like a predictable and limiting way to assign rank, but he trusts there's more coming.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Any dispute you have with someone else with an equal or higher rank than you can be settled by wagering a token," Sabra continues. "Your superior gives an order you disagree with, you can put up a token to express that disagreement. They can then choose to take it and try your idea instead: if it works, you get yours back plus one of theirs. If not, they keep it. For two with equal rank, either can offer a token."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Someone raises a hand, and Sabra nods to them. "What if neither does?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Then what are they arguing for? Not putting your money where your mouth is should make it clear you're not worth listening to. If the deadlock continues, their punishment is their continued dysfunction as a unit."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Someone without badges raises their hand, then asks, "What if someone doesn't have any, or runs out?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Then they'd better hope their arguments are convincing on their own. You all can feel free to hand someone a token at any time if you're impressed by them, or want to make a sociopolitical statement."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"How many tokens do <em>you</em> have?" someone else asks.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The group chuckles, and Sabra smiles. "Infinity minus two. Any other questions about the Objections?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Is there a way to earn more, outside of wagers?" Aiko asks.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"We used to hand some out in classes if a student did something impressive, but eventually felt it was messing with the dynamic. In case it's not clear, these tokens are just meant to physically represent a natural dynamic between people: trust. Trust in thinking, in experience, in leading ability, whatever. And trust doesn't come from on high. Trainers are warriors, not soldiers. Outside of gyms or the Ranger Corps, trainers don't have formal ranks or a chain of command; when we choose to follow someone, to listen to them in a crisis, it's based on their accomplishments or how well they can convince us their idea is the right one. And the more they prove themselves the more trust they have. So while you're in this gym, we're going to make you as aware as we can of how you're assigning your trust to others, and what it takes to earn some."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue realizes he's grinning and tones it down to a smile. He's going to have to push Red to take a few classes here: he thinks his friend would enjoy this system. Hell he'd probably try to implement it among their group.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"So. You've got your Objections. Let's see how you use them."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Sabra marks an X on the poster board. "This is a dragonite. Fully grown, and mean. Rampaging in this direction." She draws an arrow down, then some circles. "About to reach a town. You and your classmates are the only trainers around. Your objective is to prevent it from reaching the town if possible, and minimize civilian loss if not. Now. What's the first question you've got to answer about any engagement?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The class is still and silent. Blue listens to the distant yells and chants of trainers and other instructors, trying to think as a drop of sweat slides down his neck and the sun beats down on them. First he'd want to know what pokemon the others with him have. Next the terrain, anywhere they can surprise the dragonite from…</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>A gangly redhead raises his hand, one of the two five badge trainers. "How strong it is."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Good. What else?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"What pokemon my allies have," Blue offers, and the rest of the class begins pitching in ideas.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"How much time we have."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Has anyone fought a dragonite before?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Their instructor nods along with each suggestion, then writes three words out:</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><strong>Intel. Resources. Terrain.</strong></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"All good answers. More than anything else, you have to know what your enemy is capable of, what resources are at your disposal, and where you'll be fighting. Any strategy you try to devise without one of these three things is going to be weak to the point of uselessness. So, you know your enemy, roughly. Here's your terrain." She draws some grass tufts and hills, then a forest to the side. "Now split into groups of… seven? Eight, and figure out a plan. You, there, you two here, you go with them. Reconvene in ten with a plan, as detailed as you can get it, and we'll do a breakdown and judgement then."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue is glad he's not paired with Lin: little chance of getting an Objection from that veteran. He scans his group mates as they walk a distance away from the others and form a circle. One with one badge, two with no badges, one with two besides himself, two with three and the gangly guy with five, who speaks first.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Hey everyone, I'm Cal. The only pokemon I have that can take some hits from a dragonite are a scizor and a golem." He looks to the trainer on his right.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Hi. Jen. I've got an ursaring that might take a few attacks. Other than that, a raichu or hypno to hit it from afar."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Glen. Got a snorlax to slow it down."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Everyone perks up at that, and Blue whistles. Getting a snorlax by his third badge is either impressive or really lucky. "How old?" he asks.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"About twenty years."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>Not much grown, then. </em>And snorlax aren't all as physically tough as most people give them credit for, though they can shrug off most special attacks like no one's business. "Any useful attackers?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Glen gives him a skeptical look, but says, "A fearow that can harass it for a bit."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue nods and lets it go. Cal seemed about to say something to Blue, then just nods at the next person in the circle, the other trainer with two badges.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Lani. I've got a dewgong." Everyone murmurs appreciation at that, Ice attacks being the only thing that can reliably take a Dragonite down fast. "Won't have much mobility, but it can get some solid hits in if you can give it cover."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Blue. My strongest attacker is double resisted, so a wartortle with Ice Beam may be the only thing I can offer. The rest of my pokemon would really just be there to distract and harass."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The two trainers with no badges look at each other. They appear related, and Blue guesses they're on their journey together. "Chie and Taro," the girl says for both of them. "I don't know what we have that could do much. A jigglypuff to try to put it to sleep, a koffing to make some smoke and distract it… nothing that can really take a hit or do much damage."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Same here," the boy with one badge says. "I only have a meowth, oddish, poliwag, and pidgey. I don't think it would even notice them. Oh, I'm Vincent."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Okay," Cal says. "So. We've got a golem and snorlax to tank it, scizor and dewgong to take it down. We can have… Jen? Jen, as flex. Maybe start with raichu or hypno, then put ursaring in if we need him. I guess I should ask, anyone else here feel confident dual battling? Okay, I think that's our best bet then. We hit it hard with everything we've got and take it down before it has time to knock out our tanks. The three of you, try to keep your pokemon safe, but get a hit in when you can. Preferably with any status conditions."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The others nod, but Blue is frowning as he tries to think of a better plan. There's got to be something better the less useful trainers can do than just try to distract it and hope for the best: a dragonite in a rampage isn't going to be slowed down by anything but a critical hit to an eye or wing.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Any Objections?" Cal looks around. "Okay, so positioning. Those woods provide us cover, if we've got time we should check an area for wild pokemon then camp it until the dragonite is moving past. If we can engage inside it we'll have extra cover, and the farther we fight from the town the safer it'll be."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Maybe we shouldn't all be in one place," Blue says. "If it's full grown it probably knows hyper beam. We should spread, minimize the risk of all being hit by one."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"We won't be able to coordinate as easily," Cal says.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"So delegate. Trainers with melee pokemon will have to be closer anyway. Choose a lieutenant to call the shots for the ranged attackers."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Which would be who, you?" Glen asks.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Whoever has the most experience among them, so Jen, probably."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She looks surprised. "Yeah, I guess I can do that."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Hang on, I'm still not sold on splitting up in the first place," Cal says.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue remembers his objection to splitting up back when Red suggested it in Viridian forest, and fights down his impatience. "Well, what are your problems with it?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"It's just trading one risk for another. I'd rather keep everyone together."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>Well, that's helpfully vague. </em>Blue decides not to press it and come off as insubordinate. "Okay, let's go over positioning then?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Taro frowns. "I thought we just did. In the woods, right?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"He means of our pokemon," Lani says. "I think."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Yeah. The instructor said to go into as much detail as possible. I figured we should try and go over where they are in relation to each other and ourselves."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Cal shrugs. "Sure. So we'll set up our tanks on the side where the dewgong is and keep it from getting past us to hit it, while you guys harass it from behind and try to get it to turn around."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"If you set up in front of me it'll be harder to hit the dragonite without friendly fire," Lani says.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"And the rest of us will have to try and aim around you, from a distance." Jen says. "Not great."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"It's the only way to prevent it from just going straight at the ranged," Cal says.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Lani shakes her head, then kneels and plows a finger through the dirt to outline the forest, town, and path of the dragonite. "Dragonite are fast. I think it's better to put some of the tanks on either side to avoid getting hit by our ranged, and to box it in. If we come at it all from one side, it could just flee and attack the town from the other."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Maybe," Blue says. "But it's not <em>trying</em> to attack the town. That's just the direction it's rampaging. If we hit it from one side it should turn to us."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Why not draw it away then?" Glen asks. "The objective was just to not let it reach town."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"That seems like a technicality," Jen says. "I'm not sure Sabra will accept it."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Agreed," Cal says. "Besides, a rampaging dragonite is dangerous: pointing it in a different direction just puts others at risk."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue considers as they argue, trying to imagine himself in the situation. It's not hard to come up with strategies he would use to fight the dragonite if he was on his own, with access to the others' pokemon, but even with a dewgong, golem, and scizor, he would be worried about his odds.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Being able to fight all together means they should win, even if they get sloppy, but they still want to win <em>clean. </em>No casualties, no risks. If they know the dragonite will stay engaged on them, it might be best to engage in a battle of endurance of sorts.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"We shouldn't try to distract it," Blue says, interrupting a discussion of the lower level trainers taking turns. "I think I have a better idea. We should set up a field medical line for you four."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"No one listed any healing pokemon. Does anyone have them?" Cal asks.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Even without any, we have potions, ether, and revives. If we're not going to be useful in the fight anyway, even using your second and third choice pokemon is probably a better idea, if it means someone else is there to get your primaries back in shape. Switch your pokeballs to open access, and when one of your pokemon is hurt, withdraw and toss it to us. We can summon it, heal it, and throw it back while you keep battling with your others."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The circle is quiet as they consider this, and Blue listens to the other two groups conversing as he looks from face to face. Some look doubtful, but the others...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"It also lets us split up, but not too far," Jen says. "Melee, ranged, and medical forming a triangle point between them."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Finally Cal nods. "Okay, yeah. That makes sense to me. Anyone else got an objection?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>No one does, and they spend the rest of the time discussing positioning. When Sabra calls time, they approach and go over everyone's plans. The first team uses hit and run tactics to keep the dragonite distracted while Lin's slowking attempts to overwhelm it mentally from a distance. The strategy seems simple on the surface, but they'd come up with a number of clever tactics to use as needed, which caused Sabra to nod approvingly and declare their plan a likely success. Lin hands an objection to one of the trainers in her group, who smiles wide and attaches it to their shirt.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The second team's plan does indeed try to simply drive the dragonite away from the town, as Glen suggested. Sabra doesn't seem to have a problem with the concept, focusing her criticisms specifically for their use of kiting tactics.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Remember to take the temperament of the wild pokemon into account when trying to confront it. If this dragonite is looking for a fight, it may not be driven off by seeing the ground in front of it set ablaze or get rocks thrown at it. The only thing known to reliably deter a dragonite once its blood is up has been a powerful enough blizzard. Sorry, but your plan probably wouldn't work."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>A trainer from that group with three Objections unpins one and hands it to their group's leader with a slight frown. Sabra turns to Blue's group, and Cal describes the plan. The instructor makes a thoughtful noise after he finishes. "Dedicating non-combatants to battlefield recovery is standard procedure for this gym. Do any of you know gym members, or read our forum?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>His group shakes their heads, a few of them glancing at him. Blue is as surprised as they are, and widens his eyes to exaggerate his innocence. It's satisfying to know that he was able to come up with a gym-approved strategy on his own, and he wants to make sure people don't think he "cheated."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Well, I'd say your plan should succeed as well. More casualties than the first group's, probably, but they have stronger pokemon up front. Well done." She waits to see if any objections are handed over. A few people glance between Cal and Blue, but Blue never offered an Objection: Cal had adopted his plan without him needing to. "So, this was your first taste of working in groups. Next we're going to practice maneuvers that allow easy propagation of orders among group members."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She flips the page on the poster board and starts writing out <em>Priority 0, Priority 1, Priority 2…</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"At the very least, you should have an understood shorthand for priorities for any group you're a part of, large or small. Rangers use an increasing priority list, so we've adopted theirs as standard procedure. For those of you who don't know how this works, it's fairly straightforward: Priority 0 is considered the basic default behavior of everyone acting in the best interest of themselves and those around them, with their own understanding of events. Priority 1 supersedes it if issued, as the implication is that there is something more important that needs to be coordinated on and attended to, even if it does not appear obvious to every trainer why. Once a Priority 1 has been established, a Priority 2 will be issued if some new concern appears that supersedes 1. Once it is handled, 1 is considered still in effect: if the situation changes and Priority 1 is no longer important, then further orders should be labeled as the <em>new </em>Priority 1. Any questions so far?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The group stays silent. Blue's mind is already racing ahead as he tries to think through how the priorities are determined by each ranking officer. "Are the first few of these common knowledge before an encounter?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Generally yes, if they have time to prepare, any Ranger squad worth their uniform will have at least two or three Priorities already in place, so people know the initial goals. They would then add new ones if needed."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The gangly boy, Glen, raises his hand. "What if you set two priorities already, then something new comes up that's between them? Would you say something like Priority 2.5?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"That's exactly right. It's a system that allows potentially infinite on-the-fly accommodation of new circumstances. While it could get awkward to continue fracturing orders, realistically I've never seen anything more than a 2.25 or 1.75."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko pokes her hand up. "What if a priority shifts position? Do you rearrange all of them?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"No. If there are four priorities and Priority 1 becomes the new most important one, you would say 'Priority 1 upgrade to 5,' and after that refer to it as 5. The exception to this is Priority 0, which despite being below 1, is also partially outside the hierarchy. At any point, if the leader calls for Priority 0, they mean forget all the previous Priorities and do what you can to keep yourselves safe and act as you see fit. Sometimes, if things get FUBAR enough, it's basically a way to say 'every man for themselves.' For this reason it's sometimes called Priority Alpha."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Someone mutters something, and Sabra raises a brow at them. "Got something to say?" The young man shakes his head. "Come on Trainer, spit it out. We're all here to learn."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I was just saying that this seems unnecessarily confusing."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She smiles. "A common comment. Who else agrees that this system is too complicated?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>A few people raise their hands, then a few more, until a little over half of the participants have their hands raised. Blue keeps his down: on the off chance she singles someone out to offer something better, he'd rather wait until he has one.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Well it's your lucky day, because trying to come up with a better system is your next assignment," she tells the class at large, causing Blue to smile. "Keep in mind what this system does well, and what it does poorly, and how you'd want to improve it without losing its strengths. If you come up with something novel, who knows, we might even adopt it officially and send it to the Rangers. Same groups as before, fifteen minutes. Go on."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue congregates with the others again, all of whom were more or less still together. They discuss the system's strengths and weaknesses, then try to come up with things that address its strengths while ignoring its weaknesses. This results in people mostly just discussing what they like or dislike in the original system again, and Blue remembers too late that he should have suggested everyone think on their own for a few minutes. Cal gets everyone back on track by reminding them that they're supposed to be actively trying to come up with new ideas, and Jen takes out some pen and paper, using it to write out what they come up with and list pros and cons.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue remembers doing something similar when they were Goal Factoring, and suggests trying to draw things out that way. He's not sure if it's meant for something like this, but the others seem interested. He guides Jen in the process, and at the very least writing them down helps the conversation avoid going in circles. They isolate each strength, then try to come up with a plan that captures it, then go down the list of strengths to see if they apply too before seeing if it avoids the weaknesses. Glen argues that they should check for avoiding negatives first, so they try that for a while, but end up spending most of their time debating over what an acceptable amount of "complexity" is.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>They run out of time before really fleshing out a system, but Sabra doesn't seem upset, and the other two groups fared similarly. "It wasn't a lot of time, so I would have been surprised if anyone came up with something stellar, but at least you have an idea of what goes into trying to make something like this." A bell rings across the campus, and Sabra begins taking down the poster board. "If you can come up with something on your own that you think beats the default, shoot me or another of the instructors a message any time. We're always looking to improve our systems. Class dismissed."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>As the group begins disbanding, he heads over to Aiko. "That was pretty fun."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>She grins. "Yeah, way more interesting than just another training drill. Did you sign up for anything else today?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue checks the schedule on his phone. "Terrain assessment 101, after lunch. You?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Same. Let's see if we can get Red and Leaf to join us." Aiko glances past him, and Blue turns to see Glen walking toward them.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Hey, Blue. It was good working with you."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Hey, thanks." Blue struggles to remember something specific Glen contributed that he can mention, and just settles on, "Same to you."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I was wondering, why didn't you ask for an Objection from Cal? It was your idea we went with in the end."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue considers his answer. One of the first lessons in Nobunaga's journey to win the respect of others was his willingness to make use of all resources at his disposal, including his soldiers' every skill and scrap of knowledge. People saw that, and respected it, and wanted to follow him because they knew he would hear them out and make full use of their potential, so that even if his goals or methods were often brutal or seemed extreme, they still believed he had given it and any objections they had full consideration.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"The objections are for when a leader disagrees with someone under them," Blue says at last. "Cal heard our ideas out, thought them over, then decided on mine. He did what a good leader should do."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Huh. Makes sense. You're a pretty chill guy."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Aiko snorts, ignoring the look Blue shoots her. "Didn't expect that?" she asks.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Not really."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I know the feeling. I thought the rich kid of a world famous Professor would be full of himself, but Blue hides it well." She gives him a fond look and rubs his hair. "One of the reasons I joined up with them."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue's face is flushed as he tries to come up with something to say, but Glen nods. "Well, I think you deserve recognition for it, even if Cal accepted your idea. I've never really been much for coming up with plans, so…" He unpins an Objection and hands it to Blue.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue stares at the offered wooden disk. "You don't have to do that."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"My choice, right? Sabra said."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue hesitates a moment longer, then takes the disk. <em>A "sociopolitical statement," she said?</em> "Thanks." It's not the same as earning one through someone accepting his plan, but… in some ways it's better. Blue pins it to his shirt, then smiles at Glen. "Hey, want to grab lunch with us?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Glen looks surprised and smiles back. "Yeah, sounds fun. Lead the way."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:separator --><hr class="wp-block-separator" /><!-- /wp:separator --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red lies in bed with Pichu on his stomach and admires his glossy new Researcher License, basking in the sense of contentment that fills him and trying to ignore the melancholy note beneath it.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Three months since he set out on his journey. In some ways not much time, but he's gone through so much that he feels like a completely different person than the Red who spent his days doing menial lab work or preparing for his journey with Blue. Now that the first step of his journey is complete, it feels like it was almost too easy… an idea that he imagines Past Red staring at in disbelief, then holding up a single sore-from-typing finger.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The peer review process had Red worried, but the data from his pokedex registrations were clear, as were his notes. He knows replication trials are being attempted already, particularly because of the new ability to acquire large amounts of abra for research. He looks forward to seeing their results, but his nervousness has mostly faded.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The past few days have been relaxing, in an odd way. Without his research to work on he spent most of his time practicing his psychic abilities and training his pokemon in the Trainer House rooms. Blue recently became insistent that Red come to the Gym and try some classes out, and Red surprised himself by not rejecting it out of hand. Why not take advantage of the gym's facilities, if he's training his pokemon anyway? He has an electric pokemon, after all.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red finishes admiring his license, and wipes a tear away as he tucks it in his wallet. He wishes he could call his dad and tell him about his accomplishments. That would make the day perfect.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Instead he gets out of bed and heads for the Vermilion Gym to sign up for their next beginner's classes, as he promised Blue. When he arrives and looks over the schedule, he spots one that particularly focuses on trainers that have electric pokemon and signs up for that too. Blue said their more advanced classes helped him a lot with Ion, and that he thinks his shinx is close to evolving. Maybe Pichu is too, but learning to better train him seems important either way...</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>He puts his name down for a double battle in the meantime, wanting to get more familiar with instructing two pokemon at once. Watching Blue and Aiko's battle on the road gave him an idea that he's been practicing since arriving at Vermilion, and he wants to try it out.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>It takes a while for the matchmaker to find another badgeless trainer that's interested in the same format, and Red uses the time training Cerulean. The abra will be getting a name change soon, since their voyage is in about a week; Red wants to make sure she's registered to the city in case he gets super sea sick or the boat is hijacked by pirates or sunk by a gyarados. Cerulean's mind is becoming more and more familiar to Red, who can almost feel through his pokemon's psychic senses now. It's particularly odd sending an impulse to use a psychokinetic burst, since the sensation is one that he's been trying to do with his own powers for over a month now, and continues to utterly fail at.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Indiscriminate bursts of force seem to be Cerulean's limit at first, but as Red becomes more comfortable in her head, he begins practicing with lifting small objects, first by inhabiting her senses as she levitates berries to eat, then by instructing her to catch the ones he tosses to her. Her senses are incredibly sharp, all except taste… though that might just be him not appreciating the berries on the same level she is.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Twenty minutes later he's able to reliably instruct her to catch and hover berries mid-air. Best of all, he doesn't feel overwhelmed by his grief. It's there, a steady tide that saps his will and distracts him, but a short rest now and then seem to fully recover him, and the cumulative build up, if there is any, is slow.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red reminds himself not to be too optimistic, but it feels like he's finally developing his emotional endurance, or weakening the emotions behind his partition, or <em>something.</em> Maybe it's just because he's in such a great mood after getting his Researcher license, but either way, Red finds himself humming as he withdraws Cerulean to bring out Spinarak for some web shooting practice.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>He's in the middle of unclipping Spinarak's ball when the door opens and a pair of trainers appear, along with—</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Blue?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Red!" His friend grins as he follows the two in, all three dressed in similar clothing. Blue has four wooden circles pinned to his chest for some reason. "You came!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I… yeah, I signed up for some classes. Thought I'd do a practice match while I wait. What are you doing here?" He realizes he's being rude and looks at the other two. "Hey, I'm Red Verres."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"We know," the two trainers say at the same time, and Red realizes they're brother and sister, probably twins. "I'm Chie, this is Taro. We saw you on the news."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"We just finished our second class together," Blue says. "The first was yesterday. They're from Pallet Town too!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red's brow shoots up. "Really? I'm sorry, I don't recognize you…"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The boy, Taro, grins. "We moved to Lavender Town a couple years ago, started our journey a few months back. Haven't gone far from the city yet, just toward the eastern coast and back, and to the north a bit."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"So you wanted a double battle?" Chie asks, eyeing him warily. "Just you? But you don't have any badges, right?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Yeah, but don't let that fool you, he's been in some scrapes." Blue goes over to the wall and leans against it, arms folded. "This I gotta see. You two have no idea how long I've been trying to get Red into trainer battles."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red feels his cheeks flush as he tries to think of some defense, deny the unspoken charge that he's a… ugh… <em>battle trainer, </em>now, just because he's at a gym and signing up for trainer battles…</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Well, we're happy to test ourselves against anyone that travels with Blue," Taro says, and his sister smiles and nods, unclipping a pokeball.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>...but he doesn't want to insult them, and besides, he <em>is </em>here to become a better trainer first and foremost.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"So did you want to fight one of us using two of our pokemon at a time, or both of us using one each?" Chie asks.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Um. I guess both of you together would be harder for me? So maybe individually—"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"No," Blue says. "Red, two individual trainers will be better preparation for fighting wild pokemon. Taro, Chie, you guys should practice your coordination."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Sure!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"You got it!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red blinks at the determination the two suddenly show. "Uh. Okay, sure." He unclips two balls, wondering what's gotten into them. "So, I've got four pokemon to fight with."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"We'll use two each then," Taro says.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"First knockout?" Chie asks.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Nah, all four," Taro replies.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Too risky, maybe two tops."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"It'll be fine, just don't—"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Three knockouts," Blue says. "Or three blood. Whichever comes first. Either side that can't fight with two pokemon is assumed done, as the other opponent can just get around them and attack the trainer while their pokemon is fighting. Ready?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Okay!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Ready!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red blinks again, then grins. "Sir, yes sir!" Whatever Blue's doing in this gym, he's not going to throw a wrench in it.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Set… go!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Go, Charmander! Go, Oddish!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Go, Mankey!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Go, Drowzee!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red takes a moment to analyze his opponents, ensuring that his strategy is still sound, then-</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Hold First Ten!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Three words that both his pokemon immediately respond to, Charmander tossing a smokescreen out from the end of his tail while Oddish spews Sleep Powder at the mankey, since drowzee tend to be very hard to put to sleep. Blue quickly pulls his gas mask off his backpack and tugs it on, but the trainers are too focused on the battle to worry about themselves.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Mankey, Chop right!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Drowzee, Confusion right!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Charmander dodge!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Charmander tries, but stumbles as the drowzee extends its arms and begins to sway. The mankey avoids the spores as it dashes forward, but thankfully it dove straight through the smokescreen to attack, and comes out just to Charmander's left.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Base!" Red yells.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Chop!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Hypnotize Left!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Charmander whips an ember at the mankey, who screeches in pain as it dives forward and delivers a blow to the fire lizard's neck that sends it tumbling to the side. A moment later the Stun Spore Oddish sent out envelops the mankey, who begins twitching, its movements becoming jerky and erratic.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>A moment later Red's oddish keels over, and both he and Taro withdraw their pokemon together. Red watches Charmander get to his feet with relief as he sends out Whismur.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The smokescreen is fading as Taro summons a krabby, and Red grins, pulse kicking up. Excellent: two slow pokemon. "Down Two!" he yells, feeling a blaze of excitement as his pokemon snap to attention.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Dodge!" Taro and Chie yell together, clearly unsure of what's coming. But the krabby isn't targeted at all, while the drowzee is too slow to avoid the burst of sound that Whismur sends at the drowzee, or Charmander flicking embers at it in rapid succession.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Bubblebeam!" Taro yells as Chie withdraws her drowzee to send out a koffing. But Charmander didn't pause after sending the embers out, instead immediately running toward the drowzee so that the bubbles pop harmlessly against the ground in its wake.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Whismur, Supersonic Nine," Red says, and his pokemon sends a new frequency of sound at the krabby. Charmander, meanwhile, is still executing his previous command, and Red watches in satisfaction as the fire lizard leaps at the koffing, claws extended.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Sludge!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Bubblebeam!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The krabby slams its claws on the ground instead, while Charmander takes a ball of poison to the face as it leaps toward the koffing, claws extended.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The koffing reels in the air as the fire lizard latches on, its extra weight bringing it down until the koffing inhales deep and rockets upward. Charmander falls, and Red's heart is in his throat as he aims his pokeball and nabs him with the beam before he hits the ground. A surge of adrenaline makes him grin as he clips the ball and reaches for a new one as blood patters to the floor beneath the koffing, and Chie returns her pokemon too.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Match end!" Blue yells, making everyone go still. He goes to the fan controls at the side and turns them on, causing them to whir to life overhead and suck up all the remaining gases and smoke. Red and Taro withdraw their remaining pokemon as Blue pulls his mask off. "Red wins, three knockouts to two. Nice job everyone."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The excitement and adrenaline of the match is joined by elation. Not only was the first live test of his strategy a success, but he beat <em>two </em>trainers at once with it!</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"What were those commands?" Taro asks as he clips his krabby's ball to his belt and runs a hand through his hair. "You barely gave any!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I was wondering about that too," Blue says. "Is this what you've been practicing all week?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Yeah. I got the idea after your battle with Aiko. Have you figured out her code yet?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue shuts down the fans, other hand rubbing his hair. "No, but now that you mention it…" Blue's gaze is distant. "You were using simple commands to convey strategies for working together. Strategies that work when they're fighting alone too? Aiko's commands furthered the same goal for each pokemon she put out..."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>The twins are frowning, but Red grins. "Right. As long as the pokemon have some move that you can fit into a general strategy, you can carry the same command over and even link multiple pokemon to the same general goal, all with one obscure command."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"And the opponent has to guess what you linked to which command," Blue says, a mix of consternation and excitement in his tone. "You came up with all this by watching Aiko fight once?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Well, she did most of the work, I just built on the framework she provided. The hardest part was getting each pokemon to link a second command to their attacks."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Ero," Blue mutters. "Erosion. And Ero 2 to cycle into a second stage of the strategy."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Wait," Chie says. "I think I get it. Okay, so 'Hold' was the strategy, and you used attacks that would lower our accuracy or put us to sleep to do it, but what about the other words? Why both 'First' and the numbers?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red smiles and tilts his hat up to scratch behind his head. "I dunno, what were they?" He's enjoying this, he realizes. Enjoying it the way he enjoyed the battle, something he never used to think he would. But testing his ideas in the field against other, thinking opponents… there's something thrilling about it that's even stronger than watching Blue's Challenge matches, something more personal in the examination of the strategies and tactics used against other thinking opponents.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"There's no way you recorded ten custom commands in both your charmander and oddish," Blue says after a moment, and Red watches his face as his friend slowly gets it. "Those weren't linked to the attacks themselves at all, were they?" He smiles, and turns to the twins. "I got it. How about you two? Figure it out if you can, then we'll go over what you did in the battle."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Taro and Chie glance at each other, then begin to talk quietly. Blue saunters over and holds a fist up, grinning. "Congrats on the win. We'll get you some badges yet."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Let's not go crazy." But Red's smiling as he bumps knuckles with him. "But thanks. My license came today too."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Nice! Double congrats. Guess it's finally time to celebrate turning twelve for real, with an accomplishment like that."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Hey, you're not doing so bad either," Red says, glancing at the twins. "When did you get minions?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue grins. "Privileges of rank and status. I'll whip them into fighting shape so your rematch is more of a challenge. In return I can probably get them to do my laundry or something."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red laughs. "Try not to get used to it, unless you plan on having them join us too."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Would that be so bad?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red blinks, then studies Blue, who looks serious now. "I guess not," he says slowly. "If it's okay with Leaf and Aiko, it's fine with me. Have they already asked?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Not them, no, but this other trainer, Glen, has been hinting about it. He's got three badges, is old and strong enough to travel on his own, and he's good at listening and following orders while still being creative in accomplishing them."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"I… didn't realize those were attributes we were looking for," Red says, feeling odd. He always knew Blue one day planned to lead others… the whole of Indigo, eventually. Red just didn't expect him to be working to make it a reality so soon.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Hey, you're the one that comes up with most of the smart ideas," Blue says, cuffing his arm. "As long as you're around to advise me, they can be both of our minions."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red shakes his head, smiling. "For PR purposes, I insist any minions I make use of be referred to as 'research assistants.'"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Now you're getting it."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>They watch the two confer a bit longer, then Blue takes out his phone. "Gonna tell the others your license came so they can plan for the party tonight. Preference on restaurant?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"There's a Kalos district down by the southern pier that had some interesting looking places." Red takes out his own phone to look up restaurants and notices he has new emails. He opens the app and skims them for anything important, eyes snagging at a particular sender: <em>Sabrina Natsume, </em>Gym Leader of Saffron and the strongest psychic in Kanto, received a couple hours ago.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red quickly taps it and reads:</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>Hello, Mr. Verres. Congratulations on your recent research and accomplishments. I found the hypothesis suggested intriguing, and look forward to any future discoveries you uncover.</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p><em>I've also learned that you are a Gifted with a particular gift. I will be visiting Vermilion on some business today, and would be interested in meeting with you to discuss your unique abilities and research. If you're available, please meet me at the below address at 4:30 PM.</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red checks the time and sees that it's almost 4, then plugs the location into his map to see how far it is, mind racing. Did Ayane reach out to Sabrina specifically, or did her asking around about his shield travel up the psychic community's grapevine? Hell, considering the community, it might not have even been explicitly mentioned by her, but rather bounced from thought to thought.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>About a twenty minute bike ride. He can make it, if he wants to…</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red lowers his phone, letting it sink in that one of the top five psychics worldwide wants to meet with him. <em>Nervous? Me? No sir, no ma'am, nothing to be nervous about here...<br /></em><br />Just as a precaution, he closes his eyes and considers everything he knows and feels in case there's something he doesn't want anyone else to find out. Sure, he has his mental shield, but trusting that would be foolish without knowing the extent of Sabrina's abilities, which he's not sure anyone can claim. <em>Anything about my family? Friends? Have I broken any laws? Any new research opportunities? Secrets I'm keeping for others?</em></p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Shit. There's one of those.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"You okay, Red?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Uh huh. I think I'm going to have to skip the classes I registered for though." He replies to let her know he'll meet her.</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Aw man, how come? You—"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Sabrina wants to meet me in thirty minutes."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Blue's eyes widen, then he grins. "<em>Leader </em>Sabrina? Well what are you waiting for, go, go! I'll let them know you can't make the classes and sign you up for them tomorrow."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Thanks." Red gets his bag. The twins are watching him with surprise. "Sorry, gotta go."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Is it direction?"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"What? Oh, my code."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Don't tell them, Red!" Blue says. "It's an advantage until they figure it out."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>Red shakes his head, smiling. "Yeah, they're directions," he tells the twins. "More precise than usual targeting, and faster."</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Good idea!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Thanks for the battle!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"Spoilsport!" from Blue. "Battle trainers don't reveal their secrets!"</p><br>
-<!-- /wp:paragraph --><br>
-<br>
-<!-- wp:paragraph --><br>
-<p>"You too," Red tells the twins. "And I'm not a battle trainer," he yells to Blue as he heads out the door. "I'm a Researcher!"</p><br>
-<!-- /wp:paragraph -->
-        </div>
+            <h1 class="chapter-title">110: Conflict Theory</h1>
 
-        <div class="chapter-nav">
-            <a href="../109/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../111/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p><em>Hey everyone, with great thanks to a patron named Felix, there's now a script that creates a pokedex chapter at the end of my epubs and turns pokemon names into a link that goes a picture and short description of them! </em><em>I've had in mind for years to do something like this, and I'm very excited to offer it to patrons. </em><em>Thanks a lot, Felix!</em></p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Blue feels like he should be pacing, but that would reveal nervousness to any potential watchers. So instead he just bounces his feet as he lies on one of the comfortable couches in the break room he was stowed in, listening to the hum of the vending machines and typing on his phone.</p>
+
+<p>There's something about this meeting that's felt off to him from the beginning, and after Red left the call, Blue asked Leaf for a more detailed download of what he might have been missing that she could share. By the end of the call he was still unsure whether Silph was using Red as a pawn or not, but either way he doesn't like the idea of just sitting back and hoping for the best.</p>
+
+<p>Which is why he almost sends a message to Glen to get everyone who's free and make their way to the Silph building. What slows his fingers to a stop is the expected next question:</p>
+
+<p><em>Why?</em></p>
+
+<p>The honest answer would include that there might be renegade activity here soon.</p>
+
+<p>Which he expects them to do… what, about that, exactly?</p>
+
+<p>He suddenly can't shake off images of Glen struggling through physical therapy, of Maria's occasional distant, haunted gaze, of Lizzy's occasional sleepless nights that she admitted came from nightmares of facing down the renegade once again, except this time without the miraculous save…</p>
+
+<p>Blue tries to convince himself that he shouldn't be making this decision for them. It took Lizzy a while to find a therapist that worked for her, but she's doing better. Glen would ask what the point of his working so hard to get back to his peak was for, if he's not even called in to help. Maria… he's not sure what Maria would say, actually. As for Elaine, that's an easy one.</p>
+
+<p><em>Don't borrow so much guilt ahead of time, Blue. It's very noble of you, but it's patronizing as hell.</em></p>
+
+<p>And still, he can't bring himself to keep typing. Because Elaine isn't traveling with them anymore, she's taking a break, and Bretta and Slav and Sumi are focusing on different gyms with some of the others who already finished at Fuchsia, and that makes sense but it also might be to avoid being around Blue Oak, the danger magnet. Jamil and Viraj are new and eager to please, and they're not novices just because they're new to his group, but knowing they'll come isn't the same as being sure they'd come for the right reasons.</p>
+
+<p>The scenarios they've been running prepare them for unusual battles (particularly since they've been watching the ones Vermilion continues to run so they can steal their good ideas), but it's no good pretending that they'd prepare them for actual renegades. Maybe the <em>average</em> renegade, a little, but not the kind that would be infiltrating a place like this.</p>
+
+<p>(Assuming there <em>are </em>any renegades and Silph isn't just looking for excuses and justifications to get his workers scanned… but that's a thought for later.)</p>
+
+<p>Which means that despite getting immensely lucky a couple times, none of them have trained for this sort of situation. He thought about it of course, but there always seemed to be more important, more <em>likely </em>threats to prepare for.</p>
+
+<p>And this doesn't really change that. There's no reason for anyone to get involved in this… not even him. His goal is to become Champion and stop the Stormbringers, not take down renegades.</p>
+
+<p>But he's here, and there's no way he's leaving until he knows how it shakes out, and makes sure Red is okay.</p>
+
+<p>So he deletes the message to Glen and sends out new messages instead, canceling his plans for the day and filling grandpa in. If Gramps knew about the Master Ball and didn't tell him Blue is going to be <em>pissed</em>… No, not really, he'd get it if it was part of some big secret thing with Aunt Laura. Still, he's having trouble grasping what the invention might mean.</p>
+
+<p>People have tried capturing the Stormbringers before, of course. Past champions, gym leaders, even some random trainers brave enough to attempt the impossible. A lot of words were written analyzing their failures, and what steps are required to get the job done.</p>
+
+<p>The first barrier of course is just reaching them. Even the toughest pokemon tire quickly when flying through a storm under Pressure, and even fully insulated suits can't protect their riders for long against the intense heat, electricity, and cold around the birds themselves.</p>
+
+<p>The second is getting a ball lock. The storms reduce the range of even the strongest beams down to nearly nothing, and Blue knows first hand how hard it is holding one steady on a moving target while riding a pokemon, let alone doing it on a flying one in a storm.</p>
+
+<p>Then there's the throw, assuming you even <em>get </em>a lock. It's hard to hear the confirmation over the storm, and those few who have sworn they felt the haptic feedback of a lock, thrown <em>and </em>hit, and still didn't capture them. Damage to the balls from the intense temperature or electric currents was the primary guess for why.</p>
+
+<p>And of course, all of this assuming the giant bird god is just flying in a straight line, and not concentrating its unstoppable power at you. Which is how most attempts failed, even with others helping support and distract.</p>
+
+<p>There's also the question of mass. While larger than any other birds, they're probably not as dense as corviknight, most of which don't hit the 200 kilo limit on ultraballs. But what if they don't have hollow bones? How dense are their beaks and talons? Some fancy programs were run on video footage that tried to evaluate their weight by the way they flew and maneuvered compared to other pokemon, but they weren't conclusive given the unique environment they created around themselves, and their unique immunities to it. The main thing Blue remembers from looking at that info years ago was that they somehow determined that articuno seems to weigh <em>less </em>than moltres, which made no kind of sense to Blue but made Red nod thoughtfully in what Blue suspected was just him acting like a know-it-all.</p>
+
+<p>All of which is to say that if Silph really did create a ball that would stay undamaged, could scan through a storm, and could guarantee a capture if thrown… the stormbringers might get caught before he even becomes Champion, something he hasn't actually considered likely before.</p>
+
+<p>He's not sure how he feels about it now.</p>
+
+<p>On the one hand, massively relieved. On the other… disappointed, that it might not be him. He knows plenty of others have just as much a right to get revenge on the birds, he doesn't need it to be him. But he's not sure how he'll feel if he doesn't at least <em>help</em> take down one of them, if they're all gone before he even has a chance to try.</p>
+
+<p>And deeper beneath that worry, there's fear… and anger.</p>
+
+<p>That's what has his foot bouncing, as much as anticipation. His inner arcanine, who resembles Soul now, scars and all, is pacing for him, spreading heat through his chest and stomach.</p>
+
+<p>Someone is trying to steal their best chance at stopping the Stormbringers.</p>
+
+<p>It's one thing to worry about how to keep the peace once he or some other trainer gets a legendary. If a renegade gets it, or some shadowy organization…</p>
+
+<p>No, the answer would still be the same. Become an ideal champion, one that can rally the region and take it on. He's not sure if renegade controlled Stormbringer would be more dangerous than a wild one, but better to avoid that altogether, if possible.</p>
+
+<p>The more he thinks about it, the more obvious it is that this <em>is </em>part of his path. He can't just walk away from something that has this much chance to ruin the region, the islands, plausibly even the world.</p>
+
+<p>Even if there's no real chance of making a difference, he can't just walk away.</p>
+
+<p>He finishes messaging his grandpa, then starts drafting one to Red to check if anything new has happened. He gets interrupted within seconds by a call. "Hey, Gramps."</p>
+
+<p>"Who else is with you?"</p>
+
+<p>The straight to business tone, with none of his usual levity, makes everything feel more real. Blue sits up, checking the glass door to see if anyone is coming by. "It's just me and Red."</p>
+
+<p>"Were you invited?"</p>
+
+<p>"Nah, I kind of talked my way in."</p>
+
+<p>"Then keep your involvement off the web until you know how things shake out."</p>
+
+<p>Blue feels a surge of affection for his grandpa, who doesn't even try to talk him out of staying, and instead goes straight to what matters. "You think it's a bad idea? There still might be time to talk Red out of it."</p>
+
+<p>"I honestly don't know, Blue, but it's different for him in any case. We can get away with some things you wouldn't be able to."</p>
+
+<p>"If it costs political power—"</p>
+
+<p>"Not just that, there's social drag to you admitting your mistakes, if you make one."</p>
+
+<p>"Right." It feels unfair, but he gets it. "I'm going to stick around."</p>
+
+<p>"I figur—"</p>
+
+<p>"Attention all personnel."</p>
+
+<p>Blue twitches at the sudden gruff male voice, then turns to find its source: an intercom in the corner of the ceiling. "Hang on, Gramps, something's—"</p>
+
+<p>"I heard."</p>
+
+<p>"—be doing a full update of the SecuriPass system, and will begin distributing new cards throughout the day. Please be aware that if you leave the building before receiving your new card, you won't be able to re-enter until we can get you one."</p>
+
+<p>Well now Blue <em>definitely </em>isn't leaving…</p>
+
+<p>"Please pay close attention to your intramail so you know when it's your turn to receive your new pass. We hope to get done with everyone within a few hours."</p>
+
+<p>Nothing new comes, and Blue says, "Okay, go ahead."</p>
+
+<p>"You said the police are involved?"</p>
+
+<p>"The city commissioner is here himself. Burrell."</p>
+
+<p>"Hm. I don't know him."</p>
+
+<p>"Problem?"</p>
+
+<p>"Maybe not, but I want to know why interpol isn't there. They were helping in Celadon."</p>
+
+<p>"Huh. Dunno. Think Aunt Laura can check if they're in the loop, somehow?"</p>
+
+<p>"I'll do it myself. Try not to rush into anything, Blue. If a larger game is being played, you're as likely to wreck things as help if you don't know what's going on."</p>
+
+<p>"Yeah, I get it. But if Red is being used—"</p>
+
+<p>"I know. I'll do what I can."</p>
+
+<p>"Thanks, Gramps. I know you will."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Red thought they might go through the whole building, merging with Silph employees one department at a time. Instead he's led from the president's office down to the fourth floor, where the building's security headquarters is. There's already a small team of rangers and police inside, as well as a pair of hunters.</p>
+
+<p>Red met some hunters while working with the Celadon police, and always found the experience a little surreal. He's so used to seeing them in movies and shows, which portray them either as heroic, misunderstood figures just trying to do a hard job despite stigma, or hardened loners balancing on the edge of their duty and its effects on their conscience.</p>
+
+<p>In reality most seem to just be quiet and reserved, fading into the background and just following the lead of the police and rangers. These two stand at either side of the door, one with his hands clasped behind his back, the other with a thumb hooked into her pokebelt. Red's eyes get drawn, as usual, to the extra black line that splits their balls vertically. He knows it's conditioning from shows and films that make such simple change cause the hunter balls to look so sinister, but just being in the same room with them makes part of his attention constantly track where they are.</p>
+
+<p>The Silph staff members who come in for screening seem to feel the same, gazes darting nervously toward them even more often than they do Commissioner Burrell, or President Silph, or the company's psychic, or even Red's kadabra. He listens as each is told the real reason they were called in, and each agrees to be merged with rather than leave work for the day and pick up their new security cards tomorrow. Silph's CAO, CTO, and CHRO were apparently told and screened ahead of time, which is why they were all waiting for them in the security office when they arrived. His CMO was the only C-Suite executive not to be pre-screened, and so she was the first to be called in after the announcement went out over the intercom, followed by the various other heads of departments.</p>
+
+<p>Red wonders whether the consent they're giving will feel less real if no one decides against it. Does it even matter if Silph is being honest about the lack of consequences if no one <em>believes </em>it? But then, what could he do about that? If it's really costless to them, why <em>would </em>they subject themselves to it instead of taking the paid day off?</p>
+
+<p>Unless they're really just that dedicated to their work. This is Silph HQ, after all, and so far they've all been fairly high up in the hierarchy. They're probably intrinsically dedicated, and if they really have nothing to hide or are used to being scanned, this sort of thing would seem routine to them.</p>
+
+<p>Things change when they reach the first dark employee, one of the R&D managers. He gets a longer explanation, and his reaction is more nuanced, a nervousness woven into his acceptance.</p>
+
+<p>"You're sure you're okay with this?" Red can't help but ask, looking into the man's eyes himself.</p>
+
+<p>"Yes, yeah, I'm good." He wipes a palm on his pantleg. "You did it on Blue Oak, right? And he's fine? There was no pain?"</p>
+
+<p>"Yeah." Red didn't expect the main worry to be whether it was painless, but at the man's nod he just accepts that he's being over-cautious and mentally commands Kadabra to use Miracle Eye. "Okay, it's happening now."</p>
+
+<p>"Oh, I'm sorry," the man says after a moment, cheeks pink as he keeps his gaze on the floor. "If something… uh, unusual comes up."</p>
+
+<p>"It's fine, Sir." The company psychic, Lin, has been clinically professional with everyone, and Red has wondered whether he's a full time Silph employee or a contractor that works for other organizations too. "It's very common for people to inadvertently think of things they try not to during a merger, but it doesn't bother us."</p>
+
+<p>That's a polite fiction, of course, some psychics do find the thoughts that come up in people's minds disturbing, but that does fade with experience. It's fair to say that someone in Lin's position, at least, is probably long past any embarrassment or shock, but either way, he's too much of a professional to show any.</p>
+
+<p>After a few pointed questions to direct the manager's thoughts to the Silph company, his feelings about it, and his career plans, the psychic nods to indicate that he's withdrawn his mind, and Red tells Kadabra to end it.</p>
+
+<p>"That's it?" the man asks, looking around with another moment of apprehension.</p>
+
+<p>Lin nods, and the head of security, Sicong, hands the man his new passcard. "Thank you for your cooperation."</p>
+
+<p>"Of course. Um, good luck." He takes the card, bows to the room, and leaves.</p>
+
+<p>"I think that went well," the head of HR says, and President Silph nods.</p>
+
+<p>"Let's hope the rest do as well."</p>
+
+<p>And for the rest of the company's dark senior staff, they seem to. There's surprise for most, but not all; many are calmly, almost resignedly, accepting, as if they expected something like this. A few are even cheerful about it. Red can't tell how genuine those are, since he's just assisting with the Miracle Eye and not doing the mergers himself. But from what he can pick up by the brief period of surface thoughts, there's nothing obviously incongruent.</p>
+
+<p>There's a brief break as Lin pauses to use the bathroom, and Red stretches his limbs by walking over to the glass wall that looks over the city's main street and cranks one of the levers on the side to open a window slot, letting some fresh air into the crowded room. One of the cops is leaning against the glass with Pranav, another Silph security. "I don't like it," Red hears the cop murmur around her coffee cup. "If they talk about what we're doing, give warning…"</p>
+
+<p>"What's the worst that happens? Someone leaves early?" Pranav shrugs. "Doesn't change much."</p>
+
+<p>"Tips them off, if they're planning something."</p>
+
+<p>"I'll take it. Know you guys want to grab them, but so far as I'm concerned a boring day where everything goes smooth is a win." He glances at Silph, who's sitting at a desk and answering emails. The president said he prefers to be present, ensure the employees know the orders and assurances are both coming straight from the top, but Red can imagine it strikes the company's security as an unnecessary risk. "Besides, not like they're going to subject themselves to a merge anyway, if they are planning something."</p>
+
+<p>Red has to admit that he's also unsure how this would help capture the potential renegade. There's always some chance they're overconfident, or feel trapped and let themselves be merged with rather than raise suspicion… but the more likely outcome is they just leave.</p>
+
+<p>But after another half hour of working their way down through the middle managers and to the lowest ranks, no one's done that yet, and Red starts to feel more nervous about it. Not the sort of nerves that makes him feel like he's in <em>danger</em>; one of the hunters has a wigglytuff out and earplugs in, if anyone who walks in tries to start something they'd be unconscious in seconds. But still, his feet keep tapping restlessly under his seat.</p>
+
+<p>He's just about to try Focusing to see if his unease is coming from moral ambiguity, or something else when the CAO, whose name Red has already forgotten, claps his hands together with a satisfied sigh.</p>
+
+<p>"Alright, that's everyone in leadership. Kazue, I think we can deal with everyone else without you."</p>
+
+<p>President Silph looks up at him. "You're sure?"</p>
+
+<p>"Yes," says the woman in a three piece suit that Red is pretty sure is the CHRO. "They'd probably feel more intimidated than anything. Go get some work done."</p>
+
+<p>President Silph smiles. "You know me too well." He fiddles with the mouse and keyboard for a moment, then straightens his cuffs as he stands. "Alright, I'll be in my office if you need me."</p>
+
+<p>Sicong looks to his subordinate. "Pranav, go with him."</p>
+
+<p>"Yes, Sir." He gives the female cop a small wave and escorts the President to the door, where Silph pauses and turns back to Red.</p>
+
+<p>"Be sure to come back up before you leave, Mr. Verres, so I can thank you again."</p>
+
+<p>Red just nods, and then they're gone. As soon as the president leaves, some tension leaks out of the collective minds in the room, and the CHRO doesn't waste a moment before turning to the CAO and CTO, saying, "Same goes for you two."</p>
+
+<p>They exchange glances, and the CAO opens his mouth, then closes it with a wry smile and nods. "Yeah, alright. Call me—"</p>
+
+<p>"If I need you, yeah, yeah."</p>
+
+<p>"You alright here, Valentin?" the CTO asks the guy in the room who's been reprogramming people's new security badges. Red presumes he's in charge of cyber security, but it's been hard to tell what the organizational structure here is.</p>
+
+<p>"I'm good, Sir." The IT engineer flashes a thumbs up without looking away from his computer. "Everything looks good from the lab, too."</p>
+
+<p>"I'll go see how they're doing with the rest, then."</p>
+
+<p>Once the two men leave, the room starts to feel a bit less crowded, with just the CHRO, Valentin, Sicong, and Lin from the company, while Burrell, the female officer, and the two hunters represent the city. Red didn't even learn their names, but the guy is lanky while the woman is short and muscular, so he's been thinking of them as Tall and Stocky.</p>
+
+<p>Red has been a little surprised by how casually everyone's been acting toward each other, particularly given the high ranks of some of them, but he can tell that they're all more than a little nervous. Still, that does seem to be decreasing, even for the cops and hunters, who are getting more and more relaxed over time. Even Burrell, whose hat has gone uncreased for nearly ten minutes now.</p>
+
+<p>A steady stream of employees continues to trickle in, most of them non-dark, and as everything becomes more and more routine Red starts to wonder if it would be disrespectful to fiddle on his phone while he waits for Miracle Eye to be needed again.</p>
+
+<p>He checks in with Kadabra instead, merging with his pokemon to send reassurance at some of his restlessness, then sending their combined senses outward in every direction. With Kadabra's incredible range, he could count every employee mind on the surrounding floors if he wanted to, and it's a little dizzying being aware of so many anonymous minds at once. At best he can aggregate, emotional impressions: a dozen people feeling anxiety, another dozen or so deeply focused on some task, a small scattering of people who seem to be on break, or relaxing in some other way, particularly clustered in a couple rooms that he guesses are kitchens.</p>
+
+<p>It's particularly interesting noticing where people's attention is focused, and how "open" they are to the world around them compared to something specific that they're deliberately paying attention to. He wonders whether his own awareness shifts, and, as he notices the way it automatically seems to "glance" at the people around him, what triggers it for himself when he's not deliberately focused on anything…</p>
+
+<p>"This is Red Verres, who will be allowing me to merge with your thoughts…"</p>
+
+<p>Red pulls his mind back and focuses on the employee in front of him, trying to look attentive and unthreatening. The woman doesn't seem too concerned, though she asks some questions about privacy expectations before agreeing.</p>
+
+<p>Once the merger is done and she leaves, he decides to finally pull out his phone to message Blue and see how he's doing. The text doesn't go through, however, and after a moment he notices that his phone has no signal.</p>
+
+<p>The sight of the error sends a small jolt through his stomach, and even as part of him knows he's probably overreacting he looks around to see if anyone else has noticed something wrong. Maybe they just block it in here, and he has to get on the local wifi…</p>
+
+<p><em>THUD</em></p>
+
+<p>Everyone jumps, turning to face the door. The loud noise came from just the other side of it, and seemed to rattle it in its frame.</p>
+
+<p>"What was that?" Commissioner Burrell asks. Everyone in the room with a pokebelt has a hand on a ball.</p>
+
+<p>"I sent for lunch," the CHRO says, but her tone is doubtful, and when one of the hunters twists the handle and pushes, it doesn't budge.</p>
+
+<p>"What in the h—"</p>
+
+<p><em>BOOMMMMMmmm</em></p>
+
+<p>Red waits until the floor stops vibrating to stand, knees slightly bent. "That came—"</p>
+
+<p>"—above us—"</p>
+
+<p>"Attention Silph Employees. This building is now under our control."</p>
+
+<p>Red stares at the intercom speaker in what feels like a haze of surreal shock, even while part of him feels like all of this is totally normal. Burrell swears, and the hunter tries to open the door again, this time shoving his shoulder against it.</p>
+
+<p>"Everyone below the fourth floor may evacuate immediately. Everyone on the fourth floor and above, remove any pokebelts and lie facedown, hands on your head. If you attempt to stop us, we will kill our hostages, including President Silph."</p>
+
+<p>The room is frozen, for a moment, and Red has to withdraw his senses to avoid getting overwhelmed in the mix of emotions pinging off everyone's minds. There's a click from the intercom before the voice returns.</p>
+
+<p>"Commissioner Burell and associates in security, you've no doubt noticed by now that you're trapped behind a ton of iron. This means we can't assure your disarming compliance. However, we have people throughout the building, and if you use any pokemon to break through the doors, walls, ceilings, or floor, we will kill the President. Just sit still, and no one needs to die."</p>
+
+<p>"Who is this?" the Commissioner asks, and Red is impressed by how even and commanding his tone is despite the vein that's visibly throbbing on his temple. The man's face is flushed to a dark mahogany, and his hat lies crumpled on the ground, fists clenched at his sides. "What are your intentions?"</p>
+
+<p>There's no answer, and Burrell takes out his walkie talkie. "Haru?" He twists a knob. "Emiko, come in." Another twist, this one going through multiple clicks. "Burrell to all points, come in, over."</p>
+
+<p>"Internet's down." Valentin says, voice low as he starts typing rapidly. "Lost landline and wifi—"</p>
+
+<p>"Jammer for phones and for radio frequencies," Sicong says, breathing hard. The head of security is twisting his own radio through frequencies, each click sounding incredibly loud, then seems to force himself to stop.</p>
+
+<p>Burrell seems about to throw his own radio, then catches himself and places it on the table next to him, palms flat beside it as he stares at the wall.</p>
+
+<p>"What do we do?" the CHRO asks, voice low. "How did this happen?"</p>
+
+<p>"I'm thinking."</p>
+
+<p>"They have Mr. Silph—"</p>
+
+<p>"I'm <em>thinking!"</em></p>
+
+<p>The hunters have stopped trying to bust down the door, and Lin just sits with wide eyes. "The window…?"</p>
+
+<p>"Four stories up," Burrell says. "Any of you have a pokemon that you can ride that climbs walls?"</p>
+
+<p>No one answers.</p>
+
+<p>"They'd probably count that as trying to escape too," Sicong murmurs. "And kill Kazue, and whoever else they have." Red can tell he's thinking of Pranav, maybe wondering if he's already dead.</p>
+
+<p><em>We're trapped.</em></p>
+
+<p>Red's heart is beating hard in his chest, but steady. He merges with Kadabra and sends their psychic range out as wide as it can go, sensing the minds fleeing the floors below them, doing his best to filter out the universal fear and shock radiating from all the others in range.</p>
+
+<p>They're all trapped.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>In a way, part of Blue had been waiting for the first <em>boom</em> that shudders through the building all along. It should have been like a shot of espresso, a jolt of adrenaline that set his heart racing. Instead Blue immediately enters his battle calm as he swings his feet around and stands, then moves out the door and into the hall that led to the elevator Red went up, hands automatically moving to unclip the airmask from the side of his bag and slip it on.</p>
+
+<p><em>Maturin, Gon, Ion, Soul, Zephyr, Rive. </em>The last two wouldn't be able to be summoned indoors, and Soul would be pretty cramped too…</p>
+
+<p>Soon he's in the office area that leads to the private elevator. It's a wide open room with a couple dozen desks scattered through it, each pair forming the Silph logo when placed side by side. The office workers are still at their desks looking mildly confused as they stare at the ceiling, or look around to see what others' reactions are, and Blue's steps slow as he wonders whether he should tell them to evacuate or ignore them and head for Red.</p>
+
+<p>Which is when he notices one of the people take a pokebelt out of a suitcase and clip it on.</p>
+
+<p>In any other context, Blue would admire the person's level-headedness and reaction time. If you hear something like that, regardless of where you are, your first step should be to reach for your belt.</p>
+
+<p>But there's something too calm, too sure, about the man's movements, and the memory association is immediate and impossible to ignore; it's been nearly a year since he helped catch Yuuta, but he still dreams about it, sometimes.</p>
+
+<p>"<em>Renegade!"</em></p>
+
+<p>The word comes out before he can consider it, an explosion of sound that gets more reaction from everyone than the boom had.</p>
+
+<p>Only too late, in the moment where everyone turns to him in shock, does Blue consider other explanations for what he saw: an ex-trainer or ranger, or even an undercover cop or security guard…</p>
+
+<p>And then the man throws two balls at the only relatively empty parts of the office: the spaces in front of the doors. One releases a vileplume, the other a blastoise. The pokemon have barely been summoned before he takes a facemask out of his suitcase and has clipped it on. "Nobody move—"</p>
+
+<p>Blue has already started kicking rolling chairs and shoving over desks, throwing himself behind one as he tosses out a ball. "Go, Gon! Sa!"</p>
+
+<p>As the freshly summoned breloom shoots a cloud of sleep inducing spores at the blastoise, Blue has a moment to uselessly wish he had a chance to use a PC and switch his pokemon, and then he's rolling across the floor to shove more things out of the way so he can summon his arcanine, which takes twice as long. As he works, a barked command from the renegade sends a splash of acid onto Gon from behind, causing him to cry out in pain.</p>
+
+<p>Blue grits his teeth and finishes clearing a space. "Go, Soul!"</p>
+
+<p>People start yelling and rushing out of the way as soon as the arcanine appears, head brushing the ceiling. Blue almost orders a Flame Charge as a second blob of acid sails through the air, drops leaving smoking holes in the carpet, then remembers where they are and shouts "Faf!" instead, pointing up and vaguely toward the vileplume from behind cover.</p>
+
+<p>The next few moments are full of screams and crashing sounds as Soul goes charging through the office space. Someone has started making an announcement on the office intercom, but Blue has no attention to spare for it, and cranes his head up to see how the battle is going… which is how he spots the renegade clearing some space around himself.</p>
+
+<p>If Blue had been asked how annoying it would be to have a real pokemon battle in an office building, he could have gone on a two hour rant. Just because he hasn't trained to battle renegades doesn't mean he hasn't trained to battle indoors; after everything he and his friends have been through, particularly stories of Leaf and Red's battles in Vermilion, he'd have to be a fool to expect most incidents he ends up battling in to be in the wild.</p>
+
+<p>So he practiced in sims, and looked up advice online, and even found a few buildings marked for demolition to set a few of the Fuchsia scenarios in. One of the main difficulties involved not having space to summon pokemon, so Blue got good at thinking and acting in ways that would create space while acting on new ones that show up naturally in the course of the battle, even while he found it incredibly annoying and tedious compared to the smooth back and forth of even a wild outdoor battle.</p>
+
+<p>Of course his practice sessions didn't include battling a renegade who was also trying to make space, and at the end of the day who uses it comes down to who's got better reflexes.</p>
+
+<p>His arm snaps out while the renegade is still raising his ball, and Maturin appears just as the man tries to summon his own pokemon.</p>
+
+<p>The renegade's ball gives a low error beep to indicate that the summoning area isn't clear, and as the man scrambles to create more space Blue quickly checks the other battles.</p>
+
+<p>Gon has put the blastoise to sleep, but is clearly hurting from the vileplume's acid. Thankfully Soul is savaging the flower pokemon, flame-lined jaws tearing burnt petals off one at a time, so Blue rushes over to spray some potion on his breloom before a "Sab!" has it spitting seeds out in a rapid stream at the blastoise's tough shell.</p>
+
+<p>Blue turns back to see Maturin standing in ready expectation, its attention shifting between the pokemon fighting around it. It has nothing that he could order it to do to a human, but once the other battles are done the three pokemon he has out should be able to easily overwhelm whatever the renegade summons. Still, better to deny that one too, if he can…</p>
+
+<p>He prepares to throw Ion's ball, then notices that the renegade has stopped pushing desks out of the way and finished yanking a greatball out of his pocket, a variety of others falling and scattering on the ground, and a jolt of energy sends Blue rushing forward even as the man enlarges it and takes aim at Maturin.</p>
+
+<p>He's not going to make it.</p>
+
+<p>Time fractures, two futures splayed out before him. In one he sacrifices his starter to what might be permanent psychological damage. Maybe he'll be able to clean up the confused mix of conditioning, with months of careful reprogramming and retraining, but maybe not.</p>
+
+<p>In another, he withdraws Maturin, the renegade summons a new pokemon in the empty space, and Blue probably dies before his other pokemon can come save him.</p>
+
+<p>It's the sort of decision that can only ever be made one way.</p>
+
+<p>He wants to believe he's fast enough to withdraw and throw at once, but he doesn't have another ball prepared and the renegade does, and the renegade will just do the same thing to whomever he sends out to replace Maturin anyway.</p>
+
+<p>And so he has a full second to accept that he's likely lost Maturin, a second to prepare to summon his luxio, the only other pokemon he has on him that would fit in the cleared space, and then finds himself throwing Ion's ball just as the man does, pegging the empty greatball out of the air with a <em>tink.</em></p>
+
+<p>He doesn't stop to think about what he just did, other hand already moving to get an empty ball of his own, which he enlarges and chucks directly at the man's head.</p>
+
+<p>The renegade's reaction to his ball being deflected midair is admirably/annoyingly unphased, but he also clearly doesn't see Blue's followup coming, and gets smacked in the temple, which sends him stumbling back a step. Unfortunately he recovers quickly, and Blue feels a rising frustration as his options grow more and more limited. Tactics that keep the renegade from using his pokemon aren't enough, Blue needs some way to <em>end </em>the fight. Maybe Blue can pull the man's mask off and have Gon use Spore, but the renegade is bigger and stronger than him, and probably knows how to fight—</p>
+
+<p>Something hits the man in the back of the head, and he stumbles forward a step. A stapler clatters to the ground, and Blue sees a woman standing behind the renegade, half concealed by her desk, a half-panicked, half-furious look on her face.</p>
+
+<p>"Nice shot!" Blue yells, a savage grin splitting his face. That was an ex-trainer's throw, or his name isn't Oak.</p>
+
+<p>The renegade regains his footing and spins toward her, and Blue winds back another empty ball as she scrambles away—</p>
+
+<p>Another object flies by, this time from the left. It misses the renegade by a few inches, but makes him reflexively crouch, which makes it easier for Blue to peg him in the back of the head and almost sending him headfirst into the desk beside him.</p>
+
+<p>Blue has the fleeting, annoyed thought that this scene is going to look ridiculously cartoonish in whatever film gets made about his life, but the renegade does seem to be having trouble standing straight now, so he starts to look around for something heavier to throw.</p>
+
+<p>And then three objects fly at the renegade within a few seconds, one striking him in the back and another in the side, and he starts to spin wildly, eyes wide behind his mask. Blue sees a marble paperweight and dives to scoop it up, rolls into a crouch, throws—</p>
+
+<p>—but the renegade is running now, withdrawing his unconscious blastoise before dashing through the doorway it was blocking.</p>
+
+<p>Blue curses and chases after him before he can stop to think, scrambling to swap balls and bring Maturin with him. "Return!" he yells, then adds "Soul, come, Gon, come!" before realizing there's no way Soul will fit through the doorway and giving a yell of frustration, pumping his legs faster as the renegade turns a corner ahead of him. He must be running for the front lobby, and if he reaches the open space there first…</p>
+
+<p>But when they arrive Blue sees it's full of people, all rushing for the building's front entrance. The renegade doesn't stop, and within moments he's lost in the crowd that's shoving its way through the main doors.</p>
+
+<p>Blue slows to a stop, then looks around to make sure people aren't running from something more immediately dangerous. He almost grabs one to ask what's going on, if there are other renegades elsewhere, but then Gon rushes up beside him, tail bobbing as he hops protectively around his trainer.</p>
+
+<p>Blue takes a moment to catch his breath, then returns Gon to his ball and rushes back the way he came, past open and empty offices to where Soul's head is stuck through the doorway of the room they were in, clearly trying to find a way to squeeze his body through. He makes a plaintive growl as he spots Blue, rotating his head as he tries to shift a shoulder past.</p>
+
+<p>"That's alright, Boy," Blue murmurs, stretching a hand out to pet the arcanine's snout before gently pushing so that he backs up into the room. Blue checks him for injuries, rubbing at the stitch in his side, then withdraws Soul and looks around the wrecked office area. "Everyone okay?"</p>
+
+<p>The Silph employees are still mostly cowering around their desks, but one has gone over to the vileplume's corpse, presumably to ensure that it's dead, while another is going from desk to desk trying phones. It's the woman who threw the stapler at the renegade, and she smiles and nods to him.</p>
+
+<p>"We're all safe, Trainer, thanks to you."</p>
+
+<p>Blue is about to express his own gratitude to her and the others for the part they played when a shrill voice yells, "Thanks to <em>him</em>? What kind of maniac starts a battle in a crowded room?!"</p>
+
+<p>He turns to the source, an older woman who's sitting beside an upturned desk, a broken PC in her hands, and tries not to let his incredulity and anger show, reminding himself that she's probably just scared. "You'd rather I let the renegade do what he wanted?"</p>
+
+<p>"Ben wasn't a renegade, he was… I mean, he…" She shakes her head, eyes wide and confused. "He probably would have let us go! That's what the guy on the speaker said!"</p>
+
+<p>Blue frowns at her as he vaguely remembers the intercom saying things while he was fighting. "What did he say, exactly?"</p>
+
+<p>"That anyone below the fourth floor was free to leave!"</p>
+
+<p>"He also said they've got hostages," the first woman retorts. "If he was going to let us leave he wouldn't have blocked both ways out of here."</p>
+
+<p>"Hostages?" Blue asks before they can get into an argument. <em>Why the fourth floor? </em>"Who?"</p>
+
+<p>"We don't know, but President Silph is one of them."</p>
+
+<p>Blue's fists clench, and he takes out his phone to call Red, then grimaces at the lack of signal and puts it away. "It doesn't make any sense. They block communication but let people leave… what starts on the fourth floor?"</p>
+
+<p>"I don't know, it's… there's some storage? Security?"</p>
+
+<p>"Not IT?"</p>
+
+<p>"No, that's fifth."</p>
+
+<p>Security probably, then. Maybe they put most of their people there? Fuck it, he doesn't have time for guessing. "Alright, I'm sure there are a bunch of people calling the police and rangers and news and so on once they leave, but when you leave could you message my grandpa, let him know I'm okay?"</p>
+
+<p>The woman's eyes widen. "Yeah, of course. You're… going up? What about the hostages?"</p>
+
+<p>"Renegades don't take hostages," he says, trying to ignore the churning in his stomach. Red's okay, he's got to be…</p>
+
+<p>The woman on the ground is shaking her head. "You can't just decide that! They've clearly got a plan, you don't <em>know </em>they'll kill anyone—"</p>
+
+<p>"Renegades don't leave witnesses!" Blue yells, heat filling his chest thinking of what happened under the Casino. "They're evil, pure and simple, and whatever they're here for they can't be allowed to get it! If Silph is alive it's because they need him for something, but once they have what they want they'll kill anyone who saw them! Letting others leave means they know they'll be gone before the police and hunters get here."</p>
+
+<p>What they're not accounting for is him being here.</p>
+
+<p>The lady hangs her head, staring at the broken computer, and he feels his anger flare up again before he forces it out with his next breath and turns back to the younger woman. "Is there a PC connected to the storage system on this floor?"</p>
+
+<p>"No, I don't think so. But they should have one—"</p>
+
+<p>"On the fourth," he guesses, and sighs when she nods, running a hand through his hair. He'd like to swap some of his pokemon out… hell, he'd like to get some backup. He's painfully aware that he didn't <em>win </em>that fight, just stalled it until he got lucky. The whole reason he didn't tell Glen and the others to come is that none of them are equipped to handle renegades, and part of him is kicking himself for not having called them anyway.</p>
+
+<p>With time to think, to imagine what's ahead, he can feel fear trying to creep through his body, to freeze him in place. Red would tell him not to be stupid, not to rush into the field full of beedrill, or the burning building.</p>
+
+<p>But he has no idea what's happening upstairs right now, and if delaying a few minutes means the renegades get the Master Ball, or something happens to Red…</p>
+
+<p>He goes to find Ion's ball and reclip it to his belt, trying not to think about the way he threw one pokemon away on a slim chance of saving another, then heads for the private elevator, picking up the marble paperweight along the way.</p>
+
+<p><em>I'm coming, Red</em>.</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>Once the shock starts to wear off, it's not long before tempers begin to flare.</p>
+
+<p>"Thank you for your <em>advice, </em>but the presence of renegades makes our job clear."</p>
+
+<p>"<em>My </em>job is to keep President Silph safe—"</p>
+
+<p>"It's also to keep company tech from falling into the wrong hands," Burrel says, facing the chief of security down with a flat expression. "And I could imagine the president would say that if it's between his safety or the Master Ball—"</p>
+
+<p>Sicong shakes his head with a look of disgust. "Whether you're right or not, there are other lives on the line too. I'm not assisting with any plan that might put them in danger."</p>
+
+<p>"If you expect the renegades to let him live," Stocky says. "You are badly mistaken."</p>
+
+<p>The hunters have completely changed. From passively fading into the background, their bodies are brimming with energy, and they seem a hair's breadth away from sudden action at any moment, which makes it hard not to feel an adrenaline kick just from being in the same room as them.</p>
+
+<p>Red is spending half of his attention soothing Kadabra, who began to grow agitated from picking up on the tension and fear around them. Red would have withdrawn him, but it's useful having the extra range for his psychic senses.</p>
+
+<p>"Reinforcements will be here soon," Lanky adds. "But they plan to be gone by then."</p>
+
+<p>"The hostages—"</p>
+
+<p>"Renegade activity presumes constant danger to everyone," Stocky says, then turns to the police commissioner. "With your permission, Sir?"</p>
+
+<p>"Now wait just a minute—"</p>
+
+<p>"Not yet," Burrell says, ignoring Sicong and turning to Valentin. "I need you to tell me how compromised the labs might be. Is there any chance they can take what's there?"</p>
+
+<p>Valentin stares at the commissioner for a moment before glancing at his livid security chief, then back. "I don't know. It's… they shouldn't be able to get anything, the Master Ball is being digitally stored in multiple parts, but if they have hostages… they might be able to convince someone to give them what they need?"</p>
+
+<p>"Which is likely, if they threaten to kill them or those around them." Burrell takes a deep breath, then lets it out, vein still throbbing in his temple before he turns to the hunters. "Suggestions."</p>
+
+<p>"Bring the building down," Lanky says, one hand patting an ultraball on his hip.</p>
+
+<p>"Can you do it from here?"</p>
+
+<p>"No, Sir. Would need to get outside first."</p>
+
+<p>The commissioner nods, then turns to the other hunter, who shrugs.</p>
+
+<p>"If they need hostages to get the ball, call their bluff," Stocky says. "Fight our way to them. But Jensen's right, they're confident they can get it and leave soon, so—"</p>
+
+<p>"We need to know where they are first," Burrell says with a nod, then turns to the female officer. "We could split up. Cover all bases, do our best to slow them down until reinforcements come."</p>
+
+<p>"But it's not certain, Sir," Lanky—Jensen—says. "And they could teleport away as soon as they realize they'll lose."</p>
+
+<p>"That's still a win, right?" Lin asks, speaking for the first time. "Getting them to leave—"</p>
+
+<p>"Every renegade that escapes is a potential slaughter," Jensen says, voice flat. "That goes twice for renegades as organized as this. The only acceptable priority is extermination."</p>
+
+<p>"You can't," the CHRO says, voice low and obviously scared. "You can't just… bring down the whole building, on all the people in it, just to…"</p>
+
+<p>No one answers. They don't need to: the hunters could, in fact, do just that.</p>
+
+<p>Assuming Burrell agrees. He's still the ranking officer, and they're under his command.</p>
+
+<p>Everyone watches the commissioner as he slowly runs a hand over his cropped hair, then walks over to the window, staring out at the bright day outside. As Red picks up on the tension in his mind, the wavering fear and certainty and dread, he feels his own fear spreading and growing, sinking him into the sense that this is all a prolonged nightmare. If the commissioner gives the word, the hunters will start fighting their way out… the hostages will be killed… and then, if they make it to the ground floor, they'll bring the whole building down.</p>
+
+<p><em>Options, options, we need options…</em></p>
+
+<p>What do the renegades believe?</p>
+
+<p>That they hold all the cards. That as long as the police and hunters are stuck in here, and as long as they have hostages, they can get the master ball.</p>
+
+<p>So they need to get the hostages away from them.</p>
+
+<p>But they can't do that while they're stuck here.</p>
+
+<p>Red feels sweat beading his skin despite the cool breeze, and glances at the window beside Burrell. They're not <em>actually </em>stuck here, any of them with a teleporting pokemon can leave… <em>he </em>could leave, if he's willing to wash his hands of all this. Make it not his problem.</p>
+
+<p>Save himself, and maybe consign Blue and the others to death.</p>
+
+<p>Or, perhaps worse, let the renegades get the Master Ball.</p>
+
+<p>His heart starts to beat faster, and Red closes his eyes. Options, he needs options. What can he do that the renegades won't expect…</p>
+
+<p>…and then his partition is down, and he's his full self again, considering all the options he's already cataloged while it was up.</p>
+
+<p>They don't know he can perfectly lie to psychics, but that doesn't help him at the moment.</p>
+
+<p>They don't know he can project <em>sakki</em>, but that only helps if he can merge with their pokemon.</p>
+
+<p>Most importantly, they don't know he can teleport indoors. Not unless they believed his claim that he could, which most who don't know him don't seem to, and which they're certainly not acting like they do.</p>
+
+<p>Of course, whether he <em>can </em>isn't the issue. It's whether he <em>will, </em>if he tries. His abra was able to teleport him to his room because he fundamentally believed it was safe. There's no way he's going to believe that about any part of the Silph building…</p>
+
+<p>Unless he tricks part of him into believing it by partitioning and amnesia'ing what he's doing it for.</p>
+
+<p>It feels like a dangerously convoluted plan that he wishes he'd thought to try practicing earlier, but… it just might work.</p>
+
+<p>Lin is giving him a strange look, and Red meets his gaze and sends a wordless question. <em>Trust?</em></p>
+
+<p>The other psychic holds his gaze, then nods.</p>
+
+<p>"I think," Commissioner Burrel says, voice rough, and Red can sense his decision from the sense of dull finality in his thoughts. "That we don't have a choi—"</p>
+
+<p>"Wait," Red says, heart hammering even as his resolve hardens to certainty. "There's another option."</p>
+
+<p>Burrell's face doesn't show the hope Red senses from him, only skepticism. "Speak."</p>
+
+<p>"I can teleport out, and—"</p>
+
+<p>"Help won't come on time—"</p>
+
+<p>"—save the hostages."</p>
+
+<p>The skepticism is radiating from everyone now, but it's mixed with an odd kind of hope from the non-hunters, a desperate kind that's looking for miracles.</p>
+
+<p>Burrell's hope isn't that kind. He's staring at Red as if seeing him for the first time, and giving an odd smile. "Knew there was another reason Silph wanted you here. You're his ace in the hole, aren't you? All that stuff with Celadon, you did more than help search buildings."</p>
+
+<p>"What can you do, exactly?" Stocky asks, and Red senses suspicion from her.</p>
+
+<p>It's understandable. Only the best trainers could hope to fight renegades without having pokemon that could go for a trainer kill too, and Red doesn't have any badges. Which, to them, implies he might have illegal pokemon.</p>
+
+<p>"I can teleport indoors, and I have a secret psychic ability that lets me shut down renegade pokemon."</p>
+
+<p>"That's imposs—"</p>
+
+<p>Jensen cuts himself off, and Red both senses and sees it. The moment they remember who he is, and what he's done.</p>
+
+<p>It's an uncomfortable feeling, in some ways, but also makes some part of him relax, his back straightening as he meets their gaze one by one. Another part of him is terrified of what the consequences of his secret coming out might be… but maybe, if he's careful…</p>
+
+<p>"He's not lying," Lin confirms after a moment, voice quietly awed. Even without being merged, Red knows the other psychic can sense his resolve. "He's scared, but… he really believes he can do this."</p>
+
+<p>Burrell's eyes are wide, and he licks his lips, hand going to his hair again. His gaze jumps to his hat where it's lying on the ground, then back to Red. "Ten minutes. Get Silph to safety, if you can. Stop the renegades, if you can. And then we're breaking out."</p>
+
+<p>Red nods and turns to Valentin. "I need to know where I'm going. The only spots I'll be able to teleport to are Silph's office and the back elevator." They're the only places in the building he formed enough of a strong emotional memory to return to. "Can you tell me how to get to the lab from either?"</p>
+
+<p>"I'll do you one better. Give me your phone, I'll transfer you our security codes and the building schematics." Valentin hesitates, then turns to Sicong. "Assuming—"</p>
+
+<p>"Yes, fuck it, give him whatever we've got!"</p>
+
+<p>Red hands his phone over, then prepares himself for a very strange conversation with his partitioned self. After a moment he turns to Lin. "How far is your psychic range? Does it reach the bottom floor?"</p>
+
+<p>"It doesn't reach the top floors, but I can sense most of the building."</p>
+
+<p>"Then I'm going to need your help…"</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/109/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/111/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -1836,6 +928,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

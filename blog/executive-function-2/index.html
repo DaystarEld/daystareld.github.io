@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Off Road project has since been folded into Rethink Wellbeing, but I’ve continued working to better understand and treat Executive Dysfunction. You can read more about the project’s origins here.
+...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Procedural Executive Function, Part 2">
+    <meta property="og:description" content="The Off Road project has since been folded into Rethink Wellbeing, but I’ve continued working to better understand and treat Executive Dysfunction. You can read more about the project’s origins here.
+...">
+    <meta property="og:type" content="article">
+    <title>Procedural Executive Function, Part 2 - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Procedural Executive Function, Part 2</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        May 16, 2023
+                    </span>
+                    <span>📁 Executive Function, Therapy</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><i><span style="font-weight: 400;">The Off Road project has since been folded into Rethink Wellbeing, but I’ve continued working to better understand and treat Executive Dysfunction. You can read more about the project’s origins </span></i><a href="https://forum.effectivealtruism.org/posts/8ekqxkowckzEKu3uG/off-road-support-for-eas-struggling-at-uni"><i><span style="font-weight: 400;">here.</span></i></a></p>
+
+<p><i><span style="font-weight: 400;">If you haven't, I suggest reading <a href="http://daystareld.com/executive-dysfunction-101">the start of my overview and exploration of Executive Function</a>. </span></i><i><span style="font-weight: 400;">Part 1 of Procedural Executive Function can be found </span></i><a href="https://daystareld.com/executive-function-1/"><i><span style="font-weight: 400;">here.</span></i></a></p>
+
+<img class="aligncenter size-full wp-image-3879" src="https://daystareld.com/wp-content/uploads/2022/07/PEF-2.png" alt="" width="947" height="1212" />
+
+<p><b>TL;DR - Self Monitoring is your ability to </b><b><i>notice what you’re doing </i></b><b>at any given moment so that </b><b><i>you can ask yourself whether it’s actually the thing you want to do.</i></b><b> </b></p>
+
+<p><b>Impulse Control is the </b><b><i>ability to decide </i></b><b>whether to turn impulses noticed through Self Monitoring into actions. </b></p>
+
+<p><b>Emotional Control involves </b><b><i>awareness and acceptance of what you feel</i></b><b>, so that you can experience your emotions fully and </b><b><i>decide which to act on</i></b><b> without feeling overwhelmed or controlled by them.</b></p>
+
+<p><span style="font-weight: 400;">Before I continue to divide the executive function into parts that I consider roughly sequential in how people experience "deliberately doing something,” it's important to take an extra moment to re-emphasize that I perceive executive function as </span><i><span style="font-weight: 400;">a process with multiple steps.</span></i><span style="font-weight: 400;"> Part of what I hope people learn from this series is to better understand </span><i><span style="font-weight: 400;">which aspect of the process</span></i><span style="font-weight: 400;"> is blocking them when they feel stuck with their own, unique executive dysfunction, so that it’s easier to notice pitfalls and figure out how to avoid them.</span></p>
+
+<p><span style="font-weight: 400;">So if I focus on a certain aspect of the process and share a perspective on how to help ensure that part goes smoothly, that doesn't mean the assumption is everything will go fine as long as that one aspect does. For some actions you take, the whole process will go smoothly. When it doesn't, the part that trips you up can change depending on context, personality, diagnoses, the type of action you're taking, and more.</span></p>
+
+<p><span style="font-weight: 400;">The point of examining these parts individually is to understand how they interact more systematically; no part of this process should be taken as a final, normative word on how your own inner workings must look. </span></p>
+
+<p><span style="font-weight: 400;">(As a final note, I won’t talk about medical solutions to Executive Function, as it’s outside of my area of expertise. I hope to add more resources for that at some point.)</span></p>
+
+<p><span style="font-weight: 400;">It’s worth noting that in the flowchart, Impulse Control, Self Monitoring, and Emotional Control are only vaguely sequential and are all bound together. But I’ve organized this post in what I believe is the best order to understand them before revisiting how they affect each other at the end.</span>
+<h2><span style="font-weight: 400;">Self Monitoring</span></h2>
+<span style="font-weight: 400;">Sometimes, once we’ve passed the Task Initiation stage of executive function, it’s smooth sailing. If it’s a short and simple task, like taking out the trash or doing the dishes or answering an email, it might just get done within a minute, or even within ten, without any further issues. </span></p>
+
+<p><span style="font-weight: 400;">But the longer it takes to finish a task, and the more complex the task, the higher the chance of some step in the executive function procedure to go awry.</span></p>
+
+<p><span style="font-weight: 400;">Of course, even relatively long and complex tasks can still go smoothly. Sometimes when we write, the words pour out as fast as we can type, with only occasional stops for focused thinking and imagining. When doing chores, each act follows the next like checking boxes down a list. (This is particularly true if we enter “flow state,” but covering that is beyond the scope of this post.)</span></p>
+
+<p><span style="font-weight: 400;">Other times, we struggle to keep doing the same thing for more than a few moments, distracted by a constant stream of new thoughts, urges, or stimulation. Why the discrepancy, given how in both scenarios, our sensorium is constantly receiving input from our environment, and our brain is constantly churning through different thoughts or ideas?</span></p>
+
+<p><span style="font-weight: 400;">First, it can be helpful to clearly define three particular terms:</span></p>
+
+<p><i><span style="font-weight: 400;">Awareness</span></i><span style="font-weight: 400;"> is the umbrella term for the things you’re conscious of at any given moment, including your surroundings, thoughts, emotions, or bodily sensations.</span></p>
+
+<p><i><span style="font-weight: 400;">Attention</span></i><span style="font-weight: 400;"> is the selective noticing of a particular stimulus or thought process, at the mild-moderate exclusion of others. Attention can be both voluntary (e.g. choosing to read a text message) or involuntary (e.g. being distracted by a loud noise).</span></p>
+
+<p><i><span style="font-weight: 400;">Focus</span></i><span style="font-weight: 400;"> refers to the concentration on a stimulus, thought process, or activity for an extended period of time. It is a more intense and sustained form of attention, often at the moderate-extreme shrinking of your awareness, that can require deliberate effort, but can also be the automatic result of intense interest or engagement.</span></p>
+
+<p><span style="font-weight: 400;">To demonstrate the distinction, right now, as you’ve been reading, you’ve probably been focused on the words on your screen. But unless something is reflecting off it, the “screen” has likely been “invisible” to you while you do so; your attention was on the words. But now that I’ve called your attention to the screen, it will likely stay in your awareness for a while, even if your attention stays on these words, before eventually being filtered out once you’re back in a state of deep focus.</span></p>
+
+<p><span style="font-weight: 400;">Our minds filter all sorts of things out of our awareness, all the time. You never stop receiving the physical sensation of your tongue in your mouth, or the clothes you’re wearing against your skin, but so long as nothing calls your attention to it, your attention will go to more productive things. Same goes for background noises, smells you’ve adapted to, and even thoughts that pass through your mind without snagging your attention. Our minds are sensitive to changes in our sensorium; without any, the default for our attention is to be smaller than our awareness even when not deliberately focusing on anything.</span></p>
+
+<p><span style="font-weight: 400;">So, with all that said… what's Self Monitoring?</span></p>
+
+<p><span style="font-weight: 400;">The simplest way I can put it is that it’s </span><b>your ability to </b><b><i>notice what you’re doing </i></b><b>at any given moment, not fleetingly, but enough that </b><b><i>you can ask yourself whether it’s actually the thing you want to do.</i></b><span style="font-weight: 400;"> It’s effectively the thing that keeps you from being on autopilot all day, as well as a thing that helps avoid having your attention grabbed away from where you want to focus it. It’s often the desired effect of things described as “mindfulness” or “self awareness,” and it helps people </span><i><span style="font-weight: 400;">create space </span></i><span style="font-weight: 400;">in their own head to make deliberate decisions. </span></p>
+
+<p><span style="font-weight: 400;">As an example:</span></p>
+
+<p><i><span style="font-weight: 400;">Alice is sitting at her computer, trying to finish an essay that’s due tomorrow. She’s focusing on the words she’s writing, in a flow state of following a chain of ideas that she can easily put into words. While she writes, a friend sends her a message; the notification enters her awareness, and part of her attention is hooked on it even as she finishes writing the next sentence. Eventually she alt-tabs to check and sees it’s a post from reddit. She clicks through, laughs at the post, sends a reply to her friend, then starts reading the comments.</span></i></p>
+
+<p><span style="font-weight: 400;">First off, I think it’s important to note that from my perspective, there’s nothing in the above that is inherently bad or wrong. As always, when I speak of Executive Function, I think it’s valuable to treat it as the process between one’s deep and “actual” desires and their actions; the critical part of this examination is what the person endorses, both in the moment and in the future.</span></p>
+
+<p><span style="font-weight: 400;">Second, I don’t want to give the impression that there’s just one simple factor for why Alice’s flow state ended. She might have been sent a dozen similar messages up until now without her focus shifting. Maybe this particular friend’s messages are more important to her, or maybe her mind is closer to needing a break. Again, digging into this more is beyond the scope of this post.</span></p>
+
+<p><span style="font-weight: 400;">But meanwhile, the example brings up two different ways to think about Self Monitoring: </span><i><span style="font-weight: 400;">dynamic </span></i><span style="font-weight: 400;">and </span><i><span style="font-weight: 400;">frequent.</span></i>
+<h3><span style="font-weight: 400;">Dynamic Self Monitoring</span></h3>
+<span style="font-weight: 400;">An Alice with </span><b>very high</b> <span style="font-weight: 400;">Self Monitoring would quickly </span><i><span style="font-weight: 400;">notice </span></i><span style="font-weight: 400;">that her attention is being grabbed by the meme, then </span><i><span style="font-weight: 400;">decide </span></i><span style="font-weight: 400;">if this is what she wants to do.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>high </b><span style="font-weight: 400;">Self Monitoring might only notice once she’s opened Reddit, in the moments around the page loading.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>moderate </b><span style="font-weight: 400;">Self Monitoring would probably only notice once she’s actively scrolling the comments.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>low </b><span style="font-weight: 400;">Self Monitoring might notice after scrolling for a few minutes.</span></p>
+
+<p><span style="font-weight: 400;">And an Alice with </span><b>very low </b><span style="font-weight: 400;">Self Monitoring might not notice until she’s on another page, or something else has caught her attention, and she realizes an hour later that she intended to finish her essay before doing anything else.</span></p>
+
+<p><span style="font-weight: 400;">(These labels aren’t concerned with relative frequency among the overall population, I don’t have numbers for what the bell curve on Self Monitoring might look like, assuming it naturally even falls into a bell curve.)</span></p>
+
+<p><span style="font-weight: 400;">Again, the measure of Alice’s SM is not what she decides to </span><i><span style="font-weight: 400;">do </span></i><span style="font-weight: 400;">upon noticing that she’s no longer writing her essay. It’s only in the noticing itself. Also, remember that everyone’s Executive Function is to some degree different for different tasks and in different contexts. An Alice that has low SM in this context might have high SM in another.</span></p>
+
+<p><span style="font-weight: 400;">So a high SM Alice could notice when her friend messages her that she’s making a deliberate decision to change tasks, and then be okay with it. Then she might notice when she starts scrolling Reddit comments, and not be okay with that. Or she might be okay with it, and then another friend calls her and she decides she doesn’t want to do a call just yet, and endorses ignoring it.</span></p>
+
+<p><span style="font-weight: 400;">The focus on dynamic triggers is meaningful because the transition from one sort of activity to another is often what causes people to pop out of autopilot and ask “What am I doing and why am I doing it.” But to model what might happen next, the </span><i><span style="font-weight: 400;">frequency </span></i><span style="font-weight: 400;">of her SM is also important.</span></p>
+
+<p><span style="font-weight: 400;">A high dynamic SM Alice might be okay with reading Reddit comments “for a bit,” and notice consciously that she’s doing it rather than just autopiloting into it. But reading Reddit comments might still be  the sort of activity that she has lower SM on from a frequency standpoint, because it’s the sort of task that will lead to autopilot for longer. This is why it can be practical to divide between dynamism of SM and frequency.</span>
+<h3><span style="font-weight: 400;">Frequent Self Monitoring </span></h3>
+<span style="font-weight: 400;">An Alice with </span><b>very high</b> <span style="font-weight: 400;">Self Monitoring frequency would have a mental “check in” a few times per hour, whether she’s writing her essay or not, to decide if she still wants to or would rather do something else.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>high </b><span style="font-weight: 400;">Self Monitoring frequency might only check in every ~hour or so.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>moderate </b><span style="font-weight: 400;">Self Monitoring frequency might only check in every few hours.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>low </b><span style="font-weight: 400;">Self Monitoring frequency might only check in a couple times a day.</span></p>
+
+<p><span style="font-weight: 400;">And an Alice with </span><b>very low </b><span style="font-weight: 400;">Self Monitoring might go entire days without experiencing this sort of popping out, checking in, “What am I doing and why am I doing it” mental motion.</span></p>
+
+<p><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">Again, the question of how long it might take for Alice to remember that she’d planned to finish writing her essay is a </span><i><span style="font-weight: 400;">different </span></i><span style="font-weight: 400;">one than whether she decides to save reading the comments for later, or reading the Reddit comments later, or even just take a break and walk around the block.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with very high SM frequency might very well be okay with taking a break from her essay for a while, and then (if her SM is high enough in whatever alternative activity she decides to do next) would re-evaluate even if no other new task triggers a dynamic SM moment.</span></p>
+
+<p><span style="font-weight: 400;">It’s worth noting that, upon reading the above, some people might have very different experiences.</span></p>
+
+<p><span style="font-weight: 400;">Some might read about the high SM Alices and think “Wait, people can actually do that? </span><i><span style="font-weight: 400;">TEACH ME HOW!</span></i><span style="font-weight: 400;">” </span></p>
+
+<p><span style="font-weight: 400;">Or, alternatively, “Wait, people actually </span><i><span style="font-weight: 400;">live</span></i><span style="font-weight: 400;"> like this? That sounds </span><i><span style="font-weight: 400;">EXHAUSTING!”</span></i></p>
+
+<p><span style="font-weight: 400;">At the risk of being too normative, I </span><i><span style="font-weight: 400;">generally </span></i><span style="font-weight: 400;">believe that higher SM, whether dynamic or frequent, is overall a </span><i><span style="font-weight: 400;">positive trait to have.</span></i><span style="font-weight: 400;"> Some informal surveys I ran showed that the majority of people wanted more SM, even if they already ranked themselves as experiencing them “frequently.” Of those that didn’t say they wanted more SM, the majority still preferred keeping their amount of SM the same rather than reducing its frequency.</span></p>
+
+<p><span style="font-weight: 400;">It’s worth noting that the qualia range between how different people experience Self Monitoring can be vast. Going too deep into this, interesting though it is, would be (again) beyond the scope of this post. </span></p>
+
+<p><span style="font-weight: 400;">But while for myself SM doesn’t feel stressful or like it interrupts my life at all, for those who would prefer less frequent SM, the usual reason given was that their experience of it, rather than being “empowering” or “awake,” was more “anxious” or “disembodying.”  It makes sense that if SM moments are too frequent and negative, they could reduce someone’s ability to enjoy films or games, prevent them from entering a prolonged flow state while working, or make it harder to get lost in the embodied enjoyment of swimming or sex. </span></p>
+
+<p><span style="font-weight: 400;">So long as the SM moment is not much more than an “actual” moment, sometimes as quick and fleeting as an impulse, and not an anxious experience, most people do not seem to experience them as disruptive. There are even some who have mildly negative valence SM that still say they’re happy with how frequently they experience it, because it’s one of their strategies for managing ADHD. </span></p>
+
+<p><span style="font-weight: 400;">In any case, it’s not a state that I believe can be held indefinitely. For SM to pop you “out” of something requires being “in” something engaging enough that, even if you wouldn’t describe it as “autopilot,” is not as fully self-reflective.</span></p>
+
+<p><span style="font-weight: 400;">But I do believe the frequency and duration can be increased, and the quality of it can be improved. I used to have these moments once or twice on a bad day and three to five on a good day. Now I regularly have them about one to two dozen times per day, sometimes more if I’m doing a wide variety of things.</span></p>
+
+<p><span style="font-weight: 400;">As for the </span><i><span style="font-weight: 400;">use </span></i><span style="font-weight: 400;">they have…</span>
+<h2><span style="font-weight: 400;">Impulse Control</span></h2>
+<span style="font-weight: 400;">Now that we’ve covered Self Monitoring so exhaustively, it’s easier to zoom in on the specific value of Impulse Control. </span><b>If Self Monitoring is the </b><b><i>ability to notice </i></b><b>impulses and actions, then Impulse Control is the </b><b><i>ability to decide </i></b><b>whether to turn those impulses into actions.</b></p>
+
+<p><span style="font-weight: 400;">Not all impulses you have while doing something are disruptive, of course. While working on her essay, Alice might have an impulse to take a sip of water, or glance out the window. She might suddenly put some music on, or change the temperature, or get up and stretch. In addition, many decisions she makes for what to write next are impulsive, generated by intuitions of flow and sparks of imagination.</span></p>
+
+<p><span style="font-weight: 400;">None of these impulses get in the way of her writing her essay; the ideal amount of impulses to have is not 0, even if that were possible.</span></p>
+
+<p><span style="font-weight: 400;">Some impulses that rise up </span><i><span style="font-weight: 400;">could </span></i><span style="font-weight: 400;">be disruptive depending on context. The impulse to read the message from her friend is, sort of definitionally, disruptive, but it doesn’t have to actually derail her work. Believe it or not, some people actually work better with a semi-regular stream of such interruptions; it’s easier to focus on one track when it’s not the only thing they’re “expected” to focus on, and the extra stimulation draws their attention and feeds their brain dopamine without requiring a full focus shift.</span></p>
+
+<p><span style="font-weight: 400;">This is an important thing to highlight because it shows why this is Impulse </span><i><span style="font-weight: 400;">Control </span></i><span style="font-weight: 400;">and not impulse </span><i><span style="font-weight: 400;">obstruction.</span></i></p>
+
+<p><span style="font-weight: 400;">Again, a breakdown through use of rough scale:</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>very high </b><span style="font-weight: 400;">Impulse Control almost always has at least a moment of consideration for whether acting on an impulse would suit her goals or values.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>high </b><span style="font-weight: 400;">Impulse Control has a moment of consideration for most impulses she experiences, with the likely exceptions being while she’s tired, hungry, or otherwise under-resourced.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>moderate </b><span style="font-weight: 400;">Impulse Control might only reflect on impulses when they’re for particular actions she’s on the lookout for; opening Reddit, for example, or having an unhealthy snack.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>low </b><span style="font-weight: 400;">Impulse Control only rarely reflects on impulses, and probably just those that are fairly weak or fleeting, while</span></p>
+
+<p><span style="font-weight: 400;">And an Alice with </span><b>very low </b><span style="font-weight: 400;">Impulse Control bounces from one whim to another as she has them. This Alice isn’t incapable of doing something for a long time, but those things she </span><i><span style="font-weight: 400;">does </span></i><span style="font-weight: 400;">do for a long time are things that are so engrossing they reduce the frequency of other impulses.</span></p>
+
+<p><span style="font-weight: 400;">Again, it’s worth noting that while more of this sounds great to most people, the experience of being very high, or even high, might strike others as annoying, or even neurotic. For some the qualia is stifling/repressing, for others it’s empowered/agentic. The ideal version of this doesn’t keep you from having totally uninhibited moments of fun, particularly if you’re in a high trust and safe environment, but those could be rarer for some people than others.</span></p>
+
+<p><span style="font-weight: 400;">Being able to consistently act in a way that’s aligned with your intentions requires being able to manage impulses in such a way that they’re an extension of your goals and values rather than intrusive or self-sabotaging.</span></p>
+
+<p><span style="font-weight: 400;">Impulses are momentary things, however, there and then gone, whether they were acted on or not. Some impulses will self-repeat if ignored, but if they do that often enough it’s usually because there’s a deeper, underlying drive that’s at play. That’s why people with high Impulse Control can still struggle with…</span>
+<h2><span style="font-weight: 400;">Emotional Control</span></h2>
+<span style="font-weight: 400;">Finally, now that we’ve covered the ability to </span><i><span style="font-weight: 400;">notice </span></i><span style="font-weight: 400;">and </span><i><span style="font-weight: 400;">decide </span></i><span style="font-weight: 400;">what to do</span><i><span style="font-weight: 400;">, </span></i><span style="font-weight: 400;">it’s time to talk about what actually </span><i><span style="font-weight: 400;">affects</span></i><span style="font-weight: 400;"> which decision you end up making.</span></p>
+
+<p><span style="font-weight: 400;">To begin, I think it’s important to establish that</span><b><i> nearly all actions are driven by emotions/desires/urges.</i></b> <span style="font-weight: 400;">People with disorders affecting their ability to feel emotions invariably have difficulty with motivation. </span><b>If you don’t </b><b><i>feel</i></b><b>, you don't </b><b><i>do</i></b><b>.</b><span style="font-weight: 400;"> Our higher cognition, our </span><i><span style="font-weight: 400;">reason, </span></i><span style="font-weight: 400;">is used to decide between action and inaction, one decision and another, but these are always ultimately driven by different feelings.</span></p>
+
+<p><span style="font-weight: 400;">People with anhedonia notice this most clearly with motivation related to things that used to bring them joy, but depending on severity, they might still be motivated by frustration or guilt. If the emotional deadening is severe enough, making decisions as simple as what food to eat becomes hard, and people tend to default to whatever is the most energy-saving. This is mirrored by the fact that the process for determining which emotion will guide your behavior can often take more energy than people have to spare.</span></p>
+
+<p><span style="font-weight: 400;">As I’ve said before, “control” is not the word I like to use for this process. But it’s the commonly used and understood one for the concept of, in order from farther to closer to what I actually mean, emotional management, regulation, and integration. Rather than trying to suppress or deny emotions, what I mean by </span><b>Emotional Control involves </b><b><i>awareness and acceptance of what you feel</i></b><b>, so that you can experience your emotions fully and </b><b><i>decide which to act on</i></b><b> without feeling overwhelmed or controlled by them.</b></p>
+
+<p><span style="font-weight: 400;">But once again, the process of learning to observe your own emotional responses and finding ways to manage them in a way that feels natural and authentic to you is beyond the scope of this post, and so I’ll just point to some resources in the Suggestions, and give an abridged sense of what this looks like in the context of unblocked executive function.</span></p>
+
+<p><span style="font-weight: 400;">Let’s talk about Alice yet again, and her ongoing decisions to write her essay or do other things. At the point in which she receives the message from her friend, there’s a number of things we could imagine her feeling:</span>
+<ol>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Anxiety over not finishing her essay in time.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Anticipated-relief of eventually being done with her essay.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Interest in the topic of her essay.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Curiosity over what the message says.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Boredom->Desire for pleasant distractions.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Awareness of potential bio needs (Thirsty? Hungry? Tired?)</span></li>
+</ol>
+<span style="font-weight: 400;">And so on. Each of these emotions has a potential action that they can lead to, but before we go into that, it’s important to note that this is a pretty flat distribution. The actual experience of Alice might look more like this:</span>
+<ol>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">HIGH Anxiety over not finishing her essay on time.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MODERATE Anticipated-relief of being done with her essay</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MILD Interest in topic of essay</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MODERATE Curiosity over what the message says</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">HIGH Boredom->Desire for pleasant distractions.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MILD awareness of potential bio needs (Not really hungry but could snack…)</span></li>
+</ol>
+<span style="font-weight: 400;">Or this:</span>
+<ol>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MILD Anxiety over not finishing her essay on time.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MODERATE Anticipated-relief of being done with her essay</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">HIGH Interest in topic of essay</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MILD Curiosity over what the message says</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MODERATE Boredom->Desire for pleasant distractions.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">HIGH awareness of potential bio needs (THIRSTY)</span></li>
+</ol>
+<span style="font-weight: 400;">Or this:</span>
+<ol>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MILD Anxiety over not finishing her essay on time.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MILD Anticipated-relief of being done with her essay</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MILD Interest in topic of essay</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MODERATE Curiosity over what the message says</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MODERATE Boredom->Desire for pleasant distractions.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">MILD awareness of potential bio needs (Kinda tired…)</span></li>
+</ol>
+<span style="font-weight: 400;">For each hypothetical Alice, if you imagine an equal amount of Self Monitoring and Impulse Control, you could then wonder what she would endorse doing upon reflection… but insofar as she doesn’t just follow the strongest emotion she has, it’s because she has some amount of Emotional Control.</span></p>
+
+<p><span style="font-weight: 400;">This is where reason comes into why we end up making the choices we make. Remember the factors that go into Task Initiation, such as the expectations of how positive or negative an activity’s outcome will be? There’s a way in which the whole Executive Function cycle plays out again in miniature for each potential action inspired by an emotion. </span></p>
+
+<p><span style="font-weight: 400;">Some part of Alice is prioritizing, again and again, what she should do based on what she feels. Potential actions are checked against expected outcomes, and if one of those is expected to lead to a sufficiently positive outcome, it becomes much easier to switch to doing that in a “path to least resistance” way. So long as she’s not suppressing any of her emotions, each potential action has the opportunity to be balanced against each other and fully explored in relation to her goals and preferences.</span></p>
+
+<p><span style="font-weight: 400;">The more time she spends simulating outcomes and reminding herself of what actions will actually lead to good or bad ones, the more the emotions inspiring those actions will shrink or grow, and the most compelling ones will shift her motivation to align with them.</span></p>
+
+<p><span style="font-weight: 400;">There are a number of ways to engage in this sort of Emotional Control. Using some form of Internal Family Systems to treat each emotion as a part of yourself that can explicitly dialogue can help flesh out your expectations and resolve conflicts between them. Using something like Premortem on the expected failures can help you feel more confident in “harder” actions. Or you could just imagine all the bad things that could happen if you make the “wrong” choice… though I don’t particularly recommend that one.</span></p>
+
+<p><span style="font-weight: 400;">In this way </span><b>“Discipline” can be seen as a mental habit of using techniques and mental frames to reinforce motivation to take actions your meta-self endorses.</b><span style="font-weight: 400;"> Alternatively, Discipline can be seen as a form of “trusting” your past self’s model of what certain actions will result in, short-cutting the need to re-examine each emotion’s potential action in the moment… a sort of anchor-emotion that’s ever-present and can be defaulted to because it has deep roots in expected positive outcomes.</span></p>
+
+<p><span style="font-weight: 400;">So, to show a bit more clearly what this can look like… you know the drill by now, but let’s flip it so we can go into more detail as needed, since the wide range of strategies available in this space make higher levels of Emotional Control look more and more different from a generalized baseline.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>very low </b><span style="font-weight: 400;">Emotional Control would likely just follow the action generated by the emotion she feels the most strongly, not too differently from one with very low Impulse Control. If two or more emotions are roughly tied, she might feel paralyzed until some positive feedback loop or new stimulus edges one out over another.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>low</b><span style="font-weight: 400;"> Emotional Control is capable of at least noticing that she has different emotions/desires that she could ideally choose between. She might once in a while be able to remind herself explicitly of the things that make one choice better than another, either through imagining bad outcomes or, a bit more ideally, some form of regret-minimization.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>moderate </b><span style="font-weight: 400;">Emotional Control is capable of a (quick) pro-and-con type evaluation of each emotion-inspired-action-plan. She can model some expected outcomes enough that she might notice if she really would benefit from a brief break or snack, or if working for a few more minutes will lead her to a better point to take a break in. She could even use a light precommitment tool, like 25-minute work timers, to give her mind an easy touch-stone for strengthening the emotions on the side of continuing to work.</span></p>
+
+<p><span style="font-weight: 400;">An Alice with </span><b>high </b><span style="font-weight: 400;">Emotional Control is prepared for these sorts of reflections, knows the rough shape the emotional dilemma will take for her, and has some tools at the ready to explore her options and decide which action to take. She might already have done enough IFS to jump straight into a quick conversation with each part, or maybe she has a motto or mental habit that she uses to get in touch with certain emotions over others.</span></p>
+
+<p><span style="font-weight: 400;">And an Alice with </span><b>very high </b><span style="font-weight: 400;">Emotional Control deviates even further from a general model.  Maybe she’s deeply practiced in letting her emotions speak in an unconstricted way, such that she can evaluate each and decide on what will lead her to feeling the most fulfilled. Maybe she just runs down each emotion she feels, imagines the outcomes of each, then decides from there. Maybe she doesn’t really feel strong emotions in most circumstances, so deciding between them is easy. Or maybe she feels particularly strong emotions from expected rewards of doing work, and so it’s easy to stay within the action-space that will likely lead to that. Or maybe some combination of all of the above and more, or something else entirely.</span></p>
+
+<p><span style="font-weight: 400;">I would be remiss not to mention the Dark Side of Emotional Control, which is more what the name implies; a form of resolving conflicting desires through suppression, fear, bullying, and other general forms of self-coercion. These strategies generally develop when people are young and in coercive or competitive environments that train them to ignore emotions that aren’t instrumental to the goals they’re most rewarded for pursuing.</span></p>
+
+<p><span style="font-weight: 400;">These strategies, useful though they can be for succeeding on short timespans, tend to have diminishing returns or leave people burnt out eventually. Exploring how people sustain high productivity for years led me to the second crystalized bit of insight: </span><b>Sustainably productive people spend most of their time doing what they find </b><b><i>enjoyable, meaningful, or necessary</i></b><b>. </b></p>
+
+<p><span style="font-weight: 400;">When a goal or course of action doesn’t feel like any of those things, it eventually becomes very difficult to “control” the emotions that compel you toward things that do, and no amount of external motivation makes up for that gap.</span></p>
+
+<p><span style="font-weight: 400;">At risk of being too preachy, this is why I believe, as noted in the previous posts, that knowing what you want and why is an important part of a healthy Executive Function pipeline (not to mention a generally happier life).</span></p>
+
+<p><span style="font-weight: 400;">People are full of various wants and needs, on a minute to minute basis or on a year to year one, and each of those wants and needs are emotionally driven. Understanding how to integrate and manage those various emotions and wants is an integral part of aligning your goals with your actions.</span>
+<h2><span style="font-weight: 400;">Suggestion 4</span></h2>
+<b>Notice how often you check-in with yourself, and practice doing it more often.</b></p>
+
+<p><span style="font-weight: 400;">There are a lot of different kinds of mindfulness practice out there. Most meditation is the most popular, a way of bringing awareness into our body and thoughts, while things like the <a href="https://www.lulie.co.uk/alexander-technique/">Alexander Technique</a> try to help people expand their awareness outside of themselves. Anything that helps people pay attention to their moment-to-moment experiences better, or understand and become familiar with the loops their thoughts can end up in, can help people improve Self Monitoring. The </span><a href="https://www.lesswrong.com/posts/kWETyNJbMvMDCj6a7/introducing-the-nuts-and-bolts-of-naturalism"><span style="font-weight: 400;">sequence on Naturalism</span></a><span style="font-weight: 400;"> is largely about noticing what your attention and thoughts are doing, and </span><a href="https://www.youtube.com/watch?v=284_dY3_u6w"><span style="font-weight: 400;">this video by Duncan Sabien</span></a><span style="font-weight: 400;"> does a good job of explaining another version of it. Posts tagged with “summoning sapience” tend to be about this, such as </span><a href="https://www.lesswrong.com/posts/vZssZr2wq7YrG3FMa/creating-a-truly-formidable-art"><span style="font-weight: 400;">Val’s article on the Art of rationality</span></a><span style="font-weight: 400;">.</span></p>
+
+<p><span style="font-weight: 400;">Take a moment again, right now, to “pop out” of reading this article. You’re almost done, but still notice that you’re reading it, and ask yourself if you want to be reading it. My prompting you to do this might lead to you noticing other impulses you have, other things in your awareness, other drags on your attention. But you also might just notice your own thoughts, reading over these words, and your reactions to them. All you’re doing, when you improve your Self Monitoring, is learning how to notice certain types of thoughts or sensations that trigger this more often.</span></p>
+
+<p><span style="font-weight: 400;">Maybe it’s discomfort in your body, or a leg or arm that’s falling asleep. You could use environmental cues, such as alarms or visual cues around you (printed out pictures, sticky notes, etc) can also help train the mental habit… though I want to stress caution in anything that leads to Self Monitoring that is largely </span><i><span style="font-weight: 400;">anxious. </span></i><span style="font-weight: 400;">The alarm should be a </span><i><span style="font-weight: 400;">gentle chime, </span></i><span style="font-weight: 400;">the visual cue should be a picture of a reflective lake, or even just a small mirror hung on your wall… if it’s hard to imagine the vibe, here’s Midjourney to lend a hand:</span></p>
+
+<img class="aligncenter size-full wp-image-3561" src="https://daystareld.com/wp-content/uploads/2023/05/Self-Reflection.png" alt="" width="1024" height="1024" />
+
+<img class="aligncenter size-full wp-image-3560" src="https://daystareld.com/wp-content/uploads/2023/05/Summon-Sapience.png" alt="" width="1024" height="1024" />
+
+<p><span style="font-weight: 400;">The purpose of self-monitoring, overall, is not to feel like you’re constantly vigilant or on edge, but rather to notice when you’re on autopilot more quickly so that you can decide whether you want to deliberately. A calm, embodied “What am I doing and why am I doing it,” more a notion than the actual words. Not “oh my god why am I doing this why aren’t I doing THAT instead what’s wrong with me…”</span></p>
+
+<p><span style="font-weight: 400;">If you’re having trouble not having that be the tone of the check-ins, that leads us to…</span>
+<h2><span style="font-weight: 400;">Suggestion 5</span></h2>
+<b>Understand your emotions better, and find a constructive frame through which to understand and relate to them.</b></p>
+
+<p><a href="https://www.lesswrong.com/posts/5gfqG3Xcopscta3st/building-up-to-an-internal-family-systems-model"><span style="font-weight: 400;">Internal Family Systems</span></a><span style="font-weight: 400;"> is something I recommend often, but </span><a href="https://artofaccomplishment.com/podcasts/"><span style="font-weight: 400;">The Art of Accomplishment</span></a><span style="font-weight: 400;"> podcast has good models for this sort of thing as well, and there’s a good </span><a href="https://www.clearerthinking.org/post/understand-your-emotions-by-having-better-conversations-with-yourself"><span style="font-weight: 400;">Clearer Thinking tool</span></a><span style="font-weight: 400;"> on it too. My elevator pitch for the space in which they intersect is something like:</span></p>
+
+<p><i><span style="font-weight: 400;">Understand that your emotions/desires/impulses each exist for a good reason. That does not mean that they’re automatically “correct,” but it does mean that trying to ignore or banish them entirely is not the healthiest way to deal with whatever is causing them to arise. Instead try treating them, and yourself, since that’s what they amount to, like a friend, one whose feelings you can validate and support without letting them overwhelm you.</span></i></p>
+
+<p><span style="font-weight: 400;">An exercise you can try now:</span>
+<ol>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Notice if you have an inner narrator that’s harsh or judgemental or bullying toward any emotions or desires you have. Is there something you’ve been criticizing yourself for lately?</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Consider how you would talk to your best friend, romantic partner, or a child if they talked to you about a similar problem they were having.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Write a short message to yourself using the same language you would use.</span></li>
+</ol>
+<span style="font-weight: 400;">I plan to write more about how we relate to our emotions and how to understand them better, and will update this post with a link when I do.</span></p>
+
+<p>The last part of this series will cover the last 3 aspects of Executive Function</p>
+
+<p><i>Part 3: </i><a href="https://daystareld.com/executive-function-3/"><i>Working Memory, Organization, Flexible Thinking</i></a></p>
+
+<p>Or you can refresh yourself on the previous posts:</p>
+
+<p><i>Part 0: </i><a href="https://daystareld.com/executive-dysfunction-101/"><i>Executive Function 101</i></a></p>
+
+<p><i>Part 1: </i><a href="https://daystareld.com/executive-function-1/ ‎"><i>Planning & Prioritizing, Task Initiation</i></a></p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">advice</span><span class="tag">psychology</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

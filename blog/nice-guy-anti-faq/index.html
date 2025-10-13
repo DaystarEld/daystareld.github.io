@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="“Nice Guy” is a pejorative label used almost exclusively to make fun of men who express frustration at the “unfairness” of the romantic world for good, kind-hearted guys. It comes from the saying “Nic...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Nice Guy Anti-FAQ">
+    <meta property="og:description" content="“Nice Guy” is a pejorative label used almost exclusively to make fun of men who express frustration at the “unfairness” of the romantic world for good, kind-hearted guys. It comes from the saying “Nic...">
+    <meta property="og:type" content="article">
+    <title>Nice Guy Anti-FAQ - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Nice Guy Anti-FAQ</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        July 17, 2021
+                    </span>
+                    <span>📁 Relationship Advice</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p><span style="font-weight: 400;">“Nice Guy” is a pejorative label used almost exclusively to make fun of men who express frustration at the “unfairness” of the romantic world for good, kind-hearted guys. It comes from the saying “Nice guys finish last,” and many have attempted to defend the perspective and insist that the frustrations and beliefs at its core are genuine reflections of reality.</span></p>
+
+<p><span style="font-weight: 400;">As someone who struggled with these sorts of thoughts in high school (classic story of self-believed nice guy in unrequited love with a girl whose boyfriend seemed to be mistreating her) but then quickly outgrew it (remained friends with girl through her breakup with first boyfriend and finding actually nice new boyfriend), I view the debate surrounding the worldview and its components with a mix of frustration and sympathy. So I thought I’d write this to help clear the air a bit, and hopefully convince some Nice Guys that their beliefs are largely the result of biased perspectives and limited information, so that they can also grow past them.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">(Note that girls can be “Nice Guys” too. Plenty of girls have found themselves to be essentially invisible to guys romantically, despite being nice and caring and giving them a shoulder to cry on as the guys pined after other (often less nice) girls.  This post is going to keep the genders static for simplicity, but most of it can be applied to the reverse situation as well.)</span></p>
+
+<p><span style="font-weight: 400;">0. <a href="https://daystareld.com/nice-guy-anti-faq/#h1">What is a Nice Guy?</a></span></p>
+
+<p><span style="font-weight: 400;">1. <a href="https://daystareld.com/nice-guy-anti-faq/#h2">Why Do Girls Date "Assholes"?</a></span></p>
+
+<p><span style="font-weight: 400;">2. <a href="https://daystareld.com/nice-guy-anti-faq/#h3">Why Do Girls Claim to Like Nice Guys?</a></span></p>
+
+<p><span style="font-weight: 400;">3. <a href="https://daystareld.com/nice-guy-anti-faq/#h4">Why Do Girls Complain to Nice Friends?</a></span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">4. <a href="https://daystareld.com/nice-guy-anti-faq/#h5">Why Bother Risking the "Friendzone"?</a></span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">5. <a href="https://daystareld.com/nice-guy-anti-faq/#h6">Why Are Nice Guys Mocked?</a></span></p>
+
+<p><span style="font-weight: 400;">6. <a href="https://daystareld.com/nice-guy-anti-faq/#h7">Why Should I Believe Any of This?</a></span></p>
+
+<p><b id="h1">0. What is a Nice Guy?</b></p>
+
+<p><span style="font-weight: 400;">Everyone’s going to have different definitions of this, but the ones I find most useful/true tend to use some combination of the following tenets:</span></p>
+
+<p><span style="font-weight: 400;">1) A guy who believes that being kind, polite, or caring are overall detrimental traits for dating.</span></p>
+
+<p><span style="font-weight: 400;">2) A guy who believes that the things women claim to care about romantically (like being treated well) are not what they actually care about.</span></p>
+
+<p><span style="font-weight: 400;">3) A guy who believes that women complaining about their dating life to nice male friends who want to date them are being hypocritical.</span></p>
+
+<p><span style="font-weight: 400;">4) A guy who believes that being just friends with girls they are attracted to is either impossible, or too painful to be worth having them in their life (fear of the “Friend Zone”)</span></p>
+
+<p><span style="font-weight: 400;">Additional tenets I often see attributed to Nice Guys that I don’t think are necessary to be one:</span></p>
+
+<p><span style="font-weight: 400;">5) A guy who believes being friendly and spending money on girls obligates them to sex.</span></p>
+
+<p><span style="font-weight: 400;">6) A guy who thinks women are only valuable for sex.</span></p>
+
+<p><span style="font-weight: 400;">I only ever briefly held beliefs 1-2, and knew plenty of others who held 3-4 as well, but I don’t believe 5-6 are “core” parts to being a Nice Guy, and think the majority of the hate/disgust people have toward Nice Guys usually focus on their expressions of 5-6.</span></p>
+
+<p><span style="font-weight: 400;">Explaining why 5-6 are harmful and obviously wrong beliefs is beyond the scope of this FAQ, and hopefully not necessary to most reading it. However, some combination of 1-4 are somewhat more understandable beliefs that are often the result of biases (sample, confirmation, and others) and pain/frustration/loneliness. Since 5-6 are the beliefs that cause the most harm to others, they’re the ones that tend to get the most attention, but when people assume that anyone who believes in 1-4 also believes 5-6, that makes conversations around the topic of "Nice Guys" hard to navigate.</span></p>
+
+<p><b id="h2">1. Isn’t Tenet 1 true? I know plenty of girls who date assholes, and lots of them won’t date their nice male friends!</b></p>
+
+<p><span style="font-weight: 400;">So there are two separate beliefs that combine to form the first tenet.</span></p>
+
+<p><span style="font-weight: 400;">First, yes, you know plenty of girls who date “assholes.” Most people do. I’ve also heard girls talk about guys who date “bitches.” And guys who date assholes and girls who date bitches. Simple truth is, shitty people exist of all genders, and they are capable of finding someone to date them.</span></p>
+
+<p><span style="font-weight: 400;">Sometimes the person they date is similarly shitty. But sometimes the sweetest, kindest people you know also date people who treat them poorly, or treat others poorly. Maybe because they don’t see how shitty they are, or they're dependent on them in some way, or they have amazing sex, or because they don’t have the self-esteem to think they deserve better, or because they hope their SO will change, or because they’re afraid of being alone, or internalized societal messages about needing a "protector" (which can be confused for aggressive jealousy), and so on.  People stay in relationships for a lot of reasons, but there are plenty of people who break up with shitty boyfriends and girlfriends too.</span></p>
+
+<p><span style="font-weight: 400;">So let’s be clear: if someone ever told you that people only date nice people, they misinformed you. At best they were overly optimistic. At worst they probably just wanted to encourage you to be nice. It was probably your mother. Try not to hold it against them.</span></p>
+
+<p><span style="font-weight: 400;">But just because a rule you were taught turns out not to be true doesn’t mean the opposite is true.</span></p>
+
+<p><span style="font-weight: 400;">If Nice Guys just believed that being nice isn’t a positive aspect for dating, that would be one thing. Still wrong, but less wrong. To think it’s actually a detriment requires a second data point that seems to support this belief: that these girls have nice male friends, but they won’t date them instead of the assholes.</span></p>
+
+<p><span style="font-weight: 400;">So, “some girls date assholes while not dating their nice friends instead” becomes “being nice is a detriment to dating.” It's a leap in logic, but at least you could see why someone who only focused on these two bits of data would conclude that... especially if the nice guy is observing examples of niceness "losing." An example of this is if a nice guy asks a girl out, gets a "no," and accepts that, then sees another guy get a "no," keep asking, and eventually gets a "yes."</span></p>
+
+<p><span style="font-weight: 400;">But again, it’s due to an artificial rule: the belief that being nice is the most important feature, translating to thinking that if you don’t choose the nicest person to date, then you must not care about niceness.</span></p>
+
+<p><span style="font-weight: 400;">But “Nice” is not all you need to date someone. I wouldn’t even say it’s much of a positive. If I’m being brutally honest, if you consider “nice” to be one of your best features, you’re not saying much about yourself. Most people looking for a partner to go through life with consider “nice” to be a baseline attribute. Some combination of mutual attraction, interests, and humor matter a lot more for younger people, and things like values and career start matter as well once people mature. In general, all of these traits are higher on the list of what attracts people to each other. Again, not because niceness doesn’t "matter," but because for many people, anyone <em>not</em> nice is often filtered out fairly quickly.</span></p>
+
+<p><span style="font-weight: 400;">But again, Nice Guys who believe Tenet 1 don’t just think “Niceness isn’t the most important thing,” which is true. They believe it’s completely irrelevant at best, and a </span><i><span style="font-weight: 400;">detriment </span></i><span style="font-weight: 400;">otherwise</span><i><span style="font-weight: 400;">.</span></i></p>
+
+<p><span style="font-weight: 400;">Guys who believe that women who won’t date their nice friends must not care about niceness have only to ask themselves the same question: </span><b>would I date a nice girl who I don’t find attractive or interesting?</b></p>
+
+<p><span style="font-weight: 400;">Any guy reading this who says yes: think long and hard about every female friend and acquaintance you have and have ever had, </span><i><span style="font-weight: 400;">every single one </span></i><span style="font-weight: 400;">that was at all nice to you, and ask yourself if you’d really date all of them just because they showed an interest in dating you.</span></p>
+
+<p><span style="font-weight: 400;">Not just go on </span><i><span style="font-weight: 400;">a</span></i><span style="font-weight: 400;"> date with them. Not just have sex with them. I mean actually commit to dating them.
+</span></p>
+
+<p><span style="font-weight: 400;">If that seems unfair, remember that </span><i><span style="font-weight: 400;">not everyone has the same priorities as you. </span></i><span style="font-weight: 400;">Assuming that girls should be willing to just “give a guy a chance” despite not being interested in him romantically is assuming that the girl is interested in casually dating someone she doesn’t see a future with. And any guy who asserts that girls should do that anyway, “just in case,” is just setting himself and his peers up for heartbreak.</span></p>
+
+<p><span style="font-weight: 400;">Some guys will still say, yes, they would definitely date a nice girl who expressed an interest in them no matter what other factors about that person are true, and will believe they mean it. And for some this will be true.</span></p>
+
+<p><span style="font-weight: 400;">To those people, I say kudos! To you, niceness is the most important factor for dating, and that’s unironically great, as it massively widens the dating pool for you, since you don't filter for attractiveness. All you have to do is go on OKCupid or similar, find someone who seems nice, no matter what they look like or what their interests are, and I guarantee you'll find someone to date within a month. Finding people like this in person is hard, since it requires a lot of luck, but the internet helps a lot, particularly for shy people.</span></p>
+
+<p><span style="font-weight: 400;">But not everyone is like that. To plenty of people, it’s just not the most important factor, and they can no more force themselves to prioritize niceness above all other traits than you could force yourself to prioritize something else in who you’re attracted to.</span></p>
+
+<p><span style="font-weight: 400;">In any case, </span><i><span style="font-weight: 400;">even conceding</span></i><span style="font-weight: 400;"> that</span> <span style="font-weight: 400;">niceness isn’t the most important factor for dating for most people, that still doesn’t prove that niceness is a </span><i><span style="font-weight: 400;">detriment </span></i><span style="font-weight: 400;">for dating.</span></p>
+
+<p><span style="font-weight: 400;">For that to be true, women need to actively turn away from niceness. They need to see two guys, equal in every way, but one is nice and one isn’t, and say “I’d prefer the one that treats me poorly, please.”</span></p>
+
+<p><span style="font-weight: 400;">Again: I’m not saying this isn’t possible. People are weird. Some people get off on degradation, and others just don’t trust someone who isn’t as selfish as they are. </span></p>
+
+<p><span style="font-weight: 400;">But if it’s your default assumption for how “most” people think and feel, or how women think and feel distinct from how men think and feel, then it's probably worth unpacking what you think "niceness" even is. Not everyone agrees on it; on one extreme end, some guys see the disgust people have for macho-male sexuality and catcalls and unsolicited dickpics, and internalize "niceness" as not ever showing any romantic interest for fear of being "creepy." On the opposite extreme, some people think being nice means being a doormat, having no boundaries, accepting anything other people do to you and making any sacrifice to fulfill even the smallest of gestures for the person you like.</span></p>
+
+<p>Finding the balance between being confident in yourself and considerate of the people around you isn't always easy, but <a href="https://www.sciencedirect.com/science/article/abs/pii/S1090513804000066">studies show</a> that both often affect the perceived attractiveness of potential partners.</p>
+
+<p><b id="h3">2. If Tenet 2 isn’t true, why do women say they care about guys who are polite and nice caring, but date guys who treat them so poorly?</b></p>
+
+<p><span style="font-weight: 400;">Again, some women do this, yes. As for why, the short answer to this is that people are complicated, and don’t always know what they want... but to be clear, deciding that <em>you</em> know better than they do what they want is the trap that many Nice Guys (and just generally unpleasant people) fall into.</span></p>
+
+<p><span style="font-weight: 400;">The longer answer has to do with expectations versus reality.</span></p>
+
+<p><span style="font-weight: 400;">People tend to have an ideal image of what their romantic partner would be like: attractive, romantic, funny, competent, generous, educated, etc. A lot of this is informed by things people are told are important by their parents, or peer group, or popular culture, and I can't emphasize enough how damaging romantic movies are here. Most people are told at some point that porn is an unrealistic portrayal of sex, but it's less commonly explained how misleading "romance" movies are in portraying healthy relationships. Hell, in The Notebook the couple goes out together for the first time because the protagonist <em>threatens to kill himself</em> in front of the girl if she doesn't agree to go on a date with him... while she's already on a date with someone else. </span></p>
+
+<p>So yeah, some people end up with very confused ideas of what healthy, stable attraction and love look like, or what kind of attributes to look for in a partner.</p>
+
+<p>But however they come by them, people ultimately form an ideal set of attributes that they will explicitly think or say they want. Some are generally applicable, others are more specific, like “Went to an Ivy League school” or “Plays an instrument,” but far less common are ones like “Went to Harvard,” or “Plays piano.”</p>
+
+<p><span style="font-weight: 400;">Then, as they meet people who satisfy enough of their ideals to date, they make compromises. It’s okay that they’re not into the traditional romantic stuff. Or, it’s okay that they don’t give to charity. As they continue to date, there are often other things they didn’t expect they’d care about, and learn to appreciate. They get comfortable dating them. They know each other, have shared habits and friends and maybe even a shared apartment. Eventually they might even fall in love.</span></p>
+
+<p><span style="font-weight: 400;">Maybe some time passes and the guy lets himself go a bit. Less focus on his appearance, gaining some weight. Or the girl spends less time studying or working, and lowers her aspirations. Or simple time changes their perception: his humor, at first unique and witty, now seems cynical or repetitive. Her competence at her job, at first impressive, now seems middling at best.</span></p>
+
+<p><span style="font-weight: 400;">But if they love each other, they keep dating anyway. One or two things slipping a bit aren’t usually enough to break a relationship. Hell, even everything slipping a bit usually isn’t enough. Once people fall in love, it tends to take a long, steady decline in multiple areas for sufficient will to arise to change their pattern.</span></p>
+
+<p><span style="font-weight: 400;">So here’s the thing: “niceness” is one of those areas.</span></p>
+
+<p><span style="font-weight: 400;">Maybe the guy wasn’t really that nice to begin with, but they pretended. Forced himself to go to family events, held back criticisms of her, stopped himself from yelling at the waiter who got his order wrong, went out of his way to do nice things on all the major holidays, took her on dates because it was expected.</span></p>
+
+<p><span style="font-weight: 400;">Or maybe things just changed. He doesn’t want to see her family as often anymore because he’s gotten to know them and doesn’t particularly like them, or vice versa. He doesn’t really care how her day at work was anymore because he finds her talking about it repetitive and trivial. He gets angry when she buys something expensive without talking about it first because now they have shared accounts.</span></p>
+
+<p><span style="font-weight: 400;">If she saw these behaviors at the start of their relationship, she might not have gone on a second or third date. But once they’ve been dating for months or years, once love is in the picture and they live together and have a mutual friends and pets and even have kids together, it gets harder and harder to justify breaking things off and upending their lives and being single again, just because he’s not as “nice” as she’d like.</span></p>
+
+<p><span style="font-weight: 400;">This isn’t just a story. This sort of thing happens </span><i><span style="font-weight: 400;">all the time. </span></i><span style="font-weight: 400;">I see it among couples that come in for counseling, know people who complain about it as a growing irritation they have for their SO. Unfortunately, it can even go on past the point of just not “being nice” to verbal or physical abuse. Sometimes people take years to leave a relationship that’s long since become toxic.</span></p>
+
+<p><span style="font-weight: 400;">So, are girls lying if they say they like nice guys, even though they’re dating someone not all that nice?</span></p>
+
+<p><span style="font-weight: 400;">No. But “I like nice guys” or “I want to date nice guys” isn’t the same thing as “I won’t date someone if they aren’t nice,” any more than “I like funny girls” isn’t the same thing as “I won’t date an unfunny girl.”   For some people it does mean that, but even then, people compromise on their ideals all the time… especially for love.</span></p>
+
+<p><span style="font-weight: 400;">And if you’re thinking “But what about girls who date guys even though they’re an asshole right away?” then you’re forgetting the first part of all this: people are complicated. Some think they can make them better people through dating them. Others have low self-esteem and don’t feel like they deserve people to be nice to them all the time: they’re just grateful that the boy is nice to them some of the time.</span></p>
+
+<p><span style="font-weight: 400;">And ultimately, some really don’t care all that much about niceness. If these people say they do, they’re lying, either to themselves or others. It happens.</span></p>
+
+<p><span style="font-weight: 400;">But that doesn’t mean all or even most girls are that way.</span></p>
+
+<p><b id="h4">3. Okay but Tenet 3 is obviously true. Girls complain about their boyfriends to their nicer male friends all the time. Don’t they know they’re being hypocritical?</b></p>
+
+<p><span style="font-weight: 400;">Let’s say a girl complains about how her boyfriend ruined their dinner when he tried to make it, and the friend she’s talking to is a great cook. Is that hypocritical?</span></p>
+
+<p><span style="font-weight: 400;">Let’s say she complains about him not applying to a better job he said he would, to a friend who’s successful in their profession. Is that hypocritical?</span></p>
+
+<p><span style="font-weight: 400;">If someone suggested that a girl should break up with her boyfriend because he’s a bad cook, and date the guy who’s a great cook instead, they’d be dismissed as ridiculous. But many seem to take it for granted that, if a girl is unhappy with her boyfriend's not getting her a great gift on her birthday, or dismissing her interest to see a movie together, or not being nice to her family, everything else about him shouldn’t matter.</span></p>
+
+<p><span style="font-weight: 400;">Don’t get me wrong: I think kindness should be valued far above cooking skill or professional aspiration. But it seems apparent that not everyone feels that way. And even if they do, as explained above, most girls who say they like niceness and kindness aren’t lying just because their boyfriends aren't always as nice or kind as their male friends might be.</span></p>
+
+<p><span style="font-weight: 400;">There are just other factors that are apparently strong enough to make them stay in the relationship. People complain about their SO to friends all the time. When a girl complains about lack of niceness to a nice friend, whether that nice friend wants to date her doesn’t change what she wants, and isn’t hypocritical.</span></p>
+
+<p><span style="font-weight: 400;">Also, it needs to be said that if you’re a nice male friend of a girl you’re attracted to, and you think her boyfriend isn’t good enough for her and you would treat her much better, you should at least consider that you might be affected by some bias. Not just the “obviously I’m a better person than someone I have reason to dislike” bias, I mean things like confirmation and sample bias too. Some people are more likely to complain about their SOs to friends than talk about how great they are. But just because you’re only hearing about the negative things doesn’t mean that’s all there is.</span></p>
+
+<p><span style="font-weight: 400;">Of course, if a girl knows her male friend wants to date her, talking to him about her boyfriend is probably not the most tactful thing to do. But that’s why it’s important for people to have mature discussions about boundaries if certain things bother them.</span></p>
+
+<p><b id="h5">4. Why bother? Tenet 4 isn’t about objective facts, it’s about feelings, and if there are unrequited romantic feelings, isn’t that friendship just going to be painful and pointless?</b></p>
+
+<p><span style="font-weight: 400;">This question could take a whole book to answer thoroughly (or at least it did when I tried), but the short answer to this is “it depends on the people involved.”</span></p>
+
+<p><span style="font-weight: 400;">Friendship is great. Ideally, everyone should be open to more friendship. But friendship can come with costs. To end a friendship is basically saying “I don’t value what you bring me enough to justify what you cost me.” Which you should be able to say, especially if they’re abusive or shitty friends.</span></p>
+
+<p><span style="font-weight: 400;">But sometimes what a relationship costs you is not always someone’s fault.</span></p>
+
+<p><span style="font-weight: 400;">Unrequited love sucks. Really, really sucks. Comparing it to the loss of a loved one isn’t quite right, but it’s not far off either. It’s a whole stew of terrible feelings all mixed into one ongoing emotional torture: desperate hope, crushing loneliness, acidic jealousy, etc. It eats at your self-esteem, your self-worth. It sucks the joy out of things, concentrates them all in one place.</span></p>
+
+<p><span style="font-weight: 400;">To get through that, to endure it, for the sake of a friendship is perhaps more than anyone should be expected to do. But I do encourage people to at least try to do it, because I’ve done it twice, and I’m glad I did both times. It helped me grow as a person and left me with two (or more, if counting their spouses) great lifelong friendships. I encourage others in the hopes they can benefit from them and keep their friendships too.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">But I don’t judge someone for deciding not to put themselves through that. Because maybe it’s just not true for everyone, or every situation: maybe for some it’s a never-ending spiral of darkness.</span></p>
+
+<p><span style="font-weight: 400;">But that’s unrequited </span><i><span style="font-weight: 400;">love</span></i><span style="font-weight: 400;">. If you like someone, have a crush on them, are attracted to them, or pretty much any feeling that basically amounts to “I would like to date this person, they make me feel good and warm and happy,” but they just want to be friends? It’s really hard to understand why that friendship would be “pointless” just because it never evolves into a relationship. If you’re heterosexual, and your best same gender friend admitted to attraction to you, you would probably be really badly hurt if after saying you don’t share their feelings they said “Whelp, guess this friendship is all worthless then if we’re never going to have sex, bye forever.” </span></p>
+
+<p><span style="font-weight: 400;">So tenet 4 really comes down to the two individuals. For example, someone shouldn’t stay in a relationship where they’re being strung along, or where the other person is being insensitive to their feelings for them. This is where mature conversations need to be had: if you’ve never admitted how you feel and can’t bring yourself to say “Please don’t tell me about that guy you hooked up with last night, I have feelings for you and hearing about that feels like a stab to the gut,” or a less vulnerable version like “I’m still sorting out my feelings for you and things like this make it harder.” Otherwise it’s unfair to expect them to know better.</span></p>
+
+<p><span style="font-weight: 400;">Ultimately, no one should feel obligated to stay in a friendship they don’t want to continue, for whatever reason. Where it becomes a problem is when, rather than a guy admitting that he ends his friendships with girls because he doesn’t want to deal with the negative emotions that are stirred up by them dating others, he blames the girl for not choosing to date him.  </span></p>
+
+<p><span style="font-weight: 400;">So yes, Tenet 4 is true… for most people most of the time. But it’s not an absolute, and without Tenets 1-3, it’s far less harmful. What causes Nice Guys to get flak for the belief is the way it turns to blaming women.</span></p>
+
+<p><b id="h6">5. Why are Nice Guys mocked by women/men?</b></p>
+
+<p><span style="font-weight: 400;">Again, hopefully I don’t have to explain why Tenets 5 and 6 are wrong and get judged poorly by others here. There's no definition of "nice" that covers treating people like sex dispensers or believing they owe you things they never agreed to. </span></p>
+
+<p><span style="font-weight: 400;">But there are a number of common threads I see in criticisms of Nice Guys that relate to Tenets 1-4, and now that I went over them a bit, I want to address why they elicit the reactions they do from others.</span></p>
+
+<p><span style="font-weight: 400;">Women in general tend to dislike Nice Guys because their beliefs stereotype women and undermine their agency: Tenets 1-2 amount to “girls don’t like nice guys and if they say they do they’re wrong or lying.” Of course there are girls who like “bad boys,” and some who currently don’t may have done so when they were younger, but treating “girls prefer assholes” as a rule of dating makes women out to be either too dumb to understand themselves (the way the speaker can supposedly so clearly see through them) or too insincere to tell guys what they really want.</span></p>
+
+<p><span style="font-weight: 400;">This is the equivalent of women saying that men “only care about looks.” Sure, it’s true for some men, even many men. But there are plenty of guys who genuinely care about their partners for more than just their looks, but who get irritated at women for assuming guys only care about sex.</span></p>
+
+<p><span style="font-weight: 400;">Women tend to dislike Tenets 3 and 4 because they essentially make women out to be callous manipulators who go around breaking nice guys’ hearts for sport. Even if no malice is assigned to them by the guys, a lot of girls know first-hand how painful it is to have good friends cut them off just because the girl doesn’t want to date the guy, which is rarely acknowledged by the guys who are so focused on their own pain. </span></p>
+
+<p><span style="font-weight: 400;">Even if the guy wants more than sex, and wants an actual romantic relationship, the distinction between friends and dating often comes down to flirtation and sex first, which means women have to deal with being “Relationship Zoned,” and only treated as worth friendship if it will lead to something more.  Any guy who doesn’t think it sucks to meet someone and become friends with them only to get the cold shoulder as soon as they find out you have an SO needs to practice his empathy. When it happens </span><i><span style="font-weight: 400;">constantly, </span></i><span style="font-weight: 400;">some women get understandably bitter.</span></p>
+
+<p><span style="font-weight: 400;">Generally, men and women feel safe acknowledging that people shouldn’t feel forced to stay in friendships if they don’t want to. Most agree that even if it sucks, it’s no one’s fault if a guy likes a girl who doesn’t like him back, and staying friends with the girl is too painful. Again, what </span><i><span style="font-weight: 400;">reliably </span></i><span style="font-weight: 400;">brings out the mockery and anger is when Nice Guys make out girls to be the bad guys for not being able to force themselves to like someone, or not giving their Nice Guy friend “a chance.” Some people feel okay with going on dates in an exploratory way, and might be willing to do so; others are afraid it will change the friendship, as it often can. </span></p>
+
+<p><span style="font-weight: 400;">Also, rejecting guys can be scary. No matter how nice someone seems, it’s always a risk for women, and even if the guy doesn’t start insulting them or physically attacking them, it could lead to the guy cross-examining them about what “went wrong” or asking for another chance. For most people it’s just easier to not open that door.</span></p>
+
+<p><span style="font-weight: 400;">Men who dislike Nice Guys tend to fall into two camps. The first generally disagrees with their beliefs, and finds them immature or sexist… in other words, not actually “nice.” They also might be guys who are, you know, nice and sweet and kind too... but have girlfriends, and so are living proof that “girls only date assholes” is just not true. So the perpetuation of the “nice guys finish last” myth kind of strikes a lot of guys as implicitly insulting, as if to say that they must not be as nice as all the single guys who want to date their girlfriends. </span></p>
+
+<p><span style="font-weight: 400;">On top of that, guys who see Nice Guys complaining about how being nice doesn’t get them girlfriends tend to think that they’re only in it for sex/romance, and don’t actually care about the girls as people, so they find them </span><a href="https://xkcd.com/513/"><span style="font-weight: 400;">somewhat hypocritical.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span></a><span style="font-weight: 400;">Another type of men who mock Nice Guys generally agree with their beliefs, but mock their decision to “stay nice” and be “beta” while encouraging them to abandon niceness. These tend to be advocates of Pick Up Artist communities who try to “game” women into sex, or Red Pillers who believe that women are biologically programmed to only care about looks and bank accounts, and insist that Nice Guys need to wake up to “reality” and embrace their (often harmful) definition of masculinity or gender relationships rather than whining about how unfair it all is.</span></p>
+
+<p><span style="font-weight: 400;">The latter group, by the way, is a mixed bag in terms of value to guys. A lot of what they preach is basic positive stuff that everyone could benefit from: Get fit. Develop hobbies and interests. Have more confidence. Don’t put people on pedestals. These are all good pieces of advice to guys or girls who are romantically frustrated. The problem comes in when they sell this advice (which, again, is very basic and they did not invent) alongside suggestions for predatory dating practices, representations of females as biologically driven gold-diggers incapable of love, and promotion of one-size-fits-all ideals of good relationships.</span></p>
+
+<p>And finally, there are just some people who mock "Nice Guys" because they're mean people who like to make fun of others, or because they have bad listening skills/reading comprehension and see all expressions of loneliness as  entitlement to others' affection, even if none of the 6 tenets were invoked. Sorry about those people. They suck.</p>
+
+<p><b id="h7">6. So now what? I've got these beliefs that you say aren't true, I'm just supposed to believe you over my experiences?</b></p>
+
+<p><span style="font-weight: 400;">I don't expect anyone to believe a stranger on the internet, but I hope I can help people understand why even first-hand experiences can lead us to false beliefs if they're not carefully examined.</span></p>
+
+<p><span style="font-weight: 400;">Humans are pattern-seeking creatures. A number of our mental biases come from the mind’s tendency to take a subset of information and experiences, and turn them into a general rule. This is useful when you’re trying to survive in the wilderness, and seeing a couple people die after eating a spotted mushroom or wandering into the forest at night leads you to believe that “those mushrooms are poisonous” and “that forest is full of predators.”</span></p>
+
+<p><span style="font-weight: 400;">Some of these beliefs turn out to be true, others false, but humans aren’t just pattern-seeking, we’re also risk-averse. Whether true or false, the beliefs we form off of anecdotal evidence are more likely to be be stubborn about updating if they help us avoid or minimize risk of being hurt.</span></p>
+
+<p><span style="font-weight: 400;">So let’s look at how some romantic stereotypes form:</span></p>
+
+<p><b>“Girls like to play hard-to-get” or “Girls find you more attractive when you aren’t seeking them.”</b></p>
+
+<p><span style="font-weight: 400;">There’s a core element of truth in both of these: namely, desperation tends to be unattractive. Some people fall for each other immediately, but for people who take time to slowly warm up in their attraction, coming off “too strong” is definitely a negative. But they’re also somewhat contradictory.</span></p>
+
+<p><span style="font-weight: 400;">So here’s a thing that happens sometimes which might cause those beliefs:</span></p>
+
+<p><span style="font-weight: 400;">Alice is friends with Mike. Mike likes Alice, and wants to be more than friends. He makes some subtle hints, but Alice misses all of them, too caught up in her attraction with John. A year later, John is with someone else and Alice has begun to see Mike as more than a friend. Mike, however, has already given up on Alice, and is interested in someone else. When Alice brings up her attraction to Mike, he becomes upset that she “only likes him now that he’s not interested in her.”</span></p>
+
+<p><span style="font-weight: 400;">Alice is hurt: she genuinely didn’t know Mike used to like her. Mike is hurt: he thinks she’s just playing with his emotions. In the best case scenarios, their friendship survives, and maybe Mike still feels enough for her to give the relationship a try. But if he really has moved on, he might become bitter about the year of unrequited feelings he had. He might be more likely to believe that “women like to play hard to get.”</span></p>
+
+<p><span style="font-weight: 400;">Another thing that might happen is that women who have been hurt before, and/or heard lots of stories of guys who seem interested at first eventually get bored of their partner and move on, only feel safe with someone who expresses constant, passionate interest, such that they inadvertently (or even purposefully) turn dating into a competition for their affection. Even worse, many people advise women not to ever be the one to call or text first, in order to filter for guys who are genuinely excited about you, rather than a convenient person to sex zone (a common female concern , likely as common as the nice guy concern).  It’s also more of a risk for women to be “too interested” first, as this might attract guys who will prey on their interest to use them; the way some guys worry about girls taking advantage of them for their money, most women worry about guys taking advantage of them for sex.</span></p>
+
+<p><b>“Girls can have any guy they want, while guys have to jump through hoops to get a girl’s attention!”</b></p>
+
+<p><span style="font-weight: 400;">There is, again, a core of truth in this, if you ignore a lot of factors that I’ll get to in a minute: As almost anyone who’s ever been on a dating site can attest to, even controlling for attractiveness, men and women have very different experiences. A reasonably attractive woman’s week-to-week experience on a dating site is essentially sorting through messages to find the few articulate, interesting, and/or amusing ones from guys they find attractive. Even a reasonably attractive guy’s day-to-day experience is messaging a dozen women and hoping one of them responds.</span></p>
+
+<p><span style="font-weight: 400;">Some guys take this as definitive proof that dating is easier for women. I know these are often separate people from those that complain about being labeled as “only after sex,” but it’s still a point worth addressing. Many will refer to popular videos that show a guy going around asking random women on the street for sex and getting no positive responses, while a woman doing the same thing gets plenty.</span></p>
+
+<p><span style="font-weight: 400;">And if sex is all that guys and girls care about, then it’s true: girls can get sex much easier than guys can.</span></p>
+
+<p><span style="font-weight: 400;">But there’s a mismatch of expectations and standards here. The average man’s starting standard for “enjoyable sex” is far lower than the average woman’s. A healthy, sober guy will reach orgasm almost every time they have sex. But even though a girl’s enjoyment of sex doesn’t require orgasm, even if it’s not a goal, the sex can still be far less enjoyable for a wider variety of reasons.</span></p>
+
+<p><span style="font-weight: 400;">(</span><a href="http://www.medscape.com/viewarticle/808430"><span style="font-weight: 400;">Research suggests</span></a><span style="font-weight: 400;"> that, on average, </span><a href="http://brainblogger.com/2014/05/20/brain-sex-in-men-and-women-from-arousal-to-orgasm/"><span style="font-weight: 400;">women are more sexually aroused by stimuli</span></a><span style="font-weight: 400;"> that include “mood” rather than men, who tend to be </span><a href="http://journals.sagepub.com/doi/abs/10.1111/j.0963-7214.2004.00287.x"><span style="font-weight: 400;">more easily stimulated by the merely physical or visual</span></a><span style="font-weight: 400;">.)</span></p>
+
+<p><span style="font-weight: 400;">Most guys who believe that women can get sex whenever they want fail to consider that women are far less likely to </span><i><span style="font-weight: 400;">want</span></i><span style="font-weight: 400;"> sex whenever guys want. That’s not just a remark about sex drive, by the way: there are plenty of women who have higher libido than men. The point is that to find sex with a stranger or even new acquaintance desirable, even an attractive stranger/acquaintance, tends to be harder for women. </span><i><span style="font-weight: 400;">Even if </span></i><span style="font-weight: 400;">we ignore societal pressures against being a “slut,” </span><i><span style="font-weight: 400;">even if </span></i><span style="font-weight: 400;">we ignore the various different physical risks to women, they still can’t know whether the man is even skilled or generous enough in bed for the women to enjoy the experience. </span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">It’s kind of like giving someone a Lifetime Pass to a particular movie theatre that plays movies at random, and mostly only gory horror movies, with a low chance of playing something else. But not everyone enjoys horror movies. In fact some find them, well, horrifying.  </span></p>
+
+<p><span style="font-weight: 400;">And for guys who love almost all movies, including gory horror movies, to look around and see women getting free movie tickets seems pretty unfair. It’s also hard to always see the strings attached: or rather, to see how often what you think are gestures of niceness and friendliness turn out to be strings. To paraphrase Chris Rock, encountering “Wanna grab some lunch? How ‘bout some dick?” and “Wanna see a movie? Wanna see my dick too?” almost every time a guy interacts with you can be exhausting, frustrating, and downright dehumanizing when one gets to the point where they have to constantly think about whether people are being friendly with them to just get some sex.</span></p>
+
+<p><span style="font-weight: 400;">To simplify, a lot of guys imagine women being able to just walk into a video store, peruse the aisles, and walk out with the high quality movie of the exact genre they want. The reality is more like being constantly barraged with DVDs of random movies in varying quality. Even if such a service were available to them, they have to </span><i><span style="font-weight: 400;">want </span></i><span style="font-weight: 400;">what’s on offer to enjoy it.</span></p>
+
+<p><span style="font-weight: 400;">So even the attractive girls on dating sites who don’t want a short term relationship, or don’t want to date someone who’s more interested in sex than in finding an interest they both share and can talk about, or actually want a romantic relationship with someone they can form a connection with... Their inboxes might as well be empty most days too.</span></p>
+
+<p><span style="font-weight: 400;">To reiterate, I’m not saying it’s not easier for women to get sex, or even to find a relationship. I’m saying it’s not easier for women to be happy.</span></p>
+
+<p><b>You can’t act like women don’t like the attention. I know a girl who’s leading three guys on at the same time, makes them pay for everything, and still complains about not being able to find a “nice guy!”</b><b>
+</b><b>
+</b><span style="font-weight: 400;">Yep, I believe it. I’ve known women who went from one relationship to another, cheating constantly and leeching off their boyfriends. I’ve also known guys who spent their entire relationship broke and jobless, living off their girlfriends' love for years while doing drugs and being abusive all the while.</span></p>
+
+<p><span style="font-weight: 400;">Selfish people exist. Toxic people exist. See above about why people date others who treat them poorly.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">The point of this isn’t to say that these situations don’t happen: it’s to show how judging a gender by its worst members is, well, the definition of prejudice. Saying “Girls don’t like nice guys” or “Girls like getting attention” is no different from saying “Guys just care about sex” or “Guys don’t date to marry, they just marry whoever they’re with when they’re ready to settle down.”</span></p>
+
+<p><span style="font-weight: 400;">There are too many arguments that essentially boil down to “guys and girls are just </span><i><span style="font-weight: 400;">different</span></i><span style="font-weight: 400;"><em>!</em>” by people who are not psychologists, let alone neurologists or evolutionary psychologists, and when you look for sources what you find tend to be dating manifestos or gender philosophies masquerading as science from decades ago.</span></p>
+
+<p><span style="font-weight: 400;">This happens on the extreme end of the female side as well, whether it’s from cynical older women warning their daughters about how men are pigs or radical misandrists blogging about how all sex is rape.  It’s worth pointing out not just because it should be called out on both sides, but also as a way to empathize: if you as a guy dislike it when people judge you by the worst of your gender, you should be capable of understanding why women feel the same way.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">In truth, there are some research-backed differences between men and women, as linked to above. But the differences are not always biological, they are not nearly as absolutist and generalized as many assert, and they are often not even restricted to “men” and “women!”</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">One of my favorite non-fiction writings by Isaac Asimov was a letter in which he described the </span><a href="https://fs.blog/2013/04/the-relativity-of-wrong/"><span style="font-weight: 400;">relativity of wrong</span></a><span style="font-weight: 400;">, explaining that someone who says the earth is a sphere is actually incorrect: it’s an oblate spheroid, with mass concentrated more at the equator than the poles. But someone who says it’s a sphere is not </span><i><span style="font-weight: 400;">as </span></i><span style="font-weight: 400;">wrong as someone who says that the earth is flat.  </span></p>
+
+<p><span style="font-weight: 400;">Similarly, someone who says men and women are “the same” is wrong. </span><span style="font-weight: 400;">But they are a whole lot less wrong than those who insist that men and women’s inborn psychological differences can be used to reliably predict any individual’s behavior or motives.</span></p>
+
+<p><b>Almost every woman I know is like this. You’re talking about “unicorns,” but they’re the rare exception, and I’m never going to find one that isn’t already taken.</b><b>
+</b><b>
+</b><span style="font-weight: 400;">Beliefs about large numbers of people that don’t have some kind of falsifiable % put on them are kind of worthless.  Even if we accept for the sake of argument that most women don’t like nice guys, the word “most” can mean anything from 99.999% to 50.001%, and not bothering to distinguish between the two means you’re okay with potentially being wrong as often as a coin flip.</span></p>
+
+<p><span style="font-weight: 400;">It’s been said that luck is statistics taken personally, and in truth it is possible for someone to justifiably believe that girls who actually prefer nice guys are exceptions.  Just by the sheer numbers involved in the amount of people around the country and world, there will be some Nice Guys who go through their early life encountering a majority of women who embody the worst stereotypes of the gender—guys whose mother, sisters, and early romantic interests all make them more likely to accept the idea that women are just interested in attractive assholes.  </span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">When such beliefs are formed and reinforced so early and consistently, it can be hard to see past the confirmation bias that develops as a result. But, again, it’s possible that this happens even in a model of reality that says that most women are </span><i><span style="font-weight: 400;">not </span></i><span style="font-weight: 400;">like that.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">By contrast, the reverse circumstance isn’t broken by counterexamples. For people with lots of female friends who are dating genuinely nice guys, the idea that being nice is detrimental to dating doesn’t get proven by examples of abusive guys who have chains of girlfriends, or girls who claim to want nice guys but keep dating assholes.</span></p>
+
+<p><b>This is all bullshit. I’m a smart, kind guy who’s in decent shape, has a good career, and a variety of hobbies. If girls actually care about that stuff, why can’t I get a girlfriend?</b></p>
+
+<p><span style="font-weight: 400;">Oof. That’s rough buddy. I’d like to start by giving you a hug, because the place you’re in is shitty. I know how lonely it is, how frustrating. How the bitterness and desperation is sometimes your only defense against the pain.  It really, really sucks, and this next part is going to seem cold. So bring it in.</span></p>
+
+<p><b></b><span style="font-weight: 400;">/hug</span></p>
+
+<p><span style="font-weight: 400;">Ready?</span></p>
+
+<p><i><span style="font-weight: 400;">The universe is an unfair place.</span></i><i><span style="font-weight: 400;">
+</span></i><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">There are no soul mates. (</span><a href="https://what-if.xkcd.com/9/"><span style="font-weight: 400;">Thankfully</span></a><span style="font-weight: 400;">.) People are not destined to have fulfilling, lifelong romantic relationships, let alone entitled to finding such partners by the time they’re 20, or 30, or 40. </span></p>
+
+<p><span style="font-weight: 400;">Maybe the perfect woman for you is on the other side of the planet. Maybe she lives in your apartment building, but you’ll never cross her path or have anything interesting to say to start a conversation that leads to a relationship.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">Some people will meet their future wives or husbands in grade school, be married by college, and die within a year of each other when they’re in their 80s. Others will die within a year of being married. Others will never find a relationship that lasts longer than a few years. Others will never find a relationship at all. That’s life.</span><span style="font-weight: 400;">
+</span></p>
+
+<p><span style="font-weight: 400;">And if you’re about to say that you’re not </span><i><span style="font-weight: 400;">talking </span></i><span style="font-weight: 400;">about happily-ever-after, you’ll settle for just any relationship, just to have someone want to hug you and cuddle you and kiss you and love you for a month, a year, anyone, well, the above still applies. </span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">Relationships are </span><i><span style="font-weight: 400;">random.</span></i><span style="font-weight: 400;"> They correlate to things like physical appeal and intelligence and fun personalities and whatnot, but you still need to run across someone who’s </span><i><span style="font-weight: 400;">attracted to</span></i> <i><span style="font-weight: 400;">you </span></i><span style="font-weight: 400;">first. If you’re not okay with meeting online or doing long-distance, they need to be </span><i><span style="font-weight: 400;">in your area. </span></i><span style="font-weight: 400;">And even if you’re compatible, you need to meet at the </span><i><span style="font-weight: 400;">right time </span></i><span style="font-weight: 400;">where you’re both looking for a relationship, rather than being, say, 10 years old, or 13 and 18 years old, or in the middle of a different relationship already, or about to move away for college or a new job and not thinking about dating right now.</span></p>
+
+<p><span style="font-weight: 400;">So if you’re 23, or even 33, or even 50, and haven’t ever had a girlfriend before, it might not be because of anything in your control. You might have just rolled a sequence of bad dice. With enough people rolling enough dice, it happens. I’m not saying this to minimize your pain, but it’s worth noting that some kids die of bone cancer before they’re even teenagers. </span><i><span style="font-weight: 400;">The universe doesn’t care.</span></i></p>
+
+<p><span style="font-weight: 400;">Take solace in that, if you can, because while there certainly <em>are </em>things people can do to improve their odds, blaming yourself can lead to some unhealthy depression and anger, and blaming women is the quickest way to ensure you're stuck alone. Cold comfort though it may be, I believe that recognizing the unfairness of the universe is one of the ways you can potentially move past blaming yourself or others, and start really considering the problem in ways you can maybe do something about.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">Because here’s the thing: if you really are a smart, kind guy of average attractiveness (or even below average attractiveness) who has a stable career but is frustrated by lack of romantic prospects? I’ll bet you a thousand dollars to one that I can find you someone who will be willing to date you within a year.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">How? By lowering your (</span><a href="https://logological.org/girlfriend"><span style="font-weight: 400;">probably unrealistically high</span></a><span style="font-weight: 400;">) standards. That’s all.  </span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">They probably won’t be someone you initially consider attractive. And they might not have any skills for employment. They might suffer from some physical or mental disability. They might have totally different taste in music and movies and hobbies. And come to think of it, they might not even be all that nice, when you really get to know them.</span></p>
+
+<p><span style="font-weight: 400;">How much do each of those things matter, to you? Think about it.  What are you willing to settle on, if all you </span><i><span style="font-weight: 400;">really want </span></i><span style="font-weight: 400;">is someone who loves you? Because this is an important thing to consider, when addressing the question of what the world owes us (nothing) compared to what we expect of it (quite a lot, probably, when we actually examine what we want). There’s nothing wrong with wanting a lot, but as the Buddha said, expectations, suffering, etc.</span></p>
+
+<p><span style="font-weight: 400;">OKCupid used to have a research wing that analyzed the behavior of those on the site, and </span><a href="https://www.gwern.net/docs/psychology/okcupid/yourlooksandyourinbox.html"><span style="font-weight: 400;">what they’ve found</span></a><span style="font-weight: 400;"> is that men tend to rate women as more attractive, on average, than women tend to rate men… but that men predominantly message women on the higher end of the attractiveness scale, while women are more willing to message men who are lower on the attractiveness scale.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">Really think about that the next time you consider who among your female acquaintances and friends you’re romantically pursuing, opposed to which ones you’re ignoring that might be interested in you. And then think about whether you’d be willing to date the ones you’re not considering, if they expressed interest in you. Because while having standards is good, and having high standards is admirable, having high standards while bemoaning the lack of choices available to you is just bad math.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">Tangential to the Nice Guy myths are a lot of others that deal with this perceived romantic imbalance between genders. Guys who refer to highly attractive women when they say “If only some girl would give me a chance,” or “Girls can get all the sex they want at any time,” while ignoring the existence of women below their  attractiveness threshold, whose experience might better match their own frustrations.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">So is it really all that strange that you haven’t found a girlfriend yet, if the only girls you’re considering and pursuing are all on the higher end of all the various criteria you consider important?</span></p>
+
+<p><span style="font-weight: 400;">And remember, this isn’t an argument of “people can only date within their attractiveness level,” it’s an argument of “don’t form beliefs about a gender solely off of members of it you’re disproportionately focusing on.”</span></p>
+
+<p><span style="font-weight: 400;">And if none of that applies to you, then you still might just have rolled a series of critical fail rolls. Hopefully you’ll regress to the mean soon; it feels cliché, but it’s still true that the more effort you put in the more likely the dice are to be in your favor.</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">
+</span><span style="font-weight: 400;">But if it does apply to you, reconsider what you think you know about what girls "really" want and why, and consider more carefully what </span><i><span style="font-weight: 400;">you</span></i><span style="font-weight: 400;"> really </span><span style="font-weight: 400;">want, and why.</span></p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">advice</span><span class="tag">psychology</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>

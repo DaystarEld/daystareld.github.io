@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wordpress WR Logo - Pokemon: The Origin of Species</title>
+    <title>Chapter 67: Postmortem - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,20 +329,505 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Wordpress WR Logo</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/66/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/68/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <p>No content available.</p>
-        </div>
+            <h1 class="chapter-title">Chapter 67: Postmortem</h1>
 
-        <div class="chapter-nav">
-            <a href="../66/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../68/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p>Blue sits in the uncomfortable hospital chair and stares down at the heavyballs in his hands, morning sun glinting off of each through the window. Aptly named, they're notably heavier than other kinds, with thicker cases. It reminds him of when he first held a pokeball, fingers too small to comfortably grip the round orb, and he knows he'll have to train with them soon to make sure his catches and throws aren't off. A steelix and a snorlax give him more power than he expected to have for months yet, if not years, and chances are he'll appreciate them more in a few days, when his thoughts don't drift to less happy thoughts every few seconds.</p>
+
+<p>He can't quite remember when he fell asleep, but he woke downstairs half an hour ago feeling tired, but not exhausted. The city is in cleanup mode; trainers present for the storm are resting, while others arrive from all over the region to help catch wilds and assist with rescue and repair. Wireless networks are back up, but reserved for official use for now. Occasionally backed up messages and emails come through to Blue's phone, but none from his friends, who he assumes are still asleep.</p>
+
+<p>Blue needs to find them, needs to make sure everyone's okay and reconnect his team. He knows Glen is safe, at least, and Elaine and Aiko were with two highly competent gym members, but Red and Leaf...</p>
+
+<p>"Mr. Oak?" Blue looks up and sees the doctor. "He's awake. I can give you ten minutes, but then he needs to rest."</p>
+
+<p>Blue clips the balls to his belt and hurries to the room. It seems wrong to hurry in a place like this, at a time like this. Like he should be walking slowly, out of respect. But there are other places he needs to be, and ten minutes won't go slower just because he does.</p>
+
+<p>When he reaches the doorway, however, he stops and stares, one hand going to the doorframe.</p>
+
+<p>Gramps is lying in the bed without his coat on, dressed in a simple hospital gown like any other patient. Like he's not a Kanto Champion, and one of the greatest researchers in the world, and just helped save thousands of people.</p>
+
+<p>For once, Professor Oak looks as old as he is. Older, in fact.</p>
+
+<p>He looks like he's dying.</p>
+
+<p>Blue's throat is clogged, and he bites down on his lip to keep from making any noise. When he finally walks forward, however, it's with all the fear and pain and childish shock of seeing a parent brought low.</p>
+
+<p>He has to keep repeating to himself that Gramps will be okay in order to keep from breaking down and clutching at his grandfather's form as he lies prone, to simply stand beside his bed and take his frail, liver spotted hand. Those faded blue eyes open, unfocused at first, until they lock onto his.</p>
+
+<p>"Hey, Gramps," Blue whispers.</p>
+
+<p>"Blue." Professor Oak squeezes his hand back without any strength. "Okay? Daisy?"</p>
+
+<p>Blue nods, and has to clear his throat before he can speak again. "She got you out. And I'm fine."</p>
+
+<p>Lines of tension ease away, leaving the professor's face simply wrinkled, his sharp jawline shifting and rounding as his lips part for a sigh. "Good." His chest rises under the sheets as he breathes in deep. "So. Your first. How was it?"</p>
+
+<p>Blue knows what he's asking. "Too easy, at the start." He remembers what felt like hours of staring at a rain-obscured barricade, struggling to keep his feet in place and not rush around to sate his impatience. "Then… harder."</p>
+
+<p>It took less than a minute for the Oaks working together to pummel the first steelix into submission. As soon as Blue caught it, the end came quickly for the second, and they all stood for a moment in the dwindling rain amid the torn up concrete, catching their breaths and recovering from the adrenaline rush.</p>
+
+<p>And then Gramps collapsed, opening a gash on his cheek as it hit a chip of broken stone.</p>
+
+<p>Daisy and Blue rushed to his side together, and after determining he was alive, Blue helped recall his pokemon while Daisy pulled him onto her pidgeot so she could take him to the nearest hospital. "Stay alive," Daisy said, hugging him tight and kissing his wet hair before climbing into her saddle. "He came for you."</p>
+
+<p>Her words echoed in his head as he watched them fly off, and were hard to put aside when he went to help the others. Pokemon were coming out of the rift in the concrete that the steelix made when they burst free, and the entire stadium of civilians had to be moved while the trainers there fended them off.</p>
+
+<p>It was tense a while longer, but with no other truly powerful pokemon around the defenders were able to secure the civilians' safety with minimal casualties.</p>
+
+<p>Relatively speaking.</p>
+
+<p>Tori was killed by a fissure that opened up under her and a ranger who were defending a group of civilians. No warning, just an almighty <em>crack</em> that could have been thunder but wasn't, and they were gone. Efforts to rescue them weren't quick enough before the pokemon beneath the streets reached them.</p>
+
+<p>Blue almost lost Maturin to a jumpluff, of all things, then did lose both his ekans and one of his bellsprout to it before he and Glen took it down together. Glen lost a couple of his own pokemon, but luckily nothing too powerful. Less luckily, his leg and hip were broken. Blue spent the rest of the battle keeping him safe while they moved, slowly but surely, along the path of the evacuations.</p>
+
+<p>All told, the exodus from beneath the city lasted almost two hours, and an estimated six hundred people of the roughly seven thousand in the coliseum were killed, with another three hundred wounded. It would have been far worse, without Gramps and Daisy.</p>
+
+<p>Blue never got so much as a scratch.</p>
+
+<p>Once Glen was seen to, Blue could tell that Peter was pissed at him. It was hard to care while worrying about everyone else, and still is. He's already gotten thanks from other trainers and civilians who saw how he helped stop the steelix and snorlax from coming after them, and he figures any reprimand would likely be done in private. Or maybe Peter would just tell Surge, and leave his judgement to their mutual superior.</p>
+
+<p>Worries for the future. Right now his thoughts are still trying to expand on his answer to the question. Gramps gives him time, knowing that he would eventually.</p>
+
+<p>"Harder, because I couldn't take on any of the real threats," Blue finally adds. "I let Aiko and Elaine get sent off, don't know where Red and Leaf are, and Glen got hurt, and… then you collapsed and I thought you might be dead..."</p>
+
+<p>He trails off, throat tight as he regains control of himself. "I was just one person, by the end, no different from anyone else," he whispers. "Was all I could do to keep my friend alive."</p>
+
+<p>"M'sorry," the professor says, closing his eyes. "Wasn't there… for you..."</p>
+
+<p>No trick can stop the burning from spilling down Blue's cheeks now, and he clutches his grandfather's hand. "You <em>were </em>there. A lot more people would have died without you and Daisy, and I might have been one of them." He takes a deep breath and wipes his face with his other arm. "And the only thing I did of any real importance was because you were there. Without you… would have been a gap in the story."</p>
+
+<p>"First time," Gramps repeats, as if to remind him. "At 12… still impressive." He sighs. "Not strong enough... for more."</p>
+
+<p>"I know," Blue says, letting out a breath. "I need more powerful pokemon, and <em>I </em>need to be stronger against the Pressure, and... I need more <em>social power</em>, to do something meaningful next time, but I don't know what kind would best..." He catches himself before he keeps venting his frustrations, and squeezes his grandfather's hand. "Sorry. Can talk about that later. Can I get you anything? Or do anything for you?"</p>
+
+<p>His grandfather shakes his head. "Not yet." He takes a deep breath. "Just let Elm know… long recovery… and leave a message… for Samson..."</p>
+
+<p>"Yeah. Of course." Blue wonders if his twice-removed cousin would even get the message before he's back from wherever he's currently exploring, and his brow furrows as he imagines Gramps in here for day after day. "How long will you be in here?" Surely not more than a week...</p>
+
+<p>"Last time was… almost a month. This time… don't know."</p>
+
+<p>Blue stares in horror. "No, that's… why would you... You can't <em>do</em> that!" His voice is rising as his heart pounds, guilt and indignation warring within him. "Why didn't you <em>tell </em>me, it's bad enough you risked your life, but this is… You can't just throw your life away, the world <em>needs </em>you—"</p>
+
+<p>Sky blue eyes blaze into Blue's, and a soft, weathered hand cups his face. "Will always come for you," his grandfather whispers between labored breaths. "You and Daisy… are my world."</p>
+
+<p>Blue's tears scald as they slide down his cheeks, and he clasps his grandfather's hand against his face as he tries to regain control. It's not <em>fair</em>, he's not supposed to have to worry about this, to think that every time he faces them Gramps will...</p>
+
+<p>"I'm sorry," he whispers.</p>
+
+<p>"You are who you are... And I have no desire... to bury another child..." His lips twitch upward briefly. "So you see… I'm actually quite…" The next word comes out in a shaking breath. "Selfish…" His eyes slip closed.</p>
+
+<p>Blue doesn't respond, simply holding his hand tight as his mind races to find a workaround. Zapdos came to him, this time, but if he decides to go into another Stormbringer attack… He would have to disable the tracking on his equipment first… no that would just tip Gramps off. He'd have to leave all his trackable equipment elsewhere, and his companions' too. But what if he calls…</p>
+
+<p>"Mr. Oak? It's time."</p>
+
+<p>Blue glances back at the whispered voice of the doctor, then turns back to the professor, whose eyes stay closed. He gently releases his hand and places it on his chest, then bends to kiss his forehead. "See you later, Gramps."</p>
+
+<p>He gathers his things and heads down to the lobby. He's expected at Vermilion Gym to debrief and coordinate with others. He doesn't know if Surge is waiting for him or not, but he wants to hurry up and do whatever needs to be done there, so he can make sure his friends are okay.</p>
+
+<hr class="wp-block-separator" />
+
+<p>Leaf spent the night after the storm ended in a haze, drifting in and out of sleep as medicine coursed its way through her veins, repairing the damage to her body and draining it of energy so fast that she was given a meal's worth of calories every three hours. She was faintly aware of Elaine sitting with her as she drifted in and out of sleep, waking only for treatments and bodily necessities, while her dreams were full of dark streets and rain, lightning and danger, all of which seemed more real to her than the hospital room she kept finding herself in.</p>
+
+<p>She's reliving the battle in the clothing store, but with a far worse ending, when a jolt sends her gasping awake. Daylight streams through the window, and a nurse is preparing to wheel her out for what she fuzzily assumes will be more x-rays and injections.</p>
+
+<p>"Red?" she croaks, looking around and blinking sweat from her eyes.</p>
+
+<p>"Don't worry about them," Elaine responds from her seat by the window, bringing a cup of cool water to her lips, which she thirstily gulps down. "Just focus on getting better." Her voice is thick with worry and exhaustion of her own.</p>
+
+<p><em>Them? </em>she thinks, then remembers Aiko left with him. She assumes she missed a whole cycle of them changing who stayed with her, which is disappointing. She wanted to talk to Aiko...</p>
+
+<p>There's a nurse with her when she next wakes, an older woman who smiles upon seeing her eyes open. "Hello there, hon. Happy to say you're out of the woods, now."</p>
+
+<p>For a moment Leaf thinks she's back in the hospital she slept in after Viridian. After a few seconds she recognizes that the stiffness in her arm and side aren't from an electric shock, and soon she's remembering the injury and back to full awareness.</p>
+
+<p>"Thank you," Leaf whispers. She's starving. Her unbound arm stretches out from under the blanket to drink from the water cup beside her bed. There's a note beside it. "Where's Elaine?" she asks as she opens it.</p>
+
+<p>"The girl who was here all night? Left you that."</p>
+
+<p><em>Leaf,</em></p>
+
+<p><em>Morning! Doctors said you were stable, so I went to put our pokemon in queue at a nearby center. Don't know when they'll start accepting them, but they're going to be backed up for a while, and I thought I should check in case it's soon, otherwise it might take days. If not I'll be back as quick as I can!</em></p>
+
+<p><em>Hope you feel better when you wake!</em></p>
+
+<p><em>Elaine</em></p>
+
+<p>Leaf smiles. She knows it makes little sense to worry about her injured pokemon while they're in stasis, but it'll be nice to have them healthy again as soon as possible. "Am I free to go, then?" she asks as she puts the note back and drains the water cup.</p>
+
+<p>The nurse finishes marking something, eyes on a monitor next to Leaf, then looks at her in surprise. "Go? Well, we can't stop you, but you really shouldn't. It's still a bit of a warzone out there, and your injuries aren't really healed yet; they just aren't at risk of getting worse unless you're too forceful with them."</p>
+
+<p>"Okay." Without her pokemon the word <em>warzone </em>had killed her intention anyway. Leaf reaches for her phone and checks for messages, finding no new ones besides those sent on the emergency channels. Leaf tries sending Red one, and watches the indicator beside it spin endlessly for a few seconds before she gets back an unsent error. She sighs and sits back against the pillows again. "Is there anything I can do around here?"</p>
+
+<p>The woman raises a brow. "Do you have any medical training?"</p>
+
+<p>"Not really. Mostly just for pokemon, and basic first aid."</p>
+
+<p>"No fresh injuries coming in now, thankfully. Not here at least. Just get some rest."</p>
+
+<p>Leaf makes a frustrated sound. "I've been resting for…" She checks the time and blinks. "Thirteen hours? Thirteen hours! I can't just sit here a whole day while my friends are still out there, I'll go crazy."</p>
+
+<p>The nurse pats her leg in a decidedly unsympathetic manner. "From what I heard, you've done enough for now. I'm sure your friends will show up soon as they can." She finishes tapping Leaf's blood pressure into her tablet, then starts moving to the next bed. "If you want to do something so bad, take a walk around, ask people if they want water. Your legs and other arm are fine, and you can use the exercise."</p>
+
+<p>So that's what Leaf does, slowly and carefully getting to her feet, then shuffling around the makeshift hospital. She notices that a lot of the nurses and doctors are different from the ones she remembers, while the familiar ones look exhausted. Probably nearing the ends of their shifts, but with how many people need help it's possible they <em>have </em>no shifts. She hopes they get rest soon, regardless.</p>
+
+<p>It's still painful to breathe too deep, and with one arm immobilized she feels unbalanced and clumsy, but for once she's thankful that she's left handed. She spends an hour walking each floor of the makeshift treatment center, fetching water or blankets or extra pillows. It's distracting and repetitive work, which is just what she needs to keep her mind off her worry for the others.</p>
+
+<p>Most of the distraction comes from seeing so many people injured, many of them as bad as Leaf, though anyone worse was likely transported to the actual hospital. She sees a lot of family or friends gathered by bedsides, some having murmured conversation, others asleep, hand in hand. For the first time in what feels like days, Leaf thinks of her mother and grandfather, and wishes they were here.</p>
+
+<p>An hour passes, and in that time the change in her thoughts is subtle. Seeing heartbreak after heartbreak eventually starts to lead her to thoughts about what caused all this, to <em>why </em>she's worried about the others, which effectively means it stops working as a distraction. It isn't until she sees one of the survivors from the apartment complex that she and Red saved, sobbing like he's being torn in two as he sits at the bedside of a little girl missing a leg that Leaf has to take a moment to herself.</p>
+
+<p>She goes to her bed and sits on it, eyes closed and breathing deep as she tries to identify the burgeoning pain.</p>
+
+<p><em>You're saying that as sad as a pokemon's death might be, a person's death... ripples outward more, and is much more affecting.</em></p>
+
+<p><em>This very name you use, 'pokemon,' shows how little respect there is... I cannot describe to you what the world was like before such a word existed.</em></p>
+
+<p><em>I don't hold all pokemon accountable for what happened to him…</em></p>
+
+<p>"Don't you?" she whispers, repeating what she told Red that night. How could he not?</p>
+
+<p>How many tragedies are playing out right now, thanks to one pokemon? One pokemon that weaponized <em>thousands</em> of others with no conscious thought, and turned them into murderous, rampaging monsters?</p>
+
+<p>She closes her eyes as a bloody crib flashes through her thoughts, sending a pulse of anger and grief through her. Blue's ambition is right. This… all of this… once every few years? No wonder so many people are indifferent to pokemon suffering. No wonder they're considered so much lesser.</p>
+
+<p>Something must be done.</p>
+
+<p>Blue wants to capture or kill the Legendaries, but that might not be possible anytime soon, if at all. It's audacious...</p>
+
+<p><em>...but not enough. There are still more deaths from non-Tier 3 events. They </em>all <em>need to stop if people and pokemon will ever coexist.</em></p>
+
+<p>But how? There's an idea burgeoning in the back of her mind, but she can't think of what it is, it's too vague… something about the Stormbringers, about the stampede of pokemon caused by their Pressure...</p>
+
+<p>She sits frozen for a moment, mind racing over the new idea, feeling it out. Their pokemon are immune to most of the effects of Pressure due to virtual conditioning to prevent any aggressive actions without command.</p>
+
+<p>What if they catch every single wild pokemon in the region, then release them, but with an altered program that only prevents aggressive action against humans or buildings, so they can reintegrate into the wild and maintain an ecosystem? They would still be immune to Pressure in all the ways that matter… and better yet, this would prevent the problems of lower tier incidents as well.</p>
+
+<p><em>It could work. No more violence by pokemon against people… and then… peace.</em></p>
+
+<p>She feels something soul-deep clicking into place. A possible path to victory, a purpose she can meaningfully dedicate her life to. She knows that she found it, at long last. Not just getting people to stop eating pokemon, which artificial meat might do, and not just making people treat pokemon better, but eliminating any need for people to feel threatened by pokemon <em>at all</em>. Practically no more need for <em>trainers</em>, which combined with artificial meat… would mean that the vast, vast majority of harm against pokemon would be eliminated.</p>
+
+<p>She wants to stand up and pace, foot bouncing off the floor, and recognizes that she's getting too excited. <em>Calm down. Someone must have thought of this before, right?</em></p>
+
+<p>Even if so, just because she hasn't heard of it doesn't mean it was dismissed for good reason. Maybe they dismissed it as too difficult, or thought that new pokemon being born would make it too much effort to maintain, especially if no such programs exist yet. She doesn't want to assume that the only reason this hasn't already been done is that no one <em>cares enough </em>about pokemon suffering to recognize how it might benefit humans too.</p>
+
+<p>But in any case, all it would take is two things: the right programs, and a way to convince the world to do it, one region at a time.</p>
+
+<p>Leaf smiles. <em>Right. Easy as pie.</em></p>
+
+<p>She needs to talk to her mom and grandpa about this. And Professor Oak, and Bill if he's not too mad at her and Red for leaving the cruise, oh and Red of course, and Aiko would probably be all on board…</p>
+
+<p>She checks her phone for messages again. Still nothing.</p>
+
+<p>A meal arrives for her as she tries to send another message, and she eats mechanically before getting up to take a careful sponge bath in the washroom, thoughts turning her new idea from every angle she can until she returns to helping around the makeshift hospital.</p>
+
+<p>Another hour passes before someone shouts in surprise, causing Leaf's head to snap around toward them. It's a middle aged man staring at his phone, and after a moment he clambors onto a nearby chair.</p>
+
+<p>"Hey! Everyone! The list is up!" Conversation breaks out in a babble, and he has to raise his voice further to yell, "Front page of CoRRNet, last update was ten minutes ago!" A nurse is trying to reprimand him for yelling while another calls for everyone to be quiet, but most are already checking their phones with intense expressions of worry and hope.</p>
+
+<p>Leaf hurries back to her room as she pulls her own out, then carefully sits on her bed and opens the webpage, heart pounding. She has to try refreshing the page a dozen times before it loads, after which she just stares at categories of names and wonders if she has the courage for this.</p>
+
+<p>There are three categories, and her eye gets stuck on the third one: <em>Confirmed Deceased. </em>The number next to it seems absurdly low given what she experienced that night, but she knows that it's still early, and that many of those currently counted in the much more populated <em>Missing </em>and <em>In Treatment </em>columns are likely to migrate.</p>
+
+<p>"<em>Migrate." What a pleasant euphemism I've created. And now I get to ruminate on that instead of just looking at the names.</em></p>
+
+<p>Okay. It's very simple: she'll just open a search field and type in names, one at a time.</p>
+
+<p>Before she can, a wail of grief erupts from outside, followed by choked sobs. Leaf closes her eyes and takes a deep breath, then another. <em>I'm going to start typing as soon as I open my eyes. Three… two… one...</em></p>
+
+<p>Leaf's fingers shake only slightly as she starts to tap out <em>Blue Oak, </em>and she lets out a breath of relief as the number beside the field became 0 when she reached the <em>O</em>.</p>
+
+<p>Next comes <em>Red Verres, </em>and a knot forms in her stomach until she reaches the <em>V </em>and the number goes to 0 again. She deletes back to just <em>Red </em>to look through the two that popped up. Only one is a first name, the other being part of Redmayne.</p>
+
+<p>She's still stalling. She swallows and starts tapping again.</p>
+
+<p><em>Aiko S</em></p>
+
+<p>Leaf's fingers stop. The number beside the search window still shows 0, and she feels the last tension relax inside her. There are still other names she wants to search, but if she's being honest with herself, those were the ones she most cared about.</p>
+
+<p>She quickly searches for Elaine and Glen, and is just about to look up Takada when someone says, "It updated!" and she quickly presses refresh and gets an error message.</p>
+
+<p>Leaf curses and lowers her phone. <em>We should just find a big monitor and cast one of their phones to it, reduce the server load…</em> The thought reminds her that she can try sending a message again, and she guiltily does so, even though she knows Red and the others are alright now.</p>
+
+<p>Except she doesn't know that at all, because new reports are still coming in and the page is constantly updating. She could spend the whole day here just refreshing the page and searching her friends' names, and she <em>still </em>wouldn't know if they're okay until she sees or hears from them, so… really, she should just skip all that and wait until she does.</p>
+
+<p>So resolved, she lowers her phone with what feels like a massive expenditure of will and looks up to see Red standing in the doorway, lowering a pair of bags beside his feet.</p>
+
+<p>Leaf's eyes widen, and they just stare at each other for a moment. There's a burning in her throat as sudden relief spreads through her, not just the absence of anxiety but a wave of warm gratitude that makes her smile and finally stagger to her feet and toward him.</p>
+
+<p>He catches her in a careful hug, and Leaf closes her eyes. It hurts a bit, but not enough for her to care. "Swords of Justice, Red, don't ever scare me like that again." Her arm wraps carefully around his waist, which is bereft of his pokebelt, for a brief squeeze.</p>
+
+<p>"Sorry," Red says. His voice is quiet and calm. "You're… okay?"</p>
+
+<p>"Yeah. Going to take a while to heal, but… okay." She relaxes her arm, which he takes as a sign to lower his too, and she leans back to look him over. He looks tired, but not as much as before he left with Aiko, and the fact that he's dry and wearing new clothes probably goes a long way toward her feeling of relief. It wasn't just his physical health she was concerned about, but somehow the visual observation of him just looking... clean and dry and relatively put-together translates in her mind as him being emotionally better. "Where have you been?"</p>
+
+<p>"The gym. Leaf… can we sit down?"</p>
+
+<p>Something in his voice makes her gaze snap to his, not even registering it as a simple request to rest. There's an odd hollowness in his eyes that she missed before, or maybe it just wasn't as strong, but when they meet hers, she sees grief and pain lurking in that emptiness, and her heart freezes.</p>
+
+<p>And then she looks down at the bags, registering the implication of a second one for the first time.</p>
+
+<p>"What happened to Aiko?" She grips his shirt. "Is she here? How bad is it?"</p>
+
+<p>Red pulls away from her to sit on the bed, hand taking hers, and she follows without resistance, barely feeling her body as she lowers herself beside him. He won't look at her, which scares her more than anything.</p>
+
+<p><em>Not dead. Just don't say that, anything else…</em> "Red. Tell me." It's hard to breathe, like shallow breaths aren't enough but if she breathes deeper her side hurts...</p>
+
+<p>"I'm sorry," Red says, and then</p>
+
+<p>she watches his lips form words that hammer her chest</p>
+
+<p>(no, that's her heart beating)</p>
+
+<p>vision going white around the edges</p>
+
+<p>Red's face is panicked and tilting out of view</p>
+
+<p>blood rushes through her ears in a roar</p>
+
+<p>that ends in darkness. Leaf drifts from glimpses of her new friend's intense gaze, hears harsh words exchanged on rooftops, sees a smile that's sometimes wry, and sometimes bitter, but often genuine and surprised and warm, like she just couldn't believe that life had this to offer her, and when Leaf wakes it's with wet eyes pressed against a damp pillow.</p>
+
+<p>She stays still a moment, recognizing where she is by the feel of the hospital bed and the sounds around her. For a moment she allows herself to think it was all a dream, and she'll turn to find the nurse beside her, but when she turns her head and opens her eyes a crack, she sees Red sitting beside where Elaine used to, looking about half of how she feels.</p>
+
+<p>"Leaf, are you—"</p>
+
+<p>"How?" Leaf croaks. Her throat is dry, and she shifts herself to sit up. A nurse must have been by, because there's a pulse monitor around her wrist and a fresh cup of water beside her bed. She sits up and drains the whole cup, then scrubs her face with her sleeve. "How did it happen?"</p>
+
+<p>Red stares at her. "I think you fainted, you shouldn't—"</p>
+
+<p>"You have to tell me. It won't be real until you do." She draws her legs up and wraps her good arm around them, not looking at him as shock settles in around her thoughts again. The tempting denial. "Now, Red. Tell me what happened."</p>
+
+<p>He's silent for a minute, and just before she yells at him to just <em>tell her </em>she realizes that she's not thinking, that it must be hard for him too, maybe even harder, but before she can say anything he starts talking, and she's transfixed by her need to know.</p>
+
+<p>"We went to one of the hospitals that got hit by Zapdos. It was on fire, being evacuated. An onix was moving through the city, probably trying to avoid…" Red pauses, blinks rapidly, shakes his head. "Sorry. She was inside, and the roof collapsed."</p>
+
+<p>Leaf stares at him, heart hammering and breath catching in her throat as she tries to speak twice. "Did... you see?" <em>Is it possible you're wrong?</em></p>
+
+<p>"No."</p>
+
+<p>"Then how..." she trails off as Red raises a finger and taps his temple, and Leaf's last bit of hope fades.</p>
+
+<p>Tears blur her vision and trace new lines down her cheeks, but this time there's no merciful unconsciousness to divorce her from the rising tide of pain. She imagines Aiko trapped under rubble and bleeding out, mind flinching from more horrible outcomes, and then imagines Red staring at the rubble and knowing that she's gone… "Gods, Red. I'm so s-sorry…"</p>
+
+<p>She reaches an arm out, and he's there for her to press her face into his shoulder. As the grief floods through her, she feels and hears his own stifled sobs, and grips him tighter. Even through the pain, she thinks of what he showed her on the cruise; the effect his dad's loss had on him. And now this…</p>
+
+<p>That thought makes her suddenly think of Aiko's dad, and the flood feels like it expands into every corner of her thoughts. Gods, what are they going to say to him? He barely seemed to accept her leaving for her journey… the thought of him not accepting that she was gone, just… living on as if she's coming home at some point…</p>
+
+<p>It feels like her heart is being squeezed into pulp, the pain so great that her muffled keen is as much from the simple physical feeling as the grief.</p>
+
+<p><em>Have you ever lost a person?... There's like a crack in your life that doesn't ever really go away.</em></p>
+
+<p>She can feel it, already formed. A dark rift into which all the plans and hopes and dreams of her friend have disappeared forever, a fissure that cuts across the future and splits it off forever from what could have been, and the more she contemplates it, the more it feels like it'll pull her in too, sink her through inky depths that will crush her like an empty soda can.</p>
+
+<p>And she does get pulled in, and she does get crushed, and for a time all the world is reduced to the compact agony.</p>
+
+<p>When the storm finally passes, it does so in stages of awareness. First Leaf becomes more cognizant of the feel of Red's shirt. Then her own hospital gown. Then the sounds of others in the building. Then some stray thought clutches her leg and drags her back down until she's ready to try coming back again.</p>
+
+<p>Red is quiet and patient beside her, until the world returns little by little again and stays. She keeps her head where it is, feeling like she's cried out, for now. Red seems content to stay still too, and what eventually makes her lift her head is a sound of grief from elsewhere in the hospital.</p>
+
+<p>Another tragedy, only tangentially related. Another ended future.</p>
+
+<p>Leaf opens eyes that feel puffy and sore, and notes with only minor surprise that it's still light out, the bright midday sun shining down on a city full of cracks. There's even a rainbow in the distance, a testament to the insanity of this new world she's sidestepped into. In a saner one it would be night already, and raining again.</p>
+
+<p>"How did you stand it?" she eventually murmurs. "With your dad."</p>
+
+<p>Red shakes his head. "Didn't, remember? I broke. Took a long time for the pieces to settle, but even then a lot was blocked by my partition."</p>
+
+<p>Leaf pulls away slightly to search his face. "And did this break you again? Or…"</p>
+
+<p>Red meets her gaze, then slowly shakes his head. "It's… different." His voice is quiet, but she can hear the thread of pain under it. "I think I understand how partitions form, now."</p>
+
+<p>"How?" she asks, because it's something to talk about, anything, that's not...</p>
+
+<p>"Sometimes it seems like memories and preferences and perceptions are all we are. Like a messy bundle of data files, sensory equipment, and programmed directives that..." He stops, frowns, shakes his head. "Sorry, that's not... Anyway, partitions divide your memories. Memories are almost like a person, right? Just… with no access to the senses, or intentions… it's just a pattern. When I was younger… I didn't realize I had powers, but they were still developing and working to revert harm through partition."</p>
+
+<p>"So they formed… what, another person inside you?"</p>
+
+<p>"No. Sorry, I'm butchering it, and I think it's hard to explain anyway." He sighs and closes his eyes. "I lived a pretty sheltered life as a kid. My mom and dad were my world, and that world was good. There were things that made me sad, but life still felt... fair. Sensible."</p>
+
+<p>Leaf's chest aches. What Red's describing sounds very much like what life was like for her, before she decided to leave Unova.</p>
+
+<p>"I was practically a baby when Blue lost his parents. Only have vague memories of them, but my dad was… more than a person. He was like an idea given form. A heroic font of wisdom about how to survive, he taught me <em>so much </em>about how to stay safe on my journey…"</p>
+
+<p>"And then he died," Leaf whispers. "No, not just died. Was killed by pokemon." Leaf watches Red study her bed, focusing on the sound of his voice and the ideas he's expressing, to keep herself from dwelling on things that would make her fall apart again.</p>
+
+<p>Red nods. "It was like… if some new mythical pokemon shows up and reverses gravity for a few seconds. Forget the planetary effects, I mean just from the earth's surface. And everything goes flying up into the air, then comes crashing down. Bunch of people die, probably, and maybe a lot of houses collapse, I don't know. But the point is you just can't take it for granted anymore that gravity is constant. That pokemon might do it again at any point, and everyone just… The world is different. <em>You're </em>different. And you're less shocked, the second time it happens. But a partition… it holds onto the old mental pattern, or something." He rubs his face. "Sorry, this analogy is breaking down. I have a lot of questions I need to ask another psychic."</p>
+
+<p>Leaf worries her lower lip, watching him. "I think it made sense, sort of. So with your partition weak, you were… more prepared, for this?"</p>
+
+<p>"Not prepared," he murmurs, gaze down. "And I don't know if the partition being weak mattered. I just… there wasn't as much, built on some idea that we were all invincible. I think if I wasn't psychic it would have been the same. It all feels like it's part of the same pattern now. Maybe that's why it was easier for me, to not go in the building."</p>
+
+<p>Leaf stares at him. "What do you mean?"</p>
+
+<p>Red sighs and closes his eyes. "I wasn't with her, Leaf," he says, voice finally descending into full monotone. "I tried to stop her from going into the hospital, but I let her go in with just Vermilion Gym's Second. They were going in to rescue his people and others that were still trapped inside and I said not to, I said it was <em>too dangerous</em>, but they went in anyway. No one came out."</p>
+
+<p>She stares at him, unable to understand what he's saying for a moment, then unable to accept it. "You didn't… no, Red, you risked yourself to save <em>strangers, </em>you don't… how could you not…"</p>
+
+<p>Now he does open his eyes, and they're wet and angry. "How could I what, Leaf? How could I not throw my life away too? How many times did we almost die last night? I count three for myself, you probably had more. What would it have taken? A command given a second too slow? A trip or slip at just the wrong moment? If that nidoqueen meant to attack you instead of just turning while you were in the wrong place, <em>you'd be dead.</em>" His anger has faded, anguish coming through instead. "Dead, Leaf, just gone, like Ai..." Her name turns into a sob that brings her own tears back, and then they're holding each other again as the tears flow, and this time Leaf feels like she's comforting him more than the other way around.</p>
+
+<p>It's hard to fully grapple with the idea of her own non-existence in any circumstance, let alone through the numbing grief. But she can feel a little bit of the horror at how close she came, through the fear in his voice.</p>
+
+<p>Another endless moment passes as Leaf lets the grief take her away again. There were just so many things she was waiting for… conversations that would never happen now. Talking to Aiko about the diglett caves, and the cruise, and her ranch, and lab grown meat, and cloning… Blue probably has his own list, and Red too, and it all adds up to sorrow that has nowhere to go. A lifetime of pain that may fade, but will persist until each of them are gone.</p>
+
+<p>And all because of what? Leaf finds herself searching for justification in what Red said, for and against, because it still doesn't make sense to her. Red was so brave all that night, despite all the fear he was dealing with… Could it be that he was using his powers to keep himself steady, and then they ran out? Or maybe…</p>
+
+<p>"Red," she whispers. "The Pressure was really hard on you. Did it—"</p>
+
+<p>"No." He sounds so tired, like he's argued this a hundred times before. Maybe he has, to himself. "Zapdos was gone. If anything I felt less afraid for myself, after that. It was me, Leaf. Just me. I decided the risk was too high and I didn't go in. That's all."</p>
+
+<p>Leaf hears the words, but still... doesn't believe him. She saw how affected he was by it, even lost in her own nearly hysterical concern for the pokemon around her—</p>
+
+<p>"So it's true?"</p>
+
+<p>They both jump at Blue's voice, and Red stands and steps around the chair so Leaf can see him, standing in the doorway like Red was.</p>
+
+<p>"Blue! You're okay!" The relief is such an unexpected positive thing to feel that she forgets her injuries and tries to get up too. She quickly stops, hissing in pain, and relaxes back into her bed. "How did you find us?"</p>
+
+<p>He doesn't answer, doesn't even move further into the room to hug Red. He just stares at Red with an expression of barely leashed anger, and it takes her a moment to remember that he asked a question.</p>
+
+<p>Just when she thinks he won't answer, his gaze moves to her. "Just came from the gym. Found out where Red was going. You're okay?"</p>
+
+<p>"I'll be fine." She searches his face, heart sinking at his clipped tone. This isn't the tearful reunion she imagined, let alone the joyful one. "The others… are they…?"</p>
+
+<p>"Glen was hurt too, but he's also recovering. Elaine?"</p>
+
+<p>"She's fine. Went to a pokemon center."</p>
+
+<p>Some tension leaves Blue at that, and he leans against the wall. "Glad you're okay." He opens his mouth, then closes it and turns to Red. "You still haven't answered me."</p>
+
+<p>"You didn't specify," Red says, and Leaf looks at him in surprise at the leashed anger in his voice too.</p>
+
+<p>Sudden foreboding fills her, and she's about to speak when Blue answers.</p>
+
+<p>"They told me you were there. When the Second and Aiko died." Blue's voice is controlled, but his hands are fists as he crosses them over his chest, and there's anger under the calm like hints of flames licking an underbrush. "That you let them go into the building alone."</p>
+
+<p>"Yes," Red says. Just that. As Leaf looks at him, all traces of the sadness from before are gone.</p>
+
+<p>Blue waits, clearly expecting more of an answer. Blue's jaw sets, and he shakes his head. "You're not a coward. You wouldn't have come if you were. How could you do that?"</p>
+
+<p>"Guys," Leaf says, forcing herself to speak against the sense of pressure she feels filling the room. "Maybe now isn't the right time for this. We're all still exhausted, maybe feeling after effects of the Pressure. Let's just… let it go, for now. She wouldn't want us to—"</p>
+
+<p>"Yes, she would," Blue interrupts, and she sees his fists tighten as the heat enters his voice, now. "You two didn't know her as well as I did, you weren't there after the caves, you don't understand. We all take responsibility for our fuckups. She understood that, started it. Now tell me what the fuck happened, Red!"</p>
+
+<p>A silence of three parts fills the room: Leaf's shock and dread, Blue's angry expectation, and Red's detached hostility. It's broken not by any of them, but by a nurse who walks by the door.</p>
+
+<p>"Is everything alright in here?" she asks, looking at Leaf.</p>
+
+<p>"No," she says. "We… lost a friend."</p>
+
+<p>Blue lets a breath out through his nose and turns to the nurse. "Please excuse my outburst. It won't happen again."</p>
+
+<p>She eyes him briefly, then looks back at Leaf, waiting for her confirmation. After a moment, Leaf nods, and the nurse walks away. It's only after she leaves that Leaf realizes she was probably asking if she was okay, if she wanted them to stay.</p>
+
+<p>As soon as she's gone, Blue closes the door. When he turns back to Red, the silence returns.</p>
+
+<p>"That's what you want?" Red asks at last. "You just want me to say I made a mistake?"</p>
+
+<p>"No, that's not it. But it would be a start." Blue lets out a breath and rubs his face. "It's more than that, but just… explain what you did wrong, and why, and we can go from there."</p>
+
+<p>"If you want a real post mortem, there were three mistakes," Red says, voice soft and hypnotically monotone. "The first was made by Vermilion's Second. It wasn't when he sent his team ahead while waiting for Aiko and me, that made sense. Don't think they could have reasonably predicted the onix. The mistake came when, after arriving at the clearly unsound and doomed building, he decided to go in at all. It was too high a risk. He should have known that. He <em>did </em>know it, but went anyway. He didn't make a plan for the roof collapsing, didn't have a way to deal with that, so he shouldn't have—"</p>
+
+<p>"Stop," Blue says, and the anger is back. "You're not doing it right. You talk about <em>yourself, </em>not what other people did wrong. That's for them to do, and he's not here. His friends and gym mates were in the building, and he couldn't just watch and not go try to save them. Some people can't live like that."</p>
+
+<p>"Maybe they can't," Red says. "But if that's true, those people shouldn't be leaders. Ask Surge, if you disagree," he quickly says, seeing Blue about to speak again. "But fine, you want me to admit my own mistake? That's the second one. I should have lied to him. The Second asked me if there were still people alive in the building. Don't know if he would have believed me if I said no, but… I should have said no."</p>
+
+<p>They both stare at him, and Leaf can't keep her silence. "Red, what if someone had made it out? No one would ever trust you…"</p>
+
+<p>"Maybe not. But Aiko might be alive right now."</p>
+
+<p>"That's all you care about?" Blue asks. "You would have condemned them all to death, just to save two lives?"</p>
+
+<p>"My dad taught me that risk is something you have to <em>actively manage</em>. It's not just about having knowledge, it takes <em>time</em>. Effort. Sometimes resources. If you're not spending anything to manage risk, you're just rolling dice." Red shakes his head, and now some emotion enters his voice as he leans back against her bed, gaze down. "Aiko should have known that. That's the third mistake. She's… she was… smart, she understood risk, and I wish… I wish I could have just paused time and <em>talked </em>to her about it, I'm sure I could have convinced her, but it all happened so fast…"</p>
+
+<p>Leaf reaches out to put a hand on Red's arm as he trails off, sounding close to tears again. "Red, you can't blame yourself for this. It was her choice to come with us, we all tried to get her to come but she's the one that ultimately chose it, just like she made the choice to go in there." She turns to Blue. "Tell him." He bites his lip, staying silent, and anger suddenly sparks in her own chest. "Blue, <em>tell him!"</em></p>
+
+<p>Blue rubs his eyes, then lets out a breath. "She did it because she chose to. But you're wrong saying it was a mistake. She followed what she felt was right. She knew it was a risk, and maybe it was the wrong call this time. <em>Your </em>mistake wasn't that you failed to <em>stop </em>her, Red, it was not going in after her. It's the same mistake you make in battles, that you could have learned in Pewter if you went for the badge: you're too hesitant to take risks."</p>
+
+<p>"This wasn't just a risk, it was suicide."</p>
+
+<p>"You didn't <em>know </em>that ahead of time, you're saying it now, after the fact!"</p>
+
+<p>"The <em>roof collapsed, </em>Blue, if I'd gone in then I'd be dead too!"</p>
+
+<p>"<em>Then you should have died!"</em></p>
+
+<p>The silence is back, and this time Leaf pushes through her shock. "Blue, you don't mean that."</p>
+
+<p>"Would you have done different?" Blue asks, eyes piercing her. "Be honest, Leaf. For her, for him, for me. Would you have stayed outside?"</p>
+
+<p>Leaf's throat locks. She can't <em>know </em>what she would have done... she could say that, could try to stand up for Red, but...</p>
+
+<p>Blue reads it on her face, and nods. "That's what it means to be someone's <em>friend,</em>" Blue says, looking back at Red now. "That's what you don't get, Red. You're talking about risk and the smart thing to do like it's a game, like your decisions don't say things about who you are, how people see you. Forget strangers you're on a mission with, how could anyone trust you to have their back on a journey, if they know that's how you see things?"</p>
+
+<p>"Of <em>course</em> that's what you care about," Red says, bitterness spilling out with every word. "Your precious fucking persona. Word gets out that one of your journeymates will leave a friend to die and people wonder if you feel that way too, right? That's what being a hero is, to you, what <em>looks </em>heroic, not what actually saves lives."</p>
+
+<p>"Shut up," Blue says, face red and voice deadly calm. "That's not how it is."</p>
+
+<p>"No? That mean you're going to stop pretending that your definition of a hero is the only one?" Red sticks a finger forward. "Did you consider that maybe she heard your voice in the back of her head, telling her she had to go in there or she didn't belong at the great Blue Oak's side?"</p>
+
+<p>"Get that finger out of my face before I—"</p>
+
+<p>"Stop it, both of you!" Leaf cuts in, heart pounding. Both boys have moved closer to each other, faces flushed, and she forces herself out of the bed to stand between them, looking back and forth. "You're <em>best friends</em>, you can't let this change that, Aiko wouldn't want this, you <em>know </em>she wouldn't!"</p>
+
+<p>Blue swallows, hands balled into fists at his side as he takes a slow breath. "Just… admit your mistake. Just say it, Red, it's okay if you were afraid," Blue's voice shakes slightly on the word, "You can overcome that, we'll help you, but you can't go forward like this, thinking that what you did was right."</p>
+
+<p>For a moment all Leaf can hear is her heart pounding and their breaths. The world outside the door is oddly quiet, as if the whole building is waiting for Red's response.</p>
+
+<p>"That's where you're <em>demonstrably</em> wrong," he says at last, and steps around Leaf. Blue's arms flinch up, but Red just takes his bag from the floor and pulls its straps onto his shoulders.</p>
+
+<p>"Red..." Leaf steps forward, struggling to find the right words, frustration mixing with panic. <em>Say something, if you want to persuade the world to do the right thing then you should at least be able to stop a friend from making a mistake!</em></p>
+
+<p>He pauses and glances at her. There's something in his gaze that reminds her of that night on the cruise, and she feels heat go up her neck in the moment it takes for him to look away. "You don't have to worry about me tarnishing your reputation, Blue. Maybe you're right, maybe I'm not fit to be a trainer after all. Either way, my journey's done."</p>
+
+<p>"Red, don't," Leaf says, but he's already opening the door, and he closes it without looking back.</p>
+
+<hr class="wp-block-separator" />
+
+<p>Red spends the day walking through the city. It's shocking to see the damage in the daylight; all the bodies seem to have been collected, thankfully, but there are entire blocks that are a wreck. That said, watching the repair efforts that are already underway is soothing, in its own way. It's a reminder that not everything that happened last night would leave a scar.</p>
+
+<p>Red doesn't have a specific destination in mind. He mostly just walks to keep himself busy as his thoughts churn, and his emotions ebb and flow. Occasionally he thinks of the conversation that just happened, of Blue's tone or the look on Leaf's face, but those pains are minor.</p>
+
+<p>Mostly he just thinks of Aiko, and practices manipulating his partition.</p>
+
+<p>At one point Red reaches the shopping mall that he and Leaf took shelter in, and goes inside to ensure that the group who hid there is okay. A path is cleared through the spike trap they laid, so he assumes they got out okay, at least. Afterward he goes to a pokemon center and puts his pokemon in queue. It would take a few days, but he waits a couple hours anyway to speak with a doctor who examines Pikachu's ball, and reports confidence that he would walk again. It doesn't undo last night or this afternoon, but it's a small stone off Red's heart. He misses his pokemon's weight on his shoulder.</p>
+
+<p>Wireless signal gets fully restored by dinner time, and Red eats a meal bar in a park as he composes a message, then sends it.</p>
+
+<p>He doesn't call his mom. He would probably have to tell her that he got off the cruise at some point, but right now it seems a better problem for Future Red. He does let Bill know, and apologizes for not seeing the whole convention. He reads updates about the search for Elite Karen, which resolves just as the sun begins to set: she was found in critical condition, but alive, atop her slain pokemon. The death count for the city is up to seven thousand. It's being cautiously referred to as the least deadly Stormbringer attack on a major city in history. Mass funerals are already being planned, and there's a speech by the mayor and gym leader tomorrow afternoon.</p>
+
+<p>The sun is setting by the time he gets a response to his message. As he gets up he spies the messages waiting for him from Leaf. Each expresses caution and reassurance that Blue will come around. He sends her a quick response telling her he's okay and would visit tonight. There are none by Blue.</p>
+
+<p>It's a forty minute bike ride from the park to the cafe, and by the time he arrives it's fully dark. He does his best as he packs up his bike and pads to ensure his mental state isn't too uncomfortable, then walks into the cafe.</p>
+
+<p>Most businesses aren't re-opened yet, but Sabrina is already there, waiting with a cup of something. Or maybe she's not waiting: Leader Giovanni sits beside her, along with Leaders Koga and Erika. Their conversation stopped before he even entered, and so he steps into silence as he stares at the four Leaders, heart pounding in his chest.</p>
+
+<p>"Sorry," he says, and gives a slight bow. "I didn't mean to intrude."</p>
+
+<p>"Not at all, Red," Sabrina says as Giovanni and Koga nod in greeting, and Erika twiddles her fingers. "I already told them this would only take a moment. In fact, it's already done." Her gaze is sympathetic, but warm. "I'm truly sorry for your loss. But your assessment is correct. Your partition is now partially under your control."</p>
+
+<p>A thread of hope pierces the grief, for a moment. "You'll take me as your student, then?"</p>
+
+<p>Sabrina sips from her cup, gaze thoughtful, then seems to reach a decision. "I will. When can you start?"</p>
+
+<hr class="wp-block-separator" />
+
+<p><p class="has-text-align-center">End of Part I</p></p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/66/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/68/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -338,6 +844,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

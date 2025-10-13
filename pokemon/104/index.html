@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goal Factoring - Pokemon: The Origin of Species</title>
+    <title>Chapter 104: Secrets - Pokemon: The Origin of Species</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@
             color: var(--text);
         }
 
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -78,216 +87,228 @@
             text-decoration: none;
         }
 
-        
-      .nav-icons {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
 
-      .icon-button {
-        padding: 8px;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border: none;
-        background: transparent;
-      }
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-      .icon-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-      }
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
 
-      #search-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 20vh;
-      }
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
 
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-      }
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
 
-      #search-input {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 18px;
-        background: var(--panel);
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        color: var(--text);
-        font-family: inherit;
-      }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
 
-      #search-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
 
-      #search-results {
-        margin-top: 16px;
-        max-height: 50vh;
-        overflow-y: auto;
-      }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-      .search-result-item {
-        display: block;
-        padding: 12px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 8px;
-        color: var(--text);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
 
-      .search-result-item:hover {
-        border-color: var(--accent);
-        transform: translateX(4px);
-      }
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      .result-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
 
-      .result-meta {
-        font-size: 0.85em;
-        color: var(--muted);
-      }
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-        .chapter-header {
-            padding: 48px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
         .chapter-title {
-            font-size: clamp(24px, 4vw, 36px);
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-
-        .chapter-meta {
-            color: var(--muted);
-            font-size: 0.95em;
-        }
-
-        .chapter-content {
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 70ch;
-            margin: 0 auto;
-        }
-
-        .chapter-content br {
-            display: block;
-            content: "";
-            margin: 0.75em 0;
-        }
-
-        .chapter-content hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .chapter-content em {
-            font-style: italic;
-        }
-
-        .chapter-content strong {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
         }
 
         .chapter-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             gap: 16px;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
+        .chapter-nav a {
+            color: var(--link);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
         }
 
-        .nav-button:hover {
+        .chapter-nav a:hover {
             border-color: var(--accent);
             text-decoration: none;
         }
 
-        .nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .index-button {
-            padding: 12px 24px;
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        .index-button:hover {
-            background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.15), rgba(96, 165, 250, 0.15));
-            text-decoration: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
-
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .chapter-nav {
                 flex-direction: column;
             }
-            .nav-button, .index-button {
-                width: 100%;
-                text-align: center;
-            }
         }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand"><a href="../../">Daystar Eld</a></div>
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
             <nav aria-label="Primary">
                 <ul>
-                    <li><a href="../../">Home</a></li>
-                    <li><a href="../">Pokemon: TOoS</a></li>
-                    <li><a href="../../rationally-writing/">Rationally Writing</a></li>
-                    <li><a href="../../blog/">Blog</a></li>
-                    <li><a href="../../stories/">Stories</a></li>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
                     <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
           <div class="nav-icons">
             <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +316,7 @@
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <a href="../../feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 11a9 9 0 0 1 9 9"></path>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -308,20 +329,544 @@
     </header>
 
     <main class="container">
-        <div class="chapter-header">
-            <h1 class="chapter-title">Goal Factoring</h1>
-            <div class="chapter-meta">Pokemon: The Origin of Species</div>
-        </div>
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <nav class="chapter-nav">
+                <a href="/pokemon/103/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/105/">Next →</a>
+            </nav>
 
-        <div class="chapter-content">
-            <p>No content available.</p>
-        </div>
+            <h1 class="chapter-title">Chapter 104: Secrets</h1>
 
-        <div class="chapter-nav">
-            <a href="../103/" class="nav-button">← Previous</a>
-            <a href="../" class="index-button">Chapter Index</a>
-            <a href="../105/" class="nav-button">Next →</a>
-        </div>
+            <div class="chapter-content">
+<p><p style="text-align: center;">Chapter 104: Secrets</p>
+"Sabrina seems tired."</p>
+
+<p>Red glances at Rei, who sits casually in the carseat beside him with her gaze out the window, then looks back at his notebook and finishes writing out his thought before closing it with a sigh and a nod. "I haven't seen her this exhausted since after the Hoenn incident."</p>
+
+<p>He's still not sure what his relationship with Sabrina's ex-student is these days. "Co-conspirator" seems the best one that fits; they're not exactly friends, not exactly peers, and not exactly coworkers, but once in a while Giovanni or Sabrina want something done that requires a psychic, and both seem happy to offer their employee/student to the other if the job requires more than one, or if the other is busy. It's often a great learning opportunity, and many of the tasks involve putting Red in new situations, facing new challenges for his growing abilities. He's helped test young psychics in Viridian to see if they had the Gift and get a sense of their talents, and once even helped diagnose someone who was hit with a mental attack. It felt strange handing someone the same form Psychic Narud gave him a year ago.</p>
+
+<p>Today they're interviewing psychics who have had The Dream.</p>
+
+<p>It's hard not to think of the words in capital letters after they've shown up in the media that way for weeks, but some part of Red insists this is totally normal given how momentous it all is. He barely paid attention to it all until entire cities were hit, and then Agatha's interview made it impossible to ignore as the "new central narrative of their time," to quote some pundit or the other… and if he's being honest, he's getting a little sick of living through so many of those, even if this one is actually relevant to his interests.</p>
+
+<p>Maybe he just wants some breathing room before the next massive and/or mysterious potential calamity rears its head.</p>
+
+<p>Last week was the anniversary of the start of his journey, and the three of them all went back to Pallet to have a small but warm celebration with his mom, Daisy, and the Professor… as well as a surprise visit from Leaf's mother and grandfather, who were fun to finally meet. Once he (more or less) finished peppering them with questions and answered a number of theirs (it was mildly shocking, despite everything, to hear that both Professors had read not just his papers but the loose collection of writing that passed for his blog), the conversation turned to what's been going on in Kanto and throughout the island chain, which the Junipers of course followed on two different levels.</p>
+
+<p>Eventually Leaf asked if things have always been like this, and she only just started noticing once she started her journey. Daisy complained that <em>her</em> journey only had one world-changing discovery during it, while Professor Oak admitted that his own coincided with a fair few, but not so close together, which Cedric agreed with. Leaf's mother said hers had basically none, which in retrospect she's rather happy about, but did feel a bit robbed by at the time.</p>
+
+<p>None of course were anything like the Hoenn incident. It's hard to know how much of what's happened since can be truly traced back to it, and whether the incident itself was the result of some other series of events set in motion long ago, but Red finds himself musing, sometimes, about how much of his life is going to end up shaped by something no one around him had any way to predict as he was preparing for his journey.</p>
+
+<p>"It set her back a lot," Red says. "More than most Leaders outside of Hoenn, I think. And then, you know... that whole ditto thing."</p>
+
+<p>"So you think it's just been catch-up?" Rei says.</p>
+
+<p>"She's finally finished her Challenger backlog." Red remembers mentioning her shift in focus to Blue a few weeks ago, who just smiled and implied it was part of some deal he'd struck with her. "It's kept her busy on top of everything else."</p>
+
+<p>"You didn't answer the question."</p>
+
+<p>He turns to see her eyes on him now, and lowers his shields enough for a tentative probe that senses her curiosity, layered over a deep worry. "I don't think she's had it yet, if that's what you mean. Not unless she's sleeping in other cities, or she got it without the rest of us."</p>
+
+<p>"She could have been one of the initial ones, when it was just going to powerful psychics."</p>
+
+<p>Red smiles. "You don't really believe that."</p>
+
+<p>"Believe what?"</p>
+
+<p>"That it was just going to 'powerful' psychics at first, because you consider yourself one and you didn't get it either."</p>
+
+<p>Rei smiles back in acknowledgement. "The only alternative that makes sense is fame, and yet we're supposed to believe one of the most famous psychics in Kanto didn't get it?"</p>
+
+<p>"Why would she lie?"</p>
+
+<p>"To you, you mean?"</p>
+
+<p>"To anyone, at this point." Red doesn't ask why she's so curious, given that her days of obsessing over Sabrina are supposed to be behind her; he's been curious too.</p>
+
+<p>"What if she got a different dream than everyone else?"</p>
+
+<p>"Has that happened to anyone?"</p>
+
+<p>"Would we know if it had?"</p>
+
+<p>"Wild speculation, then."</p>
+
+<p>"If you have a better hypothesis…"</p>
+
+<p>The car slows to a stop, and they step out in front of a small house with a white picket fence and a well kept lawn. Cerulean South is just as Red remembers it, mostly suburbs that stretch out in every direction, and he feels a squeeze in his chest as he sees the road he, Blue and Leaf traveled down to the bike store where they met Aiko.</p>
+
+<p>But it passes quickly, and then he's breathing again as they walk up to the house and ring the bell.</p>
+
+<p>It takes a minute for the young man to answer, and when he does it's with a furtive look through the chain link lock before he opens it more fully.</p>
+
+<p>"Hello," Rei says. She always does the talking at first; she's older and looks more professional, and she's also not famous, which means those people who know Red by sight (mostly younger psychics) are less likely to ask him questions about himself if he's not the one who starts. Instead he just focuses on his notebook unless he has a question to ask. "Mr. Garcia? I'm Rei, we spoke on the phone."</p>
+
+<p>"Yes, come in, please…"</p>
+
+<p>They enter the man's home and sit on his couch. Red accepts tea, mostly because it seems like the sort of thing that would calm their host's obvious nerves. His features are drawn, his gaze constantly either a million miles away or darting nervously around, and he twitches occasionally, head tilting in an almost desperate attempt to hear something, or convince himself he can't hear anything.</p>
+
+<p>Red's seen it all before, but not this bad. The Dream can often have that effect on people, but usually it's temporary, particularly since a lot of psychics just amnesia themselves of it; there's been a rush on lessons for that in Saffron as laypsychics who've only marginally explored their powers are suddenly much more interested in ensuring it's not used against them again.</p>
+
+<p>"So," Rei says after declining her own offer of tea. "Tell us what you hoped Leader Sabrina could do for you."</p>
+
+<p>"Well, I'm ah, not sure. I'm a sensitive, like I said, not a full psychic… I ah, wish I could just… forget, you know? If it's possible at all… I <em>heard </em>it's possible… I thought surely, <em>she </em>could…"</p>
+
+<p>The pleading in his tone makes Red's stomach clench. He still remembers what Narud said about one psychic giving another amnesia; like surgery done with fingers, or similar. Whatever Mr. Garcia heard, it's clearly not as deterring… or maybe his experience is just that bad.</p>
+
+<p>"It's possible," Rei says, tone neither flat nor sympathetic, merely delivering logistical information. Red asked her once, way back when they were trying to crack "perfect lying" together, why she doesn't try being more friendly, and she gave him an assessing look and said that she forgets how young he is sometimes, and he decided not to ask for clarification until he could figure out whether he said something insulting or if she did. "But it would be a risky procedure that most psychics would not wish to attempt, even skilled ones. We will, however, ensure Sabrina knows of your suffering."</p>
+
+<p>"Thank you."</p>
+
+<p>"Meanwhile, we would like to learn what we can about your experience in more detail."</p>
+
+<p>"Yes, yes of course. Well, to start it's been… ah, like I said, the first dream, in Goldenrod… it was bad, but not, you know. Wrecked my concentration for the rest of the week, but the important business was already done… drank a bit more after the meetings to help me sleep, and by the time I came home, it was… easier. To put it behind me."</p>
+
+<p>Garcia swallows, then drinks some tea, swallows again. "The second time was like… it was… it's like, because I tried so hard to forget before, I got punished. And now it's etched in there." He taps his temple. "To make sure I don't, this time."</p>
+
+<p>"But the dream itself was the same?" Rei asks as Red makes a note to ask whether the man's narrative of fault is tied to whole cities getting the dream. "Please think over your answer, and don't hesitate to voice uncertainty; you're the only person we know of so far who has experienced it twice, and even the slightest difference may be useful to us."</p>
+
+<p>"It... I'm sorry, I'll take a moment…" He closes his eyes, mouth set in a firm frown as Red finishes making another note about how they should put out a general call for psychics to record themselves while sleeping in case they talk in their sleep during the dream.</p>
+
+<p>As the silence stretches out, Red can't help but send out a tentative, instinctual psychic feeler that picks up on something like… pain.</p>
+
+<p>Red almost pulls back, but Garcia doesn't shift to any of the exercises he mentioned knowing to reduce unwanted psychic contact, so he feels the way Garcia is struggling against strongly aversive thoughts.</p>
+
+<p>Not painful the way an embarrassing memory or recollection of grief is painful… more the pain of dread, of a potential hopelessness that's only held at bay by a lack of close examination. Once he understands it, Red quickly pulls his thoughts away as Garcia starts to speak again. "I think so, it's… hard to tell, but the second time was… more forceful. It was like… things were clearer, but… maybe that's just because I—"</p>
+
+<p>"Remember, no filter, no second guessing. Just share whatever notions come up. Yes or no: was it more forceful?"</p>
+
+<p>"Y-yes."</p>
+
+<p>"Was it more desperate?"</p>
+
+<p>"Y…no. I'm not—" He closes his eyes, takes a deep breath. "If I have to choose, no. Not more desperate. I'm not sure how that fits with it being more forceful, but…"</p>
+
+<p>"It's alright. Remember, it doesn't have to make sense."</p>
+
+<p>"Did it feel like the same projector?" Red asks, writing the question out as he says it. "I know that's hard to tell from just two samples, but again as best you can tell—"</p>
+
+<p>"Yes, same projector. Their thoughts were… distinct. Strong. It really was like hearing words, not just getting ideas and impressions. I'm more sure than I would be with just anyone."</p>
+
+<p>Red frowns as he makes a quick note, then flips to another page and crosses out one of his hypotheses before returning to his current one. "And… was the <em>order</em> of the dream the same? Like did it all happen in the same sequence of words, impressions, feelings, whatever?"</p>
+
+<p>"Oh. No?" Garcia considers another moment, then shakes his head. "N-no. It was subtle, and… some things stayed in the same order, but I have… two versions in my head, for the sequence of both."</p>
+
+<p>"But nothing was <em>added </em>to the second one, or obviously missing?"</p>
+
+<p>"No."</p>
+
+<p>He's getting more confident, which is heartening to see, but thinking about the dream does seem to still cause discomfort. Rei probably senses it too, one way or the other, because she gives the man a sympathetic smile before saying, "We have one last request, if you're feeling willing. We'd like to experience this dream ourselves as best we can, despite not having had it."</p>
+
+<p>Garcia understands immediately, knuckles turning white as he clenches his hands around each other. "Oh… I…"</p>
+
+<p>"Preferably twice each, so that Red and I are not merged at once and influencing each other's impressions."</p>
+
+<p>"I… I think I…"</p>
+
+<p>Red feels a tightening in his chest as the man's stutter gets worse, and with rising alarm realizes the older man is on the verge of tears. "Hey, uh, I think it's okay actually. From what you've described it doesn't seem like it was different enough to be really necessary."</p>
+
+<p>Garcia's whole body sags, and he takes a deep breath. "A-alright, then."</p>
+
+<p>Rei's irritation is only evident mentally, and all she says is, "I believe that's all, then. Thank you for your time."</p>
+
+<p>"One more thing," Red quickly adds. "Uh, I mean I'm not claiming to know anything here that you don't, but if you're thinking that any of this is, like, a punishment or something…" Red remembers, suddenly, the young man in Vermilion City during the storm, who felt Zapdos's pressure as divine punishment for something he was guilty about and grieving over. "Since entire cities got it both times you did, I think it's probably just bad luck?"</p>
+
+<p>"Luck," Garcia sighs. "Right." He sounds… tired, rather than relieved.</p>
+
+<p>Before Red can decide to add something else or not Rei gets to her feet, and he quickly finishes his tea before joining her while Garcia pushes himself up as well, seeming a little surprised that it's actually over so quickly. After unlocking the door he pauses and turns to them, seeming to build up his courage. "You will… tell Sabrina? Or… others, about my…"</p>
+
+<p>"Yes, of course."</p>
+
+<p>"Th-thank you. I've been getting… desperate, lately. Had th-thoughts of… of training a drowzee, to… to—"</p>
+
+<p>A shot of alarm races through Red as he realizes what's being confessed, thoughts scrambling for something to keep the man from admitting he's thinking of breaking a renegade law, until to his relief Rei puts a hand on Garcia's shoulder, gently squeezing. "I'm sure that won't be necessary, Sir. We'll do our best to figure something else out."</p>
+
+<p>It's the most compassionate thing Red's ever seen her do, and the man looks ready to cry again as he bobs his head, then whispers, "Thank you."</p>
+
+<p>Rei gives his shoulder a light pat before pulling her arm back, and he opens the door for them. Red gives one last small wave, and then they step out of the house and start walking in a random direction together, simply seeking privacy to discuss what they learned before each teleports back to their respective cities.</p>
+
+<p>"Thoughts?" Rei asks after a minute.</p>
+
+<p>"I'm becoming more and more convinced Agatha was right with her first guess," Red says. "When I look at the evidence, the best explanation that fits is that an individual is doing all this."</p>
+
+<p>"Go on."</p>
+
+<p>Red reviews his notes, ticking each point off on a finger. "It's never repeated in a city, and it's never hit the same place twice once it stopped targeting individuals. Why do that? The second dream wasn't exactly like the first in minor details but not major ones—"</p>
+
+<p>"Allegedly."</p>
+
+<p>He frowns at her. "Come on, in that state could we really have trusted what he re-experienced?"</p>
+
+<p>"Perhaps not, but it still might have been valuable."</p>
+
+<p>Red thinks through all the previous times he experienced the memories of someone's dream through merger and shrugs. "I can't imagine how, given the way it all fades into a background blur of impressions for me anyway." Which, after seeing Mr. Garcia, he suddenly feels thankful for. He doesn't feel like he particularly needs another traumatic experience in his life right now, curious as he is to know what having the Dream himself would be like.</p>
+
+<p>"Mm. Well, you're right that trauma responses are hard to predict. I'm sorry, I interrupted you as you were saying…"</p>
+
+<p>Red checks his notes again. "Right, there's also the ramp up from individuals. It's like someone hoped that just telling some important people would be enough, at first."</p>
+
+<p>"There's nothing stopping a hypothetical spirit or god from being mistaken about something, or poor at planning."</p>
+
+<p>"Sure, but what actual value does that explanation add, then? It's meant to answer the question of how someone can know what the dream insists is true, and how they can transmit it like this. But if it seems like it's making errors similar to what a human would anyway, then we shouldn't be as impressed. Whatever sent the dreams either didn't realize they would be hitting the same person twice in Cerulean, or they didn't care, or they didn't have the ability not to and still cover the city."</p>
+
+<p>"Your focus is on the wrong part of the explanation. There's no actual <em>reason</em> why a non-human entity should be expected to not fall into any of those categories." Rei shrugs. "Your models implicitly assume any non-human entity is meaningfully more benevolent or capable along some dimension, rather than more capable along one or two, and that seems irrational to me."</p>
+
+<p>Red scratches his neck as he tries to fit the concept of it into his brain. It feels <em>wrong </em>somehow, but he can't really think of why, and has to admit it might just be expectation. "Alright, yeah, that might be fair. I still say it's more likely to be a human with a uniquely powerful projection though."</p>
+
+<p>"Which you believe they're hiding because it would mark their circumstances more similar to yours."</p>
+
+<p>Red shrugs, not bothering to deny it. It's hard not to sympathize with someone who has a unique psychic talent that others might fear, even if they weren't putting themselves at risk to spread some vital truth… or rather, something they believe is a vital truth. He doesn't know how they became aware of the Dream's threat themselves, but it must have been convincing enough to have them risk their own anonymity, which is an extra weight on how persuasive the threat is.</p>
+
+<p>"Maybe I'm wrong, but it seems far more reasonable to me that a human wouldn't want people to know who they are than a spirit or whatever. If anything knowing it's not a person would make the message more convincing, so if they understand anything about human psychology—"</p>
+
+<p>"Which they might not."</p>
+
+<p>"—sure, which they might not, but then how did they know to target the most famous psychics first? Even putting aside the projector's city-wide power, some people just don't like the spotlight, which yes I may be overweighing because it's true for me, but I know I'm not alone."</p>
+
+<p>"Mm. Isn't there a movie being made about you?"</p>
+
+<p>"Hey, that was Blue and Leaf's idea. I can feel uncomfortable about it and still agree it's a good idea."</p>
+
+<p>"But surely the rational thing to do would be to become comfortable with it once you recognize it's a good idea?"</p>
+
+<p>"No, I can have different parts that each have a valuable perspective on something, and I can feel a certain way and still recognize—oh you're messing with me aren't you."</p>
+
+<p>"Just a little." Rei slows to a stop and unclips a pokeball, and Red matches her. "I'm off to Viridian. Do let me know if Sabrina has anything interesting to add."</p>
+
+<p>"Same to you with Giovanni." He wonders if she actually would, given he's her boss rather than her teacher, but if she does he's happy to reciprocate, assuming it's nothing he thinks Sabrina would mind being shared. "Until next time."</p>
+
+<p>A few minutes later he's knocking on Sabrina's office door, then entering as she calls out to come in. The Leader <em>does </em>look tired, and more than a little distracted… but there's something else, too. It's hard to put into words, but it's almost like she has more <em>drive</em> than she used to. He'd be worried she's entering a manic phase if she wasn't still so clearly in control of herself.</p>
+
+<p>"So?" she says as he sits and accepts his second tea cup of the hour. "Is it bad?"</p>
+
+<p>"Very, Sensei. I know it shouldn't be done lightly, but if you saw him yourself I think you'd agree that he needs help."</p>
+
+<p>She sighs. "I'd rather wait at least a week to see if he starts to recover on his own, particularly if he can find a psychic therapist, but after that… I'll see what I can do. Any new insights into the dreams themselves?"</p>
+
+<p>"I can send you my notes—"</p>
+
+<p>"Your takeaway is good enough for now."</p>
+
+<p>Red nods. "Nothing really meaningful. He says it was more forceful the second time, but that could just be from having had it before."</p>
+
+<p>"Of course. Well, it was worth a try—"</p>
+
+<p>"Actually, Sensei, there is something else, but it's not directly from Mr. Garcia." She raises a brow and gestures for him to continue. "I've been thinking about this since Agatha's interview, and after talking to Rei about it I'm pretty convinced that this doesn't seem to be a supernatural source." He quickly summarizes his points from before, then adds, "I didn't mention this to her, but if it <em>is</em> a psychic with a unique ability, or a semi-unique one, like we talked about… well, would you have any guess for who it could be?"</p>
+
+<p>Sabrina's gaze shifted away from him at some point while he was talking, and she's still looking into the distance, hands steepled on the desk. Red waits, though he does send out a psychic feeler to confirm that her shield is fully solid.</p>
+
+<p>What's unsettling Red at this point isn't how long it's taking to answer, but why she didn't just lie.</p>
+
+<p>She should have, if she's protecting someone's identity. Spending this much time thinking over her answer, however, would make it hard to believe if she said no now, even if she claimed to just have been searching her memory; she doubtless has had this thought already before he brought it up.</p>
+
+<p>And she should know this, and yet she's still seemingly paralyzed by some thought or emotion or decision.</p>
+
+<p>"Sensei," Red says after a moment of mustering his courage. "Why do you think you didn't get the dream?" It's the closest he can come to asking if Rei was right about Sabrina lying about it.</p>
+
+<p>The Leader's eyes flick to his, then away again, then back, and this time they hold. "I don't know. But I suspect it's because the one sending the dreams is… one of my ex-students."</p>
+
+<p>Even expecting it, the confirmation halts Red's breath for a moment, then sends his pulse racing as new questions start to crowd his thoughts. "Have you… mentioned them before?"</p>
+
+<p>"Yes, though I didn't mention they had this ability. Because they didn't, at the time. But it still seems likely to be them."</p>
+
+<p>"Who are they?"</p>
+
+<p>"Not someone you would know."</p>
+
+<p>Something suddenly clicks, and Red asks, "The one who disappeared after Hoenn?"</p>
+
+<p>Sabrina stares at him for a moment, then another, again too long. "What makes you say that?"</p>
+
+<p>"I don't…" It takes him a moment to piece together the intuition. "You've been a certain way, ever since then. Half grieving, I think." He recognized it well enough, good as she was at controlling it. "But you're not anymore. I thought it was just because of the new mystery of the dreams, but… how do you… why do you <em>suspect</em> it's them?"</p>
+
+<p>"The best evidence I have is that I didn't get the dream, and that Saffron hasn't either."</p>
+
+<p>Red blinks. "You think they're avoiding you? Does that mean they were never really lost?"</p>
+
+<p>"It's… hard to say. I thought we were on good terms. But given all this… how much trust could there really have been?"</p>
+
+<p>Red doesn't know what to say to that, besides, "At least they're alive."</p>
+
+<p>"Maybe. And I could be wrong, of course. It could be a coincidence. I've been trying to sleep all night, just in case it's Saffron's turn next, but it's hard to fall asleep when I'm anticipating what might happen if I do." She shrugs. "I can amnesia the expectation to help me fall asleep, of course, but I want to experience it knowing what it is, wake from it with my full memories intact."</p>
+
+<p>Red tries to decide whether he should be tactful or inquisitive at the moment, but he's still not sure what might be comforting rather than presumptuous; he doesn't know enough about the situation, or their relationship, and asking might be digging. "Blue and I were, you know, on the outs for a while. Maybe there's still a chance of mending bridges? Especially if you don't know why they're upset with you…"</p>
+
+<p>"I can guess." Sabrina smiles. "I appreciate it, Red, but the situation is rather complicated, and I'm not really in the mood to discuss it. Ask what you want to ask."</p>
+
+<p>Red smiles back, a bit self-conscious but also grateful. "Do you know what they want? Why they're doing this?"</p>
+
+<p>"If you're asking whether I think we can trust the dream, it's hard to tell without having the dream myself, but… yes. I think so. Whatever they learned, it was enough to make them put themself at serious risk."</p>
+
+<p>Red leans forward. "I was right then? It's someone like me?"</p>
+
+<p>For some reason that makes her laugh, brief but with a startled quality that makes it warmer. "Not like you, no. But not entirely unlike, in terms of secrets."</p>
+
+<p>"Maybe I can reach out to them, let them know what we've been planning!"</p>
+
+<p>Again Sabrina pauses, expression sobering before she sighs. "If you can find a way to contact them, I wish you luck. But they might avoid you out of principle given that you know me. And no, I can't tell you any more about why that is. I'm sorry, Red, I don't mean to be mysterious, but some things are private."</p>
+
+<p>"I understand." Mostly. "Still, if they have any other friends that you haven't checked with recently…?"</p>
+
+<p>Sabrina shakes her head. "They've lived a fairly isolated life. Most of their interactions with others came from their psychic abilities, which were quite powerful. Since they weren't taught not to invade people's privacy, they had many acquaintances that they knew quite well, but never got particularly close to any of them."</p>
+
+<p>"Sounds lonely." Something about this description is tickling the back of Red's mind, and after a moment he gives a wan smile. "Reminds me a bit of the story Leaf's been writing, actually."</p>
+
+<p>"She writes fiction too?"</p>
+
+<p>"Yeah, been publishing it online. I don't know where she finds time, but it's about a half-human psychic pokemon who's sapient and gets raised in a lab—"</p>
+
+<p>The next few moments can be measured in heartbeats, but feel eternal.</p>
+
+<p>Sabrina's eyes went wide at the words <em>half-human psychic pokemon</em>, wider than he's ever seen them, wider than when he told her his secrets, and she sucked in a sharp breath at <em>raised in a lab</em>, mouth going slack.</p>
+
+<p>It lasts just a second before her lips close, her features smooth, and her posture shifts back toward relaxed attentiveness, all so smoothly he would have missed it if he blinked.</p>
+
+<p>"—that learns… about people through…" Whatever Red was going to say next has been blown out of his mind by the shock of seeing Sabrina react so strongly, and the suspicion of what she's just done.</p>
+
+<p><em>Red, you are the </em>worst <em>liar!</em></p>
+
+<p>It's barely even a decision, in the end.</p>
+
+<p>And then…</p>
+
+<p>"...through those working in the lab around it."</p>
+
+<p>"Interesting," Sabrina says, and sips her tea. "That does sound lonely, yes." Sabrina's gaze is distant again, and after a moment she frowns and shifts. "I'm sorry, Red, I've just remembered a call I need to make. Thank you for the debrief."</p>
+
+<p>"Oh, sure." He's still curious about her student, but whether there's really a call or not, he knows a dismissal when he hears one and heads to his room for a shower.</p>
+
+<p>He's just taken his shoes off when the partition drops, along with the amnesia'd memory of Sabrina's reaction.</p>
+
+<p>"Oh shit," Red breathes as he drops onto his bed. "Holy shit. Holy <em>fuck</em>."</p>
+
+<p>Sabrina's student was a lab experiment.</p>
+
+<p>There are labs studying psychics, probably helping develop unusual psychic powers.</p>
+
+<p>Because <em>of course there are</em>.</p>
+
+<p>And <em>of course </em>Sabrina would know about them maybe she even comes from one that's why she can see psychic colors sometimes and she <em>amnesia'd herself mid-conversation because she was reacting too much </em>so it must be <em>super </em>secret, way more secret than what they've already told each other, and <em>holy fucking shit </em>what is he going to do with this information?</p>
+
+<p>Who did she suddenly remember she had to call?</p>
+
+<p>What would she do if she knew Red knows?</p>
+
+<p><em>Suspects. I don't </em>know <em>anything.</em></p>
+
+<p>Her reaction replays in his memory, and he feels something twisting in his gut. He could be wrong, but… he doesn't think Sabrina would have reacted like that to <em>just </em>an unusual or interesting story idea. Maybe he's wrong about a lot of it, maybe it's not ongoing and just somewhere she and her friend were raised together or something. Hell, Sabrina might have helped shut it down.</p>
+
+<p>But the idea of a psychic going around secretly projecting a warning instead of outing himself makes even more sense, with this explanation.</p>
+
+<p>He's halfway through taking out his journal when he realizes it might be a terrible idea to write any of this out, then remembers that there's someone else he should be talking to and pulls out his phone.</p>
+
+<p>"Hey Leaf, are you free? Yeah I'm fine, just want to talk. In person. Yeah, been a while since we hung out at the ranch, right? Exactly. Great, see you soon!"</p>
+
+<p>A minute later he's on the roof, and a few seconds after that he's at the ranch. He looks around, then starts pacing as he waits, then summons Charmeleon and practices some battle maneuvers. After two months of fairly frequent battles with wild pokemon, his starter now stands as tall as his shoulders, tail long enough to curl around its body. It's a little disconcerting, sometimes, to be able to meet that fierce blue gaze so easily now.</p>
+
+<p>"Been a while since I could keep berries out of your reach, huh boy?" He feeds Charmeleon some poffins, other hand rubbing the base of his pokemon's crest bone. "Not that I ever really could, with your climbing powers."</p>
+
+<p>Charmeleon gives a crooning-growl as he licks Red's palm clean, and then there's a distant <em>pop </em>as Leaf arrives nearby.</p>
+
+<p>"Hey, Red!" She withdraws her abra and walks over with a worried smile and furrowed brow. "I'm assuming I interpreted that call right and this isn't just a hang out?"</p>
+
+<p>"Yeah." It's always good to see her, and while the circumstances don't allow him to take much time enjoying her company, he can't help but just smile for a moment, happy to see her and be near her. She also looks tired, and he knows that along with all her other work, she's been helping with local incidents too. It makes him worry about her, but he knows she can take care of herself. So he sends her that mental impression, and she returns his smile.</p>
+
+<p>Over the past few months they've had a few more moments like the one at his mom's apartment after the tower, moments where he felt like he could say something, or <em>should </em>say something, about how he feels. But instead he's just projected parts of it, careful to use his partitions to keep from sending the whole thing at once. It feels easier not to break his promise and check how <em>she </em>feels as long as he can be open about his own, now and then. She's also seemed to appreciate it, so the idea of doing anything more explicit feels… scary. "Sorry, <em>were </em>you busy? Because—"</p>
+
+<p>"I can chat for a bit," she says as she unclips a pokeball. "Though I have to get back soon for a meeting."</p>
+
+<p>"How soon? This might be important."</p>
+
+<p>Leaf bites her lower lip. "I can probably make it there so long as I leave within about twenty minutes? I can't really risk more, since it's with my Fuchsia friend…"</p>
+
+<p>Ah, Mom's informant. "And you can't really call and tell them you'll be late, yeah… well, that should be enough for covering the basics at least. It's about your story."</p>
+
+<p>Leaf's hand pauses from where it's moving from her belt to an outstretched position. It's only for a moment, but he was watching it, and her voice is carefully controlled when she says, "Go, Raff!" and then "What about the story?"</p>
+
+<p>It's a struggle not to send his senses out, to sample her mood at least. He and Sabrina's other students have taught Leaf what they could for completely non-psychic defenses, and she's good at them, so a full merger might not be particularly helpful anyway if she's actively trying to keep him out.</p>
+
+<p>Still, he's curious enough to almost try before reminding himself that he promised not to. The thought that Leaf might lie to him feels like a stone in his gut, probably all the heavier because of how many things he's been keeping from her.</p>
+
+<p>He watches her take out a training tool (and toy), basically an elastic and tough cord that pokemon can play tug-of-war with. It's mostly meant for fighting pokemon, but they've found that others enjoy it too; both starters are already looking at it with anticipation, and a quick command from their trainers has them gripping the ends in their mouths and pulling.</p>
+
+<p>Normally they'd be cheering their pokemon on, but there's an awkward silence between them now, and after another moment Red decides to just be straightforward. "Alright, so I'm not really sure how else to say this, and I get that there might be some things you can't tell me. But… uh… is your story inspired by something you've been looking into?"</p>
+
+<p>Leaf raises a brow. "When you say 'looking into,' what exactly do you..."</p>
+
+<p>She trails off, and, before Red can say anything, sighs and rubs her eyes. "I'm sorry, I don't know how to do this part well with friends. It feels gross."</p>
+
+<p>"I know what you mean," Red says, maybe a bit too earnestly. "I'm sorry too, I don't know how else to ask, but I think it's important. When you started it you said it was just something you were experimenting with to help people empathize with pokemon better, and I'm not saying that's like, a lie or anything, but if, uh, if there really were like, secret labs training psychics—"</p>
+
+<p>"Oh!" Leaf bursts into laughter, and for a moment Red feels sweeping, glorious relief… until her laughter cuts off, and her eyes widen as she stares at him. "<em>Oh… </em>Swords of Justice, there are <em>secret psychic labs—</em>"</p>
+
+<p>"No no, that's double counting!" Red holds his palms out, one still slick with Charmeleon's saliva. "I have no evidence that there <em>are</em>, if you just made it up then it's probably nothing, it's just… uh, maybe I shouldn't say—"</p>
+
+<p>"Red this is <em>important</em>!"</p>
+
+<p>"I <em>know</em>, but—wait, is it important because you <em>do</em> know something, or—"</p>
+
+<p>She tries once again to keep her face blank, but Leaf is no Sabrina, and after a moment she mutters "Fuck!" and covers her face with both hands. "We never tell anyone about this."</p>
+
+<p>"Agreed. Definitely not going in the second movie."</p>
+
+<p>She starts giggling, and then they're both laughing as Charmeleon and Raff continue to tug at the rope, jaws occasionally gnawing for better purchase.</p>
+
+<p>"This… is why society needs… meta norms around secrets," Red says between breaths.</p>
+
+<p>"Oh yeah," Leaf gasps, arm across her belly. "Or else just asking what someone's meta-honesty-norms are would give information away!"</p>
+
+<p>That sets them laughing again, and once it finally tapers off, they stare at each other for a moment until Red gives a helpless shrug. "So who goes first?"</p>
+
+<p>"The one who has the least risky secret, I think." She gives a wry grin. "Should we use a number scale?"</p>
+
+<p>"You know what, sure, why not. What's a 1?"</p>
+
+<p>"A 1 is like, your friend will be exasperated at you for being a gossip. And a 10 is… something that will destroy the world if it gets out, I guess?"</p>
+
+<p>Red's smile slips, then fades entirely. "Right. And a 5 would be something that… brings about a region's downfall?"</p>
+
+<p>"That sounds more like, uh, an 8?"</p>
+
+<p>"I think that would be <em>all</em> regions, if a 9 is… what, all life is at stake, but the planet will probably be fine?"</p>
+
+<p>"I guess that sounds right. So a 7 is one region's downfall, and a 6 is… multiple cities?" Leaf frowns. "If we keep doing this it's going to make the number itself a metadata leak."</p>
+
+<p>"We could give the numbers to someone who doesn't know what they represent, then just have them tell us whose was higher? They might get curious though, then we have to lie to <em>them</em>—"</p>
+
+<p>She snorts. "Blue would probably roll his eyes but not ask questions. Also it would be easy to just write a script that would do it for us."</p>
+
+<p>"Right—wait, I'm an idiot, I can just amnesia myself after you tell me something if it doesn't relate to what I thought!"</p>
+
+<p>"Permanently?"</p>
+
+<p>"Uh… not really…"</p>
+
+<p>Charmeleon growls and falls onto all fours as Raff, feet digging into the ground and leaves rustling, starts to pull the rope harder. The flame on Charmeleon's tail flares, and Red is alarmed enough to merge with his pokemon to check if he's still in a playful mood. "Uh, not sure why but he's maybe getting a bit too riled up for this."</p>
+
+<p>"They do get more competitive the closer they are to evolving. You should find some other charmeleon for him to play with."</p>
+
+<p><em>Close to evolving. </em>He knows his pokemon just has a couple of feet of growth left before that becomes possible, but hearing it put that way makes it seem right around the corner. "Yeah, will do. Meanwhile…" He unclips two balls and holds one up as he sends a calming wave through his merger until his pokemon relaxes and lets the rope drop from his jaws, "Charmeleon, return! Go, Ivysaur! And before you say it, yeah, I still haven't named him, sorry."</p>
+
+<p>"You don't need to apologize to <em>me</em>." Her teasing expression fades as she checks her phone. "I really do have to go soon. Look, you're right, your powers make telling you first the obvious right choice. But if you do decide not to tell me afterward, it's going to be hard to justify why I shared the info with someone, and I won't be able to lie about <em>that</em> either<em>.</em> Do you understand?"</p>
+
+<p>"You're saying it might draw more people into it." And that whoever she wouldn't be able to lie to, it would be someone as close to her as he is. While he'd like to think that's not actually true, he knows there are plenty of others she would probably feel just as bad lying to, like Blue or his mom.</p>
+
+<p>Red lets out a breath, rubbing his face. "Yeah, I get it. I'm actually still processing some stuff that I did actually learn and I'm not sure what the full scope of everything is. Maybe it's better to actually just… both forget this for now?"</p>
+
+<p>"That… might be the responsible thing to do, yeah."</p>
+
+<p>They both stand silently for a moment, staring at each other, and he doesn't need to merge to guess her thoughts: "Responsibility sucks sometimes."</p>
+
+<p>"It sucks <em>so </em>much!"</p>
+
+<p>"But we can both keep looking into it right?"</p>
+
+<p>"Oh, totally! And if we find something out that <em>wouldn't </em>be breaking someone's confidence—"</p>
+
+<p>"We could share that," Red finishes, and smiles. "I wasn't exactly looking for another project, but maybe my mom can h—<em>really?</em>"</p>
+
+<p>"I'm leaving!" Leaf declares, withdrawing Raff and summoning her abra while turning her back on him. "Goodbye Mr. Verres!"</p>
+
+<p>"Wait, at least tell me—"</p>
+
+<p>"Fuchsia!"</p>
+
+<p>"—aaand she's gone." He turns to his ivysaur, who just unceremoniously lost his play partner, and picks up the other end of the chord. "Well boy, <em>now </em>we just have to decide if we should ask the Professor. If you win, I won't." Ivysaur cocks his head, then braces his feet against the ground… only to drop his end of the rope as soon as Red pulls.</p>
+
+<p>He stares at the slack rope for a second and shrugs. "Well, guess that settles it. Just need to figure out some meta norms around secrets first… and hopefully not get any new ones to hold onto meanwhile."</p>
+
+<hr noshade="noshade" size="1" />
+
+<p>"I want to help."</p>
+
+<p>Blue blinks sleepily at the violet-haired girl standing outside his door. "Help with… Satori, right? Help with what?" It's barely seven in the morning, and he went to bed around midnight after a strategy debate on how to better protect Fuchsia's northern and southern tips went long past dinner, followed by a long walk and training session with Eevee beneath the full moon.</p>
+
+<p>Satori doesn't look like she got much sleep either. "Your project." Her torracat is sniffing in the direction of his room, and takes a step inside before suddenly stopping and stepping back, probably from some mental nudge.</p>
+
+<p>He rubs some sleep from his eyes. "I have a few of th—oh! My abra?"</p>
+
+<p>"Yes. Red said you're trying to do something like a reverse of my own goal, and suggested collaborating with Jason. He showed me your email about searching for psychic pokemon that have adapted defenses against Dark pokemon, and I began experimenting. I believe your abra would make a good test subject, first to—"</p>
+
+<p>Blue's sleepiness is rapidly fading as he tries to keep up with the exposition dump, and by the end he's grinning. "Yeah, got it, one minute!" He slides the paper door closed and takes a step toward his dresser, then turns back and opens it again. "You're free now, right? That's why you came in person?"</p>
+
+<p>"Yes."</p>
+
+<p>"Okay, one sec." He closes the door and hurries through his morning routine, sending a message to his friends with one hand as he brushes his teeth with the other. Once he checks his schedule and confirms that he doesn't have anything for a couple hours, he steps out while buckling his pokebelt on. "Let's head to the training rooms. And start at the beginning for how you got involved."</p>
+
+<p>"Very well," she says, and falls into step beside him as he strides toward the stairwell, being careful not to go down them too loud given how many others are probably still sleeping. Living in the gym's trainer compound is nice in some ways and annoying in others. "But I don't know what constitutes the beginning, for you."</p>
+
+<p>"By reversing your goal you mean you're trying to keep your bond when your torracat evolves into a Dark type, right?" Blue vaguely remembers hearing about this and thinking this would be great for psychics but unlikely to help Dark people. "How does this help with that?"</p>
+
+<p>"As I said, your email to Red was thought provoking, along with his and Jason's investigations into how ghost and psychic phenomena are related. I began merging with a wider range of psychic pokemon specifically to see if any have unique defense mechanisms against Dark types that haven't yet been exploited in light of the… how did you put it? 'The self-perpetuating blindspot of not using Psychic types against Dark opponents?'"</p>
+
+<p>He's not sure he's ever used the phrase 'self-perpetuating,' but… "Close enough. You found one?"</p>
+
+<p>"Xatu was the first lead. Did you know they have natural anti-Ghost defenses?"</p>
+
+<p>"I know wild ones can have Ghost attacks, sure. But it doesn't really help them against Dark pokemon, since they shrug off most Ghost attacks anyway."</p>
+
+<p>"From a battle trainer's perspective, this may be true. But it means you would focus on their Flying attacks instead, if you had to fight against one, yes?"</p>
+
+<p>"Well, yeah. And I'd have to be pretty desperate to use a xatu to fight anything that would resist even that."</p>
+
+<p>"As you say." They step into the bright morning air and start to make their way across the gym compound, where a few other early risers are already doing various chores or training their pokemon. "But Jason and Red have been making strides in delineating the boundary between psychic and medium abilities, without consideration of combat utility, and it's become more clear how the ability to use Ghost attacks at all is a sign of some difference between one psychic and another."</p>
+
+<p>"Like a 'ghost sense' instead of just a psychic one? Wait, this is one of the first things Red researched with the spinarak, right?" He only remembers it because it came up in the notes Red sent to the production company making the movie about their journey. "He didn't realize there's not just one type of psychic particle at the time."</p>
+
+<p>"Only tangentially related; it would not have been evident through that alone, or his later research with the abra. But after a conversation with Sensei he became convinced that this sense is more broad, and may be visual."</p>
+
+<p>"Visual?" Blue frowns, hopes sinking. "I don't get how that would be better than just using their eyes, if they have them? My abra knows I exist by now, or at least knows something <em>like </em>me exists even if it can't sense my thoughts. But that's the problem, isn't it? For both of us."</p>
+
+<p>"Meowstic were the key; despite the similarities, both genders have different natural capabilities, complemented by expanded sensorium. Extended mergers with females showed broader electromagnetic range, as well as what we're now calling spiritual sense. This does in fact help them detect dark pokemon from a distance, though it is hard to interpret this reliably, and they still can't use their psychic abilities on them; only attacks of other kinds."</p>
+
+<p>"Got it, so if we figure out what female meowstic do, and someone creates a TM that imitates it—"</p>
+
+<p>"This morning I managed, through my male meowstic, to see a dark aura."</p>
+
+<p>Blue stops cold on the threshold to the front door, then turns to look at her. "What the hell is a 'dark aura?'"</p>
+
+<p>She holds a hand out and waves it vaguely around him. "An energy field that I believe you and Dark pokemon ambiently have, which presumably keeps you from being affected by psychic abilities. What some Dark pokemon can project from themselves in attacks."</p>
+
+<p>"How do you even… wait, does Red know about this?"</p>
+
+<p>"I left him a message. He should see it when he wakes, but I was too impatient to wait."</p>
+
+<p>He almost comments about how her impatience didn't keep her from waking him up, but he's glad she did. After a moment he steps aside so she can leave the building as well, then starts walking again. "How has this not been figured out before?"</p>
+
+<p>"Gifted do not generally look through our pokemon's vision." She sounds mildly apologetic, almost embarrassed. "It is… disorienting, to see through multiple eyes, more so than other senses being expanded. On occasion it can be valuable for brief periods, but our preference is to keep our senses separate while linking our thoughts for communicating impulses and notions. If we link to psychic pokemon, of course, then their psychic senses are where we focus our attention, as they are as useful to them as vision is for us. It also feels more like a natural expansion rather than taking more focus the way paying attention to another set of eyes or ears does."</p>
+
+<p>The second half of this doesn't mean much to Blue, and he tries to reorient to the bottom line. "So… okay so, you were saying meowstic can see dark auras, but psychics don't use their eyes so they don't know that?"</p>
+
+<p>"Not ambiently, or else of course someone would have noticed by now. It takes intense concentration. Xatu can as well; as I said, they were the first lead, but we were unsure what they were reacting to due to their spiritual sense, and they do not naturally hunt dark pokemon."</p>
+
+<p>"But the spiritual sense isn't necessary?"</p>
+
+<p>"No, male meowstic demonstrated it's not, as only females have it. And if it's not for them—"</p>
+
+<p>"It might not be for abra." They're almost to the training rooms, and Blue is already running his fingers over Tops's ball. "What do I need to do?"</p>
+
+<p>"First I'm going to get used to merging with your abra. But I suspect your abra will actually need to evolve to learn this."</p>
+
+<p>Blue stops for the second time in two minutes, frowning, then pulls his phone out. "Then evolving him just became a priority."</p>
+
+<p>"Who are you calling?"</p>
+
+<p>"Red. Trust me, he's going to want to be awake for this… and there's something I think he can uniquely help with." <em>Sorry buddy. </em>He'd hoped to protect his friend from the potential fallout of Koichi's training philosophy, if it turns out to be true, but...</p>
+
+<p>If he's honest, he's been starting to lose confidence in his ability to beat Janine. Sure, he might get the battle with Koga anyway, since he's fulfilling his end of the bargain... but if he doesn't leave Fuchsia a stronger gym than he found it, if his ideas aren't at least somewhat adopted... he's going to feel like a failure.</p>
+
+<p><em>We'll figure this stuff out together.</em></p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/103/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <a href="/pokemon/105/">Next →</a>
+            </nav>
+        </article>
     </main>
 
     <!-- Search Overlay -->
@@ -338,6 +883,6 @@
       </div>
     </div>
 
-    <script src="../../search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

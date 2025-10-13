@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="“Sorry is the Kool-Aid of human emotions. It’s what you say when you spill a cup of coffee or throw a gutterball when you’re bowling with the girls in the league. True sorrow is as rare as true love.”...">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="The Power of Guilt">
+    <meta property="og:description" content="“Sorry is the Kool-Aid of human emotions. It’s what you say when you spill a cup of coffee or throw a gutterball when you’re bowling with the girls in the league. True sorrow is as rare as true love.”...">
+    <meta property="og:type" content="article">
+    <title>The Power of Guilt - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">The Power of Guilt</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        August 10, 2016
+                    </span>
+                    <span>📁 Therapy</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<blockquote>“Sorry is the Kool-Aid of human emotions. It’s what you say when you spill a cup of coffee or throw a gutterball when you’re bowling with the girls in the league. True sorrow is as rare as true love.” -Stephen King</blockquote>
+Inside Out was a movie about a young girl named Riley who has five anthropomorphized emotions: Joy, Anger, Sadness, Disgust, and Fear. The emotions each played an important role in keeping Riley safe and happy, though it took the plot of the movie to teach everyone what function Sadness served: to signal to others that you are not okay, that you are not happy with things as they are, that you <em>need help. </em>Sometimes it’s an emotion that tells <em>you</em> that, so you become motivated to change things.
+
+<p>Surprising as it may be to some, this is not an obvious thing. There are many people who do not understand it, and even understanding it, have trouble integrating it into their behavior and worldview. One group of such people are children or teenagers who experience grief and don’t receive the proper support. They can often act in destructive ways, to themselves and others, until they receive help processing their own emotions and the changes in their lives. Another group are adults who were handed too much responsibility at too young an age, and, later in life, have trouble expressing sadness or hurt. This is especially true when the people causing them distress are simultaneously those that need them to be fine.  Others are adults who were conditioned at a young age against showing any weakness or vulnerability, either as a method to control them or a misguided attempt to strengthen them, and never shook off that conditioning.</p>
+
+<p>Like any emotion, sadness can be overtuned or undertuned to the point of dysfunction. But the reason the movie was valuable is that it shined a spotlight on an emotion many people don’t understand as well as they do Joy or Anger or Fear, an emotion that can make them inherently uncomfortable to talk about or express.</p>
+
+<p>If I were to write the sequel to Inside Out, it would be about Riley growing into a teenager with a host of new emotions, and the focus of the plot would be learning about Guilt.</p>
+
+<p>Like Sadness, Guilt is an emotion that causes <em>discomfort</em>. We actively try to avoid actions that we know will cause it, and subconsciously try to explain our actions or thoughts in a favorable light to assuage it, a process misnomously referred to as “rationalization.”</p>
+
+<p>Guilt , when felt too much from too many things, or instilled by abusive parents or dysfunctional belief systems, can lead to self-flagellation and undeserved repentance that limits growth and makes happiness seem itself a poison.</p>
+
+<p>But without Guilt, we end up with a world of dangerously static people. Guilt, properly felt and understood, leads to change. Guilt, properly acknowledged and reacted to, leads to growth.
+<h2><em>What Do I think I Know, and Why Do I Think I Know it?</em></h2>
+When I was too young to understand rational justifications for behavior, Guilt was the emotion that led to the most memorable moments of personal growth.  When I was at summer camp we used to throw crab apples at each other for fun. One that I threw accidentally hit a girl near the eye. Her wails led to an intense sensation of guilt that did far more to deter me from repeating the action than any punishments the camp counselors devised. When future games of throwing crab apples commenced, I found something better to do with my time. Well, probably not better, but less likely to hurt others.</p>
+
+<p>That was an accident. Once in elementary school, I hurt someone out of cold, calculated anger. The PE teacher randomly divided us into two teams and sent my group to the field first.  When we switched, I ended up at the back of the line for kicking the ball. Someone had to be there, and that day it was me. It had been a long, hot 30 minute wait to get my turn to kick, and I was counting down the minutes before I knew the bell would ring. Finally, with moments to spare, it was my turn. I positioned myself, watched the bright red ball come bouncing toward me, and just as I prepared myself to kick it, one of my classmates ran in front of me and, laughing like a loon, sent it sailing over the field.</p>
+
+<p>The bell rang before the ball could be returned, and as we walked back toward the school buildings, my eyes locked on the back of the ball-kicker’s head. My "righteous" rage thinned to a laser point, and I strode up to him from behind, tapped his shoulder, and sucker-punched him in the face as hard as I could.</p>
+
+<p>I can’t remember if I got any satisfaction in seeing him curled up on the ground and screaming in pain. I only remember the guilt afterward, as I promised myself I would never do that again.</p>
+
+<p>And I didn’t. But that doesn’t mean I never hurt someone again.</p>
+
+<p>My older brother used to beat me fairly often when we were young. Our relationship got a lot better after I moved out for college, and better still after he left for the military, but while I was young he would hit me for all manner of things, sometimes in frightening rages, other times just as a playful form of expressing annoyance.</p>
+
+<p>It wasn’t until my best friend broke down in tears and told me he wanted me to stop hitting him that I realized I’d adopted my brother’s behavior. Not in anger, just "playful" punches on the arm or slaps upside the head.  It was like someone had shined a light on a dark corner of my mind, illuminating machinery I hadn’t even known was there. I began to cry too, and promised him I would stop. And I did.</p>
+
+<p>I cried again years later while reading Ender’s Game for the first time. <em>“I’m just like Peter,”</em> Ender thinks at the end of the first chapter, crying over the boy he beat. <em> “Take away my monitor, and I’m just like Peter.”</em> Becoming my older brother was my greatest fear as a child.</p>
+
+<p>Hurting people isn’t the only thing to be guilty about, of course. I used to steal all the time as a child. Magic card packs from toy stores, food from supermarkets. Eventually I got caught, threatened with jail, fingerprinted, and released without a trip to the police station. I felt miserable the whole ride home. My mother’s recriminations stopped at “next time don’t get caught,” but my own continued all the way to my bedroom. While there, I lay on the covers and stared at the ceiling. I knew I had to fight my urge to steal, kill it completely dead, before it landed me in more trouble. So I identified each and every one of the irrational thoughts I’d been repeating to avoid Guilt at stealing, my “rationalizations,” and discarded them.</p>
+
+<p><em>It’s not fair that we’re poor and can’t afford things. </em>If everyone who was poor stole society would collapse, and I’m not literally starving to death. Discard.</p>
+
+<p><em>I’m stealing from large stores and national companies, not individuals. They won’t even notice the loss.</em> Individual people work at these stores and rely on them doing well to maintain their job or get better pay. Discard.</p>
+
+<p><em>I’m very kind and generous to others. It balances out.</em> Helping others does not justify unrelated actions that harm others. Discard.</p>
+
+<p>By the time I left my room that evening, I had resolved never to shoplift again. The community service and special classes I had to attend were superfluous: my desires for self preservation, and guilt over the people I was hurting, were strong enough to fuel change, and I was thankfully rational enough to leverage them into the right changes to my thinking patterns to be effective. The urges to steal were still there, but they were easier to resist every time I did, until they ceased almost completely. I haven’t shoplifted since.</p>
+
+<p>All this isn’t to say I’m perfect. I got into a fight a couple years ago and hurt someone more than was justified by the circumstances. I still occasionally fill my water cup with soda from the fountains at fast food places. Guilt only works as a mechanism for change when it’s genuinely connected to an action, and that disconnect between actions that are intellectually recognized as wrong, but don’t emotionally result in guilt, is what confuses so many people who struggle with change, either in themselves or others.
+<h3 class="graf graf--h3">How Does This Knowledge Help?</h3>
+Besides the value in understanding guilt's role in helping us grow, there's also the value in understanding what its absence in others signals.</p>
+
+<p>In my line of work, and often through my extended social circle, one of the hardest challenges I see people struggle with is emotional abuse. Because it isn’t as overt as physical abuse, and because by its very nature it turns one’s own thoughts and feelings against them, it’s important to understand how valuable guilt is to changing someone’s behavior and helping them grow, so that you can also identify why those that lack guilt, won’t.</p>
+
+<p>Narcissists exist. They can be parents. They can be siblings. They can be friends. Whether it's due mostly to biology or social factors, this reality has to be confronted and addressed at some point in many people's lives. Narcissists aren't sociopaths, or psychopaths. Just people who cannot help but primarily see the world in terms of their own wants and needs. And of course people can fall on a spectrum for narcissism. But those at the extreme end can be frighteningly hard to know how to deal with... especially if they're someone close to you.</p>
+
+<p>In systemic therapy, all behavior is examined through the system it’s a part of, even if it’s uncomfortable to do so. When someone emotionally abuses their spouse, we ask “What is that spouse doing that’s allowing that behavior to continue?” Not because we’re blaming the spouse for being abused, but because everything people do communicates something to those around them, and either reinforces or punishes the actions of those around them. If you can’t make someone want to change (and you often can’t), sometimes you have to change what happens if they don’t.</p>
+
+<p>If there was a quick and simple one-size-fits-all solution to getting people to change negative behaviors, the world would look like a very different place. People are complicated, and different enough from each other that, even with generally applicable incentives and behavior models, finding just the right lever to pull or button to push can be the work of hours of intensive exploration and analysis.</p>
+
+<p>But over time we've generally learned what doesn’t work, and that knowledge is worth spreading.  The word “enabling” is tossed around fairly often, and is an important concept to understand when it comes to battling addiction. But people don’t just enable each other’s alcoholism or gambling obsessions. People also enable each other’s selfishness or cruelty, usually because we don’t realize how we’re doing it.</p>
+
+<p>And that's where the presence or lack of guilt is so important.</p>
+
+<p>Shame is an external form of guilt. If someone is acting selfishly, or callously, or dishonestly, shame done right can shock them into better self-awareness. It’s an extrinsic motivation, an outside incentive that can help lead to change even if the person doesn’t want it. It’s not the ideal mechanism, but it can be a vital starting point.</p>
+
+<p>Unfortunately, as a tool, shame’s natural state is a mallet. It’s hard to wield with the precision necessary to constructively affect behavior. It’s also far too often wielded in the name of ego rather than compassion.</p>
+
+<p>Shaming someone for their religious beliefs (or lack of them), their sexuality, their hobbies or interests, or because they reflect poorly on the shamer, are all done far more often than the “constructive” forms of shaming. It’s this widespread destructiveness that’s given “shame” and “guilt” such negative connotations, where it’s considered wrong by many to impose your beliefs or morals on another’s actions.</p>
+
+<p>Let’s focus on that distinction here:</p>
+
+<p><u>Destructive shaming</u> frames the issue as outside the person's control.  It often manifests in contempt, shouting, and belittling. It tends to either incite self-loathing or defensiveness, neither of which lead to positive changes.</p>
+
+<p><em>Examples: “You always do this. You never do that. Why do you do that? Why are you like that?  Are you lazy/stupid? You’re a horrible person. You're pathetic.”</em></p>
+
+<p><u>Constructive shaming</u> focuses on appeals to the actor’s better nature, and their stated or ostensible values and desires to not harm others. It manifests in frank but calm language, is surrounded by support, and followed by a positive goal.</p>
+
+<p><em>Examples: “I want to make sure you know how much this is hurting me/them. I know you don’t want that. What do you think might be causing this? Is there anything I can do to help?”</em></p>
+
+<p>Constructive shaming is not a magic bullet. People who repeatedly act in their own interest at the expense of others, or at the expense of themselves, have spent years learning to "rationalize" and justify their actions, and, at a more advanced level, learn to cycle through self-recrimination as a method of assuaging guilt.</p>
+
+<p>Enablers are often sought out at this point. The guilty party will admit their shameful acts to people who are “safe,” friends or family that they know will offer empty platitudes as support, like “You’re a good person” and “There’s nothing wrong with wanting to be happy.”</p>
+
+<p>Telling someone they’re a good person when they made an honest mistake is helpful. Telling them they’re a good person when they repeatedly do things “good people” don’t is not.</p>
+
+<p>Telling someone they deserve to be happy is important when they keep putting other people’s desires over their own. Telling them they deserve to be happy when they repeatedly put their own desires first at the expense of others is not.</p>
+
+<p>And yet this is what makes up a lot of a friend-group’s or family’s interactions when someone expresses guilt. They want to help. They want to signal support. These are admirable desires, but they have to be measured against history and desired outcomes.</p>
+
+<p>If a friend calls you to berate themselves over cheating on their significant other while simultaneously fishing for support in how unhappy they are with their SO, recognize that distinction between support and enabling.</p>
+
+<p>If a sibling laughs about how they can’t remember their “crazy hijinks” of the night before because of how blackout drunk they got, laugh with them if you want to, but see if that laughter is covering some deeper issue.</p>
+
+<p>People often hide their own concerns for their safety and wellbeing, or their fear of judgement/shame by others, in humor or a casual assurance that everything is fine.  Expressing guilt becomes a form of guilty pleasure, a signal to attract comfort from others, and receiving comfort and absolution from others makes it easier to continue the same behavior.</p>
+
+<p>The first step in changing that behavior is often changing the responses to it. Every part of a system has some affect on the other parts of the system, and if you can’t directly change the behavior of Part A, you can try to alter it through the behavior of Part B, or through the response of Part B through Part C.
+<h3>Reframe</h3>
+Maybe there's a better way.</p>
+
+<p>As I've spoken about this with people over the years, I've heard and thought about what actually makes guilt a positive force instead of a negative one, and found another frame on it that I like. When you feel guilt because you want to be a better person, there is often buried in this unpleasant feeling a sense of <em>ambition</em> for yourself or <em>compassion </em>for yourself and others; a wholesome and heroic desire to do good.</p>
+
+<p>When I've tried leaning into this frame, I've found it surprisingly useful not just to hone in on what I want to change about myself and why. It also produces a much more "positive energy" to fuel my actions, leading to more motivation in whatever act I end up doing.</p>
+
+<p>I think finding this frame and learning to lean into it can create a powerful inner generator, one that makes the steps between guilt -> growth much smoother and easier. To create or reinforce this generator, ask yourself things like <em>Why do I wish I'd done something else? </em>and <em>Whose wellbeing am I looking out for?</em></p>
+
+<p>"Healthy" shaming by others can also a form of compassion; an expression of what they want for you, or what they want for themselves if the thing you did caused harm to them. It's easier, warmer, to step into someone else's compassion for us and themselves than shame, and I think it might be just as powerful.
+<h3>The Takeaway</h3>
+When trying to change your own behavior, lean into guilt/compassion. Focus on it, remember it, and ask others to provide the external sources of it of your future self if necessary. Don’t let the guilt consume you: use it as strength and motivation to become the best version of yourself.</p>
+
+<p>When trying to change someone else’s behavior… well, that’s where things get complicated. I would caution against every trying to change other people; in general, having an agenda for others doesn't work out well, and is an unhealthy way to orient to others, particularly loved ones. Instead, try to express kindness and understanding first, and be honest about how your worries or pain is coming from a place of love.</p>
+
+<p>But sometimes love isn't enough, and that's when <a href="https://daystareld.com/creating-boundaries/">boundaries</a> become vital.</p>
+
+<p>Idealistic Me wants to believe that everyone can change, when they’re ready and if they have the proper support.  Pragmatic Me recognizes that, time, effort, and resources are limited, and that if someone does not want to change, sacrificing good people’s time and effort and value to enable bad actions is not just irrational, but immoral.</p>
+
+<p>Even the worst human in history might change and grow and become a better person with a thousand years of life to live. Unfortunately, for now we only have a handful of decades to work with, and for many, that's just not enough.</p>
+
+<p>To make things worse, there are many ways society pressures people to persist in helping those that abuse them and others: “they’re family,” or “true love is unconditional,” or “friends are meant to support each other.”  These too can be the tools of an abuser, to turn someone’s guilt against themselves and keep them trapped in servitude.</p>
+
+<p>For those that cannot be guilted, cannot be shamed, who wear their selfishness on their sleeve or repeatedly promise change without demonstrating it, often hiding behind tears and dramatic acts of attention-seeking self-destruction, the best option is often to simply walk away.</p>
+
+<p>And this is always easier said than done, a bitter path to take, full of its own facets of guilt that need to be examined, acknowledged, and in this case, often discarded.</p>
+
+<p>But that’s another post.</p>
+
+<p>In the meantime, recognize how important guilt/compassion are to change your own behavior, when you need to. For guilt, there's a certain point where <em>not</em> judging yourself, <em>not</em> leaning into the pain your mistakes cause, is just as wrong as putting yourself into a self-hate spiral, especially if it cuts you off from the compassion you can feel for your future self and those around you.</p>
+
+<p>From where I'm standing, until you can put the behaviors behind you, the ones that make you harm other people, the ones that make you harm yourself, I don't think it makes sense to forgive yourself for the pain you cause. That doesn't mean you should self-flagellate! Guilt is a <em>feeling, </em>not an action, and not hateful words directed at yourself.</p>
+
+<p>Use that feeling for what all feelings are for: motivation. In this case, motivation to become a better person. And once you've got a handle on that, then forgive your past self, because you're not that person anymore.</p>
+
+<p>And at the same time, recognize how important a lack of guilt in someone else, their lack of compassion for others, is as a signal that they're not ready to change.</p>
+
+<p>Don’t let guilt become a whip, nor a cage you lock yourself in, and don’t let others who lack guilt use your love for them against you. Narcissists and emotional abusers don't need to trap you in their own dysfunction: they<span style="line-height: 1.5;"> know exactly how to take guilt and make into a prison that you'll build for yourself, deflecting any shame aimed at them and handing it back to you, brick by brick.</span></p>
+            </div>
+
+            <div class="article-footer">
+                <div class="tags"><span class="tag">rationality</span></div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>
