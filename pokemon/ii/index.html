@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Team Roster II - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .page-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
+        }
+
+        .page-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .page-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .page-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .page-content p {
+            margin: 20px 0;
+        }
+
+        .page-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .page-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .page-content ul, .page-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .page-content li {
+            margin: 8px 0;
+        }
+
+        .page-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+            
+            <h1 class="page-title">Pokemon Team Roster II</h1>
+
+            <div class="page-content">
+<p><em>Warning: potential spoilers can be inferred from this list if you are not up to date on the story. This list is relevant until chapter 100</em></p>
+
+<h3><strong>Red:</strong></h3>
+
+<p><strong>Charmeleon</strong></p>
+
+<p>Slash</p>
+
+<p>Tail Whip</p>
+
+<p>Flamethrower</p>
+
+<p>Firefang</p>
+
+<p>Smokescreen</p>
+<p>Shadow Claw</p>
+
+<p><strong>Ariados</strong></p>
+
+<p>Poison Sting</p>
+<p>Acid</p>
+
+<p>Night Shade</p>
+<p>Confusion</p>
+
+<p>Sticky Web</p>
+
+<p>Bug Bite</p>
+
+<p><strong>Butterfree</strong></p>
+
+<p>Gust</p>
+
+<p>String Shot</p>
+
+<p>Sleep Powder</p>
+
+<p>Stun Spore</p>
+
+<p>Supersonic</p>
+
+<p>Confusion</p>
+<p>Bug Buzz</p>
+
+<p><strong>Pikachu</strong></p>
+
+<p>Thundershock</p>
+
+<p>Thunderbolt</p>
+
+<p>Quick Attack</p>
+
+<p>Thunder Wave</p>
+<p>Iron Tail</p>
+
+<p><strong>Nidorino</strong></p>
+
+<p>Poison Jab</p>
+
+<p>Horn Attack</p>
+
+<p>Double Kick</p>
+<p>Bite</p>
+
+<p><strong>Nidoqueen</strong></p>
+
+<p>Poison Fang</p>
+
+<p>Crunch</p>
+
+<p>Body Slam</p>
+<p>Iron Tail</p>
+
+<p><strong>Weepinbell x2</strong></p>
+
+<p>Razor Leaf</p>
+
+<p>Acid</p>
+
+<p>Sleep Powder</p>
+
+<p>Poison Powder</p>
+
+<p>Vine Whip</p>
+
+<p><strong>Dodrio</strong></p>
+
+<p>Pluck</p>
+
+<p>Quick Attack</p>
+
+<p>Pursuit</p>
+<p>Drill Peck</p>
+<p>Bounce</p>
+
+<p><strong>Venomoth (Winter)</strong></p>
+
+<p>Leech Life</p>
+
+<p>Confusion</p>
+
+<p>Poison Powder</p>
+
+<p>Stun Spore</p>
+
+<p>Flash</p>
+<p>Poison Fang</p>
+<p>Signal Beam</p>
+
+<p><strong>Drowzee</strong></p>
+
+<p>Pound</p>
+
+<p>Confusion</p>
+
+<p>Hypnotize</p>
+
+<p>Dreameater</p>
+<p>Psychic</p>
+
+<p><strong>Magneton</strong></p>
+
+<p>Thunder Shock</p>
+
+<p>Magnet Rise</p>
+
+<p>Thunder Wave</p>
+<p>Thunderbolt</p>
+<p>Mirror Shot</p>
+
+<p><strong>Loudred</strong></p>
+
+<p>Pound</p>
+
+<p>Echoed Voice</p>
+
+<p>Astonish</p>
+
+<p>Howl</p>
+
+<p>Screech</p>
+
+<p>Supersonic</p>
+
+<p><strong>Kadabra</strong></p>
+<p>Teleport</p>
+<p>Psychic</p>
+<p>Confusion</p>
+<p>Reflect</p>
+<p>Recover</p>
+<p>Kinesis</p>
+<p><strong>Abra x4</strong></p>
+
+<p>Teleport</p>
+
+<p>Psychic</p>
+
+<p><strong>Pineco</strong></p>
+
+<p>Tackle</p>
+
+<p>Bug Bite</p>
+
+<p>Self-Destruct</p>
+
+<p>Spikes</p>
+
+<p><strong>Kingler</strong></p>
+
+<p>Bubblebeam</p>
+
+<p>Cut</p>
+
+<p>Vicegrip</p>
+
+<p>Crabhammer</p>
+<p><strong>Ivysaur</strong></p>
+<p>
+
+<p></p>
+<p>Tackle</p>
+<p></p>
+
+<p></p>
+<p>Leech Seed</p>
+<p></p>
+
+<p></p>
+<p>Vine Whip</p>
+<p></p>
+
+<p></p>
+<p>Sleep Powder</p>
+<p></p>
+
+<p></p>
+<p>Stun Spore</p>
+<p></p>
+
+<p></p>
+<p>Acid</p>
+<p><strong>Wartortle</strong></p>
+<p></p>
+
+<p></p>
+<p>Water Gun</p>
+<p></p>
+
+<p></p>
+<p>Bubblebeam</p>
+<p></p>
+
+<p></p>
+<p></p>
+
+<p></p>
+<p>Rapid Spin</p>
+<p></p>
+
+<p></p>
+<p>Withdraw</p>
+<p></p>
+
+<p></p>
+<p></p>
+
+<p></p>
+<p>Soak</p>
+<p></p>
+
+<p></p>
+<p></p>
+
+<p></p>
+<h3>Blue:</h3></p>
+
+<p><strong>Wartortle (Maturin)</strong></p>
+
+<p>Water Gun (Gaw)</p>
+
+<p>Bubblebeam (Bab)</p>
+
+<p>Bubble (Bu)</p>
+
+<p>Rapid Spin (Sar)</p>
+
+<p>Withdraw (Wa)</p>
+
+<p>Bide (Bi)</p>
+
+<p>Soak (Sa)</p>
+
+<p>Bite (Ba)</p>
+
+<p>Tackle (Ta)</p>
+
+<p>Ice Beam (Bai)</p>
+
+<p><strong>Pidgeot (Zephyr)</strong></p>
+
+<p>Gust (Ga)</p>
+
+<p>Peck (Pa)</p>
+
+<p>Sand Attack (As)</p>
+
+<p>Wing Attack (Aw)</p>
+
+<p>Quick Attack (Aq)</p>
+
+<p>Feint Attack (Af)</p>
+
+<p>Brave Bird (Bab)</p>
+
+<p>Whirlwind (Waw)</p>
+
+<p><strong>Breloom (Gon)</strong></p>
+
+<p>Mega Drain (Dam)</p>
+
+<p>Leech Seed (Sal)</p>
+
+<p>Poison Powder (Pap)</p>
+
+<p>Stun Spore (Sas)</p>
+
+<p>Mach Punch (Pam)</p>
+
+<p>Force Palm (Paf)</p>
+
+<p><strong>Luxio (Ion)</strong></p>
+
+<p>Spark</p>
+
+<p>Bite</p>
+
+<p>Charge</p>
+
+<p>Charge Beam</p>
+
+<p>Flash</p>
+
+<p><strong>Raticate (Joey)</strong></p>
+
+<p>Tackle</p>
+
+<p>Bite</p>
+
+<p>Quick Attack</p>
+
+<p>Tail Whip</p>
+
+<p><strong>Golbat (Nin)</strong></p>
+
+<p>Wing Attack (Aw)</p>
+
+<p>Leech Life (Lal)</p>
+
+<p>Poison Fang (Fap)</p>
+
+<p>Supersonic (Sas)</p>
+
+<p><strong>Weepinbell</strong></p>
+<p>
+
+<p></p>
+<p>Razor Leaf</p>
+<p></p>
+
+<p></p>
+<p>Acid</p>
+<p></p>
+
+<p></p>
+<p>Sleep Powder</p>
+<p></p>
+
+<p></p>
+<p>Poison Powder</p>
+<p></p>
+
+<p></p>
+<p>Vine Whip</p></p>
+
+<p><strong>Venomoth (Shimmer)</strong></p>
+
+<p>Leech Life (Lal)</p>
+
+<p>Confusion (Ca)</p>
+
+<p>Toxic (Ta)</p>
+
+<p>Stun Spore (Sas)</p>
+
+<p>Sleep Powder (Pas)</p>
+
+<p>Signal Beam (Bas)</p>
+
+<p><b>Abra (Tops)</b></p>
+
+<p>Teleport</p>
+
+<p>Psychic</p>
+
+<p><strong>Forretress (Aegis)</strong></p>
+
+<p>Bug Bite (Bab)</p>
+<p>Gyro-Ball (Bag)</p>
+
+<p>Self-Destruct (Das)</p>
+<p>Rollout (Ra)</p>
+<p>Rapid Spin (Sar)</p>
+
+<p>Spikes (Sa)</p>
+<p>Toxic Spikes (Sat)</p>
+<p><strong>Pineco x2</strong></p>
+<p>
+
+<p></p>
+<p>Tackle</p>
+<p></p>
+
+<p></p>
+<p>Bug Bite</p>
+<p></p>
+
+<p></p>
+<p>Self-Destruct</p>
+<p></p>
+
+<p></p>
+<p>Spikes</p></p>
+
+<p><strong>Rhyhorn (Rive)</strong></p>
+
+<p>Horn Attack/Poison Jab (Atah)</p>
+
+<p>Rock Blast (Bar)</p>
+
+<p>Bulldoze (Ba)</p>
+<p>Body Slam (Sab)</p>
+
+<p><strong>Dugtrio x2</strong></p>
+
+<p>Scratch/Slash</p>
+
+<p>Magnitude</p>
+
+<p>Sand Attack</p>
+
+<p>Dig</p>
+
+<p><strong>Eevee</strong></p>
+
+<p>Quick Attack</p>
+
+<p>Sand Attack</p>
+
+<p>Bite</p>
+
+<p>Covet</p>
+<p>Shadow Ball (Bash)</p>
+
+<p><strong>Snorlax</strong></p>
+
+<p>Body Slam</p>
+
+<p>Crunch</p>
+
+<p>Protect</p>
+
+<p>Rest</p>
+<p>Shadow Ball (Bash)</p>
+<p> </p>
+<p>
+
+<p></p>
+<p><strong>Magneton</strong></p>
+<p></p>
+
+<p></p>
+<p>Thunder Shock</p>
+<p></p>
+
+<p></p>
+<p>Magnet Rise</p>
+<p></p>
+
+<p></p>
+<p>Thunder Wave</p>
+<p>Thunderbolt</p>
+<p>Mirror Shot</p></p>
+
+<p><strong>Magnemite x4</strong></p>
+
+<p>Thunder Shock</p>
+
+<p>Magnet Rise</p>
+
+<p>Thunder Wave</p>
+
+<p><strong>Arcanine (Soul)</strong></p>
+
+<p>Flame Charge (Chaf)</p>
+
+<p>Crunch (Ca)</p>
+
+<p>Flamethrower (Fa)</p>
+
+<p>Extreme Speed (Sae)</p>
+
+<p><strong>Houndoom (Sunny)</strong></p>
+
+<p>Flamethrower (Fa)</p>
+
+<p>Firefang (Faf)</p>
+
+<p>Bite (Ba)</p>
+
+<p>Smog (Sa)</p>
+
+<p>Howl (Ha)</p>
+
+<h3>Leaf:</h3>
+
+<p><strong>Ivysaur (Raff)</strong></p>
+
+<p>Tackle</p>
+
+<p>Leech Seed</p>
+
+<p>Vine Whip</p>
+
+<p>Razor Leaf</p>
+
+<p>Sleep Powder</p>
+
+<p>Stun Spore</p>
+
+<p>Acid</p>
+
+<p><strong>Pidgeotto (Crimson)</strong></p>
+
+<p>Gust</p>
+
+<p>Peck</p>
+
+<p>Wing Attack</p>
+
+<p>Quick Attack</p>
+
+<p><strong>Beedrill</strong></p>
+
+<p>Poison Jab</p>
+
+<p>Twinneedle</p>
+
+<p>Fury Attack</p>
+
+<p><strong>Wigglytuff (Joy)</strong></p>
+
+<p>Sing</p>
+
+<p>Pound</p>
+
+<p>Disable</p>
+
+<p>Round</p>
+
+<p><strong>Venomoth (Ruby)</strong></p>
+
+<p>Leech Life</p>
+
+<p>Confusion</p>
+
+<p>Poison Powder</p>
+
+<p>Stun Spore</p>
+
+<p>Silver Wind</p>
+
+<p><strong>Buneary (Alice)</strong></p>
+
+<p>Pound</p>
+
+<p>Quick Attack</p>
+
+<p><strong>Abra</strong></p>
+
+<p>Teleport</p>
+
+<p>Psychic</p>
+
+<p><strong>Pineco</strong></p>
+
+<p>Tackle</p>
+
+<p>Bug Bite</p>
+
+<p>Self-Destruct</p>
+
+<p>Spikes</p>
+
+<p><strong>Nidorino</strong></p>
+
+<p>Horn Attack</p>
+
+<p>Double Kick</p>
+
+<p>Bite</p>
+
+<p><strong>Magneton</strong></p>
+
+<p>Thunderbolt</p>
+
+<p>Flash Cannon</p>
+
+<p>Thunderwave</p>
+
+<p>Magnet Rise</p>
+
+<p><strong>Ariados</strong></p>
+
+<p>Poison Sting</p>
+
+<p>Fell Stinger</p>
+
+<p>Night Shade</p>
+
+<p>Spider Web</p>
+
+<p><strong>Raticate</strong></p>
+
+<p>Superfang</p>
+
+<p>Crunch</p>
+
+<p>Quick Attack</p>
+
+<p>Dig</p>
+
+<p><strong>Ledian (Gleam)</strong></p>
+
+<p>Bug Buzz</p>
+
+<p>Air Slash</p>
+
+<p>Quick Attack</p>
+
+<p>Supersonic</p>
+
+<p><strong>Pidgey</strong></p>
+
+<p>Gust</p>
+
+<p>Quick Attack</p>
+
+<p>Wing Attack</p>
+
+<p>Sand Attack</p>
+
+<p><strong>Noctowl (Wise)</strong></p>
+
+<p>Confusion</p>
+
+<p>Zen Headbutt</p>
+
+<p>Air Slash</p>
+
+<p>Reflect</p>
+
+<p>Roost</p>
+
+<p><strong>Fearow</strong></p>
+
+<p>Drill Peck</p>
+
+<p>Wing Attack</p>
+
+<p>Quick Attack</p>
+
+<p><strong>Gloom</strong></p>
+
+<p>Mega Drain</p>
+
+<p>Poison Powder</p>
+
+<p>Sleep Powder</p>
+<p>Stun Spore</p>
+<p>Acid</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>
