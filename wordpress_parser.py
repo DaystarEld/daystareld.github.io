@@ -234,6 +234,11 @@ BLOG_POST_TEMPLATE = '''<!DOCTYPE html>
             font-size: clamp(28px, 5vw, 44px);
             line-height: 1.15;
             margin: 0 0 16px 0;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
         }}
 
         .article-meta {{
