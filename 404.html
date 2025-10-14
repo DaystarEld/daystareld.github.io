@@ -86,9 +86,8 @@
 <body>
     <div class="container">
         <h1>404</h1>
-        <p id="message">Page not found. But don't worry, we might know where you're trying to go!</p>
+        <p id="message">Sorry, that didn't work. I recently changed my website, so old links might be broken; maybe you can find whatever it was through one of these?</p>
         <div id="redirect-message" style="display: none;">
-            <p>Redirecting you to the right page...</p>
         </div>
         <div class="links">
             <a href="/">← Back to Home</a>
@@ -110,7 +109,14 @@
                 newPath = `/pokemon/${pokemonMatch[1]}/`;
             }
 
-            // Handle Rationally Writing episode redirects: /podcast/rationally-writing-0/ → /rationally-writing/0/
+            // Handle Rationally Writing episode redirects
+            // /rationally-writing-0/ → /rationally-writing/0/
+            const rwMatch = path.match(/^\/rationally-writing-(\d+)\/?$/);
+            if (rwMatch) {
+                newPath = `/rationally-writing/${rwMatch[1]}/`;
+            }
+
+            // Handle podcast path redirects: /podcast/rationally-writing-0/ → /rationally-writing/0/
             const podcastMatch = path.match(/^\/podcast\/rationally-writing-(\d+)\/?$/);
             if (podcastMatch) {
                 newPath = `/rationally-writing/${podcastMatch[1]}/`;
@@ -121,15 +127,33 @@
                 newPath = '/rationally-writing/';
             }
 
+            // Handle podcasts path: /podcasts/rationally-writing/ → /rationally-writing/
+            if (path.startsWith('/podcasts/rationally-writing/')) {
+                newPath = path.replace('/podcasts/rationally-writing/', '/rationally-writing/');
+            }
+
+            // Handle common blog post redirects (try adding /blog/ prefix)
+            // Only if path doesn't start with known directories
+            if (!newPath && !path.startsWith('/pokemon') && !path.startsWith('/blog') && 
+                !path.startsWith('/rationally-writing') && !path.startsWith('/stories') &&
+                path !== '/' && path.length > 1) {
+                // Try adding /blog/ prefix
+                const blogPath = '/blog' + path;
+                // We can't check if it exists, but we can try
+                newPath = blogPath;
+            }
+
             // If we found a redirect, show message and redirect
             if (newPath) {
                 document.getElementById('message').textContent = 'Found it! Redirecting you to the new URL...';
-                document.getElementById('redirect-message').style.display = 'block';
+                const redirectMsg = document.getElementById('redirect-message');
+                redirectMsg.textContent = `Old URL: ${path}\nNew URL: ${newPath}`;
+                redirectMsg.style.display = 'block';
                 
                 // Redirect after a brief moment
                 setTimeout(function() {
                     window.location.href = newPath;
-                }, 500);
+                }, 1000);
             }
         })();
     </script>
