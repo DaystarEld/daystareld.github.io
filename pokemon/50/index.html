@@ -298,6 +298,75 @@
 
         a { color: var(--link); text-decoration: none; }
         a:hover { text-decoration: underline; }
+    
+        .comments-section {
+            margin-top: 16px;
+            padding-top: 32px;
+            border-top: 2px solid var(--border);
+        }
+        
+        .comments-title {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        
+        .comments-note {
+            color: var(--muted);
+            font-size: 0.9em;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+        
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .comment {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .comment-date {
+            color: var(--muted);
+            font-size: 0.85em;
+        }
+        
+        .comment-body {
+            line-height: 1.6;
+            color: var(--text);
+        }
+        
+        .comment-replies {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+    
+        .new-comments-section {
+            margin-top: 16px;
+            padding-top: 32px;
+            border-top: 2px solid var(--border);
+        }
     </style>
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
 </head>
@@ -1138,6 +1207,17 @@
 <p>Leaf grunts something that may conceivably be taken as a goodbye and then flops onto her bed face down with a sigh. She stays there for a few minutes and tries to convince herself she's done the right thing.</p>
 
 <p>Only a few minutes, however. She has to get to work, after all, so she's ready for whatever's coming.</p>
+            
+        
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            
+
+                </div>
+                </div>
             </div>
 
             <nav class="chapter-nav">
@@ -1146,6 +1226,60 @@
                 <a href="/pokemon/51/">Next →</a>
             </nav>
         </article>
+
+<div class="comments-section">
+            <h2 class="comments-title">Comments from Original Site</h2>
+            <p class="comments-note">These are archived comments from the previous version of this site. New comments can be added below.</p>
+            <div class="comments-list">
+
+            <div class="comment" style="margin-left: 0px;">
+                <div class="comment-header">
+                    <span class="comment-author">Edward Cree</span>
+                    <span class="comment-date">December 02, 2017 at 02:23 AM</span>
+                </div>
+                <div class="comment-body"><p>I might be mistaken, but I <i>think</i> your maths is wrong.<br></p><blockquote>Chance of Tier 1 being reported accurately = 79 / (79+33) = .71<br>Chance of Tier 2 being reported accurately = 67 / (21+67) = .76</blockquote><p></p><p>This assumes that the base rates of reported-tier-1 and reported-tier-2 are equal, which is not in the given information (and is in fact false).</p><p>Notation: in the following, {R₁} is the event "incident is reported as Tier 1" and {T₁} is the event "incident is later established to be Tier 1".  P(A|B∧C) denotes the probability of A given (B and C).</p><p>To calculate P(T₁|R₁∧Tyranitar) without having (say) P(R₁|T₁∧Tyranitar), we have to assume that the P(Rᵢ|Tⱼ) are independent of Tyranitar.  (In fact, what the Rangers <i>should</i> do is instead filter their data to just Tyranitar incidents that were reported as Tier 1, and count how many were actually Tier 1.  Naïvely this directly gives P(T₁|R₁∧Tyranitar), but since there might not be very much data — we have only 17 points in the whole set {Tyranitar}, and presumably only a few of those were reported-tier-1, so {R₁∧Tyranitar} is <i>tiny</i> — we want to make use of our base-rate knowledge to get a Beta prior which our few {R₁∧Tyranitar} data can then update.)</p><p>So, under that assumption, we want to compute the base rates, and the information we have is as follows:</p><p>P(T₁|R₁) = 0.79, P(T₁|R₂) = 0.33, P(T₁) = 0.64.  (And all the complements thereof implied by {T₁∨T₂} and {R₁∨R₂} being exhaustive.)</p><p>Now, we can't apply Bayes' Rule directly to get P(R₁|T₁), because we don't have P(R₁) which we would need in order to find P(R₁∧T₁).  Instead, we Bayes-expand the conditional probabilities we <i>do</i> have, finding that P(T₁|R₁) = P(T₁∧R₁) / P(R₁) and P(T₂|R₁) = P(T₂∧R₁) / P(R₁).  Rearranging, P(R₁) = P(T₁∧R₁) / P(T₁|R₁) = P(T₂∧R₁) / P(T₂|R₁).</p><p>This gives us our first equation: we substitute in the known values and rearrange to find that 0.21 P(T₁∧R₁) = 0.79 P(T₂∧R₁).  We can do the same with the |R₂ numbers to find that 0.67 P(T₁∧R₂) = 0.33 P(T₂∧R₂).  This gives us two equations in four unknowns, which isn't enough — we need more constraints!</p><p>Fortunately, we also have the base rates P(T₁) and P(T₂), and we know that {R₁∨R₂} is exhaustive.  So, P(T₁∧R₁) + P(T₁∧R₂) = P(T₁) = 0.64, and P(T₂∧R₁) + P(T₂∧R₂) = P(T₂) = 0.36.  We now have four equations, which is enough for a solution.</p><p>Writing A = P(T₁∧R₁), B = P(T₁∧R₂), C = P(T₂∧R₁) and D = P(T₂∧R₂), we have:</p><p>A + B = 0.64</p><p>C + D = 0.36</p><p>0.21*A - 0.79*C = 0</p><p>0.67*B - 0.33*D = 0</p><p>This gives us a 4x4 matrix which, good news, is invertible.  When we solve the system of equations (I used an online matrix calculator, because inverting 4x4 matrices by hand is tedious torture) we get the following:</p><p>A = 2449 / 4600</p><p>B = 495 / 4600</p><p>C = 651 / 4600</p><p>D = 1005 / 4600</p><p>So now at last we can compute P(R₁|T₁) = A / (A + B) = 2449 / 2944 ~= 0.83, and P(R₁|T₂) = C / (C + D) = 651 / 1656 ~= 0.39.  As a quick check we can also compute our original three pieces of information P(T₁|R₁) = 2449 / 3100 = 0.79, P(T₁|R₂) = 495 / 1500 = 0.33, and P(T₁) = 2944 / 4600 = 0.64, and also check that A + B + C + D = 1.</p><p>Huzzah, we have the base rates: about 83% of Tier 1s are correctly reported, as are about 61% of Tier 2s.  (This also tells us that P(R₁) = A + C = 3100 / 4600 ~= 0.67: about 67% of all incidents are reported as Tier 1s.)</p><p><strong>Now</strong> we can apply Bayes' Rule to combine our P(Tᵢ|Tyranitar) with our P(R₁|Tᵢ∧Tyranitar) (which, you will recall, we are assuming to equal P(R₁|Tᵢ)) to find P(T₁|R₁∧Tyranitar), as follows:</p><p>P(T₁|R₁∧Tyranitar) = P(R₁∧T₁∧Tyranitar) / P(R₁∧Tyranitar)</p><p>= P(R₁|T₁∧Tyranitar) * P(T₁∧Tyranitar) / (P(R₁|T₁∧Tyranitar) * P(T₁∧Tyranitar) + P(R₁|T₂∧Tyranitar) * P(T₂∧Tyranitar))</p><p>= (2449/2944) * (2/17) / ((2449/2944) * (2/17) + (651 / 1656) * (15/17))</p><p>~= 0.098 / (0.098 + 0.347)</p><p>= 0.098 / 0.445</p><p>~= 0.22</p><p>So our conclusion is that <i>given that</i> a Tyranitar incident was reported as Tier-1, and <i>assuming that</i> Tyranitar incidents are reported with the same accuracy as incidents in general, <i>then</i> there's about a 22% chance that the incident really is a Tier-1.</p><p>But this is a really long and tedious calculation, requiring a matrix inversion — maybe it'd make more sense to change the given information in the story (say, give P(R₁) rather than P(T₁)) than to have Leaf work all this out ;-)</p></div>
+                <div class="comment-replies">
+
+                <div class="comment" style="margin-left: 30px;">
+                    <div class="comment-header">
+                        <span class="comment-author">Damon Sasi</span>
+                        <span class="comment-date">December 03, 2017 at 04:52 AM</span>
+                    </div>
+                    <div class="comment-body"><p>Thanks for pointing that out! Is this a better problem to present too, rather than giving P(R1)?</p><p>12% of Tyranitar events are Tier 1<br>88% of Tyraniter events are Tier 2<br>79% of Tier 1 Events are reported accurately<br>67% of Tier 2 Events are reported accurately<br>Group A: 9.48 Tyranitar are Tier 1 and Reported Tier 1<br>Group B: 2.52 Tyranitar are Tier 1 but Reported as Tier 2<br>Group C: 58.96 Tyranitar are Tier 2 and Reported as Tier 2<br>Group D: 29.04 Tyranitar are Tier 2 but reported as Tier 1.<br>Group A / (Group A+ Group D) = 25% chance a reported Tier 1 Tyranitar is Tier 1</p></div>
+                    <div class="comment-replies">
+
+                    <div class="comment" style="margin-left: 60px;">
+                        <div class="comment-header">
+                            <span class="comment-author">Edward Cree</span>
+                            <span class="comment-date">December 03, 2017 at 03:19 PM</span>
+                        </div>
+                        <div class="comment-body"><p>Yep, that looks correct to me &amp; more didactically suitable.  (In fact, <i>initially</i> I misread the problem as precisely that, and was quite surprised when Red was told that 25% was wrong!)</p></div>
+                    </div>
+                    </div>
+<div class="new-comments-section">
+            <h2 class="comments-title">Leave a Comment</h2>
+            <p class="comments-note">Join the discussion using GitHub to comment. Your GitHub account will be used to authenticate.</p>
+            
+            <script src="https://giscus.app/client.js"
+                    data-repo="daystareld/daystareld.github.io"
+                    data-repo-id="REPLACE_WITH_REPO_ID"
+                    data-category="Comments"
+                    data-category-id="REPLACE_WITH_CATEGORY_ID"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="top"
+                    data-theme="preferred_color_scheme"
+                    data-lang="en"
+                    data-loading="lazy"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+
+
+
     </main>
 
     <!-- Search Overlay -->
