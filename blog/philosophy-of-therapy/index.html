@@ -378,11 +378,13 @@
             gap: 16px;
         }
         
-        .comment {
+                .comment {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 16px;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         
         .comment-header {
@@ -409,11 +411,18 @@
             color: var(--text);
         }
         
-        .comment-replies {
+                .comment-replies {
             margin-top: 16px;
             display: flex;
             flex-direction: column;
             gap: 12px;
+        }
+        
+        /* Limit visual nesting depth to prevent narrow comments */
+        .comment .comment .comment .comment {
+            margin-left: 0 !important;
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
         }
     
         .new-comments-section {
@@ -762,7 +771,7 @@
                         <div class="comment-body"><p>The added explanation is great, IMHO.<br>Just in case it wasn't on purpose, note that you first mention the term 'modalities' earlier: "modalities such as Transference-Focused Psychotherapy"</p></div>
                         <div class="comment-replies">
 
-                        <div class="comment" style="margin-left: 90px;">
+                        <div class="comment" style="margin-left: 60px;">
                             <div class="comment-header">
                                 <span class="comment-author">Damon Sasi</span>
                                 <span class="comment-date">September 26, 2020 at 07:22 PM</span>

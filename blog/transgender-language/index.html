@@ -382,11 +382,13 @@ I&#x27;m one of those people for whom &quot;they&quot; and &quot;them&quot; feel
             gap: 16px;
         }
         
-        .comment {
+                .comment {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 16px;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         
         .comment-header {
@@ -413,11 +415,18 @@ I&#x27;m one of those people for whom &quot;they&quot; and &quot;them&quot; feel
             color: var(--text);
         }
         
-        .comment-replies {
+                .comment-replies {
             margin-top: 16px;
             display: flex;
             flex-direction: column;
             gap: 12px;
+        }
+        
+        /* Limit visual nesting depth to prevent narrow comments */
+        .comment .comment .comment .comment {
+            margin-left: 0 !important;
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
         }
     
         .new-comments-section {

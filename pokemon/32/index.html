@@ -324,11 +324,13 @@
             gap: 16px;
         }
         
-        .comment {
+                .comment {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 16px;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         
         .comment-header {
@@ -355,11 +357,18 @@
             color: var(--text);
         }
         
-        .comment-replies {
+                .comment-replies {
             margin-top: 16px;
             display: flex;
             flex-direction: column;
             gap: 12px;
+        }
+        
+        /* Limit visual nesting depth to prevent narrow comments */
+        .comment .comment .comment .comment {
+            margin-left: 0 !important;
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
         }
     
         .new-comments-section {
@@ -875,7 +884,7 @@ Now rest, your duty's done.
                         <div class="comment-body"><p>Pardon me if this is an annoying problem, but any update on Daniel's request happening or not?</p></div>
                         <div class="comment-replies">
 
-                        <div class="comment" style="margin-left: 90px;">
+                        <div class="comment" style="margin-left: 60px;">
                             <div class="comment-header">
                                 <span class="comment-author">Damon Sasi</span>
                                 <span class="comment-date">October 09, 2017 at 03:08 AM</span>
@@ -883,7 +892,7 @@ Now rest, your duty's done.
                             <div class="comment-body"><p>I have to admit that I tried digging into this once, saw it cause all sorts of problems for the site's appearance, and gave up on it. I've been meaning to make a number of changes to the site over the past couple years, and only accomplished a few of them, since the time investment has felt too steep when I could be spending it writing instead. If anyone has a better understanding of Wordpress and wants to guide me through this, I'd be happy to give it another shot.</p></div>
                         </div>
 
-                        <div class="comment" style="margin-left: 90px;">
+                        <div class="comment" style="margin-left: 60px;">
                             <div class="comment-header">
                                 <span class="comment-author">Wedchidna oK</span>
                                 <span class="comment-date">June 22, 2021 at 03:15 AM</span>

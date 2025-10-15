@@ -382,11 +382,13 @@ A major step in plotting out a tabletop RPG campaign is determining its scope.
             gap: 16px;
         }
         
-        .comment {
+                .comment {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 16px;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         
         .comment-header {
@@ -413,11 +415,18 @@ A major step in plotting out a tabletop RPG campaign is determining its scope.
             color: var(--text);
         }
         
-        .comment-replies {
+                .comment-replies {
             margin-top: 16px;
             display: flex;
             flex-direction: column;
             gap: 12px;
+        }
+        
+        /* Limit visual nesting depth to prevent narrow comments */
+        .comment .comment .comment .comment {
+            margin-left: 0 !important;
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
         }
     
         .new-comments-section {
@@ -605,7 +614,7 @@ It’s far easier to really grow attached to them and get in their heads if you 
                         <div class="comment-body"><p>Yeah, this answers my question really well. It read really well already, and this makes the idea even clearer. Thanks for taking the time to adjust it!</p></div>
                         <div class="comment-replies">
 
-                        <div class="comment" style="margin-left: 90px;">
+                        <div class="comment" style="margin-left: 60px;">
                             <div class="comment-header">
                                 <span class="comment-author">Damon Sasi</span>
                                 <span class="comment-date">June 04, 2016 at 01:51 AM</span>
