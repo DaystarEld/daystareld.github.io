@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 144: Double Crux - Pokemon: The Origin of Species</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .chapter-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 32px 0;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .chapter-nav a {
+            color: var(--link);
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+        }
+
+        .chapter-nav a:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .chapter-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .chapter-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .chapter-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .chapter-content p {
+            margin: 20px 0;
+        }
+
+        .chapter-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .chapter-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .chapter-content li {
+            margin: 8px 0;
+        }
+
+        .chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .chapter-content em {
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .chapter-nav {
+                flex-direction: column;
+            }
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://daystareld.com/pokemon/144/">
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/pokemon/" class="back-link">← Back to Pokemon</a>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/143/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <span></span>
+            </nav>
+
+            <h1 class="chapter-title">Chapter 144: Double Crux</h1>
+
+            <div class="chapter-content">
+               <p><em>Hey everyone, weeeelcome back! It was the perfect year to make an April Fool's post, but instead you get a real chapter (and one of the longest in the story!), hopefully not much worse for wear given its lateness.</em></p>
+<p><em>Thank you to everyone for the continued wellwishes and patience. As I mentioned in a comment on the latest Rationally Writing post, my dad's cancer prognosis has taken a turn for the worse, and that, along with a few other unfortunate life circumstances, led to the unplanned hiatus of the past months. I hope to resume updating chapters more frequently, but can't promise the next one will be on schedule just yet.</em></p>
+<p><em>I want to say again that I am, overall, okay, and in fact doing better than I was a few months ago, all things considered, so while I appreciate offers of support or assistance, I think I'll be okay&hellip; though, there&nbsp;</em>is&nbsp;<em>one other thing that contributed to the chapter's extra-lateness that someone with spare time might be able to help with.</em></p>
+<p><em>Bizarre as it sounds for those who haven't experienced it, Google Drive ate a bunch of my files. There's no apparent pattern to which ones it deleted, and support was totally unable to help; they in fact seemed to not believe it's possible, but I've since heard from multiple friends who have had a similar thing occur, so I'm extra confident now that I didn't sleepwalk to my computer and delete a bunch of files months ago without realizing it or something.</em></p>
+<p><em>In any case, one of the files that hurt the worst to lose was my notes document for Origin of Species. It was a handy reference sheet for a bunch of story things that saved me a lot of time when writing new chapters, and one of the most valuable things it had in it was a timeline of the story, including just the simple question of "how much time has passed since the story started?"</em></p>
+<p><em>This is something I've been documenting since the story began, and it would take me hours to reconstruct it, since it would require skimming the whole story for any mentions of time passing, especially in mid-chapter scene breaks. Sometimes it's vague, since in some chapters all I write is a "a few days later" or reference something from "last month," but a quick and easy version just picks out the birthdays and anniversaries and counts forward from there so at least there's a better sense of where the most recent events are in the calendar year.</em></p>
+<p><em>Anyway, if anyone wants to take on the task of making that, maybe say so in the /r/rational post's comment section? That way people don't double up on effort, assumin anyone's willing at all, or maybe some coordination can take place.</em></p>
+<p><em>That's it for now. Thanks again for everyone's patience and wellwishes, and hope you enjoy the chapter.</em></p>
+<hr />
+<p style="text-align: center;">Chapter 144: Double Crux</p>
+<p>Red stands waiting on the roof of his old Saffron apartment building, fingers stroking through Pikachu's fur. The morning air carries the same scents he woke up to for months; metal and asphalt, familiar food vendors, the faint floral notes from a nearby rooftop garden. He lets the homesickness move through him in waves, first for his apartment here, then for the house in Pallet, and finally a vague sense of the dozen trainer houses and ranger outposts that he, Leaf and Blue slept in throughout their journey.</p>
+<p>Simpler times.</p>
+<p>It's been two days since his talk with Blue and Leaf near Viridian, and he's felt a low-level churning in his gut ever since. It's a familiar feeling, one from after the storm. After Aiko. He feels the grief from that again, and lets it wash through him too, breathing out pain and regret again and again until the grief is just a dull, hollow ache, and the rest of him can trickle back in little by little as he notices the nearby smells again, the warm sun on his skin, the playful breeze.</p>
+<p>He'd vaguely thought, when he signed on to fight Rocket, that he might someday go back to his life here, after. Continue studying and teaching psychics, while doing his own research. Still far from his dream of running his own lab, but not as far as what he's been doing instead for the past months.</p>
+<p>This visit today feels like it'll put an end to that dream, one way or another. Maybe he's wrong, and Sabrina is innocent of anything bad. Maybe he's wrong, and she'll welcome him back even with the accusations he's about to lay at her feet. Maybe he's wrong in some other way, and his path will lead him back to the peace and meaning he found, for a while, in this city.</p>
+<p>But it never has before. His first home in Pallet is filled with strangers. His second, more conceptual home on the road has faded with Blue's ascent toward Victory Road. And whatever happens next, he doesn't expect he can go back to being one of Sabrina's students.</p>
+<p>His next steps, when things with Rocket are finally over, will once again be to find a new home.</p>
+<p>For a moment the vast openness of possibility-space looms up, crushing him with loneliness. Pikachu seems to notice something change in his breathing, or maybe he's just cold, because he nuzzles Red's neck, shaking him out of it and making him smile.</p>
+<p>"Look on the bright side," he says as he scratches between Pikachu's ears. "It might be years before Rocket's gone."</p>
+<p>Something shifts in the air, and his next psydar pulse detects a pair of minds behind him. He turns toward the center of the rooftop to see Leaf and her abra.</p>
+<p>She never de-registered the one she had for Saffron from when she was making trips to model her loving-kindness emotional state for Sabrina's students, though she stopped coming after she went back to sleep in Unova&hellip; something Red never understood, but suspects had something to do with the situation where she and Blue visited Koga months ago. His curiosity about that has only grown over time, but he trusts her to decide when it's time for him to know, if it ever is.</p>
+<p>The wind almost immediately blows Leaf's hat off, but her hand reflexively snaps up to catch it, and once she gives her abra a head scratch, withdraws him and turns to find Red, then smiles.</p>
+<p>Some of the churning in his stomach eases at the sight. After Blue left their talk, he and Leaf flew down to Pallet together, since she didn't have a teleport registered there, to see how the repairs at the lab were going. Afterward they walked silently along the newly reconstructed piers and boardwalk. The silence felt charged, then, and it feels charged now, like a thundercloud ready to deluge.</p>
+<p>Even without merging at all, Red could feel the pings of emotion that sparked from Leaf's mind like floating embers from a fire. Another sign of his new psychic strength, and one of the few that feels unwelcome&hellip; particularly because of how tempting it remains, even after all this time.</p>
+<p>They did speak during that walk, here and there. Leaf's worry about Red and Blue falling out again. Her worry about&nbsp;<em>her&nbsp;</em>and Blue falling out. And of course, their own differences&hellip; particularly on how much to tell the public.</p>
+<p>Her last words to him before teleporting away, as the sun set over the sea, were etched into his mind ever since, along with her expression of mixed anger and sadness:&nbsp;<em>"I'm sorry Red, I know it'll turn people against psychics, against you. I'll do everything I can to make sure that it doesn't get out of control. But people deserve to know the truth."</em></p>
+<p>She agreed to wait before publishing anything, since they still obviously need to get Dreamer to the negotiating table, and turning the public against&nbsp;<em>them</em>&nbsp;without warning could easily tank any chance at a peaceful resolution. Leaf is even more sympathetic toward them than Red is&hellip; but she still insisted that a full record of what happened be revealed to the public eventually, and Red can't see how that ends in anything but mass hysteria against psychics, whether the Dreamer is a pokemon-hybrid or not.</p>
+<p>And he wants to believe that the world becomes a better place when the truth is freely shared for all. He&nbsp;<em>feels</em>&nbsp;the wanting in him, a yearning in his chest to&nbsp;<em>let go</em>&nbsp;of the fears and anxieties and doubts, to just be a champion for truth in every circumstance&hellip;</p>
+<p>Leaf seems closer to that ideal. It's one of the reasons he admires her so much, but when he tried Focusing on why he doesn't believe it, why the insecurity and fear say it's a lie, he had to conclude that it wasn't necessarily true that the&nbsp;<em>world&nbsp;</em>would be worse off, in the long-run, if this particular truth gets widespread. He felt that much more strongly with unown research, but he's been much more uncertain about the Dreamer's psychic crimes.</p>
+<p>What seems more certain to him is that his life, at least, will be much harder as a result, and at that realization the part of him that never quite went fully silent after Vermilian wondered if he was a coward after all.</p>
+<p>Leaf is walking over, now, hand still holding her hat in place, and he forces a smile. "Hey," he types. The synthetic voice's default is too cheerful for how he feels these days, but all the tone adjustments seem too strong in other directions.</p>
+<p>"Hey you." Leaf pulls her hat more snugly onto her head, then sticks her hands in her pockets. "Thinking doomy thoughts?" She's still smiling, but her eyes are searching his with worry.</p>
+<p>"That obvious?"</p>
+<p>"There's a look you get." She shrugs, and the silence descends again. He feels the familiar urge again, to glance deeper into the signals her mind is sending out, to get a better sense of how she's feeling, and with the same familiarity, stops the impulse before it can lead to a deeper merge. Some impressions get through regardless, embers drifting up from a fire: concern for him. Worry about&nbsp;<em>them</em>: him and her, him and Blue, her and Blue.</p>
+<p>And a wistful desire for&hellip; something else. Something from the past, maybe, or some different could-have-been.</p>
+<p>Again he resists the urge to look deeper. He can guess. He can model her. But the itch to&nbsp;<em>just know,</em>&nbsp;to&nbsp;<em>understand</em>&hellip; it leaves the gulf between their minds feeling more empty than ever.</p>
+<p>Ever since he woke from the coma, he's been feeling a new sort of loneliness, and this urge is part of it. This feeling of being unable to really connect with anyone around him, not just Leaf. Of not feeling understood or seen by them, and resisting the urge to understand and see them more clearly.</p>
+<p>He looked around online, and asked some of the more experienced psychics he knew. The thing he felt was familiar to them, but never seen in a psychic so young&hellip; especially considering how recently his powers awakened. He's not sure if he should take that as a sign of his unique life, his unique powers, or the recent experiences he's had, or all three. He notices his mind skittering off the implications of it, particularly when it comes to Blue, his mom&hellip; or Leaf.</p>
+<p><em>We'll have to think about it sometime.</em></p>
+<p>He grimaces and acknowledges the thought before setting it aside too. He's not his partitioned self, hasn't been by default since leaving the hospital, which has been an interesting experience he would probably be appreciating more if it wasn't for everything else that's been going on.</p>
+<p>Red looks out over the skyline, gaze automatically searching out the silhouettes of his bodyguards on their various flying pokemon. They weren't happy with him wanting so many private meetings so soon after he recovered enough to leave the hospital, but he convinced Jensen and Looker by saying he'd be okay with Jensen shadowing him, but only if it's actually the most secure decision and not paranoia about him doing something stupid.</p>
+<p>It doesn't take long before he spots Zephyr on the approach through the infrequent air traffic. One of Red's guards deviates from his patrol to fly closer, then peels off after confirming that it's someone friendly.</p>
+<p>While Blue can finally make use of teleportation thanks to Miracle Eye, the reliance on teleporters that know Miracle Eye means he can't just hold onto a dozen abra registered to different places the way Leaf can. On the plus side he can teleport back to Victory Road afterward, but this meeting still asked more from him than it did Red and Leaf. Red's sure he must be counting every hour as one that he's not spending getting closer to the Indigo Plateau.</p>
+<p>Red waves a greeting as Blue gets close enough to make him out on his mount, and sees his friend raise an arm in the last few seconds before he's suddenly so close Red can make out his clothing, and then Zephyr is flaring his wings and Red's clothes billow and snap in the wind Blue's pokemon lands, hopping just once to break the last of his momentum.</p>
+<p>Red and Leaf approach as Blue dismounts and takes care of his pokemon, then pulls off his riding goggles and lets it hang around his neck. His eyes move between Red and Leaf, and something in his expression eases slightly. "Yo."</p>
+<p>"Hey," Leaf says, while Red types "Yo" back. Leaf hugs him, and he extends a fist to bump Red's while still hugging her back.</p>
+<p>Blue looks tired. Not exhausted, but carrying the weariness of someone who's been traveling hard for multiple days in a row. "How you guys doing?" he asks as Leaf disengages. "Get enough sleep?"</p>
+<p>They'd been up late doing some last-minute coordinating. Red waggles his hand in a so-so gesture, and Leaf shrugs while stroking Zephyr's wing.</p>
+<p>"Yeah," Blue says. "Same."</p>
+<p>For a moment they just stand there, the three of them, wind tugging at their clothes as Zephyr drinks from a trough, scattering shining drops of water in the breeze with each upward jerk of his head. Red remembers a handful of moments like this&mdash;the three of them gathering themselves, sharing something they can't put into words before facing whatever came next, either alone or together.</p>
+<p>And this time they'll be "together" only somewhat. Probably more than he fears, but less than he hopes.</p>
+<p>He's trying to think of what to type, if anything, when Blue says, "So. We doing this, or did something come up?"</p>
+<p>Leaf shakes her head and says, "Ready when you are" as she steps away from Zephyr.</p>
+<p>Red just nods along, watches as Blue withdraws his pidgeot, then leads the way into the building and down the stairs.</p>
+<p>The apartment building is relatively empty; Red detects one of Sabrina's newer students in their room, and recognizes Jason in the kitchen, but the rest are out, as Sabrina herself would be if she hadn't agreed to this meeting. She calls out "come in" before he even knocks on her door, and they enter to find her sitting on one of the couches, teapot gently steaming on the table in front of her, with three cups set ready for them on the opposite couch.</p>
+<p>"Hello, Leader," Leaf says. "Thank you for agreeing to meet with us."</p>
+<p>"Of course. Please, sit."</p>
+<p>Red has visited her apartment a few times before, and each time he's felt a little more comfortable in it; never quite like dropping in to see a friend, or even a peer, but at least less like he needs to sit straight and avoid making a mess.</p>
+<p>This is the first time he's been here with non-students, however, and the first time he's come in with anything remotely unfriendly. He examines the vague sense of guilt as he sits between Blue and Leaf on the couch opposite Sabrina's, and recognizes it as an expectation that she'll feel ambushed and betrayed after finding out what all this is about.</p>
+<p>In the meantime she pours them tea with her usual grace, then calmly reclines and lifts her cup to her lips, patient gaze moving between them as she sips.</p>
+<p>"So," she says after a moment. "The Dreamer?"</p>
+<p>Red knows her well enough to tell that she did that on purpose, subtly enjoying Blue and Leaf's surprise.&nbsp;<em>He&nbsp;</em>knows she didn't read their minds, but they can't, and she speaks again as they glance at Red.</p>
+<p>"Red told me this was an emergency, but not what kind. Given the three of you are here, and no one else, it's just an educated guess, given recent events."</p>
+<p>"You know about the unown researchers," Leaf says, and Sabrina nods. "Did your message ever work? The one about Rowan, I mean. Did the Dreamer reach out to you too, or just Red?"</p>
+<p>There's a silence, for a time, and Sabrina sips her tea before saying, "I think I'll have to establish a norm of not answering questions like that, and not saying why."</p>
+<p>"This is all off the record," Leaf quickly says. "Sorry, I should have probably said that earlier. We're not secretly recording or anything, I'm not here as&mdash;"</p>
+<p>"Even still. I'm sorry."</p>
+<p>"What's changed?" Red types out, heart sinking. He's not sure if he expects her to explicitly say it's because he brought Blue and Leaf, but&hellip; "You seemed willing to talk about them before, now and then."</p>
+<p>"I bet I know," Blue says, and they all turn to him. He's watching Sabrina with a neutrality that Red recognizes as his diplomatic face. "It's because this time it might lead to acting against them, right?"</p>
+<p>Sabrina nods. "I don't agree with what they're doing, but I won't betray them. I've done it before, went along with things I no longer thought were right. I won't do it again."</p>
+<p>Blue frowns. "Maybe I read you wrong, but at one point it seemed like you believed I'd make a good Champion. Enough that you seemed willing to help speed up my Challenge."</p>
+<p>"You didn't read wrong. But that 'help' came as a matter of addressing practical issues that I'd been neglecting. Our conversation that day gave me&hellip; resolve, you could say. Resolve that ended up being beneficial to you, but was not meant&nbsp;<em>for&nbsp;</em>you."</p>
+<p>"This isn't for me, either."</p>
+<p>"No, but I haven't spoken with our&nbsp;<em>current&nbsp;</em>Champion about this already for the reasons already stated."</p>
+<p>"I'm not trying to cash in chips I haven't won yet."</p>
+<p>"Aren't you?" Sabrina gives an apologetic smile. "You can wait until you're Champion and order me to tell you what I know, but my answer would be the same, and if you push for my removal as Leader, I'll go quietly. That doesn't mean I don't wish for your success in reaching Indigo Plateu. I still think you'd make a fine Champion, separate entirely from my hopes that you'll make a better ally to psychics than Lance if unflattering realities about us came to light."</p>
+<p>Blue sighs, and Red feels a stab of guilt even before he mutters, "Yeah, a lot of that going around lately."</p>
+<p>"What sorts of things?" Leaf asks. "Do you just mean the Dreamer, or&hellip;?"</p>
+<p>"No, I meant Red's abilities too, and others, to the extent that they're learnable." Sabrina shrugs a shoulder. "Miracle Eye wasn't part of the equation at the time, and it's well on its way to wide adoption, with&nbsp;<em>mostly</em>&nbsp;positive reactions from the public. A few have managed indoor teleportation, and that one hasn't caused waves among civilians&mdash;it's not too different from what a dedicated burglar could do, and most news pieces on it have stressed that it works off of the usual teleporting principle of needing to have been to a place before. But the&nbsp;<em>sakki&nbsp;</em>has been different, and what the Dreamer has done&mdash;"</p>
+<p>Red starts typing, and Sabrina stops to look at him. "Do you think that's learnable too?" his necklace says a few moments later. He's been fine-tuning the tone as best he can, but it's a strange process trying to decide what his tone "should" be instead of just&hellip; naturally letting it out.</p>
+<p>"Not likely. As we saw with their projection abilities, they're much more powerful than any other psychic I know of."</p>
+<p>"But it's possible," Blue insists. "People could have said the same of Red's stuff because of his partitioning or whatever. I get that you're worried about how people treat psychics, I am too, and not just because of Red. But don't we&nbsp;<em>have</em>&nbsp;to take for granted that any psychic could do what the Dreamer is, now?"</p>
+<p>They'd talked about this, talked about&nbsp;<em>how&nbsp;</em>they'd talk about it, who would say what. Red had objected, wanted to be more forthright, but Blue had put his foot down, and Leaf had agreed; they can't take for granted that Sabrina will be honest with them, and they have only one opportunity to evaluate how honest she's&nbsp;<em>willing&nbsp;</em>to be if she doesn't know they know.</p>
+<p>Red is leaving it to Leaf and Blue to watch the Leader's body language and facial expression. It's her mind that he focuses on; they're both doing each other the courtesy of staying open to surface mergers rather than a full merger or shields, and that means he can learn something from how she reacts, consciously or not&hellip;</p>
+<p><em>There.</em></p>
+<p>It's just for a moment, but he senses the prickle of apprehension, protectiveness&hellip; then, as she briefly meets Red's gaze, curiosity, followed by something like acceptance, maybe even resignation.</p>
+<p>Because whatever his mind did upon observing hers, she could of course notice right back. And while he could have hidden behind his partitions, he wasn't willing to take&nbsp;<em>that&nbsp;</em>level of deception. Not after everything she's done for him.</p>
+<p>A moment of silence passes, while Sabrina and Red lock gazes. He feels the itch for a deeper merge, to understand her better, to see all this from her perspective. He knows she probably feels the same, is wondering if whatever surface mental reactions she sensed come from him knowing about the Dreamer's true identity, or something else&hellip; and then, if the first, wondering if he'd told Blue and Leaf&hellip;</p>
+<p>He watches her eyes move to them, first one, then the other. Leaf is shielding as hard as she knows how, but he doesn't sense Sabrina dipping into her thoughts. Instead she simply takes another sip of tea, then sighs and sets it down on the table.</p>
+<p>"Because they're not human."</p>
+<p>The words release some tension in the room, the air easier to breathe. Red senses Leaf's surprise even through her shielding, and though she continues with it, he also feels her relax slightly, against his side.</p>
+<p>"What do you mean?" Blue asks, voice wary. Probably not faking it: for him it's confirmation that goes beyond Leaf's speculation and Red's only somewhat reliable recount of what the Dreamer themselves told him. Even he feels some shock at the direct confirmation.</p>
+<p>"What I said. The Dreamer isn't a human psychic. They're a human-mew hybrid, created in a laboratory."</p>
+<p><em>Mew?</em></p>
+<p>Red's thought process is so utterly derailed by the confirmation that mew exists that he almost misses the way Blue's hands tighten briefly into fists.</p>
+<p>Leaf, meanwhile, leans forward and asks, "Are you 'Amari?'"</p>
+<p>Sabrina smiles, but Red catches an undercurrent of pain mixed with the amusement. "No. Not the way you wrote her, at least. I always wondered, did Fuji give you character ideas too, or just the premise and some plot points?"</p>
+<p>"Characters too," Leaf murmurs, staring at Sabrina. "His notes included organization structure, social dynamics, lots of stuff."</p>
+<p>"Ah. Then he intentionally obfuscated various people's roles." Sabrina lets out a slow breath. "That was&hellip; kind, of him. No, Amari isn't based on me. My relationship with the Dreamer is best understood as an amalgam of most of the teachers he had in your story. In truth I was their primary teacher, and&hellip; I believed, at least, their closest friend." She pauses, and when she speaks again her voice is a whisper, gaze on her tea. "I named them Mazda."</p>
+<p>The silence stretches as they all stare at her, grappling with the extra revelations. After a moment she stirs and looks up at each of them. "It's not a name anyone else but Dr. Fuji used, as far as I'm aware. I'd ask that you not spread it further."</p>
+<p>More silence. He exchanges a look with Leaf, whose own surprise seems mixed with something like excitement and wariness, then turns to Blue, who's studying Sabrina with plain suspicion. "So you were there, at the lab. The Dreamer, 'Mazda,' didn't just find you after escaping, you were complicit in everything."</p>
+<p>Red wants to say something, wants to soften the accusation, but&hellip; they hadn't expected Sabrina to be so forthright so quickly, and Blue's natural role&nbsp;<em>was&nbsp;</em>to be the one that presses her. And Red himself is still reeling from the implications of her admission, the double life she must have led the whole time he knew her&hellip;</p>
+<p>"Complicit." Sabrina slowly nods, gaze still on her tea. "Yes, that's one word for it. I met them shortly after they started showing signs of sapience that others in the lab could detect."</p>
+<p>"How long ago?"</p>
+<p>"Long. Before I was Leader, before I was anyone, really. Just a powerful psychic who was trusted to help do something special, something unique. Something that might save the world."</p>
+<p>"Trusted by whom?" Leaf asks, leaning forward, but Sabrina shakes her head.</p>
+<p>"That's another thing I won't answer, even 'off the record.'"</p>
+<p>Leaf bites her lower lip, and Red knows what she's thinking even through her shield: the Cinnabar Lab. They could reveal that they found it, that there's a potential time limit on what secrets she holds on to&hellip; maybe even that it would be better for her if she admitted things herself&hellip;</p>
+<p>"Hang on," Blue says. "Back up. This whole time, while they traveled around sending dreams to everyone, you knew who they were and what they could do&mdash;"</p>
+<p>"Mazda never showed the ability to project so powerfully before. Nor did they show the ability to manipulate minds. I understand how that sounds, but&hellip;" She turns to Leaf. "Your story was accurate in describing their time there as a type of imprisonment. The lab was careful in its staff, but I believe it would have been obvious if they could do it earlier. Maybe I'm underestimating them again, or overestimating myself, but I'm confident it's either something they learned to do just before they left the lab, or something discovered in the time since."</p>
+<p>"Still, the projections were causing enough chaos and uncertainty on their own," Blue presses on. "And you didn't tell anyone. Not Lance, not the other Leaders, no one?"</p>
+<p>"I won't confirm or deny who I did or didn't tell." Sabrina meets Blue's glare without flinching. "I told you. I won't betray them again."</p>
+<p>"Again?" Leaf asks quietly.</p>
+<p>Sabrina's gaze drops back to her tea. "I was complicit in their imprisonment. I told myself it was for their safety, that the world wasn't ready, that the program director knew best. I was young when I started, and over the years&hellip;" She trails off, then shakes her head. "It doesn't matter. I was wrong. I see that now, and the fact that they haven't come to see me is proof that I hurt them terribly, that maybe the friendship I thought was there was just&hellip; survival." She shrugs. "I won't compound the wrong I did by helping anyone capture them again."</p>
+<p>There's a brief silence. Red watches Leaf shift beside him, and feels her steeling herself for something.</p>
+<p>"We know about the lab," Leaf says. "I don't just mean from Fuji's notes, I mean the actual lab, on Cinnabar. We found it."</p>
+<p>Red expects surprise from Sabrina, or at least a reaction. Instead she just nods, something almost like relief crossing her features.</p>
+<p>"Then the truth might come out soon enough anyway. I'm sorry I can't be more helpful."</p>
+<p>Blue opens his mouth to speak, but Red raises a hand to stop him, then starts typing. "There's something else. I understand not wanting to betray them, really I do&mdash;they saved my life. But I think you'd regret not working with us here if you knew everything we know. I think they might regret it too, if they knew everything we know."</p>
+<p>Sabrina watches him, and he levelly meets her gaze. More than a few times in the past year he's sympathized with the way Dark people had always lived knowing that there was no way to prove their sincerity to others, if they needed to&hellip; and now, thanks in part to him, they can, while he can't.</p>
+<p>"I know you don't expect me to concede just based on that," Sabrina says at last. "So what are you suggesting, exactly?"</p>
+<p>Red's fingers move slowly over his gloves. "I want us to stop talking past each other, or stonewalling each other. I want to find out if there's actually a path forward that we can all live with, or if we're fundamentally opposed in ways that can't be resolved."</p>
+<p>"We're not here to gang up on you," Leaf adds. "Or on&hellip; Mazda." She says the name softly. Testing how it feels to say it. "We just want to understand what's actually been going on, and what our options are."</p>
+<p>Sabrina looks between them, then at Blue. "I think I'm starting to understand. You're here as much for your own sakes as anything. Because the three of you don't see eye to eye either."</p>
+<p>"Basically. If it's possible."</p>
+<p>Red stretches his gloved fingers, then types in the air, "I figured we might end up arguing in circles, so&hellip; I looked online for ways to resolve really hard disagreements, and found something called Double Cruxing. I thought it might not be necessary, but maybe we could try it?" He glances at Blue and Leaf, who he hadn't mentioned it to before.</p>
+<p>Blue opens his mouth, then surprises Red by closing it, looking thoughtful, and shrugging. "Sure, why not."</p>
+<p>Sabrina glances between them. "I'm not familiar with this one."</p>
+<p>"Me neither," Blue says. "But if Red's set on it we might as well try it."</p>
+<p>"It's not complicated," Red types. "Instead of focusing on what we think will help us win the argument with the other person, we focus on what would actually change our&nbsp;<em>own</em>&nbsp;minds. A 'crux' is the most important underlying belief supporting a position. If you think of all your beliefs like a structure of blocks stacked on each other, lots of blocks might support the structure, but you could take one of them away and it would still stand. Some are load-bearing, though. Remove them and everything above falls. Those are your cruxes."</p>
+<p>He pauses to make sure they're following, then continues. "Like, if someone proved to me that testing medicine on pokemon was twice as painful as I thought, I'd be sadder, but I wouldn't think we should stop. My crux isn't about how their suffering isn't actually that bad&mdash;it's whether testing on pokemon helps us develop better medicine faster. That's the belief that actually matters to my position."</p>
+<p>"But there's&nbsp;<em>some&nbsp;</em>limit there, right?" Leaf asks.</p>
+<p>"I'm not sure," Red admits. He feels bad about it, feels like he's disappointing her, or some part of himself that wants to care more about the pokemon's suffering, but&hellip; it's the truth. "I'm really not sure. Maybe if it was, I dunno, a thousand times more suffering as I thought, just as an extreme example, that would make a difference. But if, I dunno, say there was some new method of testing that caused ten times more suffering for a tiny gain in research speed, I think I'd be against that for some types of research, but not for others."</p>
+<p>Leaf's lips are a thin line, and she seems like she's about to say something further, but eventually just nods. "So it's not really about helping people agree with each other, is it? If Aumann's Agreement Theorem is right, and we're all perfectly reasonable, we should be able to share all our information and agree about the state of the world. But even then, we'd still have to agree on what to&nbsp;<em>do</em>&nbsp;about it, and that can change from even small differences in values."</p>
+<p>"It's an interesting question to explore, since personally I think my values&nbsp;<em>are</em>&nbsp;at least somewhat entangled with my beliefs about the world, but I agree that there's some other thing beyond cruxes that can affect disagreements. We could probably model it as a flowchart of intermixed truth-statemetns about the world, value-preferences, and predictions that lead to&mdash;"</p>
+<p>"Red," Blue interrupts, and Red stops typing while the voice synthesizer continues reading out "predictions that lead to," realizing that he was going on a bit of a tangent.</p>
+<p>"Right, sorry. Short answer is yeah, Double Crux isn't so much about values, so it's not ultimately about getting people to agree. But it can still help us figure out&nbsp;<em>why&nbsp;</em>we believe what we believe, and then share that with each other. It's supposed to help people orient themselves to truth together, and understand each other better, and then&nbsp;<em>maybe&nbsp;</em>reach a point where someone changes their mind based on a single, evidence-based question."</p>
+<p>"The crux."</p>
+<p>"Yeah. And if the same belief changing one way or the other is the crux for both of them, that's a double crux." His lips twith in a brief smile. "If we find a single issue that would change all our minds, that's a quadruple crux, but I'll settle for getting lucky enough to find a double."</p>
+<p>Leaf is slowly nodding, but Blue says, "Seems tricky. How do you know you're right about what would actually change your mind?" He shrugs. "No one here's dumb, but we don't all navel-gaze as much as you, Red. What if something we're arguing for is based on a feeling, not some specific belief? People fool themselves all the time into thinking they've got some logical reason for whatever they believe, and it turns out they're just really angry or scared of being wrong."</p>
+<p>"Well&hellip; first off, I'm not sure why that matters? I mean, it's not like we'll get mad at you if you say your crux is that X is true, then we find out X is false and you realize the crux was actually some other or deeper belief."</p>
+<p>Leaf makes an amused sound, and Blue shakes his head, though he's smiling. Red looks between them. "What?"</p>
+<p>"Nothing," Leaf says. "You're very sweet."</p>
+<p>"Also optimistic," Blue says. "I bet you'd get at least a little frustrated. I bet you get even more if I do it again after."</p>
+<p>Red frowns. "But how else are you&nbsp;<em>supposed</em>&nbsp;to figure it out? Investigating what's true and then checking your beliefs again is&mdash;"</p>
+<p>"It's fine, Red," Leaf laughs. "You're right. But&nbsp;<em>most&nbsp;</em>people would get frustrated if it took a long time to find a crux or investigate it. If Blue did that in public, he'd probably get flamed for being bad-faith."</p>
+<p>Oh. Red looks at Sabrina, who's smiling slightly as she nods. "Right. Well, we wouldn't think that, would we?"</p>
+<p>"If I know and trust the person, generally, then no," Leaf says. "But there&nbsp;<em>are&nbsp;</em>bad actors out there who&nbsp;<em>do&nbsp;</em>obfuscate their true intentions or values or beliefs, so I'd be pretty put out if I saw someone do that and not express at least&nbsp;<em>some&nbsp;</em>more uncertainty after, or like, less confidence in their original beliefs."</p>
+<p>Blue shrugs. "Fair enough. My point is still that this seems too focused on ideas rather than feelings."</p>
+<p>Red scratches the back of his neck, which always feels a bit strange while wearing the gloves. Thankfully they're pretty good at not typing things out from actions that don't fit a very specific range of motion. "Sure, but I think feelings are just beliefs that have been compressed?" he types. "If something makes me feel angry or scared, those are predictions about the world my subconscious mind is making, based on beliefs I have, even if I don't explicitly realize which ones." Red looks around at them. "Noticing our feelings is part of the process of figuring out what our crux is. It's not always easy, and we might be wrong, but I think it's valuable to try."</p>
+<p>"And we need to be in a cooperative mindset," Leaf says, glancing between Sabrina and Blue. "We need to trust one another enough to give that information to each other, because we care about actually being convinced if we're wrong as much as we care about convincing the other person we're right."</p>
+<p>Sabrina raises a brow at her. "You said this wasn't a gang-up, but more of a free-for-all. Still, there's a clear difference in how much you three trust me, even Red, compared to how much you trust each other. I feel compelled to ask&hellip;&nbsp;<em>do&nbsp;</em>you trust me enough for this thing Red is proposing?"</p>
+<p>Red glances at the other two, then types, "I do, obviously. For whatever that's worth."</p>
+<p>"So long as I'm not being Miracle Eyed, I do." Blue shrugs. "No offense."</p>
+<p>"Some taken," Sabrina says, lips quirked into a wry smile.</p>
+<p>"I don't know if I do or not," Leaf says slowly, each word carefully placed like a stone in a path. "I think it would depend."</p>
+<p>"On what I tell you first about Mazda?"</p>
+<p>Leaf nods, gaze staying firmly on Sabrina despite the urge Red faintly senses to look away. To look for reassurance, probably from Red, that Sabrina isn't reading her mind.</p>
+<p>As far as he can tell she's not, and Red takes it as an excuse to jump back in. "I don't think we need&nbsp;<em>absolute&nbsp;</em>trust. So long as we believe we all really do want to solve the problem, and that our incentives are to try and figure this out cooperatively."</p>
+<p>"Ah," Sabrina says. "I see. Common knowledge. It's not enough if we each think the others are better off cooperating. It's not even enough if we each think the others think that. We need to make it clear to everyone, all at once, so everyone knows everyone knows we won't defect."</p>
+<p>"Yes, exactly." Red watches her carefully as he types. "We all have things we could do, in pursuit of what we think is right, that are high risk, and make it harder for the others to get their 'best ending.' For Blue, Leaf, and myself, a big part of what gets us here, in this room, is wanting to be able to keep working together. To stay on the same team, to not do anything that burns each other in a way that damages our friendship."</p>
+<p>Red's heart is beating harder and faster than normal as he puts it into words. Like admitting it that plainly makes it more true, and more&hellip; at risk, somehow.</p>
+<p>Leaf seems to feel the same, because she takes his hand and squeezes it through his glove. He gives her an uncertain smile, and she returns it before pulling her hand back and facing Sabrina. "I&nbsp;<em>also</em>&nbsp;want to find a cooperative way through this because I care about Mazda and want to make sure they're okay, despite what they've done. I don't know what the best way to do that is, but given how much you care about them, I think we're on the same side&hellip; even though I also want to spread the truth, which I admit may be against your goals, or theirs."</p>
+<p>Sabrina nods to her, then looks at Red. "I assume you share that sentiment as well."</p>
+<p>"Yeah," Red types. "Though in the interest of honesty, I feel like it's worth saying that if Mazda hasn't spoken to you themselves in all this time&hellip; they might not take it as a friendly act to find out that we're cooperating with you. And depending on what they might say about the situation, I might decide not to keep coordinating as fully in the future."</p>
+<p>His words hurt her. He can feel the edge of it, a crackle of pain that his powers pick off the surface of her mind as she closes her eyes for a moment, then nods.</p>
+<p>"I appreciate you saying so, and understand that it's not a sign you won't be working toward cooperation now."</p>
+<p>Red feels some tension leak out of his shoulders, and types, "Yeah. For now I really think working together is the best path forward."</p>
+<p>Sabrina gives him a faint smile, then looks to Blue, who lets a long breath out.</p>
+<p>"I know I'm the least on the same page as everyone else here," he eventually says. "I can't help but think it's because I'm the only one here who hasn't actually met them. Also, you know, being Dark." He looks around as if expecting some objections, but Sabrina just nods, and Red holds his tongue&hellip; or rather his fingers. "I'm going to have responsibility for the whole region on my shoulders soon, and even before all this stuff, that was a lot."</p>
+<p>He scrubs a hand over his face and sighs. "You all know why I want to be Champion in the first place. The Stormbringers are&nbsp;<em>enough.&nbsp;</em>Rocket isn't my responsibility, but it's not exactly window dressing. All this stuff with the unown and the ditto and whatever the hell the glitchmon are&hellip; I'm&nbsp;<em>really not&nbsp;</em>looking to make my life more complicated." He looks around at all of them. "Okay? I want one less thing to worry about. Period. All the other stuff, including wanting to maintain good relationships with my friends and one of my potential future Leaders, is secondary to Indigo's safety."</p>
+<p>Red feels an ache in his chest, and tries to think of something to say until Sabrina fills the brief silence. "I can appreciate that. So long as I'm a Leader, I must prioritize my people's safety as well. If it ever comes down to a conflict between that and Mazda, I'll step down."</p>
+<p>"And that includes an order from Lance, or myself?" Blue asks.</p>
+<p>"Yes. Though&hellip;" She traces the rim of her tea cup with one finger, gazing into its depths. "I suppose I can remain open-minded as to what sort of order would look like. She looks up at Blue. "Practically speaking, what would it mean for you to become Champion with the current situation?"</p>
+<p>Blue meets her eyes. "It means if Mazda is still out there, unaccountable, I'm going to treat them as a threat on par with a renegade that has a legendary pokemon on their belt. Not because I want to, but because I can't justify doing otherwise. There aren't any laws for this situation, but whether they're treated as a human or a pokemon doesn't matter. A psychic that strong, answering to no one?" He shakes his head. "Not an option."</p>
+<p>"Even knowing what was done to them?" Sabrina asks.</p>
+<p>"Even then." Blue doesn't flinch. "I can feel bad about it and still think it's necessary. Like I said, regional safety has to come first.&nbsp;<em>Has&nbsp;</em>to."</p>
+<p>The words hang in the air. Red watches Sabrina absorb them, her expression giving away nothing.</p>
+<p>"And you?" Sabrina finally asks, turning to Leaf. "What would you do, if we fail to cooperate here?"</p>
+<p>Red knows Leaf has feelings about what Blue said, but he doesn't dig into the specifics, and she keeps them from her face and tone. "I won't immediately publish something, if that's what you're worried about. The public deserves to know what's going on, but I've held off because I don't want to make things worse yet. But journalistic discretion only goes so far. At a certain point, no matter how sympathetic I am to Mazda, I have to trust the public&hellip; and I hope I can rally enough sentiment to put pressure on both sides for a peaceful resolution."</p>
+<p>Sabrina nods again, more deeply this time. "My default stance is inaction, which means non-cooperation by default. If Mazda reaches out to me, I'd try to convince them to stop what they're doing, but I'd also try to help them stay safe. That includes warning them about whatever I can think of that might accomplish that."</p>
+<p>She seems about to say something else, then just sips her tea and looks at Red, prompting the other two as well.</p>
+<p>He's already typing. "I want to reach out to them. Not to warn them, exactly, but I already told Blue there's a limit on how long I wouldn't. Mostly I want to talk. To see if there's something we're all missing, some option that doesn't require anyone to&mdash;" He stops, thinks, tries again. "I keep thinking that if we just understood each other better, there'd be a way through this. But I know that might be naive."</p>
+<p>"It might be," Blue agrees. "But it's also why we're here instead of just doing our own things, right?"</p>
+<p>"All of which are unappealing to someone else in the room, in some way." Sabrina looks between them, then nods. "Consider me reassured. I swear to do my honest best at finding my cruxes, so that we can all reach some cooperative path forward."</p>
+<p>"Same," Leaf murmurs, and Red types "Me too," while Blue nods.</p>
+<p>Silence follows, and Sabrina says, "So. That was a tense conversation. I propose we take a break to collect our thoughts and emotionally reset. Consider our beliefs, search for cruxes, reconvene in five minutes. I'll put a fresh kettle on."</p>
+<p>She looks and sounds composed as she says it, but it's the first time Red's ever heard her suggest something like that, and he can pick up the hints of static from her mind that speak to how much&nbsp;<em>she&nbsp;</em>needs the moment to collect herself. "Okay," he types. "Good idea."</p>
+<p>She gives him a brief smile, then takes the kettle and moves toward the kitchen. Blue stands too, says "Gonna take a leak," and walks in the direction of Red's pointed finger.</p>
+<p>That leaves Leaf and Red on the couch. She's sighing as she stretches her arms over her head, rolling her shoulders and neck, then stands and starts to rotate her torso back and forth. Red feels his own body's stiffness as he watches her, and gets up to do the same.</p>
+<p>Once he does, he feels the various tensions in his body start to ease. He sees Leaf's body start to slowly relax too, and he returns her smile when she sees him mirroring her. She glances at Sabrina, then back at Red, and raises a brow. He shakes his head and flashes a thumbs up, and Leaf relaxes further.</p>
+<p>The hard part is still to come, and maybe all this still ends ruinously, but in a way Red feels like they got over the major hurtle. Whatever comes next, at least they can honestly say they&nbsp;<em>tried,</em>&nbsp;instead of just vaguely hoping things would work out and feeling frustrated that everyone didn't magically change their minds to agree with each other<em>.</em></p>
+<p>The toilet flushes, and a few moments later Blue rejoins them. He stops and stares at the sight of Leaf and Red standing opposite each other and doing stretches, then smiles and stands at an angle between them to join in, causing them to shift and form a triangle.</p>
+<p>Sabrina also pauses as she enters from the kitchen with a freshly steaming teapot and sees the three of them. She smiles and goes to put the tea pot down, and for a moment Red thinks she might join them, but instead she sits, and the three of them take it as a cue to take their seats again too.</p>
+<p>Red's still smiling, as are the others, and it takes a minute for the mood to resettle. Red takes some fresh tea from Sabrina before typing, "Okay. So what would have to be true for each of us to change our current position on Mazda? Anyone find a crux?"</p>
+<p>Blue doesn't hesitate. "For me to be okay with them being free, I'd need proof they could be held accountable."</p>
+<p>"Okay," Red types, shifting his body slightly to face Blue. "Step one is to make sure we all understand the words we're using to mean the same things. Can you operationalize 'held accountable?' What would that look like?"</p>
+<p>Blue frowns as he lifts his tea cup, taking a big gulp too fast for Sabrina to stop him. Red winces as his friend swallows with a grimace, then starts sucking in a long, sharp breath to cool off his tongue and throat. Leaf unclips a potion bottle from her belt and hands it to him to spray into his mouth. He hands it back after, smacking his lips a few times to get rid of the taste before blowing on his tea and taking a more measured sip.</p>
+<p>"Since the warlord era ended," he finally says, "Society's worked because everyone has limits, right? Even people like Gramps and Tsunemori and Giovanni and Lance. Everything that works about society works because no one can just throw their weight around and get what they want any more. Whether we treat Mazda as a rogue psychic or an intelligent Pokemon or whatever, nobody wants a return to might-makes-right leadership."</p>
+<p>"So you want Mazda to be public," Leaf says. "Have oversight into what they do."</p>
+<p>"Oversight's not enough. What keeps the peace is that people&nbsp;<em>know,&nbsp;</em>confidently, that if someone does the wrong thing everyone gets together to&nbsp;<em>stop them.</em>" He spreads his hands. "That means people knowing what someone can and can't do, and that someone being&nbsp;<em>stoppable</em>."</p>
+<p>"Which makes it doubly hard for Mazda," Sabrina murmurs.</p>
+<p>"Yeah." Blue shrugs. "It was 'known' that psychics can't change people's minds, or couldn't teleport somewhere they haven't been before. People get riled up because if someone can screw them over without anyone knowing or being able to stop them&hellip;" He shakes his head. "Stormbringers are bad enough, and Rocket is bad enough. I meant what I said earlier. This hybrid represents the worst of both worlds."</p>
+<p>"So your crux is 'we have some way to stop them'?" Red types, ignoring the pang in his chest.</p>
+<p>Blue shrugs again. "Stop them, yeah, but also trust them. One without the other wouldn't get us all on the same page."</p>
+<p>A few seconds of Focusing on the feeling in his chest makes it clear. Red doesn't ask if Blue would feel that way about him if he didn't personally know him. The answer is obvious, even if Blue wouldn't admit it.</p>
+<p>Instead he just nods and turns to Leaf, who's stirring sugar into her tea.</p>
+<p>"Oversight is important to me too," Leaf says, voice thoughtful. "The thing I keep coming back to is what I should do, what&nbsp;<em>society</em>&nbsp;should do, if the people in charge don't have checks on their power? If a Leader or mayor is corrupt, we have systems in place to correct it. Mazda is acting independently, so it makes sense that society is trying to find ways to stop them. To&hellip; capture or kill them. I&nbsp;<em>understand&nbsp;</em>it, but I can't shake the sense that Mazda must have a&nbsp;<em>reason</em>&nbsp;for what they're doing. And I can't help people stop Mazda if I think there may be a&nbsp;<em>good reason&nbsp;</em>they're doing it this way."</p>
+<p>"What does that mean?" Blue asks, frowning. "Operation-ize that&ndash;"</p>
+<p>"Operationalize," Red types before he can stop himself.</p>
+<p>"&ndash;or whatever."</p>
+<p>"I'm not sure," Leaf says, biting her lower lip. "But think about it. We still don't know who was behind the lab that made Mazda. What other illegal things could they be doing? Were they responsible for the ditto, too? What if they're pushing for unown research behind the scenes?" She pauses to look around at them. "I happen to know that members of the Kanto government and League have been involved in illegal, or at least questionably legal, groups and activities. Mazda might know things we don't, might be acting to stop something we can't. I don't think they're right to act unilaterally, let alone mess with people's minds. I think revealing the truth and letting our systems handle it is best. But maybe they're doing it this way because they have good reason to believe it's their only option."</p>
+<p>She takes a breath, and Red senses a calm settle over her thoughts as her emotions smooth themselves out. "If that's not true, if there isn't some deeper conspiracy they're fighting that makes working with the Indigo government the obviously right thing to do, then I'd agree that they need to be stopped."</p>
+<p>There's a few beats of silence as they absorb that, and then Blue leans forward. "By any means?"</p>
+<p>"I still think&nbsp;<em>that</em>&nbsp;is a step too far," Leaf says, shaking her head. "But that's a separate point."</p>
+<p>"What's that?" Sabrina asks, brow furrowed as she looks between them.</p>
+<p>"Later," Red types. "If we get on the same page, maybe we can share everything. Do you want to go next, or should I?"</p>
+<p>She doesn't answer immediately, and Red senses her turning something over in her mind.</p>
+<p>"My crux is hard to put into words," she says. "I understand that Mazda may no longer be the person I remember. I understand that they may&nbsp;<em>never&nbsp;</em>have been, and if either is true, and I let guilt stop me from preventing them from hurting others, I'll just be complicit in another wrong. In a way, acting to stop them would&hellip; perhaps&hellip; be the best way to take responsibility for what I've done."</p>
+<p>Red says nothing, simply watches her, heart still beating a little too hard and too fast. He's very aware of the fact that, in the course of the conversation, Sabrina admitted to being a participant in some clearly illegal, or at least morally questionable, experiments. That she probably knows who was in charge of the lab, and hasn't told the police even after all this time&hellip;</p>
+<p>The silence that follows is heavy. Eventually Blue stirs, voice only slightly impatient as he asks, "Is that it, then? You need some sign that they've been fooling you all along, or became someone else? Like, say, after merging their mind with some crazy unown god?"</p>
+<p>Sabrina worries her lower lip briefly, a motion Red has never seen her make before. "If their personality was altered by that, and yet they still continue to fight against it&hellip; however much I disagree with their methods, I would consider them still mostly themselves. Particularly since they have not been infecting Red or others."</p>
+<p>"So what's the test?" Blue asks, voice mildly impatient. "How do you check if you're right or wrong?"</p>
+<p>"I don't know, Blue." She doesn't sound impatient or angry, but there's some edge to the words. "I never promised my crux&nbsp;<em>could&nbsp;</em>be operationalized. Maybe I have one that is, but I don't see it right now."</p>
+<p>Red raises his hands to stop them from any further argument, then lowers them to type. "It's okay. If Sabrina needs time to think, we can give it to her. Maybe we can help her find it.&nbsp;<em>Collaboratively</em>."</p>
+<p>He looks between them, and Blue eventually nods. Red feels relief that it's more apologetic than grudging.</p>
+<p>"What about you, Red?" Leaf asks Red softly.</p>
+<p>Red's been thinking about it for a couple days, and is ready with a recording. "My crux is about cooperation. The biggest threats, in my view, are Rocket in the short term and the unown god in the long term. From what I saw in Rowan's mind&ndash;"</p>
+<p>Red winces at a stray memory that flashes by before he captures it behind a partition and hides it away with the others.</p>
+<p>"&ndash;I have little doubt there's&nbsp;<em>something&nbsp;</em>out there that drove him mad, and inspired the Dreamer to send those visions. I don't think we can cooperate with the unown god. I don't think we can cooperate with Rocket, either. I don't think we can cooperate with Rayquaza, or the Stormbringers, or any other potential threats out there. The Dreamer seems to be an ally against at least one of them, and so long as they're able to cooperate, so long as it's even a possibility, I think we should try for that world. It seems like there's just one thing they want from us, and that's to stop unown research. I know there's a lot of disagreement about whether we should do that or not, and I'm torn on it, honestly."</p>
+<p>As grateful as Red is for this setup that lets him type from anywhere and have his voice back in some capacity, there's also something deeply&nbsp;<em>disconnecting&nbsp;</em>about it. Typing up responses is slow, it doesn't let him meet people's gaze as he talks to them, and he can't freely move his body as he "talks." Playing back a recording like this one is a little better&mdash;he can at least look around at Sabrina and Blue and Leaf as his necklace speaks his words from earlier&mdash;but he loses the ability to rethink what he said on the fly, to update as he goes. Hearing the words now, he wants to pause it and add more words about adding oversight to the research, oversight Mazda might agree to, but it's too much effort to swap systems, so he just holds his index finger and thumb together to remind himself that there's something he wants to add after.</p>
+<p>"I can see arguments for both sides," his voice continues on. "But&nbsp;<em>if&nbsp;</em>the Dreamer is willing to cooperate with us so long as we cooperate with them, I think that's the obvious play? It's like a trade. If some alien civilization contacted us and offered a bunch of new technologies, and all we had to do was give up research on one particular tech they said was dangerous&hellip; I dunno, I guess I could see the arguments for self-determination and independence and so on, especially if we don't trust them not to try to take over.</p>
+<p>"Maybe the tech they want us not to make is the only way for us to stop them. But if we do see signs of danger, if it seems clear they have a&nbsp;<em>good reason&nbsp;</em>to want that tech banned, and view us as untrustworthy if we don't, then aren't we explicitly saying we're not trustworthy if we're willing to fight instead of cooperate? Again, assuming they actually&nbsp;<em>can&nbsp;</em>cooperate, assuming there's a real trade that can be made and they'll stick to their agreements and we'll both benefit from the cooperation? Otherwise we're trapped in a negative-sum exchange, and for what? I dunno, maybe there's something I'm missing here but it seems like the obvious thing to do is cooperate and negotiate on whether a full ban is necessary. We can always declare war later if we decide they're wrong, right? And sure maybe we give up some advantage by not doing it right away, but they're clearly giving up something too!</p>
+<p>"Okay the metaphor is getting convoluted, but the Dreamer didn't&nbsp;<em>have&nbsp;</em>to try for cooperation first and I think it matters that they did. So yeah this is all a roundabout way of saying that to me the most important thing is&nbsp;<em>can we trust them&nbsp;</em>to negotiate in good faith and keep to deals in a cooperate scenario? Or would they say that their only condition for not doing whatever they think is best is for us to stop unown research, and then a month later they add another condition, and then another? If so then I would change my mind and say that as tragic as it is, we can't cooperate and we need to treat them like a threat, whether on par with a Renegade or a Legendary or whatever."</p>
+<p>The message stops, and Red swaps back to being able to type. "One thing I wanted to add is that we should definitely see if the Drea&mdash;if Mazda is okay with some form of unown research that's properly regulated and has their personal oversight. But it's not really a crux for me, and may not be for them, and probably doesn't matter to Blue unless we address his crux anyway?"</p>
+<p>Blue nods. The rest of them are silent, maybe still absorbing Red's long recording. He takes another sip of tea to try and relax the knot in his stomach, and wishes he could bring Pikachu or Eevee out to stroke their fur. It's not the same with the gloves, though, and taking them on and off every time he wanted to say something would slow things down a lot.</p>
+<p>Eventually Sabrina sets her tea down with a soft&nbsp;<em>clink</em>. "There's something we haven't addressed. We keep talking about whether Mazda can be trusted, whether they can cooperate, whether they're the person I knew. But we haven't talked about whether they're&nbsp;<em>right</em>."</p>
+<p>Blue frowns. "About what?"</p>
+<p>"About the unown." Sabrina looks at Red. "You've seen what they can do. Rowan's mind, the glitchmon, everything that's happened since the research accelerated. If Mazda is still the person I taught and befriended, the&nbsp;<em>only</em>&nbsp;reason they're taking these actions is because they believe the unown are genuinely dangerous. Dangerous enough to justify what they've done."</p>
+<p>Red swallows as the memories of Rowan's shattered, chaotic mind return, turning them safely aside with practice. "I agree it's important," he types slowly. "But I also agree with Blue that, so long as Mazda is continuing to do stuff like this, we can't just&nbsp;<em>start&nbsp;</em>at the position where we argue the object level thing, not when the real decider isn't going to be actually convincing people not to do it. Mazda won't be able to watch over&nbsp;<em>every&nbsp;</em>region's labs."</p>
+<p>"Which means their plan isn't actually one at all," Blue says, leaning forward. "We can't just say 'stop, it's too dangerous' when the actual reason we stopped is because of the Dreamer. Best case scenario they think, oh, Indigo just has some weird Legendary that really hates unown research labs, they're not&nbsp;<em>cowards&nbsp;</em>or anything, they still have control ove their own regional policy, but even in that case none would be convinced it's dangerous enough to stop on their own, and if the Dreamer goes over to do the same thing to them we've suddenly got other problems. "</p>
+<p>"I agree their answer may not be the right one," Sabrina says. "It clearly wasn't Mazda's first choice. But that's exactly why we need to&nbsp;<em>talk</em>&nbsp;to them. Not to debate whether they're trustworthy in the abstract, but to actually figure out what a sustainable solution looks like."</p>
+<p>Blue shakes his head. "Accountability first. Doesn't matter if there's a solution everyone's happy with, like one really careful interregional lab or something, if the Dreamer can still dictate policy or shut it down all by themselves."</p>
+<p>Leaf nods. "Blue's right. Even if we could make that work in theory, have Mazda be something like a judge among a panel of experts to determine if the research is being done safe enough, no one trusts them now, and for good reason."</p>
+<p>She sounds far from happy about it. Sabrina doesn't answer, also looking, beneath her calm maks, more sad than anything.</p>
+<p>The ensuing silence is longer than the others, and when Leaf next speaks, her voice is gentle, as if she's loathe to break the silence. "The question of who Mazda is now seems load-bearing for both Red and Sabrina. It's close to my crux too, since it informs what their motivation has been. But am I right, Blue, that none of our cruxes matter to yours?"</p>
+<p>He shrugs. "It's not that they don't matter. If they don't trust us, sure, I'd want to know why. If they're able to cooperate, great, but cooperation needs equals." He looks around at them. "You want to try and psychoanalyze them and probe their mind, find some way to make sure you can do that safely and be right about what you see in there, great. That's half of what I care about. But even in the best case, it's all just a way to predict the future and hope you're right. If we can't hold them accountable if they defect, it doesn't matter whether they're cooperative now or not, does it?" He turns to Leaf. "Or if they have a good reason to not work with Indigo officially right now. Maybe they do this time, but they won't in the future. Then what?"</p>
+<p>In the silence that follows, Red feels a hollowness growing in his chest. He sees Sabrina look at him, briefly then Leaf, then turn to Blue. "I'll address the donphan in the room, since it seems the other two won't. Your arguments could apply just as well to Red. Would you feel the same if it was someone else making them, with him as the target?"</p>
+<p>"<em>Just&nbsp;</em>as well? Red's human."</p>
+<p>"So are renegades."</p>
+<p>"It's not the same thing. They're people who crossed a line, Red hasn't."</p>
+<p>"We both know Red has come closer to crossing that line than Mazda."</p>
+<p>The hollow feeling becomes a chasm, and Red tries to keep his face straight, gaze feeling stuck on his tea. In the corner of his vision he sees Blue glance at him, then back at Sabrina.</p>
+<p>"What are you talking about?"</p>
+<p>"The&nbsp;<em>sakki,&nbsp;</em>against the renegades beneath the Rocket Casino."</p>
+<p>"That's not&mdash;it was against renegades!"</p>
+<p>"So? He wasn't a Hunter, then. It was judged self-defense, but he went months without telling anyone what he'd done, what he was capable of. In that time, if the public found out, how would they have reacted without Rocket to present a bigger danger only he could stop?"</p>
+<p>Red swallows, heart hammering against his ribs. He wants to say something in his own defense, but he also needs to hear Blue's take. Needs to understand if there&nbsp;<em>is&nbsp;</em>a difference to his friend, other than that they're friends&hellip; or maybe that he's human.</p>
+<p>Blue shifts in his seat, but when he speaks his voice is more frustrated than defensive. "That's not the same thing and you know it. Red's been monitored constantly since the Silph incident. He's got bodyguards following him everywhere, to keep him safe, sure, but also probably to provide an alibi in case some random pokemon goes feral and kills its trainer somewhere. package. If he went renegade tomorrow, what happens? Sure, he could be dangerous in ways that are hard to predict, but he's not&nbsp;<em>unstoppable</em>."</p>
+<p>"So far as the public knows, he could be."</p>
+<p>"Sure, but so could you, or any psychic." Blue sweeps his arm not holding the tea cup to the side from wall to wall. "Nobody out there really knows what psychics are capable of, not&nbsp;<em>really,&nbsp;</em>not even authorities like you can be sure. But there's enough trust in the system, misplaced or not. The Dreamer's not&nbsp;<em>part&nbsp;</em>of the system. Nobody knows where they are, or how to find them. They could be as powerful as the Stormbringers, in their own way. Those city-wide dreams definitely point in that direction. Do&nbsp;<em>you&nbsp;</em>consider them about as equal a threat as Red going renegae?"</p>
+<p>Sabrina is quiet for a moment. "No," she admits. "Not remotely."</p>
+<p>"So yeah, I'd get why some people are scared of Red. But they'd be wrong, because the actual threat level is containable. With the Dreamer, that fear is totally justified.."</p>
+<p>"And yet the principle remains," Sabrina says, voice soft. "You're arguing degree, not kind. If Red's powers grew stronger, if he learned to do what Mazda does&mdash;"</p>
+<p>"Then we'd have a different conversation. But we're not there yet." Blue hasn't looked at Red since he started answering Sabrina, and now he finally does, voice quieter as he says, "Sorry, man. She's the one who brought it up."</p>
+<p>Red just nods. He's not sure what to say. Blue's right about the practical differences, but Sabrina's right that the principle is the same, especially from the perspective of an uninformed public. And his powers&nbsp;<em>are</em>&nbsp;growing stronger...</p>
+<p>He pushes the thought behind a partition for later.</p>
+<p>Silence has returned, and Red struggles not to try and fill it. He needs a moment to let his thoughts and feelings settle, to set aside what Blue said and focus on the issue at hand, and maybe the others need a moment to gather their thoughts too.</p>
+<p>Eventually Leaf gives a quiet sigh, then seems to rally herself. "Where does that leave us?"</p>
+<p>"Blue needs accountability and a way to stop Mazda if necessary," Red types. "Leaf needs to believe there's not a good reason for Mazda to work outside the system. Sabrina needs to believe Mazda is still themselves. And I need to believe they can cooperate in good faith."</p>
+<p>"The common thread is verification," Leaf says. "We're all asking some version of 'can we trust them,' but we'd each be convinced by different evidence."</p>
+<p>"Or the same evidence, interpreted differently," Sabrina adds. "If Mazda agreed to oversight, even if it's non-governmental, I would see it as proof they're still reasonable, Red could see it as a sign they'll honor deals, and your concern about whether they have good reason to work outside the system might not become necessary?"</p>
+<p>Leaf considers this, then slowly nods, but Blue is frowning. Sabrina notices and turns to him.</p>
+<p>"I don't mean to leave you out, but I'm sure the relevant question for you is 'accountable to whom?'"</p>
+<p>"Yeah. If it's not the Indigo League or government, and is some random person&hellip; that's not going to be very reassuring to people, and gives that person a lot of leverage."</p>
+<p>"Oh!"</p>
+<p>They all turn to Leaf, whose brain had spiked with some sudden realization a moment before her exclamation. Red can't help but reflexively dip into the start of a merger, the attentional pull of the realization on Leaf was too strong for Red to be totally unaffected even from a surface skim, but her shields quickly slammed into place, an extremely detailed visualization of some random page in a science fiction book describing an event horizon, and a moment later Red pulled his attention away.</p>
+<p>Leaf's cheeks are pink as she looks around at them, then swallows and says, "Uh, ignore me. Sorry. Nothing I can talk about."</p>
+<p>Red expects Blue to say something snarky, but he just sips his tea, and Red realizes it's probably connected to whatever the two of them have been secretly meeting up about now and then. He feels a stab of jealousy pierce his chest, and takes a moment to acknnowledge the feeling and let it burn through his abdomen while he refocuses on the secrets&nbsp;<em>he's&nbsp;</em>kept, and how much his friends obviously care for him&hellip; particularly, how much&nbsp;<em>Leaf&nbsp;</em>obviously cares for him, soothing the pain away with memories of her smiles.</p>
+<p>Sabrina, meanwhile, just watches her with a raised brow for a moment before turning back to Blue. "The current situation is that we have no way to reliably find Mazda, no way to reliably defeat them, and no ability to guarantee a deal they would agree to, not while Lance is champion. We can't even&nbsp;<em>talk&nbsp;</em>to them when we need to, we have to wait for them to come to someone.&nbsp;<em>Given</em>&nbsp;all that, surely&nbsp;<em>someone&nbsp;</em>who could hold Mazda to account, even if they're just a citizen, would be better than nothing?"</p>
+<p>Blue shakes his head. "If Mazda agrees to oversight from someone they choose, it might be someone who can't or won't actually stop them if they decide to break the deal. We need more than safety theater."</p>
+<p>"So you need to know that person has some way to hold them accountable, and can't have their mind altered," Red types.</p>
+<p>"Obviously. A Dark person with real leverage over them."</p>
+<p>"If they know Miracle Eye&mdash;"</p>
+<p>"Yeah, yeah, I know. I don't have a better idea, do you?"</p>
+<p>Red shakes his head. "I think a psychic working with the dark person at least makes it a lot harder for them to do something without being noticed."</p>
+<p>"Well it's a good thing we're on the same side, then, isn't it?"</p>
+<p>The words are said with irony, but Blue is smiling, and Red cautiously smiles back. There's silence for a moment, and then Sabrina sets her tea cup down on its plate in her lap.</p>
+<p>"It seems our problem has become more concrete, but not necessarily easier to solve," she says. "We're looking for a solution that doesn't exist yet. Not unless we better understand what Mazda wants, and what he's worried about losing. But that's what we're looking for. That's what we must try to find, together."</p>
+<p>"And meanwhile we wait," Leaf adds. "No unilateral action, nothing we can't take back. Mazda will reach out to Red again. He can try to find out what they actually want, whether there's a path forward."</p>
+<p>Blue shakes his head, but Red can't tell if it's from disagreement or dissatisfaction. "Fine," Blue finally says. "But I want to be part of it. When they reach out, Red, you set up a meeting that I can come to."</p>
+<p>"If they're willing," Red types. "I'll ask."</p>
+<p>"If they're not, I'm going to take that as a pretty bad sign."</p>
+<p>Sabrina stirs. "Would you also&hellip; pass along a message from me?"</p>
+<p>They all look at her. Her composure is back in place, but Red can sense the fragility beneath it. He wonders there was something else she was going to ask. "Of course."</p>
+<p>"Tell them I'm sorry. That I was wrong. That I'd like the chance to explain, if they'll give it to me." Her voice drops. "And that I'll understand if they won't."</p>
+<p>Red nods. "I will."</p>
+<p>The silence that follows is softer. Not resolution, but something like a temporary peace.</p>
+<p>"So we have a plan?" Blue asks, looking around at them. "You all put your heads together and come up with something that'll work against them, so that when I'm Champion we have some leverage, yeah?"</p>
+<p>Red admires Blue's mix of calm and frustration as he says it, perfectly masking the existence of the Master Ball. He knows Leaf and Red don't want him to use it, so he's pretending in front of Sabrina that it's not an option. Acting, for now, as if it's not, because it would ideally be the last resort.</p>
+<p>"Seems so," Sabrina says. "And I take it that, in the meantime, you all won't be reporting me to the police."</p>
+<p>She says it matter-of-factly, but there's still a slight upturn in her tone at the end, almost but not quite turning it into a question. Red turns to Leaf anyway, who's frowning at the Leader.</p>
+<p>"I want to talk to you," Leaf says. "Check some things I know, some things I guess, see if there's anything you're willing to share that could save me a lot of time and effort, and maybe even do some good to make up for the things you've done. If you're okay with that, then yes, for now I vote we set all that stuff aside until the situation with Mazda is resolved, at least."</p>
+<p>She looks at Red, who nods, though they'd already agreed to let her call that shot over Red or Blue.</p>
+<p>"Alright," Sabrina says, watching her. "I think that's more than fair."</p>
+<p>Some tension eases out of Red's chest, and Blue sets his tea cup down. "That's everything then, yeah? For now."</p>
+<p>"For now," Red agrees. They hadn't resolved anyone's cruxes, but they'd defined them at least, and found the most pressing one among the four, the one that was ultimately the most needed to get them all on the same page.</p>
+<p>"Then I need to get back. Every hour here could put off Victory Road by another day." He stands and stretches, looking around at all of them. "This was... worth it. I think. Guess we'll see, but I'm glad I came."</p>
+<p>Red and Leaf stand too, but Sabrina turns to Red.</p>
+<p>"I'd like to speak with you," Sabrina says. "If you don't mind staying for a moment?"</p>
+<p>Red looks at the other two. Blue shrugs, and Leaf briefly worries her lower lip before stopping. "No one agreed not to keep talking with each other on our own, after," she says. "And I guess we would find that more constraining if you asked for it in return from us."</p>
+<p>Sabrina nods. "I appreciate the candor you've all shown."</p>
+<p>Red bumps fists with Blue and gives Leaf a hug, then sits back down on the couch as they leave. He tries not to let his nerves show, preparing for some expression of Sabrina's disappointment or feelings of betrayal&hellip;</p>
+<p>"Are you angry with me?" Sabrina asks.</p>
+<p>Red blinks, rearing back a bit. He shifts in his seat, hands twitching to answer&nbsp;<em>No</em>&hellip;</p>
+<p>Then pauses to think about it. Sabrina's tone was quiet, but candid, and her gaze patiently searches his face as she waits.</p>
+<p>He doesn't&nbsp;<em>think&nbsp;</em>he's mad at her. When he searches his body for felt-senses as he thinks back over the things she's said, and all the time they've spent together with all those things&nbsp;<em>un</em>said&hellip;</p>
+<p>"Not really," Red finally types. "I think I'd understand if&nbsp;<em>you&nbsp;</em>were angry with&nbsp;<em>me.&nbsp;</em>But when I keep in mind everything you've done, and why&hellip; I think you treated me well, and were fair, and were as honest as you could be, given competing interests. I know what that's like."</p>
+<p>Sabrina watches him a moment longer, fingers tapping her tea cup, then nods. Red can feel Leaf's mind disappear as she teleports away, and he lets himself finally relax his psychic muscles with no one around to "protect" any more. He tentatively reaches out to the Leader's mind, and feels her cautious but relieved.</p>
+<p>"I appreciate your grace," she eventually murmurs. "And still, I'm worried that what I say next may change that balance, but that's all the more reason to lay it on the table."</p>
+<p>He's not sure what to say to that, but he senses it's not something he should reassure her about, one way or the other. "I'm listening."</p>
+<p>"You said I've treated you well and was fair to you, and was honest. I think that's mostly all true. At least, I think I tried to be, as best I knew how." Her gaze drops to her tea cup. "When I think it over, I believe there's one possible exception. Not something I did&nbsp;<em>knowing&nbsp;</em>it was wrong, but something I should have been more cautious of. I'd like to undo that mistake, now, without telling you why. Do you understand?"</p>
+<p>Red's sense of foreboding is like a heavy stone in his chest, rolling restlessly back and forth as he breathes. "I'm not sure. You want to&hellip; basically tell me to update my understanding of something, but not give me any details about why I should, other than that you were responsible for me thinking a certain way about it in the first place and you regret that?"</p>
+<p>"Close enough, I suppose," she muses, voice quiet. "Simply put, then&hellip; months ago, I nudged you into working with Rei and Leader Giovanni to help investigate the dreams. I know you held him in high esteem before that, but whatever respect you have for him&nbsp;<em>because&nbsp;</em>of my nudge, if any, or whatever trust you've placed in him from it&hellip; I ask that, if at all possible, I be allowed to undo those things."</p>
+<p>Red stares at her. The sense of dread&hellip; doesn't exactly grow stronger, but it's more pervasive, now, less an object in his chests and more a diffuse, confused fog.</p>
+<p>She wants him to respect Giovanni less.</p>
+<p>To&nbsp;<em>trust&nbsp;</em>him less.</p>
+<p>And she doesn't want to explain why.</p>
+<p>Has something changed? No, she said if she was more cautious at the time she might not have done it&hellip;</p>
+<p><em>I really don't know if we're supposed to be drawing a conclusion from this.</em></p>
+<p>Well, she hadn't asked him not to&nbsp;<em>think&nbsp;</em>about it. And she definitely hadn't hedged, or disclaimed, or any number of other things he would have done if he was in her position and wanted to make sure he didn't get the wrong idea about what she was saying and why.</p>
+<p>She&nbsp;<em>probably&nbsp;</em>doesn't know about his investigations into each Leader. That Giovanni was near the top of his list for League members working with renegades, let alone that she is too.</p>
+<p>But regardless of what she thought his priors were, regardless of whether she even thought he had priors about that sort of thing&hellip;</p>
+<p>She's telling him, now, and she'd have to be an idiot not to guess what sorts of assumptions he'd make as a result.</p>
+<p>"Thank you," is all he types in return. "I'll keep that in mind."</p>
+<p>Because if there's a time to confront her about his own suspicions about her, about all the ways that she and Giovanni were tenuously linked in his associative web of suspicious Leaders, he doesn't think it's now. Not while they're in the middle of navigating the whole situation with the Dreamer.</p>
+<p><em>Mazda.&nbsp;</em>It's still strange to finally have a name attached, and he's not sure how to orient to Sabrina sharing it with them. An attempt at manipulation, probably, aimed primarily at Blue, for whom the Dreamer's lack of humanity was the clearest obstacle for finding some path forward together.</p>
+<p>"There's something else?" he asks, because she's watching him a certain way, and he can feel the anticipation in her mind, the weighing uncertainty.</p>
+<p>"I don't mean to do any backdoor dealing. But I feel compelled to ask what you'll do if Blue is the only one left whose crux is unmet."</p>
+<p>It only takes him a moment to decide to be honest. "I don't know," he types, a cold gap opening in his chest. "I've thought about it. There don't seem to be any good options."</p>
+<p>"Would you try to stop him?"</p>
+<p>Red blinks.</p>
+<p>"If he becomes Champion," she says, voice quiet and gaze steady on his. "Would you try to stop him from declaring Mazda a threat to the public? Hunting them?"</p>
+<p>His fingers move slowly through the air. "I've already tried&hellip; that was the point of all this?"</p>
+<p>"No," she says, shaking her head. "I know you've tried to&nbsp;<em>convince&nbsp;</em>him. To&nbsp;<em>persuade&nbsp;</em>him. I'm asking if you're prepared, if you're willing, to try and&nbsp;<em>stop&nbsp;</em>him. Or if him being your friend supercedes that."</p>
+<p>Red's throat is dry, the gap in his chest bigger, a jagged block of ice that he feels with each breath. What is she&hellip;? "What are you saying? Stop him&nbsp;<em>how</em>?"</p>
+<p>Sabrina's eyes widen, and she gives a little laugh. "I'm sorry, Red, I'm not being clear. I didn't mean&hellip;" She shakes her head, takes a breath. "Let me start over. I'm asking if you've imagined what it would be like to actually have Blue Verres as the Champion of Indigo. Not just your friend, not just the grandson of Professor Oak, no longer an up-and-coming young trainer.&nbsp;<em>Sitting Champion.</em>"</p>
+<p>Red is still frowning at her, but the painful feeling in his chest has faded slightly, replaced with a sense of mild disorientation as he&hellip; imagines it.</p>
+<p>Actually, fully imagines it.</p>
+<p>He's thought about Blue becoming Champion in the abstract&mdash;the responsibility, the pressure, the good he could do. He even imagined the ways it might change their relationship, the power dynamics, the shift in responsibilities and duties. Before Red started working for Interpol, it seemed like it would be such a massive shift in how they related to each other. Now, he's not as sure. It would be big, yeah, but it's not like Red would&nbsp;<em>report&nbsp;</em>to Blue, or anything&hellip;</p>
+<p>But when Red told Blue he trusts how he'd act as Champion, he never thought about what it would mean if Blue did something&nbsp;<em>immoral</em>. If Blue decided something that Red couldn't accept. His friend's views on the Dreamer were maybe predictable, but still surprised him.</p>
+<p>And if he's surprised by that, there are probably other things he'd be surprised by. Not just questions of balancing risks, or making a decision that Red wouldn't make himself, but another case where his decisions are driven by what the people of Indigo want or care about, rather than what's&nbsp;<em>right.</em></p>
+<p>Of course, Blue would say that what the people of Indigo want or care about&nbsp;<em>is&nbsp;</em>what's right, or at least, it's his job as Champion to treat it that way.</p>
+<p>But Red knows there's more to it than that. Blue wants to convince people to take more risks, as a society, to fight the Stormbringers and try to&nbsp;<em>win&nbsp;</em>rather than just survive. He might give up if he tries hard enough to convince people and they don't rise to the challenge, but he'd still&nbsp;<em>try&nbsp;</em>first.</p>
+<p>That's what Red wants him to do here. To say he'll try.</p>
+<p>"I think," he types, "That I believe he can still be convinced to do the right thing. Or else convince&nbsp;<em>me&nbsp;</em>he's doing the right thing, before he does something he can't take back."</p>
+<p>"And you'll accept what he does if not," she concludes, gaze on his.</p>
+<p>A hot spike of anger pierces his chest and throat, and he almost yells at her, stopping himself at the last minute, throat reflexively locking up to keep himself from triggering the vertigo and brain static.</p>
+<p>When the impulse fades, he types&nbsp;<em>what do you want from me&nbsp;</em>before deleting it for "What choice do I have?"</p>
+<p>"You could become Champion instead."</p>
+<p>The words are so bizarre that Red has a moment of certainty that he misheard her. If he hadn't already locked his throat down, the&nbsp;<em>what?&nbsp;</em>would have escaped him. As it is, his hands move automatically. "What?"</p>
+<p>"You could become Champion. Challenge him, assuming he wins. Negotiate with Mazda directly, or counter Blue's strategy if he's already started some regional hunt or bounty, or whatever he decides to do."</p>
+<p>his hands move to type the word out, what comes out instead is "I can't beat Blue."</p>
+<p>"You can," she says, no doubt in her voice at all. "With all the training you've received, and the ability to use the different mental modes of so many Leaders and Elites? Even if you're not allowed to use the pokemon you've been given for fighting renegades, your funds should be sufficient to secure a top tier team. Or am I wrong about that?"</p>
+<p>She's not. Red knows in an abstract way that he's quite rich now, not by every standard but certainly compared to most trainers on their journey. He's been working to embody that knowledge more by spending some of his funds on science grants, but yes, he could empty his savings for an Elite tier team.</p>
+<p>The objection that comes to mind is one that Blue has made time and again, about the perception of trainers who buy their way to the top. "It wouldn't work," he types, some part of him wondering why he's still going along with this idea, why he's even considering it&hellip; "I'm not Blue. Even if I beat him and tell people to change their minds, they wouldn't respect me. I'm not a trainer, I haven't done half the things he did."</p>
+<p>"You can't possibly believe that."</p>
+<p>He's already typing a new message, frowning, heart thudding in his chest as some vague sense of panic rises up in his chest. "I mean things that&nbsp;<em>trainers&nbsp;</em>care about, I know I've done stuff that matters but not with the gyms or beating Giovanni last." Even as he pressed Enter he knew that last bit was incoherent, he hasn't done his gym badges yet, he&nbsp;<em>could&nbsp;</em>beat Giovanni last if he decided to&hellip;</p>
+<p><em>Are we really considering this? Is this a serious idea?</em></p>
+<p>"Red," Sabrina says, drawing his gaze from the table back up to her. "I understand that your sense of what people respect in Champions has been shaped by your time with Blue, but consider that Blue focused most on his own strengths as a trainer, and planned his journey around them. Professor Oak was also a respected Champion, and he didn't revolutionize any gym cultures. You're a world-famous researcher, and while not Professor Oak's grandson, you're still one of the trainers whose journey he sponsored. And all that aside, you're as much a hero to Kanto as Blue, if not more. Not all of the same people who respect Blue and would follow his lead as Champion would feel the same about you, but many others would. I can't tell you if it's more or less, but if it&nbsp;<em>is&nbsp;</em>less, it doesn't seem clear to me the difference would be massive."</p>
+<p>Red stares at her, the panic clawing around his heart, blood pounding in his ears. His fingers twitch, and he tries to think of something to say, and all that comes out is "But I don't&nbsp;<em>want</em>&nbsp;to be Champion."</p>
+<p>Sabrina is silent as she continues looking at him for a moment, and then her face softens, and her gaze lowers to her clasped hands. "I know," she murmurs, and when she looks back up at him her eyes are full of compassion. "I'm sorry. But you also didn't want to become a Hunter."</p>
+<p>Red's head rocks back. "That was different."</p>
+<p>"Is that your crux, then?" she asks, voice calm and curious. "That this would be less necessary? That you're not the only one who could do it?"</p>
+<p>He closes his eyes and takes deep breaths. A quick check confirms his mind is secure, just in disarray from surging emotions he's not sure he fully understands. They're&nbsp;<em>his&nbsp;</em>emotions though, and he needs time to Focus on them&hellip;.</p>
+<p><em>Is&nbsp;</em>this less necessary?&nbsp;<em>Is&nbsp;</em>there someone else who could do it?</p>
+<p>Sabrina isn't exactly a neutral party here. She has a clear desire to ensure Mazda is okay, and he cares about that too, but he shouldn't take for granted that she's presenting an unbiased argument.</p>
+<p>Still, she doesn't&nbsp;<em>gain&nbsp;</em>anything unless he succeeds, which means she genuinely believes he&nbsp;<em>could&nbsp;</em>succeed.</p>
+<p>And if he does&hellip; if he could be someone that convinces Indigo and Mazda to find a different path forward, together&hellip;</p>
+<p><em>Blue would never forgive us.</em></p>
+<p>The thought is more than a flinch, it's a blow that sends shards of sharp pain through his chest. He struggles to breathe through them for a moment, the nameless panic from earlier finally identified, and with another deep breath he puts the thoughts and emotions behind a partition. Not entirely, he's being more careful with them now that his mind is mostly whole and unified again, but for now&hellip;</p>
+<p>"I don't know," he finally types, opening his eyes to look at her as she patiently continues watching him. "I think they are, but I need to think about it. About all this."</p>
+<p>"I understand. I didn't mean to push you. But time is short, and I wanted to make sure you're at least&nbsp;<em>aware&nbsp;</em>of it, as an option."</p>
+<p>Red nods. He tries to think of something else to say, but he's locked most of the thoughts and feelings away. He can only vaguely feel them through a numbing haze, like some distant memory, and so can't currently process or speak for what he'd think once the partition is back down.</p>
+<p>What comes to mind are words spoken, of all people, by Giovanni, when Red asked him during one of their sessions why he went on his whole journey if he just wanted to be a Gym Leader rather than hold the Champion position.</p>
+<p>"<em>I didn't even want to be a Gym Leader, when I set out on my journey. I wanted&hellip; many things. Too many things for me to accomplish them all without proving myself publicly, and having some legitimate, legible base of power and respect. I knew that to achieve that, what I needed was to set down the tools that I felt most suited to, set aside for a time thoughts of reasoning and persuading and building, and instead become a warrior."</em></p>
+<p>Sabrina told him to trust Giovanni less, but he can't unhear those words, or the quiet, almost resigned resolution with which they were spoken, even decades after the decisions had all been made.</p>
+<p>Would he sound like that, someday? Would it seem so simple, once it was all in the past?</p>
+<p>All he can say for now is "I'm aware of it, now. Thank you."</p>
+<p>"And you'll consider it, as a real potential path to peace, in case no other options seem viable?"</p>
+<p>Again the cracks through his chest, distant but there, along with a well-remembered, still painful look of betrayal on Blue's face.</p>
+<p>He doesn't want that. He doesn't want to be Champion. He never wanted any of this.</p>
+<p>But Mazda saved his life. And if they're right about the unown, if they're necessary for fighting whatever is behind them&hellip;</p>
+<p>"I will."</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <a href="/pokemon/143/">← Previous</a>
+                <a href="/pokemon/">Table of Contents</a>
+                <span></span>
+            </nav>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>
