@@ -41,15 +41,16 @@
         }
 
         query = query.toLowerCase();
-        const results = searchData.filter(item => 
+        // Blog entries in search.json have "type" but no "category"
+        const results = searchData.filter(item =>
             item.title.toLowerCase().includes(query) ||
-            item.category.toLowerCase().includes(query)
+            (item.category || '').toLowerCase().includes(query)
         );
 
         const resultsHtml = results.slice(0, 20).map(result => `
             <a href="${result.url}" class="search-result-item">
                 <div class="result-title">${result.title}</div>
-                <div class="result-meta">${result.category}</div>
+                <div class="result-meta">${result.category || result.type || ''}</div>
             </a>
         `).join('');
 
