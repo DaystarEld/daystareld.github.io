@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="After fifteen years of heart attacks, cancer treatments, and strokes, my dad passed away last month at the age of 76.">
+    <meta name="author" content="Daystar Eld">
+    <meta property="og:title" content="Speaking for the Dad">
+    <meta property="og:description" content="After fifteen years of heart attacks, cancer treatments, and strokes, my dad passed away last month at the age of 76.">
+    <meta property="og:type" content="article">
+    <title>Speaking for the Dad - Daystar Eld</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #0f0f0f;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #047857;
+            --accent-2: #10b981;
+            --border: #1a1a1a;
+            --link: #34d399;
+            --phthalo: #123524;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 80% -200px, rgba(18, 53, 36, 0.15), transparent 60%),
+                        radial-gradient(900px 600px at -200px 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        var(--bg);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.45));
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .brand a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand a:hover {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+        }
+
+        nav a[href*="pokemon"], nav a[href*="rationally-writing"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .icon-button {
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border: none;
+            background: transparent;
+        }
+
+        .icon-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20vh;
+        }
+
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 18px;
+            background: var(--panel);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        #search-results {
+            margin-top: 16px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .search-result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-meta {
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin: 0 0 16px 0;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.9em;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 1.8em;
+        }
+
+        .article-content h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin: 20px 0;
+        }
+
+        .article-content a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(52, 211, 153, 0.3);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+
+        .article-content li {
+            margin: 8px 0;
+        }
+
+        .article-content blockquote {
+            margin: 28px 0;
+            padding: 16px 24px;
+            border-left: 4px solid var(--accent);
+            background: rgba(4, 120, 87, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: var(--panel);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(4, 120, 87, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.85em;
+            color: var(--link);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        .article-content blockquote p {
+            margin: 14px 0;
+        }
+
+        /* Photos */
+        .article-content figure {
+            margin: 32px auto;
+        }
+
+        .article-content figure img {
+            display: block;
+            width: 100%;
+            margin: 0;
+        }
+
+        .article-content figure.photo-medium { max-width: 520px; }
+        .article-content figure.photo-small { max-width: 340px; }
+
+        .article-content .photo-pair {
+            display: flex;
+            gap: 16px;
+            max-width: 540px;
+        }
+
+        .article-content .photo-pair img {
+            flex-basis: 0;
+            min-width: 0;
+            width: auto;
+        }
+
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <link rel="canonical" href="https://daystareld.com/blog/speaking-for-the-dad/">
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand"><a href="/">Daystar Eld</a></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="/pokemon/">Pokemon: TOoS</a></li>
+                    <li><a href="/rationally-writing/">Rationally Writing</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/stories/">Stories</a></li>
+                    <li><a href="https://www.patreon.com/c/daystareld" target="_blank" rel="noopener">Support</a></li>
+                </ul>
+            </nav>
+          <div class="nav-icons">
+            <button class="icon-button" onclick="toggleSearch()" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <a href="/feed.xml" class="icon-button" aria-label="RSS Feed" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <a href="/blog/" class="back-link">← Back to Blog</a>
+            
+            <div class="article-header">
+                <h1 class="article-title">Speaking for the Dad</h1>
+                <div class="article-meta">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        October 14, 2026
+                    </span>
+                    <span>📁 Personal</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+<p>After fifteen years of heart attacks, cancer treatments, and strokes, my dad passed away last month at the age of 76. His memorial is next week, and I’ll be the only one speaking there, to a room full of people who nearly all, at one point or another, stopped seeing him for years, either through his choice or theirs. Despite living a full life, he very nearly died alone, abandoned by family and friends.</p>
+
+<p>76 was too young for my dad. I don’t mean this as a personal assessment; his own father and mother both lived to be over 100. From his perspective, he had a solid one-third of his life left to live. 25 years of being able to putter in his garden, experience more new technologies being developed, maybe see grandchildren… or, his fondest wish in life, to see his home country liberated.</p>
+
+<p>He was born in the Mazandaran region of Iran in 1950. His father owned a farm, and he had 4 sons and 5 daughters that survived to adulthood, out of a total of thirteen children. From a young age, my dad was fascinated by the way things worked. He would take apart clocks and radios when he was young, and went to work at an auto factory once he finished his schooling.</p>
+
+<figure class="photo-pair">
+<img src="/images/speaking-for-the-dad-1.jpg" alt="My dad as a young man, in profile" width="700" height="933" loading="lazy" style="flex-grow: 0.7503">
+<img src="/images/speaking-for-the-dad-2.jpg" alt="Black-and-white portrait of my dad as a young man in a suit and tie" width="669" height="960" loading="lazy" style="flex-grow: 0.6969">
+</figure>
+
+<p>In 1969, he listened to reports of the moon landing over a car radio while working on it, and wondered why his country wasn’t doing things like that. He began dreaming of emigrating to the USA, finalizing his plans and leaving just before the revolution of ‘79 toppled the government for a theocratic regime.</p>
+
+<p>He arrived in the US with nothing but a few hundred dollars and some other expat friends to split rent with. He worked his way through a college degree in engineering by waiting tables and working at convenience stores, then spent some months building prototypes for more efficient windmills and solar panels at various universities around the country before he decided that there wasn’t enough money in it and went back to school for a degree in architecture.</p>
+
+<figure><img src="/images/speaking-for-the-dad-3.jpg" alt="Miami Herald clipping about my dad and his windmill work as a student" width="1320" height="1178" loading="lazy"></figure>
+
+<p>He stopped waiting tables and took out a loan to run a small corner grocery store instead. When that went well, he did it again. Eventually he graduated and started his contracting business for electric work, plumbing, interior design, using capital from the stores he ran for the startup cash.</p>
+
+<p>At some point doing all this, he and my mother got married and tried for kids. The first two didn’t make it to term, but they had my brother in 1985, and me in ‘87.</p>
+
+<p>Two years later, my mom served him letters for divorce.</p>
+
+<p>He once described the day he was told to leave the house as “worst in my life.” My dad was not an emotional man; I’ve only ever seen him cry three times. Once when his father died, once when he watched a livestream of thousands of young Iranians protesting on the rooftops of Tehran during the 2009 election protests, and once after my stepbrother was in a car accident that left him in critical condition.</p>
+
+<p>When he told me that about the day he left our home, I gained a new appreciation for how much it must have cost him to lose his family. He wasn’t exactly talkative about it when I was younger. But I can’t be sure whether the main difficulty was the emotional losses, or the pragmatic consequences. Being divorced meant packing all his things and leaving the apartment I was raised in to go sleep in the back of the small store he rented to hold construction stock. When the divorce finalized, the arrangement was a straightforward one: pay child support, see us on weekends.</p>
+
+<p>My earliest memories of my father are him somewhere in the living room I grew up in as my brother and I played Super Mario Brothers on the original NES. After that, there’s a big gap, and at some point I started being picked up some weekends to go stay at his place, which basically meant being put in a room with a big mattress and a tiny TV hooked up to a VCR while he worked.</p>
+
+<p>My dad branched out to full construction, and incorporated in 1992, which meant he was too busy running his business to do much else. I can’t actually remember eating meals at his place. I know I must have, we can’t have eaten out every meal, or even every dinner, but the memories I have are always going to a restaurant, spending the night watching Star Wars or Home Alone or something (eventually playing Sonic the Hedgehog when my dad bought us a Sega Genesis), then sleeping on the big mattress with my brother and dad. The next morning my dad would (presumably) feed us, then go back to work as my brother and I kept watching movies and gaming until evening, probably with another unremembered lunch in there somewhere. Eventually we’d go to another restaurant before being dropped off at my mom’s.</p>
+
+<p>I also remember many nights waiting up at night for my dad to pick us up, and him not showing. I remember my mom screaming into the phone. I remember her once threatening to break the door off his car, a feat that I now know to be impossible but which seemed very real as I sat in the back seat and watched my mom grip it with a white face, throat raw from shouting.</p>
+
+<p>Saying all this, you might expect my feelings toward my dad to be something like abandonment. I don’t think I ever felt those things toward him, even on the nights when he was supposed to pick us up but didn’t. Maybe I did and I just forgot, but in my memory, my sense of my dad was always that he was something of a platonic “providing figure.” Not an ideal one, to be clear. Just… not much else.</p>
+
+<p>I was aware from a young age that we were not particularly secure, financially. Living with my mom meant watching her work 3 jobs to make ends meet, never taking vacations, being driven around in a beat up old car with hand-crank windows, and limiting our groceries to what we could pay with foodstamps.</p>
+
+<p>In light of all that, “of course” dad didn’t have time to spend with us. He was busy working for money, the money we needed to keep our house and get new clothes and sometimes have nice birthday or Chanukah presents.</p>
+
+<p>Did I miss him during the gaps? Sure. I remember crying when he unexpectedly showed up at my Bar Mitzvah, after not seeing him for a couple years after some major fight between him and my mom.</p>
+
+<p>All that maybe makes it sound like he was a figure of high regard for younger me, or someone I felt abandoned by, but this is again ascribing too much in either direction. He felt too distant to really admire or look up to, and he wasn’t part of my day to day life enough to feel “abandoned” or anything like it. Abandonment is about choice, and he seemed to me more like someone who was just doing what he had to do, without much in the way of feelings about it one way or the other.</p>
+
+<p>It’s possible, of course, that I would have had a higher opinion of him, back then, if not for my mom’s constant denigration. Every problem in our life was his fault, to hear her speak of it. I never believed her, as far as I can recall, but maybe her words acted as some invisible counterweight to the abstract appreciation I had for all his hard-working-absence.</p>
+
+<p>As for my dad himself, I do not think these were “happy” years, but it’s hard to say. Anyone who knew him well knew he lived to <em>do</em> things: tinkering, gardening, landscaping, refurbishing a kitchen or randomly putting a jacuzzi on the roof. No matter how busy he was at work, it seemed like he’d go stir crazy if he didn’t have something extra to do with his hands on his off time. So I have reason to believe that, despite two children and two marriages, it was building his business up that brought him the most joy in his life. That and gardening.</p>
+
+<figure><img src="/images/speaking-for-the-dad-4.jpg" alt="My dad smelling pink orchids" width="1440" height="862" loading="lazy"></figure>
+
+<p>Unfortunately that joy was often mixed, his ambitions as likely to lead to ruin as fortune.</p>
+
+<p>When I was very young, he sometimes took me to some grassy lots to play while he looked around or talked to some adult that met him there. When I was older, one of those grassy lots, right across from the beach, became dirt and stone, foundation, piping and electric wires. He built it up from the ground, two stories tall, six bedrooms and five bathrooms, a backyard pool, a garage and a carport. He built the house for himself, and then rented it out because he couldn’t afford to live in it… but he had clearly set a goal for himself.</p>
+
+<p>Up until I graduated high school, I lived with my mom in the same apartment I had since I was born. When I was in middle school, my dad moved out of the back of his store and into an apartment in a high rise. When I was in high school he moved to a house in a cul-de-sac with my stepmom, the first time they lived in the same house full time despite being married for nearly a decade. In the summer before I went to college he finally moved to that two story house on the beach that he’d started building for himself a decade earlier. He lived there until the 2008 financial crisis bankrupted him.</p>
+
+<p>His whole business was building houses and interior design. After 2008, without new jobs coming in, he was much too overleveraged on the apartments he owned and was renting out. He had to sell them one by one to pay the rising debts, then finally sold the house he lived in too, retreating to that store that we used to sleep behind decades earlier.</p>
+
+<p>Thankfully the mattress on the floor was replaced with an actual bed and furnished apartment in the intervening years, but it was the final place my dad would live, all the way back where he “started” nearly 20 years earlier.</p>
+
+<p>I say all this because I think it’s important, if you want to try to understand my dad, to know that he was an American success story. He had the mix of ambition, determination, intelligence, and adaptability needed to go from waiting tables to work his way through college to owning a house in some of the most expensive real estate in Miami, a house that he designed and built himself.</p>
+
+<p>But to say my dad was <em>successful</em> would be a harder sell, because it would be eliding the rest of his life and traits.</p>
+
+<p>Once when I was in high school, I stayed out with some friends on a Saturday a bit later than my dad wanted me to. I told him I’d take a bus, but he insisted he’d come pick me up. When he did, he was quiet and surly in a way that wasn’t that uncommon for him. I assumed he was just irritated at me. We didn’t exchange any words on the way home, and when we got there he took a two-by-four plank of wood and smacked me in the back with it.</p>
+
+<p>It hurt quite a lot. I ran to my room and cried while my stepmom yelled at him, then came to comfort me. I later learned she threatened to call the cops, and that he had been drinking. I spent the rest of that night in my room, and the next day had the house to myself, where I lay in the pool and slowly, methodically went through every feeling I had about my dad and let them go one by one.</p>
+
+<p>Who was he, to me, really? Who are our parents to us, beyond what society says they should be? How much are we supposed to care about those things, and for how long?</p>
+
+<p>It’s a secret known to the lucky adoptees, and the children of abusive parents who find or make their own family in time, that genes are a powerful thing, but they’re not destiny. We can’t choose what traits we inherit and pass down, and we can’t choose who we love, but we can choose where we spend our attention and our love. We can choose which ideas we nurture inside us, and which we spread. We can, in short, choose our family.</p>
+
+<p>I maintain to this day that if you want to understand me, you should understand the books I read, particularly when I was young. I certainly had a couple traits from before I got heavily into reading that persisted after, but most of the rest faded and were replaced by fairly stable ones around the age I started getting heavily into reading. It was the books I read and the characters in them that taught me how to be a “person,” particularly how to think of what made up a good one.</p>
+
+<p>But they also helped me take on a fairly universal sense, if I can remember to engage it, of stepping into someone else’s shoes, seeing from their eyes, and getting some sense of understanding, real or not, of why they are the way they are. One of those books, Ender’s Game, was particularly influential. “I think it’s impossible to really understand somebody, what they want, what they believe, and not love them the way they love themselves.”</p>
+
+<p>My feelings for my dad that day changed substantially, but they never turned toward any kind of hate. Instead I took a deliberate step toward seeing him as a person who was simply unable to be the sort of father I wished I’d had. He wasn’t scrambling for resources anymore, too busy trying to be a provider to be a good dad; what I saw of him didn’t make me sorry that he was not in my life when I was younger.</p>
+
+<p>Just after I graduated high school my dad moved to live at his house on the beach, and things were mostly positive between us. Once in a while he’d do or say something that got to me, and I’d have to work to brush the bad feelings away again. Once in a while he’d teach me something, like how to change a tire or fix a toilet. I helped with a lot of yard work, as did my stepbrothers, and we’d watch films together some nights.</p>
+
+<p>So far as I was familiar with father-son relationships, it was a fairly normal one; that is to say without much in the way of emotional depth or connection. We connected on things like atheism and marveling over new scientific advancements. We clashed on more personal matters, like how much time I spent playing video games, or my choice to study psychology instead of law or medicine or engineering.</p>
+
+<p>That latter thing never changed. Even when I was in graduate school, every time I came to visit for a weekend, he would ask me again at some point: “So what are you studying again? You can get a job with that? How much money does that make? You think you can support a family on that?”</p>
+
+<p>I think most people would experience this as something aggressive, belittling, meant to wear them down with implied mockery and shame. Maybe it was in some way, but honestly I think he just forgot. It’s hard to explain where the edges of this were, but my dad never really seemed to remember stuff about other people. He was interested in things; he showed care mostly through things.</p>
+
+<p>Which also means he cared a lot about what things other people had. I have never made enough money, so far as my dad’s concerned. This was maybe reasonable back when I worked at clinics, working my way up from $30k to 34, then $41k a year after I got my license; I was happy enough with it, but I did scrimp and save to pay off my loans, and I did think often of how slowly my bank account was going up afterward given my hopes to have a family someday.</p>
+
+<p>It became downright amusing when I had my own private practice. At some point within the first couple years of it, my dad asked how much I was charging. I told him $150 per hour, and he blinked and frowned at me, then asked, “Is that a lot?” Meaning, are you satisfied with that?</p>
+
+<p>My brother, who has been perennially unemployed since leaving the military, was in the room for this, and said “Oh fuck off” as he walked out. By that point I had long since learned to just laugh it off, but I understood my brother’s frustration.</p>
+
+<p>Wealth, and the projection of wealth, was at the center of my dad’s world. He would constantly tell me how I needed to have a nicer car, even while I was spending all day driving to clients’ houses in low income neighborhoods, or how I should wear one of his five-figure costing watches.</p>
+
+<p>It was easy to see that he meant well. But it's also easy to see that he didn't have the capacity, for whatever reason, to see outside of himself. He couldn't imagine that someone might have a happy, satisfied life without the things he associated with success.</p>
+
+<p>The expected vice for a person like this in common culture is greed. But my father was never someone I experienced as greedy, or miserly, or even just financially cautious.</p>
+
+<p>He wouldn't buy us whatever we wanted, but he made sure we had what we needed. When I was older and needed to buy a new car, he insisted I should buy a brand new one. I told him that wasn't going to happen; I had no intention of getting something cheap, but I also saw no reason to pay a premium just for the new-car-smell. The vague feeling of newness wasn't worth the tens of thousands of dollars that would evaporate from its value as soon as I rolled out of the dealership, and I told him I’d much rather get a reconditioned, or even certified, preowned car instead.</p>
+
+<p>But he kept insisting I would regret it, that even if the car was only mildly used, the fact that it was being resold meant something was wrong with it, and I'd have no end of grief. Finally I told him, “Look, it's my car and my decision, but if you care that much, I'll pick a car I want for myself, you pick a car that's similar to it that's new, and you pay the difference.”</p>
+
+<p>After thinking about it for a couple minutes, he said yes, and that was that. We went to the dealership together, haggled with the salesman a bit, then decided to leave when he kept insisting that there were mandatory extras we'd have to pay for. The guy chased us down in the parking lot, told us he could skip the extras, brought us back in to start the paperwork. My dad kicked the tires a bit (literally) and we drove off.</p>
+
+<p>It's one of my better memories of my dad, a rare feeling of him being just straightforwardly on my team in practice and not just in his own intention.</p>
+
+<p>I find it's easy to forgive my dad for the things he did to me, harder the stuff he did to others. I don't know what my mom's relationship with him was like, and don't trust her to be objective about it, but I could see the way he treated my stepmom, and that eventually got so bad that I started trying to convince her she should divorce him.</p>
+
+<p>If that sounds like an extreme position for a son to take toward his father, all I can say is you have to understand what it means to count family you find as important as family you’re born with. My stepmom’s unhappiness was my unhappiness, and there was a lot for her to be unhappy about.</p>
+
+<p>My father married my stepmother in 1995. She had two children of her own, one my age and one two years younger, and she became his business partner in whatever endeavor he was pursuing at the time, managing the financials and paperwork, finding and talking to customers, dealing with the legal and administrative side of things. She treated my brother and I as if we were her own children, and she loved my dad far past what many would argue he deserved, forgiving him many times when he would verbally abuse her, her friends, or her family.</p>
+
+<figure class="photo-small"><img src="/images/speaking-for-the-dad-5.jpg" alt="My dad and my stepmom embracing and smiling" width="793" height="800" loading="lazy"></figure>
+
+<p>My dad would often be extremely controlling. If she spent too much time with her family, he’d complain about her not spending more time around him. If she thought some business decision was bad or had an idea for a different one, he’d grow belligerent and insulting until she gave up to keep the peace. The few times she managed to maintain frame were when he was at risk of drastically sinking them, like when he almost took out a new mortgage on his final house rather than selling it after 2008.</p>
+
+<p>Thankfully he wasn’t physically abusive to her, because the one time he threatened her she stood her ground and made him believe that if he ever tried anything like that again she would leave him. But while she threatened divorce a few times, she was also usually quick to forgive so long as he corrected his behavior for some time.</p>
+
+<p>He might do better for a few months, maybe even a year, but sooner or later he went back to screaming and cursing at her whenever she'd try to point out some risky financial decision, or when he'd lose a client because he lost his temper with them, or when he got annoyed by her son living with them. His older stepson had a job, but lived with them because they had the spare room, and it saved money.</p>
+
+<p>But having others around was always difficult for my dad. He would sometimes get irritated and restless seemingly at random, and blame it on anything people nearby were doing. I often wondered if he was experiencing some form of overstimulation, but when I tried talking to him about it he was never able to reflect on his experience well enough, or put it into words well enough, to be sure. Neither was ever among his strong suits.</p>
+
+<p>Other times, the major issue he had seemed to boil down to anything that took my stepmother's time and attention away from taking care of whatever he wanted or needed her to do. This wasn't how he phrased it, of course. His chief complaint of others was that they were too lazy.</p>
+
+<p>From his perspective, I can see why they seemed that way; his work ethic seemed genuinely relentless, only matched by my stepmother's. After retiring he’d spend hours in front of the TV following Iranian news, but before that most of his non-work time involved gardening and home improvement, and even afterward he’d still spend much of his time beautifying the roof garden of his shop or pursuing some other DIY project.</p>
+
+<p>By contrast, each of his children and step-children were a disappointment to him in some way.</p>
+
+<p>His younger stepson was often criticized for getting high and spending too much time with friends. He ended up in a car accident that killed the other driver, a man in his 70s. The emergency surgeries managed to just barely save his life and ability to walk unassisted, but the subsequent arrest for vehicular manslaughter, and sentencing of 11 years in prison, caused my father to break down in tears for the second time in my memory.</p>
+
+<p>His older stepson used to work as an EMT, then decided to work as security for a hotel; a worse paying but much easier job. He refused my dad's relentless prodding to take up the business, and was always quick to push back when my dad would lash out at my stepmom. Eventually my dad went on one verbally abusive tirade too many, driving my stepbrother from the house and causing my stepmom to finally go through with the divorce.</p>
+
+<p>It was his oldest son in particular that vexed him, a 25, then 30, then 35, then 40 year old who couldn't hold a job down outside of his time at the army, and lost all his savings in various investment decisions and education pursuits that many tried to warn him against. Every so often they would get into some major argument, and stop seeing each other for a while, until finally they had a falling out that lasted years.</p>
+
+<p>As for his younger son, there were various points when my father’s disappointment came through, mostly related to his career choice. Therapists don’t make a lot of money by default, don’t work with their hands, and aren’t particularly prestigious.</p>
+
+<p>In his later years my father seemed somewhat proud of the complete autonomy, minor status, and financial security I’d achieved, but that only began in the last five years of his life. Before then he was about as prone to being upset with me as everyone else.</p>
+
+<p>There wasn’t always an obvious trigger for what upset my dad. Sometimes he’d get drunk and yell about something that irritated him that he’d never mentioned before. Other times it was some situation in Iran, or one of my brothers’ lack of employment, or my stepmom’s family doing something he disliked, or <em>his</em> family doing something he disliked. Once he went from total calm and quiet to throwing a plate of food at a wall during dinner, before he started raging and breaking things around the kitchen and living room. I called the police and sat out front with my stepmom until they came and arrested him. He was back after a night in the drunk tank, quiet and reserved. I don’t remember if he ever apologized, but he didn’t do it again. We moved on with our life.</p>
+
+<p>That’s often the default for a lot of people, but it can also be a deliberate choice when there are no obvious levers to pull. To forgive, if not forget, and keep going, same as before, and hope things get better. And so long as they do, for a time, this can be enough.</p>
+
+<p>“Enough” wasn’t really a part of my dad’s philosophy, however. He always wanted something more, something better, not just for himself but for others. He spent hundreds of thousands of dollars over the years investing in family and friends in Iran, or sponsoring them to leave and find good education or gainful employment elsewhere. He wasn’t someone who tried to pull the ladder up behind him; so long as he believed a person was willing to work hard, he would give them his time, money, and support, no matter how often he got burned by others.</p>
+
+<p>And to hear him tell it, he got burned often. His side of the stories often ended with someone cheating him out of his share of investments, or using him and then betraying his trust in some way. I have no way to get the other side for many of these stories, as I don’t speak Farsi and am not particularly close to my family in Iran. My stepmother, who was often there with him, vouched for his side sometimes. Other times, she would just look at me and say “you know how he gets.”</p>
+
+<p>I do. When my dad felt in control of things, his position was always that he didn't need anyone. But he wasn’t always in control of things, and he often underestimated how often those around him, particularly my stepmother, were keeping his life from falling apart in various ways. He knew what it meant to be self-sufficient. He’d worked hard to make himself that way, and had lived on his own for years, and been, supposedly, happy enough with that life.</p>
+
+<p>And this may in fact have remained true, up until he got sick.</p>
+
+<p>My dad's first heart attack was nearly 15 years ago. There was no long term damage, but the doctors were adamant that he should stop smoking and cut back on alcohol. He had an otherwise healthy lifestyle, with lots of physical activity and a balanced diet. But while the drinking was easy to give up, smoking proved impossible. He'd been doing it for decades, and no amount of nicotine patches or gum could stave it off for long. I have a distinct memory of talking to him one night, in which he offered a rare bit of advice not related to work or finances. "Are you smoking too, or just your brother? Never? Good. Don't ever start. It's like it puts a demon in you. No matter how hard I try, I can't beat these damn things."</p>
+
+<p>A number of strokes and heart attacks over the years led to the occasional seizure, until eventually my dad couldn't continue working. The first time he got cancer he was able to treat it into remission. My stepmother was his perpetual cook, housemaid, nurse, business manager, assistant, accountant, and everything else she could possibly be. She managed all his doctor appointments, kept the business paperwork straight, was the reason the business survived, despite my dad's ornery habit of cursing or shouting at clients over some disagreement or the other. His temper would occasionally be aimed at her as well, and the worst offender became spending too much time helping her family.</p>
+
+<p>This angry, occasionally enraged, insistence is what would always lead to threats of separation, especially after she lost first one parent, then the other. I suggested she divorce him a number of times when he treated her particularly cruelly, even knowing all the financial damage and drama it would cause, but she kept forgiving him again and again, until eventually my father’s ire turned on her son, driving him from the house.</p>
+
+<p>Soon after, my stepmother left too, and made the final divorce filing. For the first time in years he finally had what he insisted he always wanted; solitude to just do his own thing.</p>
+
+<p>But I was with him the day he realized the divorce was final, in perhaps the worst way he could: by noticing that the money in the shared bank account he had with my stepmom had been cut exactly in half. His pain transformed into the bitterest of anger, all the worst memories of my mother kicking him out of the home turned on my stepmother despite her decades of loyalty and care.</p>
+
+<p>I’d been trying to help him navigate some bureaucracy he had always relied on Miriam to deal with, and suddenly had a whole new crisis to manage. He was ready to take his meager remaining savings and go to war with her, insisting she didn’t deserve half of what he had despite having poured her life into helping him build it all.</p>
+
+<p>I was the last person in Miami who would speak to him, and one of the few even beyond Miami. I couldn't help but feel sad for his clear bewilderment and pain when his anger burned down and it became clear she was really gone this time, and no amount of apologizing would bring her back. I did my best to help him navigate the process, not least because it might actually help them reach some actual resolution where he, and especially Miriam, wouldn’t be stuck in a painful divorce limbo for years. It took months of calls with both lawyers, but eventually it was done, and my dad was finally free to live as he claimed he wanted: entirely alone.</p>
+
+<p>Which he did for over a year, and might have managed even longer, if not for a few issues, chief of them being the random seizures he would experience.</p>
+
+<p>I was overseas for much of this, and once managed to convince my brother to give him a ride back from the hospital. What I heard between them differed; according to my dad, my brother kept verbally harassing him, blaming him for everything wrong in his life, until my dad apologized, which enraged my brother further and caused him to throw my dad's new phone, breaking it. My brother's side of the story ignores all that and says my dad chased him with his old military sword from Iran.</p>
+
+<p>It was the last time I suggested my brother do anything related to my dad, up until I got the call from his doctor saying his cancer had reached the terminal stage, and he likely had no more than a few months left, possibly not even one.</p>
+
+<p>I dropped a number of commitments and goals to return to Miami for a month to stay with him to make sure all the end of life arrangements were made and he got through it all okay. My stepmom, after spending the time after the divorce trying to build a new life for herself, got pulled in by her abundant empathy to try and help him in his final weeks and months, a mercy he was extremely grateful for.</p>
+
+<p>Unfortunately, my father’s final months became a nightmare for him and everyone involved. This is part of a message I sent to my friends a couple weeks into April to summarize the situation:</p>
+
+<blockquote>
+<p><em>So a basic review of my situation lately: I flew from the Netherlands to Miami two weeks ago because my dad’s cancer prognosis took a sudden turn for the worse. Doctors say no new treatments are really on the table anymore. He could have a couple more weeks, or a few more months.</em></p>
+<p><em>He’s not able to move around much and gets tired often. There’s basically no one else who wants to take care of him other than my stepmom, and it’s unfair to her given the divorce. She visits every other day or so to drop off food, but I’m the only person who will stay overnight.</em></p>
+<p><em>The house was a total mess when I got here: spoiled food in the fridges and in jars around the kitchen, floor covered in pistachio shells and other less identifiable things, sticky stains on surfaces and chairs. I’ve been buying cleaning supplies and trying to make it livable while taking care of him, but he needs pretty constant, unpredictable amounts of attention, and his mood swings are worse than ever. The other day he started yelling and cursing over the cleaning supplies because they were cluttering up a table he doesn’t even use.</em></p>
+<p><em>I’ve also been trying to arrange visits from family. Some are only barely willing to see him, which I understand given his past behavior, he doesn’t want to see some of them, and some of them don’t want to see each other. It’s been good at least to get my stepbrothers together with him so they could say their goodbyes, which they weren’t willing to do until I arrived. The thought of him dying alone hurts, no matter how much he might have brought it on himself, but I don’t blame anyone for not wanting to be here.</em></p>
+<p><em>My older cousin, a nurse from Canada, came to spend time with him and brought his 17-year-old daughter. They were very clearly shocked by the state of affairs, and I took them out to ice cream the first day to tell them the family history my dad never shared, including why there’s no cleaner or aide: his pride meant no one in the extended family knows that the wealth he used to have is gone. They took it well, and started cleaning the rest of the house themselves, which I’m pretty grateful for. I don’t feel shame, but I did get some second-hand embarrassment.</em></p>
+<p><em>Things are stable enough right now that I’m flying to Berkeley for a friend’s birthday weekend. The main thing I find hard is having to always be the adult in the room. Acting as the constant peacemaker and bridge to keep people’s senseless shittiness from making each other’s lives worse is a big part of why I left Miami in the first place.</em></p>
+</blockquote>
+
+<p>The primary issue that arose was that my dad began to have extreme anxiety when left alone, including panic attacks, but refused having any others staying with him besides my stepmother. And unfortunately, my stepmother really just couldn’t. His anxiety and stress was infectious for her, and she wouldn’t be able to sleep at all at night.</p>
+
+<p>Even my experience of staying with my dad was difficult. I did my best to keep him company while trying to focus on writing or work, but was mostly unable to, as he needed attention or help with something multiple times per hour. And while I was able to get a bit of sleep, it was fragmented and fragile, as he would get anxious when alone and eventually start making noise, or just call for me until I woke up.</p>
+
+<p>So she couldn’t stay with him, and I wouldn’t.</p>
+
+<p>This was all going on in the middle of a number of rather drastic shifts in my life relating to relationships, work, and moving back to the US from Europe after nearly three years. There were people who needed me besides him, both professional and non-professional, people whose lives would be impacted badly by my absence or inattention, and whatever I felt I owed him from love and duty, it was not equal to all the others I cared for, among which I count myself.</p>
+
+<p>But I still wanted to do whatever I reasonably could for him without sacrificing anything that felt like “too much.” It’s something I think too few people realize is a real option, when called upon to make major sacrifices, particularly at a family member’s request. So I continued my role as the primary care coordinator from afar, organizing everyone who was still willing to spend a day or two with him, covering their expenses and paying for their time.</p>
+
+<p>But it became quite difficult. My dad would get upset at people like my nurse cousin Daniel for random little things he did, then want him to go away. The only person he consistently wanted to be around was my stepmom, and she was quickly worn down from lack of sleep and stress.</p>
+
+<p>One idea that came up during all this was whether or not my dad should stay in Miami or go to Iran for his final months. He believed it would be better for him, in terms of having lots of family around. Unfortunately, someone started a war there, making flights impossible to get. My cousin, who last went to Iran just a couple years earlier and speaks Farsi, suggested potentially flying with him to a nearby country then renting a car to get over the border. But traveling would have been quite hard for my father, and he ultimately decided against it, particularly worried about the potential lack of good pain medication once there.</p>
+
+<p>At one point my dad very roundaboutly asked me whether there was a way to find a doctor who would just "get it over with." I clarified that he did indeed mean help him die, and he said yes. "What was the point of those papers I signed when you brought them?"</p>
+
+<p>I clarified that those papers were about what should happen to him if he experiences brain damage that leaves him in a coma, stuck on perpetual life support, and the thing he's asking for is illegal in Florida. He asked if there's any way to get it done anyway, and I looked it up while sitting beside him. Of the states and countries that allowed it, all required him to live in the state and/or get evaluated by doctors in those states over the course of months. Even assuming we went through the process of moving him and finding him a doctor, he was very likely to die within that time.</p>
+
+<p>I asked him if he wanted to give it a try anyway. He said no; the last thing he had was staying in his own home, where he's comfortable and surrounded by his things. We talked about it more, and he admitted he was too scared to do it himself. It was the only time I ever remembered my dad telling me he was scared of something.</p>
+
+<p>I told him I understood, and wondered if a braver version of myself, or a version that loved him more, would just do it for him. But he never asked me to, or even implied he wanted that, so the topic was dropped.</p>
+
+<figure class="photo-medium"><img src="/images/speaking-for-the-dad-6.jpg" alt="My dad in his later years, wearing a knit cap, glasses, and a scarf" width="900" height="992" loading="lazy"></figure>
+
+<p>A couple months passed, and his health became worse and worse. So did his mind; the anti-anxiety meds stopped working, and he became unable to sleep. He began hallucinating, forgetting where and when he was. My stepbrother and cousin stopped going to spend time with him because he would stay up all night insisting that something was wrong until the only thing to do was take him to the hospital again. He’d spend some time there then get bounced back out again because there was nothing else they could do for him. My stepmother began taking up more and more of the slack, though it had more and more serious effects on her own health, until she had a breakdown and had to go to the hospital herself.</p>
+
+<p>It eventually became clear that my dad's wishes could no longer be respected; he would ask for people to spend time with him, then get upset at them if they wouldn’t do what he said, even if his requests were nonsensical or extreme. He wasn't able to care for himself, but when he was lucid, he continued to insist he didn't want strangers to take care of him, or to stay anywhere but at home.</p>
+
+<p>This all came to a head on one of the nights my stepmother was with him. He took hold of a knife from the kitchen, yelling at people only he could see and brandishing it until she carefully calmed him down and took it from him. He went to the hospital again that night, and I resolved that he was no longer safe for others to stay with him at home.</p>
+
+<p>This started a whole new set of issues, given he very much didn’t want to stay at the hospitals or in hospice care. At one point he told the hospice care workers to leave him alone and he didn't want their services. I spent hours trying to get him signed back up. I don't even blame them; when he asked to be sent home and was refused by the hospital, he would often get violent, kicking at nurses or throwing his urine-filled containers at them. All the while, he’d still have semi-lucid moments where he’d call and text me and others, panicked about how he'd been kidnapped by some government agency or arrested by the police, or be confused about what year it was and why he was in the hospital.</p>
+
+<p>This was quite hard on everyone, but there was nowhere else for him to go. I spent hours talking to hospital staff about various programs, some of which were tens of thousands of dollars, others which would in theory be partially covered by government assistance, except it would take months for the process to be completed and he still owned a house that he refused to sell. I tried filling out the paperwork anyway, but at the end they said his financial situation was too complicated and I needed to hire an attorney to help sort through it.</p>
+
+<p>During all this he was bouncing back and forth between the hospital and various hospice places, many of which didn’t seem particularly capable or willing to have him there. At one point I got a call from a place saying they had sent him back to the hospital because he had some physical issue they “couldn’t provide appropriate care for.”</p>
+
+<p>Confused, I asked what this meant, since my understanding was he was there to be given as much comfort as possible while dying.</p>
+
+<p>The response was a vague repeat. And then another. I finally gave up, as I had a client call I needed to get to, and said sure, resolving to call the hospital to figure it out later. Instead the hospital called me to ask if I understood why he’d been sent to them.</p>
+
+<p>I said no, I was also confused by that, and the doctor sighed and said “yeah, some of these places don’t really want to handle trouble patients, but they can’t say that, so I guess we’ll have to find another place.”</p>
+
+<p>Which is entirely understandable and reasonable and left us, once again, spending hours and hours looking for somewhere that would take him despite the fact that he just wanted to go home, until he got there and started feeling panicked again.</p>
+
+<p>A couple times while being bounced back and forth, he ended up getting treated by the hospital for pneumonia. The second time it happened I felt so frustrated I had to ask: why are you doing this? He doesn’t want it.</p>
+
+<p>And they said they had to. Even though he’s signed a Do Not Resuscitate? Yes. Even though if he has pneumonia at a hospice center, they wouldn’t send him to a hospital? Yes. But if he’s stuck in a hospital and gets pneumonia before they can send him to a hospice place, they have to treat him? Yes. So the torture continued, for him and others.</p>
+
+<p>When I was young, Speaker for the Dead was one of the most influential books in a life that was influenced by a lot of books. I saw in Andrew Wiggin a character I wanted to become: compassionate, wise, competent, and fair. I admired the profession of the Speaker, the way it centered truth as the most fitting way to commemorate a person’s life. To help those who knew them better understand them, with all their flaws and grace.</p>
+
+<p>I started this document months ago, thinking I would try to make it a Speaking for my dad in the original sense of the book. Despite being someone close to him, I felt I could be objective, and hoped to have the time to interview friends and family about his life even if I couldn’t get everything I’d ideally like to. Something was better than nothing, I figured.</p>
+
+<p>A couple months ago I stalled out. It was becoming too much about his final months, too much about my experience of his death, and I didn’t have the time to edit down and include interviews with friends and family the way I wanted to. I looked over my draft and knew this wasn’t really a Speaking anymore, and resolved to change the title to something else and just write it as a personal document for processing, maybe shared with a few others close to me.</p>
+
+<p>But after his death I changed the title back. It may not be a Speaking in the original sense, but it’s one of a different kind: speaking for his wishes, what he wanted and was denied by laws written with good intentions but disastrous and agonizing outcomes for many families every year.</p>
+
+<p>My can be summed up in the second of two posts I shared, a few months after the one above:</p>
+
+<blockquote>
+<p><em>My dad's in his final stages of cancer, and he was admitted to the hospital again recently because he was hallucinating after not sleeping for two days. His current state is swapping between throwing urine containers at nurses, talking to people who aren't in the room, and begging people for help because he thinks he's been kidnapped by the government. Sometimes he's lucid and very confused/contrite for all he's done, but those are getting smaller and further apart.</em></p>
+<p><em>The really shitty part is that it's a situation he explicitly feared ending up in, and we signed a bunch of paperwork to make sure he didn't end up stuck on life support or in a coma, but what he's really wanted for months was a way to die peacefully, and the hospital's "there's nothing else we can do, not even sedate him, because at this point it might kill him" (while attempting to discharge him after he was rejected from hospice care) have made me feel very "everyone against euthanasia who's never had a loved one beg them for death can STFU."</em></p>
+<p><em>I looked into it when he asked and not only is it not an option in Florida, there's a ton of red tape in the way of "medical tourism" of this particular kind. One doctor I spoke to about it got so emotional (tearfully sad) that I gave up looking for professional help on it and just kept looking alone. The best options seemed to be to fly him to another country like Switzerland that does it, but it was pretty questionable whether he was fit to fly for months now, and he's definitely not now. At this point it's probably too late to matter much anyway.</em></p>
+<p><em>I know the anti-euthanasia side probably has horror stories too, and in general I believe it's probably good that people without a horror story either way still get to vote on this issue, but today I don't alieve it.</em></p>
+</blockquote>
+
+<p>During one of his final lucid moments, we had one of the more heartbreaking conversations I can recall. He apologized for all the trouble he'd been causing, and said he didn't know how to stop. He didn't understand what was wrong with him, couldn't seem to grasp how sick he'd become, and pleaded with me to tell him if I knew any book he could read or class he could take to help him stop causing such problems for everyone.</p>
+
+<p>I'd only teared up a few times in all this, and that was one of them. I can’t recall how many times over the past three decades I’d wished my dad would be more open to admitting mistakes, learning something new, changing the way he acted toward others.</p>
+
+<p>Once in a rare while, particularly after a possible-divorce situation, he’d recognize that he wasn’t perfect, admit that he had trouble with certain things like too many people being around him, and say something like “This is just who I am. I can’t change that.” He tried attending therapy and couple’s counseling a few times at my suggestion or after my stepmom insisted on it, but always quit within a few weeks.</p>
+
+<p>Now here he was, for the first time in my memory not just admitting to a problem but asking for help. And there was nothing I could do, nothing I could say, other than “Yeah, Dad. I will.” Then dutifully look, again, for anything I’d missed.</p>
+
+<p>My dad was very far from perfect. He was at times what I’d label abusive, particularly to his wife. He doesn’t have some deep, secret goodness to him to balance that out. He worked hard. He provided well. He tried to provide opportunities to many family and friends he believed would benefit from it. He made many bad choices, but some good ones too, and most of them were his choices to make, for his own life and over his own possessions.</p>
+
+<p>But at the end of his life, he was left with practically nothing. He was stuck in a hospice center he desperately wanted to leave. He had a couple thousand left in the bank, an apartment he couldn’t live in above a cluttered storefront he hadn’t sold anything out of in years. Two stepsons who didn’t want to be alone with him, one son who he called a disappointing failure on his deathbed, and another who was, ultimately, willing to let him suffer rather than suffer in exchange. Few local friends or family that he was still on good terms with.</p>
+
+<p>And still, my stepmother loved him too much to let him suffer alone. She sat by him until the end, holding his hand. He finally apologized to her for everything he had put her through, and asked that his remains be interred somewhere next to hers. Up until that point, after agreeing to have his body donated to science, he always said he didn’t care what happened to his ashes afterward. But whatever he experienced in his final days, it was enough to give him some feeling of sentimentality… or perhaps that was only for her sake, and how she would remember him, and remember how he felt about her at the end.</p>
+
+<p>I don’t know. In the end, no one can really know another person, and while I’ve tried to tell the truth about my dad here, as well as I knew him, it’s just one perspective among many. I could collect a book full of all the things he built, the lives he improved with what he gave away, the relationships he broke through anger and spite, and the deep and many hurts he inflicted on those closest to him.</p>
+
+<p>I don’t think he would have liked such a book. He hated being seen as anything other than in control, and much of this is about the times he wasn’t.</p>
+
+<p>The part that sticks with me for now is, of course, what happened near the end. While he was still lucid enough to know what he wanted, he asked whether a doctor could help him die, and he made no mystery of why. He didn’t want to be a burden to others, and he didn’t want to decay away while trapped indoors.</p>
+
+<p>He made many choices in his life that others would call poor, and I would argue he paid for each and every one. His singular focus on making money stands in striking contrast to how much of his hard-earned wealth he gave away.</p>
+
+<p>And just writing that makes me think of all the sides of him I haven’t talked about.</p>
+
+<p>He always hated video games, saw them as a complete waste of time that seemed to be sucking up his children’s lives. But he loved technology, and when I first brought him an Oculus 2 to try, I watched decades melt off him as he became as entranced and delighted as a child.</p>
+
+<p>His politics were all over the place. He was a proud American, and genuinely believed it was the greatest country on earth. He also hated American foreign policy, unless it had anything to do with Iran, in which case the appropriate stance was always whatever did the most damage to the Iranian theocratic dictatorship.</p>
+
+<p>He wasn’t spiritual, and hated organized religion. But he was very proud of Persian history and traditions, and collected books on Zoroastrianism.</p>
+
+<p>He loved living in cities, loved architecture and cars and technology. But he was a country boy at heart, and always wanted to be surrounded by plants and within walking distance to beaches or forests.</p>
+
+<p>He didn’t make jokes, but he loved to laugh. He adored the classic silent comedy giants, and is the reason I grew up on Lloyd, Langdon, Keaton, and, most of all, Chaplin. We watched those movies so many times, and doing a good imitation never failed to make him laugh.</p>
+
+<p>I could spend another month writing and wouldn’t be able to capture it all, but more than that, I wouldn’t be able to really understand him fully. He was a product of a culture and time I never knew, had drives and passions that are foreign to me. His anger could make him cruel for a time, but it always burned down to or came out from a bewildered pain.</p>
+
+<p>He didn’t understand himself very well, and he didn’t understand others well, and in that way and many others he was a bit like a child. And from that vantage point, it feels easy to forgive him his flaws, and love him for his good days and good traits, and mourn that he didn’t have the temperament to achieve the life he worked so hard for.</p>
+
+<p>My father made a lot of mistakes, but I think he paid for them all, one way or another. Among all the hearts he broke, and all the lives he made more difficult, are his own heart, and his own life.</p>
+
+<p>I hope he found peace.</p>
+
+<figure class="photo-medium"><img src="/images/speaking-for-the-dad-7.jpg" alt="My dad walking beside a Charlie Chaplin figure on a palm-lined beach boardwalk" width="1024" height="1536" loading="lazy"></figure>
+            </div>
+        </article>
+    </main>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target.id === 'search-overlay') toggleSearch()">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search chapters, episodes, and pages..."
+          oninput="performSearch(this.value)"
+          autocomplete="off"
+        />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="/search.js"></script>
+</body>
+</html>
